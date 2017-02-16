@@ -10,29 +10,92 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e077fa1c-dd46-4b2a-aead-ac23e72f154d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/vcs.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/treebolicPortable.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/treebolicPortable.iml" />
     </list>
     <ignored path="TreebolicLib.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/" />
-    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build/" />
+    <ignored path=".gradle/" />
     <ignored path="treebolicLib/build/" />
-    <ignored path=".gradle/2.14.1/" />
-    <ignored path=".idea/libraries/hamcrest_core_1_3.xml" />
-    <ignored path=".idea/libraries/hamcrest_integration_1_3.xml" />
-    <ignored path=".idea/libraries/hamcrest_library_1_3.xml" />
-    <ignored path=".idea/libraries/javawriter_2_1_1.xml" />
-    <ignored path=".idea/libraries/espresso_core_2_2_2.xml" />
-    <ignored path=".idea/libraries/espresso_idling_resource_2_2_2.xml" />
-    <ignored path=".idea/vcs.xml" />
-    <ignored path=".idea/libraries/exposed_instrumentation_api_publish_0_5.xml" />
-    <ignored path=".idea/libraries/rules_0_5.xml" />
-    <ignored path=".idea/libraries/runner_0_5.xml" />
-    <ignored path=".idea/libraries/javax_annotation_api_1_2.xml" />
-    <ignored path=".idea/libraries/javax_inject_1.xml" />
-    <ignored path=".idea/libraries/jsr305_2_0_1.xml" />
-    <ignored path=".idea/libraries/junit_4_12.xml" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlue_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGlueIface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/taskArtifacts/cache.properties" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicPortable_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicMutable_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicLib_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicIface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/tasks/_treebolicGraph_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <manually-removed-from-ignored>
+      <directory path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/build/generated/" />
+      <directory path=".gradle/2.14.1/" />
+    </manually-removed-from-ignored>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +124,7 @@
     <favorites_list name="TreebolicLib" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -6320,7 +6383,6 @@
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" />
@@ -6331,28 +6393,29 @@
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/PopupMenu.java" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build.gradle" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/build.gradle" />
-        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/build.gradle" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/build.gradle" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/build.gradle" />
         <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml" />
+        <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
-    <option name="y" value="52" />
-    <option name="width" value="1871" />
-    <option name="height" value="1148" />
+    <option name="x" value="1021" />
+    <option name="y" value="47" />
+    <option name="width" value="886" />
+    <option name="height" value="1125" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -6380,10 +6443,10 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
+      <pane id="PackagesPane">
         <subPane />
       </pane>
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane />
       </pane>
       <pane id="AndroidView">
@@ -6403,7 +6466,7 @@
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../androidstudio/sdk" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TreebolicSupportLibs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.gradle" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
   </component>
   <component name="RecentsManager">
@@ -6669,7 +6732,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -6693,11 +6756,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487223803969</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initial">
+      <created>1487223870410</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487223870410</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="52" width="1871" height="1148" extended-state="0" />
+    <frame x="1021" y="47" width="886" height="1125" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -6710,14 +6780,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.4980864" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32945737" sideWeight="0.4980864" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3369673" sideWeight="0.49289098" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32945737" sideWeight="0.5019136" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3369673" sideWeight="0.507109" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1388737" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29976302" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -6862,43 +6932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml" />
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -6907,28 +6940,6 @@
       </provider>
     </entry>
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/TreebolicThread0.java" />
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/androidTest/java/treebolic/ExampleInstrumentedTest.java" />
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/test/java/treebolic/ExampleUnitTest.java" />
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java">
@@ -6980,35 +6991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="86" selection-start-line="0" selection-start-column="86" selection-end-line="0" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -7020,7 +7002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -7028,7 +7009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="23" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -7036,7 +7016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -7044,7 +7023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -7052,15 +7030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -7068,6 +7037,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -7080,7 +7063,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/build.gradle">
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="11" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="145" selection-start-line="0" selection-start-column="145" selection-end-line="0" selection-end-column="145" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -7088,10 +7095,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle">
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
