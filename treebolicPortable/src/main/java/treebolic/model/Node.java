@@ -373,7 +373,8 @@ class XNodeData extends NodeData
 	 */
 	private double theMinWeight;
 
-	// mouting
+	// mounting
+
 	/**
 	 * MountPoint
 	 */
@@ -485,7 +486,7 @@ class XNodeData extends NodeData
 	/**
 	 * Set mountpoint
 	 *
-	 * @param thisMountPoint
+	 * @param thisMountPoint mount point
 	 */
 	public void setMountPoint(final MountPoint thisMountPoint)
 	{
@@ -573,7 +574,7 @@ public class Node extends XNodeData implements INode
 		{
 			thisParent.getChildren().add(this);
 		}
-		this.theChildren = new ArrayList<INode>();
+		this.theChildren = new ArrayList<>();
 
 		this.theId = thisId;
 	}

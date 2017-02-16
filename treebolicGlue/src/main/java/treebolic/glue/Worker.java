@@ -15,7 +15,7 @@ abstract public class Worker extends AsyncTask<Void, Void, Void> implements tree
 	 * @see treebolic.glue.iface.Worker#job()
 	 */
 	@Override
-	abstract public void job() throws Exception;
+	abstract public void job();
 
 	/*
 	 * (non-Javadoc)

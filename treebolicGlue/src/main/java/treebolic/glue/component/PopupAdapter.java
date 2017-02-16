@@ -23,12 +23,12 @@ public class PopupAdapter
 	/**
 	 * Context
 	 */
-	protected Context context;
+	protected final Context context;
 
 	/**
 	 * Popup window
 	 */
-	protected PopupWindow window;
+	protected final PopupWindow window;
 
 	/**
 	 * Wrapped view
@@ -38,13 +38,12 @@ public class PopupAdapter
 	/**
 	 * Window manager
 	 */
-	protected WindowManager windowManager;
+	protected final WindowManager windowManager;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param context0
-	 *            context
+	 * @param context0 context
 	 */
 	public PopupAdapter(final Context context0)
 	{
@@ -64,14 +63,14 @@ public class PopupAdapter
 			{
 				switch (event.getAction())
 				{
-				case MotionEvent.ACTION_OUTSIDE:
-					PopupAdapter.this.window.dismiss();
-					return true;
-				case MotionEvent.ACTION_UP:
-					view0.performClick();
-					return false;
-				default:
-					break;
+					case MotionEvent.ACTION_OUTSIDE:
+						PopupAdapter.this.window.dismiss();
+						return true;
+					case MotionEvent.ACTION_UP:
+						view0.performClick();
+						return false;
+					default:
+						break;
 				}
 				return false;
 			}
@@ -89,7 +88,9 @@ public class PopupAdapter
 	protected void preShow()
 	{
 		if (this.view == null)
+		{
 			throw new IllegalStateException("setContentView was not called with a view to display."); //$NON-NLS-1$
+		}
 
 		// hook
 		onShow();
@@ -111,8 +112,7 @@ public class PopupAdapter
 	/**
 	 * Set content view.
 	 *
-	 * @param root
-	 *            Root view
+	 * @param root Root view
 	 */
 	public void setContentView(final View root)
 	{
@@ -123,8 +123,7 @@ public class PopupAdapter
 	/**
 	 * Set content view.
 	 *
-	 * @param layoutResID
-	 *            Resource id
+	 * @param layoutResID Resource id
 	 */
 	public void setContentView(final int layoutResID)
 	{
@@ -135,7 +134,7 @@ public class PopupAdapter
 	/**
 	 * Set listener on window dismissed.
 	 *
-	 * @param listener
+	 * @param listener listener
 	 */
 	public void setOnDismissListener(final PopupWindow.OnDismissListener listener)
 	{

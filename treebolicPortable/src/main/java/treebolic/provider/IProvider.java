@@ -30,7 +30,7 @@ public interface IProvider
 	 * @param thisContext
 	 *            context
 	 */
-	public void setup(ILocator thisContext);
+	void setup(ILocator thisContext);
 
 	/**
 	 * Called by framework to pass provider context reference (may default to void action if provider does not need it)
@@ -38,7 +38,7 @@ public interface IProvider
 	 * @param thisProviderContext
 	 *            provider context
 	 */
-	public void setup(IProviderContext thisProviderContext);
+	void setup(IProviderContext thisProviderContext);
 
 	/**
 	 * Make model
@@ -51,7 +51,7 @@ public interface IProvider
 	 *            extra parameters
 	 * @return model
 	 */
-	public Model makeModel(String thisSource, URL thisBase, Properties theseParameters);
+	Model makeModel(String thisSource, URL thisBase, Properties theseParameters);
 
 	/**
 	 * Make tree. Settings are not parsed. This is used in mounting.
@@ -66,5 +66,5 @@ public interface IProvider
 	 *            whether immediate recursion is checked (avoid mount-now infinite recursion)
 	 * @return tree
 	 */
-	public Tree makeTree(String thisSource, URL thisBase, Properties theseParameters, boolean checkRecursion);
+	Tree makeTree(String thisSource, URL thisBase, Properties theseParameters, boolean checkRecursion);
 }

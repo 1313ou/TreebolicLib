@@ -5,7 +5,7 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
+ * <p>
  * Update : Mon Mar 10 00:00:00 CEST 2008
  */
 
@@ -364,7 +364,7 @@ public class Complex implements Serializable
 	/**
 	 * Multiplication of this complex by z
 	 *
-	 * @param z
+	 * @param z multiplier
 	 * @return this complex, whose value has been multiplied by z (=z0.z)
 	 */
 	public Complex mul(final Complex z)
@@ -430,7 +430,7 @@ public class Complex implements Serializable
 	 *            complex
 	 * @param d
 	 *            divisor
-	 * @return this complex, as the result of dividying z by d
+	 * @return this complex, as the result of dividing z by d
 	 */
 	public Complex divide(final Complex z, final double d)
 	{

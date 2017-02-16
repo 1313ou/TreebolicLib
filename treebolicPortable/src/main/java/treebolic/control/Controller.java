@@ -5,8 +5,6 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
- * Update : Mon Mar 10 00:00:00 CEST 2008
  */
 package treebolic.control;
 
@@ -39,7 +37,7 @@ public class Controller extends Commander
 	/**
 	 * Search Commands
 	 */
-	public static enum SearchCommand
+	public enum SearchCommand
 	{
 		SEARCH, CONTINUE, RESET
 	}
@@ -47,15 +45,15 @@ public class Controller extends Commander
 	/**
 	 * Match scope
 	 */
-	public static enum MatchScope
+	public enum MatchScope
 	{
-		LABEL, CONTENT, LINK, ID;
+		LABEL, CONTENT, LINK, ID
 	}
 
 	/**
 	 * Match mode
 	 */
-	public static enum MatchMode
+	public enum MatchMode
 	{
 		EQUALS, STARTSWITH, INCLUDES
 	}
@@ -87,29 +85,29 @@ public class Controller extends Commander
 	/**
 	 * Label flag
 	 */
-	static public boolean LABEL_HAS_TAGS = true;
+	static public final boolean LABEL_HAS_TAGS = true;
 
 	/**
 	 * Link status flag (use for debug purposes)
 	 */
-	static public boolean CONTENT_HAS_LINK = false;
+	static public final boolean CONTENT_HAS_LINK = false;
 
 	/**
 	 * Mount status flag (use for debug purposes)
 	 */
-	static public boolean CONTENT_HAS_MOUNT = false;
+	static public final boolean CONTENT_HAS_MOUNT = false;
 
 	/**
 	 * Verbose status flag (use for debug purposes)
 	 */
-	static public boolean CONTENT_VERBOSE = false; // weight...
+	static public final boolean CONTENT_VERBOSE = false; // weight...
 
 	// action
 
 	/**
 	 * Event types
 	 */
-	static public enum Event
+	public enum Event
 	{
 		SELECT, HOVER, DRAG, LEAVEDRAG, MOVE, ROTATE, FOCUS, MOUNT, LINK, POPUP, ZOOM, SCALE
 	}
@@ -328,8 +326,8 @@ public class Controller extends Commander
 				}
 				else
 				{
-					final MountPoint.Mounting thisMointingPoint = (MountPoint.Mounting) thisMountPoint;
-					this.theWidget.mount(thisNode, decode(thisMointingPoint.theURL));
+					final MountPoint.Mounting thisMountingPoint = (MountPoint.Mounting) thisMountPoint;
+					this.theWidget.mount(thisNode, decode(thisMountingPoint.theURL));
 				}
 			}
 			break;
@@ -411,7 +409,7 @@ public class Controller extends Commander
 			if (thisSearchTarget != null && thisMatchScope != null && thisMatchMode != null)
 			{
 				// status
-				final StringBuffer thisMessage = new StringBuffer();
+				final StringBuilder thisMessage = new StringBuilder();
 				thisMessage.append("<div class='searching'>") // //$NON-NLS-1$
 						.append(String.format(Messages.getString("Controller.status_search_scope_mode_target"), //$NON-NLS-1$
 								Controller.theMatchScopeString[thisMatchScope.ordinal()], //
@@ -539,24 +537,24 @@ public class Controller extends Commander
 		}
 
 		// tags
-		final StringBuffer thisBuffer = new StringBuffer();
-		thisBuffer.append(thisLabel);
+		final StringBuilder thisBuilder = new StringBuilder();
+		thisBuilder.append(thisLabel);
 		final String thisLink = thisNode.getLink();
 		if (thisLink != null)
 		{
-			thisBuffer.append(' ');
+			thisBuilder.append(' ');
 			// thisBuffer.append('L');
-			thisBuffer.append("🌐"); //$NON-NLS-1$
+			thisBuilder.append("🌐"); //$NON-NLS-1$
 		}
 		final MountPoint thisMountPoint = thisNode.getMountPoint();
 		if (thisMountPoint != null)
 		{
-			thisBuffer.append(' ');
+			thisBuilder.append(' ');
 			// thisBuffer.append('M');
-			thisBuffer.append("🔗"); //$NON-NLS-1$
+			thisBuilder.append("🔗"); //$NON-NLS-1$
 		}
 
-		return thisBuffer.toString();
+		return thisBuilder.toString();
 	}
 
 	/**
@@ -697,13 +695,13 @@ public class Controller extends Commander
 
 		final String thisLabel = thisNode.getLabel();
 		final String thisContent = thisNode.getContent();
-		if (thisLabel == null && (Commander.tooltipDisplaysContent ? thisContent == null : true))
+		if (thisLabel == null && (!Commander.tooltipDisplaysContent || thisContent == null))
 			return;
 
-		final StringBuffer thisBuffer = new StringBuffer();
+		final StringBuilder thisBuilder = new StringBuilder();
 		if (Commander.TOOLTIPHTML)
 		{
-			thisBuffer.append("<html>"); //$NON-NLS-1$
+			thisBuilder.append("<html>"); //$NON-NLS-1$
 		}
 
 		// label
@@ -711,12 +709,12 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("<strong>"); //$NON-NLS-1$
+				thisBuilder.append("<strong>"); //$NON-NLS-1$
 			}
-			thisBuffer.append(thisLabel);
+			thisBuilder.append(thisLabel);
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("</strong><br/>"); //$NON-NLS-1$
+				thisBuilder.append("</strong><br/>"); //$NON-NLS-1$
 			}
 		}
 
@@ -730,32 +728,32 @@ public class Controller extends Commander
 					final String[] theseLines = thisContent.split("\n"); //$NON-NLS-1$
 					for (final String thisLine : theseLines)
 					{
-						final StringBuffer thisLineBuffer = new StringBuffer(thisLine);
+						final StringBuilder thisLineBuilder = new StringBuilder(thisLine);
 
 						// force break after x characters
-						for (int offset = Commander.TOOLTIPLINESPAN; offset < thisLineBuffer.length(); offset += Commander.TOOLTIPLINESPAN)
+						for (int offset = Commander.TOOLTIPLINESPAN; offset < thisLineBuilder.length(); offset += Commander.TOOLTIPLINESPAN)
 						{
-							thisLineBuffer.insert(offset, "\n"); //$NON-NLS-1$
+							thisLineBuilder.insert(offset, "\n"); //$NON-NLS-1$
 						}
 
 						// append processed line with break
-						thisBuffer.append(thisLineBuffer);
-						thisBuffer.append('\n');
+						thisBuilder.append(thisLineBuilder);
+						thisBuilder.append('\n');
 					}
 				}
 				else
 				{
-					thisBuffer.append(thisContent.length() <= Commander.TOOLTIPLINESPAN ? "<div>" : "<div width='" + Commander.TOOLTIPLINESPAN * 7 + "'>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					thisBuffer.append(thisContent);
-					thisBuffer.append("</div>"); //$NON-NLS-1$
+					thisBuilder.append(thisContent.length() <= Commander.TOOLTIPLINESPAN ? "<div>" : "<div width='" + Commander.TOOLTIPLINESPAN * 7 + "'>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					thisBuilder.append(thisContent);
+					thisBuilder.append("</div>"); //$NON-NLS-1$
 				}
 			}
 		}
 		if (Commander.TOOLTIPHTML)
 		{
-			thisBuffer.append("</html>"); //$NON-NLS-1$
+			thisBuilder.append("</html>"); //$NON-NLS-1$
 		}
-		this.theView.setToolTipText(thisBuffer.toString());
+		this.theView.setToolTipText(thisBuilder.toString());
 	}
 
 	// P O P U P

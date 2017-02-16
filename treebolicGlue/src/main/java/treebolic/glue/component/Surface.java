@@ -83,7 +83,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		public XScaleGestureDetector(final Context context, final OnScaleGestureListener listener0)
 		{
 			super(context, listener0);
-			this.activePointers = new SparseArray<PointF>();
+			this.activePointers = new SparseArray<>();
 		}
 
 		public void reset()

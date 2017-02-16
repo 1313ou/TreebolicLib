@@ -62,27 +62,27 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Debug inputs to model factory
 	 */
-	static public boolean DEBUG = false;
+	static public final boolean DEBUG = false;
 
 	/**
 	 * Warn image download fails
 	 */
-	static public boolean WARNIMAGEFAILS = false;
+	static public final boolean WARNIMAGEFAILS = false;
 
 	/**
 	 * Loading data on separate thread
 	 */
-	static public boolean THREADED = true;
+	static public final boolean THREADED = true;
 
 	/**
 	 * Animate on start flag
 	 */
-	static public boolean ANIMATE_ON_START = true;
+	static public final boolean ANIMATE_ON_START = true;
 
 	/**
 	 * Default provider
 	 */
-	static public String DEFAULT_PROVIDER = "treebolic.provider.xml.dom.Provider"; //$NON-NLS-1$
+	static public final String DEFAULT_PROVIDER = "treebolic.provider.xml.dom.Provider"; //$NON-NLS-1$
 
 	// V E R S I O N
 
@@ -294,6 +294,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	public void initSerialized(final String thisSerFile)
 	{
 		final ModelReader thisDeSerializer = new ModelReader(thisSerFile);
+		//noinspection TryWithIdenticalCatches
 		try
 		{
 			final Model thisModel = thisDeSerializer.deserialize();
@@ -348,7 +349,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			{
 				@SuppressWarnings("synthetic-access")
 				@Override
-				public void job() throws Exception
+				public void job()
 				{
 					try
 					{
@@ -742,6 +743,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	private IProvider makeProvider(final String thisProviderName)
 	{
+		//noinspection TryWithIdenticalCatches
 		try
 		{
 			final Class<?> thisClass = Class.forName(thisProviderName);
@@ -808,7 +810,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	private void loadImages()
 	{
-		this.theImages = new Hashtable<String, Image>();
+		this.theImages = new Hashtable<>();
 		this.theImageBase = this.theContext.getImagesBase();
 		loadImages(this.theModel.theTree.getRoot());
 		loadImages(this.theModel.theTree.getEdges());
@@ -996,7 +998,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			}
 
 			// image loading
-			Image thisImage = null;
+			Image thisImage;
 			try
 			{
 				thisImage = Image.make(thisUrl);
@@ -1033,7 +1035,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 
 		// animate
-		INode thisFocus = null;
+		INode thisFocus;
 		if (thisFocusNodeId == null)
 		{
 			thisFocus = this.theModel.theTree.getRoot();
@@ -1092,8 +1094,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public String getTarget()
 	{
-		final String thisTarget = this.theContext.getInput();
-		return thisTarget;
+		return this.theContext.getInput();
 	}
 
 	// S T A T U S
@@ -1127,8 +1128,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public void putInfo(final String thisHeader, final String thisContent)
 	{
-		final WebDialog thisWebdialog = new WebDialog(this.theHandle);
-		thisWebdialog.setListener(new ActionListener()
+		final WebDialog thisWebDialog = new WebDialog(this.theHandle);
+		thisWebDialog.setListener(new ActionListener()
 		{
 			@SuppressWarnings("synthetic-access")
 			@Override
@@ -1140,9 +1141,9 @@ public class Widget extends Container implements IWidget, IProviderContext
 			}
 		});
 		final String thisStyle = this.theContext.getStyle();
-		thisWebdialog.setStyle(thisStyle);
-		thisWebdialog.set(thisHeader, thisContent);
-		thisWebdialog.display();
+		thisWebDialog.setStyle(thisStyle);
+		thisWebDialog.set(thisHeader, thisContent);
+		thisWebDialog.display();
 	}
 
 	// J A V A S C R I P T

@@ -29,8 +29,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Constructor
 	 *
-	 * @param bitmap0
-	 *            android bitmap
+	 * @param bitmap0 android bitmap
 	 */
 	public Image(final Bitmap bitmap0)
 	{
@@ -40,7 +39,8 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Bitmap factory options
 	 */
-	static Options options = new Options();
+	static final Options options = new Options();
+
 	static
 	{
 		// defaults:
@@ -60,8 +60,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Make image from resource
 	 *
-	 * @param resource
-	 *            resource URL
+	 * @param resource resource URL
 	 */
 	static public Image make(final URL resource) throws IOException
 	{
@@ -77,7 +76,13 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 		{
 			if (inputStream != null)
 			{
-				inputStream.close();
+				try
+				{
+					inputStream.close();
+				}
+				catch (IOException ignored)
+				{
+				}
 			}
 		}
 	}
@@ -85,15 +90,13 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Make image from resource
 	 *
-	 * @param resource
-	 *            resource URL
+	 * @param resource resource URL
 	 */
 	static public Image try_make(final URL resource)
 	{
 		try
 		{
-			final Image image = Image.make(resource);
-			return image;
+			return Image.make(resource);
 		}
 		catch (final Exception e)
 		{
@@ -110,7 +113,9 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	public int getWidth()
 	{
 		if (this.bitmap == null)
+		{
 			return 0;
+		}
 		return this.bitmap.getWidth();
 	}
 
@@ -123,7 +128,9 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	public int getHeight()
 	{
 		if (this.bitmap == null)
+		{
 			return 0;
+		}
 		return this.bitmap.getHeight();
 	}
 
@@ -135,7 +142,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @return byte array
 	 * @throws IOException
 	 */
-	public byte[] getByteArray() throws IOException
+	public byte[] getByteArray()
 	{
 		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		this.bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
@@ -145,12 +152,11 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Set image from byte array
 	 *
-	 * @param imageByteArray
-	 *            byte array
+	 * @param imageByteArray byte array
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	public void setFromByteArray(final byte[] imageByteArray) throws IOException, ClassNotFoundException
+	public void setFromByteArray(final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
 		opt.inDither = true;
@@ -161,8 +167,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Serialization override
 	 *
-	 * @param out
-	 *            serialized stream
+	 * @param out serialized stream
 	 * @throws IOException
 	 */
 	private void writeObject(final ObjectOutputStream out) throws IOException
@@ -174,8 +179,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Deserialization override
 	 *
-	 * @param in
-	 *            serialized stream
+	 * @param in serialized stream
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */

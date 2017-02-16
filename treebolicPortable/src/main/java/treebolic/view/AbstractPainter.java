@@ -32,7 +32,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Font default size in pt
 	 */
-	static public int FONT_DEFAULT_SIZE = 20;
+	static public final int FONT_DEFAULT_SIZE = 20;
 
 	/**
 	 * Do font down scaling

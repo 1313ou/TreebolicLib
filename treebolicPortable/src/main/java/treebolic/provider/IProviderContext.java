@@ -23,7 +23,7 @@ public interface IProviderContext
 	 * @param thisString
 	 *            message
 	 */
-	public void message(String thisString);
+	void message(String thisString);
 
 	/**
 	 * Warn
@@ -31,7 +31,7 @@ public interface IProviderContext
 	 * @param thisMessage
 	 *            warning
 	 */
-	public void warn(String thisMessage);
+	void warn(String thisMessage);
 
 	/**
 	 * Put progress
@@ -39,5 +39,5 @@ public interface IProviderContext
 	 * @param thisString
 	 *            message
 	 */
-	public void progress(String thisString, boolean fail);
+	void progress(String thisString, boolean fail);
 }

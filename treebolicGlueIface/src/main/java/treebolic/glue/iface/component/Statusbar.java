@@ -12,53 +12,45 @@ public interface Statusbar<C, L>
 	/**
 	 * Init
 	 *
-	 * @param image
-	 *            image
+	 * @param image image
 	 */
-	public void init(final int image);
+	void init(final int image);
 
 	/**
 	 * Set colors
 	 *
-	 * @param backColor
-	 *            back color
-	 * @param foreColor
-	 *            fore color
+	 * @param backColor back color
+	 * @param foreColor fore color
 	 */
-	public void setColors(C backColor, C foreColor);
+	void setColors(C backColor, C foreColor);
 
 	/**
 	 * Set style
 	 *
-	 * @param style
-	 *            style
+	 * @param style style
 	 */
-	public void setStyle(String style);
+	void setStyle(String style);
 
 	/**
 	 * Put status
 	 *
-	 * @param label
-	 *            label
-	 * @param content
-	 *            content
-	 * @param image
-	 *            image
+	 * @param label   label
+	 * @param content content
+	 * @param image   image
 	 */
-	public void put(final String label, final String content, final int image);
+	void put(final String label, final String content, final int image);
 
 	/**
 	 * Put message
 	 *
-	 * @param thisMessage
+	 * @param message message
 	 */
-	public void put(final String thisMessage);
+	void put(final String message);
 
 	/**
 	 * Add listener
 	 *
-	 * @param listener
-	 *            listener
+	 * @param listener listener
 	 */
-	public void addListener(final L listener);
+	void addListener(final L listener);
 }

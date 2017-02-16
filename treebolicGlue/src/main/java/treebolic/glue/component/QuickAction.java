@@ -113,7 +113,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Action items
 	 */
-	private final List<ActionItem> actionItems = new ArrayList<ActionItem>();
+	private final List<ActionItem> actionItems = new ArrayList<>();
 
 	/**
 	 * Dismiss listener
@@ -206,8 +206,8 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		this.arrowUp = (ImageView) this.view.findViewById(R.id.arrow_up);
 		this.scroller = (ScrollView) this.view.findViewById(R.id.scroller);
 
-		// This was previously defined on show() method, moved here to prevent force close that occured
-		// when tapping fastly on a view to show quickaction dialog. Thanx to zammbi (github.com/zammbi)
+		// This was previously defined on show() method, moved here to prevent force close that occurred
+		// when tapping fast on a view to show quickaction dialog. Thanks to zammbi (github.com/zammbi)
 		this.view.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		setContentView(this.view);
 	}
@@ -353,7 +353,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		int yPos;
 		final int dyTop = anchorRect.top;
 		final int dyBottom = screenHeight - anchorRect.bottom;
-		final boolean onTop = dyTop > dyBottom ? true : false;
+		final boolean onTop = dyTop > dyBottom;
 		if (onTop)
 		{
 			if (rootHeight > dyTop)
@@ -557,16 +557,16 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Listener for item click
 	 */
-	public interface OnActionItemClickListener
+	interface OnActionItemClickListener
 	{
-		public void onItemClick(QuickAction source, int pos, int actionId);
+		void onItemClick(QuickAction source, int pos, int actionId);
 	}
 
 	/**
 	 * Listener for window dismiss
 	 */
-	public interface OnDismissListener
+	interface OnDismissListener
 	{
-		public void onDismiss();
+		void onDismiss();
 	}
 }

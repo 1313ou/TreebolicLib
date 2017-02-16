@@ -53,7 +53,7 @@ public class Arc
 	/**
 	 * radius
 	 */
-	public double r;
+	public final double r;
 
 	/**
 	 * start
@@ -68,12 +68,12 @@ public class Arc
 	/**
 	 * from-end
 	 */
-	public Complex from;
+	public final Complex from;
 
 	/**
 	 * to-end
 	 */
-	public Complex to;
+	public final Complex to;
 
 	// C O N S T R U C T O R
 
@@ -83,7 +83,7 @@ public class Arc
 	 * @param z1
 	 *            start endpoint
 	 * @param z2
-	 *            end enpoint
+	 *            end endpoint
 	 */
 	public Arc(final Complex z1, final Complex z2)
 	{

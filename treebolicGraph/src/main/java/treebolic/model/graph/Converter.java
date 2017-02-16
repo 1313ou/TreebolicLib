@@ -5,10 +5,7 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
- * Update : 19 juil. 2008
  */
-
 package treebolic.model.graph;
 
 import java.util.ArrayList;
@@ -38,6 +35,7 @@ public class Converter<T extends TreeMutableNode>
 	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph)
 	{
 		// determine root node
+		@SuppressWarnings("UnusedAssignment")
 		GraphNode thisRootNode = null;
 		final List<GraphNode> theseRootNodes = thisGraph.getNodesWithZeroDegree();
 		if (theseRootNodes != null)
@@ -105,7 +103,7 @@ public class Converter<T extends TreeMutableNode>
 			final MutableEdge thisEdge = (MutableEdge) thisGraphEdge.getUserData();
 			if (theseEdges == null)
 			{
-				theseEdges = new ArrayList<IEdge>();
+				theseEdges = new ArrayList<>();
 			}
 			theseEdges.add(thisEdge);
 		}

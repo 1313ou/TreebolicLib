@@ -70,7 +70,7 @@ public class HyperTranslation extends Complex
 	 * @param from
 	 *            source point to be translated to 0,0
 	 * @param to
-	 *            traget point 0,0 is to be translated to
+	 *            target point 0,0 is to be translated to
 	 * @param dummy
 	 *            dummy
 	 */
@@ -85,7 +85,7 @@ public class HyperTranslation extends Complex
 	// M A K E X L A T
 
 	/**
-	 * Construct tranlation from source point and destination points
+	 * Construct translation from source point and destination points
 	 *
 	 * @param from
 	 *            source point

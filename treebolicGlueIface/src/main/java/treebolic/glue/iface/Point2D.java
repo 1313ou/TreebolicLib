@@ -14,12 +14,12 @@ public interface Point2D
 	 *
 	 * @return x
 	 */
-	public double getX();
+	double getX();
 
 	/**
 	 * Y
 	 *
 	 * @return y
 	 */
-	public double getY();
+	double getY();
 }

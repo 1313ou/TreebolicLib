@@ -21,7 +21,7 @@ import treebolic.model.INode;
  */
 public class Traverser extends Generator<INode>
 {
-	static public interface Matcher
+	interface Matcher
 	{
 		boolean match(final INode thisNode);
 	}
@@ -86,7 +86,7 @@ public class Traverser extends Generator<INode>
 			if (this.theTarget == null || this.theTarget.isEmpty())
 				return false;
 
-			String thisNodeScope = null;
+			String thisNodeScope;
 			switch (this.theScope)
 			{
 			case CONTENT:
@@ -118,7 +118,7 @@ public class Traverser extends Generator<INode>
 					break;
 
 				case INCLUDES:
-					if (thisNodeScope.indexOf(this.theTarget) != -1)
+					if (thisNodeScope.contains(this.theTarget))
 						return true;
 					break;
 
@@ -156,7 +156,7 @@ public class Traverser extends Generator<INode>
 			if (this.theTarget == null || this.theTarget.isEmpty())
 				return false;
 
-			String thisNodeScope = null;
+			String thisNodeScope;
 			switch (this.theScope)
 			{
 			case CONTENT:
@@ -189,7 +189,7 @@ public class Traverser extends Generator<INode>
 					break;
 
 				case INCLUDES:
-					if (thisNodeScope.indexOf(this.theTarget) != -1)
+					if (thisNodeScope.contains(this.theTarget))
 						return true;
 					break;
 

@@ -1,7 +1,7 @@
 package treebolic.glue.iface.component;
 
 /**
- * Glue interface for Progress panal
+ * Glue interface for Progress panel
  *
  * @author Bernard Bou
  */
@@ -17,5 +17,5 @@ public interface Progress
 	 * @param fail
 	 *            whether fail condition has been reached
 	 */
-	public void put(final String message, final boolean fail);
+	void put(final String message, final boolean fail);
 }

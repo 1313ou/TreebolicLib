@@ -58,12 +58,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Dot effect
 	 */
-	static private PathEffect dotEffect = new DashPathEffect(new float[] { 5, 2 }, 0); // on-interval off-interval
+	static private final PathEffect dotEffect = new DashPathEffect(new float[] { 5, 2 }, 0); // on-interval off-interval
 
 	/**
 	 * Dash effect
 	 */
-	static private PathEffect dashEffect = new DashPathEffect(new float[] { 2, 2 }, 0); // on-interval off-interval
+	static private final PathEffect dashEffect = new DashPathEffect(new float[] { 2, 2 }, 0); // on-interval off-interval
 
 	// S T A T I C I N I T
 
@@ -87,8 +87,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 			// font factor for screen size
 			final TypedValue outValue = new TypedValue();
 			resources.getValue(R.dimen.font_factor, outValue, true);
-			final float value = outValue.getFloat();
-			Graphics.fontFactor = value;
+			Graphics.fontFactor = outValue.getFloat();
 
 			Graphics.initDone = true;
 		}

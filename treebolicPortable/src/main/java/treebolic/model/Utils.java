@@ -33,7 +33,7 @@ public class Utils
 	/**
 	 * Style component pointer
 	 */
-	static public enum StyleComponent
+	public enum StyleComponent
 	{
 		STROKE, STROKEWIDTH, FROMTERMINATOR, TOTERMINATOR, LINE, HIDDEN
 	}
@@ -62,12 +62,12 @@ public class Utils
 		int thisStyle = 0;
 		if (thisHiddenFlag != null && !thisHiddenFlag.isEmpty())
 		{
-			thisStyle |= (Boolean.valueOf(thisHiddenFlag).booleanValue() ? IEdge.HIDDEN : 0) | IEdge.HIDDENDEF;
+			thisStyle |= (Boolean.valueOf(thisHiddenFlag) ? IEdge.HIDDEN : 0) | IEdge.HIDDENDEF;
 			isDefined = true;
 		}
 		if (thisLineFlag != null && !thisLineFlag.isEmpty())
 		{
-			thisStyle |= (Boolean.valueOf(thisLineFlag).booleanValue() ? IEdge.LINE : 0) | IEdge.LINEDEF;
+			thisStyle |= (Boolean.valueOf(thisLineFlag) ? IEdge.LINE : 0) | IEdge.LINEDEF;
 			isDefined = true;
 		}
 		if (thisStroke != null && !thisStroke.isEmpty())
@@ -775,7 +775,7 @@ public class Utils
 	 */
 	public static String floatsToString(final float[] thisScaler)
 	{
-		final StringBuffer thisBuffer = new StringBuffer();
+		final StringBuilder thisBuilder = new StringBuilder();
 		boolean first = true;
 		for (final float f : thisScaler)
 		{
@@ -785,11 +785,11 @@ public class Utils
 			}
 			else
 			{
-				thisBuffer.append(',');
+				thisBuilder.append(',');
 			}
-			thisBuffer.append(Float.toString(f));
+			thisBuilder.append(Float.toString(f));
 		}
-		return thisBuffer.toString();
+		return thisBuilder.toString();
 	}
 
 	/**

@@ -140,7 +140,7 @@ public class Settings implements Serializable
 	/**
 	 * Background image index
 	 */
-	public int theBackgroundImageIndex;
+	public final int theBackgroundImageIndex;
 
 	// fonts
 	/**
@@ -279,7 +279,7 @@ public class Settings implements Serializable
 	/**
 	 * Default node image index
 	 */
-	public int theDefaultNodeImageIndex;
+	public final int theDefaultNodeImageIndex;
 
 	// labels
 
@@ -313,7 +313,7 @@ public class Settings implements Serializable
 	/**
 	 * Tree edge default image index
 	 */
-	public int theDefaultTreeEdgeImageIndex;
+	public final int theDefaultTreeEdgeImageIndex;
 
 	// E D G E S
 
@@ -335,7 +335,7 @@ public class Settings implements Serializable
 	/**
 	 * Default edge image index
 	 */
-	public int theDefaultEdgeImageIndex;
+	public final int theDefaultEdgeImageIndex;
 
 	/**
 	 * Whether edges are represented as arcs (or straight lines)
@@ -370,7 +370,7 @@ public class Settings implements Serializable
 	 * @throws Exception
 	 */
 	@SuppressWarnings("boxing")
-	public void load(final Properties theseProperties) throws Exception
+	public void load(final Properties theseProperties)
 	{
 		String thisParam;
 		Color thisColor;
@@ -415,22 +415,22 @@ public class Settings implements Serializable
 		thisParam = theseProperties.getProperty(Settings.PROP_XMOVETO);
 		if (thisParam != null)
 		{
-			this.theXMoveTo = Float.valueOf(thisParam).floatValue();
+			this.theXMoveTo = Float.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_YMOVETO);
 		if (thisParam != null)
 		{
-			this.theYMoveTo = Float.valueOf(thisParam).floatValue();
+			this.theYMoveTo = Float.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_XSHIFT);
 		if (thisParam != null)
 		{
-			this.theXShift = Float.valueOf(thisParam).floatValue();
+			this.theXShift = Float.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_YSHIFT);
 		if (thisParam != null)
 		{
-			this.theYShift = Float.valueOf(thisParam).floatValue();
+			this.theYShift = Float.valueOf(thisParam);
 		}
 
 		// tree
@@ -442,12 +442,12 @@ public class Settings implements Serializable
 		thisParam = theseProperties.getProperty(Settings.PROP_EXPANSION);
 		if (thisParam != null)
 		{
-			this.theExpansion = Float.valueOf(thisParam).floatValue();
+			this.theExpansion = Float.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_SWEEP);
 		if (thisParam != null)
 		{
-			this.theSweep = Float.valueOf(thisParam).floatValue();
+			this.theSweep = Float.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_PRESERVE_ORIENTATION);
 		if (thisParam != null)
@@ -462,7 +462,7 @@ public class Settings implements Serializable
 		thisParam = theseProperties.getProperty(Settings.PROP_FONTSIZE);
 		if (thisParam != null)
 		{
-			this.theFontSize = Integer.valueOf(thisParam).intValue();
+			this.theFontSize = Integer.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_SCALE_FONTS);
 		if (thisParam != null)
@@ -589,7 +589,7 @@ public class Settings implements Serializable
 			// add
 			if (this.theMenu == null)
 			{
-				this.theMenu = new ArrayList<MenuItem>();
+				this.theMenu = new ArrayList<>();
 			}
 			this.theMenu.add(thisMenuItem);
 		}

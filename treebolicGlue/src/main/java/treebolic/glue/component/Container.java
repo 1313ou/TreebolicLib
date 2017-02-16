@@ -122,6 +122,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	@Override
 	public void validate()
 	{
+		@SuppressWarnings("UnusedAssignment")
 		LayoutParams params = null;
 		if (this.toolbar != null)
 		{

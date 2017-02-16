@@ -12,7 +12,7 @@ public interface GraphicsCache<G>
 	 *
 	 * @return cache graphics context
 	 */
-	public G getGraphics();
+	G getGraphics();
 
 	/**
 	 * Put cache to graphics context
@@ -20,5 +20,5 @@ public interface GraphicsCache<G>
 	 * @param g
 	 *            graphics context
 	 */
-	public void put(G g);
+	void put(G g);
 }

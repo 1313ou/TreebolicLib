@@ -21,14 +21,12 @@ public class ZipDeSerializer
 	/**
 	 * Deserialize from archive
 	 *
-	 * @param thisArchive
-	 *            archive name
-	 * @param thisName
-	 *            (will be the zipfile entry)
+	 * @param thisArchive archive name
+	 * @param thisName    (will be the zipfile entry)
 	 * @return deserialized object
 	 * @throws IOException
 	 * @throws ClassNotFoundException
-	 * @throws IOdException
+	 * @throws IOException
 	 */
 	static public Object deserializeZip(final String thisArchive, final String thisName) throws IOException, ClassNotFoundException
 	{
@@ -40,7 +38,9 @@ public class ZipDeSerializer
 			thisZipFile = new ZipFile(thisArchive);
 			final ZipEntry thisZipEntry = thisZipFile.getEntry(thisName);
 			if (thisZipEntry == null)
+			{
 				throw new IOException("zip entry not found " + thisName); //$NON-NLS-1$
+			}
 
 			thisInputStream = thisZipFile.getInputStream(thisZipEntry);
 			thisOutputStream = new ObjectInputStream(thisInputStream);
@@ -51,15 +51,33 @@ public class ZipDeSerializer
 		{
 			if (thisOutputStream != null)
 			{
-				thisOutputStream.close();
+				try
+				{
+					thisOutputStream.close();
+				}
+				catch (IOException ignored)
+				{
+				}
 			}
 			if (thisInputStream != null)
 			{
-				thisInputStream.close();
+				try
+				{
+					thisInputStream.close();
+				}
+				catch (IOException ignored)
+				{
+				}
 			}
 			if (thisZipFile != null)
 			{
-				thisZipFile.close();
+				try
+				{
+					thisZipFile.close();
+				}
+				catch (IOException ignored)
+				{
+				}
 			}
 		}
 	}

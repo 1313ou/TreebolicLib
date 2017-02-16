@@ -26,7 +26,7 @@ public abstract class Commander
 	/**
 	 * Commands
 	 */
-	public static enum Command
+	public enum Command
 	{
 		REFRESH, //
 		HOME, NORTH, SOUTH, EAST, WEST, RADIAL, //
@@ -88,12 +88,12 @@ public abstract class Commander
 	/**
 	 * Whether tooltips are html
 	 */
-	static public boolean TOOLTIPHTML = true;
+	static public final boolean TOOLTIPHTML = true;
 
 	/**
 	 * Tooltip break
 	 */
-	static public int TOOLTIPLINESPAN = 50;
+	static public final int TOOLTIPLINESPAN = 50;
 
 	// A C C E S S
 

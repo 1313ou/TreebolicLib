@@ -18,7 +18,7 @@ public interface EventListener
 	 *            rotate requested
 	 * @return true if handled
 	 */
-	public boolean onDown(int x, int y, boolean rotate);
+	boolean onDown(int x, int y, boolean rotate);
 
 	/**
 	 * Up event callback
@@ -29,7 +29,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onUp(int x, int y);
+	boolean onUp(int x, int y);
 
 	/**
 	 * Dragged/move event callback
@@ -40,7 +40,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onDragged(int x, int y);
+	boolean onDragged(int x, int y);
 
 	/**
 	 * Select event callback
@@ -51,7 +51,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onSelect(int x, int y);
+	boolean onSelect(int x, int y);
 
 	/**
 	 * Hover event callback
@@ -62,14 +62,14 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onHover(int x, int y);
+	boolean onHover(int x, int y);
 
 	/**
 	 * Long hover event callback
 	 *
 	 * @return true if handled
 	 */
-	public boolean onLongHover();
+	boolean onLongHover();
 
 	/**
 	 * Focus-to-center event callback
@@ -80,7 +80,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onFocus(int x, int y);
+	boolean onFocus(int x, int y);
 
 	/**
 	 * Context menu event callback
@@ -91,7 +91,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onMenu(int x, int y);
+	boolean onMenu(int x, int y);
 
 	/**
 	 * Link event callback
@@ -102,7 +102,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onLink(int x, int y);
+	boolean onLink(int x, int y);
 
 	/**
 	 * Mount event callback
@@ -113,7 +113,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
-	public boolean onMount(int x, int y);
+	boolean onMount(int x, int y);
 
 	/**
 	 * Zoom event callback
@@ -125,7 +125,7 @@ public interface EventListener
 	 * @param zy
 	 *            zoom pivot y
 	 */
-	public void onZoom(float zf, float zx, float zy);
+	void onZoom(float zf, float zx, float zy);
 
 	/**
 	 * Scale event callback
@@ -137,5 +137,5 @@ public interface EventListener
 	 * @param isf
 	 *            image scale factor (>=0 absolute, <0 relative)
 	 */
-	public void onScale(float msf, float fsf, float isf);
+	void onScale(float msf, float fsf, float isf);
 }

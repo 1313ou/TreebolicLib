@@ -203,8 +203,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 			// well-formed URL
 			try
 			{
-				@SuppressWarnings("unused")
-				URL thisUrl = new URL(thisLink);
+				/* URL thisUrl = */ new URL(thisLink);
 				return true;
 			}
 			catch (final MalformedURLException e)
@@ -253,14 +252,14 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		if (thisString == null)
 			return null;
 
-		final StringBuffer thisBuffer = new StringBuffer();
+		final StringBuilder thisBuilder = new StringBuilder();
 		final int n = thisString.length();
 		for (int i = 0; i < n; i++)
 		{
 			final char c = thisString.charAt(i);
 			if (c != '$')
 			{
-				thisBuffer.append(c);
+				thisBuilder.append(c);
 			}
 			else
 			{
@@ -276,7 +275,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						final String thisLabel = thisNode.getLabel();
 						if (thisLabel != null)
 						{
-							thisBuffer.append(thisLabel.toCharArray());
+							thisBuilder.append(thisLabel.toCharArray());
 						}
 						break;
 
@@ -285,7 +284,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						final String thisContent = thisNode.getContent();
 						if (thisContent != null)
 						{
-							thisBuffer.append(thisContent.toCharArray());
+							thisBuilder.append(thisContent.toCharArray());
 						}
 						break;
 
@@ -294,7 +293,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						final String thisLink = thisNode.getLink();
 						if (thisLink != null)
 						{
-							thisBuffer.append(thisLink.toCharArray());
+							thisBuilder.append(thisLink.toCharArray());
 						}
 						break;
 
@@ -303,7 +302,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						final String thisId = thisNode.getId();
 						if (thisId != null)
 						{
-							thisBuffer.append(thisId.toCharArray());
+							thisBuilder.append(thisId.toCharArray());
 						}
 						break;
 
@@ -315,7 +314,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 							final String thisParentId = thisParent.getId();
 							if (thisParentId != null)
 							{
-								thisBuffer.append(thisParentId.toCharArray());
+								thisBuilder.append(thisParentId.toCharArray());
 							}
 						}
 						break;
@@ -324,29 +323,29 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 					case 'e':
 						if (thisValue != null)
 						{
-							thisBuffer.append(thisValue.toCharArray());
+							thisBuilder.append(thisValue.toCharArray());
 						}
 						break;
 
 					// escaped $
 					case '$':
-						thisBuffer.append(c2);
+						thisBuilder.append(c2);
 						break;
 
 					// unrecognized
 					default:
-						thisBuffer.append(c);
-						thisBuffer.append(c2);
+						thisBuilder.append(c);
+						thisBuilder.append(c2);
 					}
 				}
 				else
 				{
 					// is last : copy
-					thisBuffer.append(c);
+					thisBuilder.append(c);
 				}
 			}
 		}
-		final String thisResult = thisBuffer.toString();
+		final String thisResult = thisBuilder.toString();
 		if (thisResult.isEmpty())
 			return null;
 		return thisResult;

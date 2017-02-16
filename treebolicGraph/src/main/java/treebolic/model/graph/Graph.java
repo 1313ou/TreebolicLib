@@ -30,20 +30,20 @@ public class Graph
 	/**
 	 * The set of nodes.
 	 */
-	protected Set<GraphNode> theNodes;
+	protected final Set<GraphNode> theNodes;
 
 	/**
 	 * The set of edges
 	 */
-	protected Set<GraphEdge> theEdges;
+	protected final Set<GraphEdge> theEdges;
 
 	/**
 	 * Constructor
 	 */
 	protected Graph()
 	{
-		this.theNodes = new HashSet<GraphNode>();
-		this.theEdges = new HashSet<GraphEdge>();
+		this.theNodes = new HashSet<>();
+		this.theEdges = new HashSet<>();
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class Graph
 	 */
 	public Collection<GraphEdge> getTreeEdges(final GraphNode thisNode)
 	{
-		final Set<GraphEdge> theseEdges = new HashSet<GraphEdge>();
+		final Set<GraphEdge> theseEdges = new HashSet<>();
 		for (final GraphEdge thisEdge : this.theEdges)
 		{
 			final Boolean isTreeEdge = thisEdge.getIsTreeEdge();
@@ -104,7 +104,7 @@ public class Graph
 	 */
 	public Collection<GraphEdge> getNonTreeEdges(final GraphNode thisNode)
 	{
-		final Set<GraphEdge> theseEdges = new HashSet<GraphEdge>();
+		final Set<GraphEdge> theseEdges = new HashSet<>();
 		for (final GraphEdge thisEdge : this.theEdges)
 		{
 			final Boolean isTreeEdge = thisEdge.getIsTreeEdge();
@@ -129,7 +129,7 @@ public class Graph
 	 */
 	public Collection<GraphEdge> getEdges(final GraphNode thisNode)
 	{
-		final Set<GraphEdge> theseEdges = new HashSet<GraphEdge>();
+		final Set<GraphEdge> theseEdges = new HashSet<>();
 		for (final GraphEdge thisEdge : this.theEdges)
 			if (thisEdge.getFrom().equals(thisNode) || thisEdge.getTo().equals(thisNode))
 			{
@@ -146,7 +146,7 @@ public class Graph
 	 */
 	public Map<GraphNode, Collection<GraphEdge>> getNodeToEdgesMap()
 	{
-		final Map<GraphNode, Collection<GraphEdge>> thisMap = new HashMap<GraphNode, Collection<GraphEdge>>();
+		final Map<GraphNode, Collection<GraphEdge>> thisMap = new HashMap<>();
 		for (final GraphNode thisNode : this.theNodes)
 		{
 			thisMap.put(thisNode, getEdges(thisNode));
@@ -267,7 +267,7 @@ public class Graph
 	private void processSpanningTreeBFS(final Graph thisSpanningTree, final GraphNode thisRoot)
 	{
 		// bag
-		final Set<GraphNode> thisBag = new HashSet<GraphNode>();
+		final Set<GraphNode> thisBag = new HashSet<>();
 		thisBag.add(thisRoot);
 
 		while (!thisBag.isEmpty())
@@ -371,7 +371,7 @@ public class Graph
 
 	/**
 	 * Determines a node with the minimal incoming degree. Often there are several such nodes, this method returns any of these, it is not guaranteed that two
-	 * seperate calls return the same node.
+	 * separate calls return the same node.
 	 *
 	 * @return A node with the minimal incoming degree.
 	 */
@@ -397,7 +397,7 @@ public class Graph
 			{
 				if (thisResult == null)
 				{
-					thisResult = new ArrayList<GraphNode>();
+					thisResult = new ArrayList<>();
 				}
 				thisResult.add(thisNode);
 			}
@@ -414,19 +414,19 @@ public class Graph
 	@Override
 	public String toString()
 	{
-		final StringBuffer thisBuffer = new StringBuffer();
-		thisBuffer.append("Nodes :\n"); //$NON-NLS-1$
+		final StringBuilder thisBuilder = new StringBuilder();
+		thisBuilder.append("Nodes :\n"); //$NON-NLS-1$
 		for (final GraphNode thisNode : getNodes())
 		{
-			thisBuffer.append(thisNode.toString());
-			thisBuffer.append("\n"); //$NON-NLS-1$
+			thisBuilder.append(thisNode.toString());
+			thisBuilder.append("\n"); //$NON-NLS-1$
 		}
-		thisBuffer.append("Edges :\n"); //$NON-NLS-1$
+		thisBuilder.append("Edges :\n"); //$NON-NLS-1$
 		for (final GraphEdge thisEdge : getEdges())
 		{
-			thisBuffer.append(thisEdge.toString());
-			thisBuffer.append("\n"); //$NON-NLS-1$
+			thisBuilder.append(thisEdge.toString());
+			thisBuilder.append("\n"); //$NON-NLS-1$
 		}
-		return thisBuffer.toString();
+		return thisBuilder.toString();
 	}
 }

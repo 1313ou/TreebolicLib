@@ -17,7 +17,7 @@ public interface Color<C>
 	 * @param b
 	 *            blue
 	 */
-	public void set(int r, int g, int b);
+	void set(int r, int g, int b);
 
 	/**
 	 * Set value
@@ -25,21 +25,21 @@ public interface Color<C>
 	 * @param rgb
 	 *            value
 	 */
-	public void set(int rgb);
+	void set(int rgb);
 
 	/**
 	 * Get value
 	 *
 	 * @return value
 	 */
-	public int getRGB();
+	int getRGB();
 
 	/**
 	 * Whether color is null
 	 *
 	 * @return true if color is null
 	 */
-	public boolean isNull();
+	boolean isNull();
 
 	/**
 	 * Parse color from string
@@ -47,19 +47,19 @@ public interface Color<C>
 	 * @param string
 	 *            string to parse
 	 */
-	public void parse(final String string);
+	void parse(final String string);
 
 	/**
 	 * Make brighter color
 	 *
 	 * @return brighter color
 	 */
-	public C makeBrighter();
+	C makeBrighter();
 
 	/**
 	 * Make darker color
 	 *
 	 * @return darker color
 	 */
-	public C makeDarker();
+	C makeDarker();
 }

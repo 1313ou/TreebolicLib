@@ -26,5 +26,5 @@ public interface IHyperTransform
 	 *            point is hyperbolic space
 	 * @return map z to z' with z'=map(z)
 	 */
-	public Complex map(Complex z);
+	Complex map(Complex z);
 }

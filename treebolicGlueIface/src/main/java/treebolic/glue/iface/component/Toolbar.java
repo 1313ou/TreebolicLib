@@ -17,7 +17,7 @@ public interface Toolbar<L>
 	 * @param listener
 	 *            listener
 	 */
-	public void addButton(final int iconIndex, final String toolTip, final L listener);
+	void addButton(final int iconIndex, final String toolTip, final L listener);
 
 	/**
 	 * Add toggle button
@@ -33,10 +33,10 @@ public interface Toolbar<L>
 	 * @param listener
 	 *            listener
 	 */
-	public void addToggle(final int iconIndex, final int selectedIconIndex, final String toolTip, final boolean state, final L listener);
+	void addToggle(final int iconIndex, final int selectedIconIndex, final String toolTip, final boolean state, final L listener);
 
 	/**
 	 * Add separator
 	 */
-	public void addSeparator();
+	void addSeparator();
 }

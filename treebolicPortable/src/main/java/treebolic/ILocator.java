@@ -24,12 +24,12 @@ public interface ILocator
 	 *
 	 * @return base url
 	 */
-	public URL getBase();
+	URL getBase();
 
 	/**
 	 * Get images base URL
 	 *
 	 * @return images base url
 	 */
-	public URL getImagesBase();
+	URL getImagesBase();
 }

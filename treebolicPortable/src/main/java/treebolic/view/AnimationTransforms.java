@@ -35,7 +35,7 @@ public class AnimationTransforms
 	/**
 	 * Behaviour
 	 */
-	static private boolean finalTransformOnly = false;
+	static private final boolean finalTransformOnly = false;
 
 	/**
 	 * Constructor
@@ -100,7 +100,7 @@ public class AnimationTransforms
 			}
 
 			// vector
-			final List<HyperTransform> theseTransforms = new ArrayList<HyperTransform>(theseSteps);
+			final List<HyperTransform> theseTransforms = new ArrayList<>(theseSteps);
 
 			// final transform
 			final HyperTransform thisFinalTransform = thisTransformer.makeTransform(thisFrom, thisTo, thisOrientation);
@@ -177,7 +177,7 @@ public class AnimationTransforms
 		final HyperTransform thisFinalTransform = thisTransformer.makeTransform(thisFrom, thisTo, thisOrientation);
 
 		// vector
-		final Vector<HyperTransform> theseTransforms = new Vector<HyperTransform>(1);
+		final Vector<HyperTransform> theseTransforms = new Vector<>(1);
 		theseTransforms.addElement(new HyperTransform(thisCurrentTransform).compose(thisFinalTransform));
 		return theseTransforms;
 	}

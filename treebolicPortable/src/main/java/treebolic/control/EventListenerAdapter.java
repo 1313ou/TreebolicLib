@@ -36,7 +36,7 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Drag mode enum
 	 */
-	static private enum DragMode
+	private enum DragMode
 	{
 		TRANSLATE, ROTATE
 	}

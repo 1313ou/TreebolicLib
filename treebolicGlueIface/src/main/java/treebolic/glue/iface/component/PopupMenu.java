@@ -19,7 +19,7 @@ public interface PopupMenu<C, L>
 	 * @param listener
 	 *            listener
 	 */
-	public void addItem(final String label, final int image, final L listener);
+	void addItem(final String label, final int image, final L listener);
 
 	/**
 	 * Popup component at position
@@ -31,5 +31,5 @@ public interface PopupMenu<C, L>
 	 * @param y
 	 *            y-position
 	 */
-	public void popup(C component, int x, int y);
+	void popup(C component, int x, int y);
 }

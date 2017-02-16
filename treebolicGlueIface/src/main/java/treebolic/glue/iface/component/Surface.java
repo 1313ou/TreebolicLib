@@ -13,36 +13,36 @@ public interface Surface<G, L>
 	 * @param g
 	 *            graphics context
 	 */
-	public void paint(final G g);
+	void paint(final G g);
 
 	/**
 	 * Repaint (triggers repaint action)
 	 */
-	public void repaint();
+	void repaint();
 
 	/**
 	 * Width
 	 *
 	 * @return surface width
 	 */
-	public int getWidth();
+	int getWidth();
 
 	/**
 	 * Height
 	 *
 	 * @return surface height
 	 */
-	public int getHeight();
+	int getHeight();
 
 	/**
 	 * Default cursor type
 	 */
-	public static final int DEFAULTCURSOR = 0;
+	int DEFAULTCURSOR = 0;
 
 	/**
 	 * Hot node cursor type
 	 */
-	public static final int HOTCURSOR = 1;
+	int HOTCURSOR = 1;
 
 	/**
 	 * Set cursor
@@ -50,7 +50,7 @@ public interface Surface<G, L>
 	 * @param cursor
 	 *            cursor type (one of the constants)
 	 */
-	public void setCursor(final int cursor);
+	void setCursor(final int cursor);
 
 	/**
 	 * Set tooltip
@@ -58,7 +58,7 @@ public interface Surface<G, L>
 	 * @param string
 	 *            tooltip string
 	 */
-	public void setToolTipText(final String string);
+	void setToolTipText(final String string);
 
 	/**
 	 * Add event listener
@@ -66,7 +66,7 @@ public interface Surface<G, L>
 	 * @param listener
 	 *            listener
 	 */
-	public void addEventListener(final L listener);
+	void addEventListener(final L listener);
 
 	/**
 	 * Set whether to fire hover events
@@ -74,5 +74,5 @@ public interface Surface<G, L>
 	 * @param flag
 	 *            whether to fire hover events
 	 */
-	public void setFireHover(final boolean flag);
+	void setFireHover(final boolean flag);
 }

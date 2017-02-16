@@ -12,15 +12,15 @@ public interface Worker
 	 *
 	 * @throws Exception
 	 */
-	public void job() throws Exception;
+	void job();
 
 	/**
 	 * Done callback
 	 */
-	public void onDone();
+	void onDone();
 
 	/**
 	 * Start execution
 	 */
-	public void execute();
+	void execute();
 }

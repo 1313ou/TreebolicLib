@@ -138,7 +138,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 */
 	public int getBlue()
 	{
-		return this.color >> 0 & 0xFF;
+		return this.color & 0xFF;
 	}
 
 	/**

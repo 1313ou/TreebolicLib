@@ -24,14 +24,14 @@ public interface IContext extends ILocator
 	 *
 	 * @return parameters
 	 */
-	public Properties getParameters();
+	Properties getParameters();
 
 	/**
 	 * Get style
 	 *
 	 * @return style string (CSS syntax)
 	 */
-	public String getStyle();
+	String getStyle();
 
 	/**
 	 * Navigate to link
@@ -42,14 +42,14 @@ public interface IContext extends ILocator
 	 *            link target
 	 * @return true if the context handles the link, false means the current provider will re-init () with the link as source
 	 */
-	public boolean linkTo(String thisLinkUrl, String thisLinkTarget);
+	boolean linkTo(String thisLinkUrl, String thisLinkTarget);
 
 	/**
 	 * Get input
 	 *
 	 * @return input
 	 */
-	public String getInput();
+	String getInput();
 
 	/**
 	 * Message
@@ -57,7 +57,7 @@ public interface IContext extends ILocator
 	 * @param thisString
 	 *            message
 	 */
-	public void status(String thisString);
+	void status(String thisString);
 
 	/**
 	 * Warn
@@ -65,5 +65,5 @@ public interface IContext extends ILocator
 	 * @param thisMessage
 	 *            warning
 	 */
-	public void warn(String thisMessage);
+	void warn(String thisMessage);
 }

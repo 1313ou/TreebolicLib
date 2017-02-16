@@ -147,7 +147,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 
 		// content
 		final WebView webView = (WebView) view.findViewById(R.id.content);
-		final StringBuffer html = new StringBuffer();
+		final StringBuilder html = new StringBuilder();
 		html.append("<html><head>"); //$NON-NLS-1$
 		html.append("<style type='text/css'>"); //$NON-NLS-1$
 		html.append(getDefaultBaseStyle());
@@ -257,14 +257,14 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	private String getDefaultBaseStyle()
 	{
 		final Resources resources = getResources();
-		final StringBuffer buffer = new StringBuffer();
-		buffer.append("body {"); //$NON-NLS-1$
+		final StringBuilder builder = new StringBuilder();
+		builder.append("body {"); //$NON-NLS-1$
 		final int background = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.background, null) : resources.getColor(R.color.background);
-		buffer.append(String.format("background-color: #%06X;", 0xFFFFFF & background)); //$NON-NLS-1$
+		builder.append(String.format("background-color: #%06X;", 0xFFFFFF & background)); //$NON-NLS-1$
 		final int foreground = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.foreground, null) : resources.getColor(R.color.foreground);
-		buffer.append(String.format("color: #%06X;", 0xFFFFFF & foreground)); //$NON-NLS-1$
-		buffer.append('}');
-		return buffer.toString();
+		builder.append(String.format("color: #%06X;", 0xFFFFFF & foreground)); //$NON-NLS-1$
+		builder.append('}');
+		return builder.toString();
 	}
 
 	/*

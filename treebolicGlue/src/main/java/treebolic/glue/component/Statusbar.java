@@ -30,7 +30,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Image index enum
 	 */
-	static public enum ImageIndices
+	public enum ImageIndices
 	{
 		INFO, LINK, MOUNT, SEARCH
 	}
@@ -85,7 +85,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Constructor
 	 *
-	 * @param activity
+	 * @param activity0
 	 *            activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
@@ -212,7 +212,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 		else
 		{
-			final StringBuffer html = new StringBuffer();
+			final StringBuilder html = new StringBuilder();
 			html.append("<html><head>"); //$NON-NLS-1$
 			html.append("<style type='text/css'>"); //$NON-NLS-1$
 			html.append(getDefaultBaseStyle());
@@ -287,12 +287,12 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	@SuppressWarnings("boxing")
 	private String getDefaultBaseStyle()
 	{
-		final StringBuffer buffer = new StringBuffer();
-		buffer.append("body {"); //$NON-NLS-1$
-		buffer.append(String.format("background-color: #%06X;", 0xFFFFFF & this.background)); //$NON-NLS-1$
-		buffer.append(String.format("color: #%06X;", 0xFFFFFF & this.foreground)); //$NON-NLS-1$
-		buffer.append('}');
-		return buffer.toString();
+		final StringBuilder builder = new StringBuilder();
+		builder.append("body {"); //$NON-NLS-1$
+		builder.append(String.format("background-color: #%06X;", 0xFFFFFF & this.background)); //$NON-NLS-1$
+		builder.append(String.format("color: #%06X;", 0xFFFFFF & this.foreground)); //$NON-NLS-1$
+		builder.append('}');
+		return builder.toString();
 	}
 
 	/**

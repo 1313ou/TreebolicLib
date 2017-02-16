@@ -26,7 +26,7 @@ public interface IWidget
 	/**
 	 * Init (typically called by embedding applet's init()). Data source and data provider have not yet been determined.
 	 */
-	public void init();
+	void init();
 
 	/**
 	 * Init (typically called by embedding applet's init()). Data source and data provider names have been determined.
@@ -36,7 +36,7 @@ public interface IWidget
 	 * @param thisSource
 	 *        source (anything the provider will make sense of)
 	 */
-	public void init(String thisProviderName, final String thisSource);
+	void init(String thisProviderName, final String thisSource);
 
 	/**
 	 * Init from provider and source
@@ -46,7 +46,7 @@ public interface IWidget
 	 * @param thisSource
 	 *        source
 	 */
-	public void init(final IProvider thisProvider, final String thisSource);
+	void init(final IProvider thisProvider, final String thisSource);
 
 	/**
 	 * Init from model
@@ -54,7 +54,7 @@ public interface IWidget
 	 * @param thisModel
 	 *        model
 	 */
-	public void init(final Model thisModel);
+	void init(final Model thisModel);
 
 	/**
 	 * Init from serialized model
@@ -62,7 +62,7 @@ public interface IWidget
 	 * @param thisSerFile
 	 *        serialized file
 	 */
-	public void initSerialized(final String thisSerFile);
+	void initSerialized(final String thisSerFile);
 
 	/**
 	 * Re-init from same provider and new source (this assumes the provider is loaded)
@@ -70,14 +70,14 @@ public interface IWidget
 	 * @param thisSource
 	 *        data source
 	 */
-	public void reinit(final String thisSource);
+	void reinit(final String thisSource);
 
 	// Version
 
 	/**
 	 * Get version (wrapper)
 	 */
-	public String getVersion();
+	String getVersion();
 
 	// JavaScript
 
@@ -87,7 +87,7 @@ public interface IWidget
 	 * @param thisNodeId
 	 *        node id to get focus
 	 */
-	public void focus(String thisNodeId);
+	void focus(String thisNodeId);
 
 	/**
 	 * Link to Url
@@ -97,29 +97,29 @@ public interface IWidget
 	 * @param thisUrlTarget
 	 *        target string
 	 */
-	public void link(String thisUrlString, String thisUrlTarget);
+	void link(String thisUrlString, String thisUrlTarget);
 
 	// SEARCH PARAMETER VALUES
 
-	public static final String SEARCH = Controller.SearchCommand.SEARCH.name();
+	String SEARCH = Controller.SearchCommand.SEARCH.name();
 
-	public static final String SEARCHCONTINUE = Controller.SearchCommand.CONTINUE.name();
+	String SEARCHCONTINUE = Controller.SearchCommand.CONTINUE.name();
 
-	public static final String SEARCHRESET = Controller.SearchCommand.RESET.name();
+	String SEARCHRESET = Controller.SearchCommand.RESET.name();
 
-	public static final String SEARCHSCOPELABEL = Controller.MatchScope.LABEL.name();
+	String SEARCHSCOPELABEL = Controller.MatchScope.LABEL.name();
 
-	public static final String SEARCHSCOPECONTENT = Controller.MatchScope.CONTENT.name();
+	String SEARCHSCOPECONTENT = Controller.MatchScope.CONTENT.name();
 
-	public static final String SEARCHSCOPELINK = Controller.MatchScope.LINK.name();
+	String SEARCHSCOPELINK = Controller.MatchScope.LINK.name();
 
-	public static final String SEARCHSCOPEID = Controller.MatchScope.ID.name();
+	String SEARCHSCOPEID = Controller.MatchScope.ID.name();
 
-	public static final String SEARCHMODEEQUALS = Controller.MatchMode.EQUALS.name();
+	String SEARCHMODEEQUALS = Controller.MatchMode.EQUALS.name();
 
-	public static final String SEARCHMODESTARTSWITH = Controller.MatchMode.STARTSWITH.name();
+	String SEARCHMODESTARTSWITH = Controller.MatchMode.STARTSWITH.name();
 
-	public static final String SEARCHMODEINCLUDES = Controller.MatchMode.INCLUDES.name();
+	String SEARCHMODEINCLUDES = Controller.MatchMode.INCLUDES.name();
 
 	/**
 	 * Match node against string
@@ -132,7 +132,7 @@ public interface IWidget
 	 *        mode ("EQUALS", "STARTSWITH", "INCLUDES")
 	 * @return node id
 	 */
-	public String match(String thisTargetString, String thisScopeString, String thisModeString);
+	String match(String thisTargetString, String thisScopeString, String thisModeString);
 
 	/**
 	 * Match node against string
@@ -142,5 +142,5 @@ public interface IWidget
 	 * @param theseParams
 	 *        parameters for search ("CONTINUE", "RESET" don't require any)
 	 */
-	public void search(String thisCommandString, String... theseParams);
+	void search(String thisCommandString, String... theseParams);
 }

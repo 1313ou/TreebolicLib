@@ -27,7 +27,7 @@ public interface Graphics<C, I>
 	 * @param height
 	 *            height
 	 */
-	public void drawBackgroundColor(final C color, final int left, final int top, final int width, final int height);
+	void drawBackgroundColor(final C color, final int left, final int top, final int width, final int height);
 
 	// L I N E
 
@@ -43,7 +43,7 @@ public interface Graphics<C, I>
 	 * @param y2
 	 *            y-to
 	 */
-	public void drawLine(final int x, final int y, final int x2, final int y2);
+	void drawLine(final int x, final int y, final int x2, final int y2);
 
 	/**
 	 * Arc
@@ -61,7 +61,7 @@ public interface Graphics<C, I>
 	 * @param arcAngle
 	 *            extend angle
 	 */
-	public void drawArc(final float x, final float y, final float w, final float h, final float startAngle, final float arcAngle);
+	void drawArc(final float x, final float y, final float w, final float h, final float startAngle, final float arcAngle);
 
 	/**
 	 * Polyline
@@ -73,7 +73,7 @@ public interface Graphics<C, I>
 	 * @param length
 	 *            number of points
 	 */
-	public void drawPolyline(final int[] x, final int[] y, final int length);
+	void drawPolyline(final int[] x, final int[] y, final int length);
 
 	// P O L Y G O N
 
@@ -87,7 +87,7 @@ public interface Graphics<C, I>
 	 * @param length
 	 *            number of points
 	 */
-	public void drawPolygon(final int[] x, final int[] y, final int length);
+	void drawPolygon(final int[] x, final int[] y, final int length);
 
 	/**
 	 * Fill polygon
@@ -99,7 +99,7 @@ public interface Graphics<C, I>
 	 * @param length
 	 *            number of points
 	 */
-	public void fillPolygon(final int[] x, final int[] y, final int length);
+	void fillPolygon(final int[] x, final int[] y, final int length);
 
 	// O V A L
 
@@ -115,7 +115,7 @@ public interface Graphics<C, I>
 	 * @param yradius
 	 *            y-radius
 	 */
-	public void drawOval(final float x, final float y, final float xradius, final float yradius);
+	void drawOval(final float x, final float y, final float xradius, final float yradius);
 
 	/**
 	 * Fill oval
@@ -129,7 +129,7 @@ public interface Graphics<C, I>
 	 * @param yradius
 	 *            y-radius
 	 */
-	public void fillOval(final float x, final float y, final float xradius, final float yradius);
+	void fillOval(final float x, final float y, final float xradius, final float yradius);
 
 	// R E C T A N G L E
 
@@ -145,7 +145,7 @@ public interface Graphics<C, I>
 	 * @param h
 	 *            height
 	 */
-	public void fillRectangle(final int x, final int y, final int w, final int h);
+	void fillRectangle(final int x, final int y, final int w, final int h);
 
 	/**
 	 * Draw rectangle
@@ -163,7 +163,7 @@ public interface Graphics<C, I>
 	 * @param ry
 	 *            y-radius for corners
 	 */
-	public void drawRoundRectangle(int x, int y, int w, int h, int rx, int ry);
+	void drawRoundRectangle(int x, int y, int w, int h, int rx, int ry);
 
 	/**
 	 * Fill rectangle
@@ -181,7 +181,7 @@ public interface Graphics<C, I>
 	 * @param ry
 	 *            y-radius for corners
 	 */
-	public void fillRoundRectangle(int x, int y, int w, int h, int rx, int ry);
+	void fillRoundRectangle(int x, int y, int w, int h, int rx, int ry);
 
 	/**
 	 * Draw string
@@ -193,7 +193,7 @@ public interface Graphics<C, I>
 	 * @param y
 	 *            y-location
 	 */
-	public void drawString(final String str, final int x, final int y);
+	void drawString(final String str, final int x, final int y);
 
 	// I M A G E
 
@@ -207,7 +207,7 @@ public interface Graphics<C, I>
 	 * @param y
 	 *            y-location
 	 */
-	public void drawImage(final I image, final int x, final int y);
+	void drawImage(final I image, final int x, final int y);
 
 	/**
 	 * Draw image
@@ -223,7 +223,7 @@ public interface Graphics<C, I>
 	 * @param h
 	 *            height
 	 */
-	public void drawImage(final I image, final int x, final int y, final int w, final int h);
+	void drawImage(final I image, final int x, final int y, final int w, final int h);
 
 	// C O L O R
 
@@ -233,14 +233,14 @@ public interface Graphics<C, I>
 	 * @param color
 	 *            color
 	 */
-	public void setColor(final C color);
+	void setColor(final C color);
 
 	/**
 	 * Get color
 	 *
 	 * @return color
 	 */
-	public C getColor();
+	C getColor();
 
 	// F O N T
 
@@ -252,7 +252,7 @@ public interface Graphics<C, I>
 	 * @param style
 	 *            style
 	 */
-	public void setFont(final String fontface, int style);
+	void setFont(final String fontface, int style);
 
 	/**
 	 * Set text
@@ -260,7 +260,7 @@ public interface Graphics<C, I>
 	 * @param size
 	 *            size
 	 */
-	public void setTextSize(float size);
+	void setTextSize(float size);
 
 	/**
 	 * Get string width
@@ -287,11 +287,11 @@ public interface Graphics<C, I>
 
 	// S T R O K E
 
-	public static int SOLID = 1;
+	int SOLID = 1;
 
-	public static int DOT = 2;
+	int DOT = 2;
 
-	public static int DASH = 3;
+	int DASH = 3;
 
 	/**
 	 * Set stroke
@@ -301,29 +301,29 @@ public interface Graphics<C, I>
 	 * @param width
 	 *            stroke width
 	 */
-	public void setStroke(int stroke, int width);
+	void setStroke(int stroke, int width);
 
 	/**
 	 * Push stroke
 	 */
-	public void pushStroke();
+	void pushStroke();
 
 	/**
 	 * Pop stroke
 	 */
-	public void popStroke();
+	void popStroke();
 
 	// T R A N S F O R M
 
 	/**
 	 * Save matrix
 	 */
-	public void pushMatrix();
+	void pushMatrix();
 
 	/**
 	 * Restore matrix
 	 */
-	public void popMatrix();
+	void popMatrix();
 
 	/**
 	 * Translate
@@ -333,7 +333,7 @@ public interface Graphics<C, I>
 	 * @param y
 	 *            y-translation
 	 */
-	public void translate(final float x, final float y);
+	void translate(final float x, final float y);
 
 	/**
 	 * Rotate
@@ -345,7 +345,7 @@ public interface Graphics<C, I>
 	 * @param y
 	 *            pivot y (pivot is the point that maps to itself)
 	 */
-	public void rotate(float theta, float x, float y);
+	void rotate(float theta, float x, float y);
 
 	/**
 	 * Scale
@@ -357,5 +357,5 @@ public interface Graphics<C, I>
 	 * @param y
 	 *            pivot y (pivot is the point that maps to itself)
 	 */
-	public void scale(float factor, float x, float y);
+	void scale(float factor, float x, float y);
 }

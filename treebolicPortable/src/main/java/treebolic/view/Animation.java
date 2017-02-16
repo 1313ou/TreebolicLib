@@ -13,7 +13,7 @@ public class Animation extends ActionListener
 	/**
 	 * Animation start delay
 	 */
-	static public int ANIMATION_START_DELAY = 1000;
+	static public final int ANIMATION_START_DELAY = 1000;
 
 	/**
 	 * Animation iterator
@@ -65,7 +65,7 @@ public class Animation extends ActionListener
 	public boolean onAction(final Object... theseParams)
 	{
 		final Integer thisSuggestedIndex = theseParams == null || theseParams.length == 0 ? null : (Integer) theseParams[0];
-		int thisIndex = -1;
+		int thisIndex;
 		if (thisSuggestedIndex == null)
 			thisIndex = this.theIndex + 1;
 		else

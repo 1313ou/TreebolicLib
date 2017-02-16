@@ -34,7 +34,7 @@ public class HyperTransform implements IHyperTransform
 	public HyperTranslation theXlat;
 
 	/**
-	 * Rotation componenet of transform, with abs(theRot) == 1
+	 * Rotation component of transform, with abs(theRot) == 1
 	 */
 	public HyperRotation theRot;
 
@@ -220,7 +220,7 @@ public class HyperTransform implements IHyperTransform
 	public HyperTransform compose(final HyperTransform t2)
 	{
 		// t1=this transform
-		// thistransform is applied first
+		// this transform is applied first
 		// t1 o t2
 		// (t1 o t2)(x) = t2(t1(x))
 		// ~p=conjugate of p

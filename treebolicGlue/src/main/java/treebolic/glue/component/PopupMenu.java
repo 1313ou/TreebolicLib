@@ -5,7 +5,6 @@
  * Copyright: (c) 2001-2008
  * Terms of use:see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author: Bernard Bou
- * Company: bsys
  * Update: Mon Mar 10 00:00:00 CEST 2008
  */
 package treebolic.glue.component;
@@ -31,7 +30,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	/**
 	 * Image index enum
 	 */
-	static public enum ImageIndices
+	public enum ImageIndices
 	{
 		IMAGE_CANCEL, IMAGE_INFO, IMAGE_FOCUS, IMAGE_LINK, IMAGE_MOUNT, IMAGE_GOTO, IMAGE_SEARCH, COUNT
 	}

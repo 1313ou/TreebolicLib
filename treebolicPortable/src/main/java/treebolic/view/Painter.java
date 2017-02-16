@@ -5,7 +5,7 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
+ * <p>
  * Update : Mon Mar 10 00:00:00 CEST 2008
  */
 package treebolic.view;
@@ -50,60 +50,60 @@ public class Painter extends AbstractPainter
 
 	static public final int DEBUG_NOIMAGE = 0x400;
 
-	static public int DEBUG = 0; // DEBUG_NOIMAGE // DEBUG_NOLABEL | DEBUG_NOLABELFILL;
+	static public final int DEBUG = 0; // DEBUG_NOIMAGE // DEBUG_NOLABEL | DEBUG_NOLABELFILL;
 
 	/**
 	 * Do not draw curves while moving
 	 */
-	static public boolean STRAIGHT_EDGE_WHILE_MOVING = false;
+	static public final boolean STRAIGHT_EDGE_WHILE_MOVING = false;
 
 	/**
 	 * Text padding
 	 */
-	static public int TEXT_PADDING = 25;
+	static public final int TEXT_PADDING = 25;
 
 	/**
 	 * Minimum span for terminators (squared)
 	 */
-	static public int TERMINATOR_MIN_SPAN2 = 50 * 50;
+	static public final int TERMINATOR_MIN_SPAN2 = 50 * 50;
 
 	/**
 	 * Edge terminator length
 	 */
-	static public double TERMINATOR_HEIGHT = 8;
+	static public final double TERMINATOR_HEIGHT = 8;
 
 	/**
 	 * Edge terminator width
 	 */
-	static public double TERMINATOR_WIDTH = 5;
+	static public final double TERMINATOR_WIDTH = 5;
 
 	/**
 	 * Fraction of label that is allowed to be overlaid by image
 	 */
-	static public float NODE_LABEL_OVERLAY = 0.2F;
+	static public final float NODE_LABEL_OVERLAY = 0.2F;
 
 	/**
 	 * Min image dimension
 	 */
-	static public int MIN_IMAGE_DIMENSION = 5;
+	static public final int MIN_IMAGE_DIMENSION = 5;
 
 	// insets
 	/**
 	 * x padding for node box
 	 */
-	static public int NODE_HORIZONTAL_PADDING = 4;
+	static public final int NODE_HORIZONTAL_PADDING = 4;
 
 	/**
 	 * y padding for node box
 	 */
-	static public int NODE_TOP_PADDING = 1;
+	static public final int NODE_TOP_PADDING = 1;
 
-	static public int NODE_BOTTOM_PADDING = 1;
+	static public final int NODE_BOTTOM_PADDING = 1;
 
 	/**
 	 * Crop edges where they meet vertex shape
 	 */
-	static public boolean CROP_EDGES = true;
+	static public final boolean CROP_EDGES = true;
 
 	// B A C K G R O U N D
 
@@ -139,6 +139,7 @@ public class Painter extends AbstractPainter
 		}
 
 		// boundary circle
+		//noinspection PointlessBitwiseExpression
 		if ((Painter.DEBUG & Painter.DEBUG_OUTERCIRCLE) != 0)
 		{
 			drawCircle(0., 0., 1., Color.LIGHT_GRAY);
@@ -169,7 +170,9 @@ public class Painter extends AbstractPainter
 	private void computeTree(final INode thisNode)
 	{
 		if (thisNode == null)
+		{
 			return;
+		}
 
 		// hyper circle
 		final Location thisLocation = thisNode.getLocation();
@@ -179,8 +182,7 @@ public class Painter extends AbstractPainter
 		}
 
 		// node data and attach to node
-		final NodeData thisNodeData = computeNodeData(thisNode);
-		thisNode.getLocation().theViewData = thisNodeData;
+		thisNode.getLocation().theViewData = computeNodeData(thisNode);
 
 		// recurse to compute the children
 		final List<INode> theseChildren = thisNode.getChildren();
@@ -202,7 +204,9 @@ public class Painter extends AbstractPainter
 	private void drawTree(final INode thisNode)
 	{
 		if (thisNode == null)
+		{
 			return;
+		}
 
 		// edge to parent
 		final INode thisParent = thisNode.getParent();
@@ -231,12 +235,16 @@ public class Painter extends AbstractPainter
 		}
 
 		// debug
+		//noinspection PointlessBitwiseExpression
 		if ((Painter.DEBUG & Painter.DEBUG_NODECIRCLE) != 0)
 		{
 			drawSpace(thisNode);
 		}
+		//noinspection PointlessBitwiseExpression
 		if ((Painter.DEBUG & Painter.DEBUG_NONODE) != 0)
+		{
 			return;
+		}
 
 		// draw node
 		final Location thisLocation = thisNode.getLocation();
@@ -336,7 +344,9 @@ public class Painter extends AbstractPainter
 	private void drawNode(final NodeData thisNodeData)
 	{
 		if (thisNodeData == null)
+		{
 			return;
+		}
 
 		// box
 		if (thisNodeData.theBox != null)
@@ -350,6 +360,7 @@ public class Painter extends AbstractPainter
 			final int ry = 10;
 
 			// fill
+			//noinspection PointlessBitwiseExpression
 			if ((Painter.DEBUG & Painter.DEBUG_NOLABELFILL) == 0)
 			{
 				this.theGraphics.setColor(thisNodeData.theBackColor);
@@ -375,25 +386,26 @@ public class Painter extends AbstractPainter
 				final int x1 = x0 - w0;
 				final int x2 = x0 + w0;
 				final int y0 = y + hm;
-				final int xs[] = { x1, x0, x2 };
+				final int xs[] = {x1, x0, x2};
 				if (thisNodeData.isMountable)
 				{
 					final int hr = h - 2 * hm;
 					final int y2 = y0 + hr;
 					final int y1 = y2 - h0;
-					final int ys[] = { y1, y2, y1 };
+					final int ys[] = {y1, y2, y1};
 					this.theGraphics.fillPolygon(xs, ys, 3);
 				}
 				else
 				{
 					final int y1 = y0 + h0;
-					final int ys[] = { y1, y0, y1 };
+					final int ys[] = {y1, y0, y1};
 					this.theGraphics.fillPolygon(xs, ys, 3);
 				}
 			}
 		}
 
 		// image
+		//noinspection PointlessBitwiseExpression
 		if (thisNodeData.theImage != null && (Painter.DEBUG & Painter.DEBUG_NOIMAGE) == 0)
 		{
 			if (thisNodeData.theImageWidth >= Painter.MIN_IMAGE_DIMENSION && thisNodeData.theImageHeight >= Painter.MIN_IMAGE_DIMENSION)
@@ -410,8 +422,11 @@ public class Painter extends AbstractPainter
 		}
 
 		// label
+		//noinspection PointlessBitwiseExpression
 		if ((Painter.DEBUG & Painter.DEBUG_NOLABEL) != 0)
+		{
 			return;
+		}
 		if (thisNodeData.theLabel != null)
 		{
 			this.theGraphics.setTextSize(thisNodeData.theTextSize);
@@ -426,7 +441,7 @@ public class Painter extends AbstractPainter
 	 *        node
 	 * @return node data
 	 */
-	@SuppressWarnings({ "synthetic-access", "boxing" })
+	@SuppressWarnings({"synthetic-access", "boxing"})
 	private NodeData computeNodeData(final INode thisNode)
 	{
 		final NodeData thisNodeData = new NodeData();
@@ -434,7 +449,9 @@ public class Painter extends AbstractPainter
 		// hyper circle
 		final Location thisLocation = thisNode.getLocation();
 		if (thisLocation.hyper.isBorder)
+		{
 			return null;
+		}
 
 		// text size
 		final float thisTextSize = hyperdistanceToSize(thisLocation.hyper.dist);
@@ -579,7 +596,7 @@ public class Painter extends AbstractPainter
 
 		// is mountable
 		final MountPoint thisMountPoint = thisNode.getMountPoint();
-		thisNodeData.isMountable = thisMountPoint == null ? null : thisMountPoint instanceof MountPoint.Mounting ? true : false;
+		thisNodeData.isMountable = thisMountPoint == null ? null : thisMountPoint instanceof MountPoint.Mounting;
 
 		return thisNodeData;
 	}
@@ -600,7 +617,9 @@ public class Painter extends AbstractPainter
 		final Integer thatStyle = thisNode.getEdgeStyle();
 		final int thisStyle = mergeStyles(this.theTreeEdgeStyle, thatStyle);
 		if ((thisStyle & IEdge.HIDDEN) != 0) // defined and hidden
+		{
 			return;
+		}
 
 		// hyper circles
 		final Location thisFrom = thisParent.getLocation();
@@ -622,7 +641,9 @@ public class Painter extends AbstractPainter
 
 		// do not draw edge if boxes intersect
 		if (Painter.boxesIntersect(thisFromSpace, thisToSpace))
+		{
 			return;
+		}
 
 		// image
 		Image thisImage = thisNode.getEdgeImage();
@@ -661,13 +682,17 @@ public class Painter extends AbstractPainter
 		final Integer thatStyle = thisEdge.getStyle();
 		final int thisStyle = mergeStyles(this.theEdgeStyle, thatStyle);
 		if ((thisStyle & IEdge.HIDDEN) != 0) // defined and hidden
+		{
 			return;
+		}
 
 		// nodes
 		INode thisFromNode = thisEdge.getFrom();
 		INode thisToNode = thisEdge.getTo();
 		if (thisFromNode == null || thisToNode == null)
+		{
 			return;
+		}
 		thisFromNode = MountPoint.follow(thisFromNode, false, true);
 		thisToNode = MountPoint.follow(thisToNode, false, true);
 
@@ -702,7 +727,9 @@ public class Painter extends AbstractPainter
 
 		// do not draw edge if boxes intersect
 		if (Painter.boxesIntersect(thisFromSpace, thisToSpace))
+		{
 			return;
+		}
 
 		// label
 		final String thisLabel = thisEdge.getLabel();
@@ -817,6 +844,7 @@ public class Painter extends AbstractPainter
 	 * @param isBorder
 	 *        true if arc neighbours border
 	 */
+	@SuppressWarnings("UnusedAssignment")
 	private void drawArc(final Complex z1, final Complex z2, final String thatLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		final Arc thisArc = new Arc(z1, z2);
@@ -867,7 +895,9 @@ public class Painter extends AbstractPainter
 				// fit
 				thisLabel = mangleString(thisLabel, thisFrom, thisTo);
 				if (thisLabel == null)
+				{
 					return;
+				}
 
 				drawText(thisLabel, thisFrom, thisTo);
 			}
@@ -929,7 +959,9 @@ public class Painter extends AbstractPainter
 				// fit
 				thisLabel = mangleString(thisLabel, thisFromAnchor, thisToAnchor);
 				if (thisLabel == null)
+				{
 					return;
+				}
 
 				// mid arc
 				final Point2D thisMidArc = ArcMath.getMidArc(thisArc2D);
@@ -964,21 +996,21 @@ public class Painter extends AbstractPainter
 
 		if ((thisStyle & (IEdge.STROKEMASK | IEdge.STROKEWIDTHMASK)) != 0)
 		{
-			int thisStrokeValue = 0;
+			int thisStrokeValue;
 			int thisWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
 			int thisStroke = (thisStyle & IEdge.STROKEMASK);
 			switch (thisStroke)
 			{
-			case IEdge.DASH:
-				thisStrokeValue = treebolic.glue.iface.Graphics.DASH;
-				break;
-			case IEdge.DOT:
-				thisStrokeValue = treebolic.glue.iface.Graphics.DOT;
-				break;
-			case IEdge.SOLID:
-			default:
-				thisStrokeValue = treebolic.glue.iface.Graphics.SOLID;
-				break;
+				case IEdge.DASH:
+					thisStrokeValue = treebolic.glue.iface.Graphics.DASH;
+					break;
+				case IEdge.DOT:
+					thisStrokeValue = treebolic.glue.iface.Graphics.DOT;
+					break;
+				case IEdge.SOLID:
+				default:
+					thisStrokeValue = treebolic.glue.iface.Graphics.SOLID;
+					break;
 			}
 
 			if (thisStrokeValue != 0 || thisWidth != 0)
@@ -1033,7 +1065,7 @@ public class Painter extends AbstractPainter
 
 	/**
 	 * Draw line
-	 * 
+	 *
 	 * @param z1
 	 *        from
 	 * @param z2
@@ -1050,8 +1082,9 @@ public class Painter extends AbstractPainter
 	 *        from-node space
 	 * @param thisToSpace
 	 *        to-node-space
-	 * @param isBorder
+	 * @param isBorder true if is nearing border
 	 */
+	@SuppressWarnings("UnusedAssignment")
 	private void drawLine(final Complex z1, final Complex z2, final String thatLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		Point2D thisFrom = new Point2D(xUnitCircleToView(z1.re), yUnitCircleToView(z1.im));
@@ -1096,7 +1129,9 @@ public class Painter extends AbstractPainter
 			// fit
 			thisLabel = mangleString(thisLabel, thisFrom, thisTo);
 			if (thisLabel == null)
+			{
 				return;
+			}
 
 			drawText(thisLabel, thisFrom, thisTo);
 		}
@@ -1114,21 +1149,21 @@ public class Painter extends AbstractPainter
 	{
 		if ((thisStyle & (IEdge.STROKEMASK | IEdge.STROKEWIDTHMASK)) != 0)
 		{
-			int thisStrokeValue = 0;
+			int thisStrokeValue;
 			int thisWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
 			int thisStroke = (thisStyle & IEdge.STROKEMASK);
 			switch (thisStroke)
 			{
-			case IEdge.DASH:
-				thisStrokeValue = treebolic.glue.iface.Graphics.DASH;
-				break;
-			case IEdge.DOT:
-				thisStrokeValue = treebolic.glue.iface.Graphics.DOT;
-				break;
-			case IEdge.SOLID:
-			default:
-				thisStrokeValue = treebolic.glue.iface.Graphics.SOLID;
-				break;
+				case IEdge.DASH:
+					thisStrokeValue = treebolic.glue.iface.Graphics.DASH;
+					break;
+				case IEdge.DOT:
+					thisStrokeValue = treebolic.glue.iface.Graphics.DOT;
+					break;
+				case IEdge.SOLID:
+				default:
+					thisStrokeValue = treebolic.glue.iface.Graphics.SOLID;
+					break;
 			}
 
 			if (thisStrokeValue != 0 || thisWidth != 0)
@@ -1146,29 +1181,29 @@ public class Painter extends AbstractPainter
 	// D R A W . P O I N T
 
 	// @formatter:off
-//	/**
-//	 * Draw point
-//	 * 
-//	 * @param x
-//	 *        x
-//	 * @param y
-//	 *        y
-//	 * @param thisColor
-//	 *        color
-//	 */
-//	private void drawPoint(double x, double y, final Color thisColor)
-//	{
-//		int d = 10;
-//		int thisWidth = 3;
-//		this.theGraphics.pushStroke();
-//		this.theGraphics.setStroke(treebolic.glue.iface.Graphics.SOLID, thisWidth);
-//		final Color thatColor = this.theGraphics.getColor();
-//		this.theGraphics.setColor(thisColor);
-//		this.theGraphics.drawLine((int) x - d, (int) y, (int) x + d, (int) y);
-//		this.theGraphics.drawLine((int) x, (int) y - d, (int) x, (int) y + d);
-//		this.theGraphics.setColor(thatColor);
-//		this.theGraphics.popStroke();
-//	}
+	//	/**
+	//	 * Draw point
+	//	 *
+	//	 * @param x
+	//	 *        x
+	//	 * @param y
+	//	 *        y
+	//	 * @param thisColor
+	//	 *        color
+	//	 */
+	//	private void drawPoint(double x, double y, final Color thisColor)
+	//	{
+	//		int d = 10;
+	//		int thisWidth = 3;
+	//		this.theGraphics.pushStroke();
+	//		this.theGraphics.setStroke(treebolic.glue.iface.Graphics.SOLID, thisWidth);
+	//		final Color thatColor = this.theGraphics.getColor();
+	//		this.theGraphics.setColor(thisColor);
+	//		this.theGraphics.drawLine((int) x - d, (int) y, (int) x + d, (int) y);
+	//		this.theGraphics.drawLine((int) x, (int) y - d, (int) x, (int) y + d);
+	//		this.theGraphics.setColor(thatColor);
+	//		this.theGraphics.popStroke();
+	//	}
 	// @formatter:on
 
 	// D R A W . T E X T
@@ -1183,6 +1218,7 @@ public class Painter extends AbstractPainter
 	 * @param thatOrientation
 	 *        text orientation
 	 */
+	@SuppressWarnings("UnusedAssignment")
 	private void drawText(final String thisString, final Point2D thisWhere, final double thatOrientation)
 	{
 		double thisOrientation = thatOrientation;
@@ -1315,7 +1351,9 @@ public class Painter extends AbstractPainter
 				final int w = thisImage.getWidth();
 				final int h = thisImage.getHeight();
 				if (w < Painter.MIN_IMAGE_DIMENSION || h < Painter.MIN_IMAGE_DIMENSION)
+				{
 					return;
+				}
 				final int x = (int) (where.getX() - w / 2);
 				final int y = (int) (where.getY() - h / 2);
 				this.theGraphics.drawImage(thisImage, x, y);
@@ -1325,7 +1363,9 @@ public class Painter extends AbstractPainter
 				final int w = (int) (thisImageScale * thisImage.getWidth());
 				final int h = (int) (thisImageScale * thisImage.getHeight());
 				if (w < Painter.MIN_IMAGE_DIMENSION || h < Painter.MIN_IMAGE_DIMENSION)
+				{
 					return;
+				}
 				final int x = (int) (where.getX() - w / 2);
 				final int y = (int) where.getY() - h / 2;
 				this.theGraphics.drawImage(thisImage, x, y, w, h);
@@ -1350,7 +1390,9 @@ public class Painter extends AbstractPainter
 	private void drawEdgeEnds(final Point2D thisFrom, final Point2D thisTo, final Arc2D thisArc2D, final int thisStyle)
 	{
 		if (thisStyle == 0)
+		{
 			return;
+		}
 
 		int thisStrokeWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
 		double thisTerminatorHeight = Painter.TERMINATOR_HEIGHT + thisStrokeWidth;
@@ -1366,7 +1408,9 @@ public class Painter extends AbstractPainter
 		// do nothing if too near
 		final double span2 = cx * cx + cy * cy;
 		if (span2 < Painter.TERMINATOR_MIN_SPAN2)
+		{
 			return;
+		}
 
 		double sx1;
 		double sy1;
@@ -1415,172 +1459,172 @@ public class Painter extends AbstractPainter
 		int thisEndStyle = thisStyle >> IEdge.FROMSHIFT & IEdge.SHAPEMASK;
 		switch (thisEndStyle)
 		{
-		case IEdge.TRIANGLE:
-		{
-			// t
-			final int x[] = { (int) x1, (int) (x1 + sx1 + dx1), (int) (x1 + sx1 - dx1) };
-			final int y[] = { (int) y1, (int) (y1 + sy1 + dy1), (int) (y1 + sy1 - dy1) };
-			if ((thisStyle & IEdge.FROMFILL) != 0)
+			case IEdge.TRIANGLE:
 			{
-				this.theGraphics.fillPolygon(x, y, x.length);
+				// t
+				final int x[] = {(int) x1, (int) (x1 + sx1 + dx1), (int) (x1 + sx1 - dx1)};
+				final int y[] = {(int) y1, (int) (y1 + sy1 + dy1), (int) (y1 + sy1 - dy1)};
+				if ((thisStyle & IEdge.FROMFILL) != 0)
+				{
+					this.theGraphics.fillPolygon(x, y, x.length);
+				}
+				else
+				{
+					final Color thatColor = this.theGraphics.getColor();
+					this.theGraphics.setColor(this.theBackColor);
+					this.theGraphics.fillPolygon(x, y, x.length);
+					this.theGraphics.setColor(thatColor);
+					this.theGraphics.drawPolygon(x, y, x.length);
+				}
+				break;
 			}
-			else
-			{
-				final Color thatColor = this.theGraphics.getColor();
-				this.theGraphics.setColor(this.theBackColor);
-				this.theGraphics.fillPolygon(x, y, x.length);
-				this.theGraphics.setColor(thatColor);
-				this.theGraphics.drawPolygon(x, y, x.length);
-			}
-			break;
-		}
 
-		case IEdge.CIRCLE:
-		{
-			// c
-			final double x = x1 + sx1 / 2 - thisTerminatorHeight / 2;
-			final double y = y1 + sy1 / 2 - thisTerminatorHeight / 2;
-			if ((thisStyle & IEdge.FROMFILL) != 0)
+			case IEdge.CIRCLE:
 			{
-				this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				// c
+				final double x = x1 + sx1 / 2 - thisTerminatorHeight / 2;
+				final double y = y1 + sy1 / 2 - thisTerminatorHeight / 2;
+				if ((thisStyle & IEdge.FROMFILL) != 0)
+				{
+					this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				}
+				else
+				{
+					final Color thatColor = this.theGraphics.getColor();
+					this.theGraphics.setColor(this.theBackColor);
+					this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+					this.theGraphics.setColor(thatColor);
+					this.theGraphics.drawOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				}
+				break;
 			}
-			else
+
+			case IEdge.DIAMOND:
 			{
-				final Color thatColor = this.theGraphics.getColor();
-				this.theGraphics.setColor(this.theBackColor);
-				this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
-				this.theGraphics.setColor(thatColor);
-				this.theGraphics.drawOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				// d
+				final int x[] = {(int) x1, (int) (x1 + sx1 + dx1), (int) (x1 + sx1 + sx1), (int) (x1 + sx1 - dx1)};
+				final int y[] = {(int) y1, (int) (y1 + sy1 + dy1), (int) (y1 + sy1 + sy1), (int) (y1 + sy1 - dy1)};
+				if ((thisStyle & IEdge.FROMFILL) != 0)
+				{
+					this.theGraphics.fillPolygon(x, y, x.length);
+				}
+				else
+				{
+					final Color thatColor = this.theGraphics.getColor();
+					this.theGraphics.setColor(this.theBackColor);
+					this.theGraphics.fillPolygon(x, y, x.length);
+					this.theGraphics.setColor(thatColor);
+					this.theGraphics.drawPolygon(x, y, x.length);
+				}
+				break;
 			}
-			break;
-		}
 
-		case IEdge.DIAMOND:
-		{
-			// d
-			final int x[] = { (int) x1, (int) (x1 + sx1 + dx1), (int) (x1 + sx1 + sx1), (int) (x1 + sx1 - dx1) };
-			final int y[] = { (int) y1, (int) (y1 + sy1 + dy1), (int) (y1 + sy1 + sy1), (int) (y1 + sy1 - dy1) };
-			if ((thisStyle & IEdge.FROMFILL) != 0)
+			case IEdge.ARROW:
 			{
-				this.theGraphics.fillPolygon(x, y, x.length);
+				// a
+				final int x[] = {(int) (x1 + sx1 + dx1), (int) x1, (int) (x1 + sx1 - dx1)};
+				final int y[] = {(int) (y1 + sy1 + dy1), (int) y1, (int) (y1 + sy1 - dy1)};
+				this.theGraphics.drawPolyline(x, y, x.length);
+				break;
 			}
-			else
+
+			case IEdge.HOOK:
 			{
-				final Color thatColor = this.theGraphics.getColor();
-				this.theGraphics.setColor(this.theBackColor);
-				this.theGraphics.fillPolygon(x, y, x.length);
-				this.theGraphics.setColor(thatColor);
-				this.theGraphics.drawPolygon(x, y, x.length);
+				// h
+				final int x[] = {(int) (x1 + sx1 + dx1), (int) x1};
+				final int y[] = {(int) (y1 + sy1 + dy1), (int) y1};
+				this.theGraphics.drawPolyline(x, y, x.length);
+				break;
 			}
-			break;
-		}
 
-		case IEdge.ARROW:
-		{
-			// a
-			final int x[] = { (int) (x1 + sx1 + dx1), (int) x1, (int) (x1 + sx1 - dx1) };
-			final int y[] = { (int) (y1 + sy1 + dy1), (int) y1, (int) (y1 + sy1 - dy1) };
-			this.theGraphics.drawPolyline(x, y, x.length);
-			break;
-		}
-
-		case IEdge.HOOK:
-		{
-			// h
-			final int x[] = { (int) (x1 + sx1 + dx1), (int) x1 };
-			final int y[] = { (int) (y1 + sy1 + dy1), (int) y1 };
-			this.theGraphics.drawPolyline(x, y, x.length);
-			break;
-		}
-
-		default:
-			break;
+			default:
+				break;
 		}
 
 		// to
 		thisEndStyle = thisStyle >> IEdge.TOSHIFT & IEdge.SHAPEMASK;
 		switch (thisEndStyle)
 		{
-		case IEdge.TRIANGLE:
-		{
-			// t
-			final int x[] = { (int) x2, (int) (x2 + sx2 + dx2), (int) (x2 + sx2 - dx2) };
-			final int y[] = { (int) y2, (int) (y2 + sy2 + dy2), (int) (y2 + sy2 - dy2) };
-			if ((thisStyle & IEdge.TOFILL) != 0)
+			case IEdge.TRIANGLE:
 			{
-				this.theGraphics.fillPolygon(x, y, x.length);
+				// t
+				final int x[] = {(int) x2, (int) (x2 + sx2 + dx2), (int) (x2 + sx2 - dx2)};
+				final int y[] = {(int) y2, (int) (y2 + sy2 + dy2), (int) (y2 + sy2 - dy2)};
+				if ((thisStyle & IEdge.TOFILL) != 0)
+				{
+					this.theGraphics.fillPolygon(x, y, x.length);
+				}
+				else
+				{
+					final Color thatColor = this.theGraphics.getColor();
+					this.theGraphics.setColor(this.theBackColor);
+					this.theGraphics.fillPolygon(x, y, x.length);
+					this.theGraphics.setColor(thatColor);
+					this.theGraphics.drawPolygon(x, y, x.length);
+				}
+				break;
 			}
-			else
-			{
-				final Color thatColor = this.theGraphics.getColor();
-				this.theGraphics.setColor(this.theBackColor);
-				this.theGraphics.fillPolygon(x, y, x.length);
-				this.theGraphics.setColor(thatColor);
-				this.theGraphics.drawPolygon(x, y, x.length);
-			}
-			break;
-		}
 
-		case IEdge.CIRCLE:
-		{
-			// c
-			final double x = x2 + sx2 / 2 - thisTerminatorHeight / 2;
-			final double y = y2 + sy2 / 2 - thisTerminatorHeight / 2;
-			if ((thisStyle & IEdge.TOFILL) != 0)
+			case IEdge.CIRCLE:
 			{
-				this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				// c
+				final double x = x2 + sx2 / 2 - thisTerminatorHeight / 2;
+				final double y = y2 + sy2 / 2 - thisTerminatorHeight / 2;
+				if ((thisStyle & IEdge.TOFILL) != 0)
+				{
+					this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				}
+				else
+				{
+					final Color thatColor = this.theGraphics.getColor();
+					this.theGraphics.setColor(this.theBackColor);
+					this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+					this.theGraphics.setColor(thatColor);
+					this.theGraphics.drawOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				}
+				break;
 			}
-			else
+
+			case IEdge.DIAMOND:
 			{
-				final Color thatColor = this.theGraphics.getColor();
-				this.theGraphics.setColor(this.theBackColor);
-				this.theGraphics.fillOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
-				this.theGraphics.setColor(thatColor);
-				this.theGraphics.drawOval((int) x, (int) y, (int) thisTerminatorHeight, (int) thisTerminatorHeight);
+				// d
+				final int x[] = {(int) x2, (int) (x2 + sx2 + dx2), (int) (x2 + sx2 + sx2), (int) (x2 + sx2 - dx2)};
+				final int y[] = {(int) y2, (int) (y2 + sy2 + dy2), (int) (y2 + sy2 + sy2), (int) (y2 + sy2 - dy2)};
+				if ((thisStyle & IEdge.TOFILL) != 0)
+				{
+					this.theGraphics.fillPolygon(x, y, x.length);
+				}
+				else
+				{
+					final Color thatColor = this.theGraphics.getColor();
+					this.theGraphics.setColor(this.theBackColor);
+					this.theGraphics.fillPolygon(x, y, x.length);
+					this.theGraphics.setColor(thatColor);
+					this.theGraphics.drawPolygon(x, y, x.length);
+				}
+				break;
 			}
-			break;
-		}
 
-		case IEdge.DIAMOND:
-		{
-			// d
-			final int x[] = { (int) x2, (int) (x2 + sx2 + dx2), (int) (x2 + sx2 + sx2), (int) (x2 + sx2 - dx2) };
-			final int y[] = { (int) y2, (int) (y2 + sy2 + dy2), (int) (y2 + sy2 + sy2), (int) (y2 + sy2 - dy2) };
-			if ((thisStyle & IEdge.TOFILL) != 0)
+			case IEdge.ARROW:
 			{
-				this.theGraphics.fillPolygon(x, y, x.length);
+				// a
+				final int x[] = {(int) (x2 + sx2 + dx2), (int) x2, (int) (x2 + sx2 - dx2)};
+				final int y[] = {(int) (y2 + sy2 + dy2), (int) y2, (int) (y2 + sy2 - dy2)};
+				this.theGraphics.drawPolyline(x, y, x.length);
+				break;
 			}
-			else
+
+			case IEdge.HOOK:
 			{
-				final Color thatColor = this.theGraphics.getColor();
-				this.theGraphics.setColor(this.theBackColor);
-				this.theGraphics.fillPolygon(x, y, x.length);
-				this.theGraphics.setColor(thatColor);
-				this.theGraphics.drawPolygon(x, y, x.length);
+				// h
+				final int x[] = {(int) (x2 + sx2 + dx2), (int) x2};
+				final int y[] = {(int) (y2 + sy2 + dy2), (int) y2};
+				this.theGraphics.drawPolyline(x, y, x.length);
+				break;
 			}
-			break;
-		}
 
-		case IEdge.ARROW:
-		{
-			// a
-			final int x[] = { (int) (x2 + sx2 + dx2), (int) x2, (int) (x2 + sx2 - dx2) };
-			final int y[] = { (int) (y2 + sy2 + dy2), (int) y2, (int) (y2 + sy2 - dy2) };
-			this.theGraphics.drawPolyline(x, y, x.length);
-			break;
-		}
-
-		case IEdge.HOOK:
-		{
-			// h
-			final int x[] = { (int) (x2 + sx2 + dx2), (int) x2 };
-			final int y[] = { (int) (y2 + sy2 + dy2), (int) y2 };
-			this.theGraphics.drawPolyline(x, y, x.length);
-			break;
-		}
-
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -1650,7 +1694,7 @@ public class Painter extends AbstractPainter
 
 	/**
 	 * Merge styles
-	 * 
+	 *
 	 * @param thisDefault
 	 *        default style
 	 * @param thatStyle
@@ -1661,7 +1705,9 @@ public class Painter extends AbstractPainter
 	static private int mergeStyles(int thisDefault, final Integer thatStyle)
 	{
 		if (thatStyle == null)
+		{
 			return thisDefault;
+		}
 		int thisStyle = thatStyle;
 		int thisResult = thisDefault;
 		if ((thisStyle & IEdge.HIDDENDEF) != 0)
@@ -1728,13 +1774,18 @@ public class Painter extends AbstractPainter
 	 *        to-point on line
 	 * @return intersection point
 	 */
+	@SuppressWarnings("UnnecessaryLocalVariable")
 	static private Point2D getIntersection(final Rectangle2D thisRect, final Point2D thisFrom, final Point2D thisTo)
 	{
 		if (!CROP_EDGES)
+		{
 			return null;
+		}
 
 		if (thisRect == null)
+		{
 			return null;
+		}
 
 		final int thisCode = thisRect.outcode(thisFrom);
 
@@ -1810,10 +1861,14 @@ public class Painter extends AbstractPainter
 	static private Point2D getIntersection(final Rectangle2D thisRect, final Arc2D thisArc)
 	{
 		if (!CROP_EDGES)
+		{
 			return null;
+		}
 
 		if (thisRect == null)
+		{
 			return null;
+		}
 
 		// rectangle
 		final double x = thisRect.getCenterX();
@@ -1897,7 +1952,7 @@ public class Painter extends AbstractPainter
 			{
 				bx = -bx;
 			}
-			// if other coodinate is on rectangle
+			// if other coordinate is on rectangle
 			if (bx >= drl && bx <= drr)
 			{
 				if (Painter.isOnArc(bx, by, thisArc))
@@ -1917,7 +1972,7 @@ public class Painter extends AbstractPainter
 			{
 				tx = -tx;
 			}
-			// if other coodinate is on rectangle
+			// if other coordinate is on rectangle
 			if (tx >= drl && tx <= drr)
 			{
 				if (Painter.isOnArc(tx, ty, thisArc))
@@ -1951,7 +2006,9 @@ public class Painter extends AbstractPainter
 
 			// intersection test
 			if (thisFromRect2.intersects(thisToRect2))
+			{
 				return true;
+			}
 		}
 		return false;
 	}
@@ -1990,7 +2047,6 @@ public class Painter extends AbstractPainter
 	 */
 	private static double pointToAngle(final double dx, final double dy, final Arc2D thisArc)
 	{
-		final double thisResult = Math.atan2(-dy * thisArc.getWidth(), dx * thisArc.getHeight());
-		return thisResult;
+		return Math.atan2(-dy * thisArc.getWidth(), dx * thisArc.getHeight());
 	}
 }

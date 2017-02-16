@@ -19,12 +19,12 @@ public class Tree
 	/**
 	 * Tree root
 	 */
-	public GraphNode theRoot;
+	public final GraphNode theRoot;
 
 	/**
 	 * Graph
 	 */
-	public Graph theGraph;
+	public final Graph theGraph;
 
 	/**
 	 * Constructor

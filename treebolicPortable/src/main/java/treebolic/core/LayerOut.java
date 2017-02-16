@@ -5,7 +5,7 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
+ * <p>
  * Update : Mon Mar 10 00:00:00 CEST 2008
  */
 package treebolic.core;
@@ -52,7 +52,9 @@ public class LayerOut extends AbstractLayerOut
 	public synchronized void layout(final INode thisNode)
 	{
 		if (thisNode == null)
+		{
 			return;
+		}
 
 		// handle root node
 		thisNode.getLocation().hyper.set(Complex.ZERO, this.theRadius);
@@ -70,7 +72,9 @@ public class LayerOut extends AbstractLayerOut
 	public synchronized void layout(final INode thisNode, final Complex thisCenter, final double thisHalfWedge, final double thisOrientation)
 	{
 		if (thisNode == null)
+		{
 			return;
+		}
 
 		// layout node
 		thisNode.getLocation().hyper.set(thisCenter, this.theRadius);
@@ -96,7 +100,9 @@ public class LayerOut extends AbstractLayerOut
 		// children
 		final List<INode> theseChildren = thisNode.getChildren();
 		if (theseChildren == null || theseChildren.isEmpty())
+		{
 			return;
+		}
 
 		// center
 		final Complex thisCenter = thisNode.getLocation().hyper.center;
@@ -154,7 +160,7 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Compute distance
 	 *
-	 * @param thisChildCount
+	 * @param thisChildCount child count
 	 * @return distance
 	 */
 	private double computeDistance(final int thisChildCount)
@@ -192,10 +198,9 @@ public class LayerOut extends AbstractLayerOut
 		final Complex theta = Complex.makeFromArg(thisOrientation);
 		final Complex nz = new Complex(thisCenter).neg();
 		HyperTranslation.map2(theta, thisParentCenter, nz);
-		final double thisResult = theta.arg();
 		// </BOUTHIER>
 
-		return thisResult;
+		return theta.arg();
 	}
 
 	/**

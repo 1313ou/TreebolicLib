@@ -42,7 +42,7 @@ public class HyperOptimizedTransform implements IHyperTransform
 	/**
 	 * Precomputed p/theta
 	 */
-	private final Complex theXlatOntheRot;
+	private final Complex theXlatOnRot;
 
 	/**
 	 * Precomputed ~p
@@ -61,7 +61,7 @@ public class HyperOptimizedTransform implements IHyperTransform
 	{
 		this.theXlatConj = new Complex(t.theXlat).conj();
 		this.theInverseRot = new Complex(t.theRot).onediv();
-		this.theXlatOntheRot = new Complex(this.theInverseRot).mul(t.theXlat);
+		this.theXlatOnRot = new Complex(this.theInverseRot).mul(t.theXlat);
 	}
 
 	// M A P
@@ -79,14 +79,14 @@ public class HyperOptimizedTransform implements IHyperTransform
 		// z = (z+pontheta)/(invtheta+z*~p)
 
 		/*
-		 * Complex num = new Complex(z).add(theXlatOntheRot); Complex denom = new Complex(z).mul(theXlatConj).add(theInverseRot); return z.div(num, denom);
+		 * Complex num = new Complex(z).add(theXlatOnRot); Complex denom = new Complex(z).mul(theXlatConj).add(theInverseRot); return z.div(num, denom);
 		 */
 		// z
 		final double x = z.re;
 		final double y = z.im;
 		// z1 = z+pontheta;
-		final double numx = x + this.theXlatOntheRot.re;
-		final double numy = y + this.theXlatOntheRot.im;
+		final double numx = x + this.theXlatOnRot.re;
+		final double numy = y + this.theXlatOnRot.im;
 		// z2 = z.~p + invtheta
 		final double denomx = x * this.theXlatConj.re - y * this.theXlatConj.im + this.theInverseRot.re;
 		final double denomy = x * this.theXlatConj.im + y * this.theXlatConj.re + this.theInverseRot.im;

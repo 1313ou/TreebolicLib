@@ -10,15 +10,15 @@ import treebolic.glue.component.Component;
 
 public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphics>
 {
-	private static boolean cache = true;
+	private static final boolean cache = true;
 
 	private final Picture picture;
 
 	private final Canvas canvas;
 
-	private int width;
+	private final int width;
 
-	private int height;
+	private final int height;
 
 	public GraphicsCache(@SuppressWarnings("unused") final Component component, final Graphics thatGraphics, final int width0, final int height0)
 	{

@@ -5,7 +5,7 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
+ * <p>
  * Update : Mon Mar 10 00:00:00 CEST 2008
  */
 package treebolic.core;
@@ -144,7 +144,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set layout orientation
 	 *
-	 * @param thisOrientation
+	 * @param thisOrientation orientation
 	 */
 	public void setOrientation(final Complex thisOrientation)
 	{

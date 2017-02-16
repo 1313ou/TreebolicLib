@@ -16,12 +16,12 @@ public interface Image
 	 *
 	 * @return image width
 	 */
-	public int getWidth();
+	int getWidth();
 
 	/**
 	 * Image height
 	 *
 	 * @return height
 	 */
-	public int getHeight();
+	int getHeight();
 }

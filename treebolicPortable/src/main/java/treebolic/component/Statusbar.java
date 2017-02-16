@@ -24,7 +24,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	/**
 	 * Put type
 	 */
-	public static enum PutType
+	public enum PutType
 	{
 		INFO, LINK, MOUNT, SEARCH
 	}
@@ -34,12 +34,12 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	/**
 	 * Label background color
 	 */
-	static private Color[] theBackColor = new Color[PutType.values().length];
+	static private final Color[] theBackColor = new Color[PutType.values().length];
 
 	/**
 	 * Label foreground color
 	 */
-	static private Color[] theForeColor = new Color[PutType.values().length];
+	static private final Color[] theForeColor = new Color[PutType.values().length];
 
 	// init
 	static

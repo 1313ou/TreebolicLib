@@ -34,8 +34,7 @@ public class ModelReader
 	 */
 	public Model deserialize() throws IOException, ClassNotFoundException
 	{
-		final Model thisModel = (Model) ZipDeSerializer.deserializeZip(this.theArchive, "model"); //$NON-NLS-1$
-		return thisModel;
+		return (Model) ZipDeSerializer.deserializeZip(this.theArchive, "model");
 	}
 
 	/**
@@ -45,17 +44,16 @@ public class ModelReader
 	 */
 	public Model deserializeGuarded()
 	{
+		//noinspection TryWithIdenticalCatches
 		try
 		{
 			return deserialize();
 		}
-		catch (final ClassNotFoundException e)
+		catch (final ClassNotFoundException ignored)
 		{
-			//
 		}
-		catch (final IOException e)
+		catch (final IOException ignored)
 		{
-			//
 		}
 		return null;
 	}

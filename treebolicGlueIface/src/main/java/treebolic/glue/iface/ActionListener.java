@@ -14,5 +14,5 @@ public interface ActionListener
 	 *            parameter
 	 * @return true if handled
 	 */
-	public boolean onAction(Object... theseParams);
+	boolean onAction(Object... theseParams);
 }

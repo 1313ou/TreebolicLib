@@ -13,15 +13,14 @@ import treebolic.glue.Point2D;
  */
 public class ArcMath
 {
-	static double TWICEPI = 2. * Math.PI;
+	static final double TWICEPI = 2. * Math.PI;
 
 	static double HALFPI = .5 * Math.PI;
 
 	/**
 	 * Get arc eccentricity
 	 *
-	 * @param thisArc2D
-	 *            arc
+	 * @param thisArc2D arc
 	 * @return eccentricity of arc
 	 */
 	static private double getEccentricity(final Arc2D thisArc2D)
@@ -35,8 +34,7 @@ public class ArcMath
 	/**
 	 * Get mid-arc point
 	 *
-	 * @param thisArc2D
-	 *            arc
+	 * @param thisArc2D arc
 	 * @return point at mid-arc
 	 */
 	public static Point2D getMidArc(final Arc2D thisArc2D)
@@ -66,10 +64,8 @@ public class ArcMath
 	/**
 	 * Get tangent to this arc at given point (used for text orientation)
 	 *
-	 * @param thisArc2D
-	 *            arc
-	 * @param thisWhere
-	 *            point on arc
+	 * @param thisArc2D arc
+	 * @param thisWhere point on arc
 	 * @return tangent of this arc at given point
 	 */
 	public static double getTextTangent(final Arc2D thisArc2D, final Point2D thisWhere)
@@ -104,12 +100,9 @@ public class ArcMath
 	/**
 	 * Get tangent to arc at given point, the orientation returned is inwards arc
 	 *
-	 * @param thisArc2D
-	 *            arc
-	 * @param thisWhere
-	 *            point on arc
-	 * @param isStart
-	 *            whether point is start point
+	 * @param thisArc2D arc
+	 * @param thisWhere point on arc
+	 * @param isStart   whether point is start point
 	 * @return tangent of this arc at given point
 	 */
 	public static double getTangent(final Arc2D thisArc2D, final Point2D thisWhere, final boolean isStart)
@@ -134,10 +127,8 @@ public class ArcMath
 	/**
 	 * Get radius angle at given point on circle arc
 	 *
-	 * @param thisArc2D
-	 *            arc
-	 * @param thisWhere
-	 *            point on arc
+	 * @param thisArc2D arc
+	 * @param thisWhere point on arc
 	 * @return angle (of radius) at given point on this Arc2D
 	 */
 	public static double getCircleAngleAt(final Arc2D thisArc2D, final Point2D thisWhere)
@@ -151,10 +142,8 @@ public class ArcMath
 	/**
 	 * Get radius angle at point on arc
 	 *
-	 * @param thisArc2D
-	 *            arc
-	 * @param thisWhere
-	 *            point on arc where (outgoing) radius orientation is to be computed
+	 * @param thisArc2D arc
+	 * @param thisWhere point on arc where (outgoing) radius orientation is to be computed
 	 * @return (outgoing) radius orientation
 	 */
 	private static double getAngleAt(final Arc2D thisArc2D, final Point2D thisWhere)
@@ -191,14 +180,13 @@ public class ArcMath
 		{
 			thisAngle2 += ArcMath.TWICEPI;
 		}
-		final double t = (thisAngle1 + thisAngle2) / 2.;
-		return t;
+		return (thisAngle1 + thisAngle2) / 2.;
 	}
 
 	/**
 	 * Normalize angle
 	 *
-	 * @param angle
+	 * @param angle angle to normalize
 	 * @return normalized angle
 	 */
 	static double normalizeAngle(final double angle)
@@ -222,10 +210,8 @@ public class ArcMath
 	/**
 	 * Normalize angle diff
 	 *
-	 * @param firstAngle
-	 *            angle 1
-	 * @param secondAngle
-	 *            angle 2
+	 * @param firstAngle  angle 1
+	 * @param secondAngle angle 2
 	 * @return normalized angle difference
 	 */
 	static double normalizeAngleDiff(final double firstAngle, final double secondAngle)

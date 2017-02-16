@@ -15,8 +15,8 @@ import java.io.Serializable;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
 
+// @formatter:off
 /**
- * @formatter:off
  * Edge interface Style bits (32): 00dd-dddd-tttt-tttt-ffff-ffff-aaaa-aaaa with a=arc t=to-terminator f=from-terminator 
  * byte 1 = arc 
  * 		wwww dDlh with wwww=width d=dot D=dash l=line h=hidden
@@ -30,71 +30,71 @@ import treebolic.glue.Image;
  *  0011 = 3 = diamond 
  *  0100 = 4 = arrow
  *  0101 = 5 = hook
- * @formatter:on
  * @author Bernard Bou
  */
+// @formatter:on
 public interface IEdge extends Serializable
 {
 	/**
 	 * Define bits
 	 */
-	static public final int HIDDENDEF = 0x01000000;
+	int HIDDENDEF = 0x01000000;
 
-	static public final int LINEDEF = 0x02000000;
+	int LINEDEF = 0x02000000;
 
-	static public final int STROKEDEF = 0x04000000;
+	int STROKEDEF = 0x04000000;
 
-	static public final int STROKEWIDTHDEF = 0x08000000;
+	int STROKEWIDTHDEF = 0x08000000;
 
-	static public final int FROMDEF = 0x10000000;
+	int FROMDEF = 0x10000000;
 
-	static public final int TODEF = 0x20000000;
+	int TODEF = 0x20000000;
 
 	// S T R O K E
 
 	/**
 	 * Hidden bit
 	 */
-	static public final byte HIDDEN = 0x1;
+	byte HIDDEN = 0x1;
 
 	/**
 	 * Straight Line bit
 	 */
-	static public final byte LINE = 0x2;
+	byte LINE = 0x2;
 
 	// stroke ---- dDs-
 
 	/**
 	 * Stroke style bits
 	 */
-	static public final int STROKEMASK = 0xc;
+	int STROKEMASK = 0xc;
 
 	/**
 	 * Solid style bit
 	 */
-	static public final byte SOLID = 0x0;
+	byte SOLID = 0x0;
 
 	/**
 	 * Dash style bit
 	 */
-	static public final byte DASH = 0x4;
+	byte DASH = 0x4;
 
 	/**
 	 * Dotted style bit
 	 */
-	static public final byte DOT = 0x8;
+	byte DOT = 0x8;
 
 	// stroke width wwww ----
 
 	/**
 	 * Stroke width bits
 	 */
-	static public final int STROKEWIDTHMASK = 0xf0;
+	int STROKEWIDTHMASK = 0xf0;
 
 	/**
 	 * From-terminator shift
 	 */
-	static public final int STROKEWIDTHSHIFT = 4;
+	int STROKEWIDTHSHIFT = 4;
 
 	// T E R M I N A T O R S
 
@@ -108,37 +108,37 @@ public interface IEdge extends Serializable
 	/**
 	 * Terminator mask
 	 */
-	static public final int SHAPEMASK = 0xf0;
+	int SHAPEMASK = 0xf0;
 
 	/**
 	 * Triangle terminator style
 	 */
-	static public final int TRIANGLE = 0x10;
+	int TRIANGLE = 0x10;
 
 	/**
 	 * Circle terminator style
 	 */
-	static public final int CIRCLE = 0x20;
+	int CIRCLE = 0x20;
 
 	/**
 	 * Diamond terminator style
 	 */
-	static public final int DIAMOND = 0x30;
+	int DIAMOND = 0x30;
 
 	/**
 	 * Arrow terminator style
 	 */
-	static public final int ARROW = 0x40;
+	int ARROW = 0x40;
 
 	/**
 	 * Arrow terminator style
 	 */
-	static public final int HOOK = 0x50;
+	int HOOK = 0x50;
 
 	/**
 	 * Fill terminator flag
 	 */
-	static public final int FILL = 0x01;
+	int FILL = 0x01;
 
 	// F R O M T E R M I N A T O R
 	// 0000 0000 0000 0000 ffff ffff <<<< <<<<
@@ -146,42 +146,42 @@ public interface IEdge extends Serializable
 	/**
 	 * From-terminator mask
 	 */
-	static public final int FROMMASK = 0x0000ff00;
+	int FROMMASK = 0x0000ff00;
 
 	/**
 	 * From-terminator shift
 	 */
-	static public final int FROMSHIFT = 8;
+	int FROMSHIFT = 8;
 
 	/**
 	 * Solid from-terminator bit
 	 */
-	static public final int FROMFILL = IEdge.FILL << IEdge.FROMSHIFT;
+	int FROMFILL = IEdge.FILL << IEdge.FROMSHIFT;
 
 	/**
 	 * Triangle from-terminator bit
 	 */
-	static public final int FROMTRIANGLE = IEdge.TRIANGLE << IEdge.FROMSHIFT;
+	int FROMTRIANGLE = IEdge.TRIANGLE << IEdge.FROMSHIFT;
 
 	/**
 	 * Circle from-terminator bit
 	 */
-	static public final int FROMCIRCLE = IEdge.CIRCLE << IEdge.FROMSHIFT;
+	int FROMCIRCLE = IEdge.CIRCLE << IEdge.FROMSHIFT;
 
 	/**
 	 * Diamond from-terminator bit
 	 */
-	static public final int FROMDIAMOND = IEdge.DIAMOND << IEdge.FROMSHIFT;
+	int FROMDIAMOND = IEdge.DIAMOND << IEdge.FROMSHIFT;
 
 	/**
 	 * Arrow from-terminator bit
 	 */
-	static public final int FROMARROW = IEdge.ARROW << IEdge.FROMSHIFT;
+	int FROMARROW = IEdge.ARROW << IEdge.FROMSHIFT;
 
 	/**
 	 * Hook from-terminator bit
 	 */
-	static public final int FROMHOOK = IEdge.HOOK << IEdge.FROMSHIFT;
+	int FROMHOOK = IEdge.HOOK << IEdge.FROMSHIFT;
 
 	// T O T E R M I N A T O R
 	// 0000 0000 ttttt tttt <<<< <<<< <<<< <<<<
@@ -189,42 +189,42 @@ public interface IEdge extends Serializable
 	/**
 	 * To-terminator mask
 	 */
-	static public final int TOMASK = 0x00ff0000;
+	int TOMASK = 0x00ff0000;
 
 	/**
 	 * To-terminator shift
 	 */
-	static public final int TOSHIFT = 16;
+	int TOSHIFT = 16;
 
 	/**
 	 * Solid to-terminator bit
 	 */
-	static public final int TOFILL = IEdge.FILL << IEdge.TOSHIFT;
+	int TOFILL = IEdge.FILL << IEdge.TOSHIFT;
 
 	/**
 	 * Triangle to-terminator bit
 	 */
-	static public final int TOTRIANGLE = IEdge.TRIANGLE << IEdge.TOSHIFT;
+	int TOTRIANGLE = IEdge.TRIANGLE << IEdge.TOSHIFT;
 
 	/**
 	 * Circle to-terminator bit
 	 */
-	static public final int TOCIRCLE = IEdge.CIRCLE << IEdge.TOSHIFT;
+	int TOCIRCLE = IEdge.CIRCLE << IEdge.TOSHIFT;
 
 	/**
 	 * Diamond to-terminator bit
 	 */
-	static public final int TODIAMOND = IEdge.DIAMOND << IEdge.TOSHIFT;
+	int TODIAMOND = IEdge.DIAMOND << IEdge.TOSHIFT;
 
 	/**
 	 * Arrow to-terminator bit
 	 */
-	static public final int TOARROW = IEdge.ARROW << IEdge.TOSHIFT;
+	int TOARROW = IEdge.ARROW << IEdge.TOSHIFT;
 
 	/**
 	 * Arrow to-terminator bit
 	 */
-	static public final int TOHOOK = IEdge.HOOK << IEdge.TOSHIFT;
+	int TOHOOK = IEdge.HOOK << IEdge.TOSHIFT;
 
 	// M E T H O D S
 
@@ -233,56 +233,56 @@ public interface IEdge extends Serializable
 	 *
 	 * @return from-node
 	 */
-	public INode getFrom();
+	INode getFrom();
 
 	/**
 	 * Get to-node
 	 *
 	 * @return to-node
 	 */
-	public INode getTo();
+	INode getTo();
 
 	/**
 	 * Get edge label
 	 *
 	 * @return edge label
 	 */
-	public String getLabel();
+	String getLabel();
 
 	/**
 	 * Get edge color
 	 *
 	 * @return edge color
 	 */
-	public Color getColor();
+	Color getColor();
 
 	/**
 	 * Set edge style
 	 *
 	 * @return edge style
 	 */
-	public Integer getStyle();
+	Integer getStyle();
 
 	/**
 	 * Get edge image filename
 	 *
 	 * @return path to edge image filename
 	 */
-	public String getImageFile();
+	String getImageFile();
 
 	/**
 	 * Get edge image index
 	 *
 	 * @return edge image index
 	 */
-	public int getImageIndex();
+	int getImageIndex();
 
 	/**
 	 * Get edge image
 	 *
 	 * @return edge image
 	 */
-	public Image getImage();
+	Image getImage();
 
 	/**
 	 * Set image file
@@ -290,5 +290,5 @@ public interface IEdge extends Serializable
 	 * @param thisImage
 	 *        edge image
 	 */
-	public void setImage(Image thisImage);
+	void setImage(Image thisImage);
 }

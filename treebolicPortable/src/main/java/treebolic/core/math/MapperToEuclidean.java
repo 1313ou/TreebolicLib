@@ -14,7 +14,7 @@ import treebolic.model.Location;
  */
 public class MapperToEuclidean
 {
-	public static boolean adjustCircle = true;
+	public static final boolean adjustCircle = true;
 
 	/**
 	 * Map hyperspace circle to unit circle euclidean space

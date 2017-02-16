@@ -24,7 +24,7 @@ public class HyperRotation extends Complex
 	// C O N S T R U C T O R
 
 	/**
-	 * Defaut constructor
+	 * Default constructor
 	 */
 	public HyperRotation()
 	{
@@ -128,8 +128,7 @@ public class HyperRotation extends Complex
 		// = theta1*(1) /(1+1*0*~p2); (factored)
 		// = theta1 (factored)
 
-		final HyperTransform t = new HyperTransform(t2, r1);
-		return t;
+		return new HyperTransform(t2, r1);
 	}
 
 	// R E V E R S E

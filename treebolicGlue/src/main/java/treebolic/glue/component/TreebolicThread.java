@@ -32,6 +32,11 @@ public class TreebolicThread extends Thread
 	private SurfaceHolder surfaceHolder;
 
 	/**
+	 * Synchronizer
+	 */
+	final private Object synchronizer;
+
+	/**
 	 * Sleep lock
 	 */
 	private final Object lock = new Object();
@@ -59,6 +64,7 @@ public class TreebolicThread extends Thread
 		// get handles
 		this.surface = surface0;
 		this.surfaceHolder = surfaceHolder0;
+		this.synchronizer = new Object();
 	}
 
 	/**
@@ -138,7 +144,7 @@ public class TreebolicThread extends Thread
 			try
 			{
 				canvas = this.surfaceHolder.lockCanvas(null);
-				synchronized (this.surfaceHolder)
+				synchronized (this.synchronizer)
 				{
 					if (LOG)
 						Log.d(TreebolicThread.TAG, "task started " + ++TreebolicThread.drawCycle); //$NON-NLS-1$

@@ -12,7 +12,7 @@ package treebolic.model.graph;
 /**
  * @author Bernard Bou
  */
-public interface GraphNode
+interface GraphNode
 {
 	// do nothing
 }

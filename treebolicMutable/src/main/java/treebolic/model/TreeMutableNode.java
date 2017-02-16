@@ -98,7 +98,7 @@ public class TreeMutableNode extends MutableNode
 		List<INode> theseChildren = thisParent.getChildren();
 		if (theseChildren == null)
 		{
-			theseChildren = new ArrayList<INode>();
+			theseChildren = new ArrayList<>();
 			thisParent.setChildren(theseChildren);
 		}
 		theseChildren.add(i, this);
@@ -113,7 +113,7 @@ public class TreeMutableNode extends MutableNode
 		List<INode> theseChildren = thisParent.getChildren();
 		if (theseChildren == null)
 		{
-			theseChildren = new ArrayList<INode>();
+			theseChildren = new ArrayList<>();
 			thisParent.setChildren(theseChildren);
 		}
 		theseChildren.add(this);
@@ -128,7 +128,7 @@ public class TreeMutableNode extends MutableNode
 		List<INode> theseChildren = thisParent.getChildren();
 		if (theseChildren == null)
 		{
-			theseChildren = new ArrayList<INode>();
+			theseChildren = new ArrayList<>();
 			thisParent.setChildren(theseChildren);
 		}
 		theseChildren.add(0, this);

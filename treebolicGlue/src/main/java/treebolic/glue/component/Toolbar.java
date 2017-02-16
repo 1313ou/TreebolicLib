@@ -31,7 +31,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Image index enum
 	 */
-	static public enum ImageIndices
+	public enum ImageIndices
 	{
 		HOME, NORTH, SOUTH, EAST, WEST, RADIAL, EXPAND, SHRINK, WIDEN, NARROW, ZOOMIN, ZOOMOUT, ZOOMONE, SCALEUP, SCALEDOWN, SCALEONE, //
 		ARC, NO_ARC, NODETOOLTIP, NO_NODETOOLTIP, NODETOOLTIPCONTENT, NO_NODETOOLTIPCONTENT, HOVERFOCUS, NO_HOVERFOCUS
@@ -45,7 +45,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Toolbar tooltips (unused, but do not erase)
 	 */
-	static public String[] tooltips = { "Reset", // //$NON-NLS-1$
+	static public final String[] tooltips = { "Reset", // //$NON-NLS-1$
 			"Radial", "North", "South", "East", "West", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 			"Expand", "Shrink", "Widen", "Narrow", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 			"Zoom In", "Zoom Out", "Zoom reset", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$

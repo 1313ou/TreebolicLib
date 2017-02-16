@@ -3,7 +3,7 @@ package treebolic.glue.iface.component;
 import treebolic.glue.iface.ActionListener;
 
 /**
- * Glue interface for WebDialg
+ * Glue interface for WebDialog
  *
  * @author Bernard Bou
  */
@@ -17,7 +17,7 @@ public interface WebDialog
 	 * @param content
 	 *            content
 	 */
-	public void set(String header, String content);
+	void set(String header, String content);
 
 	/**
 	 * Set hyperlink listener
@@ -25,7 +25,7 @@ public interface WebDialog
 	 * @param thisActionListener
 	 *            listener
 	 */
-	public void setListener(final ActionListener thisActionListener);
+	void setListener(final ActionListener thisActionListener);
 
 	/**
 	 * Set style
@@ -33,10 +33,10 @@ public interface WebDialog
 	 * @param style
 	 *            style
 	 */
-	public void setStyle(String style);
+	void setStyle(String style);
 
 	/**
 	 * Show
 	 */
-	public void display();
+	void display();
 }
