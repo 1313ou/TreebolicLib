@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/TreebolicLib.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/TreebolicLib.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" />
+      <module fileurl="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/treebolicPortable.iml" filepath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/treebolicPortable.iml" />
+    </modules>
+  </component>
+</project>

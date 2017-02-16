@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="progress_max_lines">10</integer>
+    <integer name="status_min_lines">0</integer>
+    <integer name="status_max_lines">10</integer>
+    <integer name="status_min_ems">30</integer>
+    <integer name="status_max_ems">120</integer>
+
+</resources>
