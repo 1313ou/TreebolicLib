@@ -10,343 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e077fa1c-dd46-4b2a-aead-ac23e72f154d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/ic_splash.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_cancel.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_focus.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_goto.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/menu_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/status_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/status_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/status_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/status_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_east.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_expand.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_home.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_narrow.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_north.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_radial.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_scaledown.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_scaleone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_scaleup.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_shrink.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_south.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_west.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_widen.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_zoomin.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_zoomone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-hdpi/toolbar_zoomout.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/ic_splash.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_cancel.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_focus.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_goto.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/menu_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/status_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/status_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/status_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/status_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_east.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_expand.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_home.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_narrow.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_north.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_radial.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_scaledown.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_scaleone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_scaleup.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_shrink.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_south.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_west.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_widen.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_zoomin.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_zoomone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-mdpi/toolbar_zoomout.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-nodpi/progress_fail.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-nodpi/quickaction_arrow_down.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-nodpi/quickaction_arrow_up.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-nodpi/quickaction_frame.9.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-nodpi/quickaction_item_selected.9.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/ic_splash.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_cancel.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_focus.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_goto.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/menu_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/status_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/status_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/status_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/status_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_east.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_expand.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_home.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_narrow.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_north.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_radial.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_scaledown.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_scaleone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_scaleup.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_shrink.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_south.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_west.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_widen.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_zoomin.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_zoomone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xhdpi/toolbar_zoomout.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/ic_splash.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_cancel.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_focus.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_goto.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/menu_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/status_info.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/status_link.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/status_mount.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/status_search.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_east.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_expand.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_home.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_narrow.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_north.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_radial.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_scaledown.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_scaleone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_scaleup.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_shrink.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_south.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_west.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_widen.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_zoomin.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_zoomone.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxhdpi/toolbar_zoomout.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable-xxxhdpi/ic_splash.png" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/runConfigurations.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/TreebolicLib.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/gradlew" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/local.properties" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/settings.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/ActionListener.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Animator.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Arc2D.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Color.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/EventListener.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Image.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Point.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Point2D.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Rectangle2D.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/Worker.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Component.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/PopupAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/PopupMenu.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/QuickAction.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/SplitPaneLayout.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Statusbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/TreebolicThread.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/disappear.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/grow_from_bottom.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/grow_from_bottomleft_to_topright.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/grow_from_bottomright_to_topleft.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/grow_from_top.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/grow_from_topleft_to_bottomright.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/grow_from_topright_to_bottomleft.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/pump_bottom.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/pump_top.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/shrink_from_bottom.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/shrink_from_bottomleft_to_topright.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/shrink_from_bottomright_to_topleft.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/shrink_from_top.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/shrink_from_topleft_to_bottomright.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/anim/shrink_from_topright_to_bottomleft.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable/quickaction_item_btn.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable/splitter_bg_h.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable/splitter_bg_move_h.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable/splitter_bg_move_v.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/drawable/splitter_bg_v.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/dialog_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/popup_horizontal.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/popup_horizontal_item.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/popup_vertical.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/popup_vertical_item.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/progress.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/quickaction_horiz_separator.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/status_h.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/status_v.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/layout/tip_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values-fr/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values-large/fontsize.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values-normal/fontsize.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values-small/fontsize.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values-xlarge/fontsize.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/anim_styles.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/color.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/colors.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/fontsize.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/ids.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/integers.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/split_attrs.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/split_dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/styles.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/resources/treebolic/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/resources/treebolic/messages_fr.properties" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Animator.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Arc2D.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Color.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/EventListener.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Graphics.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/GraphicsCache.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Point.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Point2D.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Rectangle2D.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/Worker.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Container.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/PopupMenu.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Progress.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Surface.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Toolbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/GraphNode.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/java/org/treebolic/ParcelableModel.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/java/org/treebolic/TreebolicIface.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/java/treebolic/model/MutableNode.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/IContext.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/ILocator.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/IWidget.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/Messages.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/Widget.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/PopupMenu.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Progress.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Statusbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Toolbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Commander.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/EventListenerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Finder.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Generator.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Mounter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Traverser.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/AbstractLayerOut.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/LayerOut.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/Transformer.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/Weigher.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/location/Complex.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/location/EuclideanCircle.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/location/HyperCircle.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/Arc.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/ArcMath.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/Distance.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/MapperToEuclidean.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/XMath.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperRotation.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperTranslation.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/IHyperTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Edge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/IEdge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/INode.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Location.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/MenuItem.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Model.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ModelDump.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ModelReader.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ModelWriter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/MountPoint.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Node.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Settings.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Tree.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Utils.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ZipDeSerializer.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ZipSerializer.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/provider/IProvider.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/provider/IProviderContext.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/provider/ProviderUtils.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/AbstractPainter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/Animation.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/AnimationTransforms.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/Mapper.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/Painter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/View.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/treebolicPortable.iml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/vcs.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" />
     </list>
     <ignored path="TreebolicLib.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/.gradle/2.14.1/" />
     <ignored path="../../../../mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build/" />
+    <ignored path="treebolicLib/build/" />
+    <ignored path=".gradle/2.14.1/" />
+    <ignored path=".idea/libraries/hamcrest_core_1_3.xml" />
+    <ignored path=".idea/libraries/hamcrest_integration_1_3.xml" />
+    <ignored path=".idea/libraries/hamcrest_library_1_3.xml" />
+    <ignored path=".idea/libraries/javawriter_2_1_1.xml" />
+    <ignored path=".idea/libraries/espresso_core_2_2_2.xml" />
+    <ignored path=".idea/libraries/espresso_idling_resource_2_2_2.xml" />
+    <ignored path=".idea/vcs.xml" />
+    <ignored path=".idea/libraries/exposed_instrumentation_api_publish_0_5.xml" />
+    <ignored path=".idea/libraries/rules_0_5.xml" />
+    <ignored path=".idea/libraries/runner_0_5.xml" />
+    <ignored path=".idea/libraries/javax_annotation_api_1_2.xml" />
+    <ignored path=".idea/libraries/javax_inject_1.xml" />
+    <ignored path=".idea/libraries/jsr305_2_0_1.xml" />
+    <ignored path=".idea/libraries/junit_4_12.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -378,6 +64,11 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="bbou" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="/mnt/data2/devel/android-treebolic-as/TreebolicLib" />
   </component>
   <component name="GradleLocalSettings">
@@ -6988,6 +6679,21 @@
       <option name="presentableId" value="Default" />
       <updated>1487147848094</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial">
+      <created>1487223659439</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1487223659439</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial">
+      <created>1487223803969</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1487223803969</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -7038,6 +6744,12 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
