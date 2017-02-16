@@ -1,7 +1,6 @@
 package org.treebolic;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
@@ -700,9 +699,9 @@ public class ParcelableModel implements Parcelable
 		final String link = ParcelableModel.readString(parcel);
 		final String target = ParcelableModel.readString(parcel);
 		final String imageFile = ParcelableModel.readString(parcel);
-		final int imageIndex = ParcelableModel.readInteger(parcel);
+		final Integer imageIndex = ParcelableModel.readInteger(parcel);
 		final String edgeImageFile = ParcelableModel.readString(parcel);
-		final int edgeImageIndex = ParcelableModel.readInteger(parcel);
+		final Integer edgeImageIndex = ParcelableModel.readInteger(parcel);
 		final MountPoint mountPoint = ParcelableModel.readMountPoint(parcel);
 
 		if (label != null)
@@ -745,7 +744,7 @@ public class ParcelableModel implements Parcelable
 		{
 			node.setImageFile(imageFile);
 		}
-		if (imageIndex != -1)
+		if (imageIndex != null && imageIndex != -1)
 		{
 			node.setImageIndex(imageIndex);
 		}
@@ -753,7 +752,7 @@ public class ParcelableModel implements Parcelable
 		{
 			node.setEdgeImageFile(edgeImageFile);
 		}
-		if (edgeImageIndex != -1)
+		if (edgeImageIndex != null && edgeImageIndex != -1)
 		{
 			node.setEdgeImageIndex(edgeImageIndex);
 		}
@@ -841,9 +840,9 @@ public class ParcelableModel implements Parcelable
 		final Color color = ParcelableModel.readColor(parcel);
 		final Integer style = ParcelableModel.readInteger(parcel);
 		final String imageFile = ParcelableModel.readString(parcel);
-		final int imageIndex = ParcelableModel.readInteger(parcel);
+		final Integer imageIndex = ParcelableModel.readInteger(parcel);
 
-		if (!label.isEmpty())
+		if (label != null && !label.isEmpty())
 		{
 			edge.setLabel(label);
 		}
@@ -855,15 +854,11 @@ public class ParcelableModel implements Parcelable
 		{
 			edge.setStyle(style);
 		}
-		if (!imageFile.isEmpty())
+		if (imageFile != null && !imageFile.isEmpty())
 		{
 			edge.setImageFile(imageFile);
 		}
-		if (!imageFile.isEmpty())
-		{
-			edge.setImageFile(imageFile);
-		}
-		if (imageIndex != -1)
+		if (imageIndex != null && imageIndex != -1)
 		{
 			edge.setImageIndex(imageIndex);
 		}
@@ -1148,6 +1143,7 @@ public class ParcelableModel implements Parcelable
 
 	// T E S T
 
+	/*
 	public static boolean parcelTest(final Bundle bundle, final String key)
 	{
 		// model1
@@ -1159,13 +1155,18 @@ public class ParcelableModel implements Parcelable
 
 		// extract bundle from parcel
 		parcel.setDataPosition(0);
-		final Bundle bundle2 = parcel.readBundle();
+		final Bundle bundle2 = parcel.readBundle(ParcelableModel.class.getClassLoader());
 		bundle2.setClassLoader(Model.class.getClassLoader());
 
 		// model2
 		final ParcelableModel model2 = bundle2.getParcelable(key);
 		parcel.recycle();
 
-		return model1.getModel().equals(model2.getModel());
+		if (model1 != null && model2 != null)
+		{
+			return model1.getModel().equals(model2.getModel());
+		}
+		return model1 == model2;
 	}
+	*/
 }

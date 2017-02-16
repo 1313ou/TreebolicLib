@@ -17,6 +17,7 @@ import org.treebolic.glue.R;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("EmptyMethod")
 public class Tip extends DialogFragment
 {
 	/**

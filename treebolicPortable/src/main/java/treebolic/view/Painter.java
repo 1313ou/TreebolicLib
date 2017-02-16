@@ -139,7 +139,7 @@ public class Painter extends AbstractPainter
 		}
 
 		// boundary circle
-		//noinspection PointlessBitwiseExpression
+		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_OUTERCIRCLE) != 0)
 		{
 			drawCircle(0., 0., 1., Color.LIGHT_GRAY);
@@ -235,12 +235,12 @@ public class Painter extends AbstractPainter
 		}
 
 		// debug
-		//noinspection PointlessBitwiseExpression
+		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_NODECIRCLE) != 0)
 		{
 			drawSpace(thisNode);
 		}
-		//noinspection PointlessBitwiseExpression
+		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_NONODE) != 0)
 		{
 			return;
@@ -360,7 +360,7 @@ public class Painter extends AbstractPainter
 			final int ry = 10;
 
 			// fill
-			//noinspection PointlessBitwiseExpression
+			//noinspection PointlessBitwiseExpression,ConstantConditions
 			if ((Painter.DEBUG & Painter.DEBUG_NOLABELFILL) == 0)
 			{
 				this.theGraphics.setColor(thisNodeData.theBackColor);
@@ -405,7 +405,7 @@ public class Painter extends AbstractPainter
 		}
 
 		// image
-		//noinspection PointlessBitwiseExpression
+		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if (thisNodeData.theImage != null && (Painter.DEBUG & Painter.DEBUG_NOIMAGE) == 0)
 		{
 			if (thisNodeData.theImageWidth >= Painter.MIN_IMAGE_DIMENSION && thisNodeData.theImageHeight >= Painter.MIN_IMAGE_DIMENSION)
@@ -422,7 +422,7 @@ public class Painter extends AbstractPainter
 		}
 
 		// label
-		//noinspection PointlessBitwiseExpression
+		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_NOLABEL) != 0)
 		{
 			return;
@@ -1013,7 +1013,7 @@ public class Painter extends AbstractPainter
 					break;
 			}
 
-			if (thisStrokeValue != 0 || thisWidth != 0)
+			if (thisWidth != 0)
 			{
 				this.theGraphics.pushStroke();
 				this.theGraphics.setStroke(thisStrokeValue, thisWidth);
@@ -1166,7 +1166,7 @@ public class Painter extends AbstractPainter
 					break;
 			}
 
-			if (thisStrokeValue != 0 || thisWidth != 0)
+			if (thisWidth != 0)
 			{
 				this.theGraphics.pushStroke();
 				this.theGraphics.setStroke(thisStrokeValue, thisWidth);

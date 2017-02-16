@@ -140,7 +140,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * Obtain byte array from image
 	 *
 	 * @return byte array
-	 * @throws IOException
 	 */
 	public byte[] getByteArray()
 	{
@@ -153,12 +152,11 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * Set image from byte array
 	 *
 	 * @param imageByteArray byte array
-	 * @throws IOException
-	 * @throws ClassNotFoundException
 	 */
 	public void setFromByteArray(final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
+		//noinspection deprecation
 		opt.inDither = true;
 		opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
 		this.bitmap = BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length, opt);

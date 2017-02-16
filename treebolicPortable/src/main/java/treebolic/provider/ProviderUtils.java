@@ -23,10 +23,11 @@ public class ProviderUtils
 {
 	static public URL makeURL(final String thisSource, final URL thisBase, @SuppressWarnings("unused") final Properties theseExtras, final IProviderContext thisContext)
 	{
-		final boolean debug = true;
+		final boolean DEBUG = true;
 		if (thisSource == null)
 		{
-			if (debug)
+			//noinspection ConstantConditions,ConstantConditions,ConstantConditions
+			if (DEBUG)
 			{
 				thisContext.warn("URL= null (null source)"); //$NON-NLS-1$
 			}
@@ -37,7 +38,8 @@ public class ProviderUtils
 		try
 		{
 			final URL thisUrl = new URL(thisSource);
-			if (debug)
+			//noinspection ConstantConditions
+			if (DEBUG)
 			{
 				thisContext.message("URL=" + thisUrl.toString()); //$NON-NLS-1$
 			}
@@ -52,7 +54,8 @@ public class ProviderUtils
 		try
 		{
 			final URL thisUrl = new URL(thisBase, thisSource);
-			if (debug)
+			//noinspection ConstantConditions
+			if (DEBUG)
 			{
 				thisContext.message("URL=" + thisUrl.toString()); // + " from BASE URL=" + thisBase.toString()); //$NON-NLS-1$
 			}
@@ -62,7 +65,8 @@ public class ProviderUtils
 		{
 			// do nothing
 		}
-		if (debug)
+		//noinspection ConstantConditions
+		if (DEBUG)
 		{
 			thisContext.warn("URL= null (fail)"); //$NON-NLS-1$
 		}

@@ -5,7 +5,7 @@
  * Copyright : (c) 2001-2014
  * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
  * Author : Bernard Bou
- *
+ * <p>
  * Update : Mon Mar 10 00:00:00 CEST 2008
  */
 package treebolic.model;
@@ -24,43 +24,35 @@ public class ModelDump
 	/**
 	 * Stringify model
 	 *
-	 * @param thisModel
-	 *            model
+	 * @param thisModel model
 	 * @return string for model
 	 */
 	static public String toString(final Model thisModel)
 	{
-		final StringBuilder thisBuilder= new StringBuilder();
-		thisBuilder.append(ModelDump.toString(thisModel.theTree));
-		thisBuilder.append(ModelDump.toString(thisModel.theSettings));
-		thisBuilder.append(ModelDump.toString(thisModel.theImages));
-		return thisBuilder.toString();
+		return ModelDump.toString(thisModel.theTree) +
+				ModelDump.toString(thisModel.theSettings) +
+				ModelDump.toString(thisModel.theImages);
 	}
 
 	/**
 	 * Stringify tree
 	 *
-	 * @param thisTree
-	 *            tree
+	 * @param thisTree tree
 	 * @return string for tree
 	 */
 	static public String toString(final Tree thisTree)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
-		thisBuilder.append("NODES\n"); //$NON-NLS-1$
-		thisBuilder.append(ModelDump.toString(thisTree.getRoot(), 0));
-		thisBuilder.append("EDGES\n"); //$NON-NLS-1$
-		thisBuilder.append(ModelDump.toString(thisTree.getEdges()));
-		return thisBuilder.toString();
+		return "NODES\n" + //$NON-NLS-1$
+				ModelDump.toString(thisTree.getRoot(), 0) +
+				"EDGES\n" + //$NON-NLS-1$
+				ModelDump.toString(thisTree.getEdges());
 	}
 
 	/**
 	 * Stringify node and children
 	 *
-	 * @param thisNode
-	 *            node
-	 * @param thisLevel
-	 *            level
+	 * @param thisNode  node
+	 * @param thisLevel level
 	 * @return string for node
 	 */
 	static public String toString(final INode thisNode, final int thisLevel)
@@ -121,8 +113,7 @@ public class ModelDump
 	/**
 	 * Stringify edge list
 	 *
-	 * @param thisEdgeList
-	 *            edge list
+	 * @param thisEdgeList edge list
 	 * @return string for edge list
 	 */
 	static public String toString(final List<IEdge> thisEdgeList)
@@ -142,8 +133,7 @@ public class ModelDump
 	/**
 	 * Stringify image list
 	 *
-	 * @param theseImages
-	 *            images
+	 * @param theseImages images
 	 * @return string for images
 	 */
 	static public String toString(final Image[] theseImages)
@@ -152,6 +142,7 @@ public class ModelDump
 		thisBuilder.append("IMAGES\n"); //$NON-NLS-1$
 		int i = 0;
 		if (theseImages != null)
+		{
 			for (Image thisImage : theseImages)
 			{
 				thisBuilder.append(i);
@@ -160,14 +151,14 @@ public class ModelDump
 				thisBuilder.append('\n');
 				i++;
 			}
+		}
 		return thisBuilder.toString();
 	}
 
 	/**
 	 * Stringify settings
 	 *
-	 * @param theseSettings
-	 *            settings
+	 * @param theseSettings settings
 	 * @return string for settings
 	 */
 	static public String toString(final Settings theseSettings)
@@ -180,9 +171,9 @@ public class ModelDump
 		thisBuilder.append("FontFace=").append(theseSettings.theFontFace).append('\n'); //$NON-NLS-1$
 		thisBuilder.append("FontSize=").append(theseSettings.theFontSize).append('\n'); //$NON-NLS-1$
 		thisBuilder.append("DownScaleFonts=").append(theseSettings.theDownscaleFontsFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("FontScaler=").append(theseSettings.theFontDownscaler).append('\n'); //$NON-NLS-1$
+		thisBuilder.append("FontScaler=").append(toString(theseSettings.theFontDownscaler)).append('\n'); //$NON-NLS-1$
 		thisBuilder.append("DownScaleImages=").append(theseSettings.theDownscaleImagesFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("ImageScaler=").append(theseSettings.theImageDownscaler).append('\n'); //$NON-NLS-1$
+		thisBuilder.append("ImageScaler=").append(toString(theseSettings.theImageDownscaler)).append('\n'); //$NON-NLS-1$
 		thisBuilder.append("Orientation=").append(theseSettings.theOrientation).append('\n'); //$NON-NLS-1$
 		thisBuilder.append("Expansion=").append(theseSettings.theExpansion).append('\n'); //$NON-NLS-1$
 		thisBuilder.append("Sweep=").append(theseSettings.theSweep).append('\n'); //$NON-NLS-1$
@@ -234,8 +225,7 @@ public class ModelDump
 	/**
 	 * Stringify style
 	 *
-	 * @param thisStyle
-	 *            style
+	 * @param thisStyle style
 	 * @return string for style
 	 */
 	static public String toString(final Integer thisStyle)
@@ -248,6 +238,28 @@ public class ModelDump
 		thisBuilder.append(" width=").append(theseStrings[3]); //$NON-NLS-1$
 		thisBuilder.append(" fromterminator=").append(theseStrings[4]); //$NON-NLS-1$
 		thisBuilder.append(" toterminator=").append(theseStrings[5]); //$NON-NLS-1$
+		return thisBuilder.toString();
+	}
+
+	static private String toString(final float[] theseFloats)
+	{
+		final StringBuilder thisBuilder = new StringBuilder();
+		if (theseFloats != null)
+		{
+			boolean first = true;
+			for (float thisFloat : theseFloats)
+			{
+				if (first)
+				{
+					first = false;
+				}
+				else
+				{
+					thisBuilder.append(' ');
+				}
+				thisBuilder.append(thisFloat);
+			}
+		}
 		return thisBuilder.toString();
 	}
 }

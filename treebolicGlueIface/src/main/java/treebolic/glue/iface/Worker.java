@@ -9,8 +9,6 @@ public interface Worker
 {
 	/**
 	 * Job to do
-	 *
-	 * @throws Exception
 	 */
 	void job();
 

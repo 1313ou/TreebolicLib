@@ -5,6 +5,7 @@ package treebolic.glue.iface.component;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("EmptyMethod")
 public interface Surface<G, L>
 {
 	/**

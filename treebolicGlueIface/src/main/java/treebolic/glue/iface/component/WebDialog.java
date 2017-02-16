@@ -10,6 +10,14 @@ import treebolic.glue.iface.ActionListener;
 public interface WebDialog
 {
 	/**
+	 * Set handle
+	 *
+	 * @param handle
+	 *            (opaque) handle
+	 */
+	void setHandle(final Object handle);
+
+	/**
 	 * Set header and content
 	 *
 	 * @param header
@@ -17,7 +25,7 @@ public interface WebDialog
 	 * @param content
 	 *            content
 	 */
-	void set(String header, String content);
+	void set(final String header, final String content);
 
 	/**
 	 * Set hyperlink listener
@@ -33,7 +41,7 @@ public interface WebDialog
 	 * @param style
 	 *            style
 	 */
-	void setStyle(String style);
+	void setStyle(final String style);
 
 	/**
 	 * Show

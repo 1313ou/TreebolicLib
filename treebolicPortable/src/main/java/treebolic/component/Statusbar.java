@@ -10,6 +10,8 @@
  */
 package treebolic.component;
 
+import android.annotation.SuppressLint;
+
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
 import treebolic.model.Settings;
@@ -19,6 +21,7 @@ import treebolic.model.Settings;
  *
  * @author Bernard Bou
  */
+@SuppressLint("ViewConstructor")
 public class Statusbar extends treebolic.glue.component.Statusbar implements Component
 {
 	/**

@@ -10,6 +10,8 @@
  */
 package treebolic.view;
 
+import android.annotation.SuppressLint;
+
 import treebolic.control.Controller;
 import treebolic.control.EventListenerAdapter;
 import treebolic.control.Finder;
@@ -33,6 +35,7 @@ import treebolic.model.Settings;
  *
  * @author Bernard Bou
  */
+@SuppressLint("ViewConstructor")
 public class View extends Surface
 {
 	// D A T A

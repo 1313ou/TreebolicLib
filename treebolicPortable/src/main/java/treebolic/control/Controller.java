@@ -503,6 +503,7 @@ public class Controller extends Commander
 	 * @param thisNode
 	 *        node
 	 */
+	@SuppressWarnings("ConstantConditions")
 	private void putInfo(final INode thisNode)
 	{
 		final String thisLabel = Controller.getLabel(thisNode);
@@ -544,14 +545,14 @@ public class Controller extends Commander
 		{
 			thisBuilder.append(' ');
 			// thisBuffer.append('L');
-			thisBuilder.append("🌐"); //$NON-NLS-1$
+			thisBuilder.append("🌐"); // \uD83C\uDF10 // &#x1f310; //$NON-NLS-1$
 		}
 		final MountPoint thisMountPoint = thisNode.getMountPoint();
 		if (thisMountPoint != null)
 		{
 			thisBuilder.append(' ');
 			// thisBuffer.append('M');
-			thisBuilder.append("🔗"); //$NON-NLS-1$
+			thisBuilder.append("🔗"); // \uD83D\uDD17 // &#x1f517; //$NON-NLS-1$
 		}
 
 		return thisBuilder.toString();

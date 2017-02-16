@@ -6,11 +6,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
@@ -62,7 +64,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	/**
 	 * Activity
 	 */
-	private final Activity activity;
+	private Activity activity;
 
 	/**
 	 * Action listener
@@ -72,24 +74,21 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	/**
 	 * Constructor
 	 *
-	 * @param activity0
-	 *            activity
 	 */
-	public WebDialog(final Activity activity0)
+	public WebDialog()
 	{
 		super();
-		this.activity = activity0;
 	}
 
 	/**
-	 * Constructor
+	 * (non-Javadoc)
 	 *
-	 * @param handle
-	 *            activity handle
+	 * @see treebolic.glue.iface.component.WebDialog#setHandle(Object)
 	 */
-	public WebDialog(final Object handle)
+	@Override
+	public void setHandle(final Object handle)
 	{
-		this((Activity) handle);
+		this.activity = (Activity) handle;
 	}
 
 	/*
@@ -178,7 +177,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 				this.intercept = true;
 			}
 
-			@SuppressWarnings("synthetic-access")
+			@SuppressWarnings({"synthetic-access","deprecation"})
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
 			{
@@ -186,6 +185,20 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 				{
 					Log.d(WebDialog.TAG, "url:" + url); //$NON-NLS-1$
 					WebDialog.this.actionListener.onAction(url);
+					return true;
+				}
+				return false;
+			}
+
+			@TargetApi(Build.VERSION_CODES.N)
+			@Override
+			public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request)
+			{
+				final Uri uri = request.getUrl();
+				if (this.intercept && uri != null)
+				{
+					Log.d(WebDialog.TAG, "url:" + uri); //$NON-NLS-1$
+					WebDialog.this.actionListener.onAction(uri);
 					return true;
 				}
 				return false;

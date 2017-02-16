@@ -301,7 +301,8 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				for (int i = 0; i < xdetector.activePointers.size(); i++)
 				{
 					final int key = xdetector.activePointers.keyAt(i);
-					// get the object by the key.
+
+					// get the object by the key
 					final PointF p = xdetector.activePointers.get(key);
 					if (left == null || p.x < left.x)
 					{
@@ -313,6 +314,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 					}
 				}
 				boolean zoom = false;
+				//noinspection ConstantConditions
 				if (left != null && right != null && left.y < right.y)
 				{
 					zoom = true;

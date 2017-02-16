@@ -18,6 +18,7 @@ public interface EventListener
 	 *            rotate requested
 	 * @return true if handled
 	 */
+	@SuppressWarnings("SameReturnValue")
 	boolean onDown(int x, int y, boolean rotate);
 
 	/**
@@ -29,6 +30,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
+	@SuppressWarnings("SameReturnValue")
 	boolean onUp(int x, int y);
 
 	/**
@@ -40,6 +42,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
+	@SuppressWarnings("SameReturnValue")
 	boolean onDragged(int x, int y);
 
 	/**
@@ -51,6 +54,7 @@ public interface EventListener
 	 *            screen y-coordinate
 	 * @return true if handled
 	 */
+	@SuppressWarnings("SameReturnValue")
 	boolean onSelect(int x, int y);
 
 	/**

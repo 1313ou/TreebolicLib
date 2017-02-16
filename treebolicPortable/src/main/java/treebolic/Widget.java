@@ -11,6 +11,8 @@
 
 package treebolic;
 
+import android.annotation.SuppressLint;
+
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -55,6 +57,7 @@ import treebolic.view.View;
  *
  * @author Bernard Bou
  */
+@SuppressLint("ViewConstructor")
 public class Widget extends Container implements IWidget, IProviderContext
 {
 	// B E H A V I O U R
@@ -1128,7 +1131,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public void putInfo(final String thisHeader, final String thisContent)
 	{
-		final WebDialog thisWebDialog = new WebDialog(this.theHandle);
+		final WebDialog thisWebDialog = new WebDialog();
+		thisWebDialog.setHandle(this.theHandle);
 		thisWebDialog.setListener(new ActionListener()
 		{
 			@SuppressWarnings("synthetic-access")

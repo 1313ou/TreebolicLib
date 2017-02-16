@@ -170,8 +170,13 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		final Resources res = getResources();
 		try
 		{
-			return Drawable.createFromXml(res, res.getXml(dragging ? this.isHorizontal ? R.drawable.splitter_bg_move_v : R.drawable.splitter_bg_move_h
-					: this.isHorizontal ? R.drawable.splitter_bg_v : R.drawable.splitter_bg_h));
+			return Drawable.createFromXml(res, res.getXml(dragging ? //
+					this.isHorizontal ? //
+							R.xml.splitter_bg_move_v : //
+							R.xml.splitter_bg_move_h //
+					: this.isHorizontal ? //
+							R.xml.splitter_bg_v : //
+							R.xml.splitter_bg_h));
 		}
 		catch (final Exception ex)
 		{

@@ -565,6 +565,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Listener for window dismiss
 	 */
+	@SuppressWarnings("EmptyMethod")
 	interface OnDismissListener
 	{
 		void onDismiss();

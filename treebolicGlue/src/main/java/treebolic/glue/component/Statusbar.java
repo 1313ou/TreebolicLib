@@ -1,5 +1,6 @@
 package treebolic.glue.component;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -25,6 +26,7 @@ import treebolic.glue.Color;
  *
  * @author Bernard Bou
  */
+@SuppressLint("ViewConstructor")
 public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar<Color, ActionListener>
 {
 	/**
@@ -287,12 +289,10 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	@SuppressWarnings("boxing")
 	private String getDefaultBaseStyle()
 	{
-		final StringBuilder builder = new StringBuilder();
-		builder.append("body {"); //$NON-NLS-1$
-		builder.append(String.format("background-color: #%06X;", 0xFFFFFF & this.background)); //$NON-NLS-1$
-		builder.append(String.format("color: #%06X;", 0xFFFFFF & this.foreground)); //$NON-NLS-1$
-		builder.append('}');
-		return builder.toString();
+		return "body {" + //$NON-NLS-1$
+				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //$NON-NLS-1$
+				String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //$NON-NLS-1$
+				'}';
 	}
 
 	/**
