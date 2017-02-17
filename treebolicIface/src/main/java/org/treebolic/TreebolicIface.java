@@ -1,6 +1,6 @@
 package org.treebolic;
 
-interface TreebolicIface
+public interface TreebolicIface
 {
 	boolean USE_MODEL_REFERENCES = false;
 
