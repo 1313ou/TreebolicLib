@@ -1,10 +1,11 @@
 package treebolic.glue.component;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialog;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
@@ -18,7 +19,7 @@ import org.treebolic.glue.R;
  * @author Bernard Bou
  */
 @SuppressWarnings("EmptyMethod")
-public class Tip extends DialogFragment
+public class Tip extends AppCompatDialogFragment
 {
 	/**
 	 * Text name (used when saving instance)
@@ -72,8 +73,9 @@ public class Tip extends DialogFragment
 	 *
 	 * @see android.app.DialogFragment#onCreateDialog(android.os.Bundle)
 	 */
+	@NonNull
 	@Override
-	public Dialog onCreateDialog(final Bundle savedInstanceState)
+	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
 		final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -103,7 +105,7 @@ public class Tip extends DialogFragment
 		;
 
 		// create the AlertDialog object and return it
-		final Dialog dialog = builder.create();
+		final AppCompatDialog dialog = builder.create();
 		dialog.setCanceledOnTouchOutside(true);
 		return dialog;
 	}
@@ -127,7 +129,7 @@ public class Tip extends DialogFragment
 	 * @param text
 	 *            text to display
 	 */
-	static public void tip(final Activity activity, final String text)
+	static public void tip(final AppCompatActivity activity, final String text)
 	{
 		// Tip tip = new Tip();
 		// tip.setText(text);

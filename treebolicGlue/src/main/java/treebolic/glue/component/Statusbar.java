@@ -2,7 +2,7 @@ package treebolic.glue.component;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
@@ -60,7 +60,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Activity
 	 */
-	private final Activity activity;
+	private final AppCompatActivity activity;
 
 	/**
 	 * Horizontal / vertical
@@ -92,7 +92,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings("deprecation")
-	protected Statusbar(final Activity activity0)
+	protected Statusbar(final AppCompatActivity activity0)
 	{
 		super(activity0);
 		this.activity = activity0;
@@ -127,7 +127,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	protected Statusbar(final Object handle)
 	{
-		this((Activity) handle);
+		this((AppCompatActivity) handle);
 	}
 
 	/*

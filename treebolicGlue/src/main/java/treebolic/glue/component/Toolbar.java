@@ -2,7 +2,7 @@ package treebolic.glue.component;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
@@ -57,7 +57,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Activity
 	 */
-	private final Activity activity;
+	private final AppCompatActivity activity;
 
 	/**
 	 * Panel of buttons
@@ -79,7 +79,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings("deprecation")
-	protected Toolbar(final Activity activity0)
+	protected Toolbar(final AppCompatActivity activity0)
 	{
 		super(activity0);
 		this.activity = activity0;
@@ -128,7 +128,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	protected Toolbar(final Object handle)
 	{
-		this((Activity) handle);
+		this((AppCompatActivity) handle);
 	}
 
 	/*

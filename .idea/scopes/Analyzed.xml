@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Analyzed" pattern="file[treebolicGlue]:src/main//*||file[treebolicGlue]:build.gradle||file[treebolicGlueIface]:src/main//*||file[treebolicGlueIface]:build.gradle||file[treebolicGraph]:src/main//*||file[treebolicGraph]:build.gradle||file[treebolicIface]:src/main//*||file[treebolicIface]:build.gradle||file[treebolicLib]:src/main//*||file[treebolicLib]:build.gradle||file[treebolicMutable]:src/main//*||file[treebolicMutable]:build.gradle||file[treebolicPortable]:src/main/*||file[treebolicPortable]:build.gradle||file[TreebolicLib]:build.gradle||file[TreebolicLib]:settings.gradle" />
+</component>

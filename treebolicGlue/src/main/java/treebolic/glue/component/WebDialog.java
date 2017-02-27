@@ -1,10 +1,11 @@
 package treebolic.glue.component;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatDialog;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
@@ -27,7 +28,7 @@ import treebolic.glue.iface.ActionListener;
  *
  * @author Bernard Bou
  */
-public class WebDialog extends DialogFragment implements treebolic.glue.iface.component.WebDialog
+public class WebDialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.WebDialog
 {
 	static final String TAG = "WebDialog"; //$NON-NLS-1$
 
@@ -64,7 +65,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	/**
 	 * Activity
 	 */
-	private Activity activity;
+	private AppCompatActivity activity;
 
 	/**
 	 * Action listener
@@ -73,7 +74,6 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 
 	/**
 	 * Constructor
-	 *
 	 */
 	public WebDialog()
 	{
@@ -88,7 +88,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	@Override
 	public void setHandle(final Object handle)
 	{
-		this.activity = (Activity) handle;
+		this.activity = (AppCompatActivity) handle;
 	}
 
 	/*
@@ -127,8 +127,9 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	 *
 	 * @see android.app.DialogFragment#onCreateDialog(android.os.Bundle)
 	 */
+	@NonNull
 	@Override
-	public Dialog onCreateDialog(final Bundle savedInstanceState)
+	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
 		final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -177,7 +178,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 				this.intercept = true;
 			}
 
-			@SuppressWarnings({"synthetic-access","deprecation"})
+			@SuppressWarnings({"synthetic-access", "deprecation"})
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
 			{
@@ -223,7 +224,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 		;
 
 		// create the AlertDialog object and return it
-		final Dialog dialog = builder.create();
+		final AppCompatDialog dialog = builder.create();
 		dialog.setCanceledOnTouchOutside(true);
 		return dialog;
 	}
@@ -257,7 +258,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	@Override
 	public void display()
 	{
-		show(this.activity.getFragmentManager(), "info"); //$NON-NLS-1$
+		show(this.activity.getSupportFragmentManager(), "info"); //$NON-NLS-1$
 	}
 
 	/**
@@ -266,7 +267,7 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 	 * @return default style
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings({ "boxing", "deprecation" })
+	@SuppressWarnings({"boxing", "deprecation"})
 	private String getDefaultBaseStyle()
 	{
 		final Resources resources = getResources();
@@ -293,9 +294,8 @@ public class WebDialog extends DialogFragment implements treebolic.glue.iface.co
 
 	/**
 	 * Set base for webview
-	 * 
-	 * @param base0
-	 *            base URL
+	 *
+	 * @param base0 base URL
 	 */
 	public static void setBase(String base0)
 	{
