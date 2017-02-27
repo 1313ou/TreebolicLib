@@ -435,11 +435,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 	// R E P A I N T
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Surface#repaint()
-	 */
 	@Override
 	public void repaint()
 	{
@@ -459,22 +454,12 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	// @Override
 	// public int getHeight();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Surface#setCursor(int)
-	 */
 	@Override
 	public void setCursor(final int cursor)
 	{
 		// pointless
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Surface#setToolTipText(java.lang.String)
-	 */
 	@Override
 	public void setToolTipText(final String text)
 	{
@@ -487,11 +472,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 	// T O U C H A N D H O V E R
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.view.View#onTouchEvent(android.view.MotionEvent)
-	 */
 	@Override
 	public boolean onTouchEvent(final MotionEvent event)
 	{
@@ -542,33 +522,18 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		return super.onTouchEvent(event);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Surface#addEventListener(treebolic.glue.EventListener)
-	 */
 	@Override
 	public void addEventListener(final EventListener listener0)
 	{
 		this.listener = listener0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Surface#setFireHover(boolean)
-	 */
 	@Override
 	public void setFireHover(final boolean flag)
 	{
 		this.fireHover = flag;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.view.View#onHoverEvent(android.view.MotionEvent)
-	 */
 	@Override
 	public boolean onHoverEvent(final MotionEvent event)
 	{

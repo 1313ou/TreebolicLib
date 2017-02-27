@@ -131,11 +131,6 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		this((AppCompatActivity) handle);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Toolbar#addButton(int, java.lang.String, treebolic.glue.ActionListener)
-	 */
 	@SuppressWarnings("deprecation")
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
@@ -169,11 +164,6 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		this.panel.addView(btn, this.layoutParams);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Toolbar#addToggle(int, int, java.lang.String, boolean, treebolic.glue.ActionListener)
-	 */
 	@Override
 	public void addToggle(final int thisIconIndex, final int thisSelectedIconIndex, final String thisToolTip, final boolean thisState,
 			final ActionListener thisListener)
@@ -181,11 +171,6 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		//
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Toolbar#addSeparator()
-	 */
 	@Override
 	public void addSeparator()
 	{

@@ -177,11 +177,6 @@ public class HyperTransform implements IHyperTransform
 	// map() does hyperbolic motion:
 	// rotation on t.theta over center and translation over t.theXlat;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IHTransform#map(treebolic.kernel.Complex)
-	 */
 	@Override
 	public Complex map(final Complex z)
 	{
@@ -265,11 +260,6 @@ public class HyperTransform implements IHyperTransform
 
 	// S T R I N G
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

@@ -67,11 +67,6 @@ public class HyperOptimizedTransform implements IHyperTransform
 	// M A P
 	// map() does hyperbolic motion:
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IHTransform#map(treebolic.kernel.Complex)
-	 */
 	@Override
 	public Complex map(final Complex z)
 	{

@@ -130,11 +130,6 @@ class NodeData implements Serializable
 
 	// I D
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getId()
-	 */
 	public String getId()
 	{
 		return this.theId;
@@ -143,112 +138,57 @@ class NodeData implements Serializable
 	// A C C E S S
 
 	// display
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return this.theLabel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getLabel()
-	 */
 	public String getLabel()
 	{
 		return this.theLabel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeLabel()
-	 */
 	public String getEdgeLabel()
 	{
 		return this.theEdgeLabel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setEdgeLabel()
-	 */
 	public void setEdgeLabel(final String thisLabel)
 	{
 		this.theEdgeLabel = thisLabel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getContent()
-	 */
 	public String getContent()
 	{
 		return this.theContent;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getBackColor()
-	 */
 	public Color getBackColor()
 	{
 		return this.theBackColor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getForeColor()
-	 */
 	public Color getForeColor()
 	{
 		return this.theForeColor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeColor()
-	 */
 	public Color getEdgeColor()
 	{
 		return this.theEdgeColor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setEdgeColor()
-	 */
 	public void setEdgeColor(final Color thisColor)
 	{
 		this.theEdgeColor = thisColor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeStyle()
-	 */
 	public Integer getEdgeStyle()
 	{
 		return this.theEdgeStyle;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeStyle()
-	 */
 	public void setEdgeStyle(final Integer thisStyle)
 	{
 		this.theEdgeStyle = thisStyle;
@@ -256,21 +196,11 @@ class NodeData implements Serializable
 
 	// link
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getLink()
-	 */
 	public String getLink()
 	{
 		return this.theLink;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getTarget()
-	 */
 	public String getTarget()
 	{
 		return this.theTarget;
@@ -278,51 +208,26 @@ class NodeData implements Serializable
 
 	// image
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getImageIndex()
-	 */
 	public int getImageIndex()
 	{
 		return this.theImageIndex;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getImageFile()
-	 */
 	public String getImageFile()
 	{
 		return this.theImageFile;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeImageIndex()
-	 */
 	public int getEdgeImageIndex()
 	{
 		return this.theEdgeImageIndex;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setEdgeImageIndex()
-	 */
 	public void setEdgeImageIndex(final int thisImageIndex)
 	{
 		this.theEdgeImageIndex = thisImageIndex;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeImageFile()
-	 */
 	public String getEdgeImageFile()
 	{
 		return this.theEdgeImageFile;
@@ -397,11 +302,6 @@ class XNodeData extends NodeData
 	// A C C E S S
 
 	// location
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getLocation()
-	 */
 	public Location getLocation()
 	{
 		if (this.theLocation == null)
@@ -412,72 +312,37 @@ class XNodeData extends NodeData
 	}
 
 	// weight
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getWeight()
-	 */
 	public double getWeight()
 	{
 		return this.theWeight;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setWeight(double)
-	 */
 	public void setWeight(final double thisWeight)
 	{
 		this.theWeight = thisWeight;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getChildrenWeight()
-	 */
 	public double getChildrenWeight()
 	{
 		return this.theChildrenWeight;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setChildrenWeight(double)
-	 */
 	public void setChildrenWeight(final double thisWeight)
 	{
 		this.theChildrenWeight = thisWeight;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getMinWeight()
-	 */
 	public double getMinWeight()
 	{
 		return this.theMinWeight;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setMinWeight(double)
-	 */
 	public void setMinWeight(final double thisWeight)
 	{
 		this.theMinWeight = thisWeight;
 	}
 
 	// mountpoint
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getMountPoint()
-	 */
 	public MountPoint getMountPoint()
 	{
 		return this.theMountPoint;
@@ -494,41 +359,21 @@ class XNodeData extends NodeData
 	}
 
 	// images
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getImage()
-	 */
 	public Image getImage()
 	{
 		return this.theImage;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setImage()
-	 */
 	public void setImage(final Image thisImage)
 	{
 		this.theImage = thisImage;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getEdgeImage()
-	 */
 	public Image getEdgeImage()
 	{
 		return this.theEdgeImage;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setEdgeImage(Image)
-	 */
 	public void setEdgeImage(final Image thisImage)
 	{
 		this.theEdgeImage = thisImage;
@@ -579,33 +424,18 @@ public class Node extends XNodeData implements INode
 		this.theId = thisId;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#getParent()
-	 */
 	@Override
 	public INode getParent()
 	{
 		return this.theParent;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#setParent(treebolic.model.INode)
-	 */
 	@Override
 	public void setParent(final INode thisParent)
 	{
 		this.theParent = thisParent;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.model.INode#removeTChild(treebolic.model.INode)
-	 */
 	@Override
 	public List<INode> getChildren()
 	{

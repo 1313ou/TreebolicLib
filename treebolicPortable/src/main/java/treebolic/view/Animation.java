@@ -55,11 +55,6 @@ public class Animation extends ActionListener
 		return this.theTransforms.size();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.ActionListener#onAction(java.lang.Object[])
-	 */
 	@SuppressWarnings("boxing")
 	@Override
 	public boolean onAction(final Object... theseParams)

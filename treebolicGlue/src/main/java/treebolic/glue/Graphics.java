@@ -123,11 +123,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 	// B A C K G R O U N D
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawBackgroundColor(java.lang.Object, int, int, int, int)
-	 */
+
 	@Override
 	public void drawBackgroundColor(final Color color, final int left, final int top, final int width, final int height)
 	{
@@ -140,11 +136,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 	// D R A W
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawLine(int, int, int, int)
-	 */
+
 	@Override
 	public void drawLine(final int x1, final int y1, final int x2, final int y2)
 	{
@@ -152,11 +144,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawLine(x1, y1, x2, y2, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawArc(float, float, float, float, float, float)
-	 */
+
 	@Override
 	public void drawArc(final float x, final float y, final float w, final float h, final float start, final float extent)
 	{
@@ -165,11 +153,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawArc(oval, -start, -extent, false, this.paint); // android: angles start at 3:00 and rotate clockwise
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawPolyline(int[], int[], int)
-	 */
+
 	@Override
 	public void drawPolyline(final int[] x, final int[] y, final int length)
 	{
@@ -185,11 +169,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawPath(path, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawPolygon(int[], int[], int)
-	 */
+
 	@Override
 	public void drawPolygon(final int[] x, final int[] y, final int length)
 	{
@@ -205,11 +185,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawPath(path, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#fillPolygon(int[], int[], int)
-	 */
+
 	@Override
 	public void fillPolygon(final int[] x, final int[] y, final int length)
 	{
@@ -225,11 +201,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawPath(path, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#fillRectangle(int, int, int, int)
-	 */
+
 	@Override
 	public void fillRectangle(final int left, final int top, final int width, final int height)
 	{
@@ -238,11 +210,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawRect(rect, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawRoundRectangle(int, int, int, int, int, int)
-	 */
+
 	@Override
 	public void drawRoundRectangle(final int left, final int top, final int width, final int height, final int rx, final int ry)
 	{
@@ -251,11 +219,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawRoundRect(rect, rx, ry, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#fillRoundRectangle(int, int, int, int, int, int)
-	 */
+
 	@Override
 	public void fillRoundRectangle(final int left, final int top, final int width, final int height, final int rx, final int ry)
 	{
@@ -264,11 +228,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawRoundRect(rect, rx, ry, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawOval(float, float, float, float)
-	 */
+
 	@Override
 	public void drawOval(final float left, final float top, final float width, final float height)
 	{
@@ -277,11 +237,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawOval(rect, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#fillOval(float, float, float, float)
-	 */
+
 	@Override
 	public void fillOval(final float left, final float top, final float width, final float height)
 	{
@@ -290,11 +246,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawOval(rect, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawString(java.lang.String, int, int)
-	 */
+
 	@Override
 	public void drawString(final String str, final int x, final int y)
 	{
@@ -303,11 +255,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.drawText(str, x, y, this.paint);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawImage(treebolic.glue.Image, int, int)
-	 */
+
 	@Override
 	public void drawImage(final Image image, final int x, final int y)
 	{
@@ -317,11 +265,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#drawImage(java.lang.Object, int, int, int, int)
-	 */
+
 	@Override
 	public void drawImage(final Image image, final int x, final int y, final int w, final int h)
 	{
@@ -334,11 +278,6 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 	// P A I N T
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#setColor(treebolic.glue.Color)
-	 */
 	@Override
 	public void setColor(final Color color)
 	{
@@ -349,22 +288,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#getColor()
-	 */
 	@Override
 	public Color getColor()
 	{
 		return new Color(this.paint.getColor());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#setFont(treebolic.glue.Font)
-	 */
 	@Override
 	public void setFont(final String face0, final int style0)
 	{
@@ -372,22 +301,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.paint.setTypeface(thisTypeface);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#setTextSize(float)
-	 */
 	@Override
 	public void setTextSize(final float size)
 	{
 		this.paint.setTextSize(size * Graphics.fontFactor * Graphics.PT2PX);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#stringWidth(java.lang.String)
-	 */
 	@Override
 	public int stringWidth(final String string)
 	{
@@ -396,22 +315,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		return (int) this.paint.measureText(string);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#getDescent()
-	 */
 	@Override
 	public int getDescent()
 	{
 		return (int) this.paint.descent();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#getAscent()
-	 */
 	@Override
 	public int getAscent()
 	{
@@ -419,11 +328,6 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		return -(int) this.paint.ascent();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#setStroke(int)
-	 */
 	@Override
 	public void setStroke(final int stroke, int width)
 	{
@@ -452,11 +356,6 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#pushStroke()
-	 */
 	@Override
 	public void pushStroke()
 	{
@@ -464,11 +363,6 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.strokeWidth = this.paint.getStrokeWidth();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#popStroke()
-	 */
 	@Override
 	public void popStroke()
 	{
@@ -478,22 +372,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 	// T R A N S F O R M S
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#translate(int, int)
-	 */
 	@Override
 	public void translate(final float dx, final float dy)
 	{
 		this.canvas.translate(dx, dy);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#rotate(float, float, float)
-	 */
 	@Override
 	public void rotate(final float theta, final float px, final float py)
 	{
@@ -501,33 +385,18 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.canvas.rotate((float) Math.toDegrees(theta));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#beginPaint()
-	 */
 	@Override
 	public void scale(final float factor, final float px, final float py)
 	{
 		this.canvas.scale(factor, factor, px, py);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#pushMatrix()
-	 */
 	@Override
 	public void pushMatrix()
 	{
 		this.canvas.save(Canvas.MATRIX_SAVE_FLAG);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.Graphics#popMatrix()
-	 */
 	@Override
 	public void popMatrix()
 	{

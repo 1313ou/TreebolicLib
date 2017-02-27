@@ -127,11 +127,6 @@ public class HyperCircle implements Serializable
 
 	// S T R I N G
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

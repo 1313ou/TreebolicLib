@@ -79,11 +79,7 @@ public abstract class EventListener implements treebolic.glue.iface.EventListene
 	@Override
 	abstract public boolean onMount(int x, int y);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.EventListener#onScale(float, float, float)
-	 */
+
 	@Override
 	abstract public void onScale(float mapScale, float fontScale, float imageScale);
 }

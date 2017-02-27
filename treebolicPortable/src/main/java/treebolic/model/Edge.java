@@ -64,41 +64,21 @@ class EdgeData implements Serializable
 		this.theImageIndex = -1;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getLabel()
-	 */
 	public String getLabel()
 	{
 		return this.theLabel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getColor()
-	 */
 	public Color getColor()
 	{
 		return this.theColor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getStyle()
-	 */
 	public Integer getStyle()
 	{
 		return this.theStyle;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getImageFile()
-	 */
 	public String getImageFile()
 	{
 		return this.theImageFile;
@@ -125,11 +105,6 @@ class XEdgeData extends EdgeData
 	 */
 	protected Image theImage;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getImage()
-	 */
 	public Image getImage()
 	{
 		return this.theImage;
@@ -181,33 +156,18 @@ public class Edge extends XEdgeData implements IEdge
 		this.theToNode = thisToINode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getFrom()
-	 */
 	@Override
 	public INode getFrom()
 	{
 		return this.theFromNode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.kernel.IEdge#getTo()
-	 */
 	@Override
 	public INode getTo()
 	{
 		return this.theToNode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

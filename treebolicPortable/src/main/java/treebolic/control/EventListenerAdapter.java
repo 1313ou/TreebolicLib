@@ -101,11 +101,6 @@ public class EventListenerAdapter extends EventListener
 
 	// L I S T E N E R
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onFocus(int, int)
-	 */
 	@Override
 	public boolean onFocus(final int x, final int y)
 	{
@@ -118,11 +113,6 @@ public class EventListenerAdapter extends EventListener
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onMenu(int, int)
-	 */
 	@Override
 	public boolean onMenu(final int x, final int y)
 	{
@@ -138,11 +128,6 @@ public class EventListenerAdapter extends EventListener
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onMount(int, int)
-	 */
 	@Override
 	public boolean onMount(final int x, final int y)
 	{
@@ -155,11 +140,6 @@ public class EventListenerAdapter extends EventListener
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onLink(int, int)
-	 */
 	@Override
 	public boolean onLink(final int x, final int y)
 	{
@@ -172,11 +152,6 @@ public class EventListenerAdapter extends EventListener
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onDown(int, int, boolean)
-	 */
 	@Override
 	public boolean onDown(final int x, final int y, final boolean rotate)
 	{
@@ -187,11 +162,6 @@ public class EventListenerAdapter extends EventListener
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onUp(int, int)
-	 */
 	@Override
 	public boolean onUp(final int x, final int y)
 	{
@@ -213,11 +183,6 @@ public class EventListenerAdapter extends EventListener
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onDragged(int, int)
-	 */
 	@Override
 	public boolean onDragged(final int x, final int y)
 	{
@@ -237,11 +202,6 @@ public class EventListenerAdapter extends EventListener
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onSelect(int, int)
-	 */
 	@Override
 	public boolean onSelect(final int x, final int y)
 	{
@@ -305,11 +265,6 @@ public class EventListenerAdapter extends EventListener
 
 	// H O V E R
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.EventListener#onHover(int, int)
-	 */
 	@Override
 	public boolean onHover(final int x, final int y)
 	{
@@ -324,11 +279,6 @@ public class EventListenerAdapter extends EventListener
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.EventListener#onLongHover()
-	 */
 	@Override
 	public boolean onLongHover()
 	{
@@ -358,11 +308,6 @@ public class EventListenerAdapter extends EventListener
 		return this.theHotNode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.EventListener#onZoom(float)
-	 */
 	@SuppressWarnings("boxing")
 	@Override
 	public void onZoom(final float thisZoomFactor, final float thisZoomPivotX, final float thisZoomPivotY)
@@ -370,11 +315,6 @@ public class EventListenerAdapter extends EventListener
 		this.theController.handle(Controller.Event.ZOOM, thisZoomFactor, thisZoomPivotX, thisZoomPivotY);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.EventListener#onScale(float, float, float)
-	 */
 	@SuppressWarnings("boxing")
 	@Override
 	public void onScale(final float thisMapScaleFactor, final float thisFontScaleFactor, final float thisImageScaleFactor)

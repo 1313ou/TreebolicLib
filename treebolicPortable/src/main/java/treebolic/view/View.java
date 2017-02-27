@@ -179,11 +179,6 @@ public class View extends Surface
 
 	// P A I N T I N G
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.appletcore.IView#repaint()
-	 */
 	@Override
 	public void repaint()
 	{

@@ -130,11 +130,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this((AppCompatActivity) handle);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Statusbar#init(treebolic.glue.Font, int)
-	 */
 	@Override
 	public void init(final int image)
 	{
@@ -154,33 +149,18 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		// does not fire events
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Statusbar#setColors(treebolic.glue.Color, treebolic.glue.Color)
-	 */
 	@Override
 	public void setColors(final Color backColor, final Color foreColor)
 	{
 		//
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Statusbar#setStyle(java.lang.String)
-	 */
 	@Override
 	public void setStyle(final String style0)
 	{
 		this.style = style0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Statusbar#put(java.lang.String, java.lang.String, int)
-	 */
 	@SuppressWarnings("deprecation")
 	@Override
 	public void put(final String label, final String content, final int image)
@@ -230,11 +210,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.Statusbar#put(java.lang.String)
-	 */
 	@Override
 	public void put(final String message)
 	{

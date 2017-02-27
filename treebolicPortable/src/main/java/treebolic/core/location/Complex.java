@@ -509,11 +509,6 @@ public class Complex implements Serializable
 	// S T R I N G
 
 	@SuppressWarnings("boxing")
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

@@ -43,11 +43,6 @@ public class LayerOut extends AbstractLayerOut
 
 	// O P E R A T I O N
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.core.AbstractLayerOut#layout()
-	 */
 	@Override
 	public synchronized void layout(final INode thisNode)
 	{
@@ -63,11 +58,6 @@ public class LayerOut extends AbstractLayerOut
 		layoutChildren(thisNode, this.theRootSweep, this.theRootOrientation.arg());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.core.AbstractLayerOut#layout(treebolic.model.INode, treebolic.core.Complex, double, double)
-	 */
 	@Override
 	public synchronized void layout(final INode thisNode, final Complex thisCenter, final double thisHalfWedge, final double thisOrientation)
 	{

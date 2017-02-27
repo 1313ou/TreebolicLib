@@ -97,11 +97,6 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 		this(((View) handle).getContext(), (View) handle);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.PopupMenu#addItem(java.lang.String, int, treebolic.glue.ActionListener)
-	 */
 	@Override
 	public void addItem(final String label, final int resource, final ActionListener listener)
 	{
@@ -113,11 +108,6 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 		this.quickAction.addActionItem(item);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see treebolic.glue.iface.component.PopupMenu#popup(treebolic.glue.component.Component, int, int)
-	 */
 	@Override
 	public void popup(final Component component, final int x, final int y)
 	{
