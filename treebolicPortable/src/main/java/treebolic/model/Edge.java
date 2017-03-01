@@ -171,6 +171,6 @@ public class Edge extends XEdgeData implements IEdge
 	@Override
 	public String toString()
 	{
-		return (this.theFromNode == null ? "null" : this.theFromNode.getLabel()) + "->" + (this.theToNode == null ? "null" : this.theToNode.getLabel()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return (this.theFromNode == null ? "null" : this.theFromNode.getLabel()) + "->" + (this.theToNode == null ? "null" : this.theToNode.getLabel());
 	}
 }

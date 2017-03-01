@@ -26,99 +26,99 @@ public class Settings implements Serializable
 {
 	private static final long serialVersionUID = -4310347294902070347L;
 
-	public static final String PROP_TOOLBAR = "toolbar"; //$NON-NLS-1$
+	public static final String PROP_TOOLBAR = "toolbar";
 
-	public static final String PROP_STATUSBAR = "statusbar"; //$NON-NLS-1$
+	public static final String PROP_STATUSBAR = "statusbar";
 
-	public static final String PROP_POPUPMENU = "popupmenu"; //$NON-NLS-1$
+	public static final String PROP_POPUPMENU = "popupmenu";
 
-	public static final String PROP_TOOLTIP = "tooltip"; //$NON-NLS-1$
+	public static final String PROP_TOOLTIP = "tooltip";
 
-	public static final String PROP_TOOLTIP_DISPLAYS_CONTENT = "tooltip-displays-content"; //$NON-NLS-1$
+	public static final String PROP_TOOLTIP_DISPLAYS_CONTENT = "tooltip-displays-content";
 
-	public static final String PROP_FOCUS = "focus"; //$NON-NLS-1$
+	public static final String PROP_FOCUS = "focus";
 
-	public static final String PROP_FOCUS_ON_HOVER = "focus-on-hover"; //$NON-NLS-1$
+	public static final String PROP_FOCUS_ON_HOVER = "focus-on-hover";
 
-	public static final String PROP_XMOVETO = "xmoveto"; //$NON-NLS-1$
+	public static final String PROP_XMOVETO = "xmoveto";
 
-	public static final String PROP_YMOVETO = "ymoveto"; //$NON-NLS-1$
+	public static final String PROP_YMOVETO = "ymoveto";
 
-	public static final String PROP_XSHIFT = "xshift"; //$NON-NLS-1$
+	public static final String PROP_XSHIFT = "xshift";
 
-	public static final String PROP_YSHIFT = "yshift"; //$NON-NLS-1$
+	public static final String PROP_YSHIFT = "yshift";
 
-	public static final String PROP_ORIENTATION = "orientation"; //$NON-NLS-1$
+	public static final String PROP_ORIENTATION = "orientation";
 
-	public static final String PROP_EXPANSION = "expansion"; //$NON-NLS-1$
+	public static final String PROP_EXPANSION = "expansion";
 
-	public static final String PROP_SWEEP = "sweep"; //$NON-NLS-1$
+	public static final String PROP_SWEEP = "sweep";
 
-	public static final String PROP_PRESERVE_ORIENTATION = "preserve-orientation"; //$NON-NLS-1$
+	public static final String PROP_PRESERVE_ORIENTATION = "preserve-orientation";
 
-	public static final String PROP_FONTFACE = "fontface"; //$NON-NLS-1$
+	public static final String PROP_FONTFACE = "fontface";
 
-	public static final String PROP_FONTSIZE = "fontsize"; //$NON-NLS-1$
+	public static final String PROP_FONTSIZE = "fontsize";
 
-	public static final String PROP_SCALE_FONTS = "scale.fonts"; //$NON-NLS-1$
+	public static final String PROP_SCALE_FONTS = "scale.fonts";
 
-	public static final String PROP_FONT_SCALER = "font.scaler"; //$NON-NLS-1$
+	public static final String PROP_FONT_SCALER = "font.scaler";
 
-	public static final String PROP_SCALE_IMAGES = "scale.images"; //$NON-NLS-1$
+	public static final String PROP_SCALE_IMAGES = "scale.images";
 
-	public static final String PROP_IMAGE_SCALER = "image.scaler"; //$NON-NLS-1$
+	public static final String PROP_IMAGE_SCALER = "image.scaler";
 
-	public static final String PROP_BACKCOLOR = "backcolor"; //$NON-NLS-1$
+	public static final String PROP_BACKCOLOR = "backcolor";
 
-	public static final String PROP_FORECOLOR = "forecolor"; //$NON-NLS-1$
+	public static final String PROP_FORECOLOR = "forecolor";
 
-	public static final String PROP_BACKGROUND_IMAGE = "background.image"; //$NON-NLS-1$
+	public static final String PROP_BACKGROUND_IMAGE = "background.image";
 
-	public static final String PROP_NODE_BACKCOLOR = "node.backcolor"; //$NON-NLS-1$
+	public static final String PROP_NODE_BACKCOLOR = "node.backcolor";
 
-	public static final String PROP_NODE_FORECOLOR = "node.forecolor"; //$NON-NLS-1$
+	public static final String PROP_NODE_FORECOLOR = "node.forecolor";
 
-	public static final String PROP_NODE_IMAGE = "node.image"; //$NON-NLS-1$
+	public static final String PROP_NODE_IMAGE = "node.image";
 
-	public static final String PROP_NODE_BORDER = "node.border"; //$NON-NLS-1$
+	public static final String PROP_NODE_BORDER = "node.border";
 
-	public static final String PROP_NODE_ELLIPSIZE = "node.ellipsize"; //$NON-NLS-1$
+	public static final String PROP_NODE_ELLIPSIZE = "node.ellipsize";
 
-	public static final String PROP_EDGE_AS_ARC = "edge.arc"; //$NON-NLS-1$
+	public static final String PROP_EDGE_AS_ARC = "edge.arc";
 
-	public static final String PROP_EDGE_IMAGE = "edge.image"; //$NON-NLS-1$
+	public static final String PROP_EDGE_IMAGE = "edge.image";
 
-	public static final String PROP_TREE_EDGE_IMAGE = "tree.edge.image"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_IMAGE = "tree.edge.image";
 
-	public static final String PROP_EDGE_COLOR = "edge.color"; //$NON-NLS-1$
+	public static final String PROP_EDGE_COLOR = "edge.color";
 
-	public static final String PROP_TREE_EDGE_COLOR = "tree.edge.color"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_COLOR = "tree.edge.color";
 
-	public static final String PROP_EDGE_STROKE = "edge.stroke"; //$NON-NLS-1$
+	public static final String PROP_EDGE_STROKE = "edge.stroke";
 
-	public static final String PROP_EDGE_STROKEWIDTH = "edge.strokewidth"; //$NON-NLS-1$
+	public static final String PROP_EDGE_STROKEWIDTH = "edge.strokewidth";
 
-	public static final String PROP_EDGE_FROMTERMINATOR = "edge.fromterminator"; //$NON-NLS-1$
+	public static final String PROP_EDGE_FROMTERMINATOR = "edge.fromterminator";
 
-	public static final String PROP_EDGE_TOTERMINATOR = "edge.toterminator"; //$NON-NLS-1$
+	public static final String PROP_EDGE_TOTERMINATOR = "edge.toterminator";
 
-	public static final String PROP_EDGE_LINE = "edge.line"; //$NON-NLS-1$
+	public static final String PROP_EDGE_LINE = "edge.line";
 
-	public static final String PROP_EDGE_HIDDEN = "edge.hidden"; //$NON-NLS-1$
+	public static final String PROP_EDGE_HIDDEN = "edge.hidden";
 
-	public static final String PROP_TREE_EDGE_STROKE = "tree.edge.stroke"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_STROKE = "tree.edge.stroke";
 
-	public static final String PROP_TREE_EDGE_STROKEWIDTH = "tree.edge.strokewidth"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_STROKEWIDTH = "tree.edge.strokewidth";
 
-	public static final String PROP_TREE_EDGE_FROMTERMINATOR = "tree.edge.fromterminator"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_FROMTERMINATOR = "tree.edge.fromterminator";
 
-	public static final String PROP_TREE_EDGE_TOTERMINATOR = "tree.edge.toterminator"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_TOTERMINATOR = "tree.edge.toterminator";
 
-	public static final String PROP_TREE_EDGE_LINE = "tree.edge.line"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_LINE = "tree.edge.line";
 
-	public static final String PROP_TREE_EDGE_HIDDEN = "tree.edge.hidden"; //$NON-NLS-1$
+	public static final String PROP_TREE_EDGE_HIDDEN = "tree.edge.hidden";
 
-	public static final String PROP_MENUITEM = "menuitem"; //$NON-NLS-1$
+	public static final String PROP_MENUITEM = "menuitem";
 
 	// V I E W
 
@@ -571,7 +571,7 @@ public class Settings implements Serializable
 		for (int i = 0; (thisParam = theseProperties.getProperty(Settings.PROP_MENUITEM + i)) != null; i++)
 		{
 			// label;action;link;target;matchTarget;matchScope;matchMode
-			final String[] theseFields = thisParam.split(";"); //$NON-NLS-1$
+			final String[] theseFields = thisParam.split(";");
 			if (theseFields.length != 7)
 			{
 				continue;

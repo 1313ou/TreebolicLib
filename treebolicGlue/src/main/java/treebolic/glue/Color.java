@@ -87,11 +87,6 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 		this.isNull = false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#set(int, int, int)
-	 */
 	@Override
 	public void set(final int r, final int g, final int b)
 	{
@@ -99,11 +94,6 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 		this.isNull = false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#set(int)
-	 */
 	@Override
 	public void set(final int rgb)
 	{
@@ -146,11 +136,6 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 */
 	private static final float FACTOR = 0.85F;
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#makeBrighter()
-	 */
 	@Override
 	public Color makeBrighter()
 	{
@@ -177,11 +162,6 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 		return new Color(Math.min((int) (r / Color.FACTOR), 255), Math.min((int) (g / Color.FACTOR), 255), Math.min((int) (b / Color.FACTOR), 255));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#makeDarker()
-	 */
 	@Override
 	public Color makeDarker()
 	{
@@ -191,11 +171,6 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 		return new Color(Math.max((int) (r * Color.FACTOR), 0), Math.max((int) (g * Color.FACTOR), 0), Math.max((int) (b * Color.FACTOR), 0));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#getRGB()
-	 */
 	@Override
 	public int getRGB()
 	{
@@ -207,18 +182,13 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 		return 0xFF000000 | this.color;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#parse(java.lang.String)
-	 */
 	@Override
 	public void parse(final String string)
 	{
 		this.isNull = true;
 		try
 		{
-			this.color = android.graphics.Color.parseColor("#" + string); //$NON-NLS-1$
+			this.color = android.graphics.Color.parseColor("#" + string);
 			this.isNull = false;
 		}
 		catch (final IllegalArgumentException e)
@@ -237,17 +207,12 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 				}
 				catch (final NumberFormatException e3)
 				{
-					throw new IllegalArgumentException("color:" + string); //$NON-NLS-1$
+					throw new IllegalArgumentException("color:" + string);
 				}
 			}
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Color#isNull()
-	 */
 	@Override
 	public boolean isNull()
 	{

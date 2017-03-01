@@ -34,6 +34,6 @@ public class ModelWriter
 	 */
 	public void serialize(final Model thisModel) throws IOException
 	{
-		ZipSerializer.serializeZip(this.theArchive, "model", thisModel); //$NON-NLS-1$
+		ZipSerializer.serializeZip(this.theArchive, "model", thisModel);
 	}
 }

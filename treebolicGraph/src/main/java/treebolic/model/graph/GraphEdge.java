@@ -142,13 +142,9 @@ public class GraphEdge
 		return thisNode.equals(this.theFromNode) ? this.theToNode : this.theFromNode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
-		return this.theFromNode.toString() + " -> " + this.theToNode.toString(); //$NON-NLS-1$
+		return this.theFromNode.toString() + " -> " + this.theToNode.toString();
 	}
 }

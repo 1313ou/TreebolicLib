@@ -407,25 +407,21 @@ public class Graph
 
 	// S T R I N G
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
-		thisBuilder.append("Nodes :\n"); //$NON-NLS-1$
+		thisBuilder.append("Nodes :\n");
 		for (final GraphNode thisNode : getNodes())
 		{
 			thisBuilder.append(thisNode.toString());
-			thisBuilder.append("\n"); //$NON-NLS-1$
+			thisBuilder.append("\n");
 		}
-		thisBuilder.append("Edges :\n"); //$NON-NLS-1$
+		thisBuilder.append("Edges :\n");
 		for (final GraphEdge thisEdge : getEdges())
 		{
 			thisBuilder.append(thisEdge.toString());
-			thisBuilder.append("\n"); //$NON-NLS-1$
+			thisBuilder.append("\n");
 		}
 		return thisBuilder.toString();
 	}

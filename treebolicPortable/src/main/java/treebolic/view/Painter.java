@@ -107,10 +107,6 @@ public class Painter extends AbstractPainter
 
 	// B A C K G R O U N D
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.view.AbstractPainter#paintBackground()
-	 */
 	@Override
 	public void paintBackground()
 	{
@@ -126,10 +122,6 @@ public class Painter extends AbstractPainter
 
 	// D R A W
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.view.AbstractPainter#paint(treebolic.model.INode, treebolic.model.IEdgeList)
-	 */
 	@Override
 	public void paint(final INode thisRoot, final List<IEdge> thisEdgeList)
 	{
@@ -524,10 +516,10 @@ public class Painter extends AbstractPainter
 		if (wtext > dnode && this.ellipsize)
 		{
 			// compute average character width
-			final int wunit = this.theGraphics.stringWidth("x"); //$NON-NLS-1$
+			final int wunit = this.theGraphics.stringWidth("x");
 
 			// compute trailing dots width
-			final int wdots = this.theGraphics.stringWidth("..."); //$NON-NLS-1$
+			final int wdots = this.theGraphics.stringWidth("...");
 
 			// compute number of characters that fit before dots
 			int thisNChars = (dnode - wdots) / wunit;
@@ -542,7 +534,7 @@ public class Painter extends AbstractPainter
 			final int thisLen = thisNodeData.theLabel.length();
 			if (thisLen > thisNChars)
 			{
-				thisNodeData.theLabel = thisNodeData.theLabel.substring(0, thisNChars) + "..."; //$NON-NLS-1$
+				thisNodeData.theLabel = thisNodeData.theLabel.substring(0, thisNChars) + "...";
 				wtext = this.theGraphics.stringWidth(thisNodeData.theLabel);
 			}
 		}
@@ -1306,10 +1298,10 @@ public class Painter extends AbstractPainter
 		if (w > span)
 		{
 			// compute average character width
-			final int wunit = this.theGraphics.stringWidth("x"); //$NON-NLS-1$
+			final int wunit = this.theGraphics.stringWidth("x");
 
 			// compute trailing dots width
-			final int wdots = this.theGraphics.stringWidth("..."); //$NON-NLS-1$
+			final int wdots = this.theGraphics.stringWidth("...");
 
 			// compute number of characters that fit before dots
 			int thisNChars = (span - wdots) / wunit;
@@ -1324,7 +1316,7 @@ public class Painter extends AbstractPainter
 			final int thisLen = thisString.length();
 			if (thisLen > thisNChars)
 			{
-				thisString = thisString.substring(0, thisNChars) + "..."; // …⋯ //$NON-NLS-1$
+				thisString = thisString.substring(0, thisNChars) + "..."; // …⋯
 			}
 		}
 		return thisString;

@@ -223,7 +223,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						return true;
 
 					// desperate attempt
-					return thisUri.getScheme().matches("[a-z]*"); //$NON-NLS-1$
+					return thisUri.getScheme().matches("[a-z]*");
 				}
 				catch (final URISyntaxException e2)
 				{

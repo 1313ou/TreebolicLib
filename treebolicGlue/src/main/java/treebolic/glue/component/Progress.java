@@ -47,11 +47,11 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 		@Override
 		public void handleMessage(final Message m)
 		{
-			final boolean fail = m.getData().getBoolean("fail"); //$NON-NLS-1$
-			String thisMessage = m.getData().getString("text"); //$NON-NLS-1$
+			final boolean fail = m.getData().getBoolean("fail");
+			String thisMessage = m.getData().getString("text");
 			if (fail)
 			{
-				thisMessage = this.progress.statusView.getText() + "\n" + thisMessage; //$NON-NLS-1$
+				thisMessage = this.progress.statusView.getText() + "\n" + thisMessage;
 				this.progress.progressBar.setIndeterminate(false);
 				this.progress.progressBar.setVisibility(View.GONE);
 				this.progress.progressIcon.setImageResource(R.drawable.progress_fail);
@@ -121,19 +121,14 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 		this((Context) handle);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.Progress#put(java.lang.String, boolean)
-	 */
 	@Override
 	public void put(final String thisMessage, final boolean fail)
 	{
 		// setText(thisMessage); (passing it to a handler as only the original thread that created a view hierarchy can touch its views.
 		final Message message = this.handler.obtainMessage();
 		final Bundle bundle = new Bundle();
-		bundle.putString("text", thisMessage); //$NON-NLS-1$
-		bundle.putBoolean("fail", fail); //$NON-NLS-1$
+		bundle.putString("text", thisMessage);
+		bundle.putBoolean("fail", fail);
 		message.setData(bundle);
 		this.handler.sendMessage(message);
 	}

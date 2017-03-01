@@ -202,7 +202,7 @@ public class ArcMath
 		}
 		if (Math.abs(a) > Math.PI)
 		{
-			System.err.print("Normalize error " + a); //$NON-NLS-1$
+			System.err.print("Normalize error " + a);
 		}
 		return a;
 	}

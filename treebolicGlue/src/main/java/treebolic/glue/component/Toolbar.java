@@ -2,12 +2,11 @@ package treebolic.glue.component;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -47,12 +46,12 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Toolbar tooltips (unused, but do not erase)
 	 */
-	static public final String[] tooltips = { "Reset", // //$NON-NLS-1$
-			"Radial", "North", "South", "East", "West", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
-			"Expand", "Shrink", "Widen", "Narrow", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
-			"Zoom In", "Zoom Out", "Zoom reset", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			"Scale Up", "Scale Down", "Scale reset", // //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			"Arc/Line", "Tooltip toggle", "Tooltip displays content", "Hovering triggers focus", }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+	static public final String[] tooltips = {"Reset", //
+			"Radial", "North", "South", "East", "West", //
+			"Expand", "Shrink", "Widen", "Narrow", //
+			"Zoom In", "Zoom Out", "Zoom reset", //
+			"Scale Up", "Scale Down", "Scale reset", //
+			"Arc/Line", "Tooltip toggle", "Tooltip displays content", "Hovering triggers focus",};
 
 	/**
 	 * Activity
@@ -74,8 +73,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Constructor
 	 *
-	 * @param activity0
-	 *            activity
+	 * @param activity0 activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings("deprecation")
@@ -102,8 +100,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		this.panel.setGravity(Gravity.CENTER);
 
 		// background
-		final Resources resources = getResources();
-		final int color = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.background, null) : resources.getColor(R.color.background);
+		final int color = Utils.fetchColor(this.activity, R.attr.colorPrimaryDark);
 		this.panel.setBackgroundColor(color);
 
 		// scroll
@@ -123,8 +120,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Constructor from handle
 	 *
-	 * @param handle
-	 *            activity
+	 * @param handle activity
 	 */
 	protected Toolbar(final Object handle)
 	{
@@ -165,8 +161,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	}
 
 	@Override
-	public void addToggle(final int thisIconIndex, final int thisSelectedIconIndex, final String thisToolTip, final boolean thisState,
-			final ActionListener thisListener)
+	public void addToggle(final int thisIconIndex, final int thisSelectedIconIndex, final String thisToolTip, final boolean thisState, final ActionListener thisListener)
 	{
 		//
 	}
@@ -180,8 +175,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Get drawable from index
 	 *
-	 * @param index
-	 *            index
+	 * @param index index
 	 * @return drawable
 	 */
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -193,83 +187,83 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 			int res = -1;
 			switch (ImageIndices.values()[index])
 			{
-			case HOME:
-				res = R.drawable.toolbar_home;
-				break;
-			case NORTH:
-				res = R.drawable.toolbar_north;
-				break;
-			case SOUTH:
-				res = R.drawable.toolbar_south;
-				break;
-			case EAST:
-				res = R.drawable.toolbar_east;
-				break;
-			case WEST:
-				res = R.drawable.toolbar_west;
-				break;
-			case RADIAL:
-				res = R.drawable.toolbar_radial;
-				break;
-			case EXPAND:
-				res = R.drawable.toolbar_expand;
-				break;
-			case SHRINK:
-				res = R.drawable.toolbar_shrink;
-				break;
-			case WIDEN:
-				res = R.drawable.toolbar_widen;
-				break;
-			case NARROW:
-				res = R.drawable.toolbar_narrow;
-				break;
-			case ZOOMIN:
-				res = R.drawable.toolbar_zoomin;
-				break;
-			case ZOOMOUT:
-				res = R.drawable.toolbar_zoomout;
-				break;
-			case ZOOMONE:
-				res = R.drawable.toolbar_zoomone;
-				break;
+				case HOME:
+					res = R.drawable.toolbar_home;
+					break;
+				case NORTH:
+					res = R.drawable.toolbar_north;
+					break;
+				case SOUTH:
+					res = R.drawable.toolbar_south;
+					break;
+				case EAST:
+					res = R.drawable.toolbar_east;
+					break;
+				case WEST:
+					res = R.drawable.toolbar_west;
+					break;
+				case RADIAL:
+					res = R.drawable.toolbar_radial;
+					break;
+				case EXPAND:
+					res = R.drawable.toolbar_expand;
+					break;
+				case SHRINK:
+					res = R.drawable.toolbar_shrink;
+					break;
+				case WIDEN:
+					res = R.drawable.toolbar_widen;
+					break;
+				case NARROW:
+					res = R.drawable.toolbar_narrow;
+					break;
+				case ZOOMIN:
+					res = R.drawable.toolbar_zoomin;
+					break;
+				case ZOOMOUT:
+					res = R.drawable.toolbar_zoomout;
+					break;
+				case ZOOMONE:
+					res = R.drawable.toolbar_zoomone;
+					break;
 
-			case SCALEDOWN:
-				res = R.drawable.toolbar_scaledown;
-				break;
-			case SCALEUP:
-				res = R.drawable.toolbar_scaleup;
-				break;
-			case SCALEONE:
-				res = R.drawable.toolbar_scaleone;
-				break;
+				case SCALEDOWN:
+					res = R.drawable.toolbar_scaledown;
+					break;
+				case SCALEUP:
+					res = R.drawable.toolbar_scaleup;
+					break;
+				case SCALEONE:
+					res = R.drawable.toolbar_scaleone;
+					break;
 
-			// case ARC:
-			// res = R.drawable.toolbar_arc;
-			// break;
-			// case NO_ARC:
-			// res = R.drawable.toolbar_no_arc;
-			// break;
-			// case HOVERFOCUS:
-			// res = R.drawable.toolbar_hoverfocus;
-			// break;
-			// case NO_HOVERFOCUS:
-			// res = R.drawable.toolbar_no_hoverfocus;
-			// break;
-			// case NODETOOLTIP:
-			// res = R.drawable.toolbar_nodetooltip;
-			// break;
-			// case NO_NODETOOLTIP:
-			// res = R.drawable.toolbar_no_nodetooltip;
-			// break;
-			// case NODETOOLTIPCONTENT:
-			// res = R.drawable.toolbar_tooltipcontent;
-			// break;
-			// case NO_NODETOOLTIPCONTENT:
-			// res = R.drawable.toolbar_no_tooltipcontent;
-			// break;
+				// case ARC:
+				// res = R.drawable.toolbar_arc;
+				// break;
+				// case NO_ARC:
+				// res = R.drawable.toolbar_no_arc;
+				// break;
+				// case HOVERFOCUS:
+				// res = R.drawable.toolbar_hoverfocus;
+				// break;
+				// case NO_HOVERFOCUS:
+				// res = R.drawable.toolbar_no_hoverfocus;
+				// break;
+				// case NODETOOLTIP:
+				// res = R.drawable.toolbar_nodetooltip;
+				// break;
+				// case NO_NODETOOLTIP:
+				// res = R.drawable.toolbar_no_nodetooltip;
+				// break;
+				// case NODETOOLTIPCONTENT:
+				// res = R.drawable.toolbar_tooltipcontent;
+				// break;
+				// case NO_NODETOOLTIPCONTENT:
+				// res = R.drawable.toolbar_no_tooltipcontent;
+				// break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 			if (res != -1)
 			{

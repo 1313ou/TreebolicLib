@@ -512,6 +512,6 @@ public class Complex implements Serializable
 	@Override
 	public String toString()
 	{
-		return String.format(Locale.US, "(%.3f,%.3f)", this.re, this.im); //$NON-NLS-1$
+		return String.format(Locale.US, "(%.3f,%.3f)", this.re, this.im);
 	}
 }

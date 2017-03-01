@@ -49,6 +49,6 @@ public class EuclideanCircle implements Serializable
 	@Override
 	public String toString()
 	{
-		return "eo=" + this.center + ", er=" + this.radius;  //$NON-NLS-1$//$NON-NLS-2$
+		return "eo=" + this.center + ", er=" + this.radius;
 	}
 }

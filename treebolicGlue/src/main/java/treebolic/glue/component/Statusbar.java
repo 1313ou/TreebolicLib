@@ -2,12 +2,11 @@ package treebolic.glue.component;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Base URL for webview
 	 */
-	static String base = "file:///android_asset/"; //$NON-NLS-1$
+	static String base = "file:///android_asset/";
 
 	/**
 	 * Drawables
@@ -113,9 +112,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.contentView.setFocusable(false);
 
 		// colors
-		final Resources resources = getResources();
-		this.background = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.background, null) : resources.getColor(R.color.background);
-		this.foreground = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.foreground, null) : resources.getColor(R.color.foreground);
+		this.background = Utils.fetchColor(this.activity, R.attr.colorPrimaryDark);
+		this.foreground = Utils.getColor(this.activity, R.color.status_foreground);
 		this.contentView.setBackgroundColor(this.background);
 	}
 
@@ -165,7 +163,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	@Override
 	public void put(final String label, final String content, final int image)
 	{
-		// System.out.println("put("+label+","+content+");"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		// System.out.println("put("+label+","+content+");");
 
 		// icon
 		if (this.isHorizontal)
@@ -178,7 +176,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 
 		// label
-		this.statusView.setText(label == null ? "" : label); //$NON-NLS-1$
+		this.statusView.setText(label == null ? "" : label);
 
 		// content
 		if (content == null)
@@ -189,24 +187,24 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 			}
 			else
 			{
-				this.contentView.loadUrl("about:blank"); //$NON-NLS-1$
+				this.contentView.loadUrl("about:blank");
 			}
 		}
 		else
 		{
 			final StringBuilder html = new StringBuilder();
-			html.append("<html><head>"); //$NON-NLS-1$
-			html.append("<style type='text/css'>"); //$NON-NLS-1$
+			html.append("<html><head>");
+			html.append("<style type='text/css'>");
 			html.append(getDefaultBaseStyle());
 			if (this.style != null && !this.style.isEmpty())
 			{
 				html.append(this.style);
 			}
-			html.append("</style>"); //$NON-NLS-1$
-			html.append("</head><body>"); //$NON-NLS-1$
+			html.append("</style>");
+			html.append("</head><body>");
 			html.append(content);
-			html.append("</body>"); //$NON-NLS-1$
-			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null); //$NON-NLS-1$ //$NON-NLS-2$
+			html.append("</body>");
+			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
 		}
 	}
 
@@ -264,9 +262,9 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	@SuppressWarnings("boxing")
 	private String getDefaultBaseStyle()
 	{
-		return "body {" + //$NON-NLS-1$
-				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //$NON-NLS-1$
-				String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //$NON-NLS-1$
+		return "body {" +
+				String.format("background-color: #%06X;", 0xFFFFFF & this.background) +
+				String.format("color: #%06X;", 0xFFFFFF & this.foreground) +
 				'}';
 	}
 

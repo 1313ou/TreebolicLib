@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppBaseTheme" parent="android:Theme.Light">
+	<!--
+    <style name="TreebolicTheme">
+        <item name="android:background">@color/common_background</item>
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="TreebolicToolbarTheme" parent="TreebolicTheme">
+        <item name="android:background">@color/toolbar_background</item>
     </style>
 
-    <style name="NoBackgroundTheme" parent="AppBaseTheme">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@null</item>
+    <style name="TreebolicStatusTheme">
+        <item name="android:background">@color/status_background</item>
     </style>
 
-    <style name="TreebolicTheme" parent="AppBaseTheme">
-        <item name="android:background">@color/background</item>
+    <style name="TreebolicDialogTheme">
+        <item name="android:background">@color/dialog_background</item>
     </style>
+	-->
+
+	<style name="TreebolicTheme">
+		<item name="android:background">?colorPrimaryDark</item>
+	</style>
+
+	<style name="TreebolicToolbarTheme" parent="TreebolicTheme">
+	</style>
+
+	<style name="TreebolicStatusTheme" parent="TreebolicTheme">
+	</style>
+
+	<style name="TreebolicDialogTheme" parent="TreebolicTheme">
+	</style>
 
 </resources>

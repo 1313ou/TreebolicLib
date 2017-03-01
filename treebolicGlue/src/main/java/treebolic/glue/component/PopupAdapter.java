@@ -2,7 +2,6 @@ package treebolic.glue.component;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -54,11 +53,6 @@ public class PopupAdapter
 		// dismiss when touched outside
 		this.window.setTouchInterceptor(new OnTouchListener()
 		{
-			/*
-			 * (non-Javadoc)
-			 *
-			 * @see android.view.View.OnTouchListener#onTouch(android.view.View, android.view.MotionEvent)
-			 */
 			@Override
 			public boolean onTouch(final View view0, final MotionEvent event)
 			{
@@ -90,15 +84,14 @@ public class PopupAdapter
 	{
 		if (this.view == null)
 		{
-			throw new IllegalStateException("setContentView was not called with a view to display."); //$NON-NLS-1$
+			throw new IllegalStateException("setContentView was not called with a view to display.");
 		}
 
 		// hook
 		onShow();
 
 		// color
-		final Resources resources = this.context.getResources();
-		int color = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(android.R.color.transparent, null) : resources.getColor(android.R.color.transparent);
+		int color = Utils.getColor(this.context, android.R.color.transparent);
 		this.window.setBackgroundDrawable(new ColorDrawable(color));
 
 		// setup window

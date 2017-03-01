@@ -184,30 +184,18 @@ public class Controller extends Commander
 
 	// R E F E R E N C E . F O R . C O M M A N D E R
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.control.Commander#getModel()
-	 */
 	@Override
 	protected Model getModel()
 	{
 		return this.theModel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.control.Commander#getView()
-	 */
 	@Override
 	protected View getView()
 	{
 		return this.theView;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.control.Commander#getLayerOut()
-	 */
 	@Override
 	protected AbstractLayerOut getLayerOut()
 	{
@@ -354,7 +342,7 @@ public class Controller extends Commander
 		}
 
 		default:
-			System.err.println("Unhandled event: " + thisEventType.toString()); //$NON-NLS-1$
+			System.err.println("Unhandled event: " + thisEventType.toString());
 		}
 	}
 
@@ -410,18 +398,18 @@ public class Controller extends Commander
 			{
 				// status
 				final StringBuilder thisMessage = new StringBuilder();
-				thisMessage.append("<div class='searching'>") // //$NON-NLS-1$
-						.append(String.format(Messages.getString("Controller.status_search_scope_mode_target"), //$NON-NLS-1$
+				thisMessage.append("<div class='searching'>") //
+						.append(String.format(Messages.getString("Controller.status_search_scope_mode_target"),
 								Controller.theMatchScopeString[thisMatchScope.ordinal()], //
 								Controller.theMatchModeString[thisMatchMode.ordinal()], //
 								thisSearchTarget)); //
 				if (thisNode.getLabel() != null)
 				{
 					thisMessage.append(' ') //
-							.append(String.format(Messages.getString("Controller.status_search_origin"), thisNode.getLabel())); // //$NON-NLS-1$
+							.append(String.format(Messages.getString("Controller.status_search_origin"), thisNode.getLabel())); //
 				}
-				thisMessage.append("</div>").append('\n'); //$NON-NLS-1$
-				this.theWidget.putStatus(Messages.getString("Controller.status_searching"), thisMessage.toString(), Statusbar.PutType.SEARCH); //$NON-NLS-1$
+				thisMessage.append("</div>").append('\n');
+				this.theWidget.putStatus(Messages.getString("Controller.status_searching"), thisMessage.toString(), Statusbar.PutType.SEARCH);
 
 				// search: scope, mode, target, [start]
 				final INode thisResult = search(SearchCommand.SEARCH, thisMatchScope, thisMatchMode, thisSearchTarget, thisNode);
@@ -430,21 +418,21 @@ public class Controller extends Commander
 				{
 					// status
 					thisMessage.setLength(0);
-					thisMessage.append("<div class='searching'>") // //$NON-NLS-1$
+					thisMessage.append("<div class='searching'>") //
 							// .append(thisSearchTarget) //
 							// .append(' ') //
-							.append(Messages.getString("Controller.status_result")) // //$NON-NLS-1$
+							.append(Messages.getString("Controller.status_result")) //
 							.append(' ') //
-							.append("ID") // //$NON-NLS-1$
+							.append("ID") //
 							.append(' ') //
 							.append(thisResult.getId()) //
-							.append("</div>"); //$NON-NLS-1$
-					this.theWidget.putStatus(Messages.getString("Controller.status_found"), thisMessage.toString(), Statusbar.PutType.SEARCH); //$NON-NLS-1$
+							.append("</div>");
+					this.theWidget.putStatus(Messages.getString("Controller.status_found"), thisMessage.toString(), Statusbar.PutType.SEARCH);
 					putStatus(thisResult);
 				}
 				else
 				{
-					this.theWidget.putStatus(Messages.getString("Controller.status_notfound"), thisMessage.toString(), Statusbar.PutType.SEARCH); //$NON-NLS-1$
+					this.theWidget.putStatus(Messages.getString("Controller.status_notfound"), thisMessage.toString(), Statusbar.PutType.SEARCH);
 				}
 			}
 			break;
@@ -458,7 +446,7 @@ public class Controller extends Commander
 			break;
 
 		default:
-			System.err.println("Unsupported dispatch action=" + thisAction + " link=" + thisLink + " context=" + thisNode); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			System.err.println("Unsupported dispatch action=" + thisAction + " link=" + thisLink + " context=" + thisNode);
 		}
 	}
 
@@ -509,7 +497,7 @@ public class Controller extends Commander
 		final String thisLabel = Controller.getLabel(thisNode);
 		final StringBuffer thisBuffer = new StringBuffer();
 		thisBuffer.append(Controller.getContent(thisNode));
-		thisBuffer.append(Commander.TOOLTIPHTML ? "<br/>" : "\n"); //$NON-NLS-1$ //$NON-NLS-2$
+		thisBuffer.append(Commander.TOOLTIPHTML ? "<br/>" : "\n");
 		addLink(thisBuffer, thisNode);
 		addMountPoint(thisBuffer, thisNode);
 		this.theWidget.putInfo(thisLabel, thisBuffer.toString());
@@ -528,7 +516,7 @@ public class Controller extends Commander
 		String thisLabel = thisNode.getLabel();
 		if (thisLabel == null)
 		{
-			thisLabel = ""; //$NON-NLS-1$
+			thisLabel = "";
 		}
 
 		// no tags
@@ -545,14 +533,14 @@ public class Controller extends Commander
 		{
 			thisBuilder.append(' ');
 			// thisBuffer.append('L');
-			thisBuilder.append("🌐"); // \uD83C\uDF10 // &#x1f310; //$NON-NLS-1$
+			thisBuilder.append("🌐"); // \uD83C\uDF10 // &#x1f310;
 		}
 		final MountPoint thisMountPoint = thisNode.getMountPoint();
 		if (thisMountPoint != null)
 		{
 			thisBuilder.append(' ');
 			// thisBuffer.append('M');
-			thisBuilder.append("🔗"); // \uD83D\uDD17 // &#x1f517; //$NON-NLS-1$
+			thisBuilder.append("🔗"); // \uD83D\uDD17 // &#x1f517;
 		}
 
 		return thisBuilder.toString();
@@ -574,12 +562,12 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("<div class='content'>"); //$NON-NLS-1$
+				thisBuffer.append("<div class='content'>");
 			}
 			thisBuffer.append(thisContent);
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("</div>"); //$NON-NLS-1$
+				thisBuffer.append("</div>");
 			}
 		}
 
@@ -595,14 +583,14 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("<div='weight'>"); //$NON-NLS-1$
+				thisBuffer.append("<div='weight'>");
 			}
-			thisBuffer.append(" [weight="); //$NON-NLS-1$
+			thisBuffer.append(" [weight=");
 			thisBuffer.append(thisNode.getWeight());
 			thisBuffer.append(']');
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("</div>"); //$NON-NLS-1$
+				thisBuffer.append("</div>");
 			}
 		}
 		return thisBuffer.toString();
@@ -623,18 +611,18 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("<div class='link'>"); //$NON-NLS-1$
+				thisBuffer.append("<div class='link'>");
 			}
 			thisBuffer.append('[');
 			thisBuffer.append(Controller.decode(thisLink));
 			thisBuffer.append(']');
 			// {
 			// // thisBuffer.append('L');
-			// thisBuffer.append(Commander.tooltipHtml ? "&#x1F310;" : "🌐"); //$NON-NLS-1$ //$NON-NLS-2$
+			// thisBuffer.append(Commander.tooltipHtml ? "&#x1F310;" : "🌐");
 			// }
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("</div>"); //$NON-NLS-1$
+				thisBuffer.append("</div>");
 			}
 		}
 	}
@@ -655,7 +643,7 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("<div class='mount'>"); //$NON-NLS-1$
+				thisBuffer.append("<div class='mount'>");
 			}
 			final MountPoint.Mounting thisMountingPoint = (MountPoint.Mounting) thisMountPoint;
 			thisBuffer.append('[');
@@ -663,19 +651,15 @@ public class Controller extends Commander
 			thisBuffer.append(']');
 			// {
 			// // thisBuffer.append('M');
-			// thisBuffer.append(Commander.tooltipHtml ? "&#x1F517;" : "🔗"); //$NON-NLS-1$ //$NON-NLS-2$
+			// thisBuffer.append(Commander.tooltipHtml ? "&#x1F517;" : "🔗");
 			// }
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("</div>"); //$NON-NLS-1$
+				thisBuffer.append("</div>");
 			}
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.control.Commander#setHasTooltip(java.lang.Boolean)
-	 */
 	@Override
 	public void setHasTooltip(final Boolean thisFlag)
 	{
@@ -702,7 +686,7 @@ public class Controller extends Commander
 		final StringBuilder thisBuilder = new StringBuilder();
 		if (Commander.TOOLTIPHTML)
 		{
-			thisBuilder.append("<html>"); //$NON-NLS-1$
+			thisBuilder.append("<html>");
 		}
 
 		// label
@@ -710,12 +694,12 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuilder.append("<strong>"); //$NON-NLS-1$
+				thisBuilder.append("<strong>");
 			}
 			thisBuilder.append(thisLabel);
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuilder.append("</strong><br/>"); //$NON-NLS-1$
+				thisBuilder.append("</strong><br/>");
 			}
 		}
 
@@ -726,7 +710,7 @@ public class Controller extends Commander
 			{
 				if (!Commander.TOOLTIPHTML)
 				{
-					final String[] theseLines = thisContent.split("\n"); //$NON-NLS-1$
+					final String[] theseLines = thisContent.split("\n");
 					for (final String thisLine : theseLines)
 					{
 						final StringBuilder thisLineBuilder = new StringBuilder(thisLine);
@@ -734,7 +718,7 @@ public class Controller extends Commander
 						// force break after x characters
 						for (int offset = Commander.TOOLTIPLINESPAN; offset < thisLineBuilder.length(); offset += Commander.TOOLTIPLINESPAN)
 						{
-							thisLineBuilder.insert(offset, "\n"); //$NON-NLS-1$
+							thisLineBuilder.insert(offset, "\n");
 						}
 
 						// append processed line with break
@@ -744,15 +728,15 @@ public class Controller extends Commander
 				}
 				else
 				{
-					thisBuilder.append(thisContent.length() <= Commander.TOOLTIPLINESPAN ? "<div>" : "<div width='" + Commander.TOOLTIPLINESPAN * 7 + "'>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					thisBuilder.append(thisContent.length() <= Commander.TOOLTIPLINESPAN ? "<div>" : "<div width='" + Commander.TOOLTIPLINESPAN * 7 + "'>");
 					thisBuilder.append(thisContent);
-					thisBuilder.append("</div>"); //$NON-NLS-1$
+					thisBuilder.append("</div>");
 				}
 			}
 		}
 		if (Commander.TOOLTIPHTML)
 		{
-			thisBuilder.append("</html>"); //$NON-NLS-1$
+			thisBuilder.append("</html>");
 		}
 		this.theView.setToolTipText(thisBuilder.toString());
 	}
@@ -777,9 +761,9 @@ public class Controller extends Commander
 	 */
 	public INode search(final SearchCommand thisCommand, final Object... theseParameters)
 	{
-		System.out.print("Search: " + thisCommand); //$NON-NLS-1$
+		System.out.print("Search: " + thisCommand);
 		for (Object thisParameter : theseParameters)
-			System.out.print(" " + thisParameter); //$NON-NLS-1$
+			System.out.print(" " + thisParameter);
 		System.out.println();
 
 		switch (thisCommand)
@@ -978,7 +962,7 @@ public class Controller extends Commander
 	{
 		try
 		{
-			return URLDecoder.decode(thisString, "UTF8"); //$NON-NLS-1$
+			return URLDecoder.decode(thisString, "UTF8");
 		}
 		catch (final Exception e)
 		{
@@ -1001,7 +985,7 @@ public class Controller extends Commander
 			return;
 
 		// reference hook : find node with identifier
-		if (thisHref.startsWith("#")) //$NON-NLS-1$
+		if (thisHref.startsWith("#"))
 		{
 			final String thisBookmark = thisHref.substring(1);
 			final INode thisFocus = Finder.findNodeById(this.theModel.theTree.getRoot(), thisBookmark);
@@ -1016,8 +1000,8 @@ public class Controller extends Commander
 		final String thisDecodedLink = Controller.decode(thisHref);
 
 		// status
-		this.theWidget.putStatus(Messages.getString("Controller.status_linkto"), "<div class='linking'>" + thisDecodedLink + "</div>", Statusbar.PutType.LINK); //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
-		this.theWidget.getIContext().status(Messages.getString("Controller.status_linkto") + ' ' + thisDecodedLink); //$NON-NLS-1$
+		this.theWidget.putStatus(Messages.getString("Controller.status_linkto"), "<div class='linking'>" + thisDecodedLink + "</div>", Statusbar.PutType.LINK);
+		this.theWidget.getIContext().status(Messages.getString("Controller.status_linkto") + ' ' + thisDecodedLink);
 
 		// jump link: try system link first
 		if (!this.theWidget.getIContext().linkTo(thisDecodedLink, thisTarget))

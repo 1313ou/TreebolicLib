@@ -42,11 +42,6 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 	 */
 	public boolean counterclockwise;
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#setFrameFromCenter(double, double, double, double)
-	 */
 	@Override
 	public void setFrameFromCenter(final double centerX, final double centerY, final double cornerX, final double cornerY)
 	{
@@ -58,55 +53,30 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		this.height = h2 * 2.0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getCenterX()
-	 */
 	@Override
 	public double getCenterX()
 	{
 		return this.x + this.width / 2.0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getCenterY()
-	 */
 	@Override
 	public double getCenterY()
 	{
 		return this.y + this.height / 2.0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getHeight()
-	 */
 	@Override
 	public double getHeight()
 	{
 		return this.height;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getWidth()
-	 */
 	@Override
 	public double getWidth()
 	{
 		return this.width;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getStartPoint()
-	 */
 	@Override
 	public Point2D getStartPoint()
 	{
@@ -116,11 +86,6 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		return new Point2D(xs, ys);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getEndPoint()
-	 */
 	@Override
 	public Point2D getEndPoint()
 	{
@@ -130,11 +95,6 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		return new Point2D(xe, ye);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#setAngles(treebolic.glue.Point2D, treebolic.glue.Point2D)
-	 */
 	@Override
 	public void setAngles(final Point2D from, final Point2D to)
 	{
@@ -160,55 +120,30 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		setAngleExtent(Math.toDegrees(ang2));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getAngleStart()
-	 */
 	@Override
 	public double getAngleStart()
 	{
 		return this.start;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#setAngleStart(double)
-	 */
 	@Override
 	public void setAngleStart(final double start0)
 	{
 		this.start = start0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getAngleExtent()
-	 */
 	@Override
 	public double getAngleExtent()
 	{
 		return this.extent;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#setAngleExtent(double)
-	 */
 	@Override
 	public void setAngleExtent(final double extent0)
 	{
 		this.extent = extent0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#containsAngle(double)
-	 */
 	@Override
 	public boolean containsAngle(final double angle0)
 	{
@@ -234,22 +169,12 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		return angle >= 0.0 && angle < angExt;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#setCounterclockwise(boolean)
-	 */
 	@Override
 	public void setCounterclockwise(final boolean flag)
 	{
 		this.counterclockwise = flag;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Arc2D#getCounterclockwise()
-	 */
 	@Override
 	public boolean getCounterclockwise()
 	{

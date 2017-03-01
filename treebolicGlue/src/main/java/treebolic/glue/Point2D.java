@@ -20,22 +20,12 @@ public class Point2D extends android.graphics.PointF implements treebolic.glue.i
 		super((float) x0, (float) y0);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Point2D#getX()
-	 */
 	@Override
 	public double getX()
 	{
 		return this.x;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Point2D#getY()
-	 */
 	@Override
 	public double getY()
 	{

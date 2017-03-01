@@ -31,7 +31,7 @@ public class ParcelableModel implements Parcelable
 	/**
 	 * Log tag
 	 */
-	static private final String TAG = "Model parcelization"; //$NON-NLS-1$
+	static private final String TAG = "Model parcelization";
 
 	/**
 	 * Whether model is marshaled with standard Java mechanism or android parcelization
@@ -101,22 +101,12 @@ public class ParcelableModel implements Parcelable
 		return this.theModel;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.os.Parcelable#describeContents()
-	 */
 	@Override
 	public int describeContents()
 	{
 		return 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.os.Parcelable#writeToParcel(android.os.Parcel, int)
-	 */
 	@Override
 	public void writeToParcel(final Parcel parcel, final int flags)
 	{
@@ -135,22 +125,12 @@ public class ParcelableModel implements Parcelable
 	 */
 	public static final Parcelable.Creator<ParcelableModel> CREATOR = new Parcelable.Creator<ParcelableModel>()
 	{
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see android.os.Parcelable.Creator#createFromParcel(android.os.Parcel)
-		 */
 		@Override
 		public ParcelableModel createFromParcel(final Parcel parcel)
 		{
 			return new ParcelableModel(parcel);
 		}
 
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see android.os.Parcelable.Creator#newArray(int)
-		 */
 		@Override
 		public ParcelableModel[] newArray(final int size)
 		{
@@ -190,7 +170,7 @@ public class ParcelableModel implements Parcelable
 		ParcelableModel.writeToParcel(parcel, model.theTree);
 		ParcelableModel.writeToParcel(parcel, model.theSettings);
 		ParcelableModel.writeToParcel(parcel, model.theImages);
-		Log.d(ParcelableModel.TAG, "parcel write size=" + parcel.dataSize() + " pos=" + parcel.dataPosition()); //$NON-NLS-1$ //$NON-NLS-2$
+		Log.d(ParcelableModel.TAG, "parcel write size=" + parcel.dataSize() + " pos=" + parcel.dataPosition());
 	}
 
 	/**
@@ -226,7 +206,7 @@ public class ParcelableModel implements Parcelable
 
 		// parent
 		final INode parent = node.getParent();
-		ParcelableModel.writeToParcel(parcel, parent == null ? null : parent.getId()); //$NON-NLS-1$
+		ParcelableModel.writeToParcel(parcel, parent == null ? null : parent.getId());
 
 		// functional
 		final String label = node.getLabel();
@@ -284,7 +264,7 @@ public class ParcelableModel implements Parcelable
 	{
 		if (mountPoint == null || !(mountPoint instanceof MountPoint.Mounting))
 		{
-			parcel.writeString(""); //$NON-NLS-1$
+			parcel.writeString("");
 			return;
 		}
 		final MountPoint.Mounting thisMountPoint = (MountPoint.Mounting) mountPoint;
@@ -476,7 +456,7 @@ public class ParcelableModel implements Parcelable
 	{
 		if (s == null)
 		{
-			parcel.writeString(""); //$NON-NLS-1$
+			parcel.writeString("");
 			return;
 		}
 		parcel.writeString(s);
@@ -644,7 +624,7 @@ public class ParcelableModel implements Parcelable
 	 */
 	public static Model readModel(final Parcel parcel)
 	{
-		Log.d(ParcelableModel.TAG, "parcel read size=" + parcel.dataSize() + " pos=" + parcel.dataPosition()); //$NON-NLS-1$ //$NON-NLS-2$
+		Log.d(ParcelableModel.TAG, "parcel read size=" + parcel.dataSize() + " pos=" + parcel.dataPosition());
 		final int isNotNull = parcel.readInt();
 		if (isNotNull != 0)
 		{

@@ -45,7 +45,7 @@ public class Converter<T extends TreeMutableNode>
 				thisRootNode = theseRootNodes.get(0);
 			}
 			else
-				throw new RuntimeException("No single root " + theseRootNodes); //$NON-NLS-1$
+				throw new RuntimeException("No single root " + theseRootNodes);
 		}
 		else
 		{
@@ -68,7 +68,7 @@ public class Converter<T extends TreeMutableNode>
 	{
 		// spanning tree
 		if (thisRootNode == null)
-			throw new RuntimeException("Null root"); //$NON-NLS-1$
+			throw new RuntimeException("Null root");
 
 		// spanning tree
 		final treebolic.model.graph.Tree thisSpanningTree = thisGraph.makeSpanningTree(thisRootNode);

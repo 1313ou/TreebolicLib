@@ -130,6 +130,6 @@ public class HyperCircle implements Serializable
 	@Override
 	public String toString()
 	{
-		return "o0=" + this.center0 + ", o=" + this.center + ", r=" + this.radius + ", d=" + this.dist; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		return "o0=" + this.center0 + ", o=" + this.center + ", r=" + this.radius + ", d=" + this.dist;
 	}
 }

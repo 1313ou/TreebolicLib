@@ -42,9 +42,9 @@ public class ModelDump
 	 */
 	static public String toString(final Tree thisTree)
 	{
-		return "NODES\n" + //$NON-NLS-1$
+		return "NODES\n" +
 				ModelDump.toString(thisTree.getRoot(), 0) +
-				"EDGES\n" + //$NON-NLS-1$
+				"EDGES\n" +
 				ModelDump.toString(thisTree.getEdges());
 	}
 
@@ -65,7 +65,7 @@ public class ModelDump
 
 		if (thisNode == null)
 		{
-			thisBuffer.append("[null node]"); //$NON-NLS-1$
+			thisBuffer.append("[null node]");
 		}
 		else
 		{
@@ -74,11 +74,11 @@ public class ModelDump
 			thisBuffer.append(thisNode.getId());
 
 			// label
-			thisBuffer.append(" '"); //$NON-NLS-1$
+			thisBuffer.append(" '");
 			thisBuffer.append(thisNode.toString());
 
 			// parent
-			thisBuffer.append("' ^"); //$NON-NLS-1$
+			thisBuffer.append("' ^");
 			final INode thisParent = thisNode.getParent();
 			if (thisParent != null)
 			{
@@ -91,12 +91,12 @@ public class ModelDump
 			final int thisImageIndex = thisNode.getImageIndex();
 			if (thisImageFile != null)
 			{
-				thisBuffer.append(" !"); //$NON-NLS-1$
+				thisBuffer.append(" !");
 				thisBuffer.append(thisImageFile);
 			}
 			if (thisImageIndex != -1)
 			{
-				thisBuffer.append(" !"); //$NON-NLS-1$
+				thisBuffer.append(" !");
 				thisBuffer.append(thisImageIndex);
 			}
 
@@ -139,7 +139,7 @@ public class ModelDump
 	static public String toString(final Image[] theseImages)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
-		thisBuilder.append("IMAGES\n"); //$NON-NLS-1$
+		thisBuilder.append("IMAGES\n");
 		int i = 0;
 		if (theseImages != null)
 		{
@@ -164,58 +164,58 @@ public class ModelDump
 	static public String toString(final Settings theseSettings)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
-		thisBuilder.append("SETTINGS\n"); //$NON-NLS-1$
-		thisBuilder.append("BackColor=").append(Utils.colorToString(theseSettings.theBackColor)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("ForeColor=").append(Utils.colorToString(theseSettings.theForeColor)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("BackgroundImage=").append(theseSettings.theBackgroundImageFile).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("FontFace=").append(theseSettings.theFontFace).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("FontSize=").append(theseSettings.theFontSize).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("DownScaleFonts=").append(theseSettings.theDownscaleFontsFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("FontScaler=").append(toString(theseSettings.theFontDownscaler)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("DownScaleImages=").append(theseSettings.theDownscaleImagesFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("ImageScaler=").append(toString(theseSettings.theImageDownscaler)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("Orientation=").append(theseSettings.theOrientation).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("Expansion=").append(theseSettings.theExpansion).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("Sweep=").append(theseSettings.theSweep).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("PreserveOrientationFlag=").append(theseSettings.thePreserveOrientationFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("HasToolbarFlag=").append(theseSettings.theHasToolbarFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("HasStatusbarFlag=").append(theseSettings.theHasStatusbarFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("HasPopUpMenuFlag=").append(theseSettings.theHasPopUpMenuFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("HasToolTipFlag=").append(theseSettings.theHasToolTipFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("ToolTipDisplaysContentFlag=").append(theseSettings.theToolTipDisplaysContentFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("FocusOnHoverFlag=").append(theseSettings.theFocusOnHoverFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("Focus=").append(theseSettings.theFocus).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("XMoveTo=").append(theseSettings.theXMoveTo).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("YMoveTo=").append(theseSettings.theYMoveTo).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("XShift=").append(theseSettings.theXMoveTo).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("YShift=").append(theseSettings.theYMoveTo).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("NodeBackColor=").append(Utils.colorToString(theseSettings.theNodeBackColor)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("NodeForeColor=").append(Utils.colorToString(theseSettings.theNodeForeColor)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("DefaultNodeImage=").append(theseSettings.theDefaultNodeImage).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("BorderFlag=").append(theseSettings.theBorderFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("EllipsizeFlag=").append(theseSettings.theEllipsizeFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("TreeEdgeColor=").append(Utils.colorToString(theseSettings.theTreeEdgeColor)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("TreeEdgeStyle=").append(ModelDump.toString(theseSettings.theTreeEdgeStyle)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("DefaultTreeEdgeImage=").append(theseSettings.theDefaultTreeEdgeImage).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("EdgesAsArcsFlag=").append(theseSettings.theEdgesAsArcsFlag).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("EdgeColor=").append(Utils.colorToString(theseSettings.theEdgeColor)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("EdgeStyle=").append(ModelDump.toString(theseSettings.theEdgeStyle)).append('\n'); //$NON-NLS-1$
-		thisBuilder.append("DefaultEdgeImage=").append(theseSettings.theDefaultEdgeImage).append('\n'); //$NON-NLS-1$
+		thisBuilder.append("SETTINGS\n");
+		thisBuilder.append("BackColor=").append(Utils.colorToString(theseSettings.theBackColor)).append('\n');
+		thisBuilder.append("ForeColor=").append(Utils.colorToString(theseSettings.theForeColor)).append('\n');
+		thisBuilder.append("BackgroundImage=").append(theseSettings.theBackgroundImageFile).append('\n');
+		thisBuilder.append("FontFace=").append(theseSettings.theFontFace).append('\n');
+		thisBuilder.append("FontSize=").append(theseSettings.theFontSize).append('\n');
+		thisBuilder.append("DownScaleFonts=").append(theseSettings.theDownscaleFontsFlag).append('\n');
+		thisBuilder.append("FontScaler=").append(toString(theseSettings.theFontDownscaler)).append('\n');
+		thisBuilder.append("DownScaleImages=").append(theseSettings.theDownscaleImagesFlag).append('\n');
+		thisBuilder.append("ImageScaler=").append(toString(theseSettings.theImageDownscaler)).append('\n');
+		thisBuilder.append("Orientation=").append(theseSettings.theOrientation).append('\n');
+		thisBuilder.append("Expansion=").append(theseSettings.theExpansion).append('\n');
+		thisBuilder.append("Sweep=").append(theseSettings.theSweep).append('\n');
+		thisBuilder.append("PreserveOrientationFlag=").append(theseSettings.thePreserveOrientationFlag).append('\n');
+		thisBuilder.append("HasToolbarFlag=").append(theseSettings.theHasToolbarFlag).append('\n');
+		thisBuilder.append("HasStatusbarFlag=").append(theseSettings.theHasStatusbarFlag).append('\n');
+		thisBuilder.append("HasPopUpMenuFlag=").append(theseSettings.theHasPopUpMenuFlag).append('\n');
+		thisBuilder.append("HasToolTipFlag=").append(theseSettings.theHasToolTipFlag).append('\n');
+		thisBuilder.append("ToolTipDisplaysContentFlag=").append(theseSettings.theToolTipDisplaysContentFlag).append('\n');
+		thisBuilder.append("FocusOnHoverFlag=").append(theseSettings.theFocusOnHoverFlag).append('\n');
+		thisBuilder.append("Focus=").append(theseSettings.theFocus).append('\n');
+		thisBuilder.append("XMoveTo=").append(theseSettings.theXMoveTo).append('\n');
+		thisBuilder.append("YMoveTo=").append(theseSettings.theYMoveTo).append('\n');
+		thisBuilder.append("XShift=").append(theseSettings.theXMoveTo).append('\n');
+		thisBuilder.append("YShift=").append(theseSettings.theYMoveTo).append('\n');
+		thisBuilder.append("NodeBackColor=").append(Utils.colorToString(theseSettings.theNodeBackColor)).append('\n');
+		thisBuilder.append("NodeForeColor=").append(Utils.colorToString(theseSettings.theNodeForeColor)).append('\n');
+		thisBuilder.append("DefaultNodeImage=").append(theseSettings.theDefaultNodeImage).append('\n');
+		thisBuilder.append("BorderFlag=").append(theseSettings.theBorderFlag).append('\n');
+		thisBuilder.append("EllipsizeFlag=").append(theseSettings.theEllipsizeFlag).append('\n');
+		thisBuilder.append("TreeEdgeColor=").append(Utils.colorToString(theseSettings.theTreeEdgeColor)).append('\n');
+		thisBuilder.append("TreeEdgeStyle=").append(ModelDump.toString(theseSettings.theTreeEdgeStyle)).append('\n');
+		thisBuilder.append("DefaultTreeEdgeImage=").append(theseSettings.theDefaultTreeEdgeImage).append('\n');
+		thisBuilder.append("EdgesAsArcsFlag=").append(theseSettings.theEdgesAsArcsFlag).append('\n');
+		thisBuilder.append("EdgeColor=").append(Utils.colorToString(theseSettings.theEdgeColor)).append('\n');
+		thisBuilder.append("EdgeStyle=").append(ModelDump.toString(theseSettings.theEdgeStyle)).append('\n');
+		thisBuilder.append("DefaultEdgeImage=").append(theseSettings.theDefaultEdgeImage).append('\n');
 		if (theseSettings.theMenu == null)
 		{
-			thisBuilder.append("Menu=null"); //$NON-NLS-1$
+			thisBuilder.append("Menu=null");
 		}
 		else
 		{
 			for (final MenuItem thisMenuItem : theseSettings.theMenu)
 			{
-				thisBuilder.append("MenuItem"); //$NON-NLS-1$
-				thisBuilder.append(" action=").append(thisMenuItem.theAction); //$NON-NLS-1$
-				thisBuilder.append(" link=").append(thisMenuItem.theLink); //$NON-NLS-1$
-				thisBuilder.append(" target=").append(thisMenuItem.theMatchTarget); //$NON-NLS-1$
-				thisBuilder.append(" scope=").append(thisMenuItem.theMatchScope); //$NON-NLS-1$
-				thisBuilder.append(" mode=").append(thisMenuItem.theMatchMode); //$NON-NLS-1$
-				thisBuilder.append(" label=").append(thisMenuItem.theLabel); //$NON-NLS-1$
+				thisBuilder.append("MenuItem");
+				thisBuilder.append(" action=").append(thisMenuItem.theAction);
+				thisBuilder.append(" link=").append(thisMenuItem.theLink);
+				thisBuilder.append(" target=").append(thisMenuItem.theMatchTarget);
+				thisBuilder.append(" scope=").append(thisMenuItem.theMatchScope);
+				thisBuilder.append(" mode=").append(thisMenuItem.theMatchMode);
+				thisBuilder.append(" label=").append(thisMenuItem.theLabel);
 			}
 		}
 		thisBuilder.append('\n');
@@ -232,12 +232,12 @@ public class ModelDump
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
 		final String[] theseStrings = Utils.toStrings(thisStyle);
-		thisBuilder.append("hidden=").append(theseStrings[0]); //$NON-NLS-1$
-		thisBuilder.append(" line=").append(theseStrings[1]); //$NON-NLS-1$
-		thisBuilder.append(" stroke=").append(theseStrings[2]); //$NON-NLS-1$
-		thisBuilder.append(" width=").append(theseStrings[3]); //$NON-NLS-1$
-		thisBuilder.append(" fromterminator=").append(theseStrings[4]); //$NON-NLS-1$
-		thisBuilder.append(" toterminator=").append(theseStrings[5]); //$NON-NLS-1$
+		thisBuilder.append("hidden=").append(theseStrings[0]);
+		thisBuilder.append(" line=").append(theseStrings[1]);
+		thisBuilder.append(" stroke=").append(theseStrings[2]);
+		thisBuilder.append(" width=").append(theseStrings[3]);
+		thisBuilder.append(" fromterminator=").append(theseStrings[4]);
+		thisBuilder.append(" toterminator=").append(theseStrings[5]);
 		return thisBuilder.toString();
 	}
 

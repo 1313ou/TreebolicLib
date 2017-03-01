@@ -272,27 +272,27 @@ public abstract class AbstractLayerOut
 		boolean radial = true;
 		if (theseSettings.theOrientation != null)
 		{
-			if (theseSettings.theOrientation.startsWith("n")) //$NON-NLS-1$
+			if (theseSettings.theOrientation.startsWith("n"))
 			{
 				setOrientation(Complex.SOUTH);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("s")) //$NON-NLS-1$
+			else if (theseSettings.theOrientation.startsWith("s"))
 			{
 				setOrientation(Complex.NORTH);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("e")) //$NON-NLS-1$
+			else if (theseSettings.theOrientation.startsWith("e"))
 			{
 				setOrientation(Complex.EAST);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("w")) //$NON-NLS-1$
+			else if (theseSettings.theOrientation.startsWith("w"))
 			{
 				setOrientation(Complex.WEST);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("r")) //$NON-NLS-1$
+			else if (theseSettings.theOrientation.startsWith("r"))
 			{
 				setOrientation(Complex.ZERO);
 				radial = true;

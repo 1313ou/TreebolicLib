@@ -39,7 +39,7 @@ public class ZipDeSerializer
 			final ZipEntry thisZipEntry = thisZipFile.getEntry(thisName);
 			if (thisZipEntry == null)
 			{
-				throw new IOException("zip entry not found " + thisName); //$NON-NLS-1$
+				throw new IOException("zip entry not found " + thisName);
 			}
 
 			thisInputStream = thisZipFile.getInputStream(thisZipEntry);

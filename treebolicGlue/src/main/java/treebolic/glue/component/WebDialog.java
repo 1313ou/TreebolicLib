@@ -1,15 +1,14 @@
 package treebolic.glue.component;
 
 import android.annotation.TargetApi;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialog;
-import android.support.v7.app.AppCompatDialogFragment;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialog;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,22 +29,22 @@ import treebolic.glue.iface.ActionListener;
  */
 public class WebDialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.WebDialog
 {
-	static final String TAG = "WebDialog"; //$NON-NLS-1$
+	static final String TAG = "WebDialog";
 
 	/**
 	 * Save key for header
 	 */
-	static final String STATE_HEADER = "org.treebolic.header"; //$NON-NLS-1$
+	static final String STATE_HEADER = "org.treebolic.header";
 
 	/**
 	 * Save key for content
 	 */
-	static final String STATE_CONTENT = "org.treebolic.content"; //$NON-NLS-1$
+	static final String STATE_CONTENT = "org.treebolic.content";
 
 	/**
 	 * Base URL for webview
 	 */
-	static private String base = "file:///android_asset/"; //$NON-NLS-1$
+	static private String base = "file:///android_asset/";
 
 	/**
 	 * Header
@@ -80,22 +79,12 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		super();
 	}
 
-	/**
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.WebDialog#setHandle(Object)
-	 */
 	@Override
 	public void setHandle(final Object handle)
 	{
 		this.activity = (AppCompatActivity) handle;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.app.DialogFragment#onCreate(android.os.Bundle)
-	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState)
 	{
@@ -109,11 +98,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.app.DialogFragment#onSaveInstanceState(android.os.Bundle)
-	 */
 	@Override
 	public void onSaveInstanceState(final Bundle outState)
 	{
@@ -122,11 +106,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		super.onSaveInstanceState(outState);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.app.DialogFragment#onCreateDialog(android.os.Bundle)
-	 */
 	@NonNull
 	@Override
 	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
@@ -148,24 +127,24 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		// content
 		final WebView webView = (WebView) view.findViewById(R.id.content);
 		final StringBuilder html = new StringBuilder();
-		html.append("<html><head>"); //$NON-NLS-1$
-		html.append("<style type='text/css'>"); //$NON-NLS-1$
+		html.append("<html><head>");
+		html.append("<style type='text/css'>");
 		html.append(getDefaultBaseStyle());
 		if (this.style != null && !this.style.isEmpty())
 		{
 			html.append(this.style);
 		}
-		html.append("</style>"); //$NON-NLS-1$
-		html.append("</head><body class='pane'>"); //$NON-NLS-1$
+		html.append("</style>");
+		html.append("</head><body class='pane'>");
 		// if (this.header != null && !this.header.isEmpty())
 		// {
 		// html.append("<div class='label'>");
 		// html.append(this.header);
 		// html.append("</div>");
 		// }
-		html.append("</head><body>"); //$NON-NLS-1$
+		html.append("</head><body>");
 		html.append(this.content);
-		html.append("</body>"); //$NON-NLS-1$
+		html.append("</body>");
 
 		// client
 		final WebViewClient webViewClient = new WebViewClient()
@@ -184,7 +163,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 			{
 				if (this.intercept && url != null)
 				{
-					Log.d(WebDialog.TAG, "url:" + url); //$NON-NLS-1$
+					Log.d(WebDialog.TAG, "url:" + url);
 					WebDialog.this.actionListener.onAction(url);
 					return true;
 				}
@@ -198,7 +177,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 				final Uri uri = request.getUrl();
 				if (this.intercept && uri != null)
 				{
-					Log.d(WebDialog.TAG, "url:" + uri); //$NON-NLS-1$
+					Log.d(WebDialog.TAG, "url:" + uri);
 					WebDialog.this.actionListener.onAction(uri);
 					return true;
 				}
@@ -208,7 +187,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		webView.setWebViewClient(webViewClient);
 
 		// load
-		webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null); //$NON-NLS-1$ //$NON-NLS-2$
+		webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
 
 		// set the layout for the dialog
 		builder.setView(view) //
@@ -229,11 +208,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		return dialog;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.WebDialog#set(java.lang.String, java.lang.String)
-	 */
 	@Override
 	public void set(final String header0, final String content0)
 	{
@@ -241,11 +215,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		this.content = content0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.WebDialog#setStyle(java.lang.String)
-	 */
 	@Override
 	public void setStyle(final String style0)
 	{
@@ -258,7 +227,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	@Override
 	public void display()
 	{
-		show(this.activity.getSupportFragmentManager(), "info"); //$NON-NLS-1$
+		show(this.activity.getSupportFragmentManager(), "info");
 	}
 
 	/**
@@ -270,22 +239,17 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	@SuppressWarnings({"boxing", "deprecation"})
 	private String getDefaultBaseStyle()
 	{
-		final Resources resources = getResources();
+		final int background = Utils.fetchColor(this.activity, R.attr.colorPrimaryDark);
+		final int foreground = Utils.getColor(this.activity, R.color.dialog_foreground);
+
 		final StringBuilder builder = new StringBuilder();
-		builder.append("body {"); //$NON-NLS-1$
-		final int background = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.background, null) : resources.getColor(R.color.background);
-		builder.append(String.format("background-color: #%06X;", 0xFFFFFF & background)); //$NON-NLS-1$
-		final int foreground = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? resources.getColor(R.color.foreground, null) : resources.getColor(R.color.foreground);
-		builder.append(String.format("color: #%06X;", 0xFFFFFF & foreground)); //$NON-NLS-1$
+		builder.append("body {");
+		builder.append(String.format("background-color: #%06X;", 0xFFFFFF & background));
+		builder.append(String.format("color: #%06X;", 0xFFFFFF & foreground));
 		builder.append('}');
 		return builder.toString();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.WebDialog#setListener(treebolic.glue.iface.ActionListener)
-	 */
 	@Override
 	public void setListener(final ActionListener actionListener0)
 	{

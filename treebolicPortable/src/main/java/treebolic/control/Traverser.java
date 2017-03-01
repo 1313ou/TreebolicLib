@@ -227,10 +227,6 @@ public class Traverser extends Generator<INode>
 		this.theNode = thisNode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.control.Generator#run()
-	 */
 	@Override
 	protected void run() throws InterruptedException
 	{
@@ -250,10 +246,6 @@ public class Traverser extends Generator<INode>
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.control.Generator#finalize()
-	 */
 	@Override
 	public void finalize() throws Throwable
 	{

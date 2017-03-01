@@ -92,21 +92,20 @@ public class SplitPaneLayout extends ViewGroup
 	{
 		if (attrs != null)
 		{
-			final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout);
-			this.mOrientation = a.getInt(R.styleable.SplitPaneLayout_orientation, 0);
-			this.mSplitterSize = a.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize,
-					context.getResources().getDimensionPixelSize(R.dimen.spl_default_splitter_size));
-			this.mSplitterMovable = a.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true);
-			TypedValue value = a.peekValue(R.styleable.SplitPaneLayout_splitterPosition);
+			final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout);
+			this.mOrientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0);
+			this.mSplitterSize = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.getResources().getDimensionPixelSize(R.dimen.spl_default_splitter_size));
+			this.mSplitterMovable = array.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true);
+			TypedValue value = array.peekValue(R.styleable.SplitPaneLayout_splitterPosition);
 			if (value != null)
 			{
 				if (value.type == TypedValue.TYPE_DIMENSION)
 				{
-					this.mSplitterPosition = a.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Integer.MIN_VALUE);
+					this.mSplitterPosition = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Integer.MIN_VALUE);
 				}
 				else if (value.type == TypedValue.TYPE_FRACTION)
 				{
-					this.mSplitterPositionPercent = a.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50) * 0.01f;
+					this.mSplitterPositionPercent = array.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50) * 0.01f;
 				}
 			}
 			else
@@ -115,47 +114,42 @@ public class SplitPaneLayout extends ViewGroup
 				this.mSplitterPositionPercent = 0.5f;
 			}
 
-			value = a.peekValue(R.styleable.SplitPaneLayout_splitterBackground);
+			value = array.peekValue(R.styleable.SplitPaneLayout_splitterBackground);
 			if (value != null)
 			{
 				if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
 				{
-					this.mSplitterDrawable = a.getDrawable(R.styleable.SplitPaneLayout_splitterBackground);
+					this.mSplitterDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterBackground);
 				}
 				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4
 						|| value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
 				{
-					this.mSplitterDrawable = new PaintDrawable(a.getColor(R.styleable.SplitPaneLayout_splitterBackground, 0xFF000000));
+					this.mSplitterDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterBackground, 0xFF000000));
 				}
 			}
-			value = a.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground);
+			value = array.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground);
 			if (value != null)
 			{
 				if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
 				{
-					this.mSplitterDraggingDrawable = a.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground);
+					this.mSplitterDraggingDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground);
 				}
 				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4
 						|| value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
 				{
-					this.mSplitterDraggingDrawable = new PaintDrawable(a.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, 0x88FFFFFF));
+					this.mSplitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, 0x88FFFFFF));
 				}
 			}
 			else
 			{
 				this.mSplitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
 			}
-			a.recycle();
+			array.recycle();
 		}
 	}
 
 	// O V E R R I D E S
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.view.View#onMeasure(int, int)
-	 */
 	@Override
 	protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec)
 	{
@@ -219,11 +213,6 @@ public class SplitPaneLayout extends ViewGroup
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.view.ViewGroup#onLayout(boolean, int, int, int, int)
-	 */
 	@Override
 	protected void onLayout(final boolean changed, final int l, final int t, final int r, final int b)
 	{
@@ -252,11 +241,6 @@ public class SplitPaneLayout extends ViewGroup
 
 	// T O U C H L I S T E N E R
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.view.View#onTouchEvent(android.view.MotionEvent)
-	 */
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public boolean onTouchEvent(final MotionEvent event)
@@ -356,14 +340,9 @@ public class SplitPaneLayout extends ViewGroup
 	private void check()
 	{
 		if (getChildCount() != 2)
-			throw new RuntimeException("SplitPaneLayout must have exactly two child views."); //$NON-NLS-1$
+			throw new RuntimeException("SplitPaneLayout must have exactly two child views.");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.view.ViewGroup#dispatchDraw(android.graphics.Canvas)
-	 */
 	@Override
 	protected void dispatchDraw(final Canvas canvas)
 	{
@@ -574,11 +553,6 @@ public class SplitPaneLayout extends ViewGroup
 
 	// I N S T A N C E S T A T E
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.view.View#onSaveInstanceState()
-	 */
 	@Override
 	public Parcelable onSaveInstanceState()
 	{
@@ -588,11 +562,6 @@ public class SplitPaneLayout extends ViewGroup
 		return ss;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.view.View#onRestoreInstanceState(android.os.Parcelable)
-	 */
 	@Override
 	public void onRestoreInstanceState(final Parcelable state)
 	{

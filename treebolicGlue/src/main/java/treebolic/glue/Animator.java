@@ -45,11 +45,6 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 		// Log.d(Animator.TAG, "animate frame delay set=" + ANIMATIONTIMESLICE + " get=" + ValueAnimator.getFrameDelay());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Animator#run(treebolic.glue.ActionListener, int, int)
-	 */
 	@Override
 	public boolean run(final ActionListener thisListener, final int theseSteps, final int startDelay)
 	{
@@ -67,22 +62,12 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Animator#isRunning()
-	 */
 	@Override
 	public boolean isRunning()
 	{
 		return this.theAnimator.isRunning();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.animation.ValueAnimator.AnimatorUpdateListener#onAnimationUpdate(android.animation.ValueAnimator)
-	 */
 	@SuppressWarnings("boxing")
 	@Override
 	public void onAnimationUpdate(final ValueAnimator animator)

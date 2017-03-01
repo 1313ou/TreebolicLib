@@ -31,7 +31,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * Log tag
 	 */
 	static private final boolean LOG = false;
-	static private final String TAG = "Treebolic Surface"; //$NON-NLS-1$
+	static private final String TAG = "Treebolic Surface";
 
 	/**
 	 * Margin of error when finding node
@@ -272,7 +272,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				// scaleFactor change since previous event
 				Surface.this.scaleFactor *= detector.getScaleFactor();
 				if (LOG)
-					Log.d(Surface.TAG, "scaleFactor " + Surface.this.scaleFactor); //$NON-NLS-1$
+					Log.d(Surface.TAG, "scaleFactor " + Surface.this.scaleFactor);
 				return true;
 			}
 
@@ -283,7 +283,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				Surface.this.isScaling = true;
 				Surface.this.scaleFactor = 1F;
 				if (LOG)
-					Log.d(Surface.TAG, "scale begin"); //$NON-NLS-1$
+					Log.d(Surface.TAG, "scale begin");
 				return true;
 			}
 
@@ -325,13 +325,13 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				{
 					Surface.this.listener.onZoom(scale, 0, 0);
 					if (LOG)
-						Log.d(Surface.TAG, "zoom: " + scale); //$NON-NLS-1$
+						Log.d(Surface.TAG, "zoom: " + scale);
 				}
 				else
 				{
 					Surface.this.listener.onScale(0, scale, scale);
 					if (LOG)
-						Log.d(Surface.TAG, "scale: " + scale); //$NON-NLS-1$
+						Log.d(Surface.TAG, "scale: " + scale);
 				}
 
 				// reset
@@ -375,7 +375,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		if (this.thread == null || this.thread.getState() == Thread.State.TERMINATED)
 		{
 			if (LOG)
-				Log.d(Surface.TAG, "thread created"); //$NON-NLS-1$
+				Log.d(Surface.TAG, "thread created");
 			this.thread = new TreebolicThread(this, getHolder());
 		}
 
@@ -386,7 +386,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		if (this.thread.getState() == Thread.State.NEW)
 		{
 			if (LOG)
-				Log.d(Surface.TAG, "thread started"); //$NON-NLS-1$
+				Log.d(Surface.TAG, "thread started");
 			this.thread.start();
 		}
 	}
@@ -400,7 +400,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void surfaceCreated(final SurfaceHolder holder0)
 	{
 		if (LOG)
-			Log.d(Surface.TAG, "surface created"); //$NON-NLS-1$
+			Log.d(Surface.TAG, "surface created");
 
 		// start the thread here so that we don't busy-wait in run() waiting for the surface to be created
 		runThread();
@@ -413,7 +413,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void surfaceChanged(final SurfaceHolder holder0, final int format, final int width, final int height)
 	{
 		if (LOG)
-			Log.d(Surface.TAG, "surface changed"); //$NON-NLS-1$
+			Log.d(Surface.TAG, "surface changed");
 
 		this.thread.unpause();
 	}
@@ -426,7 +426,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void surfaceDestroyed(final SurfaceHolder holder0)
 	{
 		if (LOG)
-			Log.d(Surface.TAG, "surface destroyed"); //$NON-NLS-1$
+			Log.d(Surface.TAG, "surface destroyed");
 
 		// tell thread to shut down & wait for it to finish
 		this.thread.waitForTermination();
@@ -439,11 +439,11 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void repaint()
 	{
 		if (LOG)
-			Log.d(Surface.TAG, "surface repainting"); //$NON-NLS-1$
+			Log.d(Surface.TAG, "surface repainting");
 		runThread();
 		this.thread.unpause();
 		if (LOG)
-			Log.d(Surface.TAG, "surface repainted"); //$NON-NLS-1$
+			Log.d(Surface.TAG, "surface repainted");
 	}
 
 	// O T H E R

@@ -62,11 +62,6 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	private View toolbar;
 	private View statusbar;
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.Container#addComponent(treebolic.glue.component.Component, int)
-	 */
 	@Override
 	public void addComponent(final Component component, final int position)
 	{
@@ -100,11 +95,6 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.Container#removeAll()
-	 */
 	@Override
 	public void removeAll()
 	{
@@ -114,11 +104,6 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		this.statusbar = null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.component.Container#validate()
-	 */
 	@Override
 	public void validate()
 	{

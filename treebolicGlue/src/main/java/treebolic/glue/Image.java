@@ -104,11 +104,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Image#getWidth()
-	 */
 	@Override
 	public int getWidth()
 	{
@@ -119,11 +114,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 		return this.bitmap.getWidth();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Image#getHeight()
-	 */
 	@Override
 	public int getHeight()
 	{

@@ -28,7 +28,7 @@ public class Utils
 {
 	// S T Y L E
 
-	static public final String NONE = ""; //$NON-NLS-1$
+	static public final String NONE = "";
 
 	/**
 	 * Style component pointer
@@ -254,13 +254,13 @@ public class Utils
 		{
 			if ((thisStyle & IEdge.HIDDENDEF) == 0)
 				return null;
-			return (thisStyle & IEdge.HIDDEN) != 0 ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
+			return (thisStyle & IEdge.HIDDEN) != 0 ? "true" : "false";
 		}
 		case LINE:
 		{
 			if ((thisStyle & IEdge.LINEDEF) == 0)
 				return null;
-			return (thisStyle & IEdge.LINE) != 0 ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
+			return (thisStyle & IEdge.LINE) != 0 ? "true" : "false";
 		}
 		case STROKE:
 		{
@@ -388,15 +388,15 @@ public class Utils
 		int thisStyle = 0;
 		if (thisString != null)
 		{
-			if (thisString.startsWith("solid")) //$NON-NLS-1$
+			if (thisString.startsWith("solid"))
 			{
 				thisStyle |= IEdge.SOLID;
 			}
-			else if (thisString.startsWith("dash")) //$NON-NLS-1$
+			else if (thisString.startsWith("dash"))
 			{
 				thisStyle |= IEdge.DASH;
 			}
-			else if (thisString.startsWith("dot")) //$NON-NLS-1$
+			else if (thisString.startsWith("dot"))
 			{
 				thisStyle |= IEdge.DOT;
 			}
@@ -449,11 +449,11 @@ public class Utils
 		switch (n)
 		{
 		case IEdge.SOLID:
-			return "solid"; //$NON-NLS-1$
+			return "solid";
 		case IEdge.DASH:
-			return "dash"; //$NON-NLS-1$
+			return "dash";
 		case IEdge.DOT:
-			return "dot"; //$NON-NLS-1$
+			return "dot";
 		default:
 			break;
 		}
@@ -524,7 +524,7 @@ public class Utils
 	{
 		if (thisStyle == null)
 			return NONE;
-		return (thisStyle & IEdge.FILL) != 0 ? "f" : NONE; //$NON-NLS-1$
+		return (thisStyle & IEdge.FILL) != 0 ? "f" : NONE;
 	}
 
 	// shape
@@ -572,20 +572,20 @@ public class Utils
 		switch (n)
 		{
 		case IEdge.ARROW:
-			return "a"; //$NON-NLS-1$
+			return "a";
 		case IEdge.HOOK:
-			return "h"; //$NON-NLS-1$
+			return "h";
 		case IEdge.CIRCLE:
-			return "c"; //$NON-NLS-1$
+			return "c";
 		case IEdge.DIAMOND:
-			return "d"; //$NON-NLS-1$
+			return "d";
 		case IEdge.TRIANGLE:
-			return "t"; //$NON-NLS-1$
+			return "t";
 		case 0:
-			return "z"; //$NON-NLS-1$
+			return "z";
 		// return NONE;
 		default:
-			return "?"; //$NON-NLS-1$
+			return "?";
 		}
 	}
 
@@ -723,7 +723,7 @@ public class Utils
 		String thisString = thatString;
 		if (thisString == null || thisString.isEmpty())
 			return null;
-		if (thisString.startsWith("#")) //$NON-NLS-1$
+		if (thisString.startsWith("#"))
 		{
 			thisString = thisString.substring(1);
 		}
@@ -749,7 +749,7 @@ public class Utils
 	 */
 	public static float[] stringToFloats(final String thisScalerString)
 	{
-		final String[] thisScalerItem = thisScalerString.split("[\\s,;]+"); //$NON-NLS-1$
+		final String[] thisScalerItem = thisScalerString.split("[\\s,;]+");
 		final float[] thisScaler = new float[thisScalerItem.length];
 		for (int i = 0; i < thisScalerItem.length; i++)
 		{

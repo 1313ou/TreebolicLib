@@ -24,7 +24,7 @@ public class Tip extends AppCompatDialogFragment
 	/**
 	 * Text name (used when saving instance)
 	 */
-	static final String STATE_TEXT = "org.treebolic.tip"; //$NON-NLS-1$
+	static final String STATE_TEXT = "org.treebolic.tip";
 
 	/**
 	 * Text
@@ -39,11 +39,6 @@ public class Tip extends AppCompatDialogFragment
 		//
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.app.DialogFragment#onCreate(android.os.Bundle)
-	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState)
 	{
@@ -56,11 +51,6 @@ public class Tip extends AppCompatDialogFragment
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.app.DialogFragment#onSaveInstanceState(android.os.Bundle)
-	 */
 	@Override
 	public void onSaveInstanceState(final Bundle outState)
 	{
@@ -68,11 +58,6 @@ public class Tip extends AppCompatDialogFragment
 		super.onSaveInstanceState(outState);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see android.app.DialogFragment#onCreateDialog(android.os.Bundle)
-	 */
 	@NonNull
 	@Override
 	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
@@ -89,7 +74,7 @@ public class Tip extends AppCompatDialogFragment
 
 		// data
 		final WebView webView = (WebView) view.findViewById(R.id.text);
-		webView.loadData(this.text, "text/html; charset=UTF-8", "utf-8"); //$NON-NLS-1$ //$NON-NLS-2$
+		webView.loadData(this.text, "text/html; charset=UTF-8", "utf-8");
 
 		// set the layout for the dialog
 		builder.setView(view) //

@@ -345,7 +345,7 @@ public abstract class AbstractPainter extends Mapper
 	public void setFont(final String thisFontFace, final Integer thisFontSize, final Boolean thisDownscaleFontFlag, final float[] thisFontDownscaler)
 	{
 		// face
-		this.theFontFace = thisFontFace == null ? "SansSerif" : thisFontFace; //$NON-NLS-1$
+		this.theFontFace = thisFontFace == null ? "SansSerif" : thisFontFace;
 
 		// size
 		this.theFontSize = thisFontSize == null ? AbstractPainter.FONT_DEFAULT_SIZE : thisFontSize;

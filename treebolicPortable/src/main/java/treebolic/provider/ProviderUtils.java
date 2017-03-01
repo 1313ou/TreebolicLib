@@ -29,7 +29,7 @@ public class ProviderUtils
 			//noinspection ConstantConditions,ConstantConditions,ConstantConditions
 			if (DEBUG)
 			{
-				thisContext.warn("URL= null (null source)"); //$NON-NLS-1$
+				thisContext.warn("URL= null (null source)");
 			}
 			return null;
 		}
@@ -41,7 +41,7 @@ public class ProviderUtils
 			//noinspection ConstantConditions
 			if (DEBUG)
 			{
-				thisContext.message("URL=" + thisUrl.toString()); //$NON-NLS-1$
+				thisContext.message("URL=" + thisUrl.toString());
 			}
 			return thisUrl;
 		}
@@ -57,7 +57,7 @@ public class ProviderUtils
 			//noinspection ConstantConditions
 			if (DEBUG)
 			{
-				thisContext.message("URL=" + thisUrl.toString()); // + " from BASE URL=" + thisBase.toString()); //$NON-NLS-1$
+				thisContext.message("URL=" + thisUrl.toString()); // + " from BASE URL=" + thisBase.toString());
 			}
 			return thisUrl;
 		}
@@ -68,7 +68,7 @@ public class ProviderUtils
 		//noinspection ConstantConditions
 		if (DEBUG)
 		{
-			thisContext.warn("URL= null (fail)"); //$NON-NLS-1$
+			thisContext.warn("URL= null (fail)");
 		}
 		return null;
 	}

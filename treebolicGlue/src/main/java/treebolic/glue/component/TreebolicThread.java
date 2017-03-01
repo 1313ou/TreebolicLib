@@ -12,7 +12,7 @@ public class TreebolicThread extends Thread
 	 * Log tag
 	 */
 	static private final boolean LOG = false;
-	static private final String TAG = "Treebolic Thread"; //$NON-NLS-1$
+	static private final String TAG = "Treebolic Thread";
 
 	/**
 	 * Draw cycle number
@@ -131,7 +131,7 @@ public class TreebolicThread extends Thread
 			this.lock.notify();
 		}
 		if (LOG)
-			Log.d(TreebolicThread.TAG, "wake up"); //$NON-NLS-1$
+			Log.d(TreebolicThread.TAG, "wake up");
 	}
 
 	@Override
@@ -147,10 +147,10 @@ public class TreebolicThread extends Thread
 				synchronized (this.synchronizer)
 				{
 					if (LOG)
-						Log.d(TreebolicThread.TAG, "task started " + ++TreebolicThread.drawCycle); //$NON-NLS-1$
+						Log.d(TreebolicThread.TAG, "task started " + ++TreebolicThread.drawCycle);
 					doDraw(canvas);
 					if (LOG)
-						Log.d(TreebolicThread.TAG, "task done " + TreebolicThread.drawCycle); //$NON-NLS-1$
+						Log.d(TreebolicThread.TAG, "task done " + TreebolicThread.drawCycle);
 				}
 			}
 			finally
@@ -165,7 +165,7 @@ public class TreebolicThread extends Thread
 			// pause
 			// we do not pause if we have been signaled in the mean time
 			if (LOG)
-				Log.d(TreebolicThread.TAG, "pause"); //$NON-NLS-1$
+				Log.d(TreebolicThread.TAG, "pause");
 			if (this.pauseFlag)
 			{
 				try
@@ -180,11 +180,11 @@ public class TreebolicThread extends Thread
 				}
 				catch (final InterruptedException e)
 				{
-					Log.d(TreebolicThread.TAG, "interrupted"); //$NON-NLS-1$
+					Log.d(TreebolicThread.TAG, "interrupted");
 				}
 				
 				if (LOG)
-					Log.d(TreebolicThread.TAG, "resume"); //$NON-NLS-1$
+					Log.d(TreebolicThread.TAG, "resume");
 			}
 
 			// for next round
@@ -196,7 +196,7 @@ public class TreebolicThread extends Thread
 		this.surfaceHolder = null;
 
 		if (LOG)
-			Log.d(TreebolicThread.TAG, "terminated"); //$NON-NLS-1$
+			Log.d(TreebolicThread.TAG, "terminated");
 	}
 
 	/**

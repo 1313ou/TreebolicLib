@@ -85,14 +85,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Default provider
 	 */
-	static public final String DEFAULT_PROVIDER = "treebolic.provider.xml.dom.Provider"; //$NON-NLS-1$
+	static public final String DEFAULT_PROVIDER = "treebolic.provider.xml.dom.Provider";
 
 	// V E R S I O N
 
 	/**
 	 * Version : 3.x
 	 */
-	private static final String theVersion = "3.5.0"; //$NON-NLS-1$
+	private static final String theVersion = "3.5.0";
 
 	// C O N T E X T
 
@@ -218,31 +218,23 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 	// I N I T
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#init()
-	 */
 	@Override
 	public void init()
 	{
 		// source
-		String thisSource = this.theContext.getParameters().getProperty("source"); //$NON-NLS-1$
+		String thisSource = this.theContext.getParameters().getProperty("source");
 		if (thisSource == null || thisSource.isEmpty())
 		{
-			thisSource = this.theContext.getParameters().getProperty("doc"); //$NON-NLS-1$
+			thisSource = this.theContext.getParameters().getProperty("doc");
 		}
 
 		// provider
-		final String thisProviderName = this.theContext.getParameters().getProperty("provider"); //$NON-NLS-1$
+		final String thisProviderName = this.theContext.getParameters().getProperty("provider");
 
 		// init
 		init(thisProviderName, thisSource);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#init(java.lang.String, java.lang.String)
-	 */
 	@Override
 	public void init(final String thatProviderName, final String thisSource)
 	{
@@ -255,14 +247,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 		// log
 		if (Widget.DEBUG)
 		{
-			this.theContext.status("provider=" + thisProviderName); //$NON-NLS-1$
+			this.theContext.status("provider=" + thisProviderName);
 		}
 
 		// make provider
 		final IProvider thisProvider = makeProvider(thisProviderName);
 		if (thisProvider == null)
 		{
-			progress(Messages.getString("Widget.progress_err_provider_create") + ' ' + '<' + thisProviderName + '>', true); //$NON-NLS-1$
+			progress(Messages.getString("Widget.progress_err_provider_create") + ' ' + '<' + thisProviderName + '>', true);
 			return;
 		}
 
@@ -270,10 +262,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 		init(thisProvider, thisSource);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#init(treebolic.provider.IProvider, java.lang.String)
-	 */
 	@Override
 	public void init(final IProvider thisProvider, final String thisSource)
 	{
@@ -305,26 +293,22 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		catch (final IOException thisException)
 		{
-			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true); //$NON-NLS-1$
+			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true);
 			thisException.printStackTrace();
 		}
 		catch (final ClassNotFoundException thisException)
 		{
-			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true); //$NON-NLS-1$
+			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true);
 			thisException.printStackTrace();
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#reinit(java.lang.String)
-	 */
 	@Override
 	public void reinit(final String thisSource)
 	{
 		if (this.theProvider == null)
 		{
-			progress(Messages.getString("Widget.progress_err_reinit_provider_null") + ' ' + this.theProvider, true); //$NON-NLS-1$
+			progress(Messages.getString("Widget.progress_err_reinit_provider_null") + ' ' + this.theProvider, true);
 			return;
 		}
 
@@ -360,7 +344,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 					}
 					catch (final Throwable e)
 					{
-						Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString()); //$NON-NLS-1$
+						Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
 						e.printStackTrace();
 					}
 				}
@@ -387,30 +371,26 @@ public class Widget extends Container implements IWidget, IProviderContext
 	{
 		if (Widget.DEBUG)
 		{
-			this.theContext.status("source=" + thisSource); //$NON-NLS-1$
-			this.theContext.status("base=" + this.theContext.getBase()); //$NON-NLS-1$
-			this.theContext.status("imagebase=" + this.theContext.getImagesBase()); //$NON-NLS-1$
-			this.theContext.status("parameters=" + this.theContext.getParameters()); //$NON-NLS-1$
+			this.theContext.status("source=" + thisSource);
+			this.theContext.status("base=" + this.theContext.getBase());
+			this.theContext.status("imagebase=" + this.theContext.getImagesBase());
+			this.theContext.status("parameters=" + this.theContext.getParameters());
 		}
 
-		progress(Messages.getString("Widget.progress_loading") + '\n' + ' ' + thisSource, false); //$NON-NLS-1$
+		progress(Messages.getString("Widget.progress_loading") + '\n' + ' ' + thisSource, false);
 		final Model thisModel = thisProvider.makeModel(thisSource, this.theContext.getBase(), this.theContext.getParameters());
 		if (thisModel == null)
 		{
-			progress(String.format(Messages.getString("Widget.progress_err_model_null_provider_source"), thisProvider.getClass().getCanonicalName(), thisSource), //$NON-NLS-1$
+			progress(String.format(Messages.getString("Widget.progress_err_model_null_provider_source"), thisProvider.getClass().getCanonicalName(), thisSource),
 					true);
 			return;
 		}
-		progress(Messages.getString("Widget.progress_loaded") + '\n' + ' ' + thisSource, false); //$NON-NLS-1$
+		progress(Messages.getString("Widget.progress_loaded") + '\n' + ' ' + thisSource, false);
 
 		// load model
 		initModel(thisModel);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#init(treebolic.model.Model)
-	 */
 	@Override
 	public void init(final Model thisModel)
 	{
@@ -433,19 +413,19 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theModel = thisModel;
 
 		// initiate image loading
-		progress(Messages.getString("Widget.progress_images_loading"), false); //$NON-NLS-1$
+		progress(Messages.getString("Widget.progress_images_loading"), false);
 		loadImages();
-		progress(Messages.getString("Widget.progress_images_loaded"), false); //$NON-NLS-1$
+		progress(Messages.getString("Widget.progress_images_loaded"), false);
 
 		// weigh model
-		progress(Messages.getString("Widget.progress_weighing"), false); //$NON-NLS-1$
+		progress(Messages.getString("Widget.progress_weighing"), false);
 		this.theWeigher.weigh(thisModel.theTree.getRoot());
 
 		// enforce settings
 		this.theLayerOut.apply(this.theModel.theSettings);
 
 		// lay out model
-		progress(Messages.getString("Widget.progress_layingout"), false); //$NON-NLS-1$
+		progress(Messages.getString("Widget.progress_layingout"), false);
 		this.theLayerOut.layout(thisModel.theTree.getRoot());
 	}
 
@@ -454,7 +434,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	{
 		if (this.theModel == null)
 		{
-			progress(Messages.getString("Widget.progress_err_model_null"), true); //$NON-NLS-1$
+			progress(Messages.getString("Widget.progress_err_model_null"), true);
 			return;
 		}
 
@@ -571,19 +551,19 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public synchronized void mount(final INode thisMountingNode, final String thisSource)
 	{
-		putStatus(Messages.getString("Widget.status_mount"), thisSource, Statusbar.PutType.MOUNT); //$NON-NLS-1$
+		putStatus(Messages.getString("Widget.status_mount"), thisSource, Statusbar.PutType.MOUNT);
 
 		if (this.theProvider == null)
 		{
-			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_null") + "</div>", //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_null") + "</div>",
 					Statusbar.PutType.MOUNT);
 
 			// get provider name
-			final String thisProviderName = this.theContext.getParameters().getProperty("provider"); //$NON-NLS-1$
+			final String thisProviderName = this.theContext.getParameters().getProperty("provider");
 			if (thisProviderName == null || thisProviderName.isEmpty())
 			{
-				putStatus(Messages.getString("Widget.status_mount"), //$NON-NLS-1$
-						"<div class='mount'>" + Messages.getString("Widget.status_mount_err_providername_null") + "</div>", Statusbar.PutType.MOUNT); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+				putStatus(Messages.getString("Widget.status_mount"),
+						"<div class='mount'>" + Messages.getString("Widget.status_mount_err_providername_null") + "</div>", Statusbar.PutType.MOUNT);
 				return;
 			}
 
@@ -591,8 +571,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.theProvider = makeProvider(thisProviderName);
 			if (this.theProvider == null)
 			{
-				putStatus(Messages.getString("Widget.status_mount"), //$NON-NLS-1$
-						"<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_create") + thisProviderName + "</div>", //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+				putStatus(Messages.getString("Widget.status_mount"),
+						"<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_create") + thisProviderName + "</div>",
 						Statusbar.PutType.MOUNT);
 				return;
 			}
@@ -605,8 +585,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 		final Tree thisTree = this.theProvider.makeTree(thisSource, this.theContext.getBase(), this.theContext.getParameters(), false);
 		if (thisTree == null)
 		{
-			putStatus(Messages.getString("Widget.status_mount"), //$NON-NLS-1$
-					"<div class='mount'>" + Messages.getString("Widget.status_mount_err_model_null") + thisSource + "</div>", Statusbar.PutType.MOUNT); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			putStatus(Messages.getString("Widget.status_mount"),
+					"<div class='mount'>" + Messages.getString("Widget.status_mount_err_model_null") + thisSource + "</div>", Statusbar.PutType.MOUNT);
 			return;
 		}
 
@@ -627,7 +607,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		// graft nodes
 		if (!Mounter.graft(thisMountingNode, thisMountedRoot, this.theModel.theTree.getEdges(), theseMountedEdges))
 		{
-			putStatus(Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err"), Statusbar.PutType.MOUNT); //$NON-NLS-1$ //$NON-NLS-2$
+			putStatus(Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err"), Statusbar.PutType.MOUNT);
 			return;
 		}
 
@@ -652,13 +632,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public synchronized void umount(final INode thisMountedNode)
 	{
-		putStatus(Messages.getString("Widget.status_unmount"), "", Statusbar.PutType.MOUNT); //$NON-NLS-1$//$NON-NLS-2$
+		putStatus(Messages.getString("Widget.status_unmount"), "", Statusbar.PutType.MOUNT);
 
 		// model
 		final INode thisMountingNode = Mounter.prune(thisMountedNode, this.theModel.theTree.getEdges());
 		if (thisMountingNode == null)
 		{
-			putStatus(Messages.getString("Widget.status_unmount"), "<div class='mount'>" + Messages.getString("Widget.status_unmount_err") + "</div>", //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			putStatus(Messages.getString("Widget.status_unmount"), "<div class='mount'>" + Messages.getString("Widget.status_unmount_err") + "</div>",
 					Statusbar.PutType.MOUNT);
 			return;
 		}
@@ -759,27 +739,27 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		catch (final ClassNotFoundException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString()); //$NON-NLS-1$
+			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (final NoSuchMethodException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString()); //$NON-NLS-1$
+			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (final IllegalAccessException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString()); //$NON-NLS-1$
+			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (final InstantiationException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString()); //$NON-NLS-1$
+			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (final IllegalArgumentException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString()); //$NON-NLS-1$
+			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (final InvocationTargetException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString()); //$NON-NLS-1$
+			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		return null;
 	}
@@ -997,7 +977,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		{
 			if (Widget.DEBUG)
 			{
-				this.theContext.status("image=" + thisUrl); //$NON-NLS-1$
+				this.theContext.status("image=" + thisUrl);
 			}
 
 			// image loading
@@ -1014,7 +994,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			{
 				if (Widget.WARNIMAGEFAILS)
 				{
-					this.theContext.warn(Messages.getString("Widget.warn_err_image_load") + thisUrl + ' ' + e); //$NON-NLS-1$
+					this.theContext.warn(Messages.getString("Widget.warn_err_image_load") + thisUrl + ' ' + e);
 				}
 			}
 		}
@@ -1058,30 +1038,18 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 	// I N T E R A C T I O N
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.model.IProviderContext#putProgress(java.lang.String)
-	 */
 	@Override
 	public void progress(final String thisString, final boolean fail)
 	{
 		this.theProgress.put(thisString, fail);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.model.IProviderContext#putMessage(java.lang.String)
-	 */
 	@Override
 	public void message(final String thisString)
 	{
 		this.theContext.status(thisString);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IContext#warn(java.lang.String)
-	 */
 	@Override
 	public void warn(final String thisMessage)
 	{
@@ -1152,10 +1120,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 	// J A V A S C R I P T
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#focus(java.lang.String)
-	 */
 	@Override
 	public void focus(final String thisNodeId)
 	{
@@ -1165,10 +1129,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theController.focus(thisNodeId);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#match(java.lang.String, java.lang.String, java.lang.String)
-	 */
 	@Override
 	public String match(final String thisTargetString, final String thisScopeString, final String thisModeString)
 	{
@@ -1194,20 +1154,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 		return null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#link(java.lang.String, java.lang.String)
-	 */
 	@Override
 	public void link(final String thisUrlString, final String thisUrlTarget)
 	{
 		this.theController.linkTo(thisUrlString, thisUrlTarget);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see treebolic.IWidget#search(java.lang.String, java.lang.String[])
-	 */
 	@Override
 	public void search(final String thisCommandString, final String... theseParams)
 	{

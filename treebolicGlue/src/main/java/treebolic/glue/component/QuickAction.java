@@ -540,11 +540,6 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		this.dismissListener = listener;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.component.PopupAdapter#onDismiss()
-	 */
 	@Override
 	public void onDismiss()
 	{

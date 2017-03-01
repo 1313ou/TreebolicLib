@@ -66,10 +66,6 @@ public abstract class Generator<T> implements Iterable<T>
 
 	private RuntimeException exceptionRaisedByProducer;
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
 	@Override
 	public Iterator<T> iterator()
 	{
@@ -153,7 +149,7 @@ public abstract class Generator<T> implements Iterable<T>
 
 		// thread group
 		if (THREAD_GROUP == null)
-			THREAD_GROUP = new ThreadGroup("generatorfunctions"); //$NON-NLS-1$
+			THREAD_GROUP = new ThreadGroup("generatorfunctions");
 
 		// new thread definition
 		this.producer = new Thread(THREAD_GROUP, new Runnable()
@@ -195,10 +191,6 @@ public abstract class Generator<T> implements Iterable<T>
 		this.producer.start();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#finalize()
-	 */
 	@Override
 	protected void finalize() throws Throwable
 	{

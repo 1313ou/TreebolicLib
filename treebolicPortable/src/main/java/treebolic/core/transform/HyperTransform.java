@@ -263,6 +263,6 @@ public class HyperTransform implements IHyperTransform
 	@Override
 	public String toString()
 	{
-		return "p=" + this.theXlat.toString() + " theta=" + this.theRot.toString(); //$NON-NLS-1$ //$NON-NLS-2$
+		return "p=" + this.theXlat.toString() + " theta=" + this.theRot.toString();
 	}
 }

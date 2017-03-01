@@ -67,110 +67,60 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 		super();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#setFrame(double, double, double, double)
-	 */
 	@Override
 	public void setFrame(final double x, final double y, final double width, final double height)
 	{
 		super.set(Rectangle2D.makeRect(x, y, width, height));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getX()
-	 */
 	@Override
 	public double getX()
 	{
 		return this.left;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getY()
-	 */
 	@Override
 	public double getY()
 	{
 		return this.top;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getWidth()
-	 */
 	@Override
 	public double getWidth()
 	{
 		return super.width();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getHeight()
-	 */
 	@Override
 	public double getHeight()
 	{
 		return super.height();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getMinX()
-	 */
 	@Override
 	public double getMinX()
 	{
 		return (int) this.left;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getMinY()
-	 */
 	@Override
 	public double getMinY()
 	{
 		return (int) this.top;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getCenterX()
-	 */
 	@Override
 	public double getCenterX()
 	{
 		return super.centerX();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#getCenterY()
-	 */
 	@Override
 	public double getCenterY()
 	{
 		return super.centerY();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#intersects(treebolic.glue.Rectangle2D)
-	 */
 	@Override
 	public boolean intersects(final Rectangle2D rect)
 	{
@@ -187,11 +137,6 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 
 	public static final int OUT_TOP = 8;
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see treebolic.glue.iface.Rectangle2D#outcode(treebolic.glue.Point2D)
-	 */
 	@Override
 	public int outcode(final Point2D point)
 	{

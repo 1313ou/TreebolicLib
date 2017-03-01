@@ -276,6 +276,6 @@ public class HyperTranslation extends Complex
 	@Override
 	public String toString()
 	{
-		return "xlat=" + super.toString(); //$NON-NLS-1$
+		return "xlat=" + super.toString();
 	}
 }

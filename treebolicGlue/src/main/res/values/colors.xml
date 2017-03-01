@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!--
-	<color name="colorPrimary">#3F51B5</color>
-	<color name="colorPrimaryDark">#303F9F</color>
-	<color name="colorAccent">#FF4081</color>
-	-->
-	<color name="background">#ff202020</color>
-	<color name="foreground">#ffB0B0B0</color>
-	<color name="enhancedForeground">#ffFFFFFF</color>
+
+	<color name="near_black_color">#ff202020</color>
+	<color name="light_gray">#ffB0B0B0</color>
+	<color name="white">#ffFFFFFF</color>
+
+	<color name="common_foreground">@color/light_gray</color>
+	<color name="status_foreground">@color/common_foreground</color>
+	<color name="dialog_foreground">@color/common_foreground</color>
+
+	<color name="common_foreground_enhanced">@color/white</color>
+	<color name="status_foreground_enhanced">@color/common_foreground_enhanced</color>
+	<color name="dialog_foreground_enhanced">@color/common_foreground_enhanced</color>
+
 </resources>
