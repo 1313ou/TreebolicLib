@@ -1,8 +1,8 @@
 package treebolic.glue.component;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Point;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.Display;
 import android.view.Gravity;
@@ -25,10 +25,24 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	private final boolean isHorizontal;
 
 	/**
+	 * View
+	 */
+	private View view;
+
+	/**
+	 * Toolbar
+	 */
+	private View toolbar;
+
+	/**
+	 * Statusbar
+	 */
+	private View statusbar;
+
+	/**
 	 * Constructor
 	 *
-	 * @param context
-	 *            context
+	 * @param context context
 	 */
 	protected Container(final Context context)
 	{
@@ -50,17 +64,12 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	/**
 	 * Constructor
 	 *
-	 * @param handle
-	 *            context
+	 * @param handle context
 	 */
 	protected Container(final Object handle)
 	{
 		this((Context) handle);
 	}
-
-	private View view;
-	private View toolbar;
-	private View statusbar;
 
 	@Override
 	public void addComponent(final Component component, final int position)
@@ -69,29 +78,28 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 
 		switch (position)
 		{
-		case PANE:
-			final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,
-					1.F);
-			addView(viewToAdd, params);
-			break;
+			case PANE:
+				final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.F);
+				addView(viewToAdd, params);
+				break;
 
 			// delayed add (until validation)
-		case VIEW:
-			this.view = viewToAdd;
-			break;
+			case VIEW:
+				this.view = viewToAdd;
+				break;
 
 			// delayed add (until validation)
-		case TOOLBAR:
-			this.toolbar = viewToAdd;
-			break;
+			case TOOLBAR:
+				this.toolbar = viewToAdd;
+				break;
 
 			// delayed add (until validation)
-		case STATUSBAR:
-			this.statusbar = viewToAdd;
-			break;
+			case STATUSBAR:
+				this.statusbar = viewToAdd;
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -107,12 +115,10 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	@Override
 	public void validate()
 	{
-		@SuppressWarnings("UnusedAssignment")
-		LayoutParams params = null;
+		@SuppressWarnings("UnusedAssignment") LayoutParams params = null;
 		if (this.toolbar != null)
 		{
-			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT,
-					this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
+			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT, this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
 			addView(this.toolbar, params);
 		}
 		ViewGroup layout = this;
@@ -135,8 +141,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		}
 		if (this.statusbar != null)
 		{
-			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT,
-					this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
+			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT, this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
 			layout.addView(this.statusbar, params);
 		}
 
@@ -146,11 +151,17 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	/**
 	 * Get splitter drawable
 	 *
-	 * @param dragging
-	 *            dragging splitter
+	 * @param dragging dragging splitter
 	 * @return drawable
 	 */
 	private Drawable getSplitterDrawable(final boolean dragging)
+	{
+		final int[] colors = Utils.fetchColors(this.getContext(), R.attr.colorPrimary, R.attr.colorAccent);
+		return new ColorDrawable(colors[dragging ? 1 : 0]);
+	}
+
+	/*
+	private Drawable getSplitterDrawable0(final boolean dragging)
 	{
 		final Resources res = getResources();
 		try
@@ -160,13 +171,14 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 							R.xml.splitter_bg_move_v : //
 							R.xml.splitter_bg_move_h //
 					: this.isHorizontal ? //
-							R.xml.splitter_bg_v : //
-							R.xml.splitter_bg_h));
+					R.xml.splitter_bg_v : //
+					R.xml.splitter_bg_h));
 		}
 		catch (final Exception ex)
 		{
-			// Log.e(TAG, "Exception loading drawable");
+			Log.e("TAG", "Exception loading drawable");
 		}
 		return null;
 	}
+	*/
 }

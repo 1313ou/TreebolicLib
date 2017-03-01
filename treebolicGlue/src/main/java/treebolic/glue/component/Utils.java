@@ -14,18 +14,16 @@ import android.view.WindowManager;
  *
  * @author Bernard Bou
  */
-
 public class Utils
 {
-	// new int[]{R.attr.colorPrimaryDark}
 	static public int[] fetchColors(final Context context, int... attrs)
 	{
 		final TypedValue typedValue = new TypedValue();
 		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
 		final int colors[] = new int[attrs.length];
-		for (int i = 0; i < 0; i++)
+		for (int i = 0; i < attrs.length; i++)
 		{
-			colors[i] = array.getColor(0, 0);
+			colors[i] = array.getColor(i, 0);
 		}
 		array.recycle();
 		return colors;
@@ -54,21 +52,12 @@ public class Utils
 
 	static public int screenWidth(final Context context)
 	{
-		WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-
-		Display display = wm.getDefaultDisplay();
-		Point size = new Point();
+		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		final Display display = wm.getDefaultDisplay();
+		final Point size = new Point();
 		display.getSize(size);
+		// int height = size.y;
 		int width = size.x;
-		int height = size.y;
-
-		// landscape orientation, w > h
-		// portrait orientation w < h
-
-		// DisplayMetrics metrics = new DisplayMetrics();
-		// wm.getDefaultDisplay().getMetrics(metrics);
-		// int width = metrics.widthPixels;
-		// int height = metrics.heightPixels;
 		return width;
 	}
 }

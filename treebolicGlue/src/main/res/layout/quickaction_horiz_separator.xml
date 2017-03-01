@@ -4,11 +4,10 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
+    <View
         android:layout_width="2dp"
         android:layout_height="fill_parent"
         android:background="#000000"
-        android:gravity="center"
-        android:text="" />
+        android:gravity="center"/>
 
 </RelativeLayout>
