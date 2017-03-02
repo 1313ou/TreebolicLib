@@ -118,6 +118,6 @@ public class Tip extends AppCompatDialogFragment
 	{
 		// Tip tip = new Tip();
 		// tip.setText(text);
-		// tip.show(activity.getFragmentManager(), STATE_TEXT);
+		// tip.show(activity.getSupportFragmentManager(), STATE_TEXT);
 	}
 }
