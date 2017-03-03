@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
@@ -68,6 +69,11 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	private final LinearLayout.LayoutParams layoutParams;
 
+	/**
+	 * Tint
+	 */
+	private final int iconTint;
+
 	// C O N S T R U C T O R
 
 	/**
@@ -99,18 +105,22 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		// gravity
 		this.panel.setGravity(Gravity.CENTER);
 
+		// colors
+		int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_toolbar_background, R.attr.treebolic_toolbar_icon_color);
+		int background = colors[0];
+		this.iconTint = colors[1];
+
 		// background
-		final int color = Utils.fetchColor(this.activity, R.attr.colorPrimaryDark);
-		this.panel.setBackgroundColor(color);
+		this.panel.setBackgroundColor(background);
 
 		// scroll
 		final FrameLayout scroll = isHorizontal ? new ScrollView(activity0) : new HorizontalScrollView(activity0);
 		scroll.addView(this.panel);
-		scroll.setBackgroundColor(color);
+		scroll.setBackgroundColor(background);
 
 		// top
 		this.addView(scroll);
-		setBackgroundColor(color);
+		setBackgroundColor(background);
 
 		// layout parameters for later addition
 		this.layoutParams = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -137,6 +147,11 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 		// drawable
 		final Drawable bitmapDrawable = getDrawable(thisIconIndex);
+
+		// iconTint drawable
+		DrawableCompat.setTint(bitmapDrawable, this.iconTint);
+
+		// add
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
 		{
 			btn.setBackground(bitmapDrawable);

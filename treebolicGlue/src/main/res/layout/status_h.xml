@@ -18,7 +18,7 @@
         android:hint="@string/status_hint"
         android:maxEms="@integer/status_max_ems"
         android:minEms="@integer/status_min_ems"
-        android:textColor="@color/status_foreground_enhanced"
+        android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
         android:textSize="20sp" />
 
     <WebView

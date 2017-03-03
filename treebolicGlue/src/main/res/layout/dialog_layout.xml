@@ -15,7 +15,7 @@
         android:drawableLeft="@drawable/status_info"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/status_info"
-        android:textColor="@color/dialog_foreground_enhanced"
+        android:textColor="?attr/treebolic_dialog_foreground_enhanced"
         android:textSize="20sp" />
 
     <WebView

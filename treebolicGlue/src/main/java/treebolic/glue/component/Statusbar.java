@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -81,13 +82,22 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	private final int foreground;
 
+	/**
+	 * Enhanced foreground
+	 */
+	private final int foregroundEnhanced;
+
+	/**
+	 * Icon tint
+	 */
+	private final int iconTint;
+
 	// C O N S T R U C T O R
 
 	/**
 	 * Constructor
 	 *
-	 * @param activity0
-	 *            activity
+	 * @param activity0 activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings("deprecation")
@@ -112,16 +122,20 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.contentView.setFocusable(false);
 
 		// colors
-		this.background = Utils.fetchColor(this.activity, R.attr.colorPrimaryDark);
-		this.foreground = Utils.getColor(this.activity, R.color.status_foreground);
+		int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_enhanced, R.attr.treebolic_statusbar_icon_color);
+		this.background = colors[0];
+		this.foreground = colors[1];
+		this.foregroundEnhanced = colors[2];
+		this.iconTint = colors[3];
+
 		this.contentView.setBackgroundColor(this.background);
+
 	}
 
 	/**
 	 * Constructor from handle
 	 *
-	 * @param handle
-	 *            activity
+	 * @param handle activity
 	 */
 	protected Statusbar(final Object handle)
 	{
@@ -131,13 +145,20 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	@Override
 	public void init(final int image)
 	{
+		// drawable
+		final Drawable drawable = getDrawable(image);
+
+		// tint drawable
+		DrawableCompat.setTint(drawable, this.iconTint);
+
+		// set
 		if (this.isHorizontal)
 		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(getDrawable(image), null, null, null);
+			this.statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
 		}
 		else
 		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(null, getDrawable(image), null, null);
+			this.statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
 		}
 	}
 
@@ -166,13 +187,19 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		// System.out.println("put("+label+","+content+");");
 
 		// icon
+		final Drawable drawable = getDrawable(image);
+
+		// tint drawable
+		DrawableCompat.setTint(drawable, this.iconTint);
+
+		// set
 		if (this.isHorizontal)
 		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(getDrawable(image), null, null, null);
+			this.statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
 		}
 		else
 		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(null, getDrawable(image), null, null);
+			this.statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
 		}
 
 		// label
@@ -217,8 +244,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Get drawable from index
 	 *
-	 * @param index
-	 *            index
+	 * @param index index
 	 * @return drawable
 	 */
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -230,20 +256,20 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 			int res = -1;
 			switch (ImageIndices.values()[index])
 			{
-			case INFO:
-				res = R.drawable.status_info;
-				break;
-			case LINK:
-				res = R.drawable.status_link;
-				break;
-			case MOUNT:
-				res = R.drawable.status_mount;
-				break;
-			case SEARCH:
-				res = R.drawable.status_search;
-				break;
-			default:
-				break;
+				case INFO:
+					res = R.drawable.status_info;
+					break;
+				case LINK:
+					res = R.drawable.status_link;
+					break;
+				case MOUNT:
+					res = R.drawable.status_mount;
+					break;
+				case SEARCH:
+					res = R.drawable.status_search;
+					break;
+				default:
+					break;
 			}
 			if (res != -1)
 			{
@@ -270,9 +296,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 	/**
 	 * Set base for status bar
-	 * 
-	 * @param base0
-	 *            base URL
+	 *
+	 * @param base0 base URL
 	 */
 	public static void setBase(String base0)
 	{

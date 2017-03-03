@@ -156,7 +156,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	 */
 	private Drawable getSplitterDrawable(final boolean dragging)
 	{
-		final int[] colors = Utils.fetchColors(this.getContext(), R.attr.colorPrimary, R.attr.colorAccent);
+		final int[] colors = Utils.fetchColors(this.getContext(), R.attr.treebolic_splitbar_color, R.attr.treebolic_splitbar_drag_color);
 		return new ColorDrawable(colors[dragging ? 1 : 0]);
 	}
 
