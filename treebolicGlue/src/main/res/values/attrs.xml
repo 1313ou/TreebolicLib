@@ -1,0 +1,19 @@
+<resources>
+
+	<attr name="treebolic_toolbar_background" format="reference"/>
+	<attr name="treebolic_toolbar_icon_color" format="reference"/>
+
+	<attr name="treebolic_statusbar_background" format="reference"/>
+	<attr name="treebolic_statusbar_foreground" format="reference"/>
+	<attr name="treebolic_statusbar_foreground_enhanced" format="reference"/>
+	<attr name="treebolic_statusbar_icon_color" format="reference"/>
+
+	<attr name="treebolic_dialog_background" format="reference"/>
+	<attr name="treebolic_dialog_foreground" format="reference"/>
+	<attr name="treebolic_dialog_foreground_enhanced" format="reference"/>
+	<attr name="treebolic_dialog_icon_color" format="reference"/>
+
+	<attr name="treebolic_splitbar_color" format="reference"/>
+	<attr name="treebolic_splitbar_drag_color" format="reference"/>
+
+</resources>
