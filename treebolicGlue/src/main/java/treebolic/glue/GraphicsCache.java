@@ -1,6 +1,3 @@
-/**
- *
- */
 package treebolic.glue;
 
 import android.graphics.Canvas;

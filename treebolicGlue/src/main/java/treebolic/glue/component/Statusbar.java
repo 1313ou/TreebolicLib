@@ -83,11 +83,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	private final int foreground;
 
 	/**
-	 * Enhanced foreground
-	 */
-	private final int foregroundEnhanced;
-
-	/**
 	 * Icon tint
 	 */
 	private final int iconTint;
@@ -125,7 +120,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_enhanced, R.attr.treebolic_statusbar_icon_color);
 		this.background = colors[0];
 		this.foreground = colors[1];
-		this.foregroundEnhanced = colors[2];
+		// int foregroundEnhanced = colors[2];
 		this.iconTint = colors[3];
 
 		this.contentView.setBackgroundColor(this.background);

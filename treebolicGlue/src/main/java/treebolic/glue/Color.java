@@ -226,7 +226,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 *
 	 * @param out
 	 *            serialization stream
-	 * @throws IOException
+	 * @throws IOException io exception
 	 */
 	@SuppressWarnings("boxing")
 	private void writeObject(final ObjectOutputStream out) throws IOException
@@ -246,8 +246,8 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 *
 	 * @param in
 	 *            serialization stream
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @throws IOException io exception
+	 * @throws ClassNotFoundException class not found exception
 	 */
 	@SuppressWarnings("boxing")
 	private void readObject(final ObjectInputStream in) throws IOException, ClassNotFoundException

@@ -46,6 +46,7 @@ public class Utils
 		}
 		else
 		{
+			//noinspection deprecation
 			return resources.getColor(resId);
 		}
 	}
@@ -57,7 +58,6 @@ public class Utils
 		final Point size = new Point();
 		display.getSize(size);
 		// int height = size.y;
-		int width = size.x;
-		return width;
+		return size.x;
 	}
 }

@@ -11,9 +11,6 @@ import android.view.animation.LinearInterpolator;
  */
 public class Animator implements treebolic.glue.iface.Animator<ActionListener>, AnimatorUpdateListener, android.animation.Animator.AnimatorListener
 {
-	/**
-	 * Log tag
-	 */
 	// static private final String TAG = "Animator";
 
 	/**

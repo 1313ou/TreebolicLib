@@ -1,12 +1,3 @@
-/**
- * Title: Hyperbolic engine
- * Description: Treebolic Engine
- * Version: provider
- * Copyright: (c) 2001-2008
- * Terms of use:see license agreement at http://treebolic.sourceforge.net/en/license.htm
- * Author: Bernard Bou
- * Update: Mon Mar 10 00:00:00 CEST 2008
- */
 package treebolic.glue.component;
 
 import android.content.Context;

@@ -112,8 +112,8 @@ public class TreebolicThread extends Thread
 		}
 	}
 
-	/**
-	 * Pause thread and wait for task (unused)
+	/*
+	  Pause thread and wait for task (unused)
 	 */
 //	public void pause()
 //	{

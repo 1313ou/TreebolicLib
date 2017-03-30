@@ -1,13 +1,3 @@
-/**
- * Title : Treebolic
- * Description : Treebolic mutable
- * Version : 3.x
- * Copyright : (c) 2001-2014
- * Terms of use : see license agreement at http://treebolic.sourceforge.net/en/license.htm
- * Author : Bernard Bou
- *
- * Update : Mon Mar 10 00:00:00 CEST 2008
- */
 package treebolic.model;
 
 import treebolic.glue.Color;

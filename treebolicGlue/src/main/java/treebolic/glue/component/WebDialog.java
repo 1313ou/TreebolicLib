@@ -82,16 +82,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	private int foreground;
 
 	/**
-	 * Enhanced foreground color
-	 */
-	private int foregroundEnhanced;
-
-	/**
-	 * Icon tint
-	 */
-	private int iconTint;
-
-	/**
 	 * Constructor
 	 */
 	public WebDialog()
@@ -121,8 +111,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_dialog_background, R.attr.treebolic_dialog_foreground, R.attr.treebolic_dialog_foreground_enhanced, R.attr.treebolic_dialog_icon_color);
 		this.background = colors[0];
 		this.foreground = colors[1];
-		this.foregroundEnhanced = colors[2];
-		this.iconTint = colors[3];
+		// int foregroundEnhanced = colors[2];
+		// int iconTint = colors[3];
 	}
 
 	@Override
@@ -266,12 +256,10 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	@SuppressWarnings({"boxing", "deprecation"})
 	private String getDefaultBaseStyle()
 	{
-		final StringBuilder builder = new StringBuilder();
-		builder.append("body {");
-		builder.append(String.format("background-color: #%06X;", 0xFFFFFF & this.background));
-		builder.append(String.format("color: #%06X;", 0xFFFFFF & this.foreground));
-		builder.append('}');
-		return builder.toString();
+		return "body {" + //
+				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //
+				String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //
+				'}';
 	}
 
 	@Override

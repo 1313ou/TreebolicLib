@@ -156,7 +156,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * Serialization override
 	 *
 	 * @param out serialized stream
-	 * @throws IOException
+	 * @throws IOException io exception
 	 */
 	private void writeObject(final ObjectOutputStream out) throws IOException
 	{
@@ -168,8 +168,8 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * Deserialization override
 	 *
 	 * @param in serialized stream
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @throws IOException            io exception
+	 * @throws ClassNotFoundException class not found exception
 	 */
 	private void readObject(final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
