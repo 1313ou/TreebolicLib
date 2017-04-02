@@ -19,156 +19,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e077fa1c-dd46-4b2a-aead-ac23e72f154d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/IContext.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/ILocator.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/core/location/Complex.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/core/location/EuclideanCircle.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/core/location/HyperCircle.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Edge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/IEdge.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/INode.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Location.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/MenuItem.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Model.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ModelDump.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ModelWriter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Node.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Settings.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Tree.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Types.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/Utils.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/provider/IProvider.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/provider/IProviderContext.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/provider/ProviderUtils.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/treebolicLibModel.iml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/IWidget.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/Messages.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/Widget.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/component/Progress.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/component/Statusbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/component/Toolbar.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Commander.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Finder.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Generator.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Mounter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Traverser.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/LayerOut.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/Transformer.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/Weigher.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/math/Arc.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/math/Distance.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/math/MapperToEuclidean.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/math/XMath.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/HyperRotation.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/HyperTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/HyperTranslation.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/core/transform/IHyperTransform.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/Animation.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/Mapper.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/Painter.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/View.java" />
-      <change type="NEW" beforePath="" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/treebolicLibView.iml" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/src/main/java/org/treebolic/ParcelableModel.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/proguard-rules.pro" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/IContext.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/ILocator.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/IWidget.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/Messages.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/Widget.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/PopupMenu.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Progress.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Statusbar.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Toolbar.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Commander.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/EventListenerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Finder.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Generator.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Mounter.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Traverser.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/AbstractLayerOut.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/LayerOut.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/Transformer.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/Weigher.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/location/Complex.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/location/EuclideanCircle.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/location/HyperCircle.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/Arc.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/ArcMath.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/Distance.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/MapperToEuclidean.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/math/XMath.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperRotation.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperTransform.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/HyperTranslation.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/core/transform/IHyperTransform.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Edge.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/IEdge.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/INode.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Location.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/MenuItem.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Model.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ModelDump.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ModelReader.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ModelWriter.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/MountPoint.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Node.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Settings.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Tree.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/Utils.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ZipDeSerializer.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/model/ZipSerializer.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/provider/IProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/provider/IProviderContext.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/provider/ProviderUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/AbstractPainter.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/Animation.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/AnimationTransforms.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/Mapper.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/Painter.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/view/View.java" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/treebolicPortable.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/gradle.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/rules_0_5.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/rules_0_5.xml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/modules.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/settings.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/settings.gradle" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/treebolicLibModel.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/treebolicLibModel.iml" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/treebolicLibView.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/treebolicLibView.iml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" />
     </list>
     <ignored path="TreebolicLib.iws" />
@@ -210,18 +69,7 @@
     <favorites_list name="TreebolicLib" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -8088,9 +7936,9 @@
     </order>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="73" />
+    <option name="x" value="415" />
     <option name="y" value="52" />
-    <option name="width" value="1477" />
+    <option name="width" value="1255" />
     <option name="height" value="1148" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -8149,6 +7997,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TreebolicLib" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -8159,30 +8021,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
       </pane>
     </panes>
   </component>
@@ -8640,11 +8478,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490859985098</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="split lib">
+      <created>1491116307465</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1491116307465</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="52" width="1477" height="1148" extended-state="4" />
+    <frame x="415" y="52" width="1255" height="1148" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -8654,14 +8499,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.4980864" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39728683" sideWeight="0.4958994" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39728683" sideWeight="0.4958994" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5019136" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21463415" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275194" sideWeight="0.4980864" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2143446" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -8682,6 +8526,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34339622" sideWeight="0.4980864" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275194" sideWeight="0.4980864" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -8745,7 +8590,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="theming treebolic" />
     <MESSAGE value="support 23.1&#10;lint" />
-    <option name="LAST_COMMIT_MESSAGE" value="support 23.1&#10;lint" />
+    <MESSAGE value="split lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="split lib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -8761,7 +8607,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Statusbar.java" />
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/component/Toolbar.java" />
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/Commander.java" />
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicPortable/src/main/java/treebolic/control/EventListenerAdapter.java" />
@@ -8818,11 +8663,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -57,6 +57,7 @@ public class ZipDeSerializer
 				}
 				catch (IOException ignored)
 				{
+					//
 				}
 			}
 			if (thisInputStream != null)
@@ -67,6 +68,7 @@ public class ZipDeSerializer
 				}
 				catch (IOException ignored)
 				{
+					//
 				}
 			}
 			if (thisZipFile != null)
@@ -77,6 +79,7 @@ public class ZipDeSerializer
 				}
 				catch (IOException ignored)
 				{
+					//
 				}
 			}
 		}
