@@ -21,7 +21,7 @@ android {
 }
 
 dependencies {
-    compile project(':treebolicPortable')
+    compile project(':treebolicLibView')
     compile project(':treebolicMutable')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 

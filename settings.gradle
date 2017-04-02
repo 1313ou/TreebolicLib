@@ -1,1 +1,1 @@
-include ':treebolicLib', ':treebolicPortable', ':treebolicGlue', ':treebolicGlueIface', ':treebolicIface', ':treebolicMutable', ':treebolicGraph'
+include ':treebolicLib', ':treebolicLibModel', ':treebolicLibView', ':treebolicGlue', ':treebolicGlueIface', ':treebolicIface', ':treebolicMutable', ':treebolicGraph'
