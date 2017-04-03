@@ -21,7 +21,7 @@ android {
 }
 
 dependencies {
-    compile project(':treebolicLibView')
+    compile project(':treebolicLibModel')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     testCompile 'junit:junit:4.12'
