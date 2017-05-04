@@ -17,8 +17,7 @@ public class ModelWriter
 	/**
 	 * Constructor
 	 *
-	 * @param thisArchive
-	 *            archive file
+	 * @param thisArchive archive file
 	 */
 	public ModelWriter(final String thisArchive)
 	{
@@ -28,9 +27,8 @@ public class ModelWriter
 	/**
 	 * Serialize
 	 *
-	 * @param thisModel
-	 *            analysis
-	 * @throws IOException
+	 * @param thisModel model
+	 * @throws IOException io exception
 	 */
 	public void serialize(final Model thisModel) throws IOException
 	{

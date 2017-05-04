@@ -1,8 +1,3 @@
-/**
- * ZipSerializer.java
- *
- * @author Bernard Bou
- */
 package treebolic.model;
 
 import java.io.FileOutputStream;
@@ -21,13 +16,10 @@ public class ZipSerializer
 	/**
 	 * Append serialization to archive
 	 *
-	 * @param thisArchive
-	 *            archive
-	 * @param thisName
-	 *            name (will be the zipfile entry)
-	 * @param thisObject
-	 *            object to serialize
-	 * @throws IOException
+	 * @param thisArchive archive
+	 * @param thisName    name (will be the zipfile entry)
+	 * @param thisObject  object to serialize
+	 * @throws IOException io exception
 	 */
 	static public void serializeZip(final String thisArchive, final String thisName, final Object thisObject) throws IOException
 	{

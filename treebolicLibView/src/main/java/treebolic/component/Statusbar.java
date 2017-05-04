@@ -105,7 +105,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 		super.put(thisLabel, thisContent, thisType.ordinal());
 	}
 
-	/**
+	/*
 	 * Put status
 	 *
 	 * @param thisMessage

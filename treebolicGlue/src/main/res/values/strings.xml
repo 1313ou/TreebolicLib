@@ -3,15 +3,13 @@
     <!-- status -->
     <string name="progress_text">Treebolic</string> <!-- progress text -->
     <string name="status_text">-</string> <!-- status text -->
-    <string name="status_hint">status</string> <!-- status hint -->
-
+    <string name="status_hint">*</string> <!-- status hint -->
 
     <!-- content descriptions -->
     <string name="progress_logo">logo</string> <!-- content description for progress pix -->
     <string name="popup_arrow">arrow</string> <!-- content description for popup arrow pix -->
     <string name="popup_item">item</string> <!-- content description for popup bullet pix -->
     <string name="tip_info">info</string> <!-- content description for tip info pix -->
-
 
     <!-- popup labels -->
     <string-array name="popup_labels">

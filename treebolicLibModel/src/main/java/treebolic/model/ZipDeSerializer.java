@@ -1,8 +1,3 @@
-/**
- * ZipDeSerializer.java
- *
- * @author Bernard Bou
- */
 package treebolic.model;
 
 import java.io.IOException;
@@ -24,9 +19,8 @@ public class ZipDeSerializer
 	 * @param thisArchive archive name
 	 * @param thisName    (will be the zipfile entry)
 	 * @return deserialized object
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 * @throws IOException
+	 * @throws IOException            io exception
+	 * @throws ClassNotFoundException class not found exception
 	 */
 	static public Object deserializeZip(final String thisArchive, final String thisName) throws IOException, ClassNotFoundException
 	{

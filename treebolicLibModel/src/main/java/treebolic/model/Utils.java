@@ -785,7 +785,7 @@ public class Utils
 	 * Load properties from URL
 	 *
 	 * @param thisUrl url of property file to load from
-	 * @throws IOException
+	 * @throws IOException io exception
 	 */
 	static public Properties load(final URL thisUrl) throws IOException
 	{

@@ -23,7 +23,7 @@ public class Progress extends treebolic.glue.component.Progress implements Compo
 		super(thisHandle);
 	}
 
-	/**
+	/*
 	 * Put message
 	 *
 	 * @param thisMessage

@@ -1,6 +1,3 @@
-/**
- *
- */
 package treebolic.view;
 
 import java.util.List;

@@ -17,8 +17,7 @@ public class ModelReader
 	/**
 	 * Constructor
 	 *
-	 * @param thisArchive
-	 *            archive file
+	 * @param thisArchive archive file
 	 */
 	public ModelReader(final String thisArchive)
 	{
@@ -29,8 +28,8 @@ public class ModelReader
 	 * Deserialize
 	 *
 	 * @return model
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @throws IOException            io exception
+	 * @throws ClassNotFoundException class not found exception
 	 */
 	public Model deserialize() throws IOException, ClassNotFoundException
 	{

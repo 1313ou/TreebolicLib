@@ -121,7 +121,7 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Run generator. Each element is generated with a yield
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException interrupted exception
 	 */
 	protected abstract void run() throws InterruptedException;
 
@@ -130,7 +130,7 @@ public abstract class Generator<T> implements Iterable<T>
 	 * 
 	 * @param element
 	 *        element
-	 * @throws InterruptedException
+	 * @throws InterruptedException interrupted exception
 	 */
 	protected void yield(T element) throws InterruptedException
 	{
@@ -201,7 +201,7 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Terminate generator
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException interrupted exception
 	 */
 	public void terminate() throws InterruptedException
 	{

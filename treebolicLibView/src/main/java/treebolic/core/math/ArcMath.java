@@ -1,6 +1,3 @@
-/**
- *
- */
 package treebolic.core.math;
 
 import treebolic.glue.Arc2D;
@@ -47,19 +44,22 @@ public class ArcMath
 		return new Point2D(x + thisArc2D.getCenterX(), y + thisArc2D.getCenterY());
 	}
 
-	/**
+	/*
 	 * Get tangent to this arc at given point
 	 *
-	 * @param thisArc2D
-	 *            arc
-	 * @param thisWhere
-	 *            point on arc
+	 * @param thisArc2D arc
+	 * @param thisWhere point on arc
 	 * @return tangent of this arc at given point
 	 */
 	/*
-	 * public static double getTangent0(final Arc2D thisArc2D, final Point2D thisWhere) { // angle final double thisBissector = ArcMath.getAngleAt(thisArc2D,
-	 * thisWhere); // tangent is perpendicular to radius angle return thisBissector + Math.PI / 2.; }
-	 */
+	public static double getTangent0(final Arc2D thisArc2D, final Point2D thisWhere)
+	{
+		// angle
+		final double thisBissector = ArcMath.getAngleAt(thisArc2D, thisWhere);
+		// tangent is perpendicular to radius angle
+		return thisBissector + Math.PI / 2.;
+	}
+	*/
 
 	/**
 	 * Get tangent to this arc at given point (used for text orientation)
