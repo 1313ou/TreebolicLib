@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -144,7 +143,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		final Drawable drawable = getDrawable(image);
 
 		// tint drawable
-		DrawableCompat.setTint(drawable, this.iconTint);
+		Utils.tint(drawable, this.iconTint);
 
 		// set
 		if (this.isHorizontal)
@@ -185,7 +184,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		final Drawable drawable = getDrawable(image);
 
 		// tint drawable
-		DrawableCompat.setTint(drawable, this.iconTint);
+		Utils.tint(drawable, this.iconTint);
 
 		// set
 		if (this.isHorizontal)

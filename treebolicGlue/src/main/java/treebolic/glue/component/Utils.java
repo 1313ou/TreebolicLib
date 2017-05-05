@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
@@ -48,6 +50,20 @@ public class Utils
 		{
 			//noinspection deprecation
 			return resources.getColor(resId);
+		}
+	}
+
+	static public void tint(final Drawable drawable, int iconTint)
+	{
+		// final int iconTint = fetchColor(R.attr.treebolic_actionbar_icon_color);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+		{
+			drawable.setTint(iconTint);
+			//DrawableCompat.setTint(drawable, iconTint);
+		}
+		else
+		{
+			DrawableCompat.setTint(DrawableCompat.wrap(drawable), iconTint);
 		}
 	}
 

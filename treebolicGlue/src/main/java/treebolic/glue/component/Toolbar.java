@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
@@ -148,8 +147,8 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		// drawable
 		final Drawable bitmapDrawable = getDrawable(thisIconIndex);
 
-		// iconTint drawable
-		DrawableCompat.setTint(bitmapDrawable, this.iconTint);
+		// tint drawable
+		Utils.tint(bitmapDrawable, this.iconTint);
 
 		// add
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
