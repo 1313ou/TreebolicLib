@@ -21,9 +21,8 @@ android {
 }
 
 dependencies {
-    compile project(':treebolicLibView')
-    compile project(':treebolicMutable')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //provided project(':treebolicLibView')
+    provided project(':treebolicMutable')
 
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

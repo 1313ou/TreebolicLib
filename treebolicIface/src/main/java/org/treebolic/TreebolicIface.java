@@ -12,6 +12,8 @@ public interface TreebolicIface
 
 	String ARG_PROVIDER = "org.treebolic.PROVIDER";
 
+	String ARG_SERVICE = "org.treebolic.CLIENT";
+
 	String ARG_BASE = "org.treebolic.BASE";
 
 	String ARG_IMAGEBASE = "org.treebolic.IMAGEBASE";
