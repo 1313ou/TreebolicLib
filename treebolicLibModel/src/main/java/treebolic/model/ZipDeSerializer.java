@@ -26,7 +26,7 @@ public class ZipDeSerializer
 	{
 		ZipFile thisZipFile = null;
 		InputStream thisInputStream = null;
-		ObjectInputStream thisOutputStream = null;
+		ObjectInputStream thisObjectInputStream = null;
 		try
 		{
 			thisZipFile = new ZipFile(thisArchive);
@@ -37,17 +37,17 @@ public class ZipDeSerializer
 			}
 
 			thisInputStream = thisZipFile.getInputStream(thisZipEntry);
-			thisOutputStream = new ObjectInputStream(thisInputStream);
+			thisObjectInputStream = new ObjectInputStream(thisInputStream);
 
-			return thisOutputStream.readObject();
+			return thisObjectInputStream.readObject();
 		}
 		finally
 		{
-			if (thisOutputStream != null)
+			if (thisObjectInputStream != null)
 			{
 				try
 				{
-					thisOutputStream.close();
+					thisObjectInputStream.close();
 				}
 				catch (IOException ignored)
 				{
