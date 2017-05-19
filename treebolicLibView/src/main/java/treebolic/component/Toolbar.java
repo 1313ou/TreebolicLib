@@ -1,7 +1,5 @@
 package treebolic.component;
 
-import android.annotation.SuppressLint;
-
 import treebolic.control.Controller;
 import treebolic.glue.ActionListener;
 import treebolic.glue.component.Component;
@@ -11,9 +9,10 @@ import treebolic.glue.component.Component;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
 public class Toolbar extends treebolic.glue.component.Toolbar implements Component
 {
+	private static final long serialVersionUID = 2278779010201821378L;
+
 	/**
 	 * Indexes to tooltips
 	 */

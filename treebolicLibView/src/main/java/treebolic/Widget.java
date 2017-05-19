@@ -1,7 +1,5 @@
 package treebolic;
 
-import android.annotation.SuppressLint;
-
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -46,9 +44,10 @@ import treebolic.view.View;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
 public class Widget extends Container implements IWidget, IProviderContext
 {
+	private static final long serialVersionUID = 3962167000082869632L;
+
 	// B E H A V I O U R
 
 	/**
@@ -81,7 +80,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Version : 3.x
 	 */
-	private static final String theVersion = "3.5.0";
+	private static final String theVersion = "3.6.0";
 
 	// C O N T E X T
 
@@ -255,8 +254,9 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theProvider = thisProvider;
 
 		// pass context reference to provider, so that it can access some services
-		this.theProvider.setup(this.theContext);
-		this.theProvider.setup(this);
+		this.theProvider.setLocator(this.theContext);
+		this.theProvider.setContext(this);
+		this.theProvider.setHandle(this.theHandle);
 
 		// init
 		initProcess(thisSource);
@@ -555,7 +555,10 @@ public class Widget extends Container implements IWidget, IProviderContext
 			}
 
 			// pass context reference to provider, so that it can access some services
-			this.theProvider.setup(this);
+			this.theProvider.setContext(this);
+
+			// pass context reference to provider, so that it can access some services
+			this.theProvider.setHandle(this.theHandle);
 		}
 
 		// make model

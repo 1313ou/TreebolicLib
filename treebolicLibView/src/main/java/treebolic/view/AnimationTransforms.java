@@ -52,7 +52,6 @@ public class AnimationTransforms
 	 * @param theseSteps
 	 *            number of steps
 	 */
-	@SuppressWarnings("ConstantConditions")
 	static public AnimationTransforms make(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation,
 			final int theseSteps)
 	{

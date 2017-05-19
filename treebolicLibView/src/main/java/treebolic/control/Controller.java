@@ -462,7 +462,6 @@ public class Controller extends Commander
 	 * @param thisNode
 	 *        node
 	 */
-	@SuppressWarnings("ConstantConditions")
 	private void putInfo(final INode thisNode)
 	{
 		final String thisLabel = Controller.getLabel(thisNode);

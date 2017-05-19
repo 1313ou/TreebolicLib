@@ -18,7 +18,6 @@ public interface Animator<A>
 	 *            start delay
 	 * @return true if successful
 	 */
-	@SuppressWarnings("SameReturnValue")
 	boolean run(A animation, int steps, int startDelay);
 
 	/**

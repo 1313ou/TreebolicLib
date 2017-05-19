@@ -826,7 +826,6 @@ public class Painter extends AbstractPainter
 	 * @param isBorder
 	 *        true if arc neighbours border
 	 */
-	@SuppressWarnings("UnusedAssignment")
 	private void drawArc(final Complex z1, final Complex z2, final String thatLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		final Arc thisArc = new Arc(z1, z2);
@@ -1066,7 +1065,6 @@ public class Painter extends AbstractPainter
 	 *        to-node-space
 	 * @param isBorder true if is nearing border
 	 */
-	@SuppressWarnings("UnusedAssignment")
 	private void drawLine(final Complex z1, final Complex z2, final String thatLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		Point2D thisFrom = new Point2D(xUnitCircleToView(z1.re), yUnitCircleToView(z1.im));
@@ -1200,7 +1198,6 @@ public class Painter extends AbstractPainter
 	 * @param thatOrientation
 	 *        text orientation
 	 */
-	@SuppressWarnings("UnusedAssignment")
 	private void drawText(final String thisString, final Point2D thisWhere, final double thatOrientation)
 	{
 		double thisOrientation = thatOrientation;
@@ -1756,7 +1753,6 @@ public class Painter extends AbstractPainter
 	 *        to-point on line
 	 * @return intersection point
 	 */
-	@SuppressWarnings("UnnecessaryLocalVariable")
 	static private Point2D getIntersection(final Rectangle2D thisRect, final Point2D thisFrom, final Point2D thisTo)
 	{
 		if (!CROP_EDGES)

@@ -269,7 +269,7 @@ public class Settings implements Serializable
 	/**
 	 * Default node image index
 	 */
-	public final int theDefaultNodeImageIndex;
+	public int theDefaultNodeImageIndex;
 
 	// labels
 

@@ -5,7 +5,6 @@ package treebolic.glue.iface.component;
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("EmptyMethod")
 public interface Toolbar<L>
 {
 	/**

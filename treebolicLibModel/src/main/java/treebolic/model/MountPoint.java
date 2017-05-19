@@ -19,7 +19,6 @@ public class MountPoint implements Serializable
 		/**
 		 * URL
 		 */
-		@SuppressWarnings("CanBeFinal")
 		public String theURL;
 
 		/**

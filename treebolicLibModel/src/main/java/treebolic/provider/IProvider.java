@@ -17,10 +17,10 @@ public interface IProvider
 	/**
 	 * Called by framework to pass context reference (may default to void action if provider does not need it)
 	 *
-	 * @param thisContext
-	 *            context
+	 * @param thisLocator
+	 *            locator context
 	 */
-	void setup(ILocator thisContext);
+	void setLocator(ILocator thisLocator);
 
 	/**
 	 * Called by framework to pass provider context reference (may default to void action if provider does not need it)
@@ -28,7 +28,15 @@ public interface IProvider
 	 * @param thisProviderContext
 	 *            provider context
 	 */
-	void setup(IProviderContext thisProviderContext);
+	void setContext(IProviderContext thisProviderContext);
+
+	/**
+	 * Called by framework to pass provider handle (may default to void action if provider does not need it)
+	 *
+	 * @param thisHandle
+	 *            handle as passed to widget
+	 */
+	void setHandle(Object thisHandle);
 
 	/**
 	 * Make model
