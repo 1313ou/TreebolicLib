@@ -1990,22 +1990,25 @@ public class Painter extends AbstractPainter
 			thisNChars = 1;
 		}
 
-		// perform truncation
-		int wtext = 0;
+		// truncation
+		int w = 0;
 		for (int i = 0; i < thisNodeData.theLabelLines.length; i++)
 		{
 			final int thisLen = thisNodeData.theLabelLines[i].length();
 			if (thisLen > thisNChars)
 			{
+				// truncate
 				thisNodeData.theLabelLines[i] = thisNodeData.theLabelLines[i].substring(0, thisNChars) + "…"; // ellipsis … ⋯
 				thisNodeData.theLabelLinesW[i] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[i]);
-				if (thisNodeData.theLabelLinesW[i] > wtext)
-				{
-					wtext = thisNodeData.theLabelLinesW[i];
-				}
+			}
+
+			// recompute label width
+			if (thisNodeData.theLabelLinesW[i] > w)
+			{
+				w = thisNodeData.theLabelLinesW[i];
 			}
 		}
-		return wtext;
+		return w;
 	}
 
 	/**
