@@ -78,12 +78,12 @@ public abstract class Commander
 	/**
 	 * Whether tooltips are html
 	 */
-	static public final boolean TOOLTIPHTML = true;
+	static public boolean TOOLTIPHTML = true;
 
 	/**
 	 * Tooltip break
 	 */
-	static public final int TOOLTIPLINESPAN = 50;
+	static public int TOOLTIPLINESPAN = 50;
 
 	// A C C E S S
 
