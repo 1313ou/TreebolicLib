@@ -74,6 +74,10 @@ public class Settings implements Serializable
 
 	public static final String PROP_NODE_ELLIPSIZE = "node.ellipsize";
 
+	public static final String PROP_NODE_LABEL_MAX_LINES = "node.label.max-lines";
+
+	public static final String PROP_NODE_LABEL_EXTRA_LINE_FACTOR = "node.label.extra-line-factor";
+
 	public static final String PROP_EDGE_AS_ARC = "edge.arc";
 
 	public static final String PROP_EDGE_IMAGE = "edge.image";
@@ -283,6 +287,16 @@ public class Settings implements Serializable
 	 */
 	public Boolean theEllipsizeFlag;
 
+	/**
+	 * Maximum lines in label (default=0: unlimited, 1:'\n' is replaced with space)
+	 */
+	public Integer theLabelMaxLines;
+
+	/**
+	 * Label font factor in extra line (not first line)
+	 */
+	public Float theLabelExtraLineFactor;
+
 	// T R E E . E D G E S
 
 	/**
@@ -355,8 +369,7 @@ public class Settings implements Serializable
 	/**
 	 * Load settings from properties
 	 *
-	 * @param theseProperties
-	 *            properties
+	 * @param theseProperties properties
 	 */
 	@SuppressWarnings("boxing")
 	public void load(final Properties theseProperties)
@@ -515,6 +528,16 @@ public class Settings implements Serializable
 		{
 			this.theEllipsizeFlag = Boolean.valueOf(thisParam);
 		}
+		thisParam = theseProperties.getProperty(Settings.PROP_NODE_LABEL_MAX_LINES);
+		if (thisParam != null)
+		{
+			this.theLabelMaxLines = Integer.valueOf(thisParam);
+		}
+		thisParam = theseProperties.getProperty(Settings.PROP_NODE_LABEL_EXTRA_LINE_FACTOR);
+		if (thisParam != null)
+		{
+			this.theLabelExtraLineFactor = Float.valueOf(thisParam);
+		}
 
 		// edges
 		thisParam = theseProperties.getProperty(Settings.PROP_EDGE_AS_ARC);
@@ -542,15 +565,13 @@ public class Settings implements Serializable
 		{
 			this.theTreeEdgeColor = thisColor;
 		}
-		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_EDGE_FROMTERMINATOR),
-				theseProperties.getProperty(Settings.PROP_EDGE_TOTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_LINE),
-				theseProperties.getProperty(Settings.PROP_EDGE_HIDDEN));
+		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_TOTERMINATOR),
+				theseProperties.getProperty(Settings.PROP_EDGE_LINE), theseProperties.getProperty(Settings.PROP_EDGE_HIDDEN));
 		if (thisStyle != null)
 		{
 			this.theEdgeStyle = thisStyle;
 		}
-		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_TREE_EDGE_STROKE),
-				theseProperties.getProperty(Settings.PROP_TREE_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_TOTERMINATOR),
+		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_TREE_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_TOTERMINATOR),
 				theseProperties.getProperty(Settings.PROP_TREE_EDGE_LINE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_HIDDEN));
 		if (thisStyle != null)
 		{

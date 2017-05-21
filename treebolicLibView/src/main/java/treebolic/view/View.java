@@ -458,6 +458,8 @@ public class View extends Surface
 		this.thePainter.setFont(theseSettings.theFontFace, theseSettings.theFontSize, theseSettings.theDownscaleFontsFlag, theseSettings.theFontDownscaler);
 		this.thePainter.setBorder(theseSettings.theBorderFlag);
 		this.thePainter.setEllipsize(theseSettings.theEllipsizeFlag);
+		this.thePainter.setLabelMaxLines(theseSettings.theLabelMaxLines);
+		this.thePainter.setLabelExtraLineFactor(theseSettings.theLabelExtraLineFactor);
 		this.thePainter.setArcEdges(theseSettings.theEdgesAsArcsFlag);
 		this.thePainter.setEdgeStyles(theseSettings.theTreeEdgeStyle, theseSettings.theEdgeStyle);
 	}

@@ -107,6 +107,16 @@ public abstract class AbstractPainter extends Mapper
 	 */
 	protected boolean ellipsize = false;
 
+	/**
+	 * Label max lines
+	 */
+	protected int theLabelMaxLines = 0;
+
+	/**
+	 * Label extra line (excluding first) factor
+	 */
+	protected float theLabelExtraLineFactor = .6F;
+
 	// scaling
 
 	/**
@@ -114,8 +124,14 @@ public abstract class AbstractPainter extends Mapper
 	 */
 	protected float theZoomFactor;
 
+	/**
+	 * Zoom pivot X
+	 */
 	protected float theZoomPivotX;
 
+	/**
+	 * Zoom pivot Y
+	 */
 	protected float theZoomPivotY;
 
 	// scaling
@@ -369,8 +385,7 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisEdgeColor
 	 *            edge default color
 	 */
-	public void setColors(final Color thisBackColor, final Color thisForeColor, final Color thisNodeBackColor, final Color thisNodeForeColor,
-			final Color thisTreeEdgeColor, final Color thisEdgeColor)
+	public void setColors(final Color thisBackColor, final Color thisForeColor, final Color thisNodeBackColor, final Color thisNodeForeColor, final Color thisTreeEdgeColor, final Color thisEdgeColor)
 	{
 		if (thisBackColor != null)
 		{
@@ -446,8 +461,7 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisDefaultEdgeImage
 	 *            default edge image
 	 */
-	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage,
-			final Image thisDefaultEdgeImage)
+	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage, final Image thisDefaultEdgeImage)
 	{
 		this.theBackgroundImage = thisBackgroundImage;
 		this.theDefaultNodeImage = thisDefaultNodeImage;
@@ -494,6 +508,36 @@ public abstract class AbstractPainter extends Mapper
 		if (thisFlag != null)
 		{
 			this.ellipsize = thisFlag;
+		}
+	}
+
+	/**
+	 * Set label max lines
+	 *
+	 * @param thisMaxLines
+	 *        label max lines
+	 */
+	@SuppressWarnings("boxing")
+	public void setLabelMaxLines(final Integer thisMaxLines)
+	{
+		if (thisMaxLines != null)
+		{
+			this.theLabelMaxLines = thisMaxLines;
+		}
+	}
+
+	/**
+	 * Set label extra line factor
+	 *
+	 * @param thisFactor
+	 *        label extra line (excluding first) factor
+	 */
+	@SuppressWarnings("boxing")
+	public void setLabelExtraLineFactor(final Float thisFactor)
+	{
+		if (thisFactor != null)
+		{
+			this.theLabelExtraLineFactor = thisFactor;
 		}
 	}
 

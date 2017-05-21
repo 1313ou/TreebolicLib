@@ -43,11 +43,6 @@ public class Painter extends AbstractPainter
 	static public int DEBUG = 0; // DEBUG_NOIMAGE // DEBUG_NOLABEL | DEBUG_NOLABELFILL;
 
 	/**
-	 * Max lines in label (0:unlimited, 1:'\n' is replaced with space)
-	 */
-	static public int LABEL_MAX_LINES = 0;
-
-	/**
 	 * Do not draw curves while moving
 	 */
 	static public boolean STRAIGHT_EDGE_WHILE_MOVING = false;
@@ -1959,12 +1954,14 @@ public class Painter extends AbstractPainter
 		{
 			return null;
 		}
-		if (LABEL_MAX_LINES == 1)
+		if (this.theLabelMaxLines == 1)
 		{
 			return new String[]{thisLabel.replaceAll("\\n", " ")};
 		}
-		return thisLabel.split("\\n", LABEL_MAX_LINES);
+		return thisLabel.split("\\n", this.theLabelMaxLines);
 	}
+
+	static private String ELLIPSIS = "…"; // ellipsis … ⋯
 
 	/**
 	 * Ellipsize text in label
@@ -1976,10 +1973,10 @@ public class Painter extends AbstractPainter
 	private int ellipsizeLabel(final NodeData thisNodeData, final int dnode)
 	{
 		// compute average character width
-		final int wunit = this.theGraphics.stringWidth("x");
+		int wunit = this.theGraphics.stringWidth("x");
 
 		// compute trailing dots width
-		final int wdots = this.theGraphics.stringWidth("…"); // ellipsis … ⋯
+		int wdots = this.theGraphics.stringWidth(ELLIPSIS);
 
 		// compute number of characters that fit before dots
 		int thisNChars = (dnode - wdots) / wunit;
@@ -1991,22 +1988,48 @@ public class Painter extends AbstractPainter
 		}
 
 		// truncation
-		int w = 0;
-		for (int i = 0; i < thisNodeData.theLabelLines.length; i++)
+		int thisLen = thisNodeData.theLabelLines[0].length();
+		if (thisLen > thisNChars)
 		{
-			final int thisLen = thisNodeData.theLabelLines[i].length();
-			if (thisLen > thisNChars)
-			{
-				// truncate
-				thisNodeData.theLabelLines[i] = thisNodeData.theLabelLines[i].substring(0, thisNChars) + "…"; // ellipsis … ⋯
-				thisNodeData.theLabelLinesW[i] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[i]);
-			}
+			// truncate
+			thisNodeData.theLabelLines[0] = thisNodeData.theLabelLines[0].substring(0, thisNChars) + ELLIPSIS;
 
 			// recompute label width
-			if (thisNodeData.theLabelLinesW[i] > w)
+			thisNodeData.theLabelLinesW[0] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[0]);
+		}
+		int w = thisNodeData.theLabelLinesW[0];
+
+		// extra lines
+		if (thisNodeData.theLabelLines.length > 1)
+		{
+			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
+
+			// compute average character width
+			wunit = this.theGraphics.stringWidth("x");
+
+			// compute trailing dots width
+			wdots = this.theGraphics.stringWidth(ELLIPSIS);
+
+			// compute number of characters that fit before dots
+			thisNChars = (w - wdots) / wunit;
+
+			// ensure at least one
+			if (thisNChars < 1)
 			{
-				w = thisNodeData.theLabelLinesW[i];
+				thisNChars = 1;
 			}
+
+			for (int i = 1; i < thisNodeData.theLabelLines.length; i++)
+			{
+				thisLen = thisNodeData.theLabelLines[i].length();
+				if (thisLen > thisNChars)
+				{
+					// truncate
+					thisNodeData.theLabelLines[i] = thisNodeData.theLabelLines[i].substring(0, thisNChars) + ELLIPSIS;
+					thisNodeData.theLabelLinesW[i] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[i]);
+				}
+			}
+			this.theGraphics.setTextSize(thisNodeData.theTextSize);
 		}
 		return w;
 	}
@@ -2021,14 +2044,21 @@ public class Painter extends AbstractPainter
 	{
 		int n = thisNodeData.theLabelLines.length;
 		thisNodeData.theLabelLinesW = new int[n];
-		int w = 0;
-		for (int i = 0; i < n; i++)
+		thisNodeData.theLabelLinesW[0] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[0]);
+		int w = thisNodeData.theLabelLinesW[0];
+
+		if (thisNodeData.theLabelLines.length > 1)
 		{
-			thisNodeData.theLabelLinesW[i] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[i]);
-			if (thisNodeData.theLabelLinesW[i] > w)
+			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
+			for (int i = 1; i < n; i++)
 			{
-				w = thisNodeData.theLabelLinesW[i];
+				thisNodeData.theLabelLinesW[i] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[i]);
+				if (thisNodeData.theLabelLinesW[i] > w)
+				{
+					w = thisNodeData.theLabelLinesW[i];
+				}
 			}
+			this.theGraphics.setTextSize(thisNodeData.theTextSize);
 		}
 		return w;
 	}
@@ -2041,7 +2071,14 @@ public class Painter extends AbstractPainter
 	 */
 	private int labelHeight(final NodeData thisNodeData)
 	{
-		return this.theGraphics.getAscent() * thisNodeData.theLabelLines.length /* +fm.getDescent() */;
+		int h = this.theGraphics.getAscent(); // +fm.getDescent();
+		if (thisNodeData.theLabelLines.length > 1)
+		{
+			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
+			h += this.theGraphics.getAscent() * (thisNodeData.theLabelLines.length - 1);
+			this.theGraphics.setTextSize(thisNodeData.theTextSize);
+		}
+		return h;
 	}
 
 	/**
@@ -2052,11 +2089,22 @@ public class Painter extends AbstractPainter
 	private void drawLabel(final NodeData thisNodeData)
 	{
 		this.theGraphics.setTextSize(thisNodeData.theTextSize);
-		final int thisYOffset = this.theGraphics.getAscent();
-		for (int i = 0; i < thisNodeData.theLabelLines.length; i++)
+		int h = this.theGraphics.getAscent();
+		int dx = (int) ((thisNodeData.theLabelW - thisNodeData.theLabelLinesW[0]) / 2);
+		this.theGraphics.drawString(thisNodeData.theLabelLines[0], thisNodeData.theLabelX + dx, thisNodeData.theLabelY);
+
+		if (thisNodeData.theLabelLines.length > 1)
 		{
-			final int thisXOffset = (thisNodeData.theLabelW - thisNodeData.theLabelLinesW[i]) / 2;
-			this.theGraphics.drawString(thisNodeData.theLabelLines[i], thisNodeData.theLabelX + thisXOffset, thisNodeData.theLabelY + i * thisYOffset);
+			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
+			h = this.theGraphics.getAscent();
+			int dy = h;
+			for (int i = 1; i < thisNodeData.theLabelLines.length; i++)
+			{
+				dx = (int) ((thisNodeData.theLabelW - thisNodeData.theLabelLinesW[i]) / 2);
+				this.theGraphics.drawString(thisNodeData.theLabelLines[i], thisNodeData.theLabelX + dx, thisNodeData.theLabelY + dy);
+				dy += h;
+			}
+			this.theGraphics.setTextSize(thisNodeData.theTextSize);
 		}
 	}
 }
