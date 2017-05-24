@@ -20,7 +20,7 @@ import org.treebolic.glue.R;
  */
 public class Container extends LinearLayout implements Component, treebolic.glue.iface.component.Container<Component>
 {
-	static private final float VIEWSHARE = .80f;
+	static private float splitterPositionPercent = .80f;
 
 	private final boolean isHorizontal;
 
@@ -126,7 +126,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		{
 			final SplitPaneLayout splitLayout = new SplitPaneLayout(getContext());
 			splitLayout.setOrientation(this.isHorizontal ? 0 : 1);
-			splitLayout.setSplitterPositionPercent(Container.VIEWSHARE);
+			splitLayout.setSplitterPositionPercent(Container.splitterPositionPercent);
 			splitLayout.setSplitterMovable(true);
 			splitLayout.setSplitterDrawable(getSplitterDrawable(false));
 			splitLayout.setSplitterDraggingDrawable(getSplitterDrawable(true));
@@ -146,6 +146,26 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		}
 
 		invalidate();
+	}
+
+	/**
+	 * Get splitter position fraction (first panel/whole)
+	 *
+	 * @return splitterPositionPercent splitter position fraction [0,1]
+	 */
+	public static float getSplitterPositionPercent()
+	{
+		return Container.splitterPositionPercent;
+	}
+
+	/**
+	 * Set splitter position fraction (first panel/whole)
+	 *
+	 * @param splitterPositionPercent splitter position fraction [0,1]
+	 */
+	public static void setSplitterPositionPercent(float splitterPositionPercent)
+	{
+		Container.splitterPositionPercent = splitterPositionPercent;
 	}
 
 	/**

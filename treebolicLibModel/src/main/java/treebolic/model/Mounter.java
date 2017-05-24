@@ -1,10 +1,6 @@
-package treebolic.control;
+package treebolic.model;
 
 import java.util.List;
-
-import treebolic.model.IEdge;
-import treebolic.model.INode;
-import treebolic.model.MountPoint;
 
 /**
  * Mounter

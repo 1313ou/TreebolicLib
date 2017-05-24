@@ -14,7 +14,7 @@ import treebolic.component.Statusbar;
 import treebolic.component.Toolbar;
 import treebolic.control.Controller;
 import treebolic.control.Finder;
-import treebolic.control.Mounter;
+import treebolic.model.Mounter;
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.LayerOut;
 import treebolic.core.Weigher;
