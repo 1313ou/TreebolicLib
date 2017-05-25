@@ -20,6 +20,7 @@ package treebolic.glue.component;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -27,6 +28,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PaintDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
@@ -45,44 +47,138 @@ import org.treebolic.glue.R;
  */
 public class SplitPaneLayout extends ViewGroup
 {
+	/**
+	 * Preference key to splitter relative position
+	 */
+	static private final String SPLITTER_POSITION_PERCENT = "splitter_position_percent";
+
+	// O R I E N T A T I O N
+
+	/**
+	 * Orientation horizontal values
+	 */
 	public static final int ORIENTATION_HORIZONTAL = 0;
+
+	/**
+	 * Orientation vertical value
+	 */
 	public static final int ORIENTATION_VERTICAL = 1;
 
-	private int mOrientation = SplitPaneLayout.ORIENTATION_HORIZONTAL;
-	private int mSplitterSize = 12;
-	private boolean mSplitterMovable = true;
-	private int mSplitterPosition = Integer.MIN_VALUE;
-	private float mSplitterPositionPercent = 0.5f;
+	/**
+	 * Splitter color
+	 */
+	public static final int SPLITTER_COLOR = 1;
 
-	private Drawable mSplitterDrawable;
-	private Drawable mSplitterDraggingDrawable;
+	/**
+	 * Orientation
+	 */
+	private int orientation;
 
-	private final Rect mSplitterRect = new Rect();
+	/**
+	 * Splitter position (== Integer.MIN_VALUE if splitterPositionPercent is used)
+	 */
+	private int splitterPosition;
 
-	private int lastX;
-	private int lastY;
-	private final Rect temp = new Rect();
+	/**
+	 * Splitter relative position (== -1 if splitterPosition is used)
+	 */
+	private float splitterPositionPercent;
+
+	/**
+	 * Splitter size in pixels
+	 */
+	private int splitterSize = 12;
+
+	/**
+	 * Whether splitter is movable
+	 */
+	private boolean splitterMovable = true;
+
+	/**
+	 * Splitter rectangle
+	 */
+	private final Rect splitterRect = new Rect();
+
+	/**
+	 * Whether the splitter is dragging
+	 */
 	private boolean isDragging = false;
+
+	/**
+	 * Splitter drawable
+	 */
+	private Drawable splitterDrawable;
+
+	/**
+	 * Dragging splitter drawable
+	 */
+	private Drawable splitterDraggingDrawable;
+
+	/**
+	 * Splitter rectangle
+	 */
+	private final Rect splitterRectangle = new Rect();
+
+	/**
+	 * Last touch X
+	 */
+	private int lastTouchX;
+
+	/**
+	 * Last touch Y
+	 */
+	private int lastTouchY;
 
 	// C O N S T R U C T O R S
 
+	/**
+	 * Basic constructor
+	 *
+	 * @param context context
+	 */
 	public SplitPaneLayout(final Context context)
 	{
 		super(context);
-		this.mSplitterPositionPercent = 0.5f;
-		this.mSplitterDrawable = new PaintDrawable(0x88FFFFFF);
-		this.mSplitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
+
+		this.orientation = SplitPaneLayout.ORIENTATION_HORIZONTAL;
+		this.splitterPositionPercent = 0.5f;
+		this.splitterPosition = Integer.MIN_VALUE;
+		this.splitterDrawable = new PaintDrawable(0x88FFFFFF);
+		this.splitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
 	}
 
+	/**
+	 * Constructor with attributes
+	 *
+	 * @param context context
+	 * @param attrs   attributes
+	 */
 	public SplitPaneLayout(final Context context, final AttributeSet attrs)
 	{
 		super(context, attrs);
+
+		this.orientation = SplitPaneLayout.ORIENTATION_HORIZONTAL;
+		this.splitterPositionPercent = 0.5f;
+		this.splitterPosition = Integer.MIN_VALUE;
+
 		extractAttributes(context, attrs);
 	}
 
+	/**
+	 * Constructor with attributes and style
+	 *
+	 * @param context  context
+	 * @param attrs    attributes
+	 * @param defStyle style
+	 */
 	public SplitPaneLayout(final Context context, final AttributeSet attrs, final int defStyle)
 	{
 		super(context, attrs, defStyle);
+
+		this.orientation = SplitPaneLayout.ORIENTATION_HORIZONTAL;
+		this.splitterPositionPercent = 0.5f;
+		this.splitterPosition = Integer.MIN_VALUE;
+
 		extractAttributes(context, attrs);
 	}
 
@@ -93,38 +189,44 @@ public class SplitPaneLayout extends ViewGroup
 		if (attrs != null)
 		{
 			final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout);
-			this.mOrientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0);
-			this.mSplitterSize = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.getResources().getDimensionPixelSize(R.dimen.spl_default_splitter_size));
-			this.mSplitterMovable = array.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true);
+
+			// misc
+			this.orientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0);
+			this.splitterSize = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.getResources().getDimensionPixelSize(R.dimen.spl_default_splitter_size));
+			this.splitterMovable = array.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true);
+
+			// position
 			TypedValue value = array.peekValue(R.styleable.SplitPaneLayout_splitterPosition);
 			if (value != null)
 			{
 				if (value.type == TypedValue.TYPE_DIMENSION)
 				{
-					this.mSplitterPosition = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Integer.MIN_VALUE);
+					this.splitterPosition = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Integer.MIN_VALUE);
+					this.splitterPositionPercent = -1;
 				}
 				else if (value.type == TypedValue.TYPE_FRACTION)
 				{
-					this.mSplitterPositionPercent = array.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50) * 0.01f;
+					this.splitterPositionPercent = array.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50) * 0.01f;
+					this.splitterPosition = Integer.MIN_VALUE;
 				}
 			}
 			else
 			{
-				this.mSplitterPosition = Integer.MIN_VALUE;
-				this.mSplitterPositionPercent = 0.5f;
+				this.splitterPosition = Integer.MIN_VALUE;
+				this.splitterPositionPercent = 0.5f;
 			}
 
+			// backgrounds
 			value = array.peekValue(R.styleable.SplitPaneLayout_splitterBackground);
 			if (value != null)
 			{
 				if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
 				{
-					this.mSplitterDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterBackground);
+					this.splitterDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterBackground);
 				}
-				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4
-						|| value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
+				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
 				{
-					this.mSplitterDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterBackground, 0xFF000000));
+					this.splitterDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterBackground, 0xFF000000));
 				}
 			}
 			value = array.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground);
@@ -132,17 +234,16 @@ public class SplitPaneLayout extends ViewGroup
 			{
 				if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
 				{
-					this.mSplitterDraggingDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground);
+					this.splitterDraggingDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground);
 				}
-				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4
-						|| value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
+				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
 				{
-					this.mSplitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, 0x88FFFFFF));
+					this.splitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, 0x88FFFFFF));
 				}
 			}
 			else
 			{
-				this.mSplitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
+				this.splitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
 			}
 			array.recycle();
 		}
@@ -162,53 +263,52 @@ public class SplitPaneLayout extends ViewGroup
 
 		if (widthSize > 0 && heightSize > 0)
 		{
-			switch (this.mOrientation)
+			switch (this.orientation)
 			{
-			case ORIENTATION_HORIZONTAL:
-			{
-				// middle: p=# %=-1
-				if (this.mSplitterPosition == Integer.MIN_VALUE && this.mSplitterPositionPercent < 0)
+				case ORIENTATION_HORIZONTAL:
 				{
-					this.mSplitterPosition = widthSize / 2;
+					// neither specified
+					// middle: p=# %=-1
+					if (this.splitterPosition == Integer.MIN_VALUE && this.splitterPositionPercent < 0)
+					{
+						this.splitterPosition = widthSize / 2;
+					}
+					// absolute specified
+					// absolute: p=x %=-1
+					else if (this.splitterPosition != Integer.MIN_VALUE && this.splitterPositionPercent < 0)
+					{
+						this.splitterPositionPercent = (float) this.splitterPosition / (float) widthSize;
+					}
+					// percent specified
+					// percent: p=# %=x
+					else if (/* this.splitterPosition == Integer.MIN_VALUE && */this.splitterPositionPercent >= 0)
+					{
+						this.splitterPosition = (int) (widthSize * this.splitterPositionPercent);
+					}
+					getChildAt(0).measure(MeasureSpec.makeMeasureSpec(this.splitterPosition - this.splitterSize / 2, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY));
+					getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize - this.splitterSize / 2 - this.splitterPosition, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY));
+					break;
 				}
-				// absolute: p=x %=-1
-				else if (this.mSplitterPosition != Integer.MIN_VALUE && this.mSplitterPositionPercent < 0)
+				case ORIENTATION_VERTICAL:
 				{
-					this.mSplitterPositionPercent = (float) this.mSplitterPosition / (float) widthSize;
+					if (this.splitterPosition == Integer.MIN_VALUE && this.splitterPositionPercent < 0)
+					{
+						this.splitterPosition = heightSize / 2;
+					}
+					else if (this.splitterPosition != Integer.MIN_VALUE && this.splitterPositionPercent < 0)
+					{
+						this.splitterPositionPercent = (float) this.splitterPosition / (float) heightSize;
+					}
+					else if (/* this.splitterPosition == Integer.MIN_VALUE && */this.splitterPositionPercent >= 0)
+					{
+						this.splitterPosition = (int) (heightSize * this.splitterPositionPercent);
+					}
+					getChildAt(0).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(this.splitterPosition - this.splitterSize / 2, MeasureSpec.EXACTLY));
+					getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize - this.splitterSize / 2 - this.splitterPosition, MeasureSpec.EXACTLY));
+					break;
 				}
-				// percent: p=# %=x
-				else if (/* this.mSplitterPosition == Integer.MIN_VALUE && */this.mSplitterPositionPercent >= 0)
-				{
-					this.mSplitterPosition = (int) (widthSize * this.mSplitterPositionPercent);
-				}
-				getChildAt(0).measure(MeasureSpec.makeMeasureSpec(this.mSplitterPosition - this.mSplitterSize / 2, MeasureSpec.EXACTLY),
-						MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY));
-				getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize - this.mSplitterSize / 2 - this.mSplitterPosition, MeasureSpec.EXACTLY),
-						MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY));
-				break;
-			}
-			case ORIENTATION_VERTICAL:
-			{
-				if (this.mSplitterPosition == Integer.MIN_VALUE && this.mSplitterPositionPercent < 0)
-				{
-					this.mSplitterPosition = heightSize / 2;
-				}
-				else if (this.mSplitterPosition != Integer.MIN_VALUE && this.mSplitterPositionPercent < 0)
-				{
-					this.mSplitterPositionPercent = (float) this.mSplitterPosition / (float) heightSize;
-				}
-				else if (/* this.mSplitterPosition == Integer.MIN_VALUE && */this.mSplitterPositionPercent >= 0)
-				{
-					this.mSplitterPosition = (int) (heightSize * this.mSplitterPositionPercent);
-				}
-				getChildAt(0).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY),
-						MeasureSpec.makeMeasureSpec(this.mSplitterPosition - this.mSplitterSize / 2, MeasureSpec.EXACTLY));
-				getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY),
-						MeasureSpec.makeMeasureSpec(heightSize - this.mSplitterSize / 2 - this.mSplitterPosition, MeasureSpec.EXACTLY));
-				break;
-			}
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 	}
@@ -218,24 +318,40 @@ public class SplitPaneLayout extends ViewGroup
 	{
 		final int w = r - l;
 		final int h = b - t;
-		switch (this.mOrientation)
+		switch (this.orientation)
 		{
-		case ORIENTATION_HORIZONTAL:
-		{
-			getChildAt(0).layout(0, 0, this.mSplitterPosition - this.mSplitterSize / 2, h);
-			this.mSplitterRect.set(this.mSplitterPosition - this.mSplitterSize / 2, 0, this.mSplitterPosition + this.mSplitterSize / 2, h);
-			getChildAt(1).layout(this.mSplitterPosition + this.mSplitterSize / 2, 0, r, h);
-			break;
+			case ORIENTATION_HORIZONTAL:
+			{
+				getChildAt(0).layout(0, 0, this.splitterPosition - this.splitterSize / 2, h);
+				this.splitterRect.set(this.splitterPosition - this.splitterSize / 2, 0, this.splitterPosition + this.splitterSize / 2, h);
+				getChildAt(1).layout(this.splitterPosition + this.splitterSize / 2, 0, r, h);
+				break;
+			}
+			case ORIENTATION_VERTICAL:
+			{
+				getChildAt(0).layout(0, 0, w, this.splitterPosition - this.splitterSize / 2);
+				this.splitterRect.set(0, this.splitterPosition - this.splitterSize / 2, w, this.splitterPosition + this.splitterSize / 2);
+				getChildAt(1).layout(0, this.splitterPosition + this.splitterSize / 2, w, h);
+				break;
+			}
+			default:
+				break;
 		}
-		case ORIENTATION_VERTICAL:
+	}
+
+	@Override
+	protected void dispatchDraw(final Canvas canvas)
+	{
+		super.dispatchDraw(canvas);
+		if (this.splitterDrawable != null)
 		{
-			getChildAt(0).layout(0, 0, w, this.mSplitterPosition - this.mSplitterSize / 2);
-			this.mSplitterRect.set(0, this.mSplitterPosition - this.mSplitterSize / 2, w, this.mSplitterPosition + this.mSplitterSize / 2);
-			getChildAt(1).layout(0, this.mSplitterPosition + this.mSplitterSize / 2, w, h);
-			break;
+			this.splitterDrawable.setBounds(this.splitterRect);
+			this.splitterDrawable.draw(canvas);
 		}
-		default:
-			break;
+		if (this.isDragging)
+		{
+			this.splitterDraggingDrawable.setBounds(this.splitterRectangle);
+			this.splitterDraggingDrawable.draw(canvas);
 		}
 	}
 
@@ -245,79 +361,79 @@ public class SplitPaneLayout extends ViewGroup
 	@Override
 	public boolean onTouchEvent(final MotionEvent event)
 	{
-		if (this.mSplitterMovable)
+		if (this.splitterMovable)
 		{
 			final int x = (int) event.getX();
 			final int y = (int) event.getY();
 
 			switch (event.getAction())
 			{
-			case MotionEvent.ACTION_DOWN:
-			{
-				if (this.mSplitterRect.contains(x, y))
+				case MotionEvent.ACTION_DOWN:
 				{
-					performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-					this.isDragging = true;
-					this.temp.set(this.mSplitterRect);
-					invalidate(this.temp);
-					this.lastX = x;
-					this.lastY = y;
+					if (this.splitterRect.contains(x, y))
+					{
+						performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+						this.isDragging = true;
+						this.splitterRectangle.set(this.splitterRect);
+						invalidate(this.splitterRectangle);
+						this.lastTouchX = x;
+						this.lastTouchY = y;
+					}
+					break;
 				}
-				break;
-			}
-			case MotionEvent.ACTION_MOVE:
-			{
-				if (this.isDragging)
+				case MotionEvent.ACTION_MOVE:
 				{
-					switch (this.mOrientation)
+					if (this.isDragging)
 					{
-					case ORIENTATION_HORIZONTAL:
-					{
-						this.temp.offset(x - this.lastX, 0);
-						break;
+						switch (this.orientation)
+						{
+							case ORIENTATION_HORIZONTAL:
+							{
+								this.splitterRectangle.offset(x - this.lastTouchX, 0);
+								break;
+							}
+							case ORIENTATION_VERTICAL:
+							{
+								this.splitterRectangle.offset(0, y - this.lastTouchY);
+								break;
+							}
+							default:
+								break;
+						}
+						this.lastTouchX = x;
+						this.lastTouchY = y;
+						invalidate();
 					}
-					case ORIENTATION_VERTICAL:
-					{
-						this.temp.offset(0, y - this.lastY);
-						break;
-					}
-					default:
-						break;
-					}
-					this.lastX = x;
-					this.lastY = y;
-					invalidate();
+					break;
 				}
-				break;
-			}
-			case MotionEvent.ACTION_UP:
-			{
-				if (this.isDragging)
+				case MotionEvent.ACTION_UP:
 				{
-					this.isDragging = false;
-					switch (this.mOrientation)
+					if (this.isDragging)
 					{
-					case ORIENTATION_HORIZONTAL:
-					{
-						this.mSplitterPosition = x;
-						break;
+						this.isDragging = false;
+						switch (this.orientation)
+						{
+							case ORIENTATION_HORIZONTAL:
+							{
+								this.splitterPosition = x;
+								break;
+							}
+							case ORIENTATION_VERTICAL:
+							{
+								this.splitterPosition = y;
+								break;
+							}
+							default:
+								break;
+						}
+						this.splitterPositionPercent = -1;
+						remeasure();
+						requestLayout();
 					}
-					case ORIENTATION_VERTICAL:
-					{
-						this.mSplitterPosition = y;
-						break;
-					}
-					default:
-						break;
-					}
-					this.mSplitterPositionPercent = -1;
-					remeasure();
-					requestLayout();
+					break;
 				}
-				break;
-			}
-			default:
-				break;
+				default:
+					break;
 			}
 			return true;
 		}
@@ -340,26 +456,39 @@ public class SplitPaneLayout extends ViewGroup
 	private void check()
 	{
 		if (getChildCount() != 2)
+		{
 			throw new RuntimeException("SplitPaneLayout must have exactly two child views.");
-	}
-
-	@Override
-	protected void dispatchDraw(final Canvas canvas)
-	{
-		super.dispatchDraw(canvas);
-		if (this.mSplitterDrawable != null)
-		{
-			this.mSplitterDrawable.setBounds(this.mSplitterRect);
-			this.mSplitterDrawable.draw(canvas);
-		}
-		if (this.isDragging)
-		{
-			this.mSplitterDraggingDrawable.setBounds(this.temp);
-			this.mSplitterDraggingDrawable.draw(canvas);
 		}
 	}
 
 	// G E T / S E T
+
+	/**
+	 * Gets the current orientation of the layout.
+	 *
+	 * @return the orientation of the layout
+	 */
+	public int getOrientation()
+	{
+		return this.orientation;
+	}
+
+	/**
+	 * Sets the orientation of the layout.
+	 *
+	 * @param orientation the desired orientation of the layout
+	 */
+	public void setOrientation(final int orientation)
+	{
+		if (this.orientation != orientation)
+		{
+			this.orientation = orientation;
+			if (getChildCount() == 2)
+			{
+				remeasure();
+			}
+		}
+	}
 
 	/**
 	 * Gets the current drawable used for the splitter.
@@ -368,18 +497,17 @@ public class SplitPaneLayout extends ViewGroup
 	 */
 	public Drawable getSplitterDrawable()
 	{
-		return this.mSplitterDrawable;
+		return this.splitterDrawable;
 	}
 
 	/**
 	 * Sets the drawable used for the splitter.
 	 *
-	 * @param splitterDrawable
-	 *            the desired orientation of the layout
+	 * @param splitterDrawable the desired orientation of the layout
 	 */
 	public void setSplitterDrawable(final Drawable splitterDrawable)
 	{
-		this.mSplitterDrawable = splitterDrawable;
+		this.splitterDrawable = splitterDrawable;
 		if (getChildCount() == 2)
 		{
 			remeasure();
@@ -393,49 +521,20 @@ public class SplitPaneLayout extends ViewGroup
 	 */
 	public Drawable getSplitterDraggingDrawable()
 	{
-		return this.mSplitterDraggingDrawable;
+		return this.splitterDraggingDrawable;
 	}
 
 	/**
 	 * Sets the drawable used for the splitter dragging overlay.
 	 *
-	 * @param splitterDraggingDrawable
-	 *            the drawable to use while dragging the splitter
+	 * @param splitterDraggingDrawable the drawable to use while dragging the splitter
 	 */
 	public void setSplitterDraggingDrawable(final Drawable splitterDraggingDrawable)
 	{
-		this.mSplitterDraggingDrawable = splitterDraggingDrawable;
+		this.splitterDraggingDrawable = splitterDraggingDrawable;
 		if (this.isDragging)
 		{
 			invalidate();
-		}
-	}
-
-	/**
-	 * Gets the current orientation of the layout.
-	 *
-	 * @return the orientation of the layout
-	 */
-	public int getOrientation()
-	{
-		return this.mOrientation;
-	}
-
-	/**
-	 * Sets the orientation of the layout.
-	 *
-	 * @param orientation
-	 *            the desired orientation of the layout
-	 */
-	public void setOrientation(final int orientation)
-	{
-		if (this.mOrientation != orientation)
-		{
-			this.mOrientation = orientation;
-			if (getChildCount() == 2)
-			{
-				remeasure();
-			}
 		}
 	}
 
@@ -446,18 +545,17 @@ public class SplitPaneLayout extends ViewGroup
 	 */
 	public int getSplitterSize()
 	{
-		return this.mSplitterSize;
+		return this.splitterSize;
 	}
 
 	/**
 	 * Sets the current size of the splitter in pixels.
 	 *
-	 * @param splitterSize
-	 *            the desired size of the splitter
+	 * @param splitterSize the desired size of the splitter
 	 */
 	public void setSplitterSize(final int splitterSize)
 	{
-		this.mSplitterSize = splitterSize;
+		this.splitterSize = splitterSize;
 		if (getChildCount() == 2)
 		{
 			remeasure();
@@ -471,18 +569,17 @@ public class SplitPaneLayout extends ViewGroup
 	 */
 	public boolean isSplitterMovable()
 	{
-		return this.mSplitterMovable;
+		return this.splitterMovable;
 	}
 
 	/**
 	 * Sets whether the splitter is movable by the user.
 	 *
-	 * @param splitterMovable
-	 *            whether the splitter is movable
+	 * @param splitterMovable whether the splitter is movable
 	 */
 	public void setSplitterMovable(final boolean splitterMovable)
 	{
-		this.mSplitterMovable = splitterMovable;
+		this.splitterMovable = splitterMovable;
 	}
 
 	/**
@@ -492,14 +589,13 @@ public class SplitPaneLayout extends ViewGroup
 	 */
 	public int getSplitterPosition()
 	{
-		return this.mSplitterPosition;
+		return this.splitterPosition;
 	}
 
 	/**
 	 * Sets the current position of the splitter in pixels.
 	 *
-	 * @param position0
-	 *            the desired position of the splitter
+	 * @param position0 the desired position of the splitter
 	 */
 	public void setSplitterPosition(final int position0)
 	{
@@ -508,8 +604,8 @@ public class SplitPaneLayout extends ViewGroup
 		{
 			position = 0;
 		}
-		this.mSplitterPosition = position;
-		this.mSplitterPositionPercent = -1;
+		this.splitterPosition = position;
+		this.splitterPositionPercent = -1;
 		if (getChildCount() == 2)
 		{
 			remeasure();
@@ -523,43 +619,80 @@ public class SplitPaneLayout extends ViewGroup
 	 */
 	public float getSplitterPositionPercent()
 	{
-		return this.mSplitterPositionPercent;
+		return this.splitterPositionPercent;
 	}
 
 	/**
 	 * Sets the current position of the splitter as a percentage of the layout.
 	 *
-	 * @param position0
-	 *            the desired position of the splitter
+	 * @param position0 the desired position of the splitter
 	 */
 	public void setSplitterPositionPercent(final float position0)
 	{
 		float position = position0;
-		if (position < 0)
+		if (position < 0F)
 		{
-			position = 0;
+			position = 0F;
 		}
-		if (position > 1)
+		if (position > 1F)
 		{
-			position = 1;
+			position = 1F;
 		}
-		this.mSplitterPosition = Integer.MIN_VALUE;
-		this.mSplitterPositionPercent = position;
+		this.splitterPosition = Integer.MIN_VALUE;
+		this.splitterPositionPercent = position;
 		if (getChildCount() == 2)
 		{
 			remeasure();
 		}
 	}
 
-	// I N S T A N C E S T A T E
+	// S A V E   S T A T E
+
+	@Override
+	protected void onAttachedToWindow()
+	{
+		super.onAttachedToWindow();
+		restorePref();
+	}
+
+	@Override
+	protected void onDetachedFromWindow()
+	{
+		super.onDetachedFromWindow();
+		savePref();
+	}
+
+	private void savePref()
+	{
+		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+		float value = getSplitterPositionPercent();
+		if (value == -1F)
+		{
+			prefs.edit().remove(SPLITTER_POSITION_PERCENT).apply();
+		}
+		else
+		{
+			prefs.edit().putFloat(SPLITTER_POSITION_PERCENT, value).apply();
+		}
+	}
+
+	private void restorePref()
+	{
+		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+		float value = prefs.getFloat(SPLITTER_POSITION_PERCENT, -1F);
+		if (value != -1F)
+		{
+			setSplitterPositionPercent(value);
+		}
+	}
 
 	@Override
 	public Parcelable onSaveInstanceState()
 	{
 		final Parcelable superState = super.onSaveInstanceState();
-		final SavedState ss = new SavedState(superState);
-		ss.mSplitterPositionPercent = this.mSplitterPositionPercent;
-		return ss;
+		final SavedState savedState = new SavedState(superState);
+		savedState.splitterPositionPercent = this.splitterPositionPercent;
+		return savedState;
 	}
 
 	@Override
@@ -570,9 +703,9 @@ public class SplitPaneLayout extends ViewGroup
 			super.onRestoreInstanceState(state);
 			return;
 		}
-		final SavedState ss = (SavedState) state;
-		super.onRestoreInstanceState(ss.getSuperState());
-		setSplitterPositionPercent(ss.mSplitterPositionPercent);
+		final SavedState savedState = (SavedState) state;
+		super.onRestoreInstanceState(savedState.getSuperState());
+		setSplitterPositionPercent(savedState.splitterPositionPercent);
 	}
 
 	/**
@@ -596,7 +729,11 @@ public class SplitPaneLayout extends ViewGroup
 				return new SavedState[size];
 			}
 		};
-		float mSplitterPositionPercent;
+
+		/**
+		 * Position percent
+		 */
+		float splitterPositionPercent;
 
 		SavedState(final Parcelable superState)
 		{
@@ -606,14 +743,14 @@ public class SplitPaneLayout extends ViewGroup
 		private SavedState(final Parcel in)
 		{
 			super(in);
-			this.mSplitterPositionPercent = in.readFloat();
+			this.splitterPositionPercent = in.readFloat();
 		}
 
 		@Override
 		public void writeToParcel(final Parcel out, final int flags)
 		{
 			super.writeToParcel(out, flags);
-			out.writeFloat(this.mSplitterPositionPercent);
+			out.writeFloat(this.splitterPositionPercent);
 		}
 	}
 }
