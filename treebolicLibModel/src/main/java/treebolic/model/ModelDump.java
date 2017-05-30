@@ -184,6 +184,8 @@ public class ModelDump
 		thisBuilder.append("DefaultNodeImage=").append(theseSettings.theDefaultNodeImage).append('\n');
 		thisBuilder.append("BorderFlag=").append(theseSettings.theBorderFlag).append('\n');
 		thisBuilder.append("EllipsizeFlag=").append(theseSettings.theEllipsizeFlag).append('\n');
+		thisBuilder.append("LabelMaxLines=").append(theseSettings.theLabelMaxLines).append('\n');
+		thisBuilder.append("LabelExtraLineFactor=").append(theseSettings.theLabelExtraLineFactor).append('\n');
 		thisBuilder.append("TreeEdgeColor=").append(Utils.colorToString(theseSettings.theTreeEdgeColor)).append('\n');
 		thisBuilder.append("TreeEdgeStyle=").append(ModelDump.toString(theseSettings.theTreeEdgeStyle)).append('\n');
 		thisBuilder.append("DefaultTreeEdgeImage=").append(theseSettings.theDefaultTreeEdgeImage).append('\n');
