@@ -15,6 +15,7 @@
             <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib" />
             <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel" />
             <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView" />
+            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLoadBalancer" />
             <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable" />
           </set>
         </option>
