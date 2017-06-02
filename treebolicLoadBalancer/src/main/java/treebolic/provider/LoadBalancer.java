@@ -6,6 +6,7 @@ import java.util.List;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
 import treebolic.model.IEdge;
+import treebolic.model.INode;
 import treebolic.model.TreeMutableNode;
 
 /**
@@ -60,16 +61,16 @@ public class LoadBalancer
 
 	/**
 	 * @param limitNodesAtLevel0 limit number of nodes at given level
-	 * @param truncateLabelAt0   truncate label threshhold
-	 * @param backColor0         intermediate node back color
-	 * @param foreColor0         intermediate node back color
-	 * @param edgeColor0         intermediate node edge color
-	 * @param imageIndex0        intermediate node image index
-	 * @param image0             intermediate node image
+	 * @param truncateLabelAt0 truncate label threshhold
+	 * @param backColor0 intermediate node back color
+	 * @param foreColor0 intermediate node back color
+	 * @param edgeColor0 intermediate node edge color
+	 * @param imageIndex0 intermediate node image index
+	 * @param image0 intermediate node image
 	 */
 	public LoadBalancer(final int[] limitNodesAtLevel0, final int truncateLabelAt0, final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, final Image image0)
 	{
-		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[]{10, 3};
+		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[] { 10, 3 };
 		this.truncateLabelAt = truncateLabelAt0 > 0 ? truncateLabelAt0 : 3;
 		this.backColor = backColor0;
 		this.foreColor = foreColor0;
@@ -86,15 +87,33 @@ public class LoadBalancer
 	 * @param parent parent node
 	 * @param nodes  children nodes
 	 */
-	static public void attachToParent(final TreeMutableNode parent, final List<TreeMutableNode> nodes)
+	static public void attachToParent(final TreeMutableNode parent, final List<INode> nodes)
 	{
 		if (nodes != null)
 		{
-			for (TreeMutableNode node : nodes)
+			for (INode node : nodes)
 			{
-				node.addToParent(parent);
+				addToParent(node, parent);
 			}
 		}
+	}
+
+	/**
+	 * Add child to parent
+	 *
+	 * @param child  child
+	 * @param parent tree mutable parent
+	 */
+	static public void addToParent(final INode child, final TreeMutableNode parent)
+	{
+		List<INode> children = parent.getChildren();
+		if (children == null)
+		{
+			children = new ArrayList<>();
+			parent.setChildren(children);
+		}
+		children.add(child);
+		child.setParent(parent);
 	}
 
 	/**
@@ -104,9 +123,9 @@ public class LoadBalancer
 	 * @param level current level
 	 * @return list of parent nodes
 	 */
-	private List<TreeMutableNode> buildHierarchy1(final List<TreeMutableNode> nodes, final int level)
+	private List<INode> buildHierarchy1(final List<INode> nodes, final int level)
 	{
-		final List<TreeMutableNode> roots = new ArrayList<>();
+		final List<INode> roots = new ArrayList<>();
 
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
 		int z = nodes.size();
@@ -134,8 +153,8 @@ public class LoadBalancer
 			}
 
 			int b = Math.min(i + m, z);
-			TreeMutableNode first = nodes.get(i);
-			TreeMutableNode last = nodes.get(b - 1);
+			INode first = nodes.get(i);
+			INode last = nodes.get(b - 1);
 
 			final String startLabel = left(first.getTarget(), this.truncateLabelAt);
 			root.setEdgeLabel(startLabel);
@@ -147,13 +166,17 @@ public class LoadBalancer
 
 			for (int k = i; k < b; k++)
 			{
-				final TreeMutableNode node = nodes.get(k);
-				node.addToParent(root);
+				final INode node = nodes.get(k);
+				/*
+				 * if (!(node instanceof TreeMutableNode)) throw new IllegalArgumentException("Node is not tree mutable: " + node.getId()); final
+				 * TreeMutableNode mutableNode = (TreeMutableNode) node; mutableNode.addToParent(root);
+				 */
+				addToParent(node, root);
 			}
 
 			roots.add(root);
 		}
-		System.out.println("<" + level + " roots " + roots.size());
+		// System.out.println("<" + level + " roots " + roots.size());
 		return roots;
 	}
 
@@ -164,10 +187,10 @@ public class LoadBalancer
 	 * @param level level
 	 * @return list of tree nodes
 	 */
-	public List<TreeMutableNode> buildHierarchy(final List<TreeMutableNode> nodes, final int level)
+	public List<INode> buildHierarchy(final List<INode> nodes, final int level)
 	{
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
-		System.out.println("level=" + level + "  m=" + m);
+		// System.out.println("level=" + level + "  m=" + m);
 		if (nodes == null)
 		{
 			return null;
@@ -177,7 +200,7 @@ public class LoadBalancer
 			return nodes;
 		}
 
-		List<TreeMutableNode> nodes2 = buildHierarchy1(nodes, level);
+		List<INode> nodes2 = buildHierarchy1(nodes, level);
 		return buildHierarchy(nodes2, level + 1);
 	}
 
@@ -187,10 +210,10 @@ public class LoadBalancer
 	 * Label factory of non-leave nodes
 	 *
 	 * @param first first child node
-	 * @param last  lst child node
+	 * @param last lst child node
 	 * @return makeRangeLabel of parent node
 	 */
-	private String makeRangeLabel(final TreeMutableNode first, final TreeMutableNode last)
+	private String makeRangeLabel(final INode first, final INode last)
 	{
 		String label1 = first.getTarget();
 		String label2 = last.getTarget();
@@ -219,7 +242,7 @@ public class LoadBalancer
 	 * Right truncation of a string
 	 *
 	 * @param str string
-	 * @param n   n trailing characters
+	 * @param n n trailing characters
 	 * @return right of string
 	 */
 	private String right(final String str, final int n)
@@ -240,7 +263,7 @@ public class LoadBalancer
 	 * Left truncation of a string
 	 *
 	 * @param str string
-	 * @param n   n first characters
+	 * @param n n first characters
 	 * @return left of string
 	 */
 	private String left(final String str, final int n)

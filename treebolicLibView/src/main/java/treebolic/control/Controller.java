@@ -648,8 +648,8 @@ public class Controller extends Commander
 		if (!Commander.hasTooltip)
 			return;
 
-		final String thisLabel = thisNode.getLabel();
-		final String thisContent = thisNode.getContent();
+		String thisLabel = thisNode.getLabel();
+		String thisContent = thisNode.getContent();
 		if (thisLabel == null && (!Commander.tooltipDisplaysContent || thisContent == null))
 			return;
 
@@ -664,6 +664,7 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
+				thisLabel = thisLabel.replaceAll("\n", "<br>");
 				thisBuilder.append("<strong>");
 			}
 			thisBuilder.append(thisLabel);
@@ -698,6 +699,7 @@ public class Controller extends Commander
 				}
 				else
 				{
+					thisContent = thisContent.replaceAll("\n", "<br>");
 					thisBuilder.append(thisContent.length() <= Commander.TOOLTIPLINESPAN ? "<div>" : "<div width='" + Commander.TOOLTIPLINESPAN * 7 + "'>");
 					thisBuilder.append(thisContent);
 					thisBuilder.append("</div>");
