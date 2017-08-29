@@ -807,6 +807,7 @@ public class Painter extends AbstractPainter
 			{
 				thisFromAnchor = getIntersection(thisFromSpace, thisTo, thisFrom);
 			}
+			//noinspection UnusedAssignment
 			Point2D thisToAnchor = null;
 			thisToAnchor = getIntersection(thisToSpace, thisFrom, thisTo);
 
@@ -861,6 +862,7 @@ public class Painter extends AbstractPainter
 				thisFromAnchor = thisArc2D.getStartPoint();
 			}
 
+			//noinspection UnusedAssignment
 			Point2D thisToAnchor = null;
 			thisToAnchor = getIntersection(thisToSpace, thisArc2D);
 			if (thisToAnchor == null)
@@ -1027,6 +1029,7 @@ public class Painter extends AbstractPainter
 		{
 			thisFromAnchor = getIntersection(thisFromSpace, thisTo, thisFrom);
 		}
+		//noinspection UnusedAssignment
 		Point2D thisToAnchor = null;
 		thisToAnchor = getIntersection(thisToSpace, thisFrom, thisTo);
 
@@ -1156,6 +1159,7 @@ public class Painter extends AbstractPainter
 
 		// text orientation
 		final boolean reverse = thisOrientation > Math.PI / 2.;
+		//noinspection UnusedAssignment
 		int thisYShift = 0;
 		if (reverse)
 		{
@@ -1697,8 +1701,10 @@ public class Painter extends AbstractPainter
 		final double h = thisRect.getHeight();
 
 		// points on top, bottom, left, right
+		//noinspection UnnecessaryLocalVariable
 		final double ty = y;
 		final double by = y + h;
+		//noinspection UnnecessaryLocalVariable
 		final double lx = x;
 		final double rx = x + w;
 
@@ -1961,13 +1967,13 @@ public class Painter extends AbstractPainter
 		return thisLabel.split("\\n", this.theLabelMaxLines);
 	}
 
-	static private String ELLIPSIS = "…"; // ellipsis … ⋯
+	static private final String ELLIPSIS = "…"; // ellipsis … ⋯
 
 	/**
 	 * Ellipsize text in label
 	 *
 	 * @param thisNodeData node data
-	 * @param dnode
+	 * @param dnode        node space diameter
 	 * @return new text width
 	 */
 	private int ellipsizeLabel(final NodeData thisNodeData, final int dnode)
@@ -2089,18 +2095,17 @@ public class Painter extends AbstractPainter
 	private void drawLabel(final NodeData thisNodeData)
 	{
 		this.theGraphics.setTextSize(thisNodeData.theTextSize);
-		int h = this.theGraphics.getAscent();
-		int dx = (int) ((thisNodeData.theLabelW - thisNodeData.theLabelLinesW[0]) / 2);
+		int dx = (thisNodeData.theLabelW - thisNodeData.theLabelLinesW[0]) / 2;
 		this.theGraphics.drawString(thisNodeData.theLabelLines[0], thisNodeData.theLabelX + dx, thisNodeData.theLabelY);
 
 		if (thisNodeData.theLabelLines.length > 1)
 		{
 			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
-			h = this.theGraphics.getAscent();
+			int h = this.theGraphics.getAscent();
 			int dy = h;
 			for (int i = 1; i < thisNodeData.theLabelLines.length; i++)
 			{
-				dx = (int) ((thisNodeData.theLabelW - thisNodeData.theLabelLinesW[i]) / 2);
+				dx = (thisNodeData.theLabelW - thisNodeData.theLabelLinesW[i]) / 2;
 				this.theGraphics.drawString(thisNodeData.theLabelLines[i], thisNodeData.theLabelX + dx, thisNodeData.theLabelY + dy);
 				dy += h;
 			}

@@ -1,5 +1,7 @@
 package treebolic;
 
+import android.annotation.SuppressLint;
+
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -44,6 +46,7 @@ import treebolic.view.View;
  *
  * @author Bernard Bou
  */
+@SuppressLint("ViewConstructor")
 public class Widget extends Container implements IWidget, IProviderContext
 {
 	private static final long serialVersionUID = 3962167000082869632L;

@@ -5,27 +5,27 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        style="@style/TreebolicStatusTheme"
-        android:id="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:drawablePadding="10dp"
-        android:drawableTop="@drawable/status_info"
-        android:gravity="center_vertical"
-        android:hint="@string/status_hint"
-        android:maxLines="@integer/status_max_lines"
-        android:minLines="@integer/status_min_lines"
-        android:text="@string/status_text"
-        android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
-        android:textSize="20sp" />
+	<TextView
+		android:id="@+id/status"
+		style="@style/TreebolicStatusTheme"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dp"
+		android:layout_marginStart="10dp"
+		android:drawablePadding="10dp"
+		android:drawableTop="@drawable/status_info"
+		android:gravity="center_vertical"
+		android:hint="@string/status_hint"
+		android:maxLines="@integer/status_max_lines"
+		android:minLines="@integer/status_min_lines"
+		android:text="@string/status_text"
+		android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
+		android:textSize="20sp"/>
 
-    <WebView
-        android:id="@+id/content"
-        style="@style/TreebolicStatusTheme"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+	<WebView
+		android:id="@+id/content"
+		style="@style/TreebolicStatusTheme"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
 
 </LinearLayout>
