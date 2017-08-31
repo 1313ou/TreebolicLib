@@ -55,11 +55,9 @@ public class Utils
 
 	static public void tint(final Drawable drawable, int iconTint)
 	{
-		// final int iconTint = fetchColor(R.attr.treebolic_actionbar_icon_color);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
 		{
 			drawable.setTint(iconTint);
-			//DrawableCompat.setTint(drawable, iconTint);
 		}
 		else
 		{
