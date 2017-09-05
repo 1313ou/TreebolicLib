@@ -160,7 +160,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		// html.append("</div>");
 		// }
 		html.append(this.content);
-		html.append("</body>");
+		html.append("</body></html>");
 
 		// client
 		final WebViewClient webViewClient = new WebViewClient()
