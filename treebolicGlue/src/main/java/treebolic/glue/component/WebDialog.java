@@ -34,12 +34,12 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	/**
 	 * Save key for header
 	 */
-	static final String STATE_HEADER = "org.treebolic.header";
+	static final String STATE_HEADER = "org.treebolic.web.header";
 
 	/**
 	 * Save key for content
 	 */
-	static final String STATE_CONTENT = "org.treebolic.content";
+	static final String STATE_CONTENT = "org.treebolic.web.content";
 
 	/**
 	 * Base URL for webview
@@ -159,7 +159,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		// html.append(this.header);
 		// html.append("</div>");
 		// }
-		html.append("</head><body>");
 		html.append(this.content);
 		html.append("</body>");
 
