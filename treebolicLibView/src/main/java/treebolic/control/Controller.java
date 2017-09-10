@@ -553,7 +553,7 @@ public class Controller extends Commander
 		{
 			if (Commander.TOOLTIPHTML)
 			{
-				thisBuffer.append("<div='weight'>");
+				thisBuffer.append("<div class='weight'>");
 			}
 			thisBuffer.append(" [weight=");
 			thisBuffer.append(thisNode.getWeight());

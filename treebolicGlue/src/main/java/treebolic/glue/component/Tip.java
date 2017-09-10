@@ -89,7 +89,7 @@ public class Tip extends AppCompatDialogFragment
 		// })
 		;
 
-		// create the AlertDialog object and return it
+		// create the dialog and return it
 		final AppCompatDialog dialog = builder.create();
 		dialog.setCanceledOnTouchOutside(true);
 		return dialog;

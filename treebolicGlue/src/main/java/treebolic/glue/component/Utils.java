@@ -31,12 +31,33 @@ public class Utils
 		return colors;
 	}
 
+	static public Integer[] fetchColorsNullable(final Context context, int... attrs)
+	{
+		final TypedValue typedValue = new TypedValue();
+		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
+		final Integer colors[] = new Integer[attrs.length];
+		for (int i = 0; i < attrs.length; i++)
+		{
+			colors[i] = array.hasValue(i) ? array.getColor(i, 0) : null;
+		}
+		array.recycle();
+		return colors;
+	}
+
 	static public int fetchColor(final Context context, int attr)
 	{
 		final TypedValue typedValue = new TypedValue();
 		final Resources.Theme theme = context.getTheme();
 		theme.resolveAttribute(attr, typedValue, true);
 		return typedValue.data;
+	}
+
+	static public Integer fetchColorNullable(final Context context, int attr)
+	{
+		final TypedValue typedValue = new TypedValue();
+		final Resources.Theme theme = context.getTheme();
+		theme.resolveAttribute(attr, typedValue, true);
+		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 
 	static public int getColor(final Context context, int resId)

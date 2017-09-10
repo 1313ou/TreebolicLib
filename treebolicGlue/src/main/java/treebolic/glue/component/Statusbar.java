@@ -283,8 +283,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	private String getDefaultBaseStyle()
 	{
 		return "body {" +
-				String.format("background-color: #%06X;", 0xFFFFFF & this.background) +
-				String.format("color: #%06X;", 0xFFFFFF & this.foreground) +
+				String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //
+				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //
 				'}';
 	}
 

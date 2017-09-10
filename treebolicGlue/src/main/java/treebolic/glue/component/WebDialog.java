@@ -152,7 +152,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 			html.append(this.style);
 		}
 		html.append("</style>");
-		html.append("</head><body class='pane'>");
+		html.append("</head><body class='body'>");
 		// if (this.header != null && !this.header.isEmpty())
 		// {
 		// html.append("<div class='label'>");
@@ -218,7 +218,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		// })
 		;
 
-		// create the AlertDialog object and return it
+		// create the dialog object and return it
 		final AppCompatDialog dialog = builder.create();
 		dialog.setCanceledOnTouchOutside(true);
 		return dialog;
@@ -256,8 +256,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	private String getDefaultBaseStyle()
 	{
 		return "body {" + //
-				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //
 				String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //
+				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //
 				'}';
 	}
 
