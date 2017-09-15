@@ -273,6 +273,7 @@ public class Settings implements Serializable
 	/**
 	 * Default node image index
 	 */
+	@SuppressWarnings("CanBeFinal")
 	public int theDefaultNodeImageIndex;
 
 	// labels
@@ -565,14 +566,12 @@ public class Settings implements Serializable
 		{
 			this.theTreeEdgeColor = thisColor;
 		}
-		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_TOTERMINATOR),
-				theseProperties.getProperty(Settings.PROP_EDGE_LINE), theseProperties.getProperty(Settings.PROP_EDGE_HIDDEN));
+		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_TOTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_LINE), theseProperties.getProperty(Settings.PROP_EDGE_HIDDEN));
 		if (thisStyle != null)
 		{
 			this.theEdgeStyle = thisStyle;
 		}
-		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_TREE_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_TOTERMINATOR),
-				theseProperties.getProperty(Settings.PROP_TREE_EDGE_LINE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_HIDDEN));
+		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_TREE_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_TOTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_LINE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_HIDDEN));
 		if (thisStyle != null)
 		{
 			this.theTreeEdgeStyle = thisStyle;

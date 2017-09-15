@@ -19,9 +19,7 @@ public class ModelDump
 	 */
 	static public String toString(final Model thisModel)
 	{
-		return ModelDump.toString(thisModel.theTree) +
-				ModelDump.toString(thisModel.theSettings) +
-				ModelDump.toString(thisModel.theImages);
+		return ModelDump.toString(thisModel.theTree) + ModelDump.toString(thisModel.theSettings) + ModelDump.toString(thisModel.theImages);
 	}
 
 	/**
@@ -32,10 +30,7 @@ public class ModelDump
 	 */
 	static public String toString(final Tree thisTree)
 	{
-		return "NODES\n" +
-				ModelDump.toString(thisTree.getRoot(), 0) +
-				"EDGES\n" +
-				ModelDump.toString(thisTree.getEdges());
+		return "NODES\n" + ModelDump.toString(thisTree.getRoot(), 0) + "EDGES\n" + ModelDump.toString(thisTree.getEdges());
 	}
 
 	/**

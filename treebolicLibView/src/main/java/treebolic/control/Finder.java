@@ -18,16 +18,16 @@ public class Finder
 	/**
 	 * Find node nearest to point
 	 *
-	 * @param thisStart
-	 *            start node (only descendants are considered)
-	 * @param thisPoint
-	 *            point
+	 * @param thisStart start node (only descendants are considered)
+	 * @param thisPoint point
 	 * @return node if found, null otherwise
 	 */
 	static public INode findNodeAt(final INode thisStart, final Complex thisPoint)
 	{
 		if (thisStart == null)
+		{
 			return null;
+		}
 
 		INode thisResult = thisStart;
 		Location thisResultLocation = thisStart.getLocation();
@@ -58,34 +58,40 @@ public class Finder
 		}
 
 		if (thisResultLocation.euclidean.radius * thisResultLocation.euclidean.radius * Surface.FINDERRORMARGINFACTOR <= thisDistance)
+		{
 			return null;
+		}
 		return thisResult;
 	}
 
 	/**
 	 * Find node by id
 	 *
-	 * @param thisStart
-	 *            start node
-	 * @param thisId
-	 *            target id
+	 * @param thisStart start node
+	 * @param thisId    target id
 	 * @return node if found, null otherwise
 	 */
 	static public INode findNodeById(final INode thisStart, final String thisId)
 	{
 		if (thisStart == null)
+		{
 			return null;
+		}
 
 		// node test
 		if (thisId.equals(thisStart.getId()))
+		{
 			return thisStart;
+		}
 
 		// children
 		for (final INode thisChildNode : thisStart.getChildren())
 		{
 			final INode thisNode = Finder.findNodeById(thisChildNode, thisId);
 			if (thisNode != null)
+			{
 				return thisNode;
+			}
 		}
 		return null;
 	}

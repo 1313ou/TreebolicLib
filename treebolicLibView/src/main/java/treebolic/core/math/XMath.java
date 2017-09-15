@@ -12,8 +12,7 @@ public class XMath
 	/**
 	 * Hyperbolic tangence
 	 *
-	 * @param x0
-	 *            input
+	 * @param x0 input
 	 * @return hyperbolic tangence of x
 	 */
 	static public double tanh(final double x0)
@@ -27,8 +26,7 @@ public class XMath
 	/**
 	 * Hyperbolic arc tangence
 	 *
-	 * @param x
-	 *            input
+	 * @param x input
 	 * @return hyperbolic atan
 	 */
 	static public double atanh(final double x)

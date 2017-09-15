@@ -103,8 +103,7 @@ class XEdgeData extends EdgeData
 	/**
 	 * Set image
 	 *
-	 * @param thisImage
-	 *            image
+	 * @param thisImage image
 	 */
 	public void setImage(final Image thisImage)
 	{
@@ -134,10 +133,8 @@ public class Edge extends XEdgeData implements IEdge
 	/**
 	 * Construct edge
 	 *
-	 * @param thisFromINode
-	 *            from node
-	 * @param thisToINode
-	 *            to node
+	 * @param thisFromINode from node
+	 * @param thisToINode   to node
 	 */
 	public Edge(final INode thisFromINode, final INode thisToINode)
 	{

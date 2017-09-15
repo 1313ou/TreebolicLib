@@ -21,7 +21,7 @@ public abstract class Commander
 		REFRESH, //
 		HOME, NORTH, SOUTH, EAST, WEST, RADIAL, //
 		ZOOMIN, ZOOMOUT, ZOOMONE, SCALEUP, SCALEDOWN, SCALEONE, //
-		EXPAND, SHRINK, WIDEN, NARROW, //
+		EXPAND, SHRINK, EXPANSIONRESET, WIDEN, NARROW, SWEEPRESET, //
 		ARCEDGE, TOOLTIP, TOOLTIPCONTENT, FOCUSHOVER
 	}
 
@@ -78,11 +78,13 @@ public abstract class Commander
 	/**
 	 * Whether tooltips are html
 	 */
+	@SuppressWarnings("CanBeFinal")
 	static public boolean TOOLTIPHTML = true;
 
 	/**
 	 * Tooltip break
 	 */
+	@SuppressWarnings("CanBeFinal")
 	static public int TOOLTIPLINESPAN = 50;
 
 	// A C C E S S
@@ -166,14 +168,15 @@ public abstract class Commander
 	/**
 	 * Change orientation
 	 *
-	 * @param thisOrientation
-	 *        orientation
+	 * @param thisOrientation orientation
 	 * @return true if successful
 	 */
-	private boolean changeOrientation(final Complex thisOrientation)
+	synchronized private boolean changeOrientation(final Complex thisOrientation)
 	{
 		if (thisOrientation.equals(getLayerOut().getOrientation()))
+		{
 			return false;
+		}
 		getView().resetTransform();
 		getLayerOut().setOrientation(thisOrientation);
 		final boolean isRadial = thisOrientation == Complex.ZERO;
@@ -186,44 +189,59 @@ public abstract class Commander
 	/**
 	 * Change Expansion by given factor
 	 *
-	 * @param thisFactor
-	 *        factor
+	 * @param thisFactor factor
 	 */
 	private void changeExpansion(final float thisFactor)
 	{
-		double thisExpansion = getLayerOut().getExpansion();
-		thisExpansion *= thisFactor;
-		if (thisExpansion > MAXEXPANSION)
-			return;
+		if (thisFactor == .0)
+		{
+			getLayerOut().setDefaultExpansion();
+		}
+		else
+		{
+			double thisExpansion = getLayerOut().getExpansion();
+			thisExpansion *= thisFactor;
+			if (thisExpansion > MAXEXPANSION)
+			{
+				return;
+			}
+			getLayerOut().setExpansion(thisExpansion);
+		}
 		getView().resetTransform();
-		getLayerOut().setExpansion(thisExpansion);
 		getLayerOut().layout(getModel().theTree.getRoot());
 	}
 
 	/**
 	 * Change sweep by given factor
 	 *
-	 * @param thisFactor
-	 *        factor
+	 * @param thisFactor factor
 	 */
 	private void changeSweep(final float thisFactor)
 	{
-		double thisSweep = getLayerOut().getChildSweep();
-		thisSweep *= thisFactor;
-		if (thisSweep > MAXSWEEP)
-			return;
+		if (thisFactor == .0)
+		{
+			getLayerOut().setDefaultChildSweep();
+		}
+		else
+		{
+			double thisSweep = getLayerOut().getChildSweep();
+			thisSweep *= thisFactor;
+			if (thisSweep > MAXSWEEP)
+			{
+				return;
+			}
+			getLayerOut().setChildSweep(thisSweep);
+		}
 		getView().resetTransform();
-		getLayerOut().setChildSweep(thisSweep);
 		getLayerOut().layout(getModel().theTree.getRoot());
 	}
 
 	/**
 	 * Enable/disable tooltips
 	 *
-	 * @param thisFlag
-	 *        whether to display tooltip (null toggles value)
+	 * @param thisFlag whether to display tooltip (null toggles value)
 	 */
-	@SuppressWarnings({ "boxing", "static-method" })
+	@SuppressWarnings({"boxing", "static-method"})
 	public void setHasTooltip(final Boolean thisFlag)
 	{
 		Commander.hasTooltip = thisFlag != null ? thisFlag : !Commander.hasTooltip;
@@ -232,8 +250,7 @@ public abstract class Commander
 	/**
 	 * Enable/disable displaying content in tooltips
 	 *
-	 * @param thisFlag
-	 *        whether tooltip displays content (null toggles value)
+	 * @param thisFlag whether tooltip displays content (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
 	static public void setTooltipDisplaysContent(final Boolean thisFlag)
@@ -355,16 +372,13 @@ public abstract class Commander
 	 */
 	private void doHome()
 	{
-		getView().applyNullTransform();
-		getView().setShift(0F, 0F, false, false);
-		getView().repaint();
+		getView().reset();
 	}
 
 	/**
 	 * Perform change expansion by given factor
 	 *
-	 * @param thisFactor
-	 *        factor
+	 * @param thisFactor factor
 	 */
 	private void doChangeExpansion(final float thisFactor)
 	{
@@ -375,8 +389,7 @@ public abstract class Commander
 	/**
 	 * Perform change sweep by given factor
 	 *
-	 * @param thisFactor
-	 *        factor
+	 * @param thisFactor factor
 	 */
 	private void doChangeSweep(final float thisFactor)
 	{
@@ -422,8 +435,7 @@ public abstract class Commander
 	/**
 	 * Set view behaviour
 	 *
-	 * @param theseSettings
-	 *        settings
+	 * @param theseSettings settings
 	 */
 	public void apply(final Settings theseSettings)
 	{
@@ -443,80 +455,84 @@ public abstract class Commander
 	/**
 	 * Command dispatcher
 	 *
-	 * @param thisCommand
-	 *        command
-	 * @param theseParameters
-	 *        theseParameters
+	 * @param thisCommand     command
+	 * @param theseParameters theseParameters
 	 */
 	public void execute(final Command thisCommand, final Object... theseParameters)
 	{
 		switch (thisCommand)
 		{
-		case REFRESH:
-			doRefresh();
-			break;
-		case HOME:
-			doHome();
-			break;
-		case NORTH:
-			doNorth();
-			break;
-		case SOUTH:
-			doSouth();
-			break;
-		case EAST:
-			doEast();
-			break;
-		case WEST:
-			doWest();
-			break;
-		case RADIAL:
-			doRadial();
-			break;
-		case ZOOMIN:
-			doZoomIn();
-			break;
-		case ZOOMOUT:
-			doZoomOut();
-			break;
-		case ZOOMONE:
-			doZoomOne();
-			break;
-		case SCALEUP:
-			doScaleUp();
-			break;
-		case SCALEDOWN:
-			doScaleDown();
-			break;
-		case SCALEONE:
-			doScaleOne();
-			break;
-		case EXPAND:
-			doChangeExpansion(Commander.EXPANSIONFACTOR);
-			break;
-		case SHRINK:
-			doChangeExpansion(1F / Commander.EXPANSIONFACTOR);
-			break;
-		case WIDEN:
-			doChangeSweep(Commander.SWEEPFACTOR);
-			break;
-		case NARROW:
-			doChangeSweep(1F / Commander.SWEEPFACTOR);
-			break;
-		case ARCEDGE:
-			doArcEdges();
-			break;
-		case TOOLTIP:
-			doTooltip();
-			break;
-		case TOOLTIPCONTENT:
-			doTooltipContent();
-			break;
-		case FOCUSHOVER:
-			doFocusHover();
-			break;
-		default:
-			break;
+			case REFRESH:
+				doRefresh();
+				break;
+			case HOME:
+				doHome();
+				break;
+			case NORTH:
+				doNorth();
+				break;
+			case SOUTH:
+				doSouth();
+				break;
+			case EAST:
+				doEast();
+				break;
+			case WEST:
+				doWest();
+				break;
+			case RADIAL:
+				doRadial();
+				break;
+			case ZOOMIN:
+				doZoomIn();
+				break;
+			case ZOOMOUT:
+				doZoomOut();
+				break;
+			case ZOOMONE:
+				doZoomOne();
+				break;
+			case SCALEUP:
+				doScaleUp();
+				break;
+			case SCALEDOWN:
+				doScaleDown();
+				break;
+			case SCALEONE:
+				doScaleOne();
+				break;
+			case EXPAND:
+				doChangeExpansion(Commander.EXPANSIONFACTOR);
+				break;
+			case EXPANSIONRESET:
+				doChangeExpansion(0F);
+				break;
+			case SHRINK:
+				doChangeExpansion(1F / Commander.EXPANSIONFACTOR);
+				break;
+			case WIDEN:
+				doChangeSweep(Commander.SWEEPFACTOR);
+				break;
+			case NARROW:
+				doChangeSweep(1F / Commander.SWEEPFACTOR);
+				break;
+			case SWEEPRESET:
+				doChangeSweep(0F);
+				break;
+			case ARCEDGE:
+				doArcEdges();
+				break;
+			case TOOLTIP:
+				doTooltip();
+				break;
+			case TOOLTIPCONTENT:
+				doTooltipContent();
+				break;
+			case FOCUSHOVER:
+				doFocusHover();
+				break;
+			default:
+				break;
 		}
 	}
 }

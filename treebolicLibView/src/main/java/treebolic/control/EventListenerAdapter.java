@@ -80,12 +80,26 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Constructor
 	 *
-	 * @param thisController
-	 *            controller
+	 * @param thisController controller
 	 */
 	public EventListenerAdapter(final Controller thisController)
 	{
 		this.theController = thisController;
+	}
+
+	// R E S E T
+
+	/**
+	 * Reset
+	 */
+	public void reset()
+	{
+		this.theHotNode = null;
+		this.theHoverNode = null;
+		this.wasDragged = false;
+		this.wasMoved = false;
+		this.theDragStart.reset();
+		this.theDragEnd.reset();
 	}
 
 	// L I S T E N E R
@@ -235,16 +249,16 @@ public class EventListenerAdapter extends EventListener
 			// move it now
 			switch (this.theDragMode)
 			{
-			case TRANSLATE:
-				move();
-				break;
+				case TRANSLATE:
+					move();
+					break;
 
-			case ROTATE:
-				rotate();
-				break;
+				case ROTATE:
+					rotate();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 			this.wasMoved = false;
 			return true;
@@ -274,7 +288,9 @@ public class EventListenerAdapter extends EventListener
 		final boolean again = this.theHotNode == this.theHoverNode;
 		this.theHoverNode = this.theHotNode;
 		if (!again || this.theHoverNode == null || this.theHoverNode.getLocation().hyper.center.equals(Complex.ZERO))
+		{
 			return false;
+		}
 		this.theController.handle(Controller.Event.FOCUS, this.theHoverNode);
 		return true;
 	}

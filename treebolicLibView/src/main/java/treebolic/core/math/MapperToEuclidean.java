@@ -19,8 +19,7 @@ public class MapperToEuclidean
 	/**
 	 * Map hyperspace circle to unit circle euclidean space
 	 *
-	 * @param thisLocation
-	 *            location
+	 * @param thisLocation location
 	 */
 	static public void mapToEuclidean(final Location thisLocation)
 	{
@@ -30,10 +29,8 @@ public class MapperToEuclidean
 	/**
 	 * Map hyperspace circle to unit circle euclidean space
 	 *
-	 * @param thisHyperCircle
-	 *            hypercircle
-	 * @param thisEuclideanCircle
-	 *            euclidean circle
+	 * @param thisHyperCircle     hypercircle
+	 * @param thisEuclideanCircle euclidean circle
 	 */
 	static public void mapToEuclidean(final HyperCircle thisHyperCircle, final EuclideanCircle thisEuclideanCircle)
 	{

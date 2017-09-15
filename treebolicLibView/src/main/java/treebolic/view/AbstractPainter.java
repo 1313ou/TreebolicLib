@@ -32,14 +32,14 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Font down scaler
 	 */
-	static private final float FONTSCALE0[] = new float[] { 1.F, .9F, .8F, .7F, .6F };
+	static private final float FONTSCALE0[] = new float[]{1.F, .9F, .8F, .7F, .6F};
 
 	// font
 
 	/**
 	 * Image scaling
 	 */
-	static private final float IMAGESCALE0[] = new float[] { 1.F, .9F, .8F, .7F, .6F, .5F, .4F };
+	static private final float IMAGESCALE0[] = new float[]{1.F, .9F, .8F, .7F, .6F, .5F, .4F};
 
 	// colors
 	/**
@@ -72,7 +72,7 @@ public abstract class AbstractPainter extends Mapper
 	 */
 	static private final Color theEdgeColor0 = Color.DARK_GRAY;
 
-	static private final float[] SCALENONE = new float[] { 1.F };
+	static private final float[] SCALENONE = new float[]{1.F};
 
 	// D A T A
 
@@ -270,10 +270,8 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Paint
 	 *
-	 * @param thisRoot
-	 *            starting node
-	 * @param thisEdgeList
-	 *            edges
+	 * @param thisRoot     starting node
+	 * @param thisEdgeList edges
 	 */
 	public abstract void paint(INode thisRoot, List<IEdge> thisEdgeList);
 
@@ -282,12 +280,9 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set up graphics context for the painter to work on
 	 *
-	 * @param thisGraphics
-	 *            graphics context to work on
-	 * @param thisWidth
-	 *            width of the graphics context
-	 * @param thisHeight
-	 *            height of the graphics context
+	 * @param thisGraphics graphics context to work on
+	 * @param thisWidth    width of the graphics context
+	 * @param thisHeight   height of the graphics context
 	 */
 	public void setup(final Graphics thisGraphics, final int thisWidth, final int thisHeight)
 	{
@@ -312,10 +307,8 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set images scaling
 	 *
-	 * @param thisScaleImagesFlag
-	 *            whether to scale images
-	 * @param thisScaler
-	 *            array of float to act as down scaler (as we move away from center)
+	 * @param thisScaleImagesFlag whether to scale images
+	 * @param thisScaler          array of float to act as down scaler (as we move away from center)
 	 */
 	@SuppressWarnings("boxing")
 	public void setImageScaling(final Boolean thisScaleImagesFlag, final float[] thisScaler)
@@ -338,14 +331,10 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set font
 	 *
-	 * @param thisFontFace
-	 *            font
-	 * @param thisFontSize
-	 *            font size
-	 * @param thisDownscaleFontFlag
-	 *            downscale images flag
-	 * @param thisFontDownscaler
-	 *            arrays of factors to apply to font size (moving away from center)
+	 * @param thisFontFace          font
+	 * @param thisFontSize          font size
+	 * @param thisDownscaleFontFlag downscale images flag
+	 * @param thisFontDownscaler    arrays of factors to apply to font size (moving away from center)
 	 */
 	@SuppressWarnings("boxing")
 	public void setFont(final String thisFontFace, final Integer thisFontSize, final Boolean thisDownscaleFontFlag, final float[] thisFontDownscaler)
@@ -372,18 +361,12 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set colors
 	 *
-	 * @param thisBackColor
-	 *            background default color
-	 * @param thisForeColor
-	 *            foreground default color
-	 * @param thisNodeBackColor
-	 *            node background default color
-	 * @param thisNodeForeColor
-	 *            node foreground default color
-	 * @param thisTreeEdgeColor
-	 *            tree edge default color
-	 * @param thisEdgeColor
-	 *            edge default color
+	 * @param thisBackColor     background default color
+	 * @param thisForeColor     foreground default color
+	 * @param thisNodeBackColor node background default color
+	 * @param thisNodeForeColor node foreground default color
+	 * @param thisTreeEdgeColor tree edge default color
+	 * @param thisEdgeColor     edge default color
 	 */
 	public void setColors(final Color thisBackColor, final Color thisForeColor, final Color thisNodeBackColor, final Color thisNodeForeColor, final Color thisTreeEdgeColor, final Color thisEdgeColor)
 	{
@@ -431,10 +414,8 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set default edge styles
 	 *
-	 * @param thisTreeEdgeStyle
-	 *            default tree edge style
-	 * @param thisEdgeStyle
-	 *            default edge style
+	 * @param thisTreeEdgeStyle default tree edge style
+	 * @param thisEdgeStyle     default edge style
 	 */
 	@SuppressWarnings("boxing")
 	public void setEdgeStyles(final Integer thisTreeEdgeStyle, final Integer thisEdgeStyle)
@@ -452,14 +433,10 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set images
 	 *
-	 * @param thisBackgroundImage
-	 *            background image
-	 * @param thisDefaultNodeImage
-	 *            default node image
-	 * @param thisDefaultTreeEdgeImage
-	 *            default tree edge image
-	 * @param thisDefaultEdgeImage
-	 *            default edge image
+	 * @param thisBackgroundImage      background image
+	 * @param thisDefaultNodeImage     default node image
+	 * @param thisDefaultTreeEdgeImage default tree edge image
+	 * @param thisDefaultEdgeImage     default edge image
 	 */
 	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage, final Image thisDefaultEdgeImage)
 	{
@@ -474,8 +451,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set border mode
 	 *
-	 * @param thisFlag
-	 *            true if label have borders
+	 * @param thisFlag true if label have borders
 	 */
 	@SuppressWarnings("boxing")
 	public void setBorder(final Boolean thisFlag)
@@ -499,8 +475,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set ellipsize flag
 	 *
-	 * @param thisFlag
-	 *            true if label texts are ellipsized
+	 * @param thisFlag true if label texts are ellipsized
 	 */
 	@SuppressWarnings("boxing")
 	public void setEllipsize(final Boolean thisFlag)
@@ -514,8 +489,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set label max lines
 	 *
-	 * @param thisMaxLines
-	 *        label max lines
+	 * @param thisMaxLines label max lines
 	 */
 	@SuppressWarnings("boxing")
 	public void setLabelMaxLines(final Integer thisMaxLines)
@@ -529,8 +503,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set label extra line factor
 	 *
-	 * @param thisFactor
-	 *        label extra line (excluding first) factor
+	 * @param thisFactor label extra line (excluding first) factor
 	 */
 	@SuppressWarnings("boxing")
 	public void setLabelExtraLineFactor(final Float thisFactor)
@@ -554,8 +527,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set edge rendering mode
 	 *
-	 * @param thisFlag
-	 *            true if edges are rendered as arcs
+	 * @param thisFlag true if edges are rendered as arcs
 	 */
 	@SuppressWarnings("boxing")
 	public void setArcEdges(final Boolean thisFlag)
@@ -581,12 +553,9 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set zoom factor
 	 *
-	 * @param thisZoomFactor
-	 *            zoom factor
-	 * @param thisZoomPivotX
-	 *            zoom pivot X
-	 * @param thisZoomPivotY
-	 *            zoom pivot Y
+	 * @param thisZoomFactor zoom factor
+	 * @param thisZoomPivotX zoom pivot X
+	 * @param thisZoomPivotY zoom pivot Y
 	 */
 	public void setZoomFactor(final float thisZoomFactor, final float thisZoomPivotX, final float thisZoomPivotY)
 	{
@@ -613,12 +582,9 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set scale factors
 	 *
-	 * @param thisMapScaleFactor
-	 *            map scale factor (how unit circle is mapped to view)
-	 * @param thisFontScaleFactor
-	 *            font scale factor
-	 * @param thisImageScaleFactor
-	 *            image scale factor
+	 * @param thisMapScaleFactor   map scale factor (how unit circle is mapped to view)
+	 * @param thisFontScaleFactor  font scale factor
+	 * @param thisImageScaleFactor image scale factor
 	 */
 	public void setScaleFactors(final float thisMapScaleFactor, final float thisFontScaleFactor, final float thisImageScaleFactor)
 	{
@@ -665,8 +631,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set scale images flag
 	 *
-	 * @param thisFlag
-	 *            true true if images are scaled
+	 * @param thisFlag true true if images are scaled
 	 */
 	@SuppressWarnings("boxing")
 	public void setScaleImages(final Boolean thisFlag)

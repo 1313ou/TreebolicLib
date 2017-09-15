@@ -1,7 +1,5 @@
 package treebolic;
 
-import android.annotation.SuppressLint;
-
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -16,7 +14,6 @@ import treebolic.component.Statusbar;
 import treebolic.component.Toolbar;
 import treebolic.control.Controller;
 import treebolic.control.Finder;
-import treebolic.model.Mounter;
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.LayerOut;
 import treebolic.core.Weigher;
@@ -32,6 +29,7 @@ import treebolic.model.Location;
 import treebolic.model.Model;
 import treebolic.model.ModelReader;
 import treebolic.model.MountPoint;
+import treebolic.model.Mounter;
 import treebolic.model.Settings;
 import treebolic.model.Tree;
 import treebolic.model.Types.MatchMode;
@@ -46,7 +44,7 @@ import treebolic.view.View;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
+@SuppressWarnings("ViewConstructor")
 public class Widget extends Container implements IWidget, IProviderContext
 {
 	private static final long serialVersionUID = 3962167000082869632L;

@@ -108,14 +108,10 @@ public abstract class AbstractLayerOut
 	/**
 	 * Do layout
 	 *
-	 * @param thisNode
-	 *            start node
-	 * @param thisCenter
-	 *            starting point (hyperbolic circle center)
-	 * @param thisHalfWedge
-	 *            half wedge allocated to layout
-	 * @param thisOrientation
-	 *            orientation
+	 * @param thisNode        start node
+	 * @param thisCenter      starting point (hyperbolic circle center)
+	 * @param thisHalfWedge   half wedge allocated to layout
+	 * @param thisOrientation orientation
 	 */
 	abstract public void layout(INode thisNode, Complex thisCenter, double thisHalfWedge, double thisOrientation);
 
@@ -155,8 +151,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set expansion factor
 	 *
-	 * @param thisExpansion
-	 *            expansion factor
+	 * @param thisExpansion expansion factor
 	 */
 	public void setExpansion(final double thisExpansion)
 	{
@@ -177,8 +172,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Get root sweep angle allocated to layout
 	 *
-	 * @param thisSweep
-	 *            sweep angle allocated to layout
+	 * @param thisSweep sweep angle allocated to layout
 	 */
 	public void setRootSweep(final double thisSweep)
 	{
@@ -198,8 +192,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set sweep angle allocated to children
 	 *
-	 * @param thisSweep
-	 *            sweep angle allocated to children
+	 * @param thisSweep sweep angle allocated to children
 	 */
 	public void setChildSweep(final double thisSweep)
 	{
@@ -210,8 +203,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set root sweep to default
 	 *
-	 * @param radial
-	 *            true if layout is radial
+	 * @param radial true if layout is radial
 	 */
 	public void setDefaultRootSweep(final boolean radial)
 	{
@@ -221,12 +213,19 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set child sweep to default
 	 *
-	 * @param radial
-	 *            true if layout is radial
+	 * @param radial true if layout is radial
 	 */
 	public void setDefaultChildSweep(final boolean radial)
 	{
 		setChildSweep(radial ? AbstractLayerOut.theDefaultRadialChildSweep : AbstractLayerOut.theDefaultOrientedChildSweep);
+	}
+
+	/**
+	 * Set child sweep to default
+	 */
+	public void setDefaultChildSweep()
+	{
+		setDefaultChildSweep(getOrientation() == Complex.ZERO);
 	}
 
 	// H E L P E R S
@@ -245,7 +244,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set expansion to default
 	 */
-	private void setDefaultExpansion()
+	public void setDefaultExpansion()
 	{
 		setExpansion(AbstractLayerOut.theDefaultExpansion);
 	}
@@ -253,8 +252,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Apply settings
 	 *
-	 * @param theseSettings
-	 *            settings
+	 * @param theseSettings settings
 	 */
 	@SuppressWarnings("boxing")
 	public void apply(final Settings theseSettings)

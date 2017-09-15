@@ -1,6 +1,7 @@
 package treebolic.model;
 
 import java.io.Serializable;
+
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
 

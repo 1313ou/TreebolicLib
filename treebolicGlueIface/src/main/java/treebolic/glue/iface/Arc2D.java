@@ -10,24 +10,18 @@ public interface Arc2D<P>
 	/**
 	 * Set frame from center and one corner
 	 *
-	 * @param x
-	 *            x-center
-	 * @param y
-	 *            y-center
-	 * @param x1
-	 *            x-corner
-	 * @param y1
-	 *            y-corner
+	 * @param x  x-center
+	 * @param y  y-center
+	 * @param x1 x-corner
+	 * @param y1 y-corner
 	 */
 	void setFrameFromCenter(final double x, final double y, final double x1, final double y1);
 
 	/**
 	 * Adjust angles from ends (while preserving enclosing rectangle)
 	 *
-	 * @param from
-	 *            from end
-	 * @param to
-	 *            to end
+	 * @param from from end
+	 * @param to   to end
 	 */
 	void setAngles(final P from, final P to);
 
@@ -83,8 +77,7 @@ public interface Arc2D<P>
 	/**
 	 * Set angle extent
 	 *
-	 * @param extent
-	 *            angle extent
+	 * @param extent angle extent
 	 */
 	void setAngleExtent(final double extent);
 
@@ -98,8 +91,7 @@ public interface Arc2D<P>
 	/**
 	 * Set angle start
 	 *
-	 * @param start
-	 *            angle start
+	 * @param start angle start
 	 */
 	void setAngleStart(final double start);
 
@@ -113,16 +105,14 @@ public interface Arc2D<P>
 	/**
 	 * Set direction
 	 *
-	 * @param flag
-	 *            counterclockwise flag
+	 * @param flag counterclockwise flag
 	 */
 	void setCounterclockwise(boolean flag);
 
 	/**
 	 * Whether arc contains angle
 	 *
-	 * @param angle
-	 *            angle
+	 * @param angle angle
 	 * @return true if arc contains angle
 	 */
 	boolean containsAngle(final double angle);

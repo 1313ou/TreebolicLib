@@ -67,8 +67,7 @@ public class Transformer
 	/**
 	 * Get whether transform preserves orientation
 	 *
-	 * @param thisFlag
-	 *            if transform is to preserve orientation
+	 * @param thisFlag if transform is to preserve orientation
 	 */
 	public void setPreserveOrientation(final boolean thisFlag)
 	{
@@ -80,8 +79,7 @@ public class Transformer
 	/**
 	 * Set current transform
 	 *
-	 * @param thisTransform
-	 *            new transform
+	 * @param thisTransform new transform
 	 */
 	public void setTransform(final HyperTransform thisTransform)
 	{
@@ -91,8 +89,7 @@ public class Transformer
 	/**
 	 * Set current transform as composition of current transform and this transform
 	 *
-	 * @param thisTransform
-	 *            transform
+	 * @param thisTransform transform
 	 */
 	public void composeTransform(final HyperTransform thisTransform)
 	{
@@ -104,8 +101,7 @@ public class Transformer
 	/**
 	 * Transform
 	 *
-	 * @param thisNode
-	 *            node to apply transform to
+	 * @param thisNode node to apply transform to
 	 */
 	public synchronized void transform(final INode thisNode)
 	{
@@ -116,8 +112,7 @@ public class Transformer
 	/**
 	 * Reset
 	 *
-	 * @param thisNode
-	 *            node to apply reset to
+	 * @param thisNode node to apply reset to
 	 */
 	public synchronized void reset(final INode thisNode)
 	{
@@ -130,22 +125,23 @@ public class Transformer
 	/**
 	 * Make transform
 	 *
-	 * @param from
-	 *            translation from-point
-	 * @param to
-	 *            translation to-point
-	 * @param thisOrientation
-	 *            orientation
+	 * @param from            translation from-point
+	 * @param to              translation to-point
+	 * @param thisOrientation orientation
 	 * @return transform
 	 */
 	public HyperTransform makeTransform(final Complex from, final Complex to, final Complex thisOrientation)
 	{
 		if (!this.thePreserveOrientationFlag)
+		{
 			return new HyperTransform(new HyperTranslation(from, to, true));
+		}
 
 		// orientation preserving
 		if (thisOrientation == Complex.ZERO)
+		{
 			return new HyperRadialOrientationPreservingTransform(from, to, getTransform().map(new Complex(Complex.ZERO)));
+		}
 		return new HyperOrientationPreservingTransform(from, to, thisOrientation);
 	}
 
@@ -154,15 +150,15 @@ public class Transformer
 	/**
 	 * Apply transform
 	 *
-	 * @param thisNode
-	 *            node to apply transform to
-	 * @param thisTransform
-	 *            transform to apply
+	 * @param thisNode      node to apply transform to
+	 * @param thisTransform transform to apply
 	 */
 	private void applyTransform(final INode thisNode, final IHyperTransform thisTransform)
 	{
 		if (thisNode == null)
+		{
 			return;
+		}
 
 		// this node
 		Transformer.transform(thisTransform, thisNode.getLocation().hyper);
@@ -181,13 +177,14 @@ public class Transformer
 	/**
 	 * Apply reset
 	 *
-	 * @param thisNode
-	 *            node to apply reset to
+	 * @param thisNode node to apply reset to
 	 */
 	private void applyReset(final INode thisNode)
 	{
 		if (thisNode == null)
+		{
 			return;
+		}
 
 		thisNode.getLocation().hyper.reset();
 
@@ -202,10 +199,8 @@ public class Transformer
 	/**
 	 * Apply transform to this hypercircle
 	 *
-	 * @param t
-	 *            transform
-	 * @param thisHyperCircle
-	 *            hypercircle
+	 * @param t               transform
+	 * @param thisHyperCircle hypercircle
 	 */
 	static private void transform(final IHyperTransform t, final HyperCircle thisHyperCircle)
 	{

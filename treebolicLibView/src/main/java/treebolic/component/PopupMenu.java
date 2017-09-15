@@ -22,7 +22,7 @@ import treebolic.view.View;
 public class PopupMenu extends treebolic.glue.component.PopupMenu
 {
 	private static final long serialVersionUID = 6316113839021843464L;
-	
+
 	/**
 	 * Indexes to labels
 	 */
@@ -50,20 +50,14 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	/**
 	 * Make popup menu
 	 *
-	 * @param thisView
-	 *            view
-	 * @param thisController
-	 *            controller
-	 * @param thisValue
-	 *            input value
-	 * @param thisNode
-	 *            target node
-	 * @param theseSettings
-	 *            settings
+	 * @param thisView       view
+	 * @param thisController controller
+	 * @param thisValue      input value
+	 * @param thisNode       target node
+	 * @param theseSettings  settings
 	 * @return popup menu
 	 */
-	static public PopupMenu makePopup(final View thisView, final Controller thisController, final String thisValue, final INode thisNode,
-			final Settings theseSettings)
+	static public PopupMenu makePopup(final View thisView, final Controller thisController, final String thisValue, final INode thisNode, final Settings theseSettings)
 	{
 		final PopupMenu thisPopupMenu = new PopupMenu(thisView);
 
@@ -125,29 +119,28 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 			for (final MenuItem thatMenuItem : theseSettings.theMenu)
 			{
 				String thisMenuLabel = null;
-				boolean prepend = thatMenuItem.theLabel != null
-						&& (thatMenuItem.theLabel.length() == 0 || Character.isLowerCase(thatMenuItem.theLabel.charAt(0)));
+				boolean prepend = thatMenuItem.theLabel != null && (thatMenuItem.theLabel.length() == 0 || Character.isLowerCase(thatMenuItem.theLabel.charAt(0)));
 				switch (thatMenuItem.theAction)
 				{
-				case GOTO:
-					// check
-					if (thisController.getGotoTarget(thatMenuItem.theLink, thisNode) == null)
-					{
-						// illegal combination
-						continue;
-					}
-					thisMenuLabel = prepend ? labels[LABEL_GOTO] + ' ' + thatMenuItem.theLabel : thatMenuItem.theLabel;
-					break;
-				case SEARCH:
-					if (thisController.getSearchTarget(thatMenuItem.theTarget, thisNode) == null)
-					{
-						// illegal combination
-						continue;
-					}
-					thisMenuLabel = prepend ? labels[LABEL_SEARCH] + ' ' + thatMenuItem.theLabel : thatMenuItem.theLabel;
-					break;
-				default:
-					break;
+					case GOTO:
+						// check
+						if (thisController.getGotoTarget(thatMenuItem.theLink, thisNode) == null)
+						{
+							// illegal combination
+							continue;
+						}
+						thisMenuLabel = prepend ? labels[LABEL_GOTO] + ' ' + thatMenuItem.theLabel : thatMenuItem.theLabel;
+						break;
+					case SEARCH:
+						if (thisController.getSearchTarget(thatMenuItem.theTarget, thisNode) == null)
+						{
+							// illegal combination
+							continue;
+						}
+						thisMenuLabel = prepend ? labels[LABEL_SEARCH] + ' ' + thatMenuItem.theLabel : thatMenuItem.theLabel;
+						break;
+					default:
+						break;
 				}
 
 				try
@@ -160,8 +153,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						@Override
 						public boolean onAction(final Object... theseParams)
 						{
-							thisController.dispatch(thatMenuItem.theAction, thatMenuItem.theLink, thatMenuItem.theTarget, thatMenuItem.theMatchTarget,
-									thatMenuItem.theMatchScope, thatMenuItem.theMatchMode, thisNode);
+							thisController.dispatch(thatMenuItem.theAction, thatMenuItem.theLink, thatMenuItem.theTarget, thatMenuItem.theMatchTarget, thatMenuItem.theMatchScope, thatMenuItem.theMatchMode, thisNode);
 							return true;
 						}
 					});
@@ -195,7 +187,8 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 			// well-formed URL
 			try
 			{
-				/* URL thisUrl = */ new URL(thisLink);
+				/* URL thisUrl = */
+				new URL(thisLink);
 				return true;
 			}
 			catch (final MalformedURLException e)
@@ -207,12 +200,16 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 					// relative form not including scheme
 					if (thisLink.equals(thisUri.getPath()))
+					{
 						return true;
+					}
 
 					// fragment
 					final String thisFragment = '#' + thisUri.getFragment();
 					if (thisLink.equals(thisFragment))
+					{
 						return true;
+					}
 
 					// desperate attempt
 					return thisUri.getScheme().matches("[a-z]*");
@@ -231,18 +228,17 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	/**
 	 * Expand string
 	 *
-	 * @param thisString
-	 *            string to expand
-	 * @param thisValue
-	 *            interactively supplied value
-	 * @param thisNode
-	 *            node node
+	 * @param thisString string to expand
+	 * @param thisValue  interactively supplied value
+	 * @param thisNode   node node
 	 * @return expanded string
 	 */
 	static public String expandMacro(final String thisString, final String thisValue, final INode thisNode)
 	{
 		if (thisString == null)
+		{
 			return null;
+		}
 
 		final StringBuilder thisBuilder = new StringBuilder();
 		final int n = thisString.length();
@@ -262,72 +258,72 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 					switch (c2)
 					{
 
-					// label
-					case 'l':
-						final String thisLabel = thisNode.getLabel();
-						if (thisLabel != null)
-						{
-							thisBuilder.append(thisLabel.toCharArray());
-						}
-						break;
-
-					// content
-					case 'c':
-						final String thisContent = thisNode.getContent();
-						if (thisContent != null)
-						{
-							thisBuilder.append(thisContent.toCharArray());
-						}
-						break;
-
-					// link url
-					case 'u':
-						final String thisLink = thisNode.getLink();
-						if (thisLink != null)
-						{
-							thisBuilder.append(thisLink.toCharArray());
-						}
-						break;
-
-					// id
-					case 'i':
-						final String thisId = thisNode.getId();
-						if (thisId != null)
-						{
-							thisBuilder.append(thisId.toCharArray());
-						}
-						break;
-
-					// parent
-					case 'p':
-						final INode thisParent = thisNode.getParent();
-						if (thisParent != null)
-						{
-							final String thisParentId = thisParent.getId();
-							if (thisParentId != null)
+						// label
+						case 'l':
+							final String thisLabel = thisNode.getLabel();
+							if (thisLabel != null)
 							{
-								thisBuilder.append(thisParentId.toCharArray());
+								thisBuilder.append(thisLabel.toCharArray());
 							}
-						}
-						break;
+							break;
 
-					// element value
-					case 'e':
-						if (thisValue != null)
-						{
-							thisBuilder.append(thisValue.toCharArray());
-						}
-						break;
+						// content
+						case 'c':
+							final String thisContent = thisNode.getContent();
+							if (thisContent != null)
+							{
+								thisBuilder.append(thisContent.toCharArray());
+							}
+							break;
 
-					// escaped $
-					case '$':
-						thisBuilder.append(c2);
-						break;
+						// link url
+						case 'u':
+							final String thisLink = thisNode.getLink();
+							if (thisLink != null)
+							{
+								thisBuilder.append(thisLink.toCharArray());
+							}
+							break;
 
-					// unrecognized
-					default:
-						thisBuilder.append(c);
-						thisBuilder.append(c2);
+						// id
+						case 'i':
+							final String thisId = thisNode.getId();
+							if (thisId != null)
+							{
+								thisBuilder.append(thisId.toCharArray());
+							}
+							break;
+
+						// parent
+						case 'p':
+							final INode thisParent = thisNode.getParent();
+							if (thisParent != null)
+							{
+								final String thisParentId = thisParent.getId();
+								if (thisParentId != null)
+								{
+									thisBuilder.append(thisParentId.toCharArray());
+								}
+							}
+							break;
+
+						// element value
+						case 'e':
+							if (thisValue != null)
+							{
+								thisBuilder.append(thisValue.toCharArray());
+							}
+							break;
+
+						// escaped $
+						case '$':
+							thisBuilder.append(c2);
+							break;
+
+						// unrecognized
+						default:
+							thisBuilder.append(c);
+							thisBuilder.append(c2);
 					}
 				}
 				else
@@ -339,7 +335,9 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		}
 		final String thisResult = thisBuilder.toString();
 		if (thisResult.isEmpty())
+		{
 			return null;
+		}
 		return thisResult;
 	}
 }

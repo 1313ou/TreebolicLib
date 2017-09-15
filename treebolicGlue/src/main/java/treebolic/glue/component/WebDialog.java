@@ -92,6 +92,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	@Override
 	public void setHandle(final Object handle)
 	{
+		//noinspection ConstantConditions
 		this.activity = (AppCompatActivity) handle;
 	}
 
@@ -152,7 +153,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 			html.append(this.style);
 		}
 		html.append("</style>");
-		html.append("</head><body class='body'>");
+		html.append("</head><body><div class='body'>");
 		// if (this.header != null && !this.header.isEmpty())
 		// {
 		// html.append("<div class='label'>");
@@ -160,7 +161,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		// html.append("</div>");
 		// }
 		html.append(this.content);
-		html.append("</body></html>");
+		html.append("</div></body></html>");
+		Log.d(TAG, html.toString());
 
 		// client
 		final WebViewClient webViewClient = new WebViewClient()

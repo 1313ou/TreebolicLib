@@ -396,10 +396,8 @@ public class Node extends XNodeData implements INode
 	/**
 	 * Construct node
 	 *
-	 * @param thisParent
-	 *            parent node
-	 * @param thisId
-	 *            node id
+	 * @param thisParent parent node
+	 * @param thisId     node id
 	 */
 	public Node(final INode thisParent, final String thisId)
 	{

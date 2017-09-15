@@ -22,6 +22,7 @@ public interface Statusbar<C, L>
 	 * @param backColor back color
 	 * @param foreColor fore color
 	 */
+	@SuppressWarnings("EmptyMethod")
 	void setColors(C backColor, C foreColor);
 
 	/**
@@ -52,5 +53,6 @@ public interface Statusbar<C, L>
 	 *
 	 * @param listener listener
 	 */
+	@SuppressWarnings("EmptyMethod")
 	void addListener(final L listener);
 }

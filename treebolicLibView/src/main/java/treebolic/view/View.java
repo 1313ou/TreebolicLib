@@ -1,7 +1,5 @@
 package treebolic.view;
 
-import android.annotation.SuppressLint;
-
 import treebolic.control.Controller;
 import treebolic.control.EventListenerAdapter;
 import treebolic.control.Finder;
@@ -25,7 +23,7 @@ import treebolic.model.Settings;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
+@SuppressWarnings("ViewConstructor")
 public class View extends Surface
 {
 	private static final long serialVersionUID = 715569943397018102L;
@@ -102,8 +100,7 @@ public class View extends Surface
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle
-	 *            Handle required for component creation (unused)
+	 * @param thisHandle Handle required for component creation (unused)
 	 */
 	public View(final Object thisHandle)
 	{
@@ -137,8 +134,7 @@ public class View extends Surface
 	/**
 	 * Connect controller
 	 *
-	 * @param thisController
-	 *            controller
+	 * @param thisController controller
 	 */
 	public void connect(final Controller thisController)
 	{
@@ -150,8 +146,7 @@ public class View extends Surface
 	/**
 	 * Set model
 	 *
-	 * @param thisModel
-	 *            data model
+	 * @param thisModel data model
 	 */
 	public void connect(final Model thisModel)
 	{
@@ -161,12 +156,27 @@ public class View extends Surface
 	/**
 	 * Connect layout agent
 	 *
-	 * @param thisLayerOut
-	 *            layout agent
+	 * @param thisLayerOut layout agent
 	 */
 	public void connect(final AbstractLayerOut thisLayerOut)
 	{
 		this.theLayerOut = thisLayerOut;
+	}
+
+	// R E S E T
+
+	/**
+	 * Reset
+	 */
+	synchronized public void reset()
+	{
+		applyNullTransform();
+		setShift(0F, 0F, false, false);
+		if (this.theListener != null)
+		{
+			this.theListener.reset();
+		}
+		repaint();
 	}
 
 	// P A I N T I N G
@@ -229,8 +239,7 @@ public class View extends Surface
 	/**
 	 * Set default cursor
 	 *
-	 * @param linkCursor
-	 *            whether to use 'link' cursor
+	 * @param linkCursor whether to use 'link' cursor
 	 */
 	public void setHoverCursor(final boolean linkCursor)
 	{
@@ -271,8 +280,7 @@ public class View extends Surface
 	/**
 	 * Mount notification hook
 	 *
-	 * @param thisMountedRoot
-	 *            mounted node
+	 * @param thisMountedRoot mounted node
 	 */
 	public void mount(final INode thisMountedRoot)
 	{
@@ -294,8 +302,7 @@ public class View extends Surface
 	/**
 	 * Control whether hovering on node triggers gaining focus
 	 *
-	 * @param thisFlag
-	 *            whether hovering on node triggers gaining focus (null toggles value)
+	 * @param thisFlag whether hovering on node triggers gaining focus (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
 	public void setFocusOnHover(final Boolean thisFlag)
@@ -311,8 +318,7 @@ public class View extends Surface
 	/**
 	 * Preserve orientation
 	 *
-	 * @param thisFlag
-	 *            whether transformations preserve orientation (null toggles value)
+	 * @param thisFlag whether transformations preserve orientation (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
 	public void setPreserveOrientation(final Boolean thisFlag)
@@ -325,16 +331,12 @@ public class View extends Surface
 	/**
 	 * Set shift
 	 *
-	 * @param cx0
-	 *            x shift
-	 * @param cy0
-	 *            y shift
-	 * @param xinc
-	 *            whether to add to current x shift
-	 * @param yinc
-	 *            whether to add to current y shift
+	 * @param cx0  x shift
+	 * @param cy0  y shift
+	 * @param xinc whether to add to current x shift
+	 * @param yinc whether to add to current y shift
 	 */
-	public void setShift(final float cx0, final float cy0, final boolean xinc, final boolean yinc)
+	synchronized public void setShift(final float cx0, final float cy0, final boolean xinc, final boolean yinc)
 	{
 		float cx = cx0;
 		float cy = cy0;
@@ -355,12 +357,9 @@ public class View extends Surface
 	/**
 	 * Set zoom factor
 	 *
-	 * @param thisZoomFactor
-	 *            zoom factor
-	 * @param thisZoomPivotX
-	 *            zoom pivot X
-	 * @param thisZoomPivotY
-	 *            zoom pivot Y
+	 * @param thisZoomFactor zoom factor
+	 * @param thisZoomPivotX zoom pivot X
+	 * @param thisZoomPivotY zoom pivot Y
 	 */
 	public void setZoomFactor(final float thisZoomFactor, final float thisZoomPivotX, final float thisZoomPivotY)
 	{
@@ -371,12 +370,9 @@ public class View extends Surface
 	/**
 	 * Set scale factors
 	 *
-	 * @param thisMapScaleFactor
-	 *            map scale factor (how unit circle is mapped to view)
-	 * @param thisFontScaleFactor
-	 *            font scale factor
-	 * @param thisImageScaleFactor
-	 *            image scale factor
+	 * @param thisMapScaleFactor   map scale factor (how unit circle is mapped to view)
+	 * @param thisFontScaleFactor  font scale factor
+	 * @param thisImageScaleFactor image scale factor
 	 */
 	public void setScaleFactors(final float thisMapScaleFactor, final float thisFontScaleFactor, final float thisImageScaleFactor)
 	{
@@ -389,8 +385,7 @@ public class View extends Surface
 	/**
 	 * Set linear/arc rendering of edges
 	 *
-	 * @param thisFlag
-	 *            whether edges are rendered as arcs (null toggles value)
+	 * @param thisFlag whether edges are rendered as arcs (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
 	public void setArcEdges(final Boolean thisFlag)
@@ -401,8 +396,7 @@ public class View extends Surface
 	/**
 	 * Set linear/arc rendering of edges
 	 *
-	 * @param thisFlag
-	 *            whether label texts are ellipsized (null toggles value)
+	 * @param thisFlag whether label texts are ellipsized (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
 	public void setEllipsize(final Boolean thisFlag)
@@ -415,8 +409,7 @@ public class View extends Surface
 	/**
 	 * Control whether view has popup menu
 	 *
-	 * @param thisFlag
-	 *            whether view has popup menu (null toggles value)
+	 * @param thisFlag whether view has popup menu (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
 	public void setPopUpMenu(final Boolean thisFlag)
@@ -429,8 +422,7 @@ public class View extends Surface
 	/**
 	 * Set view behaviour
 	 *
-	 * @param theseSettings
-	 *            settings
+	 * @param theseSettings settings
 	 */
 	@SuppressWarnings("boxing")
 	public void apply(final Settings theseSettings)
@@ -450,13 +442,11 @@ public class View extends Surface
 		}
 		if (theseSettings.theXShift != null || theseSettings.theYShift != null)
 		{
-			setShift(theseSettings.theXShift == null ? 0F : theseSettings.theXShift, theseSettings.theYShift == null ? 0F : theseSettings.theYShift, false,
-					false);
+			setShift(theseSettings.theXShift == null ? 0F : theseSettings.theXShift, theseSettings.theYShift == null ? 0F : theseSettings.theYShift, false, false);
 		}
 
 		// painter
-		this.thePainter.setColors(theseSettings.theBackColor, theseSettings.theForeColor, theseSettings.theNodeBackColor, theseSettings.theNodeForeColor,
-				theseSettings.theTreeEdgeColor, theseSettings.theEdgeColor);
+		this.thePainter.setColors(theseSettings.theBackColor, theseSettings.theForeColor, theseSettings.theNodeBackColor, theseSettings.theNodeForeColor, theseSettings.theTreeEdgeColor, theseSettings.theEdgeColor);
 		this.thePainter.setImageScaling(theseSettings.theDownscaleImagesFlag, theseSettings.theImageDownscaler);
 		this.thePainter.setFont(theseSettings.theFontFace, theseSettings.theFontSize, theseSettings.theDownscaleFontsFlag, theseSettings.theFontDownscaler);
 		this.thePainter.setBorder(theseSettings.theBorderFlag);
@@ -470,17 +460,12 @@ public class View extends Surface
 	/**
 	 * Set images
 	 *
-	 * @param thisBackgroundImage
-	 *            background image
-	 * @param thisDefaultNodeImage
-	 *            default node image
-	 * @param thisDefaultTreeEdgeImage
-	 *            default tree edge image
-	 * @param thisDefaultEdgeImage
-	 *            default edge image
+	 * @param thisBackgroundImage      background image
+	 * @param thisDefaultNodeImage     default node image
+	 * @param thisDefaultTreeEdgeImage default tree edge image
+	 * @param thisDefaultEdgeImage     default edge image
 	 */
-	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage,
-			final Image thisDefaultEdgeImage)
+	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage, final Image thisDefaultEdgeImage)
 	{
 		this.thePainter.setImages(thisBackgroundImage, thisDefaultNodeImage, thisDefaultTreeEdgeImage, thisDefaultEdgeImage);
 	}
@@ -500,8 +485,7 @@ public class View extends Surface
 	/**
 	 * Compose this transform with current and apply
 	 *
-	 * @param thisTransform
-	 *            transform to compose with current transform
+	 * @param thisTransform transform to compose with current transform
 	 */
 	public void applyComposedTransform(final HyperTransform thisTransform)
 	{
@@ -512,8 +496,7 @@ public class View extends Surface
 	/**
 	 * Apply transform
 	 *
-	 * @param thisTransform
-	 *            transform
+	 * @param thisTransform transform
 	 */
 	public void applyTransform(final HyperTransform thisTransform)
 	{
@@ -544,10 +527,8 @@ public class View extends Surface
 	/**
 	 * Compose delta translation
 	 *
-	 * @param thisStart
-	 *            unit circle delta vector start
-	 * @param thisEnd
-	 *            unit circle delta vector start
+	 * @param thisStart unit circle delta vector start
+	 * @param thisEnd   unit circle delta vector start
 	 */
 	public void composeTranslate(final Complex thisStart, final Complex thisEnd)
 	{
@@ -558,10 +539,8 @@ public class View extends Surface
 	/**
 	 * Compose delta rotation
 	 *
-	 * @param thisStart
-	 *            unit circle delta vector start
-	 * @param thisEnd
-	 *            unit circle delta vector end
+	 * @param thisStart unit circle delta vector start
+	 * @param thisEnd   unit circle delta vector end
 	 */
 	public void composeRotate(final Complex thisStart, final Complex thisEnd)
 	{
@@ -576,10 +555,8 @@ public class View extends Surface
 	/**
 	 * Translate tree according to vector
 	 *
-	 * @param thisStart
-	 *            unit circle vector start
-	 * @param thisEnd
-	 *            unit circle vector end
+	 * @param thisStart unit circle vector start
+	 * @param thisEnd   unit circle vector end
 	 */
 	private void translate(final Complex thisStart, final Complex thisEnd)
 	{
@@ -590,10 +567,8 @@ public class View extends Surface
 	/**
 	 * Translate node to point (unused, may be called by javascript)
 	 *
-	 * @param thisNode
-	 *            node
-	 * @param thisDestination
-	 *            unit circle destination location
+	 * @param thisNode        node
+	 * @param thisDestination unit circle destination location
 	 */
 	public void moveTo(final INode thisNode, final Complex thisDestination)
 	{
@@ -606,8 +581,7 @@ public class View extends Surface
 	/**
 	 * Translate node to unit circle center (unused, may be called by javascript)
 	 *
-	 * @param thisNode
-	 *            node
+	 * @param thisNode node
 	 */
 	public void moveToCenter(final INode thisNode)
 	{
@@ -622,10 +596,8 @@ public class View extends Surface
 	/**
 	 * Animate to unit circle center
 	 *
-	 * @param thisNode
-	 *            node
-	 * @param now
-	 *            whether to start now
+	 * @param thisNode node
+	 * @param now      whether to start now
 	 */
 	public void animateToCenter(final INode thisNode, final boolean now)
 	{
@@ -638,12 +610,9 @@ public class View extends Surface
 	/**
 	 * Animate node to destination location
 	 *
-	 * @param thisNode
-	 *            node
-	 * @param thisDestination
-	 *            unit circle destination location
-	 * @param now
-	 *            whether to start now
+	 * @param thisNode        node
+	 * @param thisDestination unit circle destination location
+	 * @param now             whether to start now
 	 */
 	public void animateTo(final INode thisNode, final Complex thisDestination, final boolean now)
 	{
@@ -656,18 +625,17 @@ public class View extends Surface
 	/**
 	 * Animate tree. Translate as per vector(start,end)
 	 *
-	 * @param thisFrom
-	 *            unit circle vector start
-	 * @param thisTo
-	 *            unit circle vector end
-	 * @param now
-	 *            whether to start now
+	 * @param thisFrom unit circle vector start
+	 * @param thisTo   unit circle vector end
+	 * @param now      whether to start now
 	 */
 	private synchronized void animate(final Complex thisFrom, final Complex thisTo, final boolean now)
 	{
 		final AnimationTransforms theseTransforms = AnimationTransforms.make(thisFrom, thisTo, this.theTransformer, this.theLayerOut.getOrientation(), 0);
 		if (theseTransforms.theTransforms == null)
+		{
 			return;
+		}
 		final Animation thisAnimation = new Animation(theseTransforms, this);
 		this.theAnimator.run(thisAnimation, thisAnimation.getSteps(), now ? 0 : Animation.ANIMATION_START_DELAY);
 	}
@@ -687,10 +655,8 @@ public class View extends Surface
 	/**
 	 * Find node given view location
 	 *
-	 * @param vx
-	 *            view x location
-	 * @param vy
-	 *            view y location
+	 * @param vx view x location
+	 * @param vy view y location
 	 * @return node
 	 */
 	public INode findNode(final int vx, final int vy)
@@ -714,10 +680,8 @@ public class View extends Surface
 	/**
 	 * Convert from view coordinates to unit circle euclidean coordinates
 	 *
-	 * @param vx
-	 *            view x-coordinate
-	 * @param vy
-	 *            view x-coordinate
+	 * @param vx view x-coordinate
+	 * @param vy view x-coordinate
 	 * @return unit circle euclidean coordinate
 	 */
 	public Complex viewToUnitCircle(final int vx, final int vy)

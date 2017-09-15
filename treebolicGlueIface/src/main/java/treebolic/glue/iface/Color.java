@@ -10,20 +10,16 @@ public interface Color<C>
 	/**
 	 * Set value
 	 *
-	 * @param r
-	 *            red
-	 * @param g
-	 *            green
-	 * @param b
-	 *            blue
+	 * @param r red
+	 * @param g green
+	 * @param b blue
 	 */
 	void set(int r, int g, int b);
 
 	/**
 	 * Set value
 	 *
-	 * @param rgb
-	 *            value
+	 * @param rgb value
 	 */
 	void set(int rgb);
 
@@ -44,8 +40,7 @@ public interface Color<C>
 	/**
 	 * Parse color from string
 	 *
-	 * @param string
-	 *            string to parse
+	 * @param string string to parse
 	 */
 	void parse(final String string);
 

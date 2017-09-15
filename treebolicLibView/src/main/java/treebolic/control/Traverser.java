@@ -6,7 +6,7 @@ import treebolic.model.INode;
 
 /**
  * Node finder
- * 
+ *
  * @author Bernard Bou
  */
 public class Traverser extends Generator<INode>
@@ -37,13 +37,10 @@ public class Traverser extends Generator<INode>
 
 		/**
 		 * Constructor
-		 * 
-		 * @param thisTarget
-		 *        target
-		 * @param thisScope
-		 *        scope
-		 * @param thisMode
-		 *        mode
+		 *
+		 * @param thisTarget target
+		 * @param thisScope  scope
+		 * @param thisMode   mode
 		 */
 		public SelectiveMatcher(final String thisTarget, final MatchScope thisScope, final MatchMode thisMode)
 		{
@@ -57,13 +54,10 @@ public class Traverser extends Generator<INode>
 	{
 		/**
 		 * Constructor
-		 * 
-		 * @param thisTarget
-		 *        target
-		 * @param thisScope
-		 *        scope
-		 * @param thisMode
-		 *        mode
+		 *
+		 * @param thisTarget target
+		 * @param thisScope  scope
+		 * @param thisMode   mode
 		 */
 		public CaseMatcher(String thisTarget, MatchScope thisScope, MatchMode thisMode)
 		{
@@ -74,27 +68,29 @@ public class Traverser extends Generator<INode>
 		public boolean match(final INode thisNode)
 		{
 			if (this.theTarget == null || this.theTarget.isEmpty())
+			{
 				return false;
+			}
 
 			String thisNodeScope;
 			switch (this.theScope)
 			{
-			case CONTENT:
-				thisNodeScope = thisNode.getContent();
-				break;
+				case CONTENT:
+					thisNodeScope = thisNode.getContent();
+					break;
 
-			case LINK:
-				thisNodeScope = thisNode.getLink();
-				break;
+				case LINK:
+					thisNodeScope = thisNode.getLink();
+					break;
 
-			case ID:
-				thisNodeScope = thisNode.getId();
-				break;
+				case ID:
+					thisNodeScope = thisNode.getId();
+					break;
 
-			case LABEL:
-			default:
-				thisNodeScope = thisNode.getLabel();
-				break;
+				case LABEL:
+				default:
+					thisNodeScope = thisNode.getLabel();
+					break;
 			}
 
 			// try to match this node
@@ -102,21 +98,27 @@ public class Traverser extends Generator<INode>
 			{
 				switch (this.theMode)
 				{
-				case EQUALS:
-					if (thisNodeScope.equals(this.theTarget))
-						return true;
-					break;
+					case EQUALS:
+						if (thisNodeScope.equals(this.theTarget))
+						{
+							return true;
+						}
+						break;
 
-				case INCLUDES:
-					if (thisNodeScope.contains(this.theTarget))
-						return true;
-					break;
+					case INCLUDES:
+						if (thisNodeScope.contains(this.theTarget))
+						{
+							return true;
+						}
+						break;
 
-				case STARTSWITH:
-				default:
-					if (thisNodeScope.startsWith(this.theTarget))
-						return true;
-					break;
+					case STARTSWITH:
+					default:
+						if (thisNodeScope.startsWith(this.theTarget))
+						{
+							return true;
+						}
+						break;
 				}
 			}
 			return false;
@@ -127,13 +129,10 @@ public class Traverser extends Generator<INode>
 	{
 		/**
 		 * Constructor
-		 * 
-		 * @param thisTarget
-		 *        target
-		 * @param thisScope
-		 *        scope
-		 * @param thisMode
-		 *        mode
+		 *
+		 * @param thisTarget target
+		 * @param thisScope  scope
+		 * @param thisMode   mode
 		 */
 		public NoCaseMatcher(String thisTarget, MatchScope thisScope, MatchMode thisMode)
 		{
@@ -144,27 +143,29 @@ public class Traverser extends Generator<INode>
 		public boolean match(final INode thisNode)
 		{
 			if (this.theTarget == null || this.theTarget.isEmpty())
+			{
 				return false;
+			}
 
 			String thisNodeScope;
 			switch (this.theScope)
 			{
-			case CONTENT:
-				thisNodeScope = thisNode.getContent();
-				break;
+				case CONTENT:
+					thisNodeScope = thisNode.getContent();
+					break;
 
-			case LINK:
-				thisNodeScope = thisNode.getLink();
-				break;
+				case LINK:
+					thisNodeScope = thisNode.getLink();
+					break;
 
-			case ID:
-				thisNodeScope = thisNode.getId();
-				break;
+				case ID:
+					thisNodeScope = thisNode.getId();
+					break;
 
-			case LABEL:
-			default:
-				thisNodeScope = thisNode.getLabel();
-				break;
+				case LABEL:
+				default:
+					thisNodeScope = thisNode.getLabel();
+					break;
 			}
 
 			// try to match this node
@@ -173,21 +174,27 @@ public class Traverser extends Generator<INode>
 				thisNodeScope = thisNodeScope.toLowerCase();
 				switch (this.theMode)
 				{
-				case EQUALS:
-					if (thisNodeScope.equals(this.theTarget))
-						return true;
-					break;
+					case EQUALS:
+						if (thisNodeScope.equals(this.theTarget))
+						{
+							return true;
+						}
+						break;
 
-				case INCLUDES:
-					if (thisNodeScope.contains(this.theTarget))
-						return true;
-					break;
+					case INCLUDES:
+						if (thisNodeScope.contains(this.theTarget))
+						{
+							return true;
+						}
+						break;
 
-				case STARTSWITH:
-				default:
-					if (thisNodeScope.startsWith(this.theTarget))
-						return true;
-					break;
+					case STARTSWITH:
+					default:
+						if (thisNodeScope.startsWith(this.theTarget))
+						{
+							return true;
+						}
+						break;
 				}
 			}
 			return false;
@@ -206,9 +213,8 @@ public class Traverser extends Generator<INode>
 
 	/**
 	 * Constructor
-	 * 
-	 * @param thisNode
-	 *        start node
+	 *
+	 * @param thisNode start node
 	 */
 	public Traverser(final Matcher thisMatcher, final INode thisNode)
 	{
@@ -227,7 +233,9 @@ public class Traverser extends Generator<INode>
 	{
 		// match
 		if (this.theMatcher.match(thisNode))
+		{
 			yield(thisNode);
+		}
 
 		// try to match match this node's children
 		for (final INode thisChild : thisNode.getChildren())

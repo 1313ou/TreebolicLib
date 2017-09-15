@@ -10,8 +10,7 @@ public interface Surface<G, L>
 	/**
 	 * Paint
 	 *
-	 * @param g
-	 *            graphics context
+	 * @param g graphics context
 	 */
 	void paint(final G g);
 
@@ -47,32 +46,29 @@ public interface Surface<G, L>
 	/**
 	 * Set cursor
 	 *
-	 * @param cursor
-	 *            cursor type (one of the constants)
+	 * @param cursor cursor type (one of the constants)
 	 */
+	@SuppressWarnings("EmptyMethod")
 	void setCursor(final int cursor);
 
 	/**
 	 * Set tooltip
 	 *
-	 * @param string
-	 *            tooltip string
+	 * @param string tooltip string
 	 */
 	void setToolTipText(final String string);
 
 	/**
 	 * Add event listener
 	 *
-	 * @param listener
-	 *            listener
+	 * @param listener listener
 	 */
 	void addEventListener(final L listener);
 
 	/**
 	 * Set whether to fire hover events
 	 *
-	 * @param flag
-	 *            whether to fire hover events
+	 * @param flag whether to fire hover events
 	 */
 	void setFireHover(final boolean flag);
 }

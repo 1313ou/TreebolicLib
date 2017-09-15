@@ -17,10 +17,8 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent
-	 *        parent
-	 * @param thisId
-	 *        id
+	 * @param thisParent parent
+	 * @param thisId     id
 	 */
 	public TreeMutableNode(final MutableNode thisParent, final String thisId)
 	{
@@ -30,8 +28,7 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Copy constructor (the resulting node node has no tree parent nor tree children)
 	 *
-	 * @param thatNode
-	 *        node
+	 * @param thatNode node
 	 */
 	public TreeMutableNode(final INode thatNode)
 	{
@@ -59,8 +56,7 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Set id
 	 *
-	 * @param thisId
-	 *        id
+	 * @param thisId id
 	 */
 	public void setId(final String thisId)
 	{
@@ -72,8 +68,7 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Set children
 	 *
-	 * @param theseChildren
-	 *        children
+	 * @param theseChildren children
 	 */
 	public void setChildren(final List<INode> theseChildren)
 	{

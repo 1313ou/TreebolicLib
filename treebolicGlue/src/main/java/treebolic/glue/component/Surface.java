@@ -1,6 +1,5 @@
 package treebolic.glue.component;
 
-import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.graphics.PointF;
 import android.util.Log;
@@ -160,6 +159,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 */
 	public Surface(final Object thisHandle)
 	{
+		//noinspection ConstantConditions
 		this((AppCompatActivity) thisHandle);
 	}
 
@@ -465,6 +465,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		if (text != null)
 		{
+			//noinspection ConstantConditions
 			final AppCompatActivity host = (AppCompatActivity) getContext();
 			Tip.tip(host, text);
 		}

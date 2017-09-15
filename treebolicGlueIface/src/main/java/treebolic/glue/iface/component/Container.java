@@ -20,10 +20,8 @@ public interface Container<C>
 	/**
 	 * Add component
 	 *
-	 * @param component
-	 *            component to add
-	 * @param position
-	 *            position (one of above constants)
+	 * @param component component to add
+	 * @param position  position (one of above constants)
 	 */
 	void addComponent(final C component, final int position);
 

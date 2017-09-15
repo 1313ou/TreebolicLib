@@ -40,11 +40,13 @@ public class Painter extends AbstractPainter
 
 	static public final int DEBUG_NOIMAGE = 0x400;
 
+	@SuppressWarnings("CanBeFinal")
 	static public int DEBUG = 0; // DEBUG_NOIMAGE // DEBUG_NOLABEL | DEBUG_NOLABELFILL;
 
 	/**
 	 * Do not draw curves while moving
 	 */
+	@SuppressWarnings("CanBeFinal")
 	static public boolean STRAIGHT_EDGE_WHILE_MOVING = false;
 
 	/**

@@ -30,10 +30,8 @@ public class Animation extends ActionListener
 	/**
 	 * Constructor
 	 *
-	 * @param thisAnimation
-	 *            animation (with update callback)
-	 * @param thisView
-	 *            the view being animated
+	 * @param thisAnimation animation (with update callback)
+	 * @param thisView      the view being animated
 	 */
 	public Animation(final AnimationTransforms thisAnimation, final View thisView)
 	{
@@ -44,7 +42,7 @@ public class Animation extends ActionListener
 
 	/**
 	 * Get steps
-	 * 
+	 *
 	 * @return number of steps
 	 */
 	public int getSteps()
@@ -59,9 +57,13 @@ public class Animation extends ActionListener
 		final Integer thisSuggestedIndex = theseParams == null || theseParams.length == 0 ? null : (Integer) theseParams[0];
 		int thisIndex;
 		if (thisSuggestedIndex == null)
+		{
 			thisIndex = this.theIndex + 1;
+		}
 		else
+		{
 			thisIndex = thisSuggestedIndex;
+		}
 		if (thisIndex != this.theIndex)
 		{
 			if (thisIndex >= 0 && thisIndex < this.theTransforms.size())

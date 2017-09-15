@@ -1,7 +1,5 @@
 package treebolic.component;
 
-import android.annotation.SuppressLint;
-
 import treebolic.glue.component.Component;
 
 /**
@@ -9,7 +7,7 @@ import treebolic.glue.component.Component;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
+@SuppressWarnings("ViewConstructor")
 public class Progress extends treebolic.glue.component.Progress implements Component
 {
 	private static final long serialVersionUID = 4362329721644133327L;
@@ -17,8 +15,7 @@ public class Progress extends treebolic.glue.component.Progress implements Compo
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle
-	 *            Handle required for component creation
+	 * @param thisHandle Handle required for component creation
 	 */
 	public Progress(final Object thisHandle)
 	{

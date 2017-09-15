@@ -19,7 +19,7 @@ public class MountPoint implements Serializable
 		/**
 		 * URL
 		 */
-		public String theURL;
+		public final String theURL;
 
 		/**
 		 * Mount now (for editing only)
@@ -91,13 +91,10 @@ public class MountPoint implements Serializable
 
 	/**
 	 * Follow mounted->mounting or mounting->mounted
-	 * 
-	 * @param thisINode
-	 *        source node
-	 * @param up
-	 *        allow mounted -> mounting
-	 * @param down
-	 *        allow mounting -> mounted
+	 *
+	 * @param thisINode source node
+	 * @param up        allow mounted -> mounting
+	 * @param down      allow mounting -> mounted
 	 * @return target node (or source if no mounting)
 	 */
 	public static INode follow(final INode thisINode, boolean up, boolean down)

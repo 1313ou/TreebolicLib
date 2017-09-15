@@ -10,8 +10,7 @@ public interface ActionListener
 	/**
 	 * Action callback
 	 *
-	 * @param theseParams
-	 *            parameter
+	 * @param theseParams parameter
 	 * @return true if handled
 	 */
 	boolean onAction(Object... theseParams);

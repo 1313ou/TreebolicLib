@@ -1,7 +1,5 @@
 package treebolic.component;
 
-import android.annotation.SuppressLint;
-
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
 import treebolic.model.Settings;
@@ -11,7 +9,7 @@ import treebolic.model.Settings;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
+@SuppressWarnings("ViewConstructor")
 public class Statusbar extends treebolic.glue.component.Statusbar implements Component
 {
 	private static final long serialVersionUID = -6221942821143613741L;
@@ -49,8 +47,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle
-	 *            Handle required for component creation
+	 * @param thisHandle Handle required for component creation
 	 */
 	public Statusbar(final Object thisHandle)
 	{
@@ -94,12 +91,9 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	/**
 	 * Put status
 	 *
-	 * @param thisLabel
-	 *            label
-	 * @param thisContent
-	 *            content
-	 * @param thisType
-	 *            status type as per below
+	 * @param thisLabel   label
+	 * @param thisContent content
+	 * @param thisType    status type as per below
 	 */
 	public void put(final String thisLabel, final String thisContent, final PutType thisType)
 	{

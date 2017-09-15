@@ -26,8 +26,7 @@ public class Weigher
 	/**
 	 * Weigh this node
 	 *
-	 * @param thisNode
-	 *            node
+	 * @param thisNode node
 	 */
 	public void weigh(final INode thisNode)
 	{

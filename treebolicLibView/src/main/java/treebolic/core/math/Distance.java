@@ -14,10 +14,8 @@ public class Distance
 	/**
 	 * Get Euclidean distance
 	 *
-	 * @param z1
-	 *            point
-	 * @param z2
-	 *            point
+	 * @param z1 point
+	 * @param z2 point
 	 * @return Euclidean distance between z1 and z2
 	 */
 	static public double getEuclideanDistance(final Complex z1, final Complex z2)
@@ -30,10 +28,8 @@ public class Distance
 	/**
 	 * Get squared Euclidean distance
 	 *
-	 * @param z1
-	 *            point
-	 * @param z2
-	 *            point
+	 * @param z1 point
+	 * @param z2 point
 	 * @return squared Euclidean distance between z1 and z2
 	 */
 	static public double getEuclideanDistanceSquared(final Complex z1, final Complex z2)
@@ -48,10 +44,8 @@ public class Distance
 	/**
 	 * Distance between 2 points
 	 *
-	 * @param z1
-	 *            point1
-	 * @param z2
-	 *            point2
+	 * @param z1 point1
+	 * @param z2 point2
 	 * @return Hyperbolic distance between two points
 	 */
 	static public double getHyperDistance(final Complex z1, final Complex z2)
@@ -68,8 +62,7 @@ public class Distance
 	/**
 	 * Map Euclidean distance to origin to Hyperbolic distance to origin
 	 *
-	 * @param re
-	 *            Euclidean distance to origin
+	 * @param re Euclidean distance to origin
 	 * @return Hyperbolic distance to origin
 	 */
 	static public double distanceToOrigin_e2h(final double re)
@@ -81,8 +74,7 @@ public class Distance
 	/**
 	 * Map Hyperbolic distance to origin to Euclidean distance to origin
 	 *
-	 * @param rh
-	 *            Hyperbolic distance to origin
+	 * @param rh Hyperbolic distance to origin
 	 * @return Euclidean distance to origin
 	 */
 	static public double distanceToOrigin_h2e(final double rh)

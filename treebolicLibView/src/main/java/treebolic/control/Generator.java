@@ -7,10 +7,9 @@ import java.util.NoSuchElementException;
  * This class allows specifying Python generator-like sequences. For examples, see the JUnit test case. The implementation uses a separate Thread to produce the
  * sequence items. This is certainly not as fast as eg. a for-loop, but not horribly slow either. On a machine with a dual core i5 CPU @ 2.67 GHz, 1000 items
  * can be produced in &lt; 0.03s. By overriding finalize(), the class takes care not to leave any Threads running longer than necessary.
- * 
+ *
+ * @param <T> type of objects
  * @author Herrmann
- * @param <T>
- *        type of objects
  */
 public abstract class Generator<T> implements Iterable<T>
 {
@@ -32,7 +31,9 @@ public abstract class Generator<T> implements Iterable<T>
 			try
 			{
 				if (this.isSet)
+				{
 					return;
+				}
 				wait();
 			}
 			finally
@@ -82,7 +83,9 @@ public abstract class Generator<T> implements Iterable<T>
 			public T next()
 			{
 				if (!waitForNext())
+				{
 					throw new NoSuchElementException();
+				}
 				Generator.this.nextItemAvailable = false;
 				return Generator.this.nextItem;
 			}
@@ -97,11 +100,17 @@ public abstract class Generator<T> implements Iterable<T>
 			private boolean waitForNext()
 			{
 				if (Generator.this.nextItemAvailable)
+				{
 					return true;
+				}
 				if (Generator.this.hasFinished)
+				{
 					return false;
+				}
 				if (Generator.this.producer == null)
+				{
 					startProducer();
+				}
 				Generator.this.itemRequested.set();
 				try
 				{
@@ -112,7 +121,9 @@ public abstract class Generator<T> implements Iterable<T>
 					Generator.this.hasFinished = true;
 				}
 				if (Generator.this.exceptionRaisedByProducer != null)
+				{
 					throw Generator.this.exceptionRaisedByProducer;
+				}
 				return !Generator.this.hasFinished;
 			}
 		};
@@ -120,16 +131,15 @@ public abstract class Generator<T> implements Iterable<T>
 
 	/**
 	 * Run generator. Each element is generated with a yield
-	 * 
+	 *
 	 * @throws InterruptedException interrupted exception
 	 */
 	protected abstract void run() throws InterruptedException;
 
 	/**
 	 * Yield element
-	 * 
-	 * @param element
-	 *        element
+	 *
+	 * @param element element
 	 * @throws InterruptedException interrupted exception
 	 */
 	protected void yield(T element) throws InterruptedException
@@ -149,7 +159,9 @@ public abstract class Generator<T> implements Iterable<T>
 
 		// thread group
 		if (THREAD_GROUP == null)
+		{
 			THREAD_GROUP = new ThreadGroup("generatorfunctions");
+		}
 
 		// new thread definition
 		this.producer = new Thread(THREAD_GROUP, new Runnable()
@@ -181,7 +193,7 @@ public abstract class Generator<T> implements Iterable<T>
 
 				// signal finish
 				Generator.this.itemAvailableOrHasFinished.set();
-				
+
 				// System.out.println("FINISHED");
 			}
 		});
@@ -200,7 +212,7 @@ public abstract class Generator<T> implements Iterable<T>
 
 	/**
 	 * Terminate generator
-	 * 
+	 *
 	 * @throws InterruptedException interrupted exception
 	 */
 	public void terminate() throws InterruptedException

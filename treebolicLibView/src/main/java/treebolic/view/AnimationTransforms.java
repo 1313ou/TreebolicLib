@@ -30,8 +30,7 @@ public class AnimationTransforms
 	/**
 	 * Constructor
 	 *
-	 * @param theseTransforms
-	 *            list of transforms
+	 * @param theseTransforms list of transforms
 	 */
 	protected AnimationTransforms(final List<HyperTransform> theseTransforms)
 	{
@@ -41,42 +40,31 @@ public class AnimationTransforms
 	/**
 	 * Constructor
 	 *
-	 * @param thisFrom
-	 *            source point
-	 * @param thisTo
-	 *            target point
-	 * @param thisTransformer
-	 *            transform generator
-	 * @param thisOrientation
-	 *            orientation
-	 * @param theseSteps
-	 *            number of steps
+	 * @param thisFrom        source point
+	 * @param thisTo          target point
+	 * @param thisTransformer transform generator
+	 * @param thisOrientation orientation
+	 * @param theseSteps      number of steps
 	 */
-	static public AnimationTransforms make(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation,
-			final int theseSteps)
+	static public AnimationTransforms make(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation, final int theseSteps)
 	{
-		@SuppressWarnings("ConstantConditions") final List<HyperTransform> theseTransforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ? AnimationTransforms.makeTransform1(thisFrom, thisTo,
-				thisTransformer, thisOrientation) : AnimationTransforms.makeTransforms(thisFrom, thisTo, thisTransformer, thisOrientation, theseSteps);
+		@SuppressWarnings("ConstantConditions") final List<HyperTransform> theseTransforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ?
+				AnimationTransforms.makeTransform1(thisFrom, thisTo, thisTransformer, thisOrientation) :
+				AnimationTransforms.makeTransforms(thisFrom, thisTo, thisTransformer, thisOrientation, theseSteps);
 		return new AnimationTransforms(theseTransforms);
 	}
 
 	/**
 	 * Make sequence of transforms
 	 *
-	 * @param thisFrom
-	 *            source point
-	 * @param thisTo
-	 *            target point
-	 * @param thisTransformer
-	 *            transform generator
-	 * @param thisOrientation
-	 *            orientation
-	 * @param thoseSteps
-	 *            number of steps
+	 * @param thisFrom        source point
+	 * @param thisTo          target point
+	 * @param thisTransformer transform generator
+	 * @param thisOrientation orientation
+	 * @param thoseSteps      number of steps
 	 * @return transforms or null
 	 */
-	static private List<HyperTransform> makeTransforms(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer,
-			final Complex thisOrientation, final int thoseSteps)
+	static private List<HyperTransform> makeTransforms(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation, final int thoseSteps)
 	{
 		int theseSteps = thoseSteps;
 		final HyperTransform thisCurrentTransform = thisTransformer.getTransform();
@@ -148,18 +136,13 @@ public class AnimationTransforms
 	/**
 	 * Make animation with one transform only
 	 *
-	 * @param thisFrom
-	 *            source point
-	 * @param thisTo
-	 *            source point
-	 * @param thisTransformer
-	 *            transform generator
-	 * @param thisOrientation
-	 *            orientation
+	 * @param thisFrom        source point
+	 * @param thisTo          source point
+	 * @param thisTransformer transform generator
+	 * @param thisOrientation orientation
 	 * @return sequence of one transform
 	 */
-	static private Vector<HyperTransform> makeTransform1(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer,
-			final Complex thisOrientation)
+	static private Vector<HyperTransform> makeTransform1(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation)
 	{
 		final HyperTransform thisCurrentTransform = thisTransformer.getTransform();
 

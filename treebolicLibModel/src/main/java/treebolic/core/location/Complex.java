@@ -69,10 +69,8 @@ public class Complex implements Serializable
 	/**
 	 * Construct complex from real and imaginary parts
 	 *
-	 * @param x
-	 *            real part
-	 * @param y
-	 *            imaginary part
+	 * @param x real part
+	 * @param y imaginary part
 	 */
 	public Complex(final double x, final double y)
 	{
@@ -83,8 +81,7 @@ public class Complex implements Serializable
 	/**
 	 * Copy constructor
 	 *
-	 * @param z
-	 *            copied complex
+	 * @param z copied complex
 	 */
 	public Complex(final Complex z)
 	{
@@ -95,8 +92,7 @@ public class Complex implements Serializable
 	/**
 	 * Construct complex from real part, imaginary part defaulting to 0
 	 *
-	 * @param x
-	 *            real part
+	 * @param x real part
 	 */
 	public Complex(final double x)
 	{
@@ -107,10 +103,8 @@ public class Complex implements Serializable
 	/**
 	 * Construct complex from argument and mag re = cos(arg) im = sin(arg)
 	 *
-	 * @param thisArg
-	 *            argument a
-	 * @param thisMag
-	 *            magnitude m
+	 * @param thisArg argument a
+	 * @param thisMag magnitude m
 	 * @return new complex of this argument a and magnitude m
 	 */
 	static public Complex makeFromArgAbs(final double thisArg, final double thisMag)
@@ -121,8 +115,7 @@ public class Complex implements Serializable
 	/**
 	 * Construct complex of magnitude 1 from argument re = cos(arg) im = sin(arg)
 	 *
-	 * @param thisArg
-	 *            argument a
+	 * @param thisArg argument a
 	 * @return new complex of magnitude 1 and argument a
 	 */
 	static public Complex makeFromArg(final double thisArg)
@@ -135,8 +128,7 @@ public class Complex implements Serializable
 	/**
 	 * Set complex to value of another complex, no new complex object is created
 	 *
-	 * @param z
-	 *            complex
+	 * @param z complex
 	 * @return original complex object, whose value has been set to z
 	 */
 	public Complex set(final Complex z)
@@ -149,10 +141,8 @@ public class Complex implements Serializable
 	/**
 	 * Set complex to values of real and imaginary parts no new complex object is created
 	 *
-	 * @param x
-	 *            real part
-	 * @param y
-	 *            imaginary part
+	 * @param x real part
+	 * @param y imaginary part
 	 * @return original complex object, whose value has been set to x,z
 	 */
 	public Complex set(final double x, final double y)
@@ -162,13 +152,24 @@ public class Complex implements Serializable
 		return this;
 	}
 
+	/**
+	 * Reset complex to 0
+	 *
+	 * @return original complex object, whose value has been set to 0
+	 */
+	public Complex reset()
+	{
+		this.re = .0;
+		this.im = .0;
+		return this;
+	}
+
 	// E Q U A L S
 
 	/**
 	 * Complex equality
 	 *
-	 * @param z
-	 *            complex
+	 * @param z complex
 	 * @return true if this complex z0 is equal to complex z
 	 */
 	public boolean equals(final Complex z)
@@ -181,8 +182,7 @@ public class Complex implements Serializable
 	/**
 	 * Add complex z to this complex
 	 *
-	 * @param z
-	 *            complex to be added to this complex
+	 * @param z complex to be added to this complex
 	 * @return this complex, whose value has been set to z0+z
 	 */
 	public Complex add(final Complex z)
@@ -195,10 +195,8 @@ public class Complex implements Serializable
 	/**
 	 * Set this complex to z1+z2
 	 *
-	 * @param z1
-	 *            complex
-	 * @param z2
-	 *            complex
+	 * @param z1 complex
+	 * @param z2 complex
 	 * @return this complex, whose value has been set to z1+z2 and whose original value is not used
 	 */
 	public Complex add(final Complex z1, final Complex z2)
@@ -213,8 +211,7 @@ public class Complex implements Serializable
 	/**
 	 * Substract complex z from this complex
 	 *
-	 * @param z
-	 *            complex
+	 * @param z complex
 	 * @return this complex, whose value has been set to z0-z
 	 */
 	public Complex sub(final Complex z)
@@ -227,10 +224,8 @@ public class Complex implements Serializable
 	/**
 	 * Set this complex to z1-z2
 	 *
-	 * @param z1
-	 *            complex
-	 * @param z2
-	 *            complex
+	 * @param z1 complex
+	 * @param z2 complex
 	 * @return this complex whose value has been set to z1-z2 and whose original value is not used
 	 */
 	public Complex sub(final Complex z1, final Complex z2)
@@ -256,8 +251,7 @@ public class Complex implements Serializable
 	/**
 	 * Conjugate of z
 	 *
-	 * @param z
-	 *            complex
+	 * @param z complex
 	 * @return this complex, whose value has been set to conjugate of z and whose original value is not used
 	 */
 	public Complex conj(final Complex z)
@@ -284,8 +278,7 @@ public class Complex implements Serializable
 	/**
 	 * Negation of complex z
 	 *
-	 * @param z
-	 *            complex
+	 * @param z complex
 	 * @return this complex, whose value has been set to the negation of z and whose original value is not used
 	 */
 	public Complex neg(final Complex z)
@@ -300,8 +293,7 @@ public class Complex implements Serializable
 	/**
 	 * Division of this complex by z
 	 *
-	 * @param z
-	 *            complex
+	 * @param z complex
 	 * @return this complex, whose value has been set to the division of this complex by complex z (=z0/z)
 	 */
 	public Complex div(final Complex z)
@@ -320,10 +312,8 @@ public class Complex implements Serializable
 	/**
 	 * Division
 	 *
-	 * @param z1
-	 *            complex
-	 * @param z2
-	 *            complex
+	 * @param z1 complex
+	 * @param z2 complex
 	 * @return this complex, whose value has been set to the division of z1 by z2 (=z1/z2) and whose original value is not used
 	 */
 	public Complex div(final Complex z1, final Complex z2)
@@ -367,10 +357,8 @@ public class Complex implements Serializable
 	/**
 	 * Multiplication
 	 *
-	 * @param a
-	 *            complex
-	 * @param b
-	 *            complex
+	 * @param a complex
+	 * @param b complex
 	 * @return this complex as the result of a.b and whose original value not used
 	 */
 	public Complex mul(final Complex a, final Complex b)
@@ -385,10 +373,8 @@ public class Complex implements Serializable
 	/**
 	 * Multiply complex by double
 	 *
-	 * @param z
-	 *            complex
-	 * @param m
-	 *            multiplicator
+	 * @param z complex
+	 * @param m multiplicator
 	 * @return this complex, as the result of multiplying z by m
 	 */
 	public Complex multiply(final Complex z, final double m)
@@ -401,8 +387,7 @@ public class Complex implements Serializable
 	/**
 	 * Multiply this complex by double
 	 *
-	 * @param m
-	 *            multiplicator
+	 * @param m multiplicator
 	 * @return this complex, multiplied by m
 	 */
 	public Complex multiply(final double m)
@@ -415,10 +400,8 @@ public class Complex implements Serializable
 	/**
 	 * Divide complex by double
 	 *
-	 * @param z
-	 *            complex
-	 * @param d
-	 *            divisor
+	 * @param z complex
+	 * @param d divisor
 	 * @return this complex, as the result of dividing z by d
 	 */
 	public Complex divide(final Complex z, final double d)
@@ -431,8 +414,7 @@ public class Complex implements Serializable
 	/**
 	 * Divide this complex by double
 	 *
-	 * @param d
-	 *            divisor
+	 * @param d divisor
 	 * @return this complex, divided by d
 	 */
 	public Complex divide(final double d)

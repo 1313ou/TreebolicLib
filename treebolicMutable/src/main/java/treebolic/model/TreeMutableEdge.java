@@ -14,10 +14,8 @@ public class TreeMutableEdge extends MutableEdge
 	/**
 	 * Constructor
 	 *
-	 * @param thisFrom
-	 *        from node (may be null)
-	 * @param thisTo
-	 *        to node (may be null)
+	 * @param thisFrom from node (may be null)
+	 * @param thisTo   to node (may be null)
 	 */
 	public TreeMutableEdge(final MutableNode thisFrom, final MutableNode thisTo)
 	{
@@ -27,8 +25,7 @@ public class TreeMutableEdge extends MutableEdge
 	/**
 	 * Copy constructor (the resulting edge has no node ends)
 	 *
-	 * @param thatEdge
-	 *        edge
+	 * @param thatEdge edge
 	 */
 	public TreeMutableEdge(final IEdge thatEdge)
 	{
@@ -44,8 +41,7 @@ public class TreeMutableEdge extends MutableEdge
 	/**
 	 * Set from-node (origin)
 	 *
-	 * @param thisFromNode
-	 *        from-node (may be null)
+	 * @param thisFromNode from-node (may be null)
 	 */
 	public void setFrom(final MutableNode thisFromNode)
 	{
@@ -55,8 +51,7 @@ public class TreeMutableEdge extends MutableEdge
 	/**
 	 * Set to-node (destination)
 	 *
-	 * @param thisToNode
-	 *        to-node (may be null)
+	 * @param thisToNode to-node (may be null)
 	 */
 	public void setTo(final MutableNode thisToNode)
 	{

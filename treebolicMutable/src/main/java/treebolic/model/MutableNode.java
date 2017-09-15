@@ -15,10 +15,8 @@ public class MutableNode extends Node
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent
-	 *        parent
-	 * @param thisId
-	 *        id
+	 * @param thisParent parent
+	 * @param thisId     id
 	 */
 	public MutableNode(final INode thisParent, final String thisId)
 	{
@@ -28,18 +26,12 @@ public class MutableNode extends Node
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent
-	 *        parent
-	 * @param thisId
-	 *        id
-	 * @param thisLabel
-	 *        label
-	 * @param thisImage
-	 *        image
-	 * @param thisBackColor
-	 *        backcolor
-	 * @param thisForeColor
-	 *        forecolor
+	 * @param thisParent    parent
+	 * @param thisId        id
+	 * @param thisLabel     label
+	 * @param thisImage     image
+	 * @param thisBackColor backcolor
+	 * @param thisForeColor forecolor
 	 */
 	public MutableNode(final INode thisParent, final String thisId, final String thisLabel, final Image thisImage, final Color thisBackColor, final Color thisForeColor)
 	{
@@ -53,18 +45,12 @@ public class MutableNode extends Node
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent
-	 *        parent
-	 * @param thisId
-	 *        id
-	 * @param thisLabel
-	 *        label
-	 * @param thisImageIndex
-	 *        image index
-	 * @param thisBackColor
-	 *        backcolor
-	 * @param thisForeColor
-	 *        forecolor
+	 * @param thisParent     parent
+	 * @param thisId         id
+	 * @param thisLabel      label
+	 * @param thisImageIndex image index
+	 * @param thisBackColor  backcolor
+	 * @param thisForeColor  forecolor
 	 */
 	public MutableNode(final INode thisParent, final String thisId, final String thisLabel, final int thisImageIndex, final Color thisBackColor, final Color thisForeColor)
 	{
@@ -78,8 +64,7 @@ public class MutableNode extends Node
 	/**
 	 * Set label
 	 *
-	 * @param thisLabel
-	 *        label
+	 * @param thisLabel label
 	 */
 	public void setLabel(final String thisLabel)
 	{
@@ -89,8 +74,7 @@ public class MutableNode extends Node
 	/**
 	 * Set content
 	 *
-	 * @param thisContent
-	 *        content
+	 * @param thisContent content
 	 */
 	public void setContent(final String thisContent)
 	{
@@ -100,8 +84,7 @@ public class MutableNode extends Node
 	/**
 	 * Set backcolor
 	 *
-	 * @param thisColor
-	 *        backcolor
+	 * @param thisColor backcolor
 	 */
 	public void setBackColor(final Color thisColor)
 	{
@@ -111,8 +94,7 @@ public class MutableNode extends Node
 	/**
 	 * Set forecolor
 	 *
-	 * @param thisColor
-	 *        forecolor
+	 * @param thisColor forecolor
 	 */
 	public void setForeColor(final Color thisColor)
 	{
@@ -122,8 +104,7 @@ public class MutableNode extends Node
 	/**
 	 * Set node image file
 	 *
-	 * @param thisImageFile
-	 *        image file
+	 * @param thisImageFile image file
 	 */
 	public void setImageFile(final String thisImageFile)
 	{
@@ -134,8 +115,7 @@ public class MutableNode extends Node
 	/**
 	 * Set node image index
 	 *
-	 * @param thisImageIndex
-	 *        image index
+	 * @param thisImageIndex image index
 	 */
 	public void setImageIndex(final int thisImageIndex)
 	{
@@ -146,8 +126,7 @@ public class MutableNode extends Node
 	/**
 	 * Set edge image file
 	 *
-	 * @param thisImageFile
-	 *        image file
+	 * @param thisImageFile image file
 	 */
 	public void setEdgeImageFile(final String thisImageFile)
 	{
@@ -157,8 +136,7 @@ public class MutableNode extends Node
 	/**
 	 * Set node link URL
 	 *
-	 * @param thisLink
-	 *        link URL
+	 * @param thisLink link URL
 	 */
 	public void setLink(final String thisLink)
 	{
@@ -168,8 +146,7 @@ public class MutableNode extends Node
 	/**
 	 * Set node link target frame
 	 *
-	 * @param thisTarget
-	 *        link target frame
+	 * @param thisTarget link target frame
 	 */
 	public void setTarget(final String thisTarget)
 	{

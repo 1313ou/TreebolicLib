@@ -68,10 +68,8 @@ public class Arc
 	/**
 	 * Construct segment of hyperbolic circle, which connects z1 and z2
 	 *
-	 * @param z1
-	 *            start endpoint
-	 * @param z2
-	 *            end endpoint
+	 * @param z1 start endpoint
+	 * @param z2 end endpoint
 	 */
 	public Arc(final Complex z1, final Complex z2)
 	{
@@ -152,8 +150,7 @@ public class Arc
 		final double fromArg = this.from.arg();
 		final double toAbs = this.to.abs2();
 		final double toArg = this.to.arg();
-		return fromAbs < Arc.E || toAbs < Arc.E || fromAbs >= Arc.E && toAbs >= Arc.E
-				&& (Math.abs(fromArg - toArg) < Arc.E || Math.abs(fromArg - toArg - Math.PI) < Arc.E || Math.abs(fromArg - toArg + Math.PI) < Arc.E);
+		return fromAbs < Arc.E || toAbs < Arc.E || fromAbs >= Arc.E && toAbs >= Arc.E && (Math.abs(fromArg - toArg) < Arc.E || Math.abs(fromArg - toArg - Math.PI) < Arc.E || Math.abs(fromArg - toArg + Math.PI) < Arc.E);
 	}
 
 	/**

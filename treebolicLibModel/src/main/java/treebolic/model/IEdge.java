@@ -277,8 +277,7 @@ public interface IEdge extends Serializable
 	/**
 	 * Set image file
 	 *
-	 * @param thisImage
-	 *        edge image
+	 * @param thisImage edge image
 	 */
 	void setImage(Image thisImage);
 }

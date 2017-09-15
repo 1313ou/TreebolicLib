@@ -29,10 +29,8 @@ public class Tree implements Serializable
 	/**
 	 * Constructor
 	 *
-	 * @param thisRoot
-	 *            root node
-	 * @param theseEdges
-	 *            edge list
+	 * @param thisRoot   root node
+	 * @param theseEdges edge list
 	 */
 	public Tree(final INode thisRoot, final List<IEdge> theseEdges)
 	{
@@ -65,8 +63,7 @@ public class Tree implements Serializable
 	/**
 	 * Set root node
 	 *
-	 * @param thisRoot
-	 *            node
+	 * @param thisRoot node
 	 */
 	public void setRoot(final INode thisRoot)
 	{
@@ -76,8 +73,7 @@ public class Tree implements Serializable
 	/**
 	 * Set edges
 	 *
-	 * @param theseEdges
-	 *            edge list
+	 * @param theseEdges edge list
 	 */
 	public void setEdges(final List<IEdge> theseEdges)
 	{

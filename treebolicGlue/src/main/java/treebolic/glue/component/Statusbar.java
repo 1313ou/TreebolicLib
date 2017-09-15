@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -28,6 +28,8 @@ import treebolic.glue.Color;
 @SuppressLint("ViewConstructor")
 public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar<Color, ActionListener>
 {
+	private static final String TAG = "Statusbar";
+
 	/**
 	 * Image index enum
 	 */
@@ -133,6 +135,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	protected Statusbar(final Object handle)
 	{
+		//noinspection ConstantConditions
 		this((AppCompatActivity) handle);
 	}
 
@@ -222,9 +225,10 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 				html.append(this.style);
 			}
 			html.append("</style>");
-			html.append("</head><body>");
+			html.append("</head><body><div class='body'>");
 			html.append(content);
-			html.append("</body>");
+			html.append("</div></body>");
+			Log.d(TAG, html.toString());
 			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
 		}
 	}
@@ -282,8 +286,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	@SuppressWarnings("boxing")
 	private String getDefaultBaseStyle()
 	{
-		return "body {" +
-				String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //
+		return "body {" + String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //
 				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //
 				'}';
 	}

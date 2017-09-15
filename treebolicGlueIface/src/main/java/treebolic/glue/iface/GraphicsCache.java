@@ -17,8 +17,7 @@ public interface GraphicsCache<G>
 	/**
 	 * Put cache to graphics context
 	 *
-	 * @param g
-	 *            graphics context
+	 * @param g graphics context
 	 */
 	void put(G g);
 }

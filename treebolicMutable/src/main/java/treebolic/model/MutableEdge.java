@@ -14,10 +14,8 @@ public class MutableEdge extends Edge
 	/**
 	 * Construct node
 	 *
-	 * @param thisFromNode
-	 *        from node
-	 * @param thisToNode
-	 *        to node
+	 * @param thisFromNode from node
+	 * @param thisToNode   to node
 	 */
 	public MutableEdge(final INode thisFromNode, final INode thisToNode)
 	{
@@ -27,8 +25,7 @@ public class MutableEdge extends Edge
 	/**
 	 * Set label
 	 *
-	 * @param thisLabel
-	 *        label
+	 * @param thisLabel label
 	 */
 	public void setLabel(final String thisLabel)
 	{
@@ -38,8 +35,7 @@ public class MutableEdge extends Edge
 	/**
 	 * Set color
 	 *
-	 * @param thisColor
-	 *        color
+	 * @param thisColor color
 	 */
 	public void setColor(final Color thisColor)
 	{
@@ -49,8 +45,7 @@ public class MutableEdge extends Edge
 	/**
 	 * Set style
 	 *
-	 * @param thisStyle
-	 *        edge style
+	 * @param thisStyle edge style
 	 */
 	public void setStyle(final Integer thisStyle)
 	{
@@ -60,8 +55,7 @@ public class MutableEdge extends Edge
 	/**
 	 * Set image filename
 	 *
-	 * @param thisImageFile
-	 *        image filename
+	 * @param thisImageFile image filename
 	 */
 	public void setImageFile(final String thisImageFile)
 	{
@@ -72,8 +66,7 @@ public class MutableEdge extends Edge
 	/**
 	 * Set image index
 	 *
-	 * @param thisImageIndex
-	 *        image index
+	 * @param thisImageIndex image index
 	 */
 	public void setImageIndex(final int thisImageIndex)
 	{

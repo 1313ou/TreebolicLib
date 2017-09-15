@@ -115,8 +115,8 @@ public interface IWidget
 	/**
 	 * Match node against string
 	 *
-	 * @param thisCommandString command string ("SEARCH", "CONTINUE", "RESET")
-	 * @param theseParams       parameters for search ("CONTINUE", "RESET" don't require any)
+	 * @param thisCommandString command string ("SEARCH", "CONTINUE", "HOME")
+	 * @param theseParams       parameters for search ("CONTINUE", "HOME" don't require any)
 	 */
 	void search(String thisCommandString, String... theseParams);
 }

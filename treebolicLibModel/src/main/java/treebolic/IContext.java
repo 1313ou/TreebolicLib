@@ -26,10 +26,8 @@ public interface IContext extends ILocator
 	/**
 	 * Navigate to link
 	 *
-	 * @param thisLinkUrl
-	 *            link url
-	 * @param thisLinkTarget
-	 *            link target
+	 * @param thisLinkUrl    link url
+	 * @param thisLinkTarget link target
 	 * @return true if the context handles the link, false means the current provider will re-init () with the link as source
 	 */
 	boolean linkTo(String thisLinkUrl, String thisLinkTarget);
@@ -44,16 +42,14 @@ public interface IContext extends ILocator
 	/**
 	 * Message
 	 *
-	 * @param thisString
-	 *            message
+	 * @param thisString message
 	 */
 	void status(String thisString);
 
 	/**
 	 * Warn
 	 *
-	 * @param thisMessage
-	 *            warning
+	 * @param thisMessage warning
 	 */
 	void warn(String thisMessage);
 }

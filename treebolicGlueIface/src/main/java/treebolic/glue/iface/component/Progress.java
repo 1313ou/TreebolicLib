@@ -12,10 +12,8 @@ public interface Progress
 	/**
 	 * Put progress
 	 *
-	 * @param message
-	 *            message to display
-	 * @param fail
-	 *            whether fail condition has been reached
+	 * @param message message to display
+	 * @param fail    whether fail condition has been reached
 	 */
 	void put(final String message, final boolean fail);
 }

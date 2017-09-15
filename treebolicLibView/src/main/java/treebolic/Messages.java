@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 /**
  * Language dependency
- * 
+ *
  * @author Bernard Bou
  */
 public class Messages

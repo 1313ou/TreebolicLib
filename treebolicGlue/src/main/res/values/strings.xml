@@ -1,26 +1,47 @@
 <resources>
 
-    <!-- status -->
-    <string name="progress_text">Treebolic</string> <!-- progress text -->
-    <string name="status_text">-</string> <!-- status text -->
-    <string name="status_hint">*</string> <!-- status hint -->
+	<!-- status -->
+	<string name="progress_text">Treebolic</string> <!-- progress text -->
+	<string name="status_text">-</string> <!-- status text -->
+	<string name="status_hint">*</string> <!-- status hint -->
 
-    <!-- content descriptions -->
-    <string name="progress_logo">logo</string> <!-- content description for progress pix -->
-    <string name="popup_arrow">arrow</string> <!-- content description for popup arrow pix -->
-    <string name="popup_item">item</string> <!-- content description for popup bullet pix -->
-    <string name="tip_info">info</string> <!-- content description for tip info pix -->
+	<!-- content descriptions -->
+	<string name="progress_logo">logo</string> <!-- content description for progress pix -->
+	<string name="popup_arrow">arrow</string> <!-- content description for popup arrow pix -->
+	<string name="popup_item">item</string> <!-- content description for popup bullet pix -->
+	<string name="tip_info">info</string> <!-- content description for tip info pix -->
 
-    <!-- popup labels -->
-    <string-array name="popup_labels">
-        <item name="cancel">Cancel</item>
-        <item name="info">Info</item>
-        <item name="focus">Focus</item>
-        <item name="linkto">Link</item>
-        <item name="mount">Mount</item>
-        <item name="unmount">UnMount</item>
-        <item name="goto">Go to</item>
-        <item name="search">Search</item>
-    </string-array>
+	<!-- popup labels -->
+	<string-array name="popup_labels">
+		<item name="cancel">Cancel</item>
+		<item name="info">Info</item>
+		<item name="focus">Focus</item>
+		<item name="linkto">Link</item>
+		<item name="mount">Mount</item>
+		<item name="unmount">UnMount</item>
+		<item name="goto">Go to</item>
+		<item name="search">Search</item>
+	</string-array>
+
+	<!-- toolbar buttons -->
+
+	<!--
+	<string name="button_home">Reset</string>
+	<string name="button_radial">Radial</string>
+	<string name="button_north">North</string>
+	<string name="button_south">South</string>
+	<string name="button_east">East</string>
+	<string name="button_west">West</string>
+	<string name="button_expand">Expand</string>
+	<string name="button_shrink">Shrink</string>
+	<string name="button_widen">Widen</string>
+	<string name="button_narrow">Narrow</string>
+	<string name="button_zoom_in">Zoom In</string>
+	<string name="button_zoom_out">Zoom Out</string>
+	<string name="button_zoom_reset">Zoom reset</string>
+	<string name="button_scale_up">Scale Up</string>
+	<string name="button_scale_donw">Scale Down</string>
+	<string name="button_scale_reset">Scale reset</string>
+	-->
 
 </resources>

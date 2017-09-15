@@ -7,36 +7,26 @@ package treebolic.glue.iface.component;
  */
 public interface Toolbar<L>
 {
+	enum Button
+	{
+		HOME, //
+		NORTH, SOUTH, EAST, WEST, RADIAL, //
+		EXPAND, SHRINK, EXPANSIONRESET, //
+		WIDEN, NARROW, SWEEPRESET, //
+		ZOOMIN, ZOOMOUT, ZOOMONE, //
+		SCALEUP, SCALEDOWN, SCALEONE, //
+		REFRESH, //
+		ARCEDGE, //
+		TOOLTIP, TOOLTIPCONTENT, //
+		FOCUSHOVER, //
+		SEPARATOR
+	}
+
 	/**
 	 * Add button
 	 *
-	 * @param iconIndex
-	 *            icon index
-	 * @param toolTip
-	 *            button tip
-	 * @param listener
-	 *            listener
+	 * @param button   button
+	 * @param listener listener
 	 */
-	void addButton(final int iconIndex, final String toolTip, final L listener);
-
-	/**
-	 * Add toggle button
-	 *
-	 * @param iconIndex
-	 *            icon index
-	 * @param selectedIconIndex
-	 *            selected state icon index
-	 * @param toolTip
-	 *            button tip
-	 * @param state
-	 *            initial state
-	 * @param listener
-	 *            listener
-	 */
-	void addToggle(final int iconIndex, final int selectedIconIndex, final String toolTip, final boolean state, final L listener);
-
-	/**
-	 * Add separator
-	 */
-	void addSeparator();
+	void addButton(final Button button, final L listener);
 }

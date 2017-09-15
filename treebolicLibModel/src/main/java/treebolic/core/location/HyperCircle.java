@@ -73,10 +73,8 @@ public class HyperCircle implements Serializable
 	/**
 	 * Set hypercircle data
 	 *
-	 * @param o
-	 *            center
-	 * @param r
-	 *            radius
+	 * @param o center
+	 * @param r radius
 	 */
 	public void set(final Complex o, final double r)
 	{
@@ -102,8 +100,7 @@ public class HyperCircle implements Serializable
 	/**
 	 * Clone
 	 *
-	 * @param thisHyperCircle
-	 *            hyper circle
+	 * @param thisHyperCircle hyper circle
 	 */
 	public void clone(final HyperCircle thisHyperCircle)
 	{
