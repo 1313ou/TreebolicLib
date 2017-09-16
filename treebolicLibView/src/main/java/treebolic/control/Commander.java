@@ -21,7 +21,7 @@ public abstract class Commander
 		REFRESH, //
 		HOME, NORTH, SOUTH, EAST, WEST, RADIAL, //
 		ZOOMIN, ZOOMOUT, ZOOMONE, SCALEUP, SCALEDOWN, SCALEONE, //
-		EXPAND, SHRINK, EXPANSIONRESET, WIDEN, NARROW, SWEEPRESET, //
+		EXPAND, SHRINK, EXPANSIONRESET, WIDEN, NARROW, SWEEPRESET, EXPANSIONSWEEPRESET, //
 		ARCEDGE, TOOLTIP, TOOLTIPCONTENT, FOCUSHOVER
 	}
 
@@ -195,7 +195,7 @@ public abstract class Commander
 	{
 		if (thisFactor == .0)
 		{
-			getLayerOut().setDefaultExpansion();
+			getLayerOut().setDefaultSettingsExpansion();
 		}
 		else
 		{
@@ -211,6 +211,18 @@ public abstract class Commander
 		getLayerOut().layout(getModel().theTree.getRoot());
 	}
 
+	/*
+	 * Reset expansion
+	 */
+	/*
+	private void resetExpansion()
+	{
+		getLayerOut().setDefaultExpansion();
+		getView().resetTransform();
+		getLayerOut().layout(getModel().theTree.getRoot());
+	}
+	*/
+
 	/**
 	 * Change sweep by given factor
 	 *
@@ -220,7 +232,7 @@ public abstract class Commander
 	{
 		if (thisFactor == .0)
 		{
-			getLayerOut().setDefaultChildSweep();
+			getLayerOut().setDefaultSettingsSweep();
 		}
 		else
 		{
@@ -232,6 +244,29 @@ public abstract class Commander
 			}
 			getLayerOut().setChildSweep(thisSweep);
 		}
+		getView().resetTransform();
+		getLayerOut().layout(getModel().theTree.getRoot());
+	}
+
+	/*
+	 * Reset sweep
+	 */
+	/*
+	private void resetSweep()
+	{
+		getLayerOut().setDefaultChildSweep();
+		getView().resetTransform();
+		getLayerOut().layout(getModel().theTree.getRoot());
+	}
+	*/
+	
+	/**
+	 * Reset expansion and sweep
+	 */
+	private void resetExpansionSweep()
+	{
+		getLayerOut().setDefaultExpansion();
+		getLayerOut().setDefaultChildSweep();
 		getView().resetTransform();
 		getLayerOut().layout(getModel().theTree.getRoot());
 	}
@@ -386,6 +421,17 @@ public abstract class Commander
 		getView().repaint();
 	}
 
+	/*
+	 * Perform reset expansion
+	 */
+	/*
+	private void doResetExpansion()
+	{
+		resetExpansion();
+		getView().repaint();
+	}
+	*/
+	
 	/**
 	 * Perform change sweep by given factor
 	 *
@@ -394,6 +440,26 @@ public abstract class Commander
 	private void doChangeSweep(final float thisFactor)
 	{
 		changeSweep(thisFactor);
+		getView().repaint();
+	}
+
+	/*
+	 * Perform reset sweep 
+	 */
+	/*
+	private void doResetSweep()
+	{
+		resetSweep();
+		getView().repaint();
+	}
+	*/
+	
+	/**
+	 * Perform reset expansion and sweep 
+	 */
+	private void doResetExpansionSweep()
+	{
+		resetExpansionSweep();
 		getView().repaint();
 	}
 
@@ -504,11 +570,11 @@ public abstract class Commander
 			case EXPAND:
 				doChangeExpansion(Commander.EXPANSIONFACTOR);
 				break;
-			case EXPANSIONRESET:
-				doChangeExpansion(0F);
-				break;
 			case SHRINK:
 				doChangeExpansion(1F / Commander.EXPANSIONFACTOR);
+				break;
+			case EXPANSIONRESET:
+				doChangeExpansion(0F);
 				break;
 			case WIDEN:
 				doChangeSweep(Commander.SWEEPFACTOR);
@@ -518,6 +584,9 @@ public abstract class Commander
 				break;
 			case SWEEPRESET:
 				doChangeSweep(0F);
+				break;
+			case EXPANSIONSWEEPRESET:
+				doResetExpansionSweep();
 				break;
 			case ARCEDGE:
 				doArcEdges();

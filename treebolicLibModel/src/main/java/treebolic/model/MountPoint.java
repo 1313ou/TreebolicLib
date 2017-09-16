@@ -19,7 +19,8 @@ public class MountPoint implements Serializable
 		/**
 		 * URL
 		 */
-		public final String theURL;
+		@SuppressWarnings("CanBeFinal")
+		public String theURL;
 
 		/**
 		 * Mount now (for editing only)

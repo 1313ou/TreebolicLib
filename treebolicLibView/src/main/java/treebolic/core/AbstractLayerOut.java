@@ -79,6 +79,16 @@ public abstract class AbstractLayerOut
 	protected double theNodeSweep;
 
 	/**
+	 * Expansion from settings
+	 */
+	protected Float theSettingsExpansion;
+
+	/**
+	 * Sweep from settings
+	 */
+	protected Float theSettingsSweep;
+
+	/**
 	 * Whether node space is allocated clockwise
 	 */
 	protected boolean clockwise;
@@ -117,6 +127,8 @@ public abstract class AbstractLayerOut
 
 	// A C C E S S
 
+	// ORIENTATION
+	
 	/**
 	 * Get layout orientation
 	 *
@@ -139,6 +151,19 @@ public abstract class AbstractLayerOut
 	}
 
 	/**
+	 * Set orientation to default
+	 *
+	 * @return true if default orientation is radial
+	 */
+	private boolean setDefaultOrientation()
+	{
+		setOrientation(AbstractLayerOut.theDefaultOrientation);
+		return AbstractLayerOut.theDefaultOrientation == Complex.ZERO;
+	}
+
+	// EXPANSION
+	
+	/**
 	 * Get expansion factor
 	 *
 	 * @return expansion factor
@@ -160,6 +185,39 @@ public abstract class AbstractLayerOut
 	}
 
 	/**
+	 * Set expansion to default
+	 */
+	public void setDefaultExpansion()
+	{
+		setExpansion(AbstractLayerOut.theDefaultExpansion);
+	}
+
+	/**
+	 * Set expansion to settings default
+	 */
+	public void setDefaultSettingsExpansion()
+	{
+		setDefaultSettingsExpansion(this.theSettingsExpansion);
+	}
+
+	/**
+	 * Set expansion to settings default
+	 * 
+	 * @param thisExpansion expansion
+	 */
+	private void setDefaultSettingsExpansion(final Float thisExpansion)
+	{
+		setDefaultExpansion();
+		if (thisExpansion != null && thisExpansion > 0.)
+		{
+			this.theSettingsExpansion = thisExpansion;
+			setExpansion(getExpansion() * thisExpansion);
+		}
+	}
+
+	// ROOT SWEEP
+	
+	/**
 	 * Set root sweep angle allocated to layout
 	 *
 	 * @return sweep angle allocated to layout
@@ -179,6 +237,18 @@ public abstract class AbstractLayerOut
 		this.theRootSweep = thisSweep;
 	}
 
+	/**
+	 * Set root sweep to default
+	 *
+	 * @param radial true if layout is radial
+	 */
+	public void setDefaultRootSweep(final boolean radial)
+	{
+		setRootSweep(radial ? AbstractLayerOut.theDefaultRadialRootSweep : AbstractLayerOut.theDefaultOrientedRootSweep);
+	}
+
+	// CHILD SWEEP
+	
 	/**
 	 * Get sweep angle allocated to children
 	 *
@@ -201,16 +271,6 @@ public abstract class AbstractLayerOut
 	}
 
 	/**
-	 * Set root sweep to default
-	 *
-	 * @param radial true if layout is radial
-	 */
-	public void setDefaultRootSweep(final boolean radial)
-	{
-		setRootSweep(radial ? AbstractLayerOut.theDefaultRadialRootSweep : AbstractLayerOut.theDefaultOrientedRootSweep);
-	}
-
-	/**
 	 * Set child sweep to default
 	 *
 	 * @param radial true if layout is radial
@@ -228,26 +288,33 @@ public abstract class AbstractLayerOut
 		setDefaultChildSweep(getOrientation() == Complex.ZERO);
 	}
 
+	// SWEEP
+
+	/**
+	 * Set expansion to settings default
+	 */
+	public void setDefaultSettingsSweep()
+	{
+		setDefaultSettingsSweep(getOrientation() == Complex.ZERO, this.theSettingsSweep);
+	}
+
+	/**
+	 * Set expansion to settings default
+	 * 
+	 * @param radial 	radial
+	 * @param thisSweep sweep
+	 */
+	private void setDefaultSettingsSweep(boolean radial, final Float thisSweep)
+	{
+		setDefaultRootSweep(radial);
+		setDefaultChildSweep(radial);
+		if (thisSweep != null && thisSweep > 0.)
+		{
+			setChildSweep(getChildSweep() * thisSweep);
+	}
+	}
+
 	// H E L P E R S
-
-	/**
-	 * Set orientation to default
-	 *
-	 * @return true if default orientation is radial
-	 */
-	private boolean setDefaultOrientation()
-	{
-		setOrientation(AbstractLayerOut.theDefaultOrientation);
-		return AbstractLayerOut.theDefaultOrientation == Complex.ZERO;
-	}
-
-	/**
-	 * Set expansion to default
-	 */
-	public void setDefaultExpansion()
-	{
-		setExpansion(AbstractLayerOut.theDefaultExpansion);
-	}
 
 	/**
 	 * Apply settings
@@ -288,18 +355,9 @@ public abstract class AbstractLayerOut
 		}
 
 		// expansion
-		setDefaultExpansion();
-		if (theseSettings.theExpansion != null && theseSettings.theExpansion > 0.)
-		{
-			setExpansion(getExpansion() * theseSettings.theExpansion);
-		}
+		setDefaultSettingsExpansion(theseSettings.theExpansion);
 
-		// sweeps
-		setDefaultRootSweep(radial);
-		setDefaultChildSweep(radial);
-		if (theseSettings.theSweep != null && theseSettings.theSweep > 0.)
-		{
-			setChildSweep(getChildSweep() * theseSettings.theSweep);
-		}
+		// sweep
+		setDefaultSettingsSweep(radial, theseSettings.theSweep);
 	}
 }

@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -41,7 +42,8 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 				Button.SCALEUP, Button.SCALEDOWN, Button.SCALEONE, //
 				Button.RADIAL, Button.SOUTH, Button.NORTH, Button.EAST, Button.WEST, //
 				Button.EXPAND, Button.SHRINK, Button.EXPANSIONRESET, //
-				Button.WIDEN, Button.NARROW, Button.SWEEPRESET //
+				Button.WIDEN, Button.NARROW, Button.SWEEPRESET, //
+				Button.EXPANSIONSWEEPRESET
 		};
 	}
 
@@ -53,6 +55,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		HOME, //
 		RADIAL, NORTH, SOUTH, EAST, WEST, //
 		EXPAND, SHRINK, EXPANSIONRESET, //
+		EXPANSIONSWEEPRESET, //
 		WIDEN, NARROW, SWEEPRESET, //
 		ZOOMIN, ZOOMOUT, ZOOMONE, //
 		SCALEUP, SCALEDOWN, SCALEONE //
@@ -69,7 +72,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	static private final int[] drawableIds = new int[]{R.drawable.toolbar_home, //
 			R.drawable.toolbar_radial, R.drawable.toolbar_north, R.drawable.toolbar_south, R.drawable.toolbar_east, R.drawable.toolbar_west, //
-			R.drawable.toolbar_expand, R.drawable.toolbar_shrink, R.drawable.toolbar_expand_reset,
+			R.drawable.toolbar_expand, R.drawable.toolbar_shrink, R.drawable.toolbar_expand_reset, R.drawable.toolbar_expand_widen_reset, //
 			R.drawable.toolbar_widen, R.drawable.toolbar_narrow, R.drawable.toolbar_widen_reset, //
 			R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone, //
 			R.drawable.toolbar_scaleup, R.drawable.toolbar_scaledown, R.drawable.toolbar_scaleone};
