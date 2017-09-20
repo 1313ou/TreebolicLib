@@ -2,6 +2,7 @@ package treebolic.glue.component;
 
 import android.content.Context;
 import android.graphics.PointF;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.GestureDetector;
