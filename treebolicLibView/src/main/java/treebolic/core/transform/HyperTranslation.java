@@ -158,6 +158,7 @@ public class HyperTranslation extends Complex
 	 *            point expressing translation relative to 0,0
 	 * @return this point with mapped values
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	static public Complex map2(final Complex z, final Complex p1, final Complex p2)
 	{
 		return HyperTranslation.map(HyperTranslation.map(z, p1), p2);
@@ -172,6 +173,7 @@ public class HyperTranslation extends Complex
 	 *            point expressing translation relative to 0,0
 	 * @return this point with mapped values (by inverse translation)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public Complex mapinv(final Complex z, final Complex p)
 	{
 		final Complex pinv = new Complex(p).neg();

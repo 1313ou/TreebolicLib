@@ -57,11 +57,13 @@ public class SplitPaneLayout extends ViewGroup
 	/**
 	 * Orientation horizontal values
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public static final int ORIENTATION_HORIZONTAL = 0;
 
 	/**
 	 * Orientation vertical value
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public static final int ORIENTATION_VERTICAL = 1;
 
 	/**
@@ -577,7 +579,7 @@ public class SplitPaneLayout extends ViewGroup
 	 *
 	 * @param splitterMovable whether the splitter is movable
 	 */
-	public void setSplitterMovable(final boolean splitterMovable)
+	public void setSplitterMovable(@SuppressWarnings("SameParameterValue") final boolean splitterMovable)
 	{
 		this.splitterMovable = splitterMovable;
 	}
@@ -617,6 +619,7 @@ public class SplitPaneLayout extends ViewGroup
 	 *
 	 * @return the position of the splitter
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public float getSplitterPositionPercent()
 	{
 		return this.splitterPositionPercent;

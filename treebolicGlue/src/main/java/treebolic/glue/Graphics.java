@@ -27,16 +27,19 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 {
 	public static final int PLAIN = 0;
 
+	@SuppressWarnings("WeakerAccess")
 	public static final int BOLD = 1;
 
 	/**
 	 * Font factor to convert pt (point) to pixel units used by Paint.setTextSize
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public float PT2PX = 160 * (1.0f / 72);
 
 	/**
 	 * Font factor may be changed by application depending on screen size
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public float fontFactor = 1F;
 
 	/**

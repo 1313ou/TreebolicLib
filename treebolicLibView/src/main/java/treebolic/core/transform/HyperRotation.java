@@ -68,6 +68,7 @@ public class HyperRotation extends Complex
 	 *            rotation angle
 	 * @return this point with rotated values
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public Complex map(final Complex z, final Complex thisAngle)
 	{
 		// z = (z*theta+p)/(1+(~p)*z)
@@ -128,6 +129,7 @@ public class HyperRotation extends Complex
 	 *
 	 * @return this rotation with reversed values
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	public HyperRotation inverse()
 	{
 		conj();

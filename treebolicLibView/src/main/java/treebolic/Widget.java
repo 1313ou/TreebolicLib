@@ -54,26 +54,31 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Debug inputs to model factory
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean DEBUG = false;
 
 	/**
 	 * Warn image download fails
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean WARNIMAGEFAILS = false;
 
 	/**
 	 * Loading data on separate thread
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean THREADED = true;
 
 	/**
 	 * Animate on start flag
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean ANIMATE_ON_START = true;
 
 	/**
 	 * Default provider
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final String DEFAULT_PROVIDER = "treebolic.provider.xml.dom.Provider";
 
 	// V E R S I O N
@@ -308,6 +313,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param thisSource source (anything the provider will make sense of)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected void initProcess(final String thisSource)
 	{
 		// further (possibly lengthy) loading is done on separate thread
@@ -351,6 +357,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param thisProvider data provider
 	 * @param thisSource   data source
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected void initModel(final IProvider thisProvider, final String thisSource)
 	{
 		if (Widget.DEBUG)
@@ -413,7 +420,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theLayerOut.layout(thisModel.theTree.getRoot());
 	}
 
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public void initDisplay()
 	{
 		if (this.theModel == null)

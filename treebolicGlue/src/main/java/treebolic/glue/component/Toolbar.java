@@ -35,6 +35,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 *
 	 * @return list of buttons
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public Button[] toolbar()
 	{
 		return new Button[]{Button.HOME, //
@@ -50,6 +51,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Buttons
 	 */
+	@SuppressWarnings("unused")
 	private enum ButtonImplementation
 	{
 		HOME, //
@@ -102,7 +104,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 * @param activity activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({"deprecation", "WeakerAccess"})
 	protected Toolbar(final AppCompatActivity activity)
 	{
 		super(activity);

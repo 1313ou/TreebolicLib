@@ -16,16 +16,19 @@ import java.util.Set;
  */
 public class Graph
 {
+	@SuppressWarnings("WeakerAccess")
 	static final boolean dfs = false;
 
 	/**
 	 * The set of nodes.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected final Set<GraphNode> theNodes;
 
 	/**
 	 * The set of edges
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected final Set<GraphEdge> theEdges;
 
 	/**
@@ -43,6 +46,7 @@ public class Graph
 	 *
 	 * @return the nodes of the graph.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphNode> getNodes()
 	{
 		return Collections.unmodifiableCollection(this.theNodes);
@@ -67,6 +71,7 @@ public class Graph
 	 *        node.
 	 * @return set of adjacent tree edges.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphEdge> getTreeEdges(final GraphNode thisNode)
 	{
 		final Set<GraphEdge> theseEdges = new HashSet<>();
@@ -93,6 +98,7 @@ public class Graph
 	 *        node.
 	 * @return set of adjacent tree edges.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphEdge> getNonTreeEdges(final GraphNode thisNode)
 	{
 		final Set<GraphEdge> theseEdges = new HashSet<>();
@@ -118,6 +124,7 @@ public class Graph
 	 *        node.
 	 * @return set of adjacent edges.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphEdge> getEdges(final GraphNode thisNode)
 	{
 		final Set<GraphEdge> theseEdges = new HashSet<>();

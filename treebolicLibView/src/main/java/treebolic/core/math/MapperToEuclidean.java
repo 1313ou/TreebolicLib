@@ -14,6 +14,7 @@ import treebolic.model.Location;
  */
 public class MapperToEuclidean
 {
+	@SuppressWarnings("WeakerAccess")
 	public static final boolean adjustCircle = true;
 
 	/**
@@ -32,6 +33,7 @@ public class MapperToEuclidean
 	 * @param thisHyperCircle     hypercircle
 	 * @param thisEuclideanCircle euclidean circle
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public void mapToEuclidean(final HyperCircle thisHyperCircle, final EuclideanCircle thisEuclideanCircle)
 	{
 		// euclidean radius, assuming center is at origin

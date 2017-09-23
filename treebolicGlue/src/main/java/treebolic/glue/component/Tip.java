@@ -24,7 +24,7 @@ public class Tip extends AppCompatDialogFragment
 	/**
 	 * Text name (used when saving instance)
 	 */
-	static final String STATE_TEXT = "org.treebolic.tip";
+	private static final String STATE_TEXT = "org.treebolic.tip";
 
 	/**
 	 * Text
@@ -114,7 +114,7 @@ public class Tip extends AppCompatDialogFragment
 	 * @param text
 	 *            text to display
 	 */
-	static public void tip(final AppCompatActivity activity, final String text)
+	static public void tip(@SuppressWarnings("UnusedParameters") final AppCompatActivity activity, @SuppressWarnings("UnusedParameters") final String text)
 	{
 		// Tip tip = new Tip();
 		// tip.setText(text);

@@ -145,6 +145,7 @@ public class Complex implements Serializable
 	 * @param y imaginary part
 	 * @return original complex object, whose value has been set to x,z
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	public Complex set(final double x, final double y)
 	{
 		this.re = x;
@@ -157,6 +158,7 @@ public class Complex implements Serializable
 	 *
 	 * @return original complex object, whose value has been set to 0
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	public Complex reset()
 	{
 		this.re = .0;
@@ -199,6 +201,7 @@ public class Complex implements Serializable
 	 * @param z2 complex
 	 * @return this complex, whose value has been set to z1+z2 and whose original value is not used
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Complex add(final Complex z1, final Complex z2)
 	{
 		this.re = z1.re + z2.re;
@@ -361,6 +364,7 @@ public class Complex implements Serializable
 	 * @param b complex
 	 * @return this complex as the result of a.b and whose original value not used
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Complex mul(final Complex a, final Complex b)
 	{
 		this.re = a.re * b.re - a.im * b.im;

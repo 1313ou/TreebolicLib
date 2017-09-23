@@ -31,7 +31,7 @@ public class Utils
 		return colors;
 	}
 
-	static public Integer[] fetchColorsNullable(final Context context, int... attrs)
+	static public Integer[] fetchColorsNullable(final Context context, @SuppressWarnings("SameParameterValue") int... attrs)
 	{
 		final TypedValue typedValue = new TypedValue();
 		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
@@ -60,7 +60,7 @@ public class Utils
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 
-	static public int getColor(final Context context, int resId)
+	static public int getColor(final Context context, @SuppressWarnings("SameParameterValue") int resId)
 	{
 		final Resources resources = context.getResources();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)

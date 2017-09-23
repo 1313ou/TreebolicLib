@@ -29,17 +29,17 @@ import treebolic.glue.iface.ActionListener;
  */
 public class WebDialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.WebDialog
 {
-	static final String TAG = "WebDialog";
+	private static final String TAG = "WebDialog";
 
 	/**
 	 * Save key for header
 	 */
-	static final String STATE_HEADER = "org.treebolic.web.header";
+	private static final String STATE_HEADER = "org.treebolic.web.header";
 
 	/**
 	 * Save key for content
 	 */
-	static final String STATE_CONTENT = "org.treebolic.web.content";
+	private static final String STATE_CONTENT = "org.treebolic.web.content";
 
 	/**
 	 * Base URL for webview

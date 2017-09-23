@@ -55,7 +55,7 @@ public class Converter<T extends TreeMutableNode>
 	 *        root node
 	 * @return tree
 	 */
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({"unchecked", "WeakerAccess"})
 	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph, final GraphNode thisRootNode)
 	{
 		// spanning tree

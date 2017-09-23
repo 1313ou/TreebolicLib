@@ -29,31 +29,37 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	/**
 	 * Drawables
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static final Drawable[] drawables = new Drawable[ImageIndices.COUNT.ordinal()];
 
 	/**
 	 * Labels
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String[] labels = null; //{  "Cancel", "Info", "Focus", "Link", "Mount", "UnMount", "Goto", "Search" };
 
 	/**
 	 * Context
 	 */
+	@SuppressWarnings("WeakerAccess")
 	final Context context;
 
 	/**
 	 * Anchor view
 	 */
+	@SuppressWarnings("WeakerAccess")
 	final View anchor;
 
 	/**
 	 * Quick action component
 	 */
+	@SuppressWarnings("WeakerAccess")
 	final QuickAction quickAction;
 
 	/**
 	 * Constructor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected PopupMenu(final Context context0, final View anchor0)
 	{
 		this.context = context0;

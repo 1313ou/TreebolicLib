@@ -10,6 +10,7 @@ import treebolic.glue.Point2D;
  */
 public class ArcMath
 {
+	@SuppressWarnings("WeakerAccess")
 	static final double TWICEPI = 2. * Math.PI;
 
 	static double HALFPI = .5 * Math.PI;

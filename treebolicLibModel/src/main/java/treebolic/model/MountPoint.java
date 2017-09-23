@@ -98,7 +98,7 @@ public class MountPoint implements Serializable
 	 * @param down      allow mounting -> mounted
 	 * @return target node (or source if no mounting)
 	 */
-	public static INode follow(final INode thisINode, boolean up, boolean down)
+	public static INode follow(final INode thisINode, @SuppressWarnings("SameParameterValue") boolean up, @SuppressWarnings("SameParameterValue") boolean down)
 	{
 		MountPoint thisMountPoint = thisINode.getMountPoint();
 

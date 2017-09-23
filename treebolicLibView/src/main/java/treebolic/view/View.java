@@ -320,7 +320,7 @@ public class View extends Surface
 	 *
 	 * @param thisFlag whether transformations preserve orientation (null toggles value)
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public void setPreserveOrientation(final Boolean thisFlag)
 	{
 		this.theTransformer.setPreserveOrientation(thisFlag != null ? thisFlag : !this.theTransformer.getPreserveOrientation());
@@ -388,7 +388,7 @@ public class View extends Surface
 	 * @param thisFlag whether edges are rendered as arcs (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
-	public void setArcEdges(final Boolean thisFlag)
+	public void setArcEdges(@SuppressWarnings("SameParameterValue") final Boolean thisFlag)
 	{
 		this.thePainter.setArcEdges(thisFlag != null ? thisFlag : !this.thePainter.getArcEdges());
 	}
@@ -411,7 +411,7 @@ public class View extends Surface
 	 *
 	 * @param thisFlag whether view has popup menu (null toggles value)
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public void setPopUpMenu(final Boolean thisFlag)
 	{
 		this.theListener.hasPopUp = thisFlag != null ? thisFlag : !this.theListener.hasPopUp;
@@ -487,6 +487,7 @@ public class View extends Surface
 	 *
 	 * @param thisTransform transform to compose with current transform
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void applyComposedTransform(final HyperTransform thisTransform)
 	{
 		this.theTransformer.composeTransform(thisTransform);
@@ -599,7 +600,7 @@ public class View extends Surface
 	 * @param thisNode node
 	 * @param now      whether to start now
 	 */
-	public void animateToCenter(final INode thisNode, final boolean now)
+	public void animateToCenter(final INode thisNode, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		final Complex thisFrom = thisLocation.hyper.center;
@@ -614,7 +615,7 @@ public class View extends Surface
 	 * @param thisDestination unit circle destination location
 	 * @param now             whether to start now
 	 */
-	public void animateTo(final INode thisNode, final Complex thisDestination, final boolean now)
+	public void animateTo(final INode thisNode, final Complex thisDestination, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		final Complex thisFrom = thisLocation.hyper.center;

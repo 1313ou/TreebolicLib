@@ -5,6 +5,7 @@ package treebolic.core.math;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class XMath
 {
 	// H Y P E R B O L I C . T R I G O N O M E T R Y

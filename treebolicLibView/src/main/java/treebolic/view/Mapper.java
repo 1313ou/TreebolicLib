@@ -15,43 +15,52 @@ public class Mapper
 	/**
 	 * Size of graphics context
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theWidth;
 
+	@SuppressWarnings("WeakerAccess")
 	protected int theHeight;
 
 	/**
 	 * Map scale factor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theMapScaleFactor = 1;
 
 	/**
 	 * Scale x factor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theScaleX = 1F;
 
 	/**
 	 * Scale y factor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theScaleY = 1F;
 
 	/**
 	 * X shift
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theXShift = 0F;
 
 	/**
 	 * Y shift
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theYShift = 0F;
 
 	/**
 	 * Top coordinate
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theTop;
 
 	/**
 	 * Left coordinate
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theLeft;
 
 	// S I Z E
@@ -121,6 +130,7 @@ public class Mapper
 	/**
 	 * Compute scale from view size
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected void computeScale()
 	{
 		this.theScaleX = (0.5F + (this.theXShift > 0. ? this.theXShift : -this.theXShift)) * this.theWidth;
@@ -135,6 +145,7 @@ public class Mapper
 	 * @param x unit circle x-coordinate
 	 * @return view x-coordinate
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int xUnitCircleToView(final double x)
 	{
 		return (int) (this.theScaleX * this.theMapScaleFactor * x + this.theXShift * this.theWidth);
@@ -146,6 +157,7 @@ public class Mapper
 	 * @param y unit circle y-coordinate
 	 * @return view y-coordinate
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int yUnitCircleToView(final double y)
 	{
 		return (int) (this.theScaleY * this.theMapScaleFactor * y + this.theYShift * this.theWidth);
@@ -157,6 +169,7 @@ public class Mapper
 	 * @param cx unit circle x-extent
 	 * @return view x-extent
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int wUnitCircleToView(final double cx)
 	{
 		return (int) (this.theScaleX * this.theMapScaleFactor * cx);
@@ -168,6 +181,7 @@ public class Mapper
 	 * @param cy unit circle y-extent
 	 * @return view y-extent
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int hUnitCircleToView(final double cy)
 	{
 		return (int) (this.theScaleY * this.theMapScaleFactor * cy);
@@ -181,6 +195,7 @@ public class Mapper
 	 * @param vx view x-coordinate
 	 * @return unit circle x-coordinate
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double xViewToUnitCircle(final double vx)
 	{
 		return (vx - this.theXShift * this.theWidth) / (this.theScaleX * this.theMapScaleFactor);
@@ -192,6 +207,7 @@ public class Mapper
 	 * @param vy view y-coordinate
 	 * @return unit circle y-coordinate
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double yViewToUnitCircle(final double vy)
 	{
 		return (vy - this.theYShift * this.theHeight) / (this.theScaleY * this.theMapScaleFactor);

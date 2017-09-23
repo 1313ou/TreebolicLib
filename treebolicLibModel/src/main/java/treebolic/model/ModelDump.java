@@ -28,6 +28,7 @@ public class ModelDump
 	 * @param thisTree tree
 	 * @return string for tree
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final Tree thisTree)
 	{
 		return "NODES\n" + ModelDump.toString(thisTree.getRoot(), 0) + "EDGES\n" + ModelDump.toString(thisTree.getEdges());
@@ -40,6 +41,7 @@ public class ModelDump
 	 * @param thisLevel level
 	 * @return string for node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final INode thisNode, final int thisLevel)
 	{
 		final StringBuilder thisBuffer = new StringBuilder();
@@ -101,6 +103,7 @@ public class ModelDump
 	 * @param thisEdgeList edge list
 	 * @return string for edge list
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final List<IEdge> thisEdgeList)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
@@ -121,6 +124,7 @@ public class ModelDump
 	 * @param theseImages images
 	 * @return string for images
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final Image[] theseImages)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
@@ -146,6 +150,7 @@ public class ModelDump
 	 * @param theseSettings settings
 	 * @return string for settings
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final Settings theseSettings)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
@@ -215,6 +220,7 @@ public class ModelDump
 	 * @param thisStyle style
 	 * @return string for style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final Integer thisStyle)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();

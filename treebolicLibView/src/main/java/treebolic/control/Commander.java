@@ -68,23 +68,25 @@ public abstract class Commander
 	/**
 	 * Whether it has tooltip
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static protected boolean hasTooltip = true;
 
 	/**
 	 * Whether tooltips display contents
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static protected boolean tooltipDisplaysContent = true;
 
 	/**
 	 * Whether tooltips are html
 	 */
-	@SuppressWarnings("CanBeFinal")
+	@SuppressWarnings({"CanBeFinal", "WeakerAccess"})
 	static public boolean TOOLTIPHTML = true;
 
 	/**
 	 * Tooltip break
 	 */
-	@SuppressWarnings("CanBeFinal")
+	@SuppressWarnings({"CanBeFinal", "WeakerAccess"})
 	static public int TOOLTIPLINESPAN = 50;
 
 	// A C C E S S
@@ -276,7 +278,7 @@ public abstract class Commander
 	 *
 	 * @param thisFlag whether to display tooltip (null toggles value)
 	 */
-	@SuppressWarnings({"boxing", "static-method"})
+	@SuppressWarnings({"boxing", "static-method", "WeakerAccess"})
 	public void setHasTooltip(final Boolean thisFlag)
 	{
 		Commander.hasTooltip = thisFlag != null ? thisFlag : !Commander.hasTooltip;
@@ -287,7 +289,7 @@ public abstract class Commander
 	 *
 	 * @param thisFlag whether tooltip displays content (null toggles value)
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	static public void setTooltipDisplaysContent(final Boolean thisFlag)
 	{
 		Commander.tooltipDisplaysContent = thisFlag != null ? thisFlag : !Commander.tooltipDisplaysContent;
@@ -524,7 +526,7 @@ public abstract class Commander
 	 * @param thisCommand     command
 	 * @param theseParameters theseParameters
 	 */
-	public void execute(final Command thisCommand, final Object... theseParameters)
+	public void execute(final Command thisCommand, @SuppressWarnings("UnusedParameters") final Object... theseParameters)
 	{
 		switch (thisCommand)
 		{

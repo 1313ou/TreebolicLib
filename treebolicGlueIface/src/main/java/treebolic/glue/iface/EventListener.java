@@ -107,7 +107,7 @@ public interface EventListener
 	 * @param zx zoom pivot x
 	 * @param zy zoom pivot y
 	 */
-	void onZoom(float zf, float zx, float zy);
+	void onZoom(float zf, @SuppressWarnings("SameParameterValue") float zx, @SuppressWarnings("SameParameterValue") float zy);
 
 	/**
 	 * Scale event callback

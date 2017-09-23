@@ -42,7 +42,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Base URL for webview
 	 */
-	static String base = "file:///android_asset/";
+	private static String base = "file:///android_asset/";
 
 	/**
 	 * Drawables

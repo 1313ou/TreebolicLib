@@ -20,26 +20,31 @@ class EdgeData implements Serializable
 	/**
 	 * Label
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theLabel;
 
 	/**
 	 * Edge color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theColor;
 
 	/**
 	 * Edge style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Integer theStyle;
 
 	/**
 	 * Edge image filename
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theImageFile;
 
 	/**
 	 * Edge image filename
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theImageIndex;
 
 	/**
@@ -93,6 +98,7 @@ class XEdgeData extends EdgeData
 	/**
 	 * Edge image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Image theImage;
 
 	public Image getImage()
@@ -123,11 +129,13 @@ public class Edge extends XEdgeData implements IEdge
 	/**
 	 * From-node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected INode theFromNode;
 
 	/**
 	 * To-node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected INode theToNode;
 
 	/**
@@ -136,6 +144,7 @@ public class Edge extends XEdgeData implements IEdge
 	 * @param thisFromINode from node
 	 * @param thisToINode   to node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Edge(final INode thisFromINode, final INode thisToINode)
 	{
 		super();

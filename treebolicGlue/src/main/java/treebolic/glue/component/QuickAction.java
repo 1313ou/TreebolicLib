@@ -67,7 +67,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		 * @param listener0
 		 *            listener
 		 */
-		public ActionItem(final String title0, final Drawable icon0, final boolean sticky0, final ActionListener listener0)
+		public ActionItem(final String title0, final Drawable icon0, @SuppressWarnings("SameParameterValue") final boolean sticky0, final ActionListener listener0)
 		{
 			this.title = title0;
 			this.icon = icon0;
@@ -76,13 +76,19 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		}
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public static final int HORIZONTAL = 0;
 	public static final int VERTICAL = 1;
 
+	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_GROW_FROM_LEFT = 1;
+	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_GROW_FROM_RIGHT = 2;
+	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_GROW_FROM_CENTER = 3;
+	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_REFLECT = 4;
+	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_AUTO = 5;
 
 	/**
@@ -187,6 +193,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 *            index of item (position from callback)
 	 * @return action item at the position
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public ActionItem getActionItem(final int index)
 	{
 		return this.actionItems.get(index);
@@ -198,6 +205,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 * @param id
 	 *            Layout resource id
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setRootViewId(final int id)
 	{
 		this.view = this.inflater.inflate(id, null);

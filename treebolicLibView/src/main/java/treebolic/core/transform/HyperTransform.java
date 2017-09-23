@@ -129,6 +129,7 @@ public class HyperTransform implements IHyperTransform
 	 *            source transform
 	 * @return this transform with value set to t
 	 */
+	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 	public HyperTransform set(final HyperTransform t)
 	{
 		this.theXlat.set(t.theXlat);
@@ -242,6 +243,7 @@ public class HyperTransform implements IHyperTransform
 	 *            translation
 	 * @return composition of t1 and t2
 	 */
+	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 	public HyperTransform composeXlats(final HyperTranslation t1, final HyperTranslation t2)
 	{
 		set(HyperTranslation.compose(t1, t2));

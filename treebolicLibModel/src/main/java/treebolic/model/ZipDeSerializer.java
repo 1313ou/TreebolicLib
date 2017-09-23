@@ -11,6 +11,7 @@ import java.util.zip.ZipFile;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class ZipDeSerializer
 {
 	/**
@@ -22,7 +23,7 @@ public class ZipDeSerializer
 	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
-	static public Object deserializeZip(final String thisArchive, final String thisName) throws IOException, ClassNotFoundException
+	static public Object deserializeZip(final String thisArchive, @SuppressWarnings("SameParameterValue") final String thisName) throws IOException, ClassNotFoundException
 	{
 		ZipFile thisZipFile = null;
 		InputStream thisInputStream = null;

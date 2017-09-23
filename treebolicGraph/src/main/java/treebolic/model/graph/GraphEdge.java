@@ -106,6 +106,7 @@ public class GraphEdge
 	 * @param thisUserData
 	 *        user data
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setUserData(final Object thisUserData)
 	{
 		this.theUserData = thisUserData;

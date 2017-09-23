@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
  * @param <T> type of objects
  * @author Herrmann
  */
+@SuppressWarnings("WeakerAccess")
 public abstract class Generator<T> implements Iterable<T>
 {
 	/**
@@ -43,8 +44,10 @@ public abstract class Generator<T> implements Iterable<T>
 		}
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	static ThreadGroup THREAD_GROUP;
 
+	@SuppressWarnings("WeakerAccess")
 	Thread producer;
 
 	private boolean hasFinished;
@@ -142,6 +145,7 @@ public abstract class Generator<T> implements Iterable<T>
 	 * @param element element
 	 * @throws InterruptedException interrupted exception
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected void yield(T element) throws InterruptedException
 	{
 		this.nextItem = element;

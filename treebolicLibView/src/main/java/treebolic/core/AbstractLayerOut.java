@@ -19,78 +19,90 @@ public abstract class AbstractLayerOut
 	/**
 	 * Default orientation
 	 */
-	static protected final Complex theDefaultOrientation = Complex.ZERO;
+	@SuppressWarnings("WeakerAccess")
+	static protected final Complex DEFAULT_ORIENTATION = Complex.ZERO;
 
 	/**
 	 * Default expansion
 	 */
-	static protected final double theDefaultExpansion = .3;
+	@SuppressWarnings("WeakerAccess")
+	static protected final double DEFAULT_EXPANSION = .3;
 
 	/**
 	 * Default root radial sweep
 	 */
-	static protected final double theDefaultRadialRootSweep = Math.PI;
+	@SuppressWarnings("WeakerAccess")
+	static protected final double DEFAULT_RADIAL_ROOT_SWEEP = Math.PI;
 
 	/**
 	 * Default oriented (non-radial) root sweep
 	 */
-	static private final double theDefaultOrientedRootSweep = Math.PI / 2.;
+	static private final double DEFAULT_ORIENTED_ROOT_SWEEP = Math.PI / 2.;
 
 	/**
 	 * Default radial child sweep
 	 */
-	static private final double theDefaultRadialChildSweep = Math.PI / 2.;
+	static private final double DEFAULT_RADIAL_CHILD_SWEEP = Math.PI / 2.;
 
 	/**
 	 * Default oriented (non-radial) child sweep
 	 */
-	static private final double theDefaultOrientedChildSweep = Math.PI / 2.;
+	static private final double DEFAULT_ORIENTED_CHILD_SWEEP = Math.PI / 2.;
 
 	// settings
 
 	/**
 	 * Root orientation
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Complex theRootOrientation;
 
 	/**
 	 * Root sweep
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double theRootSweep;
 
 	/**
 	 * Node distance
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double theNodeDistance;
 
 	/**
 	 * Sweep factor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double theSweepFactor;
 
 	/**
 	 * Radius
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double theRadius;
 
 	/**
 	 * Node sweep
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected double theNodeSweep;
 
 	/**
 	 * Expansion from settings
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Float theSettingsExpansion;
 
 	/**
 	 * Sweep from settings
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Float theSettingsSweep;
 
 	/**
 	 * Whether node space is allocated clockwise
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean clockwise;
 
 	// C O N S T R U C T O R
@@ -128,7 +140,7 @@ public abstract class AbstractLayerOut
 	// A C C E S S
 
 	// ORIENTATION
-	
+
 	/**
 	 * Get layout orientation
 	 *
@@ -157,12 +169,12 @@ public abstract class AbstractLayerOut
 	 */
 	private boolean setDefaultOrientation()
 	{
-		setOrientation(AbstractLayerOut.theDefaultOrientation);
-		return AbstractLayerOut.theDefaultOrientation == Complex.ZERO;
+		setOrientation(AbstractLayerOut.DEFAULT_ORIENTATION);
+		return AbstractLayerOut.DEFAULT_ORIENTATION == Complex.ZERO;
 	}
 
 	// EXPANSION
-	
+
 	/**
 	 * Get expansion factor
 	 *
@@ -189,11 +201,11 @@ public abstract class AbstractLayerOut
 	 */
 	public void setDefaultExpansion()
 	{
-		setExpansion(AbstractLayerOut.theDefaultExpansion);
+		setExpansion(AbstractLayerOut.DEFAULT_EXPANSION);
 	}
 
 	/**
-	 * Set expansion to settings default
+	 * Set expansion to settings default (called to set to value applied in settings)
 	 */
 	public void setDefaultSettingsExpansion()
 	{
@@ -201,8 +213,8 @@ public abstract class AbstractLayerOut
 	}
 
 	/**
-	 * Set expansion to settings default
-	 * 
+	 * Set settings default expansion factor to parameter factor and apply it (used by apply)
+	 *
 	 * @param thisExpansion expansion
 	 */
 	private void setDefaultSettingsExpansion(final Float thisExpansion)
@@ -210,13 +222,13 @@ public abstract class AbstractLayerOut
 		setDefaultExpansion();
 		if (thisExpansion != null && thisExpansion > 0.)
 		{
-			this.theSettingsExpansion = thisExpansion;
+			this.theSettingsExpansion = thisExpansion; // store value of factor
 			setExpansion(getExpansion() * thisExpansion);
 		}
 	}
 
 	// ROOT SWEEP
-	
+
 	/**
 	 * Set root sweep angle allocated to layout
 	 *
@@ -232,6 +244,7 @@ public abstract class AbstractLayerOut
 	 *
 	 * @param thisSweep sweep angle allocated to layout
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setRootSweep(final double thisSweep)
 	{
 		this.theRootSweep = thisSweep;
@@ -244,11 +257,11 @@ public abstract class AbstractLayerOut
 	 */
 	public void setDefaultRootSweep(final boolean radial)
 	{
-		setRootSweep(radial ? AbstractLayerOut.theDefaultRadialRootSweep : AbstractLayerOut.theDefaultOrientedRootSweep);
+		setRootSweep(radial ? AbstractLayerOut.DEFAULT_RADIAL_ROOT_SWEEP : AbstractLayerOut.DEFAULT_ORIENTED_ROOT_SWEEP);
 	}
 
 	// CHILD SWEEP
-	
+
 	/**
 	 * Get sweep angle allocated to children
 	 *
@@ -277,7 +290,7 @@ public abstract class AbstractLayerOut
 	 */
 	public void setDefaultChildSweep(final boolean radial)
 	{
-		setChildSweep(radial ? AbstractLayerOut.theDefaultRadialChildSweep : AbstractLayerOut.theDefaultOrientedChildSweep);
+		setChildSweep(radial ? AbstractLayerOut.DEFAULT_RADIAL_CHILD_SWEEP : AbstractLayerOut.DEFAULT_ORIENTED_CHILD_SWEEP);
 	}
 
 	/**
@@ -291,7 +304,7 @@ public abstract class AbstractLayerOut
 	// SWEEP
 
 	/**
-	 * Set expansion to settings default
+	 * Set sweep to settings default
 	 */
 	public void setDefaultSettingsSweep()
 	{
@@ -299,9 +312,9 @@ public abstract class AbstractLayerOut
 	}
 
 	/**
-	 * Set expansion to settings default
-	 * 
-	 * @param radial 	radial
+	 * Set settings default sweep factor to parameter factor and apply it (used by apply)
+	 *
+	 * @param radial    radial
 	 * @param thisSweep sweep
 	 */
 	private void setDefaultSettingsSweep(boolean radial, final Float thisSweep)
@@ -310,8 +323,9 @@ public abstract class AbstractLayerOut
 		setDefaultChildSweep(radial);
 		if (thisSweep != null && thisSweep > 0.)
 		{
+			this.theSettingsSweep = thisSweep;
 			setChildSweep(getChildSweep() * thisSweep);
-	}
+		}
 	}
 
 	// H E L P E R S

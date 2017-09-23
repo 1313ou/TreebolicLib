@@ -56,21 +56,25 @@ public class Controller extends Commander
 	/**
 	 * Label flag
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean LABEL_HAS_TAGS = true;
 
 	/**
 	 * Link status flag (use for debug purposes)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean CONTENT_HAS_LINK = false;
 
 	/**
 	 * Mount status flag (use for debug purposes)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean CONTENT_HAS_MOUNT = false;
 
 	/**
 	 * Verbose status flag (use for debug purposes)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean CONTENT_VERBOSE = false; // weight...
 
 	// action
@@ -702,6 +706,7 @@ public class Controller extends Commander
 
 	// P O P U P
 
+	@SuppressWarnings("WeakerAccess")
 	public void popup(final int x, final int y, final INode thisNode)
 	{
 		final PopupMenu thisMenu = PopupMenu.makePopup(getView(), this, this.theWidget.getTarget(), thisNode, this.theModel.theSettings);
@@ -897,6 +902,7 @@ public class Controller extends Commander
 	 *
 	 * @param thisNode node to get focus
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void focus(final INode thisNode)
 	{
 		if (thisNode != null)

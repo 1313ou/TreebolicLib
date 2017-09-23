@@ -11,6 +11,7 @@ import java.util.zip.ZipOutputStream;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class ZipSerializer
 {
 	/**
@@ -21,7 +22,7 @@ public class ZipSerializer
 	 * @param thisObject  object to serialize
 	 * @throws IOException io exception
 	 */
-	static public void serializeZip(final String thisArchive, final String thisName, final Object thisObject) throws IOException
+	static public void serializeZip(final String thisArchive, @SuppressWarnings("SameParameterValue") final String thisName, final Object thisObject) throws IOException
 	{
 		final ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(thisArchive, false));
 		final ZipEntry ze = new ZipEntry(thisName);

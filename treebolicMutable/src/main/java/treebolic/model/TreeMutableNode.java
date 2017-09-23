@@ -70,6 +70,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param theseChildren children
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setChildren(final List<INode> theseChildren)
 	{
 		this.theChildren = theseChildren;

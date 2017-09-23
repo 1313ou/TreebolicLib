@@ -28,73 +28,89 @@ public class Painter extends AbstractPainter
 	/**
 	 * Debug flag, bit1=draw circles, bit2=no node label, bit3=no label 0x02 = no node label 0x04 = no label 0x10 = no node fill
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int DEBUG_OUTERCIRCLE = 0x001;
 
+	@SuppressWarnings("WeakerAccess")
 	static public final int DEBUG_NODECIRCLE = 0x002;
 
+	@SuppressWarnings("WeakerAccess")
 	static public final int DEBUG_NONODE = 0x010;
 
+	@SuppressWarnings("WeakerAccess")
 	static public final int DEBUG_NOLABEL = 0x100;
 
+	@SuppressWarnings("WeakerAccess")
 	static public final int DEBUG_NOLABELFILL = 0x200;
 
+	@SuppressWarnings("WeakerAccess")
 	static public final int DEBUG_NOIMAGE = 0x400;
 
-	@SuppressWarnings("CanBeFinal")
+	@SuppressWarnings({"CanBeFinal", "WeakerAccess"})
 	static public int DEBUG = 0; // DEBUG_NOIMAGE // DEBUG_NOLABEL | DEBUG_NOLABELFILL;
 
 	/**
 	 * Do not draw curves while moving
 	 */
-	@SuppressWarnings("CanBeFinal")
+	@SuppressWarnings({"CanBeFinal", "WeakerAccess"})
 	static public boolean STRAIGHT_EDGE_WHILE_MOVING = false;
 
 	/**
 	 * Text padding
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int TEXT_PADDING = 25;
 
 	/**
 	 * Minimum span for terminators (squared)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int TERMINATOR_MIN_SPAN2 = 50 * 50;
 
 	/**
 	 * Edge terminator length
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final double TERMINATOR_HEIGHT = 8;
 
 	/**
 	 * Edge terminator width
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final double TERMINATOR_WIDTH = 5;
 
 	/**
 	 * Fraction of label's first line that is allowed to be overlaid by image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final float NODE_LABEL_OVERLAY = 0.2F;
 
 	/**
 	 * Min image dimension
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int MIN_IMAGE_DIMENSION = 5;
 
 	// insets
 	/**
 	 * x padding for node box
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int NODE_HORIZONTAL_PADDING = 4;
 
 	/**
 	 * y padding for node box
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int NODE_TOP_PADDING = 1;
 
+	@SuppressWarnings("WeakerAccess")
 	static public final int NODE_BOTTOM_PADDING = 1;
 
 	/**
 	 * Crop edges where they meet vertex shape
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean CROP_EDGES = true;
 
 	// B A C K G R O U N D
@@ -930,7 +946,7 @@ public class Painter extends AbstractPainter
 	 * @param thisFromAnchor from-anchor
 	 * @param thisToAnchor   to-anchor
 	 */
-	private void drawArc(final Arc2D thisArc2D, final Point2D thisFromAnchor, final Point2D thisToAnchor, final int thisStyle)
+	private void drawArc(final Arc2D thisArc2D, @SuppressWarnings("UnusedParameters") final Point2D thisFromAnchor, @SuppressWarnings("UnusedParameters") final Point2D thisToAnchor, final int thisStyle)
 	{
 		final int x = (int) thisArc2D.x;
 		final int y = (int) thisArc2D.y;

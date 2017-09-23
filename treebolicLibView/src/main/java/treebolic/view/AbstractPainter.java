@@ -22,6 +22,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Font default size in pt
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int FONT_DEFAULT_SIZE = 20;
 
 	/**
@@ -80,6 +81,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Cached graphics context
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Graphics theGraphics;
 
 	// state
@@ -87,12 +89,14 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Whether a dragging operation is pending
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean isDragging = false;
 
 	// arcs
 	/**
 	 * Whether to render edges as arc edges
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean arcEdges = true;
 
 	// label
@@ -100,21 +104,25 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Border
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean border = false;
 
 	/**
 	 * Ellipsize labels
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean ellipsize = false;
 
 	/**
 	 * Label max lines
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theLabelMaxLines = 0;
 
 	/**
 	 * Label extra line (excluding first) factor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theLabelExtraLineFactor = .6F;
 
 	// scaling
@@ -122,16 +130,19 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Zoom
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theZoomFactor;
 
 	/**
 	 * Zoom pivot X
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theZoomPivotX;
 
 	/**
 	 * Zoom pivot Y
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theZoomPivotY;
 
 	// scaling
@@ -139,31 +150,37 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Image scaling
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theImageScaleFactor;
 
 	/**
 	 * Downscale images
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean downscaleImages = true;
 
 	/**
 	 * Image down scaler
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theImageDownscaler[];
 
 	/**
 	 * Font scaling
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theFontScaleFactor;
 
 	/**
 	 * Downscale fonts
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected boolean downscaleFonts = true;
 
 	/**
 	 * Font down scaler
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected float theFontDownscaler[];
 
 	// fonts
@@ -171,16 +188,19 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Base font
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theFontFace;
 
 	protected int theFontStyle;
 
+	@SuppressWarnings("WeakerAccess")
 	protected int theFontSize;
 
 	// colors
 	/**
 	 * Default background color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theBackColor;
 
 	/**
@@ -191,53 +211,63 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Default node background color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theNodeBackColor;
 
 	/**
 	 * Default node foreground color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theNodeForeColor;
 
 	/**
 	 * Default tree edge color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theTreeEdgeColor;
 
 	/**
 	 * Default edge color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theEdgeColor;
 
 	// styles
 	/**
 	 * Default tree edge style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theTreeEdgeStyle;
 
 	/**
 	 * Default edge style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theEdgeStyle;
 
 	// images
 	/**
 	 * Default node image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Image theDefaultNodeImage;
 
 	/**
 	 * Default tree edge image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Image theDefaultTreeEdgeImage;
 
 	/**
 	 * Default edge image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Image theDefaultEdgeImage;
 
 	/**
 	 * Background (tiled) image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Image theBackgroundImage;
 
 	// C O N S T R U C T O R

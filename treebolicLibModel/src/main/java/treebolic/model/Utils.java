@@ -18,6 +18,7 @@ public class Utils
 {
 	// S T Y L E
 
+	@SuppressWarnings("WeakerAccess")
 	static public final String NONE = "";
 
 	/**
@@ -222,7 +223,7 @@ public class Utils
 	 * @param thisComponent part of style to stringify
 	 * @return string
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	static public String toString(final Integer thisStyle, final StyleComponent thisComponent)
 	{
 		if (thisStyle == null)
@@ -377,6 +378,7 @@ public class Utils
 	 * @param thisString stroke string
 	 * @return stroke code style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public static int stringToStroke(final String thisString)
 	{
 		int thisStyle = 0;
@@ -404,6 +406,7 @@ public class Utils
 	 * @param thisString stroke string
 	 * @return stroke code style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public static int stringToStrokeWidth(final String thisString)
 	{
 		int thisStyle = 0;
@@ -432,7 +435,7 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke string
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public static String strokeToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -460,7 +463,7 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke width string
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public static String strokeWidthToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -481,7 +484,7 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke witch
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public static Integer strokeWidthToInteger(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -504,6 +507,7 @@ public class Utils
 	 * @param thisString fill string
 	 * @return fill code style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public static int stringToFill(final String thisString)
 	{
 		if (thisString.length() > 1 && thisString.charAt(1) == 'f')
@@ -519,7 +523,7 @@ public class Utils
 	 * @param thisStyle fill code style
 	 * @return fill string
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public static String fillToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -537,6 +541,7 @@ public class Utils
 	 * @param thisString shape string
 	 * @return shape code style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public static int stringToShape(final String thisString)
 	{
 		switch (thisString.charAt(0))
@@ -563,7 +568,7 @@ public class Utils
 	 * @param thisStyle shape code style
 	 * @return shape string
 	 */
-	@SuppressWarnings("boxing")
+	@SuppressWarnings({"boxing", "WeakerAccess"})
 	public static String shapeToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -614,6 +619,7 @@ public class Utils
 	 * @param thisActionString action string
 	 * @return action
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public Action stringToAction(final String thisActionString)
 	{
 		return thisActionString == null || thisActionString.isEmpty() ? null : Action.valueOf(thisActionString.toUpperCase());
@@ -625,6 +631,7 @@ public class Utils
 	 * @param thisScopeString scope string
 	 * @return scope
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public MatchScope stringToScope(final String thisScopeString)
 	{
 		return thisScopeString == null || thisScopeString.isEmpty() ? null : MatchScope.valueOf(thisScopeString.toUpperCase());
@@ -636,6 +643,7 @@ public class Utils
 	 * @param thisModeString mode string
 	 * @return mode
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public MatchMode stringToMode(final String thisModeString)
 	{
 		return thisModeString == null || thisModeString.isEmpty() ? null : MatchMode.valueOf(thisModeString.toUpperCase());
@@ -647,6 +655,7 @@ public class Utils
 	 * @param thisAction action
 	 * @return action string
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final Action thisAction)
 	{
 		return thisAction == null ? null : thisAction.name();
@@ -658,6 +667,7 @@ public class Utils
 	 * @param thisScope scope
 	 * @return scope string
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final MatchScope thisScope)
 	{
 		return thisScope == null ? null : thisScope.name();
@@ -669,6 +679,7 @@ public class Utils
 	 * @param thisMode mode
 	 * @return mode string
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public String toString(final MatchMode thisMode)
 	{
 		return thisMode == null ? null : thisMode.name();

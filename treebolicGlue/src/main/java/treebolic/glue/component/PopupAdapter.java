@@ -23,21 +23,25 @@ public class PopupAdapter
 	/**
 	 * Context
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected final Context context;
 
 	/**
 	 * Popup window
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected final PopupWindow window;
 
 	/**
 	 * Wrapped view
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected View view;
 
 	/**
 	 * Window manager
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected final WindowManager windowManager;
 
 	/**
@@ -79,7 +83,7 @@ public class PopupAdapter
 	 * On pre show
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({"deprecation", "WeakerAccess"})
 	protected void preShow()
 	{
 		if (this.view == null)
@@ -108,6 +112,7 @@ public class PopupAdapter
 	 *
 	 * @param root Root view
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setContentView(final View root)
 	{
 		this.view = root;
@@ -130,6 +135,7 @@ public class PopupAdapter
 	 *
 	 * @param listener listener
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setOnDismissListener(final PopupWindow.OnDismissListener listener)
 	{
 		this.window.setOnDismissListener(listener);
@@ -138,6 +144,7 @@ public class PopupAdapter
 	/**
 	 * Dismiss the popup window.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void dismiss()
 	{
 		this.window.dismiss();
@@ -154,6 +161,7 @@ public class PopupAdapter
 	/**
 	 * On show
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected void onShow()
 	{
 		//

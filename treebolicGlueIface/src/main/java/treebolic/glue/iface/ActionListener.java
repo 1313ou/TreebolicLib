@@ -13,5 +13,6 @@ public interface ActionListener
 	 * @param theseParams parameter
 	 * @return true if handled
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	boolean onAction(Object... theseParams);
 }

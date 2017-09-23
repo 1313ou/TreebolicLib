@@ -158,6 +158,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * @param thisHandle
 	 *            handle
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Surface(final Object thisHandle)
 	{
 		//noinspection ConstantConditions
@@ -170,6 +171,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * @param activity
 	 *            activity
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Surface(final AppCompatActivity activity)
 	{
 		super(activity);
@@ -371,7 +373,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * Run thread: recreate if terminated and start
 	 */
-	public void runThread()
+	private void runThread()
 	{
 		if (this.thread == null || this.thread.getState() == Thread.State.TERMINATED)
 		{

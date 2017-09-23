@@ -23,6 +23,7 @@ class NodeData implements Serializable
 	/**
 	 * Node id
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theId;
 
 	// node data
@@ -30,41 +31,49 @@ class NodeData implements Serializable
 	/**
 	 * Node label
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theLabel;
 
 	/**
 	 * Node content
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theContent;
 
 	/**
 	 * Node URL link
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theLink;
 
 	/**
 	 * Node link target frame
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theTarget;
 
 	/**
 	 * Background color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theBackColor;
 
 	/**
 	 * Foreground color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theForeColor;
 
 	/**
 	 * Node image filename
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theImageFile;
 
 	/**
 	 * Node image index
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theImageIndex;
 
 	// tree edge data
@@ -72,26 +81,31 @@ class NodeData implements Serializable
 	/**
 	 * Tree edge label
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theEdgeLabel;
 
 	/**
 	 * Tree edge color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theEdgeColor;
 
 	/**
 	 * Tree edge style
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Integer theEdgeStyle;
 
 	/**
 	 * Edge image filename
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected String theEdgeImageFile;
 
 	/**
 	 * Edge image filename
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected int theEdgeImageIndex;
 
 	// C O N S T R U C T O R
@@ -245,11 +259,13 @@ class XNodeData extends NodeData
 	/**
 	 * Node image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Image theImage;
 
 	/**
 	 * Tree edge image
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Image theEdgeImage;
 
 	// weight
@@ -273,6 +289,7 @@ class XNodeData extends NodeData
 	/**
 	 * MountPoint
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected MountPoint theMountPoint;
 
 	// C O N S T R U C T O R
@@ -354,6 +371,7 @@ class XNodeData extends NodeData
 		return this.theImage;
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	public void setImage(final Image thisImage)
 	{
 		this.theImage = thisImage;
@@ -384,11 +402,13 @@ public class Node extends XNodeData implements INode
 	/**
 	 * Node children
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected List<INode> theChildren;
 
 	/**
 	 * Parent node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected INode theParent;
 
 	// C O N S T R U C T O R
@@ -399,6 +419,7 @@ public class Node extends XNodeData implements INode
 	 * @param thisParent parent node
 	 * @param thisId     node id
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Node(final INode thisParent, final String thisId)
 	{
 		super();

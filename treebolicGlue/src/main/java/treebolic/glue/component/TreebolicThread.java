@@ -74,7 +74,7 @@ public class TreebolicThread extends Thread
 	 * @param terminateFlag0
 	 *            true to run, false to shut down
 	 */
-	public void setTerminate(final boolean terminateFlag0)
+	public void setTerminate(@SuppressWarnings("SameParameterValue") final boolean terminateFlag0)
 	{
 		this.terminateFlag = terminateFlag0;
 	}

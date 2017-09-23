@@ -204,11 +204,13 @@ public class Traverser extends Generator<INode>
 	/**
 	 * Matcher
 	 */
+	@SuppressWarnings("WeakerAccess")
 	final Matcher theMatcher;
 
 	/**
 	 * Node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	final INode theNode;
 
 	/**

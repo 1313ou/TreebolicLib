@@ -86,6 +86,7 @@ public class MutableNode extends Node
 	 *
 	 * @param thisColor backcolor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setBackColor(final Color thisColor)
 	{
 		this.theBackColor = thisColor;
@@ -96,6 +97,7 @@ public class MutableNode extends Node
 	 *
 	 * @param thisColor forecolor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setForeColor(final Color thisColor)
 	{
 		this.theForeColor = thisColor;

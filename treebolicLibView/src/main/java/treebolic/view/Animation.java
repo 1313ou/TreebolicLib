@@ -25,6 +25,7 @@ public class Animation extends ActionListener
 	/**
 	 * View
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public final View theView;
 
 	/**

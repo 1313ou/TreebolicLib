@@ -106,6 +106,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 *
 	 * @return the red component.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public int getRed()
 	{
 		return this.color >> 16 & 0xFF;
@@ -116,6 +117,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 *
 	 * @return the green component.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public int getGreen()
 	{
 		return this.color >> 8 & 0xFF;
@@ -126,6 +128,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 *
 	 * @return the blue component.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public int getBlue()
 	{
 		return this.color & 0xFF;

@@ -40,6 +40,7 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 	/**
 	 * Whether angle is counterclockwise
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public boolean counterclockwise;
 
 	@Override
@@ -184,6 +185,7 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 	/*
 	 * Normalizes the specified angle into the range -180 to 180.
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static double normalizeDegrees(final double angle0)
 	{
 		double angle = angle0;

@@ -56,7 +56,8 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 		init(null);
 	}
 
-	public void init(final Settings theseSettings)
+	@SuppressWarnings("WeakerAccess")
+	public void init(@SuppressWarnings("SameParameterValue") final Settings theseSettings)
 	{
 		// colors
 		if (theseSettings != null)

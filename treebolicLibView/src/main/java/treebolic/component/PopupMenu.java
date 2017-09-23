@@ -26,13 +26,21 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	/**
 	 * Indexes to labels
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_CANCEL = 0;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_INFO = 1;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_FOCUS = 2;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_LINKTO = 3;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_MOUNT = 4;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_UNMOUNT = 5;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_GOTO = 6;
+	@SuppressWarnings("WeakerAccess")
 	static public final int LABEL_SEARCH = 7;
 
 	// static String[] labels defined in glue for localization

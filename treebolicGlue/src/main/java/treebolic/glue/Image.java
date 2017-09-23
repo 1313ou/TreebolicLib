@@ -31,6 +31,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param bitmap0 android bitmap
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Image(final Bitmap bitmap0)
 	{
 		this.bitmap = bitmap0;
@@ -39,6 +40,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	/**
 	 * Bitmap factory options
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static final Options options = new Options();
 
 	static
@@ -131,6 +133,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @return byte array
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public byte[] getByteArray()
 	{
 		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -143,6 +146,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param imageByteArray byte array
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setFromByteArray(final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
