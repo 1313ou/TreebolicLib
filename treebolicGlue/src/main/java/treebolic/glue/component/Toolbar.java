@@ -127,7 +127,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		this.panel.setGravity(Gravity.CENTER);
 
 		// colors
-		final int[] colors = Utils.fetchColors(activity, R.attr.treebolic_toolbar_background, R.attr.treebolic_toolbar_icon_color);
+		final int[] colors = Utils.fetchColors(activity, R.attr.treebolic_toolbar_background, R.attr.treebolic_toolbar_foreground_icon);
 		final int background = colors[0];
 		this.iconTint = colors[1];
 

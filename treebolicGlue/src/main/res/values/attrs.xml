@@ -1,26 +1,31 @@
 <resources>
 
-	<attr name="treebolic_toolbar_background" format="reference"/>
-	<attr name="treebolic_toolbar_icon_color" format="reference"/>
+	<!-- treebolic toolbar (not app toolbar) -->
+	<attr name="treebolic_toolbar_background" format="color|reference"/>
+	<attr name="treebolic_toolbar_foreground_icon" format="color|reference"/>
 
-	<attr name="treebolic_statusbar_background" format="reference"/>
-	<attr name="treebolic_statusbar_foreground" format="reference"/>
-	<attr name="treebolic_statusbar_foreground_enhanced" format="reference"/>
-	<attr name="treebolic_statusbar_icon_color" format="reference"/>
+	<!-- treebolic statusbar -->
+	<attr name="treebolic_statusbar_background" format="color|reference"/>
+	<attr name="treebolic_statusbar_foreground" format="color|reference"/>
+	<attr name="treebolic_statusbar_foreground_enhanced" format="color|reference"/>
+	<attr name="treebolic_statusbar_foreground_icon" format="color|reference"/>
 
-	<attr name="treebolic_dialog_background" format="reference"/>
-	<attr name="treebolic_dialog_foreground" format="reference"/>
-	<attr name="treebolic_dialog_foreground_enhanced" format="reference"/>
-	<attr name="treebolic_dialog_icon_color" format="reference"/>
+	<!-- treebolic dialog -->
+	<attr name="treebolic_dialog_background" format="color|reference"/>
+	<attr name="treebolic_dialog_foreground" format="color|reference"/>
+	<attr name="treebolic_dialog_foreground_enhanced" format="color|reference"/>
+	<attr name="treebolic_dialog_foreground_icon" format="color|reference"/>
 
-	<attr name="treebolic_splitbar_color" format="reference"/>
-	<attr name="treebolic_splitbar_drag_color" format="reference"/>
+	<!-- treebolic splitbar -->
+	<attr name="treebolic_splitbar_color" format="color|reference"/>
+	<attr name="treebolic_splitbar_drag_color" format="color|reference"/>
 
-	<attr name="treebolic_back_color" format="color"/>
-	<attr name="treebolic_tree_edge_color" format="color"/>
-	<attr name="treebolic_root_background_color" format="color"/>
-	<attr name="treebolic_root_foreground_color" format="color"/>
-	<attr name="treebolic_node_background_color" format="color"/>
-	<attr name="treebolic_node_foreground_color" format="color"/>
+	<!-- treebolic graph -->
+	<attr name="treebolic_back_color" format="color|reference"/>
+	<attr name="treebolic_tree_edge_color" format="color|reference"/>
+	<attr name="treebolic_root_background_color" format="color|reference"/>
+	<attr name="treebolic_root_foreground_color" format="color|reference"/>
+	<attr name="treebolic_node_background_color" format="color|reference"/>
+	<attr name="treebolic_node_foreground_color" format="color|reference"/>
 
 </resources>

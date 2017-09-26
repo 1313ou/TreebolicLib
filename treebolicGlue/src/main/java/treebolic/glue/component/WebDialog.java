@@ -109,7 +109,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		}
 
 		// colors
-		int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_dialog_background, R.attr.treebolic_dialog_foreground, R.attr.treebolic_dialog_foreground_enhanced, R.attr.treebolic_dialog_icon_color);
+		int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_dialog_background, R.attr.treebolic_dialog_foreground, R.attr.treebolic_dialog_foreground_enhanced, R.attr.treebolic_dialog_foreground_icon);
 		this.background = colors[0];
 		this.foreground = colors[1];
 		// int foregroundEnhanced = colors[2];

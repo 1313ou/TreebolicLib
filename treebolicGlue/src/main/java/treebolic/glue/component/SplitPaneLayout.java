@@ -69,7 +69,12 @@ public class SplitPaneLayout extends ViewGroup
 	/**
 	 * Splitter color
 	 */
-	public static final int SPLITTER_COLOR = 1;
+	public static final int SPLITTER_COLOR = 0x80FFFFFF;
+
+	/**
+	 * Splitter color when dragging
+	 */
+	public static final int SPLITTER_DRAG_COLOR = 0xC0FFFFFF;
 
 	/**
 	 * Orientation
@@ -145,8 +150,8 @@ public class SplitPaneLayout extends ViewGroup
 		this.orientation = SplitPaneLayout.ORIENTATION_HORIZONTAL;
 		this.splitterPositionPercent = 0.5f;
 		this.splitterPosition = Integer.MIN_VALUE;
-		this.splitterDrawable = new PaintDrawable(0x88FFFFFF);
-		this.splitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
+		this.splitterDrawable = new PaintDrawable(SPLITTER_COLOR);
+		this.splitterDraggingDrawable = new PaintDrawable(SPLITTER_DRAG_COLOR);
 	}
 
 	/**
@@ -240,12 +245,12 @@ public class SplitPaneLayout extends ViewGroup
 				}
 				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
 				{
-					this.splitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, 0x88FFFFFF));
+					this.splitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, SPLITTER_DRAG_COLOR));
 				}
 			}
 			else
 			{
-				this.splitterDraggingDrawable = new PaintDrawable(0x88FFFFFF);
+				this.splitterDraggingDrawable = new PaintDrawable(SPLITTER_DRAG_COLOR);
 			}
 			array.recycle();
 		}
