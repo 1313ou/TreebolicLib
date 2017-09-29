@@ -82,6 +82,7 @@ public class TreebolicThread extends Thread
 	/**
 	 * Pause thread and wait for task
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void terminate()
 	{
 		this.terminateFlag = true;

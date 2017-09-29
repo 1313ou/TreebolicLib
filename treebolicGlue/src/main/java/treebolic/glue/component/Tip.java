@@ -60,7 +60,7 @@ public class Tip extends AppCompatDialogFragment
 
 	@NonNull
 	@Override
-	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
+	public AppCompatDialog onCreateDialog(@SuppressWarnings("UnusedParameters") final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
 		final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

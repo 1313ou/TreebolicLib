@@ -16,7 +16,7 @@ public interface EventListener
 	 * @return true if handled
 	 */
 	@SuppressWarnings("SameReturnValue")
-	boolean onDown(int x, int y, boolean rotate);
+	boolean onDown(int x, int y, @SuppressWarnings("SameParameterValue") boolean rotate);
 
 	/**
 	 * Up event callback
@@ -116,5 +116,5 @@ public interface EventListener
 	 * @param fsf font scale factor (>=0 absolute, <0 relative)
 	 * @param isf image scale factor (>=0 absolute, <0 relative)
 	 */
-	void onScale(float msf, float fsf, float isf);
+	void onScale(@SuppressWarnings("SameParameterValue") float msf, float fsf, float isf);
 }

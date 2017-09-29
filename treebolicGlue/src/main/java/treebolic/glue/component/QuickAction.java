@@ -175,7 +175,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 * @param orientation0
 	 *            layout orientation, can be vertical or horizontal
 	 */
-	public QuickAction(final Context context0, final int orientation0)
+	public QuickAction(final Context context0, @SuppressWarnings("SameParameterValue") final int orientation0)
 	{
 		super(context0);
 

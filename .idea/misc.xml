@@ -1,7 +1,507 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
-    <entry_points version="2.0" />
+    <entry_points version="2.0">
+      <entry_point TYPE="method" FQNAME="treebolic.core.AbstractLayerOut AbstractLayerOut()" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.AbstractPainter AbstractPainter()" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.glue.ActionListener" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.Animation Animation(treebolic.view.AnimationTransforms thisAnimation, treebolic.view.View thisView)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.AnimationTransforms AnimationTransforms(java.util.List&lt;treebolic.core.transform.HyperTransform&gt; theseTransforms)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Animator Animator()" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.glue.Arc2D" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.math.ArcMath double getCircleAngleAt(treebolic.glue.Arc2D thisArc2D, treebolic.glue.Point2D thisWhere)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.math.ArcMath double normalizeAngle(double angle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.math.ArcMath double normalizeAngleDiff(double firstAngle, double secondAngle)" />
+      <entry_point TYPE="field" FQNAME="treebolic.core.math.ArcMath HALFPI" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color MAGENTA" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color CYAN" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color PINK" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color YELLOW" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color ORANGE" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color BLUE" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color GREEN" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Color RED" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Color Color()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Color Color(int r, int g, int b)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Color Color(int rgb)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.Color" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color C makeDarker()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color C makeBrighter()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color void parse(java.lang.String string)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color boolean isNull()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color int getRGB()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color void set(int rgb)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Color void set(int r, int g, int b)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Color" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.control.Commander" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex treebolic.core.location.Complex divide(treebolic.core.location.Complex z, double d)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex treebolic.core.location.Complex multiply(treebolic.core.location.Complex z, double m)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex treebolic.core.location.Complex neg(treebolic.core.location.Complex z)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex Complex(double x)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex Complex()" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex Complex(double x, double y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.location.Complex Complex(treebolic.core.location.Complex z)" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.location.Complex" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Container void setSplitterPositionPercent(float splitterPositionPercent)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Container float getSplitterPositionPercent()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Container Container(java.lang.Object handle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Container Container(android.content.Context context)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Container" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.Controller Controller()" />
+      <entry_point TYPE="class" FQNAME="treebolic.control.Controller" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.graph.Converter" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.EdgeData int getImageIndex()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.EdgeData java.lang.String getImageFile()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.EdgeData java.lang.Integer getStyle()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.EdgeData treebolic.glue.Color getColor()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.EdgeData java.lang.String getLabel()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.EdgeData EdgeData()" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.EdgeData" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.glue.EventListener" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.EventListenerAdapter EventListenerAdapter(treebolic.control.Controller thisController)" />
+      <entry_point TYPE="class" FQNAME="treebolic.control.EventListenerAdapter" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.control.Generator.Condition" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.control.Generator" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.Graph Graph()" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.graph.Graph" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.ModelDump java.lang.String toString(treebolic.model.Model thisModel)" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.ModelDump" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Model Model(treebolic.model.Tree thisTree, treebolic.model.Settings theseSettings, treebolic.glue.Image[] theseImages)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Model Model(treebolic.model.Tree thisTree, treebolic.model.Settings theseSettings)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.Model" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.MenuItem.Action CANCEL" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.MenuItem.Action" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.MenuItem" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.view.Mapper" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.LayerOut LayerOut()" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.LayerOut" />
+      <entry_point TYPE="field" FQNAME="treebolic.IWidget SEARCHRESET" />
+      <entry_point TYPE="field" FQNAME="treebolic.IWidget SEARCHCONTINUE" />
+      <entry_point TYPE="field" FQNAME="treebolic.IWidget SEARCH" />
+      <entry_point TYPE="class" FQNAME="treebolic.IWidget" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Image treebolic.glue.Image try_make(java.net.URL resource)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Image Image(android.graphics.Bitmap bitmap0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.Image" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Image int getHeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Image int getWidth()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Image" />
+      <entry_point TYPE="class" FQNAME="treebolic.IContext" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTranslation HyperTranslation()" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTranslation HyperTranslation(treebolic.core.location.Complex p)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTranslation HyperTranslation(double x, double y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTranslation HyperTranslation(treebolic.core.location.Complex from, treebolic.core.location.Complex to, boolean dummy)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTranslation HyperTranslation(treebolic.core.location.Complex from, treebolic.core.location.Complex to)" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.transform.HyperTranslation" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(treebolic.core.transform.HyperTranslation t1, treebolic.core.transform.HyperTranslation t2)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(treebolic.core.transform.HyperTransform t)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(double px, double py, double rx, double ry)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(treebolic.core.transform.HyperTranslation p, treebolic.core.transform.HyperRotation r)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(treebolic.core.transform.HyperRotation r)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(treebolic.core.transform.HyperTranslation p)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform(treebolic.core.location.Complex p, treebolic.core.location.Complex r)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTransform HyperTransform()" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.transform.HyperTransform" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperRotation HyperRotation()" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperRotation HyperRotation(treebolic.core.location.Complex z)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperRotation HyperRotation(double x, double y)" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.transform.HyperRotation" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.GraphicsCache GraphicsCache(treebolic.glue.component.Component component, treebolic.glue.Graphics thatGraphics, int width0, int height0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.GraphicsCache" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Graphics Graphics(android.graphics.Canvas canvas0)" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Graphics PLAIN" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.Graphics" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.GraphEdge GraphEdge(treebolic.model.graph.GraphNode thisFromNode, treebolic.model.graph.GraphNode thisToNode, java.lang.Boolean isTreeEdgeFlag)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.graph.GraphEdge" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.ModelReader ModelReader(java.lang.String thisArchive)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.ModelReader" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.ModelWriter ModelWriter(java.lang.String thisArchive)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.ModelWriter" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MountPoint.Mounting Mounting()" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.MountPoint.Mounting now" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.MountPoint.Mounting" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MountPoint.Mounted Mounted()" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.MountPoint.Mounted" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MountPoint MountPoint()" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.MountPoint" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableEdge void setImageIndex(int thisImageIndex)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableEdge void setImageFile(java.lang.String thisImageFile)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableEdge void setStyle(java.lang.Integer thisStyle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableEdge void setColor(treebolic.glue.Color thisColor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableEdge void setLabel(java.lang.String thisLabel)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableEdge MutableEdge(treebolic.model.INode thisFromNode, treebolic.model.INode thisToNode)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.MutableEdge" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.graph.MutableGraph" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.MutableGraphNode MutableGraphNode(java.lang.String thisId)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.graph.MutableGraphNode" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableNode void setImageFile(java.lang.String thisImageFile)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableNode MutableNode(treebolic.model.INode thisParent, java.lang.String thisId, java.lang.String thisLabel, int thisImageIndex, treebolic.glue.Color thisBackColor, treebolic.glue.Color thisForeColor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableNode MutableNode(treebolic.model.INode thisParent, java.lang.String thisId, java.lang.String thisLabel, treebolic.glue.Image thisImage, treebolic.glue.Color thisBackColor, treebolic.glue.Color thisForeColor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.MutableNode MutableNode(treebolic.model.INode thisParent, java.lang.String thisId)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.MutableNode" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getEdgeImageFile()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData void setEdgeImageIndex(int thisImageIndex)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData int getEdgeImageIndex()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getImageFile()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData int getImageIndex()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getTarget()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getLink()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.Integer getEdgeStyle()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData treebolic.glue.Color getEdgeColor()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData treebolic.glue.Color getForeColor()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData treebolic.glue.Color getBackColor()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getContent()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getEdgeLabel()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getLabel()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String getId()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData NodeData()" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.NodeData" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.view.Painter" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Point Point(int x0, int y0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.Point" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Point2D Point2D(double x0, double y0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.Point2D" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.PopupAdapter PopupAdapter(android.content.Context context0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.PopupAdapter" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu PopupMenu(treebolic.view.View thisView)" />
+      <entry_point TYPE="field" FQNAME="treebolic.component.PopupMenu serialVersionUID" />
+      <entry_point TYPE="class" FQNAME="treebolic.component.PopupMenu" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.PopupMenu PopupMenu(java.lang.Object handle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.PopupMenu PopupMenu(android.content.Context context0, android.view.View anchor0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.PopupMenu" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.Progress Progress(java.lang.Object thisHandle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Progress Progress(java.lang.Object handle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Progress Progress(android.content.Context context)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Progress.ProgressHandler ProgressHandler(treebolic.glue.component.Progress progress0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Progress.ProgressHandler" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Progress" />
+      <entry_point TYPE="method" FQNAME="treebolic.provider.ProviderUtils java.net.URL makeURL(java.lang.String thisSource, java.net.URL thisBase, java.util.Properties theseExtras, treebolic.provider.IProviderContext thisContext)" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.provider.ProviderUtils" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.QuickAction.OnActionItemClickListener" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.QuickAction QuickAction(android.content.Context context0, int orientation0)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.QuickAction QuickAction(android.content.Context context0)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.QuickAction.ActionItem ActionItem(java.lang.String title0, android.graphics.drawable.Drawable icon0, boolean sticky0, treebolic.glue.ActionListener listener0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.QuickAction.ActionItem" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.QuickAction" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Rectangle2D OUT_TOP" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Rectangle2D OUT_RIGHT" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Rectangle2D OUT_LEFT" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Rectangle2D OUT_BOTTOM" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Rectangle2D" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Rectangle2D Rectangle2D()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.Rectangle2D Rectangle2D(int x, int y, int w, int h)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.Rectangle2D" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Settings Settings()" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.Settings PROP_TREE_EDGE_STROKEWIDTH" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.Settings PROP_EDGE_STROKEWIDTH" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.Settings" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout void setSplitterPosition(int position0)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout int getSplitterPosition()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout boolean isSplitterMovable()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout void setSplitterSize(int splitterSize)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout int getSplitterSize()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout android.graphics.drawable.Drawable getSplitterDraggingDrawable()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout android.graphics.drawable.Drawable getSplitterDrawable()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout int getOrientation()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout SplitPaneLayout(android.content.Context context)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout SplitPaneLayout(android.content.Context context, android.util.AttributeSet attrs)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.SplitPaneLayout SplitPaneLayout(android.content.Context context, android.util.AttributeSet attrs, int defStyle)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.SplitPaneLayout" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.Statusbar Statusbar(java.lang.Object thisHandle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Statusbar void setBase(java.lang.String base0)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Statusbar Statusbar(java.lang.Object handle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Statusbar Statusbar(AppCompatActivity activity0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Statusbar" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Surface Surface(AppCompatActivity activity)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Surface Surface(java.lang.Object thisHandle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Surface.XScaleGestureDetector XScaleGestureDetector(android.content.Context context, android.view.ScaleGestureDetector.OnScaleGestureListener listener0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Surface.XScaleGestureDetector" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Surface" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Tip Tip()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Tip" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Toolbar void addButton(treebolic.glue.iface.component.Toolbar.Button button, L listener)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.Toolbar" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.Transformer Transformer()" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.Transformer" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.Traverser Traverser(treebolic.control.Traverser.Matcher thisMatcher, treebolic.model.INode thisNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.Traverser.NoCaseMatcher NoCaseMatcher(java.lang.String thisTarget, treebolic.model.Types.MatchScope thisScope, treebolic.model.Types.MatchMode thisMode)" />
+      <entry_point TYPE="class" FQNAME="treebolic.control.Traverser.NoCaseMatcher" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.Traverser.CaseMatcher CaseMatcher(java.lang.String thisTarget, treebolic.model.Types.MatchScope thisScope, treebolic.model.Types.MatchMode thisMode)" />
+      <entry_point TYPE="class" FQNAME="treebolic.control.Traverser.CaseMatcher" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.Traverser.SelectiveMatcher SelectiveMatcher(java.lang.String thisTarget, treebolic.model.Types.MatchScope thisScope, treebolic.model.Types.MatchMode thisMode)" />
+      <entry_point TYPE="class" FQNAME="treebolic.control.Traverser.SelectiveMatcher" />
+      <entry_point TYPE="field" FQNAME="treebolic.control.Traverser ALLMATCHER" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.control.Traverser.AllMatcher" />
+      <entry_point TYPE="class" FQNAME="treebolic.control.Traverser" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.Tree Tree(treebolic.model.graph.Graph thisGraph, treebolic.model.graph.GraphNode thisRoot)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.graph.Tree" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Tree Tree(treebolic.model.INode thisRoot, java.util.List&lt;treebolic.model.IEdge&gt; theseEdges)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.Tree" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface PREF_SETTINGS" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface PREF_IMAGEBASE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface PREF_BASE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface PREF_SOURCE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ACTIVITY_CLIENT" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ACTIVITY_MODEL" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ACTIVITY_PLUGIN" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ACTIVITY_TREEBOLIC" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface PKG_TREEBOLIC" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ACTION_MAKEMODEL" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_PARENTACTIVITY" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_MORE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_URLSCHEME" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_STYLE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_SETTINGS" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_SERIALIZED_MODEL_URI" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_SERIALIZED" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_MODEL" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_MODEL_REFERENCE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_IMAGEBASE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_BASE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_SERVICE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_PROVIDER" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_PLUGINPKG" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface ARG_SOURCE" />
+      <entry_point TYPE="field" FQNAME="org.treebolic.TreebolicIface USE_MODEL_REFERENCES" />
+      <entry_point TYPE="class" FQNAME="org.treebolic.TreebolicIface" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.TreebolicThread TreebolicThread(treebolic.glue.component.Surface surface0, android.view.SurfaceHolder surfaceHolder0)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.TreebolicThread" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableEdge TreeMutableEdge(treebolic.model.IEdge thatEdge)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableEdge TreeMutableEdge(treebolic.model.MutableNode thisFrom, treebolic.model.MutableNode thisTo)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.TreeMutableEdge" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void removeFromParent()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void prependToParent(treebolic.model.TreeMutableNode thisParent)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void insertToParent(treebolic.model.TreeMutableNode thisParent, int i)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void setId(java.lang.String thisId)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode TreeMutableNode(treebolic.model.INode thatNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode TreeMutableNode(treebolic.model.MutableNode thisParent, java.lang.String thisId)" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.TreeMutableNode" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.Types" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Utils int screenWidth(android.content.Context context)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Utils java.lang.Integer[] fetchColorsNullable(android.content.Context context, int... attrs)" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.glue.component.Utils" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Utils java.util.Properties load(java.net.URL thisUrl)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Utils java.lang.String floatsToString(float[] thisScaler)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Utils java.lang.String[] toStrings(treebolic.model.MenuItem thisMenuItem)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Utils java.lang.Boolean toTrueBoolean(java.lang.Integer thisStyle, treebolic.model.Utils.StyleComponent thisComponent)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Utils java.lang.Integer toInteger(java.lang.Integer thisStyle, treebolic.model.Utils.StyleComponent thisComponent)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Utils java.lang.Integer modifyStyle(java.lang.Integer thatStyle, java.lang.Object thisValue, treebolic.model.Utils.StyleComponent thisComponent)" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.Utils" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.View View(java.lang.Object thisHandle)" />
+      <entry_point TYPE="field" FQNAME="treebolic.view.View serialVersionUID" />
+      <entry_point TYPE="class" FQNAME="treebolic.view.View" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.WebDialog void setBase(java.lang.String base0)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.WebDialog WebDialog()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.WebDialog" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.Weigher Weigher()" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.Weigher" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget Widget(treebolic.IContext thisContext, java.lang.Object thisHandle)" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.glue.Worker" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XEdgeData void setImage(treebolic.glue.Image thisImage)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XEdgeData treebolic.glue.Image getImage()" />
+      <entry_point TYPE="implicit.constructor" FQNAME="treebolic.model.XEdgeData" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData void setEdgeImage(treebolic.glue.Image thisImage)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData treebolic.glue.Image getEdgeImage()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData treebolic.glue.Image getImage()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData void setMountPoint(treebolic.model.MountPoint thisMountPoint)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData treebolic.model.MountPoint getMountPoint()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData void setMinWeight(double thisWeight)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData double getMinWeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData void setChildrenWeight(double thisWeight)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData double getChildrenWeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData void setWeight(double thisWeight)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData double getWeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData treebolic.model.Location getLocation()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.XNodeData XNodeData()" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.XNodeData" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.AbstractLayerOut double getRootSweep()" />
+      <entry_point TYPE="class" FQNAME="treebolic.core.AbstractLayerOut" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.AbstractPainter boolean getScaleImages()" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.AbstractPainter void setScaleImages(java.lang.Boolean thisFlag)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.AbstractPainter boolean getBorder()" />
+      <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter theForeColor" />
+      <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter theFontStyle" />
+      <entry_point TYPE="class" FQNAME="treebolic.view.AbstractPainter" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Animator boolean isRunning()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Animator boolean run(A animation, int steps, int startDelay)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Animator" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D boolean containsAngle(double angle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D void setCounterclockwise(boolean flag)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D boolean getCounterclockwise()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D void setAngleStart(double start)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D double getAngleStart()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D void setAngleExtent(double extent)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D double getAngleExtent()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D P getEndPoint()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D P getStartPoint()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D double getHeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D double getWidth()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D double getCenterY()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D double getCenterX()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D void setAngles(P from, P to)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Arc2D void setFrameFromCenter(double x, double y, double x1, double y1)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Arc2D" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Container void validate()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Container void removeAll()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Container void addComponent(C component, int position)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.Container" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.Converter treebolic.model.Tree graphToTree(treebolic.model.graph.Graph thisGraph)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener void onScale(float msf, float fsf, float isf)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onMount(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onLink(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onMenu(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onFocus(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onLongHover()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onHover(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onSelect(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onDragged(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onUp(int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.EventListener boolean onDown(int x, int y, boolean rotate)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.EventListener" />
+      <entry_point TYPE="method" FQNAME="treebolic.control.EventListenerAdapter treebolic.model.INode getHotNode()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.Graph treebolic.model.graph.Tree makeSpanningTree()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.Graph java.util.Map&lt;treebolic.model.graph.GraphNode,java.util.Collection&lt;treebolic.model.graph.GraphEdge&gt;&gt; getNodeToEdgesMap()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.GraphEdge java.lang.Boolean get()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void scale(float factor, float x, float y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void rotate(float theta, float x, float y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void translate(float x, float y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void popMatrix()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void pushMatrix()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void popStroke()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void pushStroke()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void setStroke(int stroke, int width)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics int getDescent()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics int getAscent()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics int stringWidth(java.lang.String string)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void setTextSize(float size)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void setFont(java.lang.String fontface, int style)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics C getColor()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void setColor(C color)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawImage(I image, int x, int y, int w, int h)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawImage(I image, int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawString(java.lang.String str, int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void fillRoundRectangle(int x, int y, int w, int h, int rx, int ry)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawRoundRectangle(int x, int y, int w, int h, int rx, int ry)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void fillRectangle(int x, int y, int w, int h)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void fillOval(float x, float y, float xradius, float yradius)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawOval(float x, float y, float xradius, float yradius)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void fillPolygon(int[] x, int[] y, int length)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawPolygon(int[] x, int[] y, int length)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawPolyline(int[] x, int[] y, int length)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawArc(float x, float y, float w, float h, float startAngle, float arcAngle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawLine(int x, int y, int x2, int y2)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Graphics void drawBackgroundColor(C color, int left, int top, int width, int height)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Graphics" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.GraphicsCache void put(G g)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.GraphicsCache G getGraphics()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.GraphicsCache" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperRotation treebolic.core.location.Complex map(treebolic.core.location.Complex z)" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperRotation treebolic.core.location.Complex toComplex()" />
+      <entry_point TYPE="method" FQNAME="treebolic.core.transform.HyperTranslation treebolic.core.location.Complex toComplex()" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge TOHOOK" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge TOARROW" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge TODIAMOND" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge TOCIRCLE" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge FROMHOOK" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge FROMARROW" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge FROMDIAMOND" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge FROMCIRCLE" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge FROMTRIANGLE" />
+      <entry_point TYPE="class" FQNAME="treebolic.model.IEdge" />
+      <entry_point TYPE="method" FQNAME="treebolic.provider.IProviderContext void progress(java.lang.String thisString, boolean fail)" />
+      <entry_point TYPE="class" FQNAME="treebolic.provider.IProviderContext" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void search(java.lang.String thisCommandString, java.lang.String... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget java.lang.String match(java.lang.String thisTargetString, java.lang.String thisScopeString, java.lang.String thisModeString)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void link(java.lang.String thisUrlString, java.lang.String thisUrlTarget)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void focus(java.lang.String thisNodeId)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget java.lang.String getVersion()" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void reinit(java.lang.String thisSource)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void initSerialized(java.lang.String thisSerFile)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void init(treebolic.model.Model thisModel)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void init(treebolic.provider.IProvider thisProvider, java.lang.String thisSource)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void init(java.lang.String thisProviderName, java.lang.String thisSource)" />
+      <entry_point TYPE="method" FQNAME="treebolic.IWidget void init()" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.Mapper treebolic.glue.Point getViewLocation(treebolic.model.INode thisNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.Mapper double hViewToUnitCircle(double cvy)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.Mapper double wViewToUnitCircle(double cvx)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.Mapper int getHeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.Mapper int getWidth()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.ModelReader treebolic.model.Model deserializeGuarded()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.ModelWriter void serialize(treebolic.model.Model thisModel)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.MutableGraph void add(treebolic.model.graph.GraphEdge thisEdge)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.MutableGraph void add(treebolic.model.graph.GraphNode thisNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.graph.MutableGraphNode int getIndex()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Point2D double getY()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Point2D double getX()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Point2D" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.PopupAdapter void onDismiss()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.PopupAdapter void setContentView(int layoutResID)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.PopupMenu void popup(C component, int x, int y)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.PopupMenu void addItem(java.lang.String label, int image, L listener)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.PopupMenu" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Progress void put(java.lang.String message, boolean fail)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.Progress" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.QuickAction.OnActionItemClickListener void onItemClick(treebolic.glue.component.QuickAction source, int pos, int actionId)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.QuickAction void show(android.view.View anchor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.QuickAction void setAnimStyle(int animStyle)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D int outcode(P point)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D boolean intersects(R rect)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getMinY()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getMinX()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getCenterY()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getCenterX()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getHeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getWidth()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getY()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D double getX()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Rectangle2D void setFrame(double x, double y, double width, double height)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Settings void load(java.util.Properties theseProperties)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void addListener(L listener)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void put(java.lang.String message)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void put(java.lang.String label, java.lang.String content, int image)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void setStyle(java.lang.String style)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void setColors(C backColor, C foreColor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void init(int image)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.Statusbar" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface void setFireHover(boolean flag)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface void addEventListener(L listener)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface void setToolTipText(java.lang.String string)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface void setCursor(int cursor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface int getHeight()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface int getWidth()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Surface void repaint()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.Surface" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Surface treebolic.glue.component.TreebolicThread getThread()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Tip void setText(java.lang.String text0)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Tip AppCompatDialog onCreateDialog(android.os.Bundle savedInstanceState)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Tip void onSaveInstanceState(android.os.Bundle outState)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Tip void onCreate(android.os.Bundle savedInstanceState)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.Tree void setRoot(treebolic.model.INode thisRoot)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableEdge void setTo(treebolic.model.MutableNode thisToNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableEdge void setFrom(treebolic.model.MutableNode thisFromNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.View treebolic.model.INode getFocusNode()" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.View treebolic.model.INode findNode(int vx, int vy)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.View void moveToCenter(treebolic.model.INode thisNode)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.View void moveTo(treebolic.model.INode thisNode, treebolic.core.location.Complex thisDestination)" />
+      <entry_point TYPE="method" FQNAME="treebolic.view.View void setEllipsize(java.lang.Boolean thisFlag)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.WebDialog void display()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.WebDialog void setStyle(java.lang.String style)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.WebDialog void setListener(treebolic.glue.iface.ActionListener thisActionListener)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.WebDialog void set(java.lang.String header, java.lang.String content)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.WebDialog void setHandle(java.lang.Object handle)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.component.WebDialog" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.WebDialog AppCompatDialog onCreateDialog(android.os.Bundle savedInstanceState)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.WebDialog void onSaveInstanceState(android.os.Bundle outState)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.WebDialog void onCreate(android.os.Bundle savedInstanceState)" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget treebolic.component.Toolbar getToolbar()" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget treebolic.component.Statusbar getStatusbar()" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget treebolic.view.View getView()" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget treebolic.model.Model getModel()" />
+      <entry_point TYPE="class" FQNAME="treebolic.Widget" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Worker void execute()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Worker void onDone()" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Worker void job()" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Worker" />
+    </entry_points>
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
@@ -37,7 +537,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

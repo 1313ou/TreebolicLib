@@ -44,6 +44,7 @@ public class Utils
 		return colors;
 	}
 
+	/*
 	static public int fetchColor(final Context context, int attr)
 	{
 		final TypedValue typedValue = new TypedValue();
@@ -51,7 +52,9 @@ public class Utils
 		theme.resolveAttribute(attr, typedValue, true);
 		return typedValue.data;
 	}
+	*/
 
+	/*
 	static public Integer fetchColorNullable(final Context context, int attr)
 	{
 		final TypedValue typedValue = new TypedValue();
@@ -59,6 +62,7 @@ public class Utils
 		theme.resolveAttribute(attr, typedValue, true);
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
+	*/
 
 	static public int getColor(final Context context, @SuppressWarnings("SameParameterValue") int resId)
 	{

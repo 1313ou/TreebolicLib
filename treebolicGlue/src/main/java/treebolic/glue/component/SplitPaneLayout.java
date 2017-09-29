@@ -45,6 +45,7 @@ import org.treebolic.glue.R;
  * @author com.mobidevelop
  * @author Bernard Bou (adapt)
  */
+@SuppressWarnings("ALL")
 public class SplitPaneLayout extends ViewGroup
 {
 	/**
@@ -69,12 +70,13 @@ public class SplitPaneLayout extends ViewGroup
 	/**
 	 * Splitter color
 	 */
-	public static final int SPLITTER_COLOR = 0x80FFFFFF;
+	private static final int SPLITTER_COLOR = 0x80FFFFFF;
 
 	/**
 	 * Splitter color when dragging
 	 */
-	public static final int SPLITTER_DRAG_COLOR = 0xC0FFFFFF;
+	@SuppressWarnings("WeakerAccess")
+	private static final int SPLITTER_DRAG_COLOR = 0xC0FFFFFF;
 
 	/**
 	 * Orientation
@@ -672,22 +674,22 @@ public class SplitPaneLayout extends ViewGroup
 
 	private void savePref()
 	{
-		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+		final SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 		float value = getSplitterPositionPercent();
 		if (value == -1F)
 		{
-			prefs.edit().remove(SPLITTER_POSITION_PERCENT).apply();
+			sharedPrefs.edit().remove(SPLITTER_POSITION_PERCENT).apply();
 		}
 		else
 		{
-			prefs.edit().putFloat(SPLITTER_POSITION_PERCENT, value).apply();
+			sharedPrefs.edit().putFloat(SPLITTER_POSITION_PERCENT, value).apply();
 		}
 	}
 
 	private void restorePref()
 	{
-		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-		float value = prefs.getFloat(SPLITTER_POSITION_PERCENT, -1F);
+		final SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+		float value = sharedPrefs.getFloat(SPLITTER_POSITION_PERCENT, -1F);
 		if (value != -1F)
 		{
 			setSplitterPositionPercent(value);

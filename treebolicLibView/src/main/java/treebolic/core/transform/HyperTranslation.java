@@ -64,7 +64,7 @@ public class HyperTranslation extends Complex
 	 * @param dummy
 	 *            dummy
 	 */
-	public HyperTranslation(final Complex from, final Complex to, final boolean dummy)
+	public HyperTranslation(final Complex from, final Complex to, @SuppressWarnings("SameParameterValue") final boolean dummy)
 	{
 		// make hyperbolic translation which maps 'from' to 0,0 and 0,0 to 'to'
 		// but this does NOT imply that t(from) = to

@@ -66,6 +66,7 @@ public class MutableNode extends Node
 	 *
 	 * @param thisLabel label
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setLabel(final String thisLabel)
 	{
 		this.theLabel = thisLabel;

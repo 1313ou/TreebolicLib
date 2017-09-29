@@ -191,6 +191,7 @@ public abstract class AbstractPainter extends Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected String theFontFace;
 
+	@SuppressWarnings("WeakerAccess")
 	protected int theFontStyle;
 
 	@SuppressWarnings("WeakerAccess")
@@ -206,6 +207,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Default foreground color
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Color theForeColor;
 
 	/**

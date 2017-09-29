@@ -12,6 +12,7 @@ import treebolic.model.Settings;
 @SuppressWarnings("ViewConstructor")
 public class Statusbar extends treebolic.glue.component.Statusbar implements Component
 {
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -6221942821143613741L;
 
 	/**

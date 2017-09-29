@@ -49,7 +49,7 @@ public interface Surface<G, L>
 	 * @param cursor cursor type (one of the constants)
 	 */
 	@SuppressWarnings("EmptyMethod")
-	void setCursor(final int cursor);
+	void setCursor(@SuppressWarnings("UnusedParameters") final int cursor);
 
 	/**
 	 * Set tooltip

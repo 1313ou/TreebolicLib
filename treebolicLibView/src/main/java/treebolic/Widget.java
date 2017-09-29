@@ -47,6 +47,7 @@ import treebolic.view.View;
 @SuppressWarnings("ViewConstructor")
 public class Widget extends Container implements IWidget, IProviderContext
 {
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 3962167000082869632L;
 
 	// B E H A V I O U R
