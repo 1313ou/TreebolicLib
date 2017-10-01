@@ -5,6 +5,7 @@ package treebolic.model.graph;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class MutableGraph extends Graph
 {
 	/**

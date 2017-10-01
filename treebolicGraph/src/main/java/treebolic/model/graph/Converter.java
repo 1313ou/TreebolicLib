@@ -15,6 +15,7 @@ import treebolic.model.TreeMutableNode;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class Converter<T extends TreeMutableNode>
 {
 	/**

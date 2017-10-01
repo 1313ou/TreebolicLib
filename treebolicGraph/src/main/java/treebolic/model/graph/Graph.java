@@ -34,6 +34,7 @@ public class Graph
 	/**
 	 * Constructor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Graph()
 	{
 		this.theNodes = new HashSet<>();
