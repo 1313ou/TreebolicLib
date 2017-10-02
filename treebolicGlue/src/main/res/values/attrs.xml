@@ -20,6 +20,10 @@
 	<attr name="treebolic_splitbar_color" format="color|reference"/>
 	<attr name="treebolic_splitbar_drag_color" format="color|reference"/>
 
+	<!-- treebolic splash -->
+	<attr name="treebolic_splash_background" format="color|reference"/>
+	<attr name="treebolic_splash_foreground" format="color|reference"/>
+
 	<!-- treebolic graph -->
 	<attr name="treebolic_back_color" format="color|reference"/>
 	<attr name="treebolic_tree_edge_color" format="color|reference"/>
