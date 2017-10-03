@@ -113,6 +113,7 @@ class NodeData implements Serializable
 	/**
 	 * Construct node
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public NodeData()
 	{
 		this.theId = null;
@@ -297,6 +298,7 @@ class XNodeData extends NodeData
 	/**
 	 * Constructor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected XNodeData()
 	{
 		this.theLocation = new Location();

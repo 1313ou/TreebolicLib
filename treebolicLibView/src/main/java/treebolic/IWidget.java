@@ -70,7 +70,7 @@ public interface IWidget
 	 *
 	 * @param thisNodeId node id to get focus
 	 */
-	void focus(String thisNodeId);
+	void focus(@SuppressWarnings("SameParameterValue") String thisNodeId);
 
 	/**
 	 * Link to Url

@@ -61,14 +61,14 @@ public class LoadBalancer
 
 	/**
 	 * @param limitNodesAtLevel0 limit number of nodes at given level
-	 * @param truncateLabelAt0 truncate label threshhold
+	 * @param truncateLabelAt0 truncate label threshold
 	 * @param backColor0 intermediate node back color
 	 * @param foreColor0 intermediate node back color
 	 * @param edgeColor0 intermediate node edge color
 	 * @param imageIndex0 intermediate node image index
 	 * @param image0 intermediate node image
 	 */
-	public LoadBalancer(final int[] limitNodesAtLevel0, final int truncateLabelAt0, final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, final Image image0)
+	public LoadBalancer(@SuppressWarnings("SameParameterValue") final int[] limitNodesAtLevel0, @SuppressWarnings("SameParameterValue") final int truncateLabelAt0, @SuppressWarnings("SameParameterValue") final Color backColor0, @SuppressWarnings("SameParameterValue") final Color foreColor0, @SuppressWarnings("SameParameterValue") final Color edgeColor0, final int imageIndex0, @SuppressWarnings("SameParameterValue") final Image image0)
 	{
 		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[] { 10, 3 };
 		this.truncateLabelAt = truncateLabelAt0 > 0 ? truncateLabelAt0 : 3;
@@ -142,6 +142,7 @@ public class LoadBalancer
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
 			root.setEdgeColor(this.edgeColor);
+			//noinspection PointlessBitwiseExpression
 			root.setEdgeStyle(IEdge.SOLID | /* IEdge.FROMDEF | IEdge.FROMCIRCLE | */IEdge.TOTRIANGLE | IEdge.TOFILL | IEdge.TODEF);
 			if (this.imageIndex > 0)
 			{

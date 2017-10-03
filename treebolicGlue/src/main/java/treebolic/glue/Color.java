@@ -69,6 +69,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 * @param b
 	 *            blue
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public Color(final int r, final int g, final int b)
 	{
 		this.color = android.graphics.Color.rgb(r, g, b);

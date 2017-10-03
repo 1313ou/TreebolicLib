@@ -50,6 +50,7 @@ class EdgeData implements Serializable
 	/**
 	 * Constructor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public EdgeData()
 	{
 		this.theLabel = null;

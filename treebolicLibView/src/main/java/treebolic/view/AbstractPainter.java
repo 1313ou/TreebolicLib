@@ -13,6 +13,7 @@ import treebolic.model.INode;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public abstract class AbstractPainter extends Mapper
 {
 	// B E H A V I O U R

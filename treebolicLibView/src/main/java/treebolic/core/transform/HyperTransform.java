@@ -104,6 +104,7 @@ public class HyperTransform implements IHyperTransform
 	 * @param ry
 	 *            y coordinate for rotation expressed by point (relative to 0,0 and x-axis)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public HyperTransform(@SuppressWarnings("SameParameterValue") final double px, @SuppressWarnings("SameParameterValue") final double py, @SuppressWarnings("SameParameterValue") final double rx, @SuppressWarnings("SameParameterValue") final double ry)
 	{
 		this.theXlat = new HyperTranslation(px, py);

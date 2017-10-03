@@ -110,6 +110,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Contructor
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public AbstractLayerOut()
 	{
 		// default radial

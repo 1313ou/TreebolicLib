@@ -97,7 +97,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 * @param activity0 activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({"deprecation", "WeakerAccess"})
 	protected Statusbar(final AppCompatActivity activity0)
 	{
 		super(activity0);

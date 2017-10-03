@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 public class ProviderUtils
 {
-	static public URL makeURL(final String thisSource, final URL thisBase, final Properties theseExtras, final IProviderContext thisContext)
+	static public URL makeURL(final String thisSource, final URL thisBase, @SuppressWarnings("UnusedParameters") final Properties theseExtras, final IProviderContext thisContext)
 	{
 		final boolean DEBUG = true;
 		if (thisSource == null)

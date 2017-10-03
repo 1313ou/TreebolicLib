@@ -44,6 +44,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	 *
 	 * @param context context
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected Container(final Context context)
 	{
 		super(context);

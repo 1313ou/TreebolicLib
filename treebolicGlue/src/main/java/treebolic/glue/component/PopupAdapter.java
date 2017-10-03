@@ -17,7 +17,7 @@ import android.widget.PopupWindow;
  *
  * @author Lorensius W. L. T <lorenz@londatiga.net>
  */
-@SuppressWarnings("EmptyMethod")
+@SuppressWarnings({"EmptyMethod", "WeakerAccess"})
 public class PopupAdapter
 {
 	/**

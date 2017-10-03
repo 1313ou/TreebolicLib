@@ -369,7 +369,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.theContext.status("parameters=" + this.theContext.getParameters());
 		}
 
-		progress(Messages.getString("Widget.progress_loading") + '\n' + ' ' + thisSource, false);
+		String thisMessage = Messages.getString("Widget.progress_loading");
+		if (thisSource != null)
+		{
+			thisMessage += '\n' + ' ' + thisSource;
+		}
+		progress(thisMessage, false);
 		final Model thisModel = thisProvider.makeModel(thisSource, this.theContext.getBase(), this.theContext.getParameters());
 		if (thisModel == null)
 		{

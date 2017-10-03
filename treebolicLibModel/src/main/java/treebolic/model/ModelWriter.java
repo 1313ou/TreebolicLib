@@ -7,6 +7,7 @@ import java.io.IOException;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class ModelWriter
 {
 	/**

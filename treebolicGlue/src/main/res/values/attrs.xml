@@ -23,6 +23,7 @@
 	<!-- treebolic splash -->
 	<attr name="treebolic_splash_background" format="color|reference"/>
 	<attr name="treebolic_splash_foreground" format="color|reference"/>
+	<attr name="treebolic_splash_progress" format="color|reference"/>
 
 	<!-- treebolic graph -->
 	<attr name="treebolic_back_color" format="color|reference"/>

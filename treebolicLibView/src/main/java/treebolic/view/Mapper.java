@@ -10,6 +10,7 @@ import treebolic.model.Location;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class Mapper
 {
 	/**
