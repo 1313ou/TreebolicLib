@@ -18,6 +18,11 @@ public abstract class AbstractPainter extends Mapper
 {
 	// B E H A V I O U R
 
+	/**
+	 * No scaling
+	 */
+	static private final float[] SCALENONE = new float[]{1.F};
+
 	// font downscaling
 
 	/**
@@ -73,8 +78,6 @@ public abstract class AbstractPainter extends Mapper
 	 * Initial default tree edge color
 	 */
 	static private final Color theEdgeColor0 = Color.DARK_GRAY;
-
-	static private final float[] SCALENONE = new float[]{1.F};
 
 	// D A T A
 

@@ -349,11 +349,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		default:
 			break;
 		}
-		if (width <= 0)
-		{
-			this.paint.setStrokeWidth(0);
-		}
-		else
+		if (width >=0)
 		{
 			this.paint.setStrokeWidth(width);
 		}

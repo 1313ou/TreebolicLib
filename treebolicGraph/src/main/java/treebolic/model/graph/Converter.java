@@ -7,6 +7,7 @@ import java.util.List;
 import treebolic.model.IEdge;
 import treebolic.model.INode;
 import treebolic.model.MutableEdge;
+import treebolic.model.MutableNode;
 import treebolic.model.Tree;
 import treebolic.model.TreeMutableNode;
 
@@ -38,7 +39,7 @@ public class Converter<T extends TreeMutableNode>
 				thisRootNode = theseRootNodes.get(0);
 			}
 			else
-				throw new RuntimeException("No single root " + theseRootNodes);
+				throw new RuntimeException("No single root " + theseRootNodes); //$NON-NLS-1$
 		}
 		else
 		{
@@ -56,12 +57,12 @@ public class Converter<T extends TreeMutableNode>
 	 *        root node
 	 * @return tree
 	 */
-	@SuppressWarnings({"unchecked", "WeakerAccess"})
+	@SuppressWarnings({ "unchecked" })
 	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph, final GraphNode thisRootNode)
 	{
 		// spanning tree
 		if (thisRootNode == null)
-			throw new RuntimeException("Null root");
+			throw new RuntimeException("Null root"); //$NON-NLS-1$
 
 		// spanning tree
 		final treebolic.model.graph.Tree thisSpanningTree = thisGraph.makeSpanningTree(thisRootNode);
@@ -72,10 +73,10 @@ public class Converter<T extends TreeMutableNode>
 		{
 			// tree edge nodes
 			final T thisFromNode = (T) thisGraphEdge.getFrom();
-			final T thisToNode = (T) thisGraphEdge.getTo();
+			final MutableNode thisToNode = (MutableNode) thisGraphEdge.getTo();
 
 			// parent child
-			thisToNode.addToParent(thisFromNode);
+			thisFromNode.addChild(thisToNode);
 
 			// transfer style
 			final IEdge thisEdge = (IEdge) thisGraphEdge.getUserData();

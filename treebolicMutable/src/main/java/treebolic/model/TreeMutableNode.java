@@ -20,7 +20,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param thisParent parent
 	 * @param thisId     id
 	 */
-	public TreeMutableNode(@SuppressWarnings("SameParameterValue") final MutableNode thisParent, final String thisId)
+	public TreeMutableNode(final INode thisParent, final String thisId)
 	{
 		super(thisParent, thisId);
 	}
@@ -77,60 +77,136 @@ public class TreeMutableNode extends MutableNode
 	}
 
 	/**
-	 * Insert to parent (handles down link and uplink)
+	 * Add child to this node
+	 *
+	 * @param thisChild child
 	 */
-	public void insertToParent(final TreeMutableNode thisParent, int i)
+	static public void assertNoLink(final INode thisParent, final INode thisChild)
 	{
 		List<INode> theseChildren = thisParent.getChildren();
-		if (theseChildren == null)
+		if (theseChildren != null)
 		{
-			theseChildren = new ArrayList<>();
-			thisParent.setChildren(theseChildren);
+			// assert !theseChildren.contains(thisChild);
+			if (theseChildren.contains(thisChild))
+			{
+				throw new RuntimeException("parent " + thisParent.getId() + "] '" + thisParent.getLabel() + "' already has child " + thisChild.getId() + "] '" + thisChild.getLabel() + "'");
+			}
 		}
-		theseChildren.add(i, this);
-		setParent(thisParent);
+
+		// assert thisChild.getParent() == null;
+		if (thisChild.getParent() != null)
+		{
+			throw new RuntimeException("child [" + thisChild.getId() + "] '" + thisChild.getLabel() + "' already has parent [" + thisParent.getId() + "] '" + thisParent.getLabel() + "'");
+		}
 	}
 
 	/**
-	 * Add to parent (handles down link and uplink)
+	 * Add child to this node
+	 *
+	 * @param thisChild child
 	 */
-	public void addToParent(final TreeMutableNode thisParent)
+	public void addChild(final INode thisChild)
 	{
-		List<INode> theseChildren = thisParent.getChildren();
+		// assertNoLink(this, thisChild);
+
+		List<INode> theseChildren = this.getChildren();
 		if (theseChildren == null)
 		{
 			theseChildren = new ArrayList<>();
-			thisParent.setChildren(theseChildren);
+			this.setChildren(theseChildren);
 		}
-		theseChildren.add(this);
-		setParent(thisParent);
+		theseChildren.add(thisChild);
+		thisChild.setParent(this);
 	}
 
 	/**
-	 * Add to parent as first child (handles down link and uplink)
+	 * Add children to parent
+	 *
+	 * @param nodes children nodes
 	 */
-	public void prependToParent(final TreeMutableNode thisParent)
+	public void addChildren(final INode... nodes)
 	{
-		List<INode> theseChildren = thisParent.getChildren();
+		if (nodes != null)
+		{
+			for (INode node : nodes)
+			{
+				addChild(node);
+			}
+		}
+	}
+
+	/**
+	 * Add children to parent
+	 *
+	 * @param nodes children nodes
+	 */
+	public void addChildren(final List<INode> nodes)
+	{
+		if (nodes != null)
+		{
+			for (INode node : nodes)
+			{
+				addChild(node);
+			}
+		}
+	}
+
+	/**
+	 * Insert child to this node
+	 *
+	 * @param thisChild child
+	 * @param i         ith position
+	 */
+	@SuppressWarnings("WeakerAccess")
+	public void insertChild(final INode thisChild, @SuppressWarnings("SameParameterValue") int i)
+	{
+		List<INode> theseChildren = this.getChildren();
 		if (theseChildren == null)
 		{
 			theseChildren = new ArrayList<>();
-			thisParent.setChildren(theseChildren);
+			this.setChildren(theseChildren);
 		}
-		theseChildren.add(0, this);
-		setParent(thisParent);
+		theseChildren.add(i, thisChild);
+		thisChild.setParent(this);
+	}
+
+	/**
+	 * Prepend child to this node
+	 *
+	 * @param thisChild child
+	 */
+	public void prependChild(final INode thisChild)
+	{
+		insertChild(thisChild, 0);
 	}
 
 	/**
 	 * Remove from parent (handles down link and uplink)
+	 *
+	 * @param thisChild child
 	 */
-	public void removeFromParent()
+	static public void removeFromParent(final INode thisChild)
 	{
-		final INode thisParent = getParent();
+		remove(thisChild.getParent(), thisChild);
+	}
+
+	/**
+	 * Remove child from parent (handles down link and uplink)
+	 *
+	 * @param thisParent parent
+	 * @param thisChild  child
+	 */
+	@SuppressWarnings("WeakerAccess")
+	static public void remove(final INode thisParent, final INode thisChild)
+	{
 		if (thisParent != null)
 		{
-			thisParent.getChildren().remove(this);
-			setParent(null);
+			final List<INode> theseChildren = thisParent.getChildren();
+			if (theseChildren != null)
+			{
+				theseChildren.remove(thisChild);
+			}
 		}
+		thisChild.setParent(null);
 	}
 }

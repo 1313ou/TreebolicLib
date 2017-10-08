@@ -501,6 +501,12 @@
       <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Worker void onDone()" />
       <entry_point TYPE="method" FQNAME="treebolic.glue.iface.Worker void job()" />
       <entry_point TYPE="class" FQNAME="treebolic.glue.iface.Worker" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.NodeData java.lang.String toWritableString()" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void removeFromParent(treebolic.model.INode thisChild)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void prependChild(treebolic.model.INode thisChild)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void addChildren(java.util.List&lt;treebolic.model.INode&gt; nodes)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void addChildren(treebolic.model.INode... nodes)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void assertNoLink(treebolic.model.INode thisParent, treebolic.model.INode thisChild)" />
     </entry_points>
   </component>
   <component name="NullableNotNullManager">
@@ -537,7 +543,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -149,6 +149,11 @@ class NodeData implements Serializable
 		return this.theLabel;
 	}
 
+	public String toWritableString()
+	{
+		return this.theLabel != null ? this.theLabel : super.toString();
+	}
+
 	public String getLabel()
 	{
 		return this.theLabel;

@@ -35,43 +35,51 @@ public class LoadBalancer
 	/**
 	 * Back color of intermediate node
 	 */
-	private final Color backColor;
+	private Color backColor;
 
 	/**
 	 * Fore color of intermediate node
 	 */
-	private final Color foreColor;
+	private Color foreColor;
 
 	/**
 	 * Edge color of intermediate node
 	 */
-	private final Color edgeColor;
+	private Color edgeColor;
 
 	/**
 	 * Image index of intermediate node
 	 */
-	private final int imageIndex;
+	private int imageIndex = -1;
 
 	/**
 	 * Image of intermediate node
 	 */
-	private final Image image;
+	private Image image;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * @param limitNodesAtLevel0 limit number of nodes at given level
 	 * @param truncateLabelAt0 truncate label threshold
-	 * @param backColor0 intermediate node back color
-	 * @param foreColor0 intermediate node back color
-	 * @param edgeColor0 intermediate node edge color
-	 * @param imageIndex0 intermediate node image index
-	 * @param image0 intermediate node image
 	 */
-	public LoadBalancer(@SuppressWarnings("SameParameterValue") final int[] limitNodesAtLevel0, @SuppressWarnings("SameParameterValue") final int truncateLabelAt0, @SuppressWarnings("SameParameterValue") final Color backColor0, @SuppressWarnings("SameParameterValue") final Color foreColor0, @SuppressWarnings("SameParameterValue") final Color edgeColor0, final int imageIndex0, @SuppressWarnings("SameParameterValue") final Image image0)
+	public LoadBalancer(final int[] limitNodesAtLevel0, final int truncateLabelAt0)
 	{
 		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[] { 10, 3 };
 		this.truncateLabelAt = truncateLabelAt0 > 0 ? truncateLabelAt0 : 3;
+	}
+
+	/**
+	 * Set group node data
+	 *
+	 * @param backColor0 group node back color
+	 * @param foreColor0 group node back color
+	 * @param edgeColor0 group node edge color
+	 * @param imageIndex0 group node image index
+	 * @param image0 group node image
+	 */
+	public void setGroupNode(final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, final Image image0)
+	{
 		this.backColor = backColor0;
 		this.foreColor = foreColor0;
 		this.edgeColor = edgeColor0;
@@ -80,41 +88,6 @@ public class LoadBalancer
 	}
 
 	// T R E E F A C T O R Y
-
-	/**
-	 * Attach to parent
-	 *
-	 * @param parent parent node
-	 * @param nodes  children nodes
-	 */
-	static public void attachToParent(final TreeMutableNode parent, final List<INode> nodes)
-	{
-		if (nodes != null)
-		{
-			for (INode node : nodes)
-			{
-				addToParent(node, parent);
-			}
-		}
-	}
-
-	/**
-	 * Add child to parent
-	 *
-	 * @param child  child
-	 * @param parent tree mutable parent
-	 */
-	static public void addToParent(final INode child, final TreeMutableNode parent)
-	{
-		List<INode> children = parent.getChildren();
-		if (children == null)
-		{
-			children = new ArrayList<>();
-			parent.setChildren(children);
-		}
-		children.add(child);
-		child.setParent(parent);
-	}
 
 	/**
 	 * Build a list of tree parent nodes
@@ -127,22 +100,24 @@ public class LoadBalancer
 	{
 		final List<INode> roots = new ArrayList<>();
 
-		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
+		int m0 = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
 		int z = nodes.size();
 
 		// balance
-		if (z % m == 1)
+		if (z % m0 == 1)
 		{
-			m--;
+			m0--;
 		}
+		int m = m0; // actual length of segment
 		for (int i = 0; i < z; i = i + m)
 		{
+			m = m0; // actual length of segment
 			final TreeMutableNode root = new TreeMutableNode(null, "root" + level + "-" + i);
 			root.setLink("directory:"); //$NON-NLS-1$
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
 			root.setEdgeColor(this.edgeColor);
-			//noinspection PointlessBitwiseExpression
+			// noinspection PointlessBitwiseExpression
 			root.setEdgeStyle(IEdge.SOLID | /* IEdge.FROMDEF | IEdge.FROMCIRCLE | */IEdge.TOTRIANGLE | IEdge.TOFILL | IEdge.TODEF);
 			if (this.imageIndex > 0)
 			{
@@ -153,9 +128,24 @@ public class LoadBalancer
 				root.setImage(this.image);
 			}
 
-			int b = Math.min(i + m, z);
+			int b = Math.min(i + m0, z);
 			INode first = nodes.get(i);
 			INode last = nodes.get(b - 1);
+
+			// no adjacent tag pairs severed
+			int b2 = Math.min(b + 1, z);
+			if (b != b2)
+			{
+				final String tag = last.getTarget();
+				final INode next = nodes.get(b2 - 1);
+				final String nextTag = next.getTarget();
+				if (tag != null && tag.equals(nextTag))
+				{
+					b = b2; // first of next segment = last index exclusive of current segment
+					last = next; // last item of segment
+					m++; // actual lenght of segment
+				}
+			}
 
 			final String startLabel = left(first.getTarget(), this.truncateLabelAt);
 			root.setEdgeLabel(startLabel);
@@ -172,7 +162,7 @@ public class LoadBalancer
 				 * if (!(node instanceof TreeMutableNode)) throw new IllegalArgumentException("Node is not tree mutable: " + node.getId()); final
 				 * TreeMutableNode mutableNode = (TreeMutableNode) node; mutableNode.addToParent(root);
 				 */
-				addToParent(node, root);
+				root.addChild(node);
 			}
 
 			roots.add(root);
@@ -191,7 +181,7 @@ public class LoadBalancer
 	public List<INode> buildHierarchy(final List<INode> nodes, final int level)
 	{
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
-		// System.out.println("level=" + level + "  m=" + m);
+		// System.out.println("level=" + level + " m=" + m);
 		if (nodes == null)
 		{
 			return null;

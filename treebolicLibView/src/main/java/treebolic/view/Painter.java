@@ -957,9 +957,9 @@ public class Painter extends AbstractPainter
 
 		if ((thisStyle & (IEdge.STROKEMASK | IEdge.STROKEWIDTHMASK)) != 0)
 		{
-			int thisStrokeValue;
-			int thisWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
+			// stroke
 			int thisStroke = (thisStyle & IEdge.STROKEMASK);
+			int thisStrokeValue;
 			switch (thisStroke)
 			{
 				case IEdge.DASH:
@@ -974,15 +974,15 @@ public class Painter extends AbstractPainter
 					break;
 			}
 
-			if (thisWidth != 0)
-			{
-				this.theGraphics.pushStroke();
-				this.theGraphics.setStroke(thisStrokeValue, thisWidth);
-				this.theGraphics.drawArc(x, y, w, h, start, extent);
-				this.theGraphics.popStroke();
-				return;
-			}
-		}
+			// width
+			int thisWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
+
+			this.theGraphics.pushStroke();
+			this.theGraphics.setStroke(thisStrokeValue, thisWidth);
+			this.theGraphics.drawArc(x, y, w, h, start, extent);
+			this.theGraphics.popStroke();
+			return;
+		} 
 		this.theGraphics.drawArc(x, y, w, h, start, extent);
 	}
 
@@ -1099,8 +1099,8 @@ public class Painter extends AbstractPainter
 	{
 		if ((thisStyle & (IEdge.STROKEMASK | IEdge.STROKEWIDTHMASK)) != 0)
 		{
+			// stroke
 			int thisStrokeValue;
-			int thisWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
 			int thisStroke = (thisStyle & IEdge.STROKEMASK);
 			switch (thisStroke)
 			{
@@ -1116,14 +1116,13 @@ public class Painter extends AbstractPainter
 					break;
 			}
 
-			if (thisWidth != 0)
-			{
-				this.theGraphics.pushStroke();
-				this.theGraphics.setStroke(thisStrokeValue, thisWidth);
-				this.theGraphics.drawLine((int) thisFromPoint.getX(), (int) thisFromPoint.getY(), (int) thisToPoint.getX(), (int) thisToPoint.getY());
-				this.theGraphics.popStroke();
-				return;
-			}
+			// width
+			int thisWidth = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
+			this.theGraphics.pushStroke();
+			this.theGraphics.setStroke(thisStrokeValue, thisWidth);
+			this.theGraphics.drawLine((int) thisFromPoint.getX(), (int) thisFromPoint.getY(), (int) thisToPoint.getX(), (int) thisToPoint.getY());
+			this.theGraphics.popStroke();
+			return;
 		}
 		this.theGraphics.drawLine((int) thisFromPoint.getX(), (int) thisFromPoint.getY(), (int) thisToPoint.getX(), (int) thisToPoint.getY());
 	}
