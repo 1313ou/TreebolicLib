@@ -982,7 +982,7 @@ public class Painter extends AbstractPainter
 			this.theGraphics.drawArc(x, y, w, h, start, extent);
 			this.theGraphics.popStroke();
 			return;
-		} 
+		}
 		this.theGraphics.drawArc(x, y, w, h, start, extent);
 	}
 

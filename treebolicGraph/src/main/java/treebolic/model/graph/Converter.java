@@ -22,15 +22,13 @@ public class Converter<T extends TreeMutableNode>
 	/**
 	 * Convert graph to tree
 	 *
-	 * @param thisGraph
-	 *        graph
+	 * @param thisGraph graph
 	 * @return tree
 	 */
 	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph)
 	{
 		// determine root node
-		@SuppressWarnings("UnusedAssignment")
-		GraphNode thisRootNode = null;
+		@SuppressWarnings("UnusedAssignment") GraphNode thisRootNode = null;
 		final List<GraphNode> theseRootNodes = thisGraph.getNodesWithZeroDegree();
 		if (theseRootNodes != null)
 		{
@@ -39,7 +37,9 @@ public class Converter<T extends TreeMutableNode>
 				thisRootNode = theseRootNodes.get(0);
 			}
 			else
+			{
 				throw new RuntimeException("No single root " + theseRootNodes); //$NON-NLS-1$
+			}
 		}
 		else
 		{
@@ -51,18 +51,18 @@ public class Converter<T extends TreeMutableNode>
 	/**
 	 * Convert graph to tree
 	 *
-	 * @param thisGraph
-	 *        graph
-	 * @param thisRootNode
-	 *        root node
+	 * @param thisGraph    graph
+	 * @param thisRootNode root node
 	 * @return tree
 	 */
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({"unchecked"})
 	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph, final GraphNode thisRootNode)
 	{
 		// spanning tree
 		if (thisRootNode == null)
+		{
 			throw new RuntimeException("Null root"); //$NON-NLS-1$
+		}
 
 		// spanning tree
 		final treebolic.model.graph.Tree thisSpanningTree = thisGraph.makeSpanningTree(thisRootNode);

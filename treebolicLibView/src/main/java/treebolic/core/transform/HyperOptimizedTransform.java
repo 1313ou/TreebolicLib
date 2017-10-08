@@ -44,8 +44,7 @@ public class HyperOptimizedTransform implements IHyperTransform
 	/**
 	 * Construct from transform
 	 *
-	 * @param t
-	 *            transform to optimize
+	 * @param t transform to optimize
 	 */
 	public HyperOptimizedTransform(final HyperTransform t)
 	{

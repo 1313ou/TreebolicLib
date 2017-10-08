@@ -12,8 +12,7 @@ public interface IHyperTransform
 	/**
 	 * Map point in hyperbolic space
 	 *
-	 * @param z
-	 *            point is hyperbolic space
+	 * @param z point is hyperbolic space
 	 * @return map z to z' with z'=map(z)
 	 */
 	Complex map(Complex z);

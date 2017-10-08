@@ -12,14 +12,10 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 	/**
 	 * Make rectangle from topleft and size
 	 *
-	 * @param left0
-	 *            left
-	 * @param top0
-	 *            top
-	 * @param width0
-	 *            width
-	 * @param height0
-	 *            height
+	 * @param left0   left
+	 * @param top0    top
+	 * @param width0  width
+	 * @param height0 height
 	 * @return rectangle
 	 */
 	public static RectF makeRect(final double left0, final double top0, final double width0, final double height0)
@@ -45,14 +41,10 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 	/**
 	 * Constructor from topleft and size
 	 *
-	 * @param x
-	 *            left
-	 * @param y
-	 *            top
-	 * @param w
-	 *            width
-	 * @param h
-	 *            height
+	 * @param x left
+	 * @param y top
+	 * @param w width
+	 * @param h height
 	 */
 	public Rectangle2D(final int x, final int y, final int w, final int h)
 	{

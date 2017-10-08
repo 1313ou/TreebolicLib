@@ -62,12 +62,9 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	/**
 	 * Constructor
 	 *
-	 * @param r
-	 *            red
-	 * @param g
-	 *            green
-	 * @param b
-	 *            blue
+	 * @param r red
+	 * @param g green
+	 * @param b blue
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public Color(final int r, final int g, final int b)
@@ -79,8 +76,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	/**
 	 * Constructor
 	 *
-	 * @param rgb
-	 *            color
+	 * @param rgb color
 	 */
 	public Color(final int rgb)
 	{
@@ -149,7 +145,9 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 
 		final int i = (int) (1.0 / (1.0 - Color.FACTOR));
 		if (r == 0 && g == 0 && b == 0)
+		{
 			return new Color(i, i, i);
+		}
 		if (r > 0 && r < i)
 		{
 			r = i;
@@ -228,8 +226,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	/**
 	 * Write object to serialization stream
 	 *
-	 * @param out
-	 *            serialization stream
+	 * @param out serialization stream
 	 * @throws IOException io exception
 	 */
 	@SuppressWarnings("boxing")
@@ -248,9 +245,8 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	/**
 	 * Read object from serialization stream
 	 *
-	 * @param in
-	 *            serialization stream
-	 * @throws IOException io exception
+	 * @param in serialization stream
+	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
 	@SuppressWarnings("boxing")

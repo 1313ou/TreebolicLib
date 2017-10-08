@@ -261,7 +261,7 @@ public abstract class Commander
 		getLayerOut().layout(getModel().theTree.getRoot());
 	}
 	*/
-	
+
 	/**
 	 * Reset expansion and sweep
 	 */
@@ -433,7 +433,7 @@ public abstract class Commander
 		getView().repaint();
 	}
 	*/
-	
+
 	/**
 	 * Perform change sweep by given factor
 	 *
@@ -455,9 +455,9 @@ public abstract class Commander
 		getView().repaint();
 	}
 	*/
-	
+
 	/**
-	 * Perform reset expansion and sweep 
+	 * Perform reset expansion and sweep
 	 */
 	private void doResetExpansionSweep()
 	{

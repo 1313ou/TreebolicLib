@@ -37,10 +37,8 @@ public class GraphEdge
 	/**
 	 * Constructor
 	 *
-	 * @param thisFromNode
-	 *        source node
-	 * @param thisToNode
-	 *        destination node
+	 * @param thisFromNode source node
+	 * @param thisToNode   destination node
 	 */
 	public GraphEdge(final GraphNode thisFromNode, final GraphNode thisToNode, final Boolean isTreeEdgeFlag)
 	{
@@ -52,8 +50,7 @@ public class GraphEdge
 	/**
 	 * Make inverse edge
 	 *
-	 * @param thatEdge
-	 *        edge
+	 * @param thatEdge edge
 	 * @return edge
 	 */
 	static GraphEdge makeReverseOf(final GraphEdge thatEdge)
@@ -104,8 +101,7 @@ public class GraphEdge
 	/**
 	 * Set user data
 	 *
-	 * @param thisUserData
-	 *        user data
+	 * @param thisUserData user data
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public void setUserData(final Object thisUserData)
@@ -126,8 +122,7 @@ public class GraphEdge
 	/**
 	 * Get node other than
 	 *
-	 * @param thisNode
-	 *        reference node
+	 * @param thisNode reference node
 	 * @return node
 	 */
 	public GraphNode getOtherNode(final GraphNode thisNode)

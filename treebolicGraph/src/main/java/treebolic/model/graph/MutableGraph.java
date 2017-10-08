@@ -11,8 +11,7 @@ public class MutableGraph extends Graph
 	/**
 	 * Add node.
 	 *
-	 * @param thisNode
-	 *        the node to add.
+	 * @param thisNode the node to add.
 	 */
 	public void add(final GraphNode thisNode)
 	{
@@ -22,8 +21,7 @@ public class MutableGraph extends Graph
 	/**
 	 * Add edge.
 	 *
-	 * @param thisEdge
-	 *        the edge to add.
+	 * @param thisEdge the edge to add.
 	 */
 	public void add(final GraphEdge thisEdge)
 	{

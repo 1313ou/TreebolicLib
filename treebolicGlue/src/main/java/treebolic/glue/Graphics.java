@@ -61,12 +61,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Dot effect
 	 */
-	static private final PathEffect dotEffect = new DashPathEffect(new float[] { 5, 2 }, 0); // on-interval off-interval
+	static private final PathEffect dotEffect = new DashPathEffect(new float[]{5, 2}, 0); // on-interval off-interval
 
 	/**
 	 * Dash effect
 	 */
-	static private final PathEffect dashEffect = new DashPathEffect(new float[] { 2, 2 }, 0); // on-interval off-interval
+	static private final PathEffect dashEffect = new DashPathEffect(new float[]{2, 2}, 0); // on-interval off-interval
 
 	// S T A T I C I N I T
 
@@ -75,8 +75,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Init
 	 *
-	 * @param context
-	 *            context application context
+	 * @param context context application context
 	 */
 	static public void init(final Context context)
 	{
@@ -101,8 +100,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Construct
 	 *
-	 * @param canvas0
-	 *            canvas
+	 * @param canvas0 canvas
 	 */
 	public Graphics(final Canvas canvas0)
 	{
@@ -337,19 +335,19 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.paint.setStyle(Style.STROKE);
 		switch (stroke)
 		{
-		case treebolic.glue.iface.Graphics.SOLID:
-			this.paint.setPathEffect(null);
-			break;
-		case treebolic.glue.iface.Graphics.DOT:
-			this.paint.setPathEffect(Graphics.dotEffect);
-			break;
-		case treebolic.glue.iface.Graphics.DASH:
-			this.paint.setPathEffect(Graphics.dashEffect);
-			break;
-		default:
-			break;
+			case treebolic.glue.iface.Graphics.SOLID:
+				this.paint.setPathEffect(null);
+				break;
+			case treebolic.glue.iface.Graphics.DOT:
+				this.paint.setPathEffect(Graphics.dotEffect);
+				break;
+			case treebolic.glue.iface.Graphics.DASH:
+				this.paint.setPathEffect(Graphics.dashEffect);
+				break;
+			default:
+				break;
 		}
-		if (width >=0)
+		if (width >= 0)
 		{
 			this.paint.setStrokeWidth(width);
 		}

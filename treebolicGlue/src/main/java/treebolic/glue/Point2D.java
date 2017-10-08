@@ -10,10 +10,8 @@ public class Point2D extends android.graphics.PointF implements treebolic.glue.i
 	/**
 	 * Constructor
 	 *
-	 * @param x0
-	 *            x
-	 * @param y0
-	 *            y
+	 * @param x0 x
+	 * @param y0 y
 	 */
 	public Point2D(final double x0, final double y0)
 	{

@@ -33,8 +33,7 @@ public class HyperTranslation extends Complex
 	/**
 	 * Constructor from point, cartesian representation of translation (relative to 0,0 origin)
 	 *
-	 * @param p
-	 *            cartesian representation of translation as a point (relative to 0,0 origin)
+	 * @param p cartesian representation of translation as a point (relative to 0,0 origin)
 	 */
 	public HyperTranslation(final Complex p)
 	{
@@ -44,10 +43,8 @@ public class HyperTranslation extends Complex
 	/**
 	 * Constructor from point, cartesian representation of translation (relative to 0,0 origin)
 	 *
-	 * @param x
-	 *            x-coordinate of cartesian representation of translation (relative to 0,0 origin)
-	 * @param y
-	 *            y-coordinate of cartesian representation of translation (relative to 0,0 origin)
+	 * @param x x-coordinate of cartesian representation of translation (relative to 0,0 origin)
+	 * @param y y-coordinate of cartesian representation of translation (relative to 0,0 origin)
 	 */
 	public HyperTranslation(final double x, final double y)
 	{
@@ -57,12 +54,9 @@ public class HyperTranslation extends Complex
 	/**
 	 * Constructor of hyperbolic translation which maps 'from' to 0,0 and 0,0 to 'to'
 	 *
-	 * @param from
-	 *            source point to be translated to 0,0
-	 * @param to
-	 *            target point 0,0 is to be translated to
-	 * @param dummy
-	 *            dummy
+	 * @param from  source point to be translated to 0,0
+	 * @param to    target point 0,0 is to be translated to
+	 * @param dummy dummy
 	 */
 	public HyperTranslation(final Complex from, final Complex to, @SuppressWarnings({"SameParameterValue", "UnusedParameters"}) final boolean dummy)
 	{
@@ -77,10 +71,8 @@ public class HyperTranslation extends Complex
 	/**
 	 * Construct translation from source point and destination points
 	 *
-	 * @param from
-	 *            source point
-	 * @param to
-	 *            destination point
+	 * @param from source point
+	 * @param to   destination point
 	 */
 	public HyperTranslation(final Complex from, final Complex to)
 	{
@@ -130,10 +122,8 @@ public class HyperTranslation extends Complex
 	/**
 	 * Map point by translation expressed as point
 	 *
-	 * @param z
-	 *            point to be mapped
-	 * @param p
-	 *            point expressing translation relative to 0,0
+	 * @param z point to be mapped
+	 * @param p point expressing translation relative to 0,0
 	 * @return this point with mapped values
 	 */
 	static public Complex map(final Complex z, final Complex p)
@@ -150,12 +140,9 @@ public class HyperTranslation extends Complex
 	/**
 	 * Double-map point by translations expressed as points
 	 *
-	 * @param z
-	 *            point to be mapped
-	 * @param p1
-	 *            point expressing translation relative to 0,0
-	 * @param p2
-	 *            point expressing translation relative to 0,0
+	 * @param z  point to be mapped
+	 * @param p1 point expressing translation relative to 0,0
+	 * @param p2 point expressing translation relative to 0,0
 	 * @return this point with mapped values
 	 */
 	@SuppressWarnings("UnusedReturnValue")
@@ -167,10 +154,8 @@ public class HyperTranslation extends Complex
 	/**
 	 * Map point by inverse of translation expressed as point
 	 *
-	 * @param z
-	 *            point to be mapped
-	 * @param p
-	 *            point expressing translation relative to 0,0
+	 * @param z point to be mapped
+	 * @param p point expressing translation relative to 0,0
 	 * @return this point with mapped values (by inverse translation)
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -186,8 +171,7 @@ public class HyperTranslation extends Complex
 	/**
 	 * Map point
 	 *
-	 * @param z
-	 *            point to be mapped
+	 * @param z point to be mapped
 	 * @return this point with mapped values
 	 */
 	public Complex map(final Complex z)
@@ -198,8 +182,7 @@ public class HyperTranslation extends Complex
 	/**
 	 * Map point by this translation's inverse
 	 *
-	 * @param z
-	 *            point to be mapped
+	 * @param z point to be mapped
 	 * @return this point with mapped values
 	 */
 	public Complex mapinv(final Complex z)
@@ -223,10 +206,8 @@ public class HyperTranslation extends Complex
 	/**
 	 * Compose 2 translations
 	 *
-	 * @param t1
-	 *            translation
-	 * @param t2
-	 *            translation
+	 * @param t1 translation
+	 * @param t2 translation
 	 * @return transform resulting from the composition of 2 translations
 	 */
 	static public HyperTransform compose(final HyperTranslation t1, final HyperTranslation t2)

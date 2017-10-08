@@ -68,12 +68,9 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Lay out children
 	 *
-	 * @param thisNode
-	 *            starting node
-	 * @param thisHalfWedge
-	 *            half wedge allocated to this node
-	 * @param thisOrientation
-	 *            orientation of this node
+	 * @param thisNode        starting node
+	 * @param thisHalfWedge   half wedge allocated to this node
+	 * @param thisOrientation orientation of this node
 	 */
 	private void layoutChildren(final INode thisNode, final double thisHalfWedge, final double thisOrientation)
 	{
@@ -161,12 +158,9 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Compute orientation
 	 *
-	 * @param thisParentCenter
-	 *            parent node hypercircle center
-	 * @param thisCenter
-	 *            this node's hypercircle
-	 * @param thisOrientation
-	 *            orientation
+	 * @param thisParentCenter parent node hypercircle center
+	 * @param thisCenter       this node's hypercircle
+	 * @param thisOrientation  orientation
 	 * @return orientation
 	 */
 	private static double computeOrientation(final Complex thisParentCenter, final Complex thisCenter, final double thisOrientation)
@@ -186,10 +180,8 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Compute wedge
 	 *
-	 * @param thisNodeDistance
-	 *            node distance
-	 * @param thisWedge
-	 *            wedge
+	 * @param thisNodeDistance node distance
+	 * @param thisWedge        wedge
 	 * @return wedge
 	 */
 	private static double computeWedge(final double thisNodeDistance, final double thisWedge)

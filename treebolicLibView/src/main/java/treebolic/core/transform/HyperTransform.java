@@ -42,10 +42,8 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Constructor from translation vector and rotation angle
 	 *
-	 * @param p
-	 *            translation vector
-	 * @param r
-	 *            rotation angle
+	 * @param p translation vector
+	 * @param r rotation angle
 	 */
 	public HyperTransform(final Complex p, final Complex r)
 	{
@@ -56,8 +54,7 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Constructor from translation, null rotation
 	 *
-	 * @param p
-	 *            translation vector
+	 * @param p translation vector
 	 */
 	public HyperTransform(final HyperTranslation p)
 	{
@@ -68,8 +65,7 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Constructor from rotation, null translation
 	 *
-	 * @param r
-	 *            rotation angle
+	 * @param r rotation angle
 	 */
 	public HyperTransform(final HyperRotation r)
 	{
@@ -80,10 +76,8 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Constructor from translation and rotation
 	 *
-	 * @param p
-	 *            translation
-	 * @param r
-	 *            rotation
+	 * @param p translation
+	 * @param r rotation
 	 */
 	public HyperTransform(final HyperTranslation p, final HyperRotation r)
 	{
@@ -95,14 +89,10 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Constructor for transform expressed in cartesian mode
 	 *
-	 * @param px
-	 *            x coordinate for translation vector expressed in cartesian mode (relative to 0,0)
-	 * @param py
-	 *            y coordinate for translation vector expressed in cartesian mode (relative to 0,0)
-	 * @param rx
-	 *            x coordinate for rotation expressed by point (relative to 0,0 and x-axis)
-	 * @param ry
-	 *            y coordinate for rotation expressed by point (relative to 0,0 and x-axis)
+	 * @param px x coordinate for translation vector expressed in cartesian mode (relative to 0,0)
+	 * @param py y coordinate for translation vector expressed in cartesian mode (relative to 0,0)
+	 * @param rx x coordinate for rotation expressed by point (relative to 0,0 and x-axis)
+	 * @param ry y coordinate for rotation expressed by point (relative to 0,0 and x-axis)
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public HyperTransform(@SuppressWarnings("SameParameterValue") final double px, @SuppressWarnings("SameParameterValue") final double py, @SuppressWarnings("SameParameterValue") final double rx, @SuppressWarnings("SameParameterValue") final double ry)
@@ -114,8 +104,7 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Copy constructor
 	 *
-	 * @param t
-	 *            source transform
+	 * @param t source transform
 	 */
 	public HyperTransform(final HyperTransform t)
 	{
@@ -126,8 +115,7 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Copy transform
 	 *
-	 * @param t
-	 *            source transform
+	 * @param t source transform
 	 * @return this transform with value set to t
 	 */
 	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
@@ -141,10 +129,8 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Construct transform as composition of 2 transforms
 	 *
-	 * @param t1
-	 *            transform
-	 * @param t2
-	 *            transform
+	 * @param t1 transform
+	 * @param t2 transform
 	 */
 	public HyperTransform(final HyperTranslation t1, final HyperTranslation t2)
 	{
@@ -197,11 +183,11 @@ public class HyperTransform implements IHyperTransform
 	}
 
 	// C O M P O S E
+
 	/**
 	 * Compose this transform with other transform
 	 *
-	 * @param t2
-	 *            transform
+	 * @param t2 transform
 	 * @return this transform as the result of composing the initial transform with t2
 	 */
 	public HyperTransform compose(final HyperTransform t2)
@@ -238,10 +224,8 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Compose 2 translations
 	 *
-	 * @param t1
-	 *            translation
-	 * @param t2
-	 *            translation
+	 * @param t1 translation
+	 * @param t2 translation
 	 * @return composition of t1 and t2
 	 */
 	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})

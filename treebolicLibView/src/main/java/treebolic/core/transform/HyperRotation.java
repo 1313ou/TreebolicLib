@@ -24,8 +24,7 @@ public class HyperRotation extends Complex
 	/**
 	 * Constructor from rotation expressed in cartesian value relative to (0,0) origin and x-axis
 	 *
-	 * @param z
-	 *            rotation expressed as cartesian value
+	 * @param z rotation expressed as cartesian value
 	 */
 	public HyperRotation(final Complex z)
 	{
@@ -35,10 +34,8 @@ public class HyperRotation extends Complex
 	/**
 	 * Constructor from rotation expressed in cartesian value relative to (0,0) origin and x-axis
 	 *
-	 * @param x
-	 *            x-coordinate of point expressing rotation expressed as cartesian value
-	 * @param y
-	 *            y-coordinate of point expressing rotation expressed as cartesian value
+	 * @param x x-coordinate of point expressing rotation expressed as cartesian value
+	 * @param y y-coordinate of point expressing rotation expressed as cartesian value
 	 */
 	public HyperRotation(final double x, final double y)
 	{
@@ -62,10 +59,8 @@ public class HyperRotation extends Complex
 	/**
 	 * Rotate point
 	 *
-	 * @param z
-	 *            input point
-	 * @param thisAngle
-	 *            rotation angle
+	 * @param z         input point
+	 * @param thisAngle rotation angle
 	 * @return this point with rotated values
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -80,8 +75,7 @@ public class HyperRotation extends Complex
 	/**
 	 * Rotate point
 	 *
-	 * @param z
-	 *            point
+	 * @param z point
 	 * @return rotated point
 	 */
 	public Complex map(final Complex z)
@@ -94,10 +88,8 @@ public class HyperRotation extends Complex
 	/**
 	 * Compose rotation with translation
 	 *
-	 * @param r1
-	 *            rotation
-	 * @param t2
-	 *            translation
+	 * @param r1 rotation
+	 * @param t2 translation
 	 * @return transform
 	 */
 	static public HyperTransform compose(final HyperRotation r1, final HyperTranslation t2)

@@ -156,7 +156,9 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 			angExt = -angExt;
 		}
 		if (angExt >= 360.0)
+		{
 			return true;
+		}
 		angle = Arc2D.normalizeDegrees(angle) - Arc2D.normalizeDegrees(getAngleStart());
 		if (backwards)
 		{

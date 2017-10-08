@@ -61,22 +61,22 @@ public class LoadBalancer
 
 	/**
 	 * @param limitNodesAtLevel0 limit number of nodes at given level
-	 * @param truncateLabelAt0 truncate label threshold
+	 * @param truncateLabelAt0   truncate label threshold
 	 */
 	public LoadBalancer(final int[] limitNodesAtLevel0, final int truncateLabelAt0)
 	{
-		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[] { 10, 3 };
+		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[]{10, 3};
 		this.truncateLabelAt = truncateLabelAt0 > 0 ? truncateLabelAt0 : 3;
 	}
 
 	/**
 	 * Set group node data
 	 *
-	 * @param backColor0 group node back color
-	 * @param foreColor0 group node back color
-	 * @param edgeColor0 group node edge color
+	 * @param backColor0  group node back color
+	 * @param foreColor0  group node back color
+	 * @param edgeColor0  group node edge color
 	 * @param imageIndex0 group node image index
-	 * @param image0 group node image
+	 * @param image0      group node image
 	 */
 	public void setGroupNode(final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, final Image image0)
 	{
@@ -201,7 +201,7 @@ public class LoadBalancer
 	 * Label factory of non-leave nodes
 	 *
 	 * @param first first child node
-	 * @param last lst child node
+	 * @param last  lst child node
 	 * @return makeRangeLabel of parent node
 	 */
 	private String makeRangeLabel(final INode first, final INode last)
@@ -233,7 +233,7 @@ public class LoadBalancer
 	 * Right truncation of a string
 	 *
 	 * @param str string
-	 * @param n n trailing characters
+	 * @param n   n trailing characters
 	 * @return right of string
 	 */
 	private String right(final String str, final int n)
@@ -254,7 +254,7 @@ public class LoadBalancer
 	 * Left truncation of a string
 	 *
 	 * @param str string
-	 * @param n n first characters
+	 * @param n   n first characters
 	 * @return left of string
 	 */
 	private String left(final String str, final int n)

@@ -10,10 +10,8 @@ public class Point extends android.graphics.Point implements treebolic.glue.ifac
 	/**
 	 * Constructor
 	 *
-	 * @param x0
-	 *            x
-	 * @param y0
-	 *            y
+	 * @param x0 x
+	 * @param y0 y
 	 */
 	public Point(final int x0, final int y0)
 	{

@@ -20,10 +20,8 @@ public class Tree
 	/**
 	 * Constructor
 	 *
-	 * @param thisGraph
-	 *        graph
-	 * @param thisRoot
-	 *        tree root
+	 * @param thisGraph graph
+	 * @param thisRoot  tree root
 	 */
 	public Tree(final Graph thisGraph, final GraphNode thisRoot)
 	{

@@ -18,8 +18,7 @@ public class MutableGraphNode extends TreeMutableNode implements GraphNode
 	/**
 	 * Constructor
 	 *
-	 * @param thisId
-	 *        id
+	 * @param thisId id
 	 */
 	public MutableGraphNode(final String thisId)
 	{

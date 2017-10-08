@@ -12,12 +12,9 @@ public class HyperOrientationPreservingTransform extends HyperTransform
 	/**
 	 * Construct orientation-preserving hyperbolic transform which translates from-point to to-point while preserving given orientation
 	 *
-	 * @param from
-	 *            from-point
-	 * @param to
-	 *            to-point
-	 * @param thisOrientation
-	 *            orientation
+	 * @param from            from-point
+	 * @param to              to-point
+	 * @param thisOrientation orientation
 	 */
 	public HyperOrientationPreservingTransform(final Complex from, final Complex to, final Complex thisOrientation)
 	{

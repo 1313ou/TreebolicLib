@@ -68,8 +68,7 @@ public class Graph
 	 * Gets an unmodifiable collection of all edges adjacent to <code>thisNode</code> that has been marked as tree. This method ignores the direction of the
 	 * edges.
 	 *
-	 * @param thisNode
-	 *        node.
+	 * @param thisNode node.
 	 * @return set of adjacent tree edges.
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -95,8 +94,7 @@ public class Graph
 	 * Gets an unmodifiable collection of all edges adjacent to <code>thisNode</code> that has been marked as tree. This method ignores the direction of the
 	 * edges.
 	 *
-	 * @param thisNode
-	 *        node.
+	 * @param thisNode node.
 	 * @return set of adjacent tree edges.
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -121,8 +119,7 @@ public class Graph
 	/**
 	 * Gets an unmodifiable collection of all edges adjacent to <code>thisNode</code>. This method ignores the direction of the theEdges.
 	 *
-	 * @param thisNode
-	 *        node.
+	 * @param thisNode node.
 	 * @return set of adjacent edges.
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -130,10 +127,12 @@ public class Graph
 	{
 		final Set<GraphEdge> theseEdges = new HashSet<>();
 		for (final GraphEdge thisEdge : this.theEdges)
+		{
 			if (thisEdge.getFrom().equals(thisNode) || thisEdge.getTo().equals(thisNode))
 			{
 				theseEdges.add(thisEdge);
 			}
+		}
 		return Collections.unmodifiableCollection(theseEdges);
 	}
 
@@ -171,8 +170,7 @@ public class Graph
 	/**
 	 * Make spanning tree
 	 *
-	 * @param thisRoot
-	 *        root to start from
+	 * @param thisRoot root to start from
 	 * @return spanning tree
 	 */
 	public synchronized Tree makeSpanningTree(final GraphNode thisRoot)
@@ -199,10 +197,8 @@ public class Graph
 	/**
 	 * Populate depth-first search
 	 *
-	 * @param thisSpanningTree
-	 *        spanning tree (stub)
-	 * @param thisRoot
-	 *        starting node
+	 * @param thisSpanningTree spanning tree (stub)
+	 * @param thisRoot         starting node
 	 */
 	private void processSpanningTreeDFS(final Graph thisSpanningTree, final GraphNode thisRoot)
 	{
@@ -258,10 +254,8 @@ public class Graph
 	/**
 	 * Populate breadth-first search
 	 *
-	 * @param thisSpanningTree
-	 *        spanning tree (stub)
-	 * @param thisRoot
-	 *        starting node
+	 * @param thisSpanningTree spanning tree (stub)
+	 * @param thisRoot         starting node
 	 */
 	private void processSpanningTreeBFS(final Graph thisSpanningTree, final GraphNode thisRoot)
 	{
@@ -347,10 +341,12 @@ public class Graph
 			// compute incoming degree for this node
 			int thisDegree = 0;
 			for (final GraphEdge thisEdge : getEdges(thisNode))
+			{
 				if (thisEdge.getTo().equals(thisNode))
 				{
 					thisDegree++;
 				}
+			}
 
 			if (thisMinimumDegree < 0 || thisMinimumDegree > thisDegree)
 			{
@@ -385,11 +381,13 @@ public class Graph
 			// compute incoming degree for this node
 			boolean zeroDegree = true;
 			for (final GraphEdge thisEdge : getEdges(thisNode))
+			{
 				if (thisEdge.getTo().equals(thisNode))
 				{
 					zeroDegree = false;
 					break;
 				}
+			}
 
 			// the degree can not be smaller than 0, we can stop here
 			if (zeroDegree)
