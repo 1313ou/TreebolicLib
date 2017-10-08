@@ -98,8 +98,7 @@ public class Tip extends AppCompatDialogFragment
 	/**
 	 * Set text
 	 *
-	 * @param text0
-	 *            text
+	 * @param text0 text
 	 */
 	public void setText(final String text0)
 	{
@@ -109,10 +108,8 @@ public class Tip extends AppCompatDialogFragment
 	/**
 	 * Convenience method to display tip
 	 *
-	 * @param activity
-	 *            activity
-	 * @param text
-	 *            text to display
+	 * @param activity activity
+	 * @param text     text to display
 	 */
 	static public void tip(@SuppressWarnings("UnusedParameters") final AppCompatActivity activity, @SuppressWarnings("UnusedParameters") final String text)
 	{

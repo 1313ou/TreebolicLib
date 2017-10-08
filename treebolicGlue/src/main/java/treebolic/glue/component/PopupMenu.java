@@ -86,8 +86,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	/**
 	 * Constructor
 	 *
-	 * @param handle
-	 *            anchor view
+	 * @param handle anchor view
 	 */
 	protected PopupMenu(final Object handle)
 	{
@@ -99,7 +98,9 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	{
 		// just click outside dialog
 		if (resource == ImageIndices.IMAGE_CANCEL.ordinal())
+		{
 			return;
+		}
 
 		final ActionItem item = new ActionItem(label, getDrawable(resource), false, listener);
 		this.quickAction.addActionItem(item);
@@ -114,8 +115,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	/**
 	 * Get drawable from index
 	 *
-	 * @param index
-	 *            index
+	 * @param index index
 	 * @return drawable
 	 */
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -127,29 +127,29 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 			int res = -1;
 			switch (ImageIndices.values()[index])
 			{
-			case IMAGE_CANCEL:
-				res = R.drawable.menu_cancel;
-				break;
-			case IMAGE_GOTO:
-				res = R.drawable.menu_goto;
-				break;
-			case IMAGE_SEARCH:
-				res = R.drawable.menu_search;
-				break;
-			case IMAGE_FOCUS:
-				res = R.drawable.menu_focus;
-				break;
-			case IMAGE_LINK:
-				res = R.drawable.menu_link;
-				break;
-			case IMAGE_MOUNT:
-				res = R.drawable.menu_mount;
-				break;
-			case IMAGE_INFO:
-				res = R.drawable.menu_info;
-				break;
-			default:
-				break;
+				case IMAGE_CANCEL:
+					res = R.drawable.menu_cancel;
+					break;
+				case IMAGE_GOTO:
+					res = R.drawable.menu_goto;
+					break;
+				case IMAGE_SEARCH:
+					res = R.drawable.menu_search;
+					break;
+				case IMAGE_FOCUS:
+					res = R.drawable.menu_focus;
+					break;
+				case IMAGE_LINK:
+					res = R.drawable.menu_link;
+					break;
+				case IMAGE_MOUNT:
+					res = R.drawable.menu_mount;
+					break;
+				case IMAGE_INFO:
+					res = R.drawable.menu_info;
+					break;
+				default:
+					break;
 			}
 			if (res != -1)
 			{

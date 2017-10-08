@@ -58,14 +58,10 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		/**
 		 * Constructor
 		 *
-		 * @param title0
-		 *            title
-		 * @param icon0
-		 *            icon to use
-		 * @param sticky0
-		 *            whether item is sticky (disable QuickAction dialog being dismissed after an item is clicked)
-		 * @param listener0
-		 *            listener
+		 * @param title0    title
+		 * @param icon0     icon to use
+		 * @param sticky0   whether item is sticky (disable QuickAction dialog being dismissed after an item is clicked)
+		 * @param listener0 listener
 		 */
 		public ActionItem(final String title0, final Drawable icon0, @SuppressWarnings("SameParameterValue") final boolean sticky0, final ActionListener listener0)
 		{
@@ -159,8 +155,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Constructor for default vertical layout
 	 *
-	 * @param context0
-	 *            context
+	 * @param context0 context
 	 */
 	public QuickAction(final Context context0)
 	{
@@ -170,10 +165,8 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Constructor allowing orientation override
 	 *
-	 * @param context0
-	 *            context
-	 * @param orientation0
-	 *            layout orientation, can be vertical or horizontal
+	 * @param context0     context
+	 * @param orientation0 layout orientation, can be vertical or horizontal
 	 */
 	public QuickAction(final Context context0, @SuppressWarnings("SameParameterValue") final int orientation0)
 	{
@@ -189,8 +182,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Get action item at an index
 	 *
-	 * @param index
-	 *            index of item (position from callback)
+	 * @param index index of item (position from callback)
 	 * @return action item at the position
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -202,8 +194,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Set root view
 	 *
-	 * @param id
-	 *            Layout resource id
+	 * @param id Layout resource id
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public void setRootViewId(final int id)
@@ -223,8 +214,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Set animation style
 	 *
-	 * @param animStyle
-	 *            animation style, default is set to ANIM_AUTO
+	 * @param animStyle animation style, default is set to ANIM_AUTO
 	 */
 	public void setAnimStyle(final int animStyle)
 	{
@@ -234,8 +224,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Add action item
 	 *
-	 * @param action
-	 *            {@link ActionItem}
+	 * @param action {@link ActionItem}
 	 */
 	public void addActionItem(final ActionItem action)
 	{
@@ -243,8 +232,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 		final String title = action.title;
 		final Drawable icon = action.icon;
-		final View itemView = this.inflater.inflate(this.orientation == QuickAction.HORIZONTAL ? R.layout.popup_horizontal_item : R.layout.popup_vertical_item,
-				null);
+		final View itemView = this.inflater.inflate(this.orientation == QuickAction.HORIZONTAL ? R.layout.popup_horizontal_item : R.layout.popup_vertical_item, null);
 
 		final ImageView img = (ImageView) itemView.findViewById(R.id.iv_icon);
 		final TextView text = (TextView) itemView.findViewById(R.id.tv_title);
@@ -394,12 +382,9 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Show at x,y of anchor view
 	 *
-	 * @param anchor
-	 *            anchor view
-	 * @param x0
-	 *            x location
-	 * @param y0
-	 *            y location
+	 * @param anchor anchor view
+	 * @param x0     x location
+	 * @param y0     y location
 	 */
 	public void show(final View anchor, final float x0, final float y0)
 	{
@@ -456,12 +441,9 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Set animation style
 	 *
-	 * @param screenWidth
-	 *            screen width
-	 * @param requestedX
-	 *            distance from left edge
-	 * @param onTop
-	 *            flag to indicate where the popup should be displayed. Set TRUE if displayed on top of anchor view and vice versa
+	 * @param screenWidth screen width
+	 * @param requestedX  distance from left edge
+	 * @param onTop       flag to indicate where the popup should be displayed. Set TRUE if displayed on top of anchor view and vice versa
 	 */
 	private void setAnimationStyle(final int screenWidth, final int requestedX, final boolean onTop)
 	{
@@ -469,48 +451,46 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 		switch (this.animationStyle)
 		{
-		case ANIM_GROW_FROM_LEFT:
-			this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Left : R.style.Animations_PopDownMenu_Left);
-			break;
-
-		case ANIM_GROW_FROM_RIGHT:
-			this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Right : R.style.Animations_PopDownMenu_Right);
-			break;
-
-		case ANIM_GROW_FROM_CENTER:
-			this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Center : R.style.Animations_PopDownMenu_Center);
-			break;
-
-		case ANIM_REFLECT:
-			this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Reflect : R.style.Animations_PopDownMenu_Reflect);
-			break;
-
-		case ANIM_AUTO:
-			if (arrowPos <= screenWidth / 4)
-			{
+			case ANIM_GROW_FROM_LEFT:
 				this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Left : R.style.Animations_PopDownMenu_Left);
-			}
-			else if (arrowPos > screenWidth / 4 && arrowPos < 3 * (screenWidth / 4))
-			{
-				this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Center : R.style.Animations_PopDownMenu_Center);
-			}
-			else
-			{
+				break;
+
+			case ANIM_GROW_FROM_RIGHT:
 				this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Right : R.style.Animations_PopDownMenu_Right);
-			}
-			break;
-		default:
-			break;
+				break;
+
+			case ANIM_GROW_FROM_CENTER:
+				this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Center : R.style.Animations_PopDownMenu_Center);
+				break;
+
+			case ANIM_REFLECT:
+				this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Reflect : R.style.Animations_PopDownMenu_Reflect);
+				break;
+
+			case ANIM_AUTO:
+				if (arrowPos <= screenWidth / 4)
+				{
+					this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Left : R.style.Animations_PopDownMenu_Left);
+				}
+				else if (arrowPos > screenWidth / 4 && arrowPos < 3 * (screenWidth / 4))
+				{
+					this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Center : R.style.Animations_PopDownMenu_Center);
+				}
+				else
+				{
+					this.window.setAnimationStyle(onTop ? R.style.Animations_PopUpMenu_Right : R.style.Animations_PopDownMenu_Right);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
 	 * Show arrow
 	 *
-	 * @param whichArrow
-	 *            arrow type resource id
-	 * @param requestedX
-	 *            distance from left screen
+	 * @param whichArrow arrow type resource id
+	 * @param requestedX distance from left screen
 	 */
 	private void showArrow(final int whichArrow, final int requestedX)
 	{

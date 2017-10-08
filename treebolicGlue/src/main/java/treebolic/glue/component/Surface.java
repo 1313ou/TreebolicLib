@@ -108,41 +108,41 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			switch (maskedAction)
 			{
 
-			// new pointer : add it to the list of pointers
-			case MotionEvent.ACTION_DOWN:
-			case MotionEvent.ACTION_POINTER_DOWN:
-			{
+				// new pointer : add it to the list of pointers
+				case MotionEvent.ACTION_DOWN:
+				case MotionEvent.ACTION_POINTER_DOWN:
+				{
 
-				final PointF f = new PointF();
-				f.x = event.getX(pointerIndex);
-				f.y = event.getY(pointerIndex);
-				this.activePointers.put(pointerId, f);
-				break;
-			}
+					final PointF f = new PointF();
+					f.x = event.getX(pointerIndex);
+					f.y = event.getY(pointerIndex);
+					this.activePointers.put(pointerId, f);
+					break;
+				}
 
 				// a pointer was moved
-			case MotionEvent.ACTION_MOVE:
-			{
-				for (int size = event.getPointerCount(), i = 0; i < size; i++)
+				case MotionEvent.ACTION_MOVE:
 				{
-					final PointF point = this.activePointers.get(event.getPointerId(i));
-					if (point != null)
+					for (int size = event.getPointerCount(), i = 0; i < size; i++)
 					{
-						point.x = event.getX(i);
-						point.y = event.getY(i);
+						final PointF point = this.activePointers.get(event.getPointerId(i));
+						if (point != null)
+						{
+							point.x = event.getX(i);
+							point.y = event.getY(i);
+						}
 					}
+					break;
 				}
-				break;
-			}
-			case MotionEvent.ACTION_UP:
-			case MotionEvent.ACTION_POINTER_UP:
-			case MotionEvent.ACTION_CANCEL:
-			{
-				// this.activePointers.remove(pointerId);
-				break;
-			}
-			default:
-				break;
+				case MotionEvent.ACTION_UP:
+				case MotionEvent.ACTION_POINTER_UP:
+				case MotionEvent.ACTION_CANCEL:
+				{
+					// this.activePointers.remove(pointerId);
+					break;
+				}
+				default:
+					break;
 			}
 
 			// super
@@ -155,8 +155,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle
-	 *            handle
+	 * @param thisHandle handle
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public Surface(final Object thisHandle)
@@ -168,8 +167,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * Constructor
 	 *
-	 * @param activity
-	 *            activity
+	 * @param activity activity
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public Surface(final AppCompatActivity activity)
@@ -275,7 +273,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				// scaleFactor change since previous event
 				Surface.this.scaleFactor *= detector.getScaleFactor();
 				if (LOG)
+				{
 					Log.d(Surface.TAG, "scaleFactor " + Surface.this.scaleFactor);
+				}
 				return true;
 			}
 
@@ -286,7 +286,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				Surface.this.isScaling = true;
 				Surface.this.scaleFactor = 1F;
 				if (LOG)
+				{
 					Log.d(Surface.TAG, "scale begin");
+				}
 				return true;
 			}
 
@@ -328,13 +330,17 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				{
 					Surface.this.listener.onZoom(scale, 0, 0);
 					if (LOG)
+					{
 						Log.d(Surface.TAG, "zoom: " + scale);
+					}
 				}
 				else
 				{
 					Surface.this.listener.onScale(0, scale, scale);
 					if (LOG)
+					{
 						Log.d(Surface.TAG, "scale: " + scale);
+					}
 				}
 
 				// reset
@@ -378,7 +384,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		if (this.thread == null || this.thread.getState() == Thread.State.TERMINATED)
 		{
 			if (LOG)
+			{
 				Log.d(Surface.TAG, "thread created");
+			}
 			this.thread = new TreebolicThread(this, getHolder());
 		}
 
@@ -389,7 +397,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		if (this.thread.getState() == Thread.State.NEW)
 		{
 			if (LOG)
+			{
 				Log.d(Surface.TAG, "thread started");
+			}
 			this.thread.start();
 		}
 	}
@@ -403,7 +413,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void surfaceCreated(final SurfaceHolder holder0)
 	{
 		if (LOG)
+		{
 			Log.d(Surface.TAG, "surface created");
+		}
 
 		// start the thread here so that we don't busy-wait in run() waiting for the surface to be created
 		runThread();
@@ -416,7 +428,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void surfaceChanged(final SurfaceHolder holder0, final int format, final int width, final int height)
 	{
 		if (LOG)
+		{
 			Log.d(Surface.TAG, "surface changed");
+		}
 
 		this.thread.unpause();
 	}
@@ -429,7 +443,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void surfaceDestroyed(final SurfaceHolder holder0)
 	{
 		if (LOG)
+		{
 			Log.d(Surface.TAG, "surface destroyed");
+		}
 
 		// tell thread to shut down & wait for it to finish
 		this.thread.waitForTermination();
@@ -442,11 +458,15 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public void repaint()
 	{
 		if (LOG)
+		{
 			Log.d(Surface.TAG, "surface repainting");
+		}
 		runThread();
 		this.thread.unpause();
 		if (LOG)
+		{
 			Log.d(Surface.TAG, "surface repainted");
+		}
 	}
 
 	// O T H E R
@@ -495,28 +515,28 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 					final int action = event.getActionMasked();
 					switch (action)
 					{
-					case MotionEvent.ACTION_DOWN:
-						// if(LOG) Log.d(Surface.TAG, "touch down");
-						this.listener.onDown((int) event.getX(), (int) event.getY(), false);
-						break;
+						case MotionEvent.ACTION_DOWN:
+							// if(LOG) Log.d(Surface.TAG, "touch down");
+							this.listener.onDown((int) event.getX(), (int) event.getY(), false);
+							break;
 
-					case MotionEvent.ACTION_MOVE:
-						// if(LOG) Log.d(Surface.TAG, "touch move");
-						this.listener.onDragged((int) event.getX(), (int) event.getY());
-						break;
+						case MotionEvent.ACTION_MOVE:
+							// if(LOG) Log.d(Surface.TAG, "touch move");
+							this.listener.onDragged((int) event.getX(), (int) event.getY());
+							break;
 
-					case MotionEvent.ACTION_UP:
-						// if(LOG) Log.d(Surface.TAG, "touch up");
-						this.listener.onUp((int) event.getX(), (int) event.getY());
-						break;
+						case MotionEvent.ACTION_UP:
+							// if(LOG) Log.d(Surface.TAG, "touch up");
+							this.listener.onUp((int) event.getX(), (int) event.getY());
+							break;
 
-					case MotionEvent.ACTION_CANCEL:
-						// if(LOG) Log.d(Surface.TAG, "touch cancel");
-						this.listener.onUp((int) event.getX(), (int) event.getY());
-						break;
+						case MotionEvent.ACTION_CANCEL:
+							// if(LOG) Log.d(Surface.TAG, "touch cancel");
+							this.listener.onUp((int) event.getX(), (int) event.getY());
+							break;
 
-					default:
-						break;
+						default:
+							break;
 					}
 					// common to handled cases above
 					return true;

@@ -54,10 +54,8 @@ public class TreebolicThread extends Thread
 	/**
 	 * Constructor
 	 *
-	 * @param surface0
-	 *            surface
-	 * @param surfaceHolder0
-	 *            surface holder
+	 * @param surface0       surface
+	 * @param surfaceHolder0 surface holder
 	 */
 	public TreebolicThread(final Surface surface0, final SurfaceHolder surfaceHolder0)
 	{
@@ -71,8 +69,7 @@ public class TreebolicThread extends Thread
 	 * Used to signal the thread whether it should be running or not. Passing true allows the thread to run; passing false will shut it down if it's already
 	 * running. Calling start() after this was most recently called with false will result in an immediate shutdown.
 	 *
-	 * @param terminateFlag0
-	 *            true to run, false to shut down
+	 * @param terminateFlag0 true to run, false to shut down
 	 */
 	public void setTerminate(@SuppressWarnings("SameParameterValue") final boolean terminateFlag0)
 	{
@@ -116,10 +113,10 @@ public class TreebolicThread extends Thread
 	/*
 	  Pause thread and wait for task (unused)
 	 */
-//	public void pause()
-//	{
-//		this.pauseFlag = true;
-//	}
+	//	public void pause()
+	//	{
+	//		this.pauseFlag = true;
+	//	}
 
 	/**
 	 * Resume from a pause
@@ -132,7 +129,9 @@ public class TreebolicThread extends Thread
 			this.lock.notify();
 		}
 		if (LOG)
+		{
 			Log.d(TreebolicThread.TAG, "wake up");
+		}
 	}
 
 	@Override
@@ -148,10 +147,14 @@ public class TreebolicThread extends Thread
 				synchronized (this.synchronizer)
 				{
 					if (LOG)
+					{
 						Log.d(TreebolicThread.TAG, "task started " + ++TreebolicThread.drawCycle);
+					}
 					doDraw(canvas);
 					if (LOG)
+					{
 						Log.d(TreebolicThread.TAG, "task done " + TreebolicThread.drawCycle);
+					}
 				}
 			}
 			finally
@@ -166,7 +169,9 @@ public class TreebolicThread extends Thread
 			// pause
 			// we do not pause if we have been signaled in the mean time
 			if (LOG)
+			{
 				Log.d(TreebolicThread.TAG, "pause");
+			}
 			if (this.pauseFlag)
 			{
 				try
@@ -183,9 +188,11 @@ public class TreebolicThread extends Thread
 				{
 					Log.d(TreebolicThread.TAG, "interrupted");
 				}
-				
+
 				if (LOG)
+				{
 					Log.d(TreebolicThread.TAG, "resume");
+				}
 			}
 
 			// for next round
@@ -197,7 +204,9 @@ public class TreebolicThread extends Thread
 		this.surfaceHolder = null;
 
 		if (LOG)
+		{
 			Log.d(TreebolicThread.TAG, "terminated");
+		}
 	}
 
 	/**

@@ -79,8 +79,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	/**
 	 * Constructor
 	 *
-	 * @param context
-	 *            context
+	 * @param context context
 	 */
 	@SuppressWarnings("WeakerAccess")
 	protected Progress(final Context context)
@@ -105,8 +104,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	/**
 	 * Constructor
 	 *
-	 * @param handle
-	 *            context
+	 * @param handle context
 	 */
 	protected Progress(final Object handle)
 	{

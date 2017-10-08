@@ -44,8 +44,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 				Button.RADIAL, Button.SOUTH, Button.NORTH, Button.EAST, Button.WEST, //
 				Button.EXPAND, Button.SHRINK, Button.EXPANSIONRESET, //
 				Button.WIDEN, Button.NARROW, Button.SWEEPRESET, //
-				Button.EXPANSIONSWEEPRESET
-		};
+				Button.EXPANSIONSWEEPRESET};
 	}
 
 	/**
