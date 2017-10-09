@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="?attr/treebolic_splash_background"
+	android:orientation="vertical">
+
+	<ImageView
+		android:id="@+id/progressIcon"
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		android:layout_gravity="center_horizontal"
+		android:layout_weight=".75"
+		android:contentDescription="@string/progress_logo"
+		android:paddingTop="5dp"
+		android:scaleType="fitXY"
+		android:adjustViewBounds="true"
+		android:src="@drawable/splash"/>
+
+	<TextView
+		android:id="@+id/progressStatus"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_gravity="center_horizontal|center_vertical"
+		android:layout_weight=".75"
+		android:gravity="center"
+		android:lines="@integer/progress_max_lines"
+		android:text="@string/progress_text"
+		android:textColor="?attr/treebolic_splash_foreground"/>
+
+	<ProgressBar
+		android:id="@+id/progressBar"
+		style="?android:attr/progressBarStyleLarge"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:indeterminateTint="?attr/treebolic_splash_progress"
+		android:layout_weight="1"
+		android:indeterminate="true"
+		tools:targetApi="lollipop"/>
+
+</LinearLayout>

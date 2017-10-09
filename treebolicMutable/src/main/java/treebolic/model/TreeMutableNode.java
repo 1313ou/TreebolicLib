@@ -122,15 +122,15 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Add children to parent
 	 *
-	 * @param nodes children nodes
+	 * @param theseChildren children nodes
 	 */
-	public void addChildren(final INode... nodes)
+	public void addChildren(final INode... theseChildren)
 	{
-		if (nodes != null)
+		if (theseChildren != null)
 		{
-			for (INode node : nodes)
+			for (INode thisChild : theseChildren)
 			{
-				addChild(node);
+				addChild(thisChild);
 			}
 		}
 	}
@@ -138,15 +138,15 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Add children to parent
 	 *
-	 * @param nodes children nodes
+	 * @param theseChildren children nodes
 	 */
-	public void addChildren(final List<INode> nodes)
+	public void addChildren(final List<INode> theseChildren)
 	{
-		if (nodes != null)
+		if (theseChildren != null)
 		{
-			for (INode node : nodes)
+			for (INode thisChild : theseChildren)
 			{
-				addChild(node);
+				addChild(thisChild);
 			}
 		}
 	}
