@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<item name="font_factor" format="float" type="dimen">0.5</item>
+	<item name="font_factor" format="float" type="dimen">0.7</item>
 
 </resources>
