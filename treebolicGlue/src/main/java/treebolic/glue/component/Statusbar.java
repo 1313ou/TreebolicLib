@@ -89,6 +89,29 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	private final int iconTint;
 
+	// P R O C E S S O R
+
+	public interface Processor
+	{
+		/**
+		 * Process text
+		 *
+		 * @param in text
+		 * @return out text
+		 */
+		String process(final String in);
+	}
+
+	/**
+	 * Label processor
+	 */
+	static private Processor labelProcessor = null;
+
+	/**
+	 * Content processor
+	 */
+	static private Processor contentProcessor = null;
+
 	// C O N S T R U C T O R
 
 	/**
@@ -160,6 +183,26 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 	}
 
+	/**
+	 * Set label processor
+	 *
+	 * @param processor processor
+	 */
+	static public void setLabelProcessor(final Processor processor)
+	{
+		Statusbar.labelProcessor = processor;
+	}
+
+	/**
+	 * Set content processor
+	 *
+	 * @param processor processor
+	 */
+	static public void setContentProcessor(final Processor processor)
+	{
+		Statusbar.contentProcessor = processor;
+	}
+
 	@Override
 	public void addListener(ActionListener arg0)
 	{
@@ -180,7 +223,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public void put(final String label, final String content, final int image)
+	public void put(final String label0, final String content0, final int image)
 	{
 		// System.out.println("put("+label+","+content+");");
 
@@ -201,9 +244,20 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 
 		// label
+		String label = label0;
+		if (Statusbar.labelProcessor != null)
+		{
+			label = Statusbar.labelProcessor.process(label);
+		}
 		this.statusView.setText(label == null ? "" : label);
 
 		// content
+		String content = content0;
+		if (Statusbar.contentProcessor != null)
+		{
+			content = Statusbar.contentProcessor.process(content);
+		}
+
 		if (content == null)
 		{
 			if (Build.VERSION.SDK_INT < 18)

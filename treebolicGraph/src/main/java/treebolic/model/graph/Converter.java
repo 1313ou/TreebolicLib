@@ -28,7 +28,7 @@ public class Converter<T extends TreeMutableNode>
 	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph)
 	{
 		// determine root node
-		@SuppressWarnings("UnusedAssignment") GraphNode thisRootNode = null;
+		GraphNode thisRootNode;
 		final List<GraphNode> theseRootNodes = thisGraph.getNodesWithZeroDegree();
 		if (theseRootNodes != null)
 		{

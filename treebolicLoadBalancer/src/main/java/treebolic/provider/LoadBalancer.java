@@ -94,9 +94,12 @@ public class LoadBalancer
 	 *
 	 * @param nodes children nodes
 	 * @param level current level
+	 * @param imageIndex image index (-1 is none and reoves to default)
+	 * @param image image (null is none and resolves to default)
+	 * @param level current level
 	 * @return list of parent nodes
 	 */
-	private List<INode> buildHierarchy1(final List<INode> nodes, final int level)
+	private List<INode> buildHierarchy1(final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
 	{
 		final List<INode> roots = new ArrayList<>();
 
@@ -119,11 +122,21 @@ public class LoadBalancer
 			root.setEdgeColor(this.edgeColor);
 			// noinspection PointlessBitwiseExpression
 			root.setEdgeStyle(IEdge.SOLID | /* IEdge.FROMDEF | IEdge.FROMCIRCLE | */IEdge.TOTRIANGLE | IEdge.TOFILL | IEdge.TODEF);
-			if (this.imageIndex > 0)
+
+			// image
+			if (imageIndex >= 0)
+			{
+				root.setImageIndex(imageIndex);
+			}
+			else if (this.imageIndex >= 0)
 			{
 				root.setImageIndex(this.imageIndex);
 			}
-			if (this.image != null)
+			if (image != null)
+			{
+				root.setImage(image);
+			}
+			else if (this.image != null)
 			{
 				root.setImage(this.image);
 			}
@@ -175,10 +188,13 @@ public class LoadBalancer
 	 * Recursive build hierarchy
 	 *
 	 * @param nodes nodes at level
+	 * @param imageIndex image index (-1 is none and reoves to default)
+	 * @param image image (null is none and resolves to default)
 	 * @param level level
 	 * @return list of tree nodes
 	 */
-	public List<INode> buildHierarchy(final List<INode> nodes, final int level)
+	@SuppressWarnings("unchecked")
+	public List<INode> buildHierarchy(final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
 	{
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
 		// System.out.println("level=" + level + " m=" + m);
@@ -188,11 +204,22 @@ public class LoadBalancer
 		}
 		if (nodes.size() <= m)
 		{
-			return nodes;
+			return (List<INode>)nodes;
 		}
+		final List<INode> nodes2 = buildHierarchy1(nodes, imageIndex, image, level);
+		return buildHierarchy(nodes2, imageIndex, image, level + 1);
+	}
 
-		List<INode> nodes2 = buildHierarchy1(nodes, level);
-		return buildHierarchy(nodes2, level + 1);
+	/**
+	 * Recursive build hierarchy
+	 *
+	 * @param nodes nodes at level
+	 * @param level level
+	 * @return list of tree nodes
+	 */
+	public List<INode> buildHierarchy(final List<? extends INode> nodes, final int level)
+	{
+		return buildHierarchy(nodes, -1, null, level);
 	}
 
 	// H E L P E R S
@@ -201,7 +228,7 @@ public class LoadBalancer
 	 * Label factory of non-leave nodes
 	 *
 	 * @param first first child node
-	 * @param last  lst child node
+	 * @param last last child node
 	 * @return makeRangeLabel of parent node
 	 */
 	private String makeRangeLabel(final INode first, final INode last)

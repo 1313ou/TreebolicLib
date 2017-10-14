@@ -3,6 +3,8 @@ package treebolic.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import treebolic.glue.Color;
+
 /**
  * Extended Mutable node (mutable tree links, copy constructor)
  *
@@ -23,6 +25,21 @@ public class TreeMutableNode extends MutableNode
 	public TreeMutableNode(final INode thisParent, final String thisId)
 	{
 		super(thisParent, thisId);
+	}
+
+	/**
+	 * Constructor
+	 *
+	 * @param thisParent parent
+	 * @param thisId id
+	 * @param thisLabel label
+	 * @param thisImageIndex image index
+	 * @param thisBackColor backcolor
+	 * @param thisForeColor forecolor
+	 */
+	public TreeMutableNode(final INode thisParent, final String thisId, final String thisLabel, final int thisImageIndex, final Color thisBackColor, final Color thisForeColor)
+	{
+		super(thisParent, thisId, thisLabel, thisImageIndex, thisBackColor, thisForeColor);
 	}
 
 	/**
@@ -140,7 +157,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param theseChildren children nodes
 	 */
-	public void addChildren(final List<INode> theseChildren)
+	public void addChildren(final List<? extends INode> theseChildren)
 	{
 		if (theseChildren != null)
 		{
@@ -158,7 +175,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param i         ith position
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void insertChild(final INode thisChild, @SuppressWarnings("SameParameterValue") int i)
+	public void insertChild(final INode thisChild, final int i)
 	{
 		List<INode> theseChildren = this.getChildren();
 		if (theseChildren == null)
