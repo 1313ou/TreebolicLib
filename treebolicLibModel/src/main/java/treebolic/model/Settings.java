@@ -68,6 +68,9 @@ public class Settings implements Serializable
 	public static final String PROP_FONTSIZE = "fontsize";
 
 	@SuppressWarnings("WeakerAccess")
+	public static final String PROP_FONTSIZE_FACTOR = "fontsize.factor";
+
+	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_SCALE_FONTS = "scale.fonts";
 
 	@SuppressWarnings("WeakerAccess")
@@ -193,6 +196,11 @@ public class Settings implements Serializable
 	 * Font size
 	 */
 	public Integer theFontSize;
+
+	/**
+	 * Font size factor
+	 */
+	public Float theFontSizeFactor;
 
 	// downscaling
 	/**
@@ -513,6 +521,11 @@ public class Settings implements Serializable
 		if (thisParam != null)
 		{
 			this.theFontSize = Integer.valueOf(thisParam);
+		}
+		thisParam = theseProperties.getProperty(Settings.PROP_FONTSIZE_FACTOR);
+		if (thisParam != null)
+		{
+			this.theFontSizeFactor = Float.valueOf(thisParam);
 		}
 		thisParam = theseProperties.getProperty(Settings.PROP_SCALE_FONTS);
 		if (thisParam != null)

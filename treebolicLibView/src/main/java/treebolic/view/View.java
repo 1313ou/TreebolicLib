@@ -449,7 +449,7 @@ public class View extends Surface
 		// painter
 		this.thePainter.setColors(theseSettings.theBackColor, theseSettings.theForeColor, theseSettings.theNodeBackColor, theseSettings.theNodeForeColor, theseSettings.theTreeEdgeColor, theseSettings.theEdgeColor);
 		this.thePainter.setImageScaling(theseSettings.theDownscaleImagesFlag, theseSettings.theImageDownscaler);
-		this.thePainter.setFont(theseSettings.theFontFace, theseSettings.theFontSize, theseSettings.theDownscaleFontsFlag, theseSettings.theFontDownscaler);
+		this.thePainter.setFont(theseSettings.theFontFace, theseSettings.theFontSize, theseSettings.theFontSizeFactor, theseSettings.theDownscaleFontsFlag, theseSettings.theFontDownscaler);
 		this.thePainter.setBorder(theseSettings.theBorderFlag);
 		this.thePainter.setEllipsize(theseSettings.theEllipsizeFlag);
 		this.thePainter.setLabelMaxLines(theseSettings.theLabelMaxLines);

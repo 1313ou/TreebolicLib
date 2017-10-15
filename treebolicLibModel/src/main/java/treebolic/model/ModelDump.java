@@ -160,6 +160,7 @@ public class ModelDump
 		thisBuilder.append("BackgroundImage=").append(theseSettings.theBackgroundImageFile).append('\n');
 		thisBuilder.append("FontFace=").append(theseSettings.theFontFace).append('\n');
 		thisBuilder.append("FontSize=").append(theseSettings.theFontSize).append('\n');
+		thisBuilder.append("FontSizeFactor=").append(theseSettings.theFontSizeFactor).append('\n');
 		thisBuilder.append("DownScaleFonts=").append(theseSettings.theDownscaleFontsFlag).append('\n');
 		thisBuilder.append("FontScaler=").append(toString(theseSettings.theFontDownscaler)).append('\n');
 		thisBuilder.append("DownScaleImages=").append(theseSettings.theDownscaleImagesFlag).append('\n');

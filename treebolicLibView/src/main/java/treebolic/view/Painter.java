@@ -789,7 +789,7 @@ public class Painter extends AbstractPainter
 	private float hyperdistanceToSize(final double thisHyperDistance)
 	{
 		final int thisBucket = Math.min(this.theFontDownscaler.length - 1, (int) Math.round(thisHyperDistance * this.theFontDownscaler.length));
-		return this.theFontSize * this.theFontScaleFactor * this.theFontDownscaler[thisBucket];
+		return this.theFontSize * this.theFontSizeFactor * this.theFontScaleFactor * this.theFontDownscaler[thisBucket];
 	}
 
 	// D R A W . A R C

@@ -190,16 +190,28 @@ public abstract class AbstractPainter extends Mapper
 	// fonts
 
 	/**
-	 * Base font
+	 * Base font face
 	 */
 	@SuppressWarnings("WeakerAccess")
 	protected String theFontFace;
 
+	/**
+	 * Base font style
+	 */
 	@SuppressWarnings("WeakerAccess")
 	protected int theFontStyle;
 
+	/**
+	 * Base font size
+	 */
 	@SuppressWarnings("WeakerAccess")
 	protected int theFontSize;
+
+	/**
+	 * Base font size factor
+	 */
+	@SuppressWarnings("WeakerAccess")
+	protected float theFontSizeFactor;
 
 	// colors
 	/**
@@ -369,17 +381,19 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFontFace          font
 	 * @param thisFontSize          font size
+	 * @param thisFontSizeFactor    font size factor
 	 * @param thisDownscaleFontFlag downscale images flag
 	 * @param thisFontDownscaler    arrays of factors to apply to font size (moving away from center)
 	 */
 	@SuppressWarnings("boxing")
-	public void setFont(final String thisFontFace, final Integer thisFontSize, final Boolean thisDownscaleFontFlag, final float[] thisFontDownscaler)
+	public void setFont(final String thisFontFace, final Integer thisFontSize, final Float thisFontSizeFactor, final Boolean thisDownscaleFontFlag, final float[] thisFontDownscaler)
 	{
 		// face
 		this.theFontFace = thisFontFace == null ? "SansSerif" : thisFontFace;
 
 		// size
 		this.theFontSize = thisFontSize == null ? AbstractPainter.FONT_DEFAULT_SIZE : thisFontSize;
+		this.theFontSizeFactor = thisFontSizeFactor == null ? 1F : thisFontSizeFactor;
 
 		// downscaling
 		this.downscaleFonts = thisDownscaleFontFlag == null ? AbstractPainter.DOWNSCALEFONTS0 : thisDownscaleFontFlag;
