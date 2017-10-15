@@ -175,7 +175,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param i         ith position
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void insertChild(final INode thisChild, final int i)
+	public void insertChild(final INode thisChild, @SuppressWarnings("SameParameterValue") final int i)
 	{
 		List<INode> theseChildren = this.getChildren();
 		if (theseChildren == null)
