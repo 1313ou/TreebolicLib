@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.WebView;
@@ -97,9 +98,10 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		 * Process text
 		 *
 		 * @param in text
+		 * @param view view
 		 * @return out text
 		 */
-		String process(final String in);
+		String process(final String in, final View view);
 	}
 
 	/**
@@ -247,7 +249,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		String label = label0;
 		if (Statusbar.labelProcessor != null)
 		{
-			label = Statusbar.labelProcessor.process(label);
+			label = Statusbar.labelProcessor.process(label, this);
 		}
 		this.statusView.setText(label == null ? "" : label);
 
@@ -255,7 +257,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		String content = content0;
 		if (Statusbar.contentProcessor != null)
 		{
-			content = Statusbar.contentProcessor.process(content);
+			content = Statusbar.contentProcessor.process(content, this);
 		}
 
 		if (content == null)
