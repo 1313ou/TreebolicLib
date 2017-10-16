@@ -507,6 +507,12 @@
       <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void addChildren(java.util.List&lt;treebolic.model.INode&gt; nodes)" />
       <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void addChildren(treebolic.model.INode... nodes)" />
       <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void assertNoLink(treebolic.model.INode thisParent, treebolic.model.INode thisChild)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Statusbar void setLabelProcessor(treebolic.glue.component.Statusbar.Processor processor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.component.Statusbar void setContentProcessor(treebolic.glue.component.Statusbar.Processor processor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode TreeMutableNode(treebolic.model.INode thisParent, java.lang.String thisId, java.lang.String thisLabel, int thisImageIndex, treebolic.glue.Color thisBackColor, treebolic.glue.Color thisForeColor)" />
+      <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void addChildren(java.util.List&lt;? extends treebolic.model.INode&gt; theseChildren)" />
+      <entry_point TYPE="class" FQNAME="treebolic.glue.component.Statusbar.Processor" />
+      <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void setListener(treebolic.glue.iface.ActionListener thisActionListener)" />
     </entry_points>
   </component>
   <component name="NullableNotNullManager">

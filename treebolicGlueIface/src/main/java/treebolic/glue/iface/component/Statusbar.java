@@ -1,5 +1,7 @@
 package treebolic.glue.iface.component;
 
+import treebolic.glue.iface.ActionListener;
+
 /**
  * Glue interface for Statusbar
  *
@@ -15,6 +17,13 @@ public interface Statusbar<C, L>
 	 * @param image image
 	 */
 	void init(final int image);
+
+	/**
+	 * Set hyperlink listener
+	 *
+	 * @param thisActionListener listener
+	 */
+	void setListener(final ActionListener thisActionListener);
 
 	/**
 	 * Set colors

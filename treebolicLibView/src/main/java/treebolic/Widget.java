@@ -98,6 +98,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	private final IContext theContext;
 
+
+	// A C T I O N   L I S T E N E R
+
+	/**
+	 * Action listener
+	 */
+	private final ActionListener theLinkActionListener;
+
 	// M O D E L - V I E W - C O N T R O L L E R
 
 	/**
@@ -207,6 +215,20 @@ public class Widget extends Container implements IWidget, IProviderContext
 		// layer out
 		this.theLayerOut = new LayerOut();
 		this.theController.connect(this.theLayerOut);
+
+		// action listener
+		this.theLinkActionListener = new ActionListener()
+		{
+			@SuppressWarnings("synthetic-access")
+			@Override
+			public boolean onAction(final Object... theseParams)
+			{
+				final String thisLink = (String) theseParams[0];
+				final String thisTarget = theseParams.length > 1 ? (String) theseParams[1] : null;
+				Widget.this.theContext.linkTo(thisLink, thisTarget);
+				return false;
+			}
+		};
 	}
 
 	// I N I T
@@ -477,6 +499,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		if (this.theModel.theSettings.theHasStatusbarFlag != null && this.theModel.theSettings.theHasStatusbarFlag)
 		{
 			this.theStatusbar = new Statusbar(this.theHandle);
+			this.theStatusbar.setListener(this.theLinkActionListener);
 			this.theStatusbar.addListener(new ActionListener()
 			{
 				@SuppressWarnings("synthetic-access")
@@ -1088,17 +1111,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	{
 		final WebDialog thisWebDialog = new WebDialog();
 		thisWebDialog.setHandle(this.theHandle);
-		thisWebDialog.setListener(new ActionListener()
-		{
-			@SuppressWarnings("synthetic-access")
-			@Override
-			public boolean onAction(final Object... theseParams)
-			{
-				final String thisLink = (String) theseParams[0];
-				Widget.this.theContext.linkTo(thisLink, null);
-				return false;
-			}
-		});
+		thisWebDialog.setListener(this.theLinkActionListener);
 		final String thisStyle = this.theContext.getStyle();
 		thisWebDialog.setStyle(thisStyle);
 		thisWebDialog.set(thisHeader, thisContent);

@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,13 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.treebolic.glue.R;
 
-import treebolic.glue.ActionListener;
+import treebolic.glue.iface.ActionListener;
 import treebolic.glue.Color;
 
 /**
@@ -90,6 +93,11 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	private final int iconTint;
 
+	/**
+	 * Action listener
+	 */
+	private ActionListener actionListener;
+
 	// P R O C E S S O R
 
 	public interface Processor
@@ -97,7 +105,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		/**
 		 * Process text
 		 *
-		 * @param in text
+		 * @param in   text
 		 * @param view view
 		 * @return out text
 		 */
@@ -185,12 +193,18 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 	}
 
+	@Override
+	public void setListener(final ActionListener actionListener0)
+	{
+		this.actionListener = actionListener0;
+	}
+
 	/**
 	 * Set label processor
 	 *
 	 * @param processor processor
 	 */
-	static public void setLabelProcessor(final Processor processor)
+	static public void setLabelProcessor(@SuppressWarnings("SameParameterValue") final Processor processor)
 	{
 		Statusbar.labelProcessor = processor;
 	}
@@ -286,6 +300,46 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 			html.append(content);
 			html.append("</div></body>");
 			Log.d(TAG, html.toString());
+
+			// client
+			final WebViewClient webViewClient = new WebViewClient()
+			{
+				private boolean intercept = false;
+
+				@Override
+				public void onPageFinished(final WebView view0, final String url)
+				{
+					this.intercept = true;
+				}
+
+				@SuppressWarnings({"synthetic-access", "deprecation"})
+				@Override
+				public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
+				{
+					if (this.intercept && url != null)
+					{
+						Log.d(Statusbar.TAG, "url:" + url);
+						Statusbar.this.actionListener.onAction(url);
+						return true;
+					}
+					return false;
+				}
+
+				@TargetApi(Build.VERSION_CODES.N)
+				@Override
+				public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request)
+				{
+					final Uri uri = request.getUrl();
+					if (this.intercept && uri != null)
+					{
+						Log.d(Statusbar.TAG, "url:" + uri);
+						Statusbar.this.actionListener.onAction(uri.toString());
+						return true;
+					}
+					return false;
+				}
+			};
+			this.contentView.setWebViewClient(webViewClient);
 			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
 		}
 	}
