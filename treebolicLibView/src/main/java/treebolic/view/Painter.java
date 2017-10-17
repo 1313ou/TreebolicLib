@@ -1246,25 +1246,28 @@ public class Painter extends AbstractPainter
 		if (w > span)
 		{
 			// compute average character width
-			final int wunit = this.theGraphics.stringWidth("x");
-
-			// compute trailing dots width
-			final int wdots = this.theGraphics.stringWidth("...");
-
-			// compute number of characters that fit before dots
-			int thisNChars = (span - wdots) / wunit;
-
-			// ensure at least one
-			if (thisNChars < 1)
+			final int wunit = this.theGraphics.stringWidth(AVERAGE_CHAR);
+			if (wunit > 0) // avoid 0 div
 			{
-				thisNChars = 1;
-			}
 
-			// perform truncation if we actually ellipsize
-			final int thisLen = thisString.length();
-			if (thisLen > thisNChars)
-			{
-				thisString = thisString.substring(0, thisNChars) + "..."; // …⋯
+				// compute trailing dots width
+				final int wdots = this.theGraphics.stringWidth(ELLIPSIS);
+
+				// compute number of characters that fit before dots
+				int thisNChars = (span - wdots) / wunit;
+
+				// ensure at least one
+				if (thisNChars < 1)
+				{
+					thisNChars = 1;
+				}
+
+				// perform truncation if we actually ellipsize
+				final int thisLen = thisString.length();
+				if (thisLen > thisNChars)
+				{
+					thisString = thisString.substring(0, thisNChars) + ELLIPSIS;
+				}
 			}
 		}
 		return thisString;
@@ -1986,6 +1989,8 @@ public class Painter extends AbstractPainter
 
 	static private final String ELLIPSIS = "…"; // ellipsis … ⋯
 
+	static private final String AVERAGE_CHAR = "x";
+
 	/**
 	 * Ellipsize text in label
 	 *
@@ -1996,7 +2001,7 @@ public class Painter extends AbstractPainter
 	private int ellipsizeLabel(final NodeData thisNodeData, final int dnode)
 	{
 		// compute average character width
-		int wunit = this.theGraphics.stringWidth("x");
+		int wunit = this.theGraphics.stringWidth(AVERAGE_CHAR);
 
 		// compute trailing dots width
 		int wdots = this.theGraphics.stringWidth(ELLIPSIS);
@@ -2028,7 +2033,7 @@ public class Painter extends AbstractPainter
 			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
 
 			// compute average character width
-			wunit = this.theGraphics.stringWidth("x");
+			wunit = this.theGraphics.stringWidth(AVERAGE_CHAR);
 
 			// compute trailing dots width
 			wdots = this.theGraphics.stringWidth(ELLIPSIS);
