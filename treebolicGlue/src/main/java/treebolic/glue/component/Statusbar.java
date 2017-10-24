@@ -22,8 +22,8 @@ import android.widget.TextView;
 
 import org.treebolic.glue.R;
 
-import treebolic.glue.iface.ActionListener;
 import treebolic.glue.Color;
+import treebolic.glue.iface.ActionListener;
 
 /**
  * Status bar
@@ -194,6 +194,12 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	}
 
 	@Override
+	public void addListener(final ActionListener arg0)
+	{
+		// does not fire events
+	}
+
+	@Override
 	public void setListener(final ActionListener actionListener0)
 	{
 		this.actionListener = actionListener0;
@@ -217,12 +223,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	static public void setContentProcessor(final Processor processor)
 	{
 		Statusbar.contentProcessor = processor;
-	}
-
-	@Override
-	public void addListener(ActionListener arg0)
-	{
-		// does not fire events
 	}
 
 	@Override
@@ -298,7 +298,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 			html.append("</style>");
 			html.append("</head><body><div class='body'>");
 			html.append(content);
-			html.append("</div></body>");
+			html.append("</div></body></html>");
 			Log.d(TAG, html.toString());
 
 			// client
@@ -340,7 +340,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 				}
 			};
 			this.contentView.setWebViewClient(webViewClient);
-			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
+			//this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
+			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html", "UTF-8", null);
 		}
 	}
 

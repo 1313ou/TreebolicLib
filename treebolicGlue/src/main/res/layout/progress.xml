@@ -9,11 +9,14 @@
 
 	<ImageView
 		android:id="@+id/progressIcon"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
 		android:layout_gravity="center_horizontal"
+		android:layout_weight="2"
 		android:contentDescription="@string/progress_logo"
 		android:paddingTop="50dp"
+		android:scaleType="centerInside"
+		android:adjustViewBounds="true"
 		android:src="@drawable/splash"/>
 
 	<TextView
@@ -33,9 +36,9 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
-		android:indeterminateTint="?attr/treebolic_splash_progress"
 		android:layout_weight="1"
 		android:indeterminate="true"
+		android:indeterminateTint="?attr/treebolic_splash_progress"
 		tools:targetApi="lollipop"/>
 
 </LinearLayout>

@@ -205,7 +205,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		webView.setWebViewClient(webViewClient);
 
 		// load
-		webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
+		//webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
+		webView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null);
 
 		// set the layout for the dialog
 		builder.setView(view) //

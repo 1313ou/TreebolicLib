@@ -9,13 +9,13 @@
 
 	<ImageView
 		android:id="@+id/progressIcon"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_gravity="center_horizontal"
 		android:layout_weight=".75"
 		android:contentDescription="@string/progress_logo"
 		android:paddingTop="5dp"
-		android:scaleType="fitXY"
+		android:scaleType="centerInside"
 		android:adjustViewBounds="true"
 		android:src="@drawable/splash"/>
 

@@ -394,7 +394,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		String thisMessage = Messages.getString("Widget.progress_loading");
 		if (thisSource != null)
 		{
-			thisMessage += '\n' + ' ' + thisSource;
+			thisMessage += ' ' + thisSource;
 		}
 		progress(thisMessage, false);
 		final Model thisModel = thisProvider.makeModel(thisSource, this.theContext.getBase(), this.theContext.getParameters());
@@ -403,7 +403,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			progress(String.format(Messages.getString("Widget.progress_err_model_null_provider_source"), thisProvider.getClass().getCanonicalName(), thisSource), true);
 			return;
 		}
-		progress(Messages.getString("Widget.progress_loaded") + '\n' + ' ' + thisSource, false);
+		progress(Messages.getString("Widget.progress_loaded") + ' ' + thisSource, false);
 
 		// load model
 		initModel(thisModel);
