@@ -93,6 +93,7 @@ public class Utils
 	static public int screenWidth(final Context context)
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		assert wm != null;
 		final Display display = wm.getDefaultDisplay();
 		final Point size = new Point();
 		display.getSize(size);

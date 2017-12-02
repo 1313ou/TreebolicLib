@@ -1,6 +1,7 @@
 package treebolic.glue.component;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -129,21 +130,23 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	public AppCompatDialog onCreateDialog(@SuppressWarnings("UnusedParameters") final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
-		final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		final Activity activity = getActivity();
+		assert activity != null;
+		final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
 		// get the layout inflater
-		final LayoutInflater inflater = getActivity().getLayoutInflater();
+		final LayoutInflater inflater = activity.getLayoutInflater();
 
 		// inflate layout for the dialog
-		final FrameLayout frameLayout = (FrameLayout) getActivity().findViewById(android.R.id.custom);
+		final FrameLayout frameLayout = activity.findViewById(android.R.id.custom);
 		final View view = inflater.inflate(R.layout.dialog_layout, frameLayout, false);
 
 		// header
-		final TextView headerView = (TextView) view.findViewById(R.id.header);
+		final TextView headerView = view.findViewById(R.id.header);
 		headerView.setText(this.header);
 
 		// content
-		final WebView webView = (WebView) view.findViewById(R.id.content);
+		final WebView webView = view.findViewById(R.id.content);
 		final StringBuilder html = new StringBuilder();
 		html.append("<html><head>");
 		html.append("<style type='text/css'>");

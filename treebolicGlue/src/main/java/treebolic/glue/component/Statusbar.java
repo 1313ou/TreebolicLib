@@ -138,6 +138,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 		// determine orientation
 		final WindowManager windowManager = (WindowManager) this.activity.getSystemService(Context.WINDOW_SERVICE);
+		assert windowManager != null;
 		final Display display = windowManager.getDefaultDisplay();
 		final Point size = new Point();
 		display.getSize(size);
@@ -146,9 +147,10 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 		// inflate
 		final LayoutInflater inflater = (LayoutInflater) this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		assert inflater != null;
 		final ViewGroup wrappedView = (ViewGroup) inflater.inflate(isHorizontalScreen ? R.layout.status_h : R.layout.status_v, this);
-		this.statusView = (TextView) wrappedView.findViewById(R.id.status);
-		this.contentView = (WebView) wrappedView.findViewById(R.id.content);
+		this.statusView = wrappedView.findViewById(R.id.status);
+		this.contentView = wrappedView.findViewById(R.id.content);
 		this.contentView.setFocusable(false);
 
 		// colors

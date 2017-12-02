@@ -332,6 +332,33 @@ public class Widget extends Container implements IWidget, IProviderContext
 	}
 
 	/**
+	 * Static worker class to avoid leaks
+	 */
+	static private class InitWorker extends Worker
+	{
+		private final Runnable job;
+		private final Runnable done;
+
+		public InitWorker(final Runnable job, final Runnable done)
+		{
+			this.job = job;
+			this.done = done;
+		}
+
+		@Override
+		public void job()
+		{
+			this.job.run();
+		}
+
+		@Override
+		public void onDone()
+		{
+			this.done.run();
+		}
+	}
+
+	/**
 	 * Init (typically called by embedding applet's init()). Data source and data provider have not yet been determined.
 	 *
 	 * @param thisSource source (anything the provider will make sense of)
@@ -347,29 +374,32 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		else
 		{
-			final Worker thisWorker = new Worker()
-			{
-				@SuppressWarnings("synthetic-access")
-				@Override
-				public void job()
-				{
-					try
+			final Worker thisWorker = new InitWorker( //
+					new Runnable()
 					{
-						initModel(Widget.this.theProvider, thisSource);
-					}
-					catch (final Throwable e)
+						@SuppressWarnings("synthetic-access")
+						@Override
+						public void run()
+						{
+							try
+							{
+								initModel(Widget.this.theProvider, thisSource);
+							}
+							catch (Throwable e)
+							{
+								Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
+								e.printStackTrace();
+							}
+						}
+					}, //
+					new Runnable()
 					{
-						Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
-						e.printStackTrace();
-					}
-				}
-
-				@Override
-				public void onDone()
-				{
-					initDisplay();
-				}
-			};
+						@Override
+						public void run()
+						{
+							initDisplay();
+						}
+					});
 			thisWorker.execute();
 		}
 	}

@@ -51,6 +51,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 
 		// determine orientation
 		final WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		assert windowManager != null;
 		final Display display = windowManager.getDefaultDisplay();
 		final Point size = new Point();
 		display.getSize(size);

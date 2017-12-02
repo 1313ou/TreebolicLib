@@ -127,6 +127,7 @@ public class PopupAdapter
 	public void setContentView(final int layoutResID)
 	{
 		final LayoutInflater inflator = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		assert inflator != null;
 		setContentView(inflator.inflate(layoutResID, null));
 	}
 

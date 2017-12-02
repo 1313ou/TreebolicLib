@@ -1,5 +1,6 @@
 package treebolic.glue.component;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -63,17 +64,19 @@ public class Tip extends AppCompatDialogFragment
 	public AppCompatDialog onCreateDialog(@SuppressWarnings("UnusedParameters") final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
-		final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		final Activity activity = getActivity();
+		assert activity != null;
+		final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
 		// get the layout inflater
-		final LayoutInflater inflater = getActivity().getLayoutInflater();
+		final LayoutInflater inflater = activity.getLayoutInflater();
 
 		// inflate layout for the dialog
-		final FrameLayout frameLayout = (FrameLayout) getActivity().findViewById(android.R.id.custom);
+		final FrameLayout frameLayout = activity.findViewById(android.R.id.custom);
 		final View view = inflater.inflate(R.layout.tip_layout, frameLayout, false);
 
 		// data
-		final WebView webView = (WebView) view.findViewById(R.id.text);
+		final WebView webView = view.findViewById(R.id.text);
 		webView.loadData(this.text, "text/html; charset=UTF-8", "utf-8");
 
 		// set the layout for the dialog

@@ -70,6 +70,7 @@ public abstract class Generator<T> implements Iterable<T>
 
 	private RuntimeException exceptionRaisedByProducer;
 
+	@SuppressWarnings("NullableProblems")
 	@Override
 	public Iterator<T> iterator()
 	{

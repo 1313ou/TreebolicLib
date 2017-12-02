@@ -200,10 +200,10 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	public void setRootViewId(final int id)
 	{
 		this.view = this.inflater.inflate(id, null);
-		this.tracks = (ViewGroup) this.view.findViewById(R.id.tracks);
-		this.arrowDown = (ImageView) this.view.findViewById(R.id.arrow_down);
-		this.arrowUp = (ImageView) this.view.findViewById(R.id.arrow_up);
-		this.scroller = (ScrollView) this.view.findViewById(R.id.scroller);
+		this.tracks = this.view.findViewById(R.id.tracks);
+		this.arrowDown = this.view.findViewById(R.id.arrow_down);
+		this.arrowUp = this.view.findViewById(R.id.arrow_up);
+		this.scroller = this.view.findViewById(R.id.scroller);
 
 		// This was previously defined on show() method, moved here to prevent force close that occurred
 		// when tapping fast on a view to show quickaction dialog. Thanks to zammbi (github.com/zammbi)
@@ -234,8 +234,8 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		final Drawable icon = action.icon;
 		final View itemView = this.inflater.inflate(this.orientation == QuickAction.HORIZONTAL ? R.layout.popup_horizontal_item : R.layout.popup_vertical_item, null);
 
-		final ImageView img = (ImageView) itemView.findViewById(R.id.iv_icon);
-		final TextView text = (TextView) itemView.findViewById(R.id.tv_title);
+		final ImageView img = itemView.findViewById(R.id.iv_icon);
+		final TextView text = itemView.findViewById(R.id.tv_title);
 
 		if (icon != null)
 		{

@@ -91,10 +91,11 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 
 		// inflate
 		final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		assert inflater != null;
 		final ViewGroup wrappedView = (ViewGroup) inflater.inflate(R.layout.progress, this);
-		this.progressIcon = (ImageView) wrappedView.findViewById(R.id.progressIcon);
-		this.statusView = (TextView) wrappedView.findViewById(R.id.progressStatus);
-		this.progressBar = (ProgressBar) wrappedView.findViewById(R.id.progressBar);
+		this.progressIcon = wrappedView.findViewById(R.id.progressIcon);
+		this.statusView = wrappedView.findViewById(R.id.progressStatus);
+		this.progressBar = wrappedView.findViewById(R.id.progressBar);
 		this.statusView.setText(R.string.status_text);
 		this.progressBar.setMax(100);
 		this.progressBar.setVisibility(View.INVISIBLE);

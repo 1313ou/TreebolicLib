@@ -110,6 +110,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 		// orientation
 		final WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+		assert windowManager != null;
 		final Display display = windowManager.getDefaultDisplay();
 		final Point size = new Point();
 		display.getSize(size);
