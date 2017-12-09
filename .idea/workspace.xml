@@ -12,64 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2b0bf4d-7f85-4a59-9b8c-b876e60650a4" name="Default" comment="">
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/animated_vector_drawable_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/appcompat_v7_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/espresso_core_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/espresso_idling_resource_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/hamcrest_integration_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/hamcrest_library_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/javawriter_2_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/javax_annotation_api_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/javax_inject_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/jsr305_2_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/rules_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/runner_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_annotations_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_compat_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_core_ui_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_core_utils_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_fragment_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_media_compat_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_v13_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_v4_25_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/libraries/support_vector_drawable_25_3_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/dictionaries/bbou.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/dictionaries/bbou.xml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/misc.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/build.gradle" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/gradle/wrapper/gradle-wrapper.properties" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/gradle/wrapper/gradle-wrapper.properties" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/build.gradle" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/PopupAdapter.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/PopupAdapter.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/QuickAction.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/QuickAction.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Statusbar.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Statusbar.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/anim_styles.xml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/src/main/res/values/anim_styles.xml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue/treebolicGlue.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface/treebolicGlueIface.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph/treebolicGraph.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface/treebolicIface.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib/treebolicLib.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/treebolicLibModel.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel/treebolicLibModel.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/build.gradle" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/Widget.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/Widget.java" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Generator.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/control/Generator.java" />
+      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/Painter.java" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/src/main/java/treebolic/view/Painter.java" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/treebolicLibView.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView/treebolicLibView.iml" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLoadBalancer/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLoadBalancer/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLoadBalancer/treebolicLoadBalancer.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLoadBalancer/treebolicLoadBalancer.iml" />
-      <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/build.gradle" />
       <change type="MODIFICATION" beforePath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" afterPath="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable/treebolicMutable.iml" />
     </list>
     <ignored path="TreebolicLib.iws" />
@@ -8024,121 +7978,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolicLibView" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolicLibView" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolic" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolicGlue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolic" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'messages'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolicGlue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolicGlue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreebolicLib" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="treebolicGlue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -8149,6 +7988,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Analyzed">
           <PATH>
@@ -8195,7 +8035,21 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TreebolicLib" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -8291,7 +8145,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512198179856" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512810568290" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -8339,7 +8193,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512198179856" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512810568290" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -8371,27 +8225,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -8508,20 +8341,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1491407215803</updated>
-    </task>
-    <task id="LOCAL-00005" summary="minor changes">
-      <created>1494520816723</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1494520816723</updated>
-    </task>
-    <task id="LOCAL-00006" summary="minor changes">
-      <created>1494603795090</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1494603795090</updated>
     </task>
     <task id="LOCAL-00007" summary="misnomer">
       <created>1494748734427</created>
@@ -8852,46 +8671,60 @@
       <option name="project" value="LOCAL" />
       <updated>1508835351669</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="new tools&#10;static worker class">
+      <created>1512198210504</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1512198210504</updated>
+    </task>
+    <task id="LOCAL-00055" summary="new tools&#10;static worker class">
+      <created>1512198242814</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1512198242814</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="27" width="1869" height="1173" extended-state="6" />
+    <frame x="51" y="27" width="1869" height="1173" extended-state="0" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24901961" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3392157" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3382353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15544608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24901961" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -8908,7 +8741,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="toolbar&#10;lint&#10;" />
     <MESSAGE value="artwork&#10;" />
     <MESSAGE value="rebuild&#10;" />
     <MESSAGE value="fix toolbor icons" />
@@ -8933,7 +8765,8 @@
     <MESSAGE value="statusbar and webdialog as action sources&#10;lint" />
     <MESSAGE value="arithmetic exception in Painter.mangleString" />
     <MESSAGE value="progress_fail icon removed from no_dpi&#10;webview &quot;text/html; charset=UTF-8&quot; in LoadData misinterpreted in older versions&#10;missing trailing &lt;/html&gt; tag in statusbar&#10;'\n' in Widget progress messages removed&#10;progress layout revised" />
-    <option name="LAST_COMMIT_MESSAGE" value="progress_fail icon removed from no_dpi&#10;webview &quot;text/html; charset=UTF-8&quot; in LoadData misinterpreted in older versions&#10;missing trailing &lt;/html&gt; tag in statusbar&#10;'\n' in Widget progress messages removed&#10;progress layout revised" />
+    <MESSAGE value="new tools&#10;static worker class" />
+    <option name="LAST_COMMIT_MESSAGE" value="new tools&#10;static worker class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -9311,7 +9144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="74" column="41" lean-forward="false" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -9319,7 +9151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="134" column="68" lean-forward="false" selection-start-line="134" selection-start-column="68" selection-end-line="134" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -9327,7 +9158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="ResourceBundle">
@@ -9338,7 +9168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

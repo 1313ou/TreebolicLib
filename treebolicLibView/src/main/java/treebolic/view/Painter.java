@@ -1984,7 +1984,11 @@ public class Painter extends AbstractPainter
 		{
 			return new String[]{thisLabel.replaceAll("\\n", " ")};
 		}
-		return thisLabel.split("\\n", this.theLabelMaxLines);
+		// multiline
+		final String[] result = thisLabel.split("\\n", this.theLabelMaxLines);
+		if (this.theLabelMaxLines > 1 && result.length == this.theLabelMaxLines)
+			result[result.length - 1] = ELLIPSIS;
+		return result;
 	}
 
 	static private final String ELLIPSIS = "…"; // ellipsis … ⋯
