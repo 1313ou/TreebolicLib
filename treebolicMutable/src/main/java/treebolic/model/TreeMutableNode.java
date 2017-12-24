@@ -22,7 +22,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param thisParent parent
 	 * @param thisId     id
 	 */
-	public TreeMutableNode(final INode thisParent, final String thisId)
+	public TreeMutableNode(@SuppressWarnings("SameParameterValue") final INode thisParent, final String thisId)
 	{
 		super(thisParent, thisId);
 	}

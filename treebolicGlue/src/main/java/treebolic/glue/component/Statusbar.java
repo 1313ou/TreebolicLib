@@ -301,7 +301,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 			html.append("</head><body><div class='body'>");
 			html.append(content);
 			html.append("</div></body></html>");
-			Log.d(TAG, html.toString());
+			// Log.d(TAG, html.toString());
 
 			// client
 			final WebViewClient webViewClient = new WebViewClient()

@@ -121,7 +121,7 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.SOUTH))
 		{
-			getView().setShift(0F, Commander.YSSHIFTSTEP, false, true);
+			getView().setYShift(Commander.YSSHIFTSTEP, true);
 		}
 	}
 
@@ -132,7 +132,7 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.NORTH))
 		{
-			getView().setShift(0F, -Commander.YSSHIFTSTEP, false, true);
+			getView().setYShift(-Commander.YSSHIFTSTEP, true);
 		}
 	}
 
@@ -143,7 +143,7 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.EAST))
 		{
-			getView().setShift(-Commander.XSHIFTSTEP, 0F, true, false);
+			getView().setXShift(-Commander.XSHIFTSTEP, true);
 		}
 	}
 
@@ -154,7 +154,7 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.WEST))
 		{
-			getView().setShift(+Commander.XSHIFTSTEP, 0F, true, false);
+			getView().setXShift(+Commander.XSHIFTSTEP, true);
 		}
 	}
 
@@ -164,7 +164,8 @@ public abstract class Commander
 	private void setRadial()
 	{
 		changeOrientation(Complex.ZERO);
-		getView().setShift(0F, 0F, false, false);
+		getView().setXShift(0F, false);
+		getView().setYShift(0F, false);
 	}
 
 	/**
@@ -180,6 +181,9 @@ public abstract class Commander
 			return false;
 		}
 		getView().resetTransform();
+		getView().setXShift(0, false);
+		getView().setYShift(0, false);
+
 		getLayerOut().setOrientation(thisOrientation);
 		final boolean isRadial = thisOrientation == Complex.ZERO;
 		getLayerOut().setDefaultRootSweep(isRadial);

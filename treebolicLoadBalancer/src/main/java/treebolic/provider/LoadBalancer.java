@@ -78,7 +78,7 @@ public class LoadBalancer
 	 * @param imageIndex0 group node image index
 	 * @param image0      group node image
 	 */
-	public void setGroupNode(final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, final Image image0)
+	public void setGroupNode(final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, @SuppressWarnings("SameParameterValue") final Image image0)
 	{
 		this.backColor = backColor0;
 		this.foreColor = foreColor0;
@@ -93,7 +93,6 @@ public class LoadBalancer
 	 * Build a list of tree parent nodes
 	 *
 	 * @param nodes children nodes
-	 * @param level current level
 	 * @param imageIndex image index (-1 is none and reoves to default)
 	 * @param image image (null is none and resolves to default)
 	 * @param level current level
@@ -111,7 +110,7 @@ public class LoadBalancer
 		{
 			m0--;
 		}
-		int m = m0; // actual length of segment
+		@SuppressWarnings("UnusedAssignment") int m = m0; // actual length of segment
 		for (int i = 0; i < z; i = i + m)
 		{
 			m = m0; // actual length of segment
@@ -156,7 +155,7 @@ public class LoadBalancer
 				{
 					b = b2; // first of next segment = last index exclusive of current segment
 					last = next; // last item of segment
-					m++; // actual lenght of segment
+					m++; // actual length of segment
 				}
 			}
 
@@ -188,7 +187,7 @@ public class LoadBalancer
 	 * Recursive build hierarchy
 	 *
 	 * @param nodes nodes at level
-	 * @param imageIndex image index (-1 is none and reoves to default)
+	 * @param imageIndex image index (-1 is none and resolves to default)
 	 * @param image image (null is none and resolves to default)
 	 * @param level level
 	 * @return list of tree nodes
@@ -217,7 +216,7 @@ public class LoadBalancer
 	 * @param level level
 	 * @return list of tree nodes
 	 */
-	public List<INode> buildHierarchy(final List<? extends INode> nodes, final int level)
+	public List<INode> buildHierarchy(final List<? extends INode> nodes, @SuppressWarnings("SameParameterValue") final int level)
 	{
 		return buildHierarchy(nodes, -1, null, level);
 	}

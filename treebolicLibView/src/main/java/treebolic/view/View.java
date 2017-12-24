@@ -172,7 +172,8 @@ public class View extends Surface
 	synchronized public void reset()
 	{
 		applyNullTransform();
-		setShift(0F, 0F, false, false);
+		setXShift(0, false);
+		setYShift(0, false);
 		if (this.theListener != null)
 		{
 			this.theListener.reset();
@@ -327,29 +328,37 @@ public class View extends Surface
 		this.theTransformer.setPreserveOrientation(thisFlag != null ? thisFlag : !this.theTransformer.getPreserveOrientation());
 	}
 
-	// O F F S E T
+	// S H I F T
 
 	/**
-	 * Set shift
+	 * Set x shift
 	 *
 	 * @param cx0  x shift
-	 * @param cy0  y shift
 	 * @param xinc whether to add to current x shift
-	 * @param yinc whether to add to current y shift
 	 */
-	synchronized public void setShift(final float cx0, final float cy0, final boolean xinc, final boolean yinc)
+	synchronized public void setXShift(final float cx0, final boolean xinc)
 	{
 		float cx = cx0;
-		float cy = cy0;
 		if (xinc)
 		{
 			cx += this.thePainter.getXShift();
 		}
+		this.thePainter.setXShift(cx);
+	}
+
+	/**
+	 * Set y shift
+	 *
+	 * @param cy0  y shift
+	 * @param yinc whether to add to current y shift
+	 */
+	synchronized public void setYShift(final float cy0, final boolean yinc)
+	{
+		float cy = cy0;
 		if (yinc)
 		{
 			cy += this.thePainter.getYShift();
 		}
-		this.thePainter.setXShift(cx);
 		this.thePainter.setYShift(cy);
 	}
 
@@ -441,9 +450,13 @@ public class View extends Surface
 		{
 			setPreserveOrientation(theseSettings.thePreserveOrientationFlag);
 		}
-		if (theseSettings.theXShift != null || theseSettings.theYShift != null)
+		if (theseSettings.theXShift != null)
 		{
-			setShift(theseSettings.theXShift == null ? 0F : theseSettings.theXShift, theseSettings.theYShift == null ? 0F : theseSettings.theYShift, false, false);
+			setXShift(theseSettings.theXShift == null ? 0F : theseSettings.theXShift, false);
+		}
+		if (theseSettings.theYShift != null)
+		{
+			setYShift(theseSettings.theYShift == null ? 0F : theseSettings.theYShift, false);
 		}
 
 		// painter
