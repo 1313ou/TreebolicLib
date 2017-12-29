@@ -78,6 +78,58 @@ public class Utils
 		}
 	}
 
+	/**
+	 * Get drawable
+	 *
+	 * @param context context
+	 * @param resId   drawable id
+	 * @return drawable
+	 */
+	static public Drawable getDrawable(final Context context, int resId)
+	{
+		final Resources resources = context.getResources();
+		Drawable drawable;
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
+		{
+			final Resources.Theme theme = context.getTheme();
+			drawable = resources.getDrawable(resId, theme);
+		}
+		else
+		{
+			drawable = resources.getDrawable(resId);
+		}
+		return drawable;
+	}
+
+	/**
+	 * Get drawables
+	 *
+	 * @param context context
+	 * @param resIds  drawable ids
+	 * @return drawables
+	 */
+	static public Drawable[] getDrawables(final Context context, @SuppressWarnings("SameParameterValue") int... resIds)
+	{
+		final Resources resources = context.getResources();
+		Drawable[] drawables = new Drawable[resIds.length];
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
+		{
+			final Resources.Theme theme = context.getTheme();
+			for (int i = 0; i < resIds.length; i++)
+			{
+				drawables[i] = resources.getDrawable(resIds[i], theme);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < resIds.length; i++)
+			{
+				drawables[i] = resources.getDrawable(resIds[i]);
+			}
+		}
+		return drawables;
+	}
+
 	static public void tint(final Drawable drawable, int iconTint)
 	{
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)

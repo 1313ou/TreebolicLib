@@ -124,37 +124,36 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	{
 		if (PopupMenu.drawables[index] == null)
 		{
-			int res = -1;
+			int resId = -1;
 			switch (ImageIndices.values()[index])
 			{
 				case IMAGE_CANCEL:
-					res = R.drawable.menu_cancel;
+					resId = R.drawable.menu_cancel;
 					break;
 				case IMAGE_GOTO:
-					res = R.drawable.menu_goto;
+					resId = R.drawable.menu_goto;
 					break;
 				case IMAGE_SEARCH:
-					res = R.drawable.menu_search;
+					resId = R.drawable.menu_search;
 					break;
 				case IMAGE_FOCUS:
-					res = R.drawable.menu_focus;
+					resId = R.drawable.menu_focus;
 					break;
 				case IMAGE_LINK:
-					res = R.drawable.menu_link;
+					resId = R.drawable.menu_link;
 					break;
 				case IMAGE_MOUNT:
-					res = R.drawable.menu_mount;
+					resId = R.drawable.menu_mount;
 					break;
 				case IMAGE_INFO:
-					res = R.drawable.menu_info;
+					resId = R.drawable.menu_info;
 					break;
 				default:
 					break;
 			}
-			if (res != -1)
+			if (resId != -1)
 			{
-				PopupMenu.drawables[index] = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP //
-						? this.context.getResources().getDrawable(res, null) : this.context.getResources().getDrawable(res);
+				PopupMenu.drawables[index] = Utils.getDrawable(this.context, resId);
 			}
 		}
 		return PopupMenu.drawables[index];

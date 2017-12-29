@@ -365,28 +365,27 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	{
 		if (Statusbar.drawables[index] == null)
 		{
-			int res = -1;
+			int resId = -1;
 			switch (ImageIndices.values()[index])
 			{
 				case INFO:
-					res = R.drawable.status_info;
+					resId = R.drawable.status_info;
 					break;
 				case LINK:
-					res = R.drawable.status_link;
+					resId = R.drawable.status_link;
 					break;
 				case MOUNT:
-					res = R.drawable.status_mount;
+					resId = R.drawable.status_mount;
 					break;
 				case SEARCH:
-					res = R.drawable.status_search;
+					resId = R.drawable.status_search;
 					break;
 				default:
 					break;
 			}
-			if (res != -1)
+			if (resId != -1)
 			{
-				Statusbar.drawables[index] = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP //
-						? this.activity.getResources().getDrawable(res, null) : this.activity.getResources().getDrawable(res);
+				Statusbar.drawables[index] = Utils.getDrawable(this.activity, resId);
 			}
 		}
 		return Statusbar.drawables[index];

@@ -3,7 +3,6 @@ package treebolic.glue.component;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -132,13 +131,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		this.iconTint = colors[1];
 
 		// drawables
-		final Resources resources = activity.getResources();
-		this.drawables = new Drawable[drawableIds.length];
-		for (int i = 0; i < Toolbar.drawableIds.length; i++)
-		{
-			this.drawables[i] = Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? //
-					resources.getDrawable(drawableIds[i], null) : resources.getDrawable(drawableIds[i]);
-		}
+		this.drawables = Utils.getDrawables(activity, drawableIds);
 
 		// background
 		this.panel.setBackgroundColor(background);

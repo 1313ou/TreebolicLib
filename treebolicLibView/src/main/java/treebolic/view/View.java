@@ -71,10 +71,13 @@ public class View extends Surface
 	private boolean invalidatePainterGraphics;
 
 	/**
-	 * View size
+	 * View width
 	 */
 	private int theWidth;
 
+	/**
+	 * View height
+	 */
 	private int theHeight;
 
 	/**
@@ -452,11 +455,11 @@ public class View extends Surface
 		}
 		if (theseSettings.theXShift != null)
 		{
-			setXShift(theseSettings.theXShift == null ? 0F : theseSettings.theXShift, false);
+			setXShift(theseSettings.theXShift, false);
 		}
 		if (theseSettings.theYShift != null)
 		{
-			setYShift(theseSettings.theYShift == null ? 0F : theseSettings.theYShift, false);
+			setYShift(theseSettings.theYShift, false);
 		}
 
 		// painter

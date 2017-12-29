@@ -93,7 +93,7 @@ public class LoadBalancer
 	 * Build a list of tree parent nodes
 	 *
 	 * @param nodes children nodes
-	 * @param imageIndex image index (-1 is none and reoves to default)
+	 * @param imageIndex image index (-1 is none and resolves to default)
 	 * @param image image (null is none and resolves to default)
 	 * @param level current level
 	 * @return list of parent nodes
