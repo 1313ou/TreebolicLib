@@ -14,6 +14,7 @@ import treebolic.model.TreeMutableNode;
  *
  * @author <a href="mailto:1313ou@gmail.com">Bernard Bou</a>
  */
+@SuppressWarnings("WeakerAccess")
 public class LoadBalancer
 {
 	// S E T T I N G S D A T A
@@ -192,7 +193,7 @@ public class LoadBalancer
 	 * @param level level
 	 * @return list of tree nodes
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "WeakerAccess"})
 	public List<INode> buildHierarchy(final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
 	{
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];

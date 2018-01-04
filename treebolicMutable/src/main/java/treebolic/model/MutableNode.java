@@ -141,7 +141,7 @@ public class MutableNode extends Node
 	 *
 	 * @param thisLink link URL
 	 */
-	public void setLink(final String thisLink)
+	public void setLink(@SuppressWarnings("SameParameterValue") final String thisLink)
 	{
 		this.theLink = thisLink;
 	}
