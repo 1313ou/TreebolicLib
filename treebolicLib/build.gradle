@@ -19,13 +19,13 @@ android {
 }
 
 dependencies {
-    compile project(':treebolicLibView')
-    compile project(':treebolicLibModel')
-    compile project(':treebolicGraph')
-    compile project(':treebolicIface')
+    api project(':treebolicLibView')
+    api project(':treebolicLibModel')
+    api project(':treebolicGraph')
+    api project(':treebolicIface')
 
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }

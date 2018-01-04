@@ -19,7 +19,5 @@ android {
 }
 
 dependencies {
-    provided project(':treebolicMutable')
-    provided project(':treebolicGlue')
-    provided project(':treebolicLibModel')
+    api project(':treebolicMutable')
 }
