@@ -514,6 +514,10 @@
       <entry_point TYPE="class" FQNAME="treebolic.glue.component.Statusbar.Processor" />
       <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void setListener(treebolic.glue.iface.ActionListener thisActionListener)" />
     </entry_points>
+    <pattern value="treebolic.provider.LoadBalancer" method="buildHierarchy" />
+    <pattern value="treebolic.provider.LoadBalancer" method="setGroupNode" />
+    <pattern value="treebolic.provider.LoadBalancer" method="LoadBalancer" />
+    <pattern value="treebolic.provider.LoadBalancer" />
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
