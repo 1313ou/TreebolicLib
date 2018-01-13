@@ -25,5 +25,5 @@ public interface PopupMenu<C, L>
 	 * @param x         x-position
 	 * @param y         y-position
 	 */
-	void popup(@SuppressWarnings("UnusedParameters") C component, int x, int y);
+	void popup(C component, int x, int y);
 }

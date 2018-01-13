@@ -9,7 +9,6 @@ import treebolic.model.Settings;
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("ViewConstructor")
 public class Statusbar extends treebolic.glue.component.Statusbar implements Component
 {
 	@SuppressWarnings("unused")

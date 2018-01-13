@@ -358,7 +358,6 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisScaleImagesFlag whether to scale images
 	 * @param thisScaler          array of float to act as down scaler (as we move away from center)
 	 */
-	@SuppressWarnings("boxing")
 	public void setImageScaling(final Boolean thisScaleImagesFlag, final float[] thisScaler)
 	{
 		// whether to scale images
@@ -385,7 +384,6 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisDownscaleFontFlag downscale images flag
 	 * @param thisFontDownscaler    arrays of factors to apply to font size (moving away from center)
 	 */
-	@SuppressWarnings("boxing")
 	public void setFont(final String thisFontFace, final Integer thisFontSize, final Float thisFontSizeFactor, final Boolean thisDownscaleFontFlag, final float[] thisFontDownscaler)
 	{
 		// face
@@ -467,7 +465,6 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisTreeEdgeStyle default tree edge style
 	 * @param thisEdgeStyle     default edge style
 	 */
-	@SuppressWarnings("boxing")
 	public void setEdgeStyles(final Integer thisTreeEdgeStyle, final Integer thisEdgeStyle)
 	{
 		if (thisTreeEdgeStyle != null)
@@ -503,7 +500,6 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true if label have borders
 	 */
-	@SuppressWarnings("boxing")
 	public void setBorder(final Boolean thisFlag)
 	{
 		if (thisFlag != null)
@@ -527,7 +523,6 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true if label texts are ellipsized
 	 */
-	@SuppressWarnings("boxing")
 	public void setEllipsize(final Boolean thisFlag)
 	{
 		if (thisFlag != null)
@@ -541,7 +536,6 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisMaxLines label max lines
 	 */
-	@SuppressWarnings("boxing")
 	public void setLabelMaxLines(final Integer thisMaxLines)
 	{
 		if (thisMaxLines != null)
@@ -555,7 +549,6 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFactor label extra line (excluding first) factor
 	 */
-	@SuppressWarnings("boxing")
 	public void setLabelExtraLineFactor(final Float thisFactor)
 	{
 		if (thisFactor != null)
@@ -579,7 +572,6 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true if edges are rendered as arcs
 	 */
-	@SuppressWarnings("boxing")
 	public void setArcEdges(final Boolean thisFlag)
 	{
 		if (thisFlag != null)
@@ -683,7 +675,6 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true true if images are scaled
 	 */
-	@SuppressWarnings("boxing")
 	public void setScaleImages(final Boolean thisFlag)
 	{
 		if (thisFlag != null)

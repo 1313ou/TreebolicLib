@@ -9,7 +9,6 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
@@ -102,7 +101,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 * @param activity activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings({"deprecation", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	protected Toolbar(final AppCompatActivity activity)
 	{
 		super(activity);
@@ -157,13 +156,11 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	protected Toolbar(final Object handle)
 	{
-		//noinspection ConstantConditions
 		this((AppCompatActivity) handle);
 	}
 
 	// A D D  B U T T O N
 
-	@SuppressWarnings("deprecation")
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void addButton(final Button button, final ActionListener thisListener)
@@ -194,14 +191,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		}
 
 		// listener
-		imageButton.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(final View v)
-			{
-				thisListener.onAction();
-			}
-		});
+		imageButton.setOnClickListener(thisListener::onAction);
 
 		// add
 		this.panel.addView(imageButton, this.layoutParams);

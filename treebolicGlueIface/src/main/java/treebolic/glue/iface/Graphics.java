@@ -20,7 +20,7 @@ public interface Graphics<C, I>
 	 * @param width  width
 	 * @param height height
 	 */
-	void drawBackgroundColor(final C color, @SuppressWarnings("UnusedParameters") final int left, @SuppressWarnings("UnusedParameters") final int top, @SuppressWarnings("UnusedParameters") final int width, @SuppressWarnings("UnusedParameters") final int height);
+	void drawBackgroundColor(final C color, final int left, final int top, final int width, final int height);
 
 	// L I N E
 

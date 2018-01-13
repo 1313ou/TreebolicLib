@@ -23,7 +23,6 @@ import treebolic.model.Settings;
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("ViewConstructor")
 public class View extends Surface
 {
 	@SuppressWarnings("unused")
@@ -309,7 +308,6 @@ public class View extends Surface
 	 *
 	 * @param thisFlag whether hovering on node triggers gaining focus (null toggles value)
 	 */
-	@SuppressWarnings("boxing")
 	public void setFocusOnHover(final Boolean thisFlag)
 	{
 		this.focusOnHover = thisFlag != null ? thisFlag : !this.focusOnHover;
@@ -325,7 +323,7 @@ public class View extends Surface
 	 *
 	 * @param thisFlag whether transformations preserve orientation (null toggles value)
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public void setPreserveOrientation(final Boolean thisFlag)
 	{
 		this.theTransformer.setPreserveOrientation(thisFlag != null ? thisFlag : !this.theTransformer.getPreserveOrientation());
@@ -424,7 +422,7 @@ public class View extends Surface
 	 *
 	 * @param thisFlag whether view has popup menu (null toggles value)
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public void setPopUpMenu(final Boolean thisFlag)
 	{
 		this.theListener.hasPopUp = thisFlag != null ? thisFlag : !this.theListener.hasPopUp;
@@ -437,7 +435,6 @@ public class View extends Surface
 	 *
 	 * @param theseSettings settings
 	 */
-	@SuppressWarnings("boxing")
 	public void apply(final Settings theseSettings)
 	{
 		// view settings

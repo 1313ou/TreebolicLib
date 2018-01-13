@@ -2,6 +2,7 @@ package treebolic.model;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Properties;
 
 import treebolic.glue.Color;
@@ -298,7 +299,6 @@ public class Utils
 	 * @param thisComponent part of style to stringify
 	 * @return string
 	 */
-	@SuppressWarnings("boxing")
 	static public Integer toInteger(final Integer thisStyle, final StyleComponent thisComponent)
 	{
 		if (thisStyle == null)
@@ -347,7 +347,6 @@ public class Utils
 	 * @param thisComponent part of style to convert
 	 * @return true or null
 	 */
-	@SuppressWarnings("boxing")
 	static public Boolean toTrueBoolean(final Integer thisStyle, final StyleComponent thisComponent)
 	{
 		if (thisStyle == null)
@@ -420,7 +419,7 @@ public class Utils
 					int thisWidth = Integer.parseInt(thisString.substring(i + 1));
 					thisStyle |= (thisWidth << IEdge.STROKEWIDTHSHIFT) & IEdge.STROKEWIDTHMASK;
 				}
-				catch (NumberFormatException e)
+				catch (NumberFormatException ignored)
 				{
 					//
 				}
@@ -435,7 +434,7 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke string
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public static String strokeToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -463,7 +462,7 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke width string
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public static String strokeWidthToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -523,7 +522,7 @@ public class Utils
 	 * @param thisStyle fill code style
 	 * @return fill string
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public static String fillToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -568,7 +567,7 @@ public class Utils
 	 * @param thisStyle shape code style
 	 * @return shape string
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public static String shapeToString(final Integer thisStyle)
 	{
 		if (thisStyle == null)
@@ -622,7 +621,7 @@ public class Utils
 	@SuppressWarnings("WeakerAccess")
 	static public Action stringToAction(final String thisActionString)
 	{
-		return thisActionString == null || thisActionString.isEmpty() ? null : Action.valueOf(thisActionString.toUpperCase());
+		return thisActionString == null || thisActionString.isEmpty() ? null : Action.valueOf(thisActionString.toUpperCase(Locale.ROOT));
 	}
 
 	/**
@@ -634,7 +633,7 @@ public class Utils
 	@SuppressWarnings("WeakerAccess")
 	static public MatchScope stringToScope(final String thisScopeString)
 	{
-		return thisScopeString == null || thisScopeString.isEmpty() ? null : MatchScope.valueOf(thisScopeString.toUpperCase());
+		return thisScopeString == null || thisScopeString.isEmpty() ? null : MatchScope.valueOf(thisScopeString.toUpperCase(Locale.ROOT));
 	}
 
 	/**
@@ -646,7 +645,7 @@ public class Utils
 	@SuppressWarnings("WeakerAccess")
 	static public MatchMode stringToMode(final String thisModeString)
 	{
-		return thisModeString == null || thisModeString.isEmpty() ? null : MatchMode.valueOf(thisModeString.toUpperCase());
+		return thisModeString == null || thisModeString.isEmpty() ? null : MatchMode.valueOf(thisModeString.toUpperCase(Locale.ROOT));
 	}
 
 	/**
@@ -735,7 +734,7 @@ public class Utils
 			thisColor.parse(thisString);
 			return thisColor;
 		}
-		catch (final Exception e)
+		catch (final Exception ignored)
 		{
 			// do nothing
 		}
@@ -759,7 +758,7 @@ public class Utils
 				final float f = Float.parseFloat(thisScalerItem[i]);
 				thisScaler[i] = f;
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException ignored)
 			{
 				return null;
 			}

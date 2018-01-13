@@ -17,7 +17,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 
 	private final int height;
 
-	public GraphicsCache(@SuppressWarnings({"unused", "UnusedParameters"}) final Component component, final Graphics thatGraphics, final int width0, final int height0)
+	public GraphicsCache(@SuppressWarnings("unused") final Component component, final Graphics thatGraphics, final int width0, final int height0)
 	{
 		this.canvas = thatGraphics.canvas;
 		if (GraphicsCache.CACHE)

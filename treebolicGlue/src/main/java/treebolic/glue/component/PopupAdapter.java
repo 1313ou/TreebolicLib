@@ -7,7 +7,6 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
@@ -55,24 +54,20 @@ public class PopupAdapter
 		this.window = new PopupWindow(context0);
 
 		// dismiss when touched outside
-		this.window.setTouchInterceptor(new OnTouchListener()
+		this.window.setTouchInterceptor((view0, event) ->
 		{
-			@Override
-			public boolean onTouch(final View view0, final MotionEvent event)
+			switch (event.getAction())
 			{
-				switch (event.getAction())
-				{
-					case MotionEvent.ACTION_OUTSIDE:
-						PopupAdapter.this.window.dismiss();
-						return true;
-					case MotionEvent.ACTION_UP:
-						view0.performClick();
-						return false;
-					default:
-						break;
-				}
-				return false;
+				case MotionEvent.ACTION_OUTSIDE:
+					PopupAdapter.this.window.dismiss();
+					return true;
+				case MotionEvent.ACTION_UP:
+					view0.performClick();
+					return false;
+				default:
+					break;
 			}
+			return false;
 		});
 
 		// get windows manager
@@ -83,7 +78,7 @@ public class PopupAdapter
 	 * On pre show
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings({"deprecation", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	protected void preShow()
 	{
 		if (this.view == null)

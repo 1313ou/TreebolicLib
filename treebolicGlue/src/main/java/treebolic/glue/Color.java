@@ -193,21 +193,21 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 			this.color = android.graphics.Color.parseColor("#" + string);
 			this.isNull = false;
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException ignored)
 		{
 			try
 			{
 				this.color = Integer.parseInt(string);
 				this.isNull = false;
 			}
-			catch (final NumberFormatException e2)
+			catch (final NumberFormatException ignored2)
 			{
 				try
 				{
 					this.color = Integer.parseInt(string, 16);
 					this.isNull = false;
 				}
-				catch (final NumberFormatException e3)
+				catch (final NumberFormatException ignored3)
 				{
 					throw new IllegalArgumentException("color:" + string);
 				}
@@ -249,7 +249,6 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
-	@SuppressWarnings("boxing")
 	private void readObject(final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
 		final Integer value = (Integer) in.readObject();

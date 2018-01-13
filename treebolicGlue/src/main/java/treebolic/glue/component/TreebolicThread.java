@@ -103,7 +103,7 @@ public class TreebolicThread extends Thread
 				join();
 				retry = false;
 			}
-			catch (final InterruptedException e)
+			catch (final InterruptedException ignored)
 			{
 				// do nothing
 			}
@@ -184,7 +184,7 @@ public class TreebolicThread extends Thread
 						}
 					}
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException ignored)
 				{
 					Log.d(TreebolicThread.TAG, "interrupted");
 				}

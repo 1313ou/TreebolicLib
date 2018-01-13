@@ -100,7 +100,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 		{
 			return Image.make(resource);
 		}
-		catch (final Exception e)
+		catch (final Exception ignored)
 		{
 			return null;
 		}
@@ -150,7 +150,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	public void setFromByteArray(final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
-		//noinspection deprecation
 		opt.inDither = true;
 		opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
 		this.bitmap = BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length, opt);

@@ -43,7 +43,6 @@ public class ModelReader
 	 */
 	public Model deserializeGuarded()
 	{
-		//noinspection TryWithIdenticalCatches
 		try
 		{
 			return deserialize();

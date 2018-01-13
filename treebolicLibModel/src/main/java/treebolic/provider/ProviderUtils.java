@@ -11,12 +11,12 @@ import java.util.Properties;
  */
 public class ProviderUtils
 {
-	static public URL makeURL(final String thisSource, final URL thisBase, @SuppressWarnings("UnusedParameters") final Properties theseExtras, final IProviderContext thisContext)
+	static public URL makeURL(final String thisSource, final URL thisBase, final Properties theseExtras, final IProviderContext thisContext)
 	{
 		final boolean DEBUG = true;
 		if (thisSource == null)
 		{
-			//noinspection ConstantConditions,ConstantConditions,ConstantConditions
+			// noinspection ConstantConditions
 			if (DEBUG)
 			{
 				thisContext.warn("URL= null (null source)");
@@ -35,7 +35,7 @@ public class ProviderUtils
 			}
 			return thisUrl;
 		}
-		catch (final MalformedURLException e)
+		catch (final MalformedURLException ignored)
 		{
 			// do nothing
 		}
@@ -51,7 +51,7 @@ public class ProviderUtils
 			}
 			return thisUrl;
 		}
-		catch (final MalformedURLException e)
+		catch (final MalformedURLException ignored)
 		{
 			// do nothing
 		}

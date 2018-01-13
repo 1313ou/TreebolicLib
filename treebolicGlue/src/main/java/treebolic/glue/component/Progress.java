@@ -34,7 +34,6 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 			this.progress = progress0;
 		}
 
-		@SuppressWarnings("synthetic-access")
 		@Override
 		public void handleMessage(final Message m)
 		{

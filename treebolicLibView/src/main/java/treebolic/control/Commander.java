@@ -282,7 +282,7 @@ public abstract class Commander
 	 *
 	 * @param thisFlag whether to display tooltip (null toggles value)
 	 */
-	@SuppressWarnings({"boxing", "static-method", "WeakerAccess"})
+	@SuppressWarnings("WeakerAccess")
 	public void setHasTooltip(final Boolean thisFlag)
 	{
 		Commander.hasTooltip = thisFlag != null ? thisFlag : !Commander.hasTooltip;
@@ -293,7 +293,7 @@ public abstract class Commander
 	 *
 	 * @param thisFlag whether tooltip displays content (null toggles value)
 	 */
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	static public void setTooltipDisplaysContent(final Boolean thisFlag)
 	{
 		Commander.tooltipDisplaysContent = thisFlag != null ? thisFlag : !Commander.tooltipDisplaysContent;
@@ -530,7 +530,7 @@ public abstract class Commander
 	 * @param thisCommand     command
 	 * @param theseParameters theseParameters
 	 */
-	public void execute(final Command thisCommand, @SuppressWarnings("UnusedParameters") final Object... theseParameters)
+	public void execute(final Command thisCommand, final Object... theseParameters)
 	{
 		switch (thisCommand)
 		{

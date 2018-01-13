@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Locale;
 
 import treebolic.component.Progress;
 import treebolic.component.Statusbar;
@@ -44,7 +45,6 @@ import treebolic.view.View;
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("ViewConstructor")
 public class Widget extends Container implements IWidget, IProviderContext
 {
 	@SuppressWarnings("unused")
@@ -219,7 +219,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 		// action listener
 		this.theLinkActionListener = new ActionListener()
 		{
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public boolean onAction(final Object... theseParams)
 			{
@@ -300,7 +299,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 	public void initSerialized(final String thisSerFile)
 	{
 		final ModelReader thisDeSerializer = new ModelReader(thisSerFile);
-		//noinspection TryWithIdenticalCatches
 		try
 		{
 			final Model thisModel = thisDeSerializer.deserialize();
@@ -375,31 +373,19 @@ public class Widget extends Container implements IWidget, IProviderContext
 		else
 		{
 			final Worker thisWorker = new InitWorker( //
-					new Runnable()
+					() ->
 					{
-						@SuppressWarnings("synthetic-access")
-						@Override
-						public void run()
+						try
 						{
-							try
-							{
-								initModel(Widget.this.theProvider, thisSource);
-							}
-							catch (Throwable e)
-							{
-								Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
-								e.printStackTrace();
-							}
+							initModel(Widget.this.theProvider, thisSource);
+						}
+						catch (Throwable e)
+						{
+							Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
+							e.printStackTrace();
 						}
 					}, //
-					new Runnable()
-					{
-						@Override
-						public void run()
-						{
-							initDisplay();
-						}
-					});
+					this::initDisplay);
 			thisWorker.execute();
 		}
 	}
@@ -478,7 +464,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theLayerOut.layout(thisModel.theTree.getRoot());
 	}
 
-	@SuppressWarnings({"boxing", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	public void initDisplay()
 	{
 		if (this.theModel == null)
@@ -532,7 +518,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.theStatusbar.setListener(this.theLinkActionListener);
 			this.theStatusbar.addListener(new ActionListener()
 			{
-				@SuppressWarnings("synthetic-access")
 				@Override
 				public boolean onAction(final Object... theseParams)
 				{
@@ -647,7 +632,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		// ensure edge list is non null
 		if (this.theModel.theTree.getEdges() == null)
 		{
-			this.theModel.theTree.setEdges(new ArrayList<IEdge>());
+			this.theModel.theTree.setEdges(new ArrayList<>());
 		}
 
 		// graft nodes
@@ -769,7 +754,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	private IProvider makeProvider(final String thisProviderName)
 	{
-		//noinspection TryWithIdenticalCatches
 		try
 		{
 			final Class<?> thisClass = Class.forName(thisProviderName);
@@ -821,7 +805,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		{
 			return new URL(this.theImageBase, thisImageSource);
 		}
-		catch (final MalformedURLException thisException)
+		catch (final MalformedURLException ignored)
 		{
 			// do nothing
 		}
@@ -1172,13 +1156,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 		MatchScope thisScope = MatchScope.LABEL;
 		if (thisScopeString != null)
 		{
-			thisScope = MatchScope.valueOf(thisScopeString.toUpperCase());
+			thisScope = MatchScope.valueOf(thisScopeString.toUpperCase(Locale.ROOT));
 		}
 
 		MatchMode thisMode = MatchMode.EQUALS;
 		if (thisModeString != null)
 		{
-			thisMode = MatchMode.valueOf(thisModeString.toUpperCase());
+			thisMode = MatchMode.valueOf(thisModeString.toUpperCase(Locale.ROOT));
 		}
 
 		// search
@@ -1199,12 +1183,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Override
 	public void search(final String thisCommandString, final String... theseParams)
 	{
-		final SearchCommand thisCommand = SearchCommand.valueOf(thisCommandString.toUpperCase());
+		final SearchCommand thisCommand = SearchCommand.valueOf(thisCommandString.toUpperCase(Locale.ROOT));
 		switch (thisCommand)
 		{
 			case SEARCH:
-				final MatchScope thisScope = MatchScope.valueOf(theseParams[0].toUpperCase());
-				final MatchMode thisMode = MatchMode.valueOf(theseParams[1].toUpperCase());
+				final MatchScope thisScope = MatchScope.valueOf(theseParams[0].toUpperCase(Locale.ROOT));
+				final MatchMode thisMode = MatchMode.valueOf(theseParams[1].toUpperCase(Locale.ROOT));
 				final String thisTarget = theseParams[2];
 				// scope, mode, target, [start]
 				this.theController.search(thisCommand, thisScope, thisMode, thisTarget);

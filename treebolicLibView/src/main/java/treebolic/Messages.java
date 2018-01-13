@@ -24,7 +24,7 @@ public class Messages
 		{
 			return RESOURCE_BUNDLE.getString(key);
 		}
-		catch (MissingResourceException e)
+		catch (MissingResourceException ignored)
 		{
 			return '!' + key + '!';
 		}

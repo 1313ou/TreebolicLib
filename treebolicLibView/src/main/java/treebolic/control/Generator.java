@@ -55,13 +55,11 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Object to wait on : item available or producer has finished
 	 */
-	@SuppressWarnings("synthetic-access")
 	private final Condition itemAvailableOrHasFinished = new Condition();
 
 	/**
 	 * Object to wait on : item requested
 	 */
-	@SuppressWarnings("synthetic-access")
 	private final Condition itemRequested = new Condition();
 
 	private T nextItem;
@@ -82,7 +80,6 @@ public abstract class Generator<T> implements Iterable<T>
 				return waitForNext();
 			}
 
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public T next()
 			{
@@ -100,7 +97,6 @@ public abstract class Generator<T> implements Iterable<T>
 				throw new UnsupportedOperationException();
 			}
 
-			@SuppressWarnings("synthetic-access")
 			private boolean waitForNext()
 			{
 				if (Generator.this.nextItemAvailable)
@@ -120,7 +116,7 @@ public abstract class Generator<T> implements Iterable<T>
 				{
 					Generator.this.itemAvailableOrHasFinished.await();
 				}
-				catch (InterruptedException e)
+				catch (InterruptedException ignored)
 				{
 					Generator.this.hasFinished = true;
 				}
@@ -169,38 +165,33 @@ public abstract class Generator<T> implements Iterable<T>
 		}
 
 		// new thread definition
-		this.producer = new Thread(THREAD_GROUP, new Runnable()
+		this.producer = new Thread(THREAD_GROUP, () ->
 		{
-			@SuppressWarnings("synthetic-access")
-			@Override
-			public void run()
+			try
 			{
-				try
-				{
-					// wait for request before starting generation
-					Generator.this.itemRequested.await();
+				// wait for request before starting generation
+				Generator.this.itemRequested.await();
 
-					// generate
-					Generator.this.run();
-				}
-				catch (InterruptedException e)
-				{
-					// No need to do anything here
-					// Remaining steps in run() will cleanly shut down the thread.
-				}
-				catch (RuntimeException e)
-				{
-					Generator.this.exceptionRaisedByProducer = e;
-				}
-
-				// generation has terminated
-				Generator.this.hasFinished = true;
-
-				// signal finish
-				Generator.this.itemAvailableOrHasFinished.set();
-
-				// System.out.println("FINISHED");
+				// generate
+				Generator.this.run();
 			}
+			catch (InterruptedException ignored)
+			{
+				// No need to do anything here
+				// Remaining steps in run() will cleanly shut down the thread.
+			}
+			catch (RuntimeException e)
+			{
+				Generator.this.exceptionRaisedByProducer = e;
+			}
+
+			// generation has terminated
+			Generator.this.hasFinished = true;
+
+			// signal finish
+			Generator.this.itemAvailableOrHasFinished.set();
+
+			// System.out.println("FINISHED");
 		});
 
 		// start

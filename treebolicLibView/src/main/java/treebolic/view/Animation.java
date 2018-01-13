@@ -51,7 +51,6 @@ public class Animation extends ActionListener
 		return this.theTransforms.size();
 	}
 
-	@SuppressWarnings("boxing")
 	@Override
 	public boolean onAction(final Object... theseParams)
 	{

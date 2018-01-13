@@ -160,7 +160,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	@SuppressWarnings("WeakerAccess")
 	public Surface(final Object thisHandle)
 	{
-		//noinspection ConstantConditions
 		this((AppCompatActivity) thisHandle);
 	}
 
@@ -207,7 +206,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				// Surface.this.listener.onMenu((int) event.getX(), (int) event.getY());
 			}
 
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public boolean onDoubleTap(final MotionEvent event)
 			{
@@ -253,7 +251,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				return false;
 			}
 
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public void onShowPress(final MotionEvent event)
 			{
@@ -266,7 +263,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		// scale detector
 		this.scaleDetector = new XScaleGestureDetector(getContext(), new ScaleGestureDetector.SimpleOnScaleGestureListener()
 		{
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public boolean onScale(final ScaleGestureDetector detector)
 			{
@@ -279,7 +275,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				return true;
 			}
 
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public boolean onScaleBegin(final ScaleGestureDetector detector)
 			{
@@ -292,7 +287,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				return true;
 			}
 
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public void onScaleEnd(final ScaleGestureDetector detector)
 			{
@@ -349,14 +343,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 				// wait for delay until dragging is allowed
 				final ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
-				exec.schedule(new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						Surface.this.isScaling = false;
-					}
-				}, 500, TimeUnit.MILLISECONDS);
+				exec.schedule((Runnable) () -> Surface.this.isScaling = false, 500, TimeUnit.MILLISECONDS);
 			}
 		});
 
@@ -488,7 +475,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		if (text != null)
 		{
-			//noinspection ConstantConditions
 			final AppCompatActivity host = (AppCompatActivity) getContext();
 			Tip.tip(host, text);
 		}

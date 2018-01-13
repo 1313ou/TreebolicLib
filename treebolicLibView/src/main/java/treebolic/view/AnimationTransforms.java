@@ -49,7 +49,7 @@ public class AnimationTransforms
 	 */
 	static public AnimationTransforms make(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation, @SuppressWarnings("SameParameterValue") final int theseSteps)
 	{
-		@SuppressWarnings("ConstantConditions") final List<HyperTransform> theseTransforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ?
+		final List<HyperTransform> theseTransforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ?
 				AnimationTransforms.makeTransform1(thisFrom, thisTo, thisTransformer, thisOrientation) :
 				AnimationTransforms.makeTransforms(thisFrom, thisTo, thisTransformer, thisOrientation, theseSteps);
 		return new AnimationTransforms(theseTransforms);

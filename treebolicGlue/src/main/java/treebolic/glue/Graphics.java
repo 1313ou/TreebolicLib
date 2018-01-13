@@ -391,7 +391,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	@Override
 	public void pushMatrix()
 	{
-		this.canvas.save(Canvas.MATRIX_SAVE_FLAG);
+		this.canvas.save(Canvas.ALL_SAVE_FLAG);
 	}
 
 	@Override

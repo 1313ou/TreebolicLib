@@ -130,7 +130,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 * @param activity0 activity
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings({"deprecation", "WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess"})
 	protected Statusbar(final AppCompatActivity activity0)
 	{
 		super(activity0);
@@ -171,7 +171,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	protected Statusbar(final Object handle)
 	{
-		//noinspection ConstantConditions
 		this((AppCompatActivity) handle);
 	}
 
@@ -314,7 +313,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 					this.intercept = true;
 				}
 
-				@SuppressWarnings({"synthetic-access", "deprecation"})
 				@Override
 				public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
 				{
@@ -360,7 +358,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 * @return drawable
 	 */
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
-	@SuppressWarnings("deprecation")
 	private Drawable getDrawable(final int index)
 	{
 		if (Statusbar.drawables[index] == null)

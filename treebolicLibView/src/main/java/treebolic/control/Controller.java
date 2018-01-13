@@ -181,7 +181,6 @@ public class Controller extends Commander
 	 * @param thisEventType   event type
 	 * @param theseParameters event-specific objects
 	 */
-	@SuppressWarnings("boxing")
 	public void handle(final Event thisEventType, final Object... theseParameters)
 	{
 		// System.out.println(thisEventType);
@@ -800,7 +799,7 @@ public class Controller extends Commander
 		{
 			return this.theTraversedNodes.next();
 		}
-		catch (NoSuchElementException e)
+		catch (NoSuchElementException ignored)
 		{
 			return null;
 		}
@@ -838,7 +837,7 @@ public class Controller extends Commander
 		{
 			return this.theTraversedNodes.next();
 		}
-		catch (NoSuchElementException e)
+		catch (NoSuchElementException ignored)
 		{
 			return null;
 		}
@@ -857,7 +856,7 @@ public class Controller extends Commander
 		{
 			this.theTraverser.terminate();
 		}
-		catch (InterruptedException thisException)
+		catch (InterruptedException ignored)
 		{
 			//
 		}
@@ -925,7 +924,7 @@ public class Controller extends Commander
 		{
 			return URLDecoder.decode(thisString, "UTF8");
 		}
-		catch (final Exception e)
+		catch (final Exception ignored)
 		{
 			// System.err.println("Can't decode " + thisString + " - " + e);
 		}

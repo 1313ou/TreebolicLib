@@ -5,6 +5,7 @@ package treebolic.model;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class TreeMutableEdge extends MutableEdge
 {
 	private static final long serialVersionUID = -1812958269993842207L;

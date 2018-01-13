@@ -73,13 +73,9 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 
 		// set listener for on dismiss event
 		// this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.
-		this.quickAction.setOnDismissListener(new QuickAction.OnDismissListener()
+		this.quickAction.setOnDismissListener((QuickAction.OnDismissListener) () ->
 		{
-			@Override
-			public void onDismiss()
-			{
-				//
-			}
+			//
 		});
 	}
 
@@ -119,7 +115,6 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	 * @return drawable
 	 */
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
-	@SuppressWarnings("deprecation")
 	private Drawable getDrawable(final int index)
 	{
 		if (PopupMenu.drawables[index] == null)

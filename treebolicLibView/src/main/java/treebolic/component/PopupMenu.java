@@ -168,7 +168,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						}
 					});
 				}
-				catch (final ArrayIndexOutOfBoundsException e)
+				catch (final ArrayIndexOutOfBoundsException ignored)
 				{
 					// do nothing
 				}
@@ -201,7 +201,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 				new URL(thisLink);
 				return true;
 			}
-			catch (final MalformedURLException e)
+			catch (final MalformedURLException ignored)
 			{
 				// well-formed URI
 				try
@@ -224,7 +224,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 					// desperate attempt
 					return thisUri.getScheme().matches("[a-z]*");
 				}
-				catch (final URISyntaxException e2)
+				catch (final URISyntaxException ignored2)
 				{
 					//
 				}

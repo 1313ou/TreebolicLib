@@ -7,7 +7,6 @@ import treebolic.glue.component.Component;
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("ViewConstructor")
 public class Progress extends treebolic.glue.component.Progress implements Component
 {
 	@SuppressWarnings("unused")

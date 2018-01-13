@@ -2,6 +2,7 @@ package treebolic.provider;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import treebolic.glue.Color;
 import treebolic.glue.Image;
@@ -239,8 +240,8 @@ public class LoadBalancer
 		{
 			return null;
 		}
-		label1 = label1.toLowerCase();
-		label2 = label2.toLowerCase();
+		label1 = label1.toLowerCase(Locale.getDefault());
+		label2 = label2.toLowerCase(Locale.getDefault());
 		final StringBuilder sb = new StringBuilder();
 		sb.append(left(label1, this.truncateLabelAt)) //
 				.append('-');
@@ -272,9 +273,9 @@ public class LoadBalancer
 		int l = str.length();
 		if (l > n)
 		{
-			return str.substring(l - n).toLowerCase();
+			return str.substring(l - n).toLowerCase(Locale.getDefault());
 		}
-		return str.toLowerCase();
+		return str.toLowerCase(Locale.getDefault());
 	}
 
 	/**
@@ -290,6 +291,6 @@ public class LoadBalancer
 		{
 			return null;
 		}
-		return str.length() > n ? str.substring(0, n).toLowerCase() : str.toLowerCase();
+		return str.length() > n ? str.substring(0, n).toLowerCase(Locale.getDefault()) : str.toLowerCase(Locale.getDefault());
 	}
 }

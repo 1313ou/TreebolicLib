@@ -336,7 +336,6 @@ public abstract class AbstractLayerOut
 	 *
 	 * @param theseSettings settings
 	 */
-	@SuppressWarnings("boxing")
 	public void apply(final Settings theseSettings)
 	{
 		boolean radial = true;

@@ -9,7 +9,6 @@ import treebolic.glue.component.Component;
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("ViewConstructor")
 public class Toolbar extends treebolic.glue.component.Toolbar implements Component
 {
 	@SuppressWarnings("unused")
@@ -29,7 +28,7 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 	 *
 	 * @param thisHandle Handle required for component creation
 	 */
-	public Toolbar(final Controller thisController, @SuppressWarnings("UnusedParameters") final boolean hasTooltip, @SuppressWarnings("UnusedParameters") final boolean tooltipDisplaysContent, @SuppressWarnings("UnusedParameters") final boolean arcEdges, @SuppressWarnings("UnusedParameters") final boolean focusOnHover, final Object thisHandle)
+	public Toolbar(final Controller thisController, final boolean hasTooltip, final boolean tooltipDisplaysContent, final boolean arcEdges, final boolean focusOnHover, final Object thisHandle)
 	{
 		super(thisHandle);
 		this.theController = thisController;
@@ -43,7 +42,7 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 				final Controller.Command command = Controller.Command.valueOf(action);
 				listener = makeListener(command);
 			}
-			catch (IllegalArgumentException e)
+			catch (IllegalArgumentException ignored)
 			{
 				//
 			}
@@ -55,7 +54,6 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 	{
 		return new ActionListener()
 		{
-			@SuppressWarnings("synthetic-access")
 			@Override
 			public boolean onAction(final Object... theseParams)
 			{

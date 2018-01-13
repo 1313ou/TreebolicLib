@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
@@ -256,22 +255,17 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 		final int pos = this.childPos;
 
-		itemView.setOnClickListener(new OnClickListener()
+		itemView.setOnClickListener(v ->
 		{
-			@SuppressWarnings("synthetic-access")
-			@Override
-			public void onClick(final View v)
+			if (action.listener != null)
 			{
-				if (action.listener != null)
-				{
-					action.listener.onAction(action);
-				}
+				action.listener.onAction(action);
+			}
 
-				if (!getActionItem(pos).sticky)
-				{
-					QuickAction.this.didAction = true;
-					dismiss();
-				}
+			if (!getActionItem(pos).sticky)
+			{
+				QuickAction.this.didAction = true;
+				dismiss();
 			}
 		});
 

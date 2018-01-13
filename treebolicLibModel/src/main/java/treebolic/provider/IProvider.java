@@ -34,7 +34,7 @@ public interface IProvider
 	 * @param thisHandle handle as passed to widget
 	 */
 	@SuppressWarnings("EmptyMethod")
-	void setHandle(@SuppressWarnings("UnusedParameters") Object thisHandle);
+	void setHandle(Object thisHandle);
 
 	/**
 	 * Make model
@@ -55,5 +55,5 @@ public interface IProvider
 	 * @param checkRecursion  whether immediate recursion is checked (avoid mount-now infinite recursion)
 	 * @return tree
 	 */
-	Tree makeTree(String thisSource, @SuppressWarnings("UnusedParameters") URL thisBase, Properties theseParameters, @SuppressWarnings({"UnusedParameters", "SameParameterValue"}) boolean checkRecursion);
+	Tree makeTree(String thisSource, URL thisBase, Properties theseParameters, @SuppressWarnings("SameParameterValue") boolean checkRecursion);
 }

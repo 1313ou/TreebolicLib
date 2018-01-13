@@ -1,8 +1,10 @@
 package treebolic.control;
 
+import java.util.Locale;
+
+import treebolic.model.INode;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
-import treebolic.model.INode;
 
 /**
  * Node finder
@@ -136,7 +138,7 @@ public class Traverser extends Generator<INode>
 		 */
 		public NoCaseMatcher(String thisTarget, MatchScope thisScope, MatchMode thisMode)
 		{
-			super(thisTarget.toLowerCase(), thisScope, thisMode);
+			super(thisTarget.toLowerCase(Locale.getDefault()), thisScope, thisMode);
 		}
 
 		@Override
@@ -171,7 +173,7 @@ public class Traverser extends Generator<INode>
 			// try to match this node
 			if (thisNodeScope != null)
 			{
-				thisNodeScope = thisNodeScope.toLowerCase();
+				thisNodeScope = thisNodeScope.toLowerCase(Locale.getDefault());
 				switch (this.theMode)
 				{
 					case EQUALS:

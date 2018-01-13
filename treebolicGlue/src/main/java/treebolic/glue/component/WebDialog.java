@@ -93,7 +93,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	@Override
 	public void setHandle(final Object handle)
 	{
-		//noinspection ConstantConditions
 		this.activity = (AppCompatActivity) handle;
 	}
 
@@ -127,7 +126,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 
 	@NonNull
 	@Override
-	public AppCompatDialog onCreateDialog(@SuppressWarnings("UnusedParameters") final Bundle savedInstanceState)
+	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
 		final Activity activity = getActivity();
@@ -178,7 +177,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 				this.intercept = true;
 			}
 
-			@SuppressWarnings({"synthetic-access", "deprecation"})
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
 			{
@@ -258,7 +256,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	 * @return default style
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings({"boxing", "deprecation"})
+	@SuppressWarnings({"boxing"})
 	private String getDefaultBaseStyle()
 	{
 		return "body {" + //

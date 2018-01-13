@@ -139,7 +139,6 @@ public class Painter extends AbstractPainter
 		}
 
 		// boundary circle
-		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_OUTERCIRCLE) != 0)
 		{
 			drawCircle(0., 0., 1., Color.LIGHT_GRAY);
@@ -233,12 +232,10 @@ public class Painter extends AbstractPainter
 		}
 
 		// debug
-		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_NODECIRCLE) != 0)
 		{
 			drawSpace(thisNode);
 		}
-		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_NONODE) != 0)
 		{
 			return;
@@ -347,7 +344,6 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisNodeData computed node data
 	 */
-	@SuppressWarnings("boxing")
 	private void drawNode(final NodeData thisNodeData)
 	{
 		if (thisNodeData == null)
@@ -367,7 +363,6 @@ public class Painter extends AbstractPainter
 			final int ry = 10;
 
 			// fill
-			//noinspection PointlessBitwiseExpression,ConstantConditions
 			if ((Painter.DEBUG & Painter.DEBUG_NOLABELFILL) == 0)
 			{
 				this.theGraphics.setColor(thisNodeData.theBackColor);
@@ -412,7 +407,6 @@ public class Painter extends AbstractPainter
 		}
 
 		// image
-		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if (thisNodeData.theImage != null && (Painter.DEBUG & Painter.DEBUG_NOIMAGE) == 0)
 		{
 			if (thisNodeData.theImageWidth >= Painter.MIN_IMAGE_DIMENSION && thisNodeData.theImageHeight >= Painter.MIN_IMAGE_DIMENSION)
@@ -429,7 +423,6 @@ public class Painter extends AbstractPainter
 		}
 
 		// label
-		//noinspection PointlessBitwiseExpression,ConstantConditions
 		if ((Painter.DEBUG & Painter.DEBUG_NOLABEL) != 0)
 		{
 			return;
@@ -446,7 +439,7 @@ public class Painter extends AbstractPainter
 	 * @param thisNode node
 	 * @return node data
 	 */
-	@SuppressWarnings({"synthetic-access", "boxing"})
+	@SuppressWarnings({"boxing"})
 	private NodeData computeNodeData(final INode thisNode)
 	{
 		final NodeData thisNodeData = new NodeData();
@@ -946,7 +939,7 @@ public class Painter extends AbstractPainter
 	 * @param thisFromAnchor from-anchor
 	 * @param thisToAnchor   to-anchor
 	 */
-	private void drawArc(final Arc2D thisArc2D, @SuppressWarnings("UnusedParameters") final Point2D thisFromAnchor, @SuppressWarnings("UnusedParameters") final Point2D thisToAnchor, final int thisStyle)
+	private void drawArc(final Arc2D thisArc2D, final Point2D thisFromAnchor, final Point2D thisToAnchor, final int thisStyle)
 	{
 		final int x = (int) thisArc2D.x;
 		final int y = (int) thisArc2D.y;
@@ -1630,7 +1623,6 @@ public class Painter extends AbstractPainter
 	 * @param thatStyle   local style
 	 * @return style
 	 */
-	@SuppressWarnings("boxing")
 	static private int mergeStyles(int thisDefault, final Integer thatStyle)
 	{
 		if (thatStyle == null)

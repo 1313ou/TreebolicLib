@@ -45,7 +45,6 @@ public class MountPoint implements Serializable
 		/**
 		 * Constructor
 		 */
-		@SuppressWarnings("synthetic-access")
 		public Mounting()
 		{
 			super();
@@ -73,7 +72,6 @@ public class MountPoint implements Serializable
 		/**
 		 * Constructor
 		 */
-		@SuppressWarnings("synthetic-access")
 		public Mounted()
 		{
 			super();

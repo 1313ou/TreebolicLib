@@ -427,7 +427,6 @@ public class Settings implements Serializable
 	 *
 	 * @param theseProperties properties
 	 */
-	@SuppressWarnings("boxing")
 	public void load(final Properties theseProperties)
 	{
 		String thisParam;

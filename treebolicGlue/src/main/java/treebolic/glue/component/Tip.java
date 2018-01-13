@@ -61,7 +61,7 @@ public class Tip extends AppCompatDialogFragment
 
 	@NonNull
 	@Override
-	public AppCompatDialog onCreateDialog(@SuppressWarnings("UnusedParameters") final Bundle savedInstanceState)
+	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
 		final Activity activity = getActivity();
@@ -114,7 +114,7 @@ public class Tip extends AppCompatDialogFragment
 	 * @param activity activity
 	 * @param text     text to display
 	 */
-	static public void tip(@SuppressWarnings("UnusedParameters") final AppCompatActivity activity, @SuppressWarnings("UnusedParameters") final String text)
+	static public void tip(final AppCompatActivity activity, final String text)
 	{
 		// Tip tip = new Tip();
 		// tip.setText(text);
