@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -22,7 +24,7 @@ public class ZipSerializer
 	 * @param thisObject  object to serialize
 	 * @throws IOException io exception
 	 */
-	static public void serializeZip(final String thisArchive, @SuppressWarnings("SameParameterValue") final String thisName, final Object thisObject) throws IOException
+	static public void serializeZip(@NonNull final String thisArchive, @SuppressWarnings("SameParameterValue") final String thisName, final Object thisObject) throws IOException
 	{
 		final ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(thisArchive, false));
 		final ZipEntry ze = new ZipEntry(thisName);

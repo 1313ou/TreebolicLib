@@ -1,5 +1,8 @@
 package treebolic.control;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
 import treebolic.glue.EventListener;
@@ -33,6 +36,7 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Drag mode
 	 */
+	@NonNull
 	private DragMode theDragMode = DragMode.TRANSLATE;
 
 	/**
@@ -61,6 +65,7 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Drag end point
 	 */
+	@NonNull
 	private Complex theDragEnd = new Complex();
 
 	// selection
@@ -68,11 +73,13 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Hot node
 	 */
+	@Nullable
 	private INode theHotNode = null;
 
 	/**
 	 * Linger node
 	 */
+	@Nullable
 	private INode theHoverNode = null;
 
 	// C O N S T R U C T O R
@@ -308,6 +315,7 @@ public class EventListenerAdapter extends EventListener
 	 *
 	 * @return hot node
 	 */
+	@Nullable
 	public INode getHotNode()
 	{
 		return this.theHotNode;

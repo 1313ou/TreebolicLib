@@ -14,6 +14,8 @@ import android.graphics.PathEffect;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.TypedValue;
 
 import org.treebolic.glue.R;
@@ -50,6 +52,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Paint
 	 */
+	@NonNull
 	private final Paint paint;
 
 	/**
@@ -77,7 +80,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	 *
 	 * @param context context application context
 	 */
-	static public void init(final Context context)
+	static public void init(@NonNull final Context context)
 	{
 		if (!Graphics.initDone)
 		{
@@ -126,7 +129,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 
 	@Override
-	public void drawBackgroundColor(final Color color, final int left, final int top, final int width, final int height)
+	public void drawBackgroundColor(@NonNull final Color color, final int left, final int top, final int width, final int height)
 	{
 		this.canvas.drawColor(color.getOpaqueRGB());
 
@@ -249,7 +252,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 
 	@Override
-	public void drawString(final String str, final int x, final int y)
+	public void drawString(@NonNull final String str, final int x, final int y)
 	{
 		this.paint.setStyle(Style.FILL);
 		this.paint.setTextAlign(Align.LEFT);
@@ -258,7 +261,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 
 	@Override
-	public void drawImage(final Image image, final int x, final int y)
+	public void drawImage(@NonNull final Image image, final int x, final int y)
 	{
 		if (image.bitmap != null)
 		{
@@ -268,7 +271,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 
 	@Override
-	public void drawImage(final Image image, final int x, final int y, final int w, final int h)
+	public void drawImage(@NonNull final Image image, final int x, final int y, final int w, final int h)
 	{
 		if (image.bitmap != null)
 		{
@@ -280,15 +283,16 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	// P A I N T
 
 	@Override
-	public void setColor(final Color color)
+	public void setColor(@Nullable final Color color)
 	{
-		if (!color.isNull())
+		if (color != null && !color.isNull())
 		{
 			this.paint.setColor(color.getRGB());
 			this.paint.setAlpha(255);
 		}
 	}
 
+	@NonNull
 	@Override
 	public Color getColor()
 	{
@@ -309,7 +313,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	}
 
 	@Override
-	public int stringWidth(final String string)
+	public int stringWidth(@NonNull final String string)
 	{
 		final Rect bounds = new Rect();
 		this.paint.getTextBounds(string, 0, string.length(), bounds);

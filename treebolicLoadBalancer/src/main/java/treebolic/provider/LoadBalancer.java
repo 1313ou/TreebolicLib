@@ -1,5 +1,8 @@
 package treebolic.provider;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -27,6 +30,7 @@ public class LoadBalancer
 	/**
 	 * Max children nodes at level 0, 1 .. n. Level is just above leaves. Last value i holds for level i to n.
 	 */
+	@NonNull
 	private final int[] limitNodesAtLevel;
 
 	/**
@@ -65,7 +69,7 @@ public class LoadBalancer
 	 * @param limitNodesAtLevel0 limit number of nodes at given level
 	 * @param truncateLabelAt0   truncate label threshold
 	 */
-	public LoadBalancer(final int[] limitNodesAtLevel0, final int truncateLabelAt0)
+	public LoadBalancer(@Nullable final int[] limitNodesAtLevel0, final int truncateLabelAt0)
 	{
 		this.limitNodesAtLevel = limitNodesAtLevel0 != null ? limitNodesAtLevel0 : new int[]{10, 3};
 		this.truncateLabelAt = truncateLabelAt0 > 0 ? truncateLabelAt0 : 3;
@@ -94,13 +98,14 @@ public class LoadBalancer
 	/**
 	 * Build a list of tree parent nodes
 	 *
-	 * @param nodes children nodes
+	 * @param nodes      children nodes
 	 * @param imageIndex image index (-1 is none and resolves to default)
-	 * @param image image (null is none and resolves to default)
-	 * @param level current level
+	 * @param image      image (null is none and resolves to default)
+	 * @param level      current level
 	 * @return list of parent nodes
 	 */
-	private List<INode> buildHierarchy1(final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
+	@NonNull
+	private List<INode> buildHierarchy1(@NonNull final List<? extends INode> nodes, final int imageIndex, @Nullable final Image image, final int level)
 	{
 		final List<INode> roots = new ArrayList<>();
 
@@ -188,14 +193,15 @@ public class LoadBalancer
 	/**
 	 * Recursive build hierarchy
 	 *
-	 * @param nodes nodes at level
+	 * @param nodes      nodes at level
 	 * @param imageIndex image index (-1 is none and resolves to default)
-	 * @param image image (null is none and resolves to default)
-	 * @param level level
+	 * @param image      image (null is none and resolves to default)
+	 * @param level      level
 	 * @return list of tree nodes
 	 */
+	@Nullable
 	@SuppressWarnings({"unchecked", "WeakerAccess"})
-	public List<INode> buildHierarchy(final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
+	public List<INode> buildHierarchy(@Nullable final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
 	{
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
 		// System.out.println("level=" + level + " m=" + m);
@@ -205,7 +211,7 @@ public class LoadBalancer
 		}
 		if (nodes.size() <= m)
 		{
-			return (List<INode>)nodes;
+			return (List<INode>) nodes;
 		}
 		final List<INode> nodes2 = buildHierarchy1(nodes, imageIndex, image, level);
 		return buildHierarchy(nodes2, imageIndex, image, level + 1);
@@ -218,6 +224,7 @@ public class LoadBalancer
 	 * @param level level
 	 * @return list of tree nodes
 	 */
+	@Nullable
 	public List<INode> buildHierarchy(final List<? extends INode> nodes, @SuppressWarnings("SameParameterValue") final int level)
 	{
 		return buildHierarchy(nodes, -1, null, level);
@@ -229,10 +236,10 @@ public class LoadBalancer
 	 * Label factory of non-leave nodes
 	 *
 	 * @param first first child node
-	 * @param last last child node
+	 * @param last  last child node
 	 * @return makeRangeLabel of parent node
 	 */
-	private String makeRangeLabel(final INode first, final INode last)
+	private String makeRangeLabel(@NonNull final INode first, @NonNull final INode last)
 	{
 		String label1 = first.getTarget();
 		String label2 = last.getTarget();
@@ -264,7 +271,8 @@ public class LoadBalancer
 	 * @param n   n trailing characters
 	 * @return right of string
 	 */
-	private String right(final String str, final int n)
+	@Nullable
+	private String right(@Nullable final String str, final int n)
 	{
 		if (str == null)
 		{
@@ -285,7 +293,8 @@ public class LoadBalancer
 	 * @param n   n first characters
 	 * @return left of string
 	 */
-	private String left(final String str, final int n)
+	@Nullable
+	private String left(@Nullable final String str, final int n)
 	{
 		if (str == null)
 		{

@@ -1,5 +1,7 @@
 package treebolic.model.graph;
 
+import android.support.annotation.NonNull;
+
 /**
  * Graph edge
  *
@@ -53,7 +55,8 @@ public class GraphEdge
 	 * @param thatEdge edge
 	 * @return edge
 	 */
-	static GraphEdge makeReverseOf(final GraphEdge thatEdge)
+	@NonNull
+	static GraphEdge makeReverseOf(@NonNull final GraphEdge thatEdge)
 	{
 		final GraphEdge thisEdge = new GraphEdge(thatEdge.getTo(), thatEdge.getFrom(), thatEdge.getIsTreeEdge());
 		thisEdge.setUserData(thatEdge.getUserData());
@@ -125,11 +128,12 @@ public class GraphEdge
 	 * @param thisNode reference node
 	 * @return node
 	 */
-	public GraphNode getOtherNode(final GraphNode thisNode)
+	public GraphNode getOtherNode(@NonNull final GraphNode thisNode)
 	{
 		return thisNode.equals(this.theFromNode) ? this.theToNode : this.theFromNode;
 	}
 
+	@NonNull
 	@Override
 	public String toString()
 	{

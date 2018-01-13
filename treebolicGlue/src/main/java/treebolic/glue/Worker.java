@@ -1,6 +1,8 @@
 package treebolic.glue;
 
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 /**
  * Worker thread
@@ -21,6 +23,7 @@ abstract public class Worker extends AsyncTask<Void, Void, Void> implements tree
 		super.execute();
 	}
 
+	@Nullable
 	@Override
 	protected Void doInBackground(final Void... params)
 	{
@@ -28,7 +31,7 @@ abstract public class Worker extends AsyncTask<Void, Void, Void> implements tree
 		{
 			job();
 		}
-		catch (final Exception e)
+		catch (@NonNull final Exception e)
 		{
 			e.printStackTrace();
 		}

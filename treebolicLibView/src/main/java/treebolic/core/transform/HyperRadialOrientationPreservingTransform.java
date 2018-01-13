@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -9,7 +11,7 @@ import treebolic.core.location.Complex;
  */
 public class HyperRadialOrientationPreservingTransform extends HyperTransform
 {
-	public HyperRadialOrientationPreservingTransform(final Complex from, final Complex to, final Complex thisRoot)
+	public HyperRadialOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex thisRoot)
 	{
 		// thisRoot->0
 		this.theXlat = new HyperTranslation(thisRoot).inverse();

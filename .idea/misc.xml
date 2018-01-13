@@ -513,11 +513,103 @@
       <entry_point TYPE="method" FQNAME="treebolic.model.TreeMutableNode void addChildren(java.util.List&lt;? extends treebolic.model.INode&gt; theseChildren)" />
       <entry_point TYPE="class" FQNAME="treebolic.glue.component.Statusbar.Processor" />
       <entry_point TYPE="method" FQNAME="treebolic.glue.iface.component.Statusbar void setListener(treebolic.glue.iface.ActionListener thisActionListener)" />
+      <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter theGraphics" />
+      <entry_point TYPE="field" FQNAME="treebolic.core.math.Arc to" />
+      <entry_point TYPE="field" FQNAME="treebolic.core.math.Arc from" />
+      <entry_point TYPE="field" FQNAME="treebolic.core.math.Arc r" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Arc2D extent" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Arc2D start" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Arc2D height" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Arc2D width" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Arc2D y" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.Arc2D x" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Graphics DASH" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Graphics DOT" />
+      <entry_point TYPE="field" FQNAME="treebolic.glue.iface.Graphics SOLID" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge STROKEWIDTHSHIFT" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge STROKEWIDTHMASK" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge DOT" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge DASH" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge STROKEMASK" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$6 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$5 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$4 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$3 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$2 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$1 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget$2 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="method" FQNAME="treebolic.Widget$1 boolean onAction(java.lang.Object... theseParams)" />
     </entry_points>
     <pattern value="treebolic.provider.LoadBalancer" method="buildHierarchy" />
     <pattern value="treebolic.provider.LoadBalancer" method="setGroupNode" />
     <pattern value="treebolic.provider.LoadBalancer" method="LoadBalancer" />
     <pattern value="treebolic.provider.LoadBalancer" />
+    <pattern value="treebolic.control.Commander" method="execute" />
+    <pattern value="treebolic.control.Commander" />
+    <pattern value="treebolic.view.Painter" method="drawArc" />
+    <pattern value="treebolic.glue.component.Tip" method="tip" />
+    <pattern value="treebolic.component.Toolbar" method="Toolbar" />
+    <pattern value="treebolic.view.AbstractPainter" method="setScaleFactors" />
+    <pattern value="treebolic.view.AbstractPainter" method="setZoomFactor" />
+    <pattern value="treebolic.view.AbstractPainter" method="getArcEdges" />
+    <pattern value="treebolic.view.AbstractPainter" method="setup" />
+    <pattern value="treebolic.view.AbstractPainter" method="paint" />
+    <pattern value="treebolic.view.AbstractPainter" method="paintBackground" />
+    <pattern value="treebolic.view.AbstractPainter" />
+    <pattern value="treebolic.view.Animation" method="onAction" />
+    <pattern value="treebolic.view.Animation" />
+    <pattern value="treebolic.core.math.Arc" method="Arc" />
+    <pattern value="treebolic.core.math.Arc" />
+    <pattern value="treebolic.glue.Arc2D" method="getAngleExtent" />
+    <pattern value="treebolic.glue.Arc2D" method="setAngles" />
+    <pattern value="treebolic.glue.Arc2D" method="getEndPoint" />
+    <pattern value="treebolic.glue.Arc2D" method="getStartPoint" />
+    <pattern value="treebolic.glue.Arc2D" />
+    <pattern value="treebolic.core.math.ArcMath" method="getTextTangent" />
+    <pattern value="treebolic.core.math.ArcMath" method="getMidArc" />
+    <pattern value="treebolic.core.math.ArcMath" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="resetHotNode" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="onHover" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="drag" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="onDragged" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="onUp" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="onDown" />
+    <pattern value="treebolic.control.EventListenerAdapter" method="reset" />
+    <pattern value="treebolic.control.EventListenerAdapter" />
+    <pattern value="treebolic.glue.iface.Graphics" />
+    <pattern value="treebolic.glue.Graphics" method="popStroke" />
+    <pattern value="treebolic.glue.Graphics" method="pushStroke" />
+    <pattern value="treebolic.glue.Graphics" method="setStroke" />
+    <pattern value="treebolic.glue.Graphics" method="drawArc" />
+    <pattern value="treebolic.glue.Graphics" />
+    <pattern value="treebolic.model.IEdge" />
+    <pattern value="treebolic.core.LayerOut" method="layout" />
+    <pattern value="treebolic.core.LayerOut" />
+    <pattern value="treebolic.view.Mapper" method="yUnitCircleToView" />
+    <pattern value="treebolic.view.Mapper" method="xUnitCircleToView" />
+    <pattern value="treebolic.view.Mapper" method="getYShift" />
+    <pattern value="treebolic.view.Mapper" method="getXShift" />
+    <pattern value="treebolic.view.Mapper" method="setYShift" />
+    <pattern value="treebolic.view.Mapper" method="setXShift" />
+    <pattern value="treebolic.view.Mapper" />
+    <pattern value="treebolic.view.Painter" method="getIntersection" />
+    <pattern value="treebolic.view.Painter" method="getMidPoint" />
+    <pattern value="treebolic.view.Painter" method="drawEdgeEnds" />
+    <pattern value="treebolic.view.Painter" method="drawImage" />
+    <pattern value="treebolic.view.Painter" method="mangleString" />
+    <pattern value="treebolic.view.Painter" method="drawText" />
+    <pattern value="treebolic.view.Painter" method="drawLine" />
+    <pattern value="treebolic.view.Painter" method="toArc2D" />
+    <pattern value="treebolic.view.Painter" />
+    <pattern value="treebolic.component.PopupMenu" method="makePopup" />
+    <pattern value="treebolic.component.PopupMenu" />
+    <pattern value="treebolic.core.Transformer" method="reset" />
+    <pattern value="treebolic.core.Transformer" />
+    <pattern value="treebolic.Widget" method="initDisplay" />
+    <pattern value="treebolic.Widget.InitWorker" method="InitWorker" />
+    <pattern value="treebolic.Widget.InitWorker" />
+    <pattern value="treebolic.Widget" method="Widget" />
+    <pattern value="treebolic.Widget" />
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
@@ -543,7 +635,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

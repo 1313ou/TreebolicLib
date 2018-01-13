@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.IOException;
 
 /**
@@ -31,6 +34,7 @@ public class ModelReader
 	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
+	@NonNull
 	public Model deserialize() throws IOException, ClassNotFoundException
 	{
 		return (Model) ZipDeSerializer.deserializeZip(this.theArchive, "model");
@@ -41,17 +45,18 @@ public class ModelReader
 	 *
 	 * @return model
 	 */
+	@Nullable
 	public Model deserializeGuarded()
 	{
 		try
 		{
 			return deserialize();
 		}
-		catch (final ClassNotFoundException ignored)
+		catch (@NonNull final ClassNotFoundException ignored)
 		{
 			//
 		}
-		catch (final IOException ignored)
+		catch (@NonNull final IOException ignored)
 		{
 			//
 		}

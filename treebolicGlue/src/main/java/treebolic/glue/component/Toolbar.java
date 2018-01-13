@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
@@ -76,16 +77,19 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 			R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone, //
 			R.drawable.toolbar_scaleup, R.drawable.toolbar_scaledown, R.drawable.toolbar_scaleone};
 
+	@NonNull
 	private final Drawable[] drawables;
 
 	/**
 	 * Panel of buttons
 	 */
+	@NonNull
 	private final LinearLayout panel;
 
 	/**
 	 * Lay out parameters
 	 */
+	@NonNull
 	private final LinearLayout.LayoutParams layoutParams;
 
 	/**
@@ -102,7 +106,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"WeakerAccess"})
-	protected Toolbar(final AppCompatActivity activity)
+	protected Toolbar(@NonNull final AppCompatActivity activity)
 	{
 		super(activity);
 
@@ -163,7 +167,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
-	public void addButton(final Button button, final ActionListener thisListener)
+	public void addButton(@NonNull final Button button, @NonNull final ActionListener thisListener)
 	{
 		// interface button to implementation
 		final String name = button.name();

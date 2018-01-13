@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public interface INode extends Serializable
 	 *
 	 * @return tree node parent
 	 */
+	@Nullable
 	INode getParent();
 
 	/**
@@ -34,6 +37,7 @@ public interface INode extends Serializable
 	 *
 	 * @return children nodes
 	 */
+	@Nullable
 	List<INode> getChildren();
 
 	// mountpoint
@@ -43,6 +47,7 @@ public interface INode extends Serializable
 	 *
 	 * @return mountpoint data or null if this node is not a mountpoint
 	 */
+	@Nullable
 	MountPoint getMountPoint();
 
 	/**
@@ -112,6 +117,7 @@ public interface INode extends Serializable
 	 *
 	 * @return node id
 	 */
+	@Nullable
 	String getId();
 
 	// display data
@@ -121,6 +127,7 @@ public interface INode extends Serializable
 	 *
 	 * @return node label
 	 */
+	@Nullable
 	String getLabel();
 
 	/**
@@ -128,6 +135,7 @@ public interface INode extends Serializable
 	 *
 	 * @return tree edge (to parent) label
 	 */
+	@Nullable
 	String getEdgeLabel();
 
 	/**
@@ -142,6 +150,7 @@ public interface INode extends Serializable
 	 *
 	 * @return node content as string
 	 */
+	@Nullable
 	String getContent();
 
 	// colors
@@ -151,6 +160,7 @@ public interface INode extends Serializable
 	 *
 	 * @return background color
 	 */
+	@Nullable
 	Color getBackColor();
 
 	/**
@@ -158,6 +168,7 @@ public interface INode extends Serializable
 	 *
 	 * @return foreground color
 	 */
+	@Nullable
 	Color getForeColor();
 
 	/**
@@ -165,6 +176,7 @@ public interface INode extends Serializable
 	 *
 	 * @return tree edge color
 	 */
+	@Nullable
 	Color getEdgeColor();
 
 	/**
@@ -181,6 +193,7 @@ public interface INode extends Serializable
 	 *
 	 * @return edge style
 	 */
+	@Nullable
 	Integer getEdgeStyle();
 
 	/**
@@ -197,6 +210,7 @@ public interface INode extends Serializable
 	 *
 	 * @return URL link
 	 */
+	@Nullable
 	String getLink();
 
 	/**
@@ -204,6 +218,7 @@ public interface INode extends Serializable
 	 *
 	 * @return link target frame
 	 */
+	@Nullable
 	String getTarget();
 
 	// image locations
@@ -213,6 +228,7 @@ public interface INode extends Serializable
 	 *
 	 * @return node image filename
 	 */
+	@Nullable
 	String getImageFile();
 
 	/**
@@ -227,6 +243,7 @@ public interface INode extends Serializable
 	 *
 	 * @return tree edge image file
 	 */
+	@Nullable
 	String getEdgeImageFile();
 
 	/**
@@ -250,6 +267,7 @@ public interface INode extends Serializable
 	 *
 	 * @return node image
 	 */
+	@Nullable
 	Image getImage();
 
 	/**
@@ -257,6 +275,7 @@ public interface INode extends Serializable
 	 *
 	 * @return tree edge image
 	 */
+	@Nullable
 	Image getEdgeImage();
 
 	// set images

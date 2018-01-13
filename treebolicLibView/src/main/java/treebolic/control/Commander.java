@@ -1,5 +1,8 @@
 package treebolic.control;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.location.Complex;
 import treebolic.model.Model;
@@ -96,6 +99,7 @@ public abstract class Commander
 	 *
 	 * @return model
 	 */
+	@Nullable
 	abstract protected Model getModel();
 
 	/**
@@ -103,6 +107,7 @@ public abstract class Commander
 	 *
 	 * @return view
 	 */
+	@Nullable
 	abstract protected View getView();
 
 	/**
@@ -110,6 +115,7 @@ public abstract class Commander
 	 *
 	 * @return layout agent
 	 */
+	@Nullable
 	abstract protected AbstractLayerOut getLayerOut();
 
 	// H E L P E R S
@@ -121,7 +127,9 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.SOUTH))
 		{
-			getView().setYShift(Commander.YSSHIFTSTEP, true);
+			final View thisView = getView();
+			assert thisView != null;
+			thisView.setYShift(Commander.YSSHIFTSTEP, true);
 		}
 	}
 
@@ -132,7 +140,9 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.NORTH))
 		{
-			getView().setYShift(-Commander.YSSHIFTSTEP, true);
+			final View thisView = getView();
+			assert thisView != null;
+			thisView.setYShift(-Commander.YSSHIFTSTEP, true);
 		}
 	}
 
@@ -143,7 +153,9 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.EAST))
 		{
-			getView().setXShift(-Commander.XSHIFTSTEP, true);
+			final View thisView = getView();
+			assert thisView != null;
+			thisView.setXShift(-Commander.XSHIFTSTEP, true);
 		}
 	}
 
@@ -154,7 +166,9 @@ public abstract class Commander
 	{
 		if (!changeOrientation(Complex.WEST))
 		{
-			getView().setXShift(+Commander.XSHIFTSTEP, true);
+			final View thisView = getView();
+			assert thisView != null;
+			thisView.setXShift(+Commander.XSHIFTSTEP, true);
 		}
 	}
 
@@ -164,8 +178,10 @@ public abstract class Commander
 	private void setRadial()
 	{
 		changeOrientation(Complex.ZERO);
-		getView().setXShift(0F, false);
-		getView().setYShift(0F, false);
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setXShift(0F, false);
+		thisView.setYShift(0F, false);
 	}
 
 	/**
@@ -174,21 +190,28 @@ public abstract class Commander
 	 * @param thisOrientation orientation
 	 * @return true if successful
 	 */
-	synchronized private boolean changeOrientation(final Complex thisOrientation)
+	synchronized private boolean changeOrientation(@NonNull final Complex thisOrientation)
 	{
-		if (thisOrientation.equals(getLayerOut().getOrientation()))
+		final AbstractLayerOut thisLayerOut = getLayerOut();
+		assert thisLayerOut != null;
+		if (thisOrientation.equals(thisLayerOut.getOrientation()))
 		{
 			return false;
 		}
-		getView().resetTransform();
-		getView().setXShift(0, false);
-		getView().setYShift(0, false);
 
-		getLayerOut().setOrientation(thisOrientation);
+		final View thisView = getView();
+		assert thisView != null;
+		final Model thisModel = getModel();
+		assert thisModel != null;
+		thisView.resetTransform();
+		thisView.setXShift(0, false);
+		thisView.setYShift(0, false);
+
+		thisLayerOut.setOrientation(thisOrientation);
 		final boolean isRadial = thisOrientation == Complex.ZERO;
-		getLayerOut().setDefaultRootSweep(isRadial);
-		getLayerOut().setDefaultChildSweep(isRadial);
-		getLayerOut().layout(getModel().theTree.getRoot());
+		thisLayerOut.setDefaultRootSweep(isRadial);
+		thisLayerOut.setDefaultChildSweep(isRadial);
+		thisLayerOut.layout(thisModel.theTree.getRoot());
 		return true;
 	}
 
@@ -199,22 +222,28 @@ public abstract class Commander
 	 */
 	private void changeExpansion(final float thisFactor)
 	{
+		final AbstractLayerOut thisLayerOut = getLayerOut();
+		assert thisLayerOut != null;
 		if (thisFactor == .0)
 		{
-			getLayerOut().setDefaultSettingsExpansion();
+			thisLayerOut.setDefaultSettingsExpansion();
 		}
 		else
 		{
-			double thisExpansion = getLayerOut().getExpansion();
+			double thisExpansion = thisLayerOut.getExpansion();
 			thisExpansion *= thisFactor;
 			if (thisExpansion > MAXEXPANSION)
 			{
 				return;
 			}
-			getLayerOut().setExpansion(thisExpansion);
+			thisLayerOut.setExpansion(thisExpansion);
 		}
-		getView().resetTransform();
-		getLayerOut().layout(getModel().theTree.getRoot());
+		final View thisView = getView();
+		assert thisView != null;
+		final Model thisModel = getModel();
+		assert thisModel != null;
+		thisView.resetTransform();
+		thisLayerOut.layout(thisModel.theTree.getRoot());
 	}
 
 	/*
@@ -236,22 +265,28 @@ public abstract class Commander
 	 */
 	private void changeSweep(final float thisFactor)
 	{
+		final AbstractLayerOut thisLayerOut = getLayerOut();
+		assert thisLayerOut != null;
 		if (thisFactor == .0)
 		{
-			getLayerOut().setDefaultSettingsSweep();
+			thisLayerOut.setDefaultSettingsSweep();
 		}
 		else
 		{
-			double thisSweep = getLayerOut().getChildSweep();
+			double thisSweep = thisLayerOut.getChildSweep();
 			thisSweep *= thisFactor;
 			if (thisSweep > MAXSWEEP)
 			{
 				return;
 			}
-			getLayerOut().setChildSweep(thisSweep);
+			thisLayerOut.setChildSweep(thisSweep);
 		}
-		getView().resetTransform();
-		getLayerOut().layout(getModel().theTree.getRoot());
+		final View thisView = getView();
+		assert thisView != null;
+		final Model thisModel = getModel();
+		assert thisModel != null;
+		thisView.resetTransform();
+		thisLayerOut.layout(thisModel.theTree.getRoot());
 	}
 
 	/*
@@ -271,10 +306,16 @@ public abstract class Commander
 	 */
 	private void resetExpansionSweep()
 	{
-		getLayerOut().setDefaultExpansion();
-		getLayerOut().setDefaultChildSweep();
-		getView().resetTransform();
-		getLayerOut().layout(getModel().theTree.getRoot());
+		final AbstractLayerOut thisLayerOut = getLayerOut();
+		assert thisLayerOut != null;
+		final View thisView = getView();
+		assert thisView != null;
+		final Model thisModel = getModel();
+		assert thisModel != null;
+		thisLayerOut.setDefaultExpansion();
+		thisLayerOut.setDefaultChildSweep();
+		thisView.resetTransform();
+		thisLayerOut.layout(thisModel.theTree.getRoot());
 	}
 
 	/**
@@ -283,7 +324,7 @@ public abstract class Commander
 	 * @param thisFlag whether to display tooltip (null toggles value)
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setHasTooltip(final Boolean thisFlag)
+	public void setHasTooltip(@Nullable final Boolean thisFlag)
 	{
 		Commander.hasTooltip = thisFlag != null ? thisFlag : !Commander.hasTooltip;
 	}
@@ -294,7 +335,7 @@ public abstract class Commander
 	 * @param thisFlag whether tooltip displays content (null toggles value)
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	static public void setTooltipDisplaysContent(final Boolean thisFlag)
+	static public void setTooltipDisplaysContent(@Nullable final Boolean thisFlag)
 	{
 		Commander.tooltipDisplaysContent = thisFlag != null ? thisFlag : !Commander.tooltipDisplaysContent;
 	}
@@ -306,7 +347,9 @@ public abstract class Commander
 	 */
 	private void doRefresh()
 	{
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -315,7 +358,9 @@ public abstract class Commander
 	private void doNorth()
 	{
 		setNorth();
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -324,7 +369,9 @@ public abstract class Commander
 	private void doSouth()
 	{
 		setSouth();
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -333,7 +380,9 @@ public abstract class Commander
 	private void doEast()
 	{
 		setEast();
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -342,7 +391,9 @@ public abstract class Commander
 	private void doWest()
 	{
 		setWest();
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -351,7 +402,9 @@ public abstract class Commander
 	private void doRadial()
 	{
 		setRadial();
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -359,8 +412,10 @@ public abstract class Commander
 	 */
 	private void doZoomIn()
 	{
-		getView().setZoomFactor(Commander.SCALEUPFACTOR, Float.MAX_VALUE, Float.MAX_VALUE);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setZoomFactor(Commander.SCALEUPFACTOR, Float.MAX_VALUE, Float.MAX_VALUE);
+		thisView.repaint();
 	}
 
 	/**
@@ -368,8 +423,10 @@ public abstract class Commander
 	 */
 	private void doZoomOut()
 	{
-		getView().setZoomFactor(Commander.SCALEDOWNFACTOR, Float.MAX_VALUE, Float.MAX_VALUE);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setZoomFactor(Commander.SCALEDOWNFACTOR, Float.MAX_VALUE, Float.MAX_VALUE);
+		thisView.repaint();
 	}
 
 	/**
@@ -377,8 +434,10 @@ public abstract class Commander
 	 */
 	private void doZoomOne()
 	{
-		getView().setZoomFactor(1F, 0, 0);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setZoomFactor(1F, 0, 0);
+		thisView.repaint();
 	}
 
 	/**
@@ -386,8 +445,10 @@ public abstract class Commander
 	 */
 	private void doScaleUp()
 	{
-		getView().setScaleFactors(0, Commander.SCALEUPFACTOR, Commander.SCALEUPFACTOR);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setScaleFactors(0, Commander.SCALEUPFACTOR, Commander.SCALEUPFACTOR);
+		thisView.repaint();
 	}
 
 	/**
@@ -395,8 +456,10 @@ public abstract class Commander
 	 */
 	private void doScaleDown()
 	{
-		getView().setScaleFactors(0, Commander.SCALEDOWNFACTOR, Commander.SCALEDOWNFACTOR);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setScaleFactors(0, Commander.SCALEDOWNFACTOR, Commander.SCALEDOWNFACTOR);
+		thisView.repaint();
 	}
 
 	/**
@@ -404,8 +467,10 @@ public abstract class Commander
 	 */
 	private void doScaleOne()
 	{
-		getView().setScaleFactors(1F, 1F, 1F);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setScaleFactors(1F, 1F, 1F);
+		thisView.repaint();
 	}
 
 	/**
@@ -413,7 +478,9 @@ public abstract class Commander
 	 */
 	private void doHome()
 	{
-		getView().reset();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.reset();
 	}
 
 	/**
@@ -424,7 +491,9 @@ public abstract class Commander
 	private void doChangeExpansion(final float thisFactor)
 	{
 		changeExpansion(thisFactor);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/*
@@ -446,7 +515,9 @@ public abstract class Commander
 	private void doChangeSweep(final float thisFactor)
 	{
 		changeSweep(thisFactor);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/*
@@ -466,7 +537,9 @@ public abstract class Commander
 	private void doResetExpansionSweep()
 	{
 		resetExpansionSweep();
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.repaint();
 	}
 
 	/**
@@ -474,8 +547,10 @@ public abstract class Commander
 	 */
 	private void doArcEdges()
 	{
-		getView().setArcEdges(null);
-		getView().repaint();
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setArcEdges(null);
+		thisView.repaint();
 	}
 
 	/**
@@ -499,7 +574,9 @@ public abstract class Commander
 	 */
 	private void doFocusHover()
 	{
-		getView().setFocusOnHover(null);
+		final View thisView = getView();
+		assert thisView != null;
+		thisView.setFocusOnHover(null);
 	}
 
 	// A P P L Y . S E T T I N G S
@@ -509,7 +586,7 @@ public abstract class Commander
 	 *
 	 * @param theseSettings settings
 	 */
-	public void apply(final Settings theseSettings)
+	public void apply(@NonNull final Settings theseSettings)
 	{
 		// controller settings
 		if (theseSettings.theHasToolTipFlag != null)
@@ -530,7 +607,7 @@ public abstract class Commander
 	 * @param thisCommand     command
 	 * @param theseParameters theseParameters
 	 */
-	public void execute(final Command thisCommand, final Object... theseParameters)
+	public void execute(@NonNull final Command thisCommand, final Object... theseParameters)
 	{
 		switch (thisCommand)
 		{

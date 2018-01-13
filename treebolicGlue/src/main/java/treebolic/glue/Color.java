@@ -1,5 +1,7 @@
 package treebolic.glue;
 
+import android.support.annotation.NonNull;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -136,6 +138,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 */
 	private static final float FACTOR = 0.85F;
 
+	@NonNull
 	@Override
 	public Color makeBrighter()
 	{
@@ -164,6 +167,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 		return new Color(Math.min((int) (r / Color.FACTOR), 255), Math.min((int) (g / Color.FACTOR), 255), Math.min((int) (b / Color.FACTOR), 255));
 	}
 
+	@NonNull
 	@Override
 	public Color makeDarker()
 	{
@@ -193,21 +197,21 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 			this.color = android.graphics.Color.parseColor("#" + string);
 			this.isNull = false;
 		}
-		catch (final IllegalArgumentException ignored)
+		catch (@NonNull final IllegalArgumentException ignored)
 		{
 			try
 			{
 				this.color = Integer.parseInt(string);
 				this.isNull = false;
 			}
-			catch (final NumberFormatException ignored2)
+			catch (@NonNull final NumberFormatException ignored2)
 			{
 				try
 				{
 					this.color = Integer.parseInt(string, 16);
 					this.isNull = false;
 				}
-				catch (final NumberFormatException ignored3)
+				catch (@NonNull final NumberFormatException ignored3)
 				{
 					throw new IllegalArgumentException("color:" + string);
 				}
@@ -230,7 +234,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 * @throws IOException io exception
 	 */
 	@SuppressWarnings("boxing")
-	private void writeObject(final ObjectOutputStream out) throws IOException
+	private void writeObject(@NonNull final ObjectOutputStream out) throws IOException
 	{
 		if (this.isNull)
 		{
@@ -249,7 +253,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
-	private void readObject(final ObjectInputStream in) throws IOException, ClassNotFoundException
+	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
 		final Integer value = (Integer) in.readObject();
 		if (value == null)

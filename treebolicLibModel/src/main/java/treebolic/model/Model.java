@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 import treebolic.glue.Image;
@@ -26,6 +28,7 @@ public class Model implements Serializable
 	/**
 	 * Images
 	 */
+	@Nullable
 	public final Image[] theImages;
 
 	/**
@@ -41,7 +44,7 @@ public class Model implements Serializable
 	/**
 	 * Constructor
 	 */
-	public Model(final Tree thisTree, final Settings theseSettings, final Image[] theseImages)
+	public Model(final Tree thisTree, final Settings theseSettings, @Nullable final Image[] theseImages)
 	{
 		this.theTree = thisTree;
 		this.theSettings = theseSettings;

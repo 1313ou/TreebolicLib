@@ -2,6 +2,8 @@ package treebolic.glue.component;
 
 import android.content.Context;
 import android.graphics.PointF;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
@@ -41,21 +43,25 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * The thread that actually draws the animation
 	 */
+	@Nullable
 	private TreebolicThread thread;
 
 	/**
 	 * Touch, gesture, hover event listener
 	 */
+	@Nullable
 	private EventListener listener;
 
 	/**
 	 * Gesture detector
 	 */
+	@NonNull
 	private final GestureDetector gestureDetector;
 
 	/**
 	 * Scale detector
 	 */
+	@NonNull
 	private final ScaleGestureDetector scaleDetector;
 
 	/**
@@ -78,6 +84,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 */
 	static private class XScaleGestureDetector extends ScaleGestureDetector
 	{
+		@NonNull
 		private final SparseArray<PointF> activePointers;
 
 		public XScaleGestureDetector(final Context context, final OnScaleGestureListener listener0)
@@ -92,7 +99,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		}
 
 		@Override
-		public boolean onTouchEvent(final MotionEvent event)
+		public boolean onTouchEvent(@NonNull final MotionEvent event)
 		{
 			// record pointers
 
@@ -169,7 +176,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * @param activity activity
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Surface(final AppCompatActivity activity)
+	public Surface(@NonNull final AppCompatActivity activity)
 	{
 		super(activity);
 
@@ -207,10 +214,11 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			}
 
 			@Override
-			public boolean onDoubleTap(final MotionEvent event)
+			public boolean onDoubleTap(@NonNull final MotionEvent event)
 			{
 				// if(LOG) Log.d(Surface.TAG, "double tap");
 				// Surface.this.listener.onLink((int) event.getX(), (int) event.getY());
+				assert Surface.this.listener != null;
 				Surface.this.listener.onMenu((int) event.getX(), (int) event.getY());
 				return false;
 			}
@@ -252,9 +260,10 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			}
 
 			@Override
-			public void onShowPress(final MotionEvent event)
+			public void onShowPress(@NonNull final MotionEvent event)
 			{
 				// if(LOG) Log.d(Surface.TAG, "show press");
+				assert Surface.this.listener != null;
 				Surface.this.listener.onSelect((int) event.getX(), (int) event.getY());
 			}
 		});
@@ -264,7 +273,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		this.scaleDetector = new XScaleGestureDetector(getContext(), new ScaleGestureDetector.SimpleOnScaleGestureListener()
 		{
 			@Override
-			public boolean onScale(final ScaleGestureDetector detector)
+			public boolean onScale(@NonNull final ScaleGestureDetector detector)
 			{
 				// scaleFactor change since previous event
 				Surface.this.scaleFactor *= detector.getScaleFactor();
@@ -322,6 +331,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				// fire event
 				if (zoom)
 				{
+					assert Surface.this.listener != null;
 					Surface.this.listener.onZoom(scale, 0, 0);
 					if (LOG)
 					{
@@ -330,6 +340,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				}
 				else
 				{
+					assert Surface.this.listener != null;
 					Surface.this.listener.onScale(0, scale, scale);
 					if (LOG)
 					{
@@ -358,6 +369,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 *
 	 * @return the animation thread
 	 */
+	@Nullable
 	public TreebolicThread getThread()
 	{
 		return this.thread;
@@ -419,6 +431,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			Log.d(Surface.TAG, "surface changed");
 		}
 
+		assert this.thread != null;
 		this.thread.unpause();
 	}
 
@@ -435,6 +448,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		}
 
 		// tell thread to shut down & wait for it to finish
+		assert this.thread != null;
 		this.thread.waitForTermination();
 		this.thread = null;
 	}
@@ -449,6 +463,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			Log.d(Surface.TAG, "surface repainting");
 		}
 		runThread();
+		assert this.thread != null;
 		this.thread.unpause();
 		if (LOG)
 		{
@@ -471,7 +486,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	}
 
 	@Override
-	public void setToolTipText(final String text)
+	public void setToolTipText(@Nullable final String text)
 	{
 		if (text != null)
 		{
@@ -483,7 +498,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	// T O U C H A N D H O V E R
 
 	@Override
-	public boolean onTouchEvent(final MotionEvent event)
+	public boolean onTouchEvent(@Nullable final MotionEvent event)
 	{
 		// scaleFactor detection hook
 		this.scaleDetector.onTouchEvent(event);
@@ -545,10 +560,11 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	}
 
 	@Override
-	public boolean onHoverEvent(final MotionEvent event)
+	public boolean onHoverEvent(@NonNull final MotionEvent event)
 	{
 		if (this.fireHover)
 		{
+			assert this.listener != null;
 			this.listener.onHover((int) event.getX(), (int) event.getY());
 		}
 		return super.onHoverEvent(event);

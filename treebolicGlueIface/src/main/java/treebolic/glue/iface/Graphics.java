@@ -1,5 +1,7 @@
 package treebolic.glue.iface;
 
+import android.support.annotation.NonNull;
+
 /**
  * Glue interface for Graphics context
  *
@@ -178,6 +180,7 @@ public interface Graphics<C, I>
 	 *
 	 * @return color
 	 */
+	@NonNull
 	C getColor();
 
 	// F O N T

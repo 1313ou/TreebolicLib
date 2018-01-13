@@ -29,6 +29,8 @@ import android.graphics.drawable.PaintDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
@@ -116,11 +118,13 @@ public class SplitPaneLayout extends ViewGroup
 	/**
 	 * Splitter drawable
 	 */
+	@Nullable
 	private Drawable splitterDrawable;
 
 	/**
 	 * Dragging splitter drawable
 	 */
+	@Nullable
 	private Drawable splitterDraggingDrawable;
 
 	/**
@@ -162,7 +166,7 @@ public class SplitPaneLayout extends ViewGroup
 	 * @param context context
 	 * @param attrs   attributes
 	 */
-	public SplitPaneLayout(final Context context, final AttributeSet attrs)
+	public SplitPaneLayout(@NonNull final Context context, final AttributeSet attrs)
 	{
 		super(context, attrs);
 
@@ -180,7 +184,7 @@ public class SplitPaneLayout extends ViewGroup
 	 * @param attrs    attributes
 	 * @param defStyle style
 	 */
-	public SplitPaneLayout(final Context context, final AttributeSet attrs, final int defStyle)
+	public SplitPaneLayout(@NonNull final Context context, final AttributeSet attrs, final int defStyle)
 	{
 		super(context, attrs, defStyle);
 
@@ -193,7 +197,7 @@ public class SplitPaneLayout extends ViewGroup
 
 	// A T T R I B U T E S
 
-	private void extractAttributes(final Context context, final AttributeSet attrs)
+	private void extractAttributes(@NonNull final Context context, @Nullable final AttributeSet attrs)
 	{
 		if (attrs != null)
 		{
@@ -349,7 +353,7 @@ public class SplitPaneLayout extends ViewGroup
 	}
 
 	@Override
-	protected void dispatchDraw(final Canvas canvas)
+	protected void dispatchDraw(@NonNull final Canvas canvas)
 	{
 		super.dispatchDraw(canvas);
 		if (this.splitterDrawable != null)
@@ -368,7 +372,7 @@ public class SplitPaneLayout extends ViewGroup
 
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
-	public boolean onTouchEvent(final MotionEvent event)
+	public boolean onTouchEvent(@NonNull final MotionEvent event)
 	{
 		if (this.splitterMovable)
 		{
@@ -504,6 +508,7 @@ public class SplitPaneLayout extends ViewGroup
 	 *
 	 * @return the drawable used for the splitter
 	 */
+	@Nullable
 	public Drawable getSplitterDrawable()
 	{
 		return this.splitterDrawable;
@@ -528,6 +533,7 @@ public class SplitPaneLayout extends ViewGroup
 	 *
 	 * @return the drawable used for the splitter
 	 */
+	@Nullable
 	public Drawable getSplitterDraggingDrawable()
 	{
 		return this.splitterDraggingDrawable;
@@ -728,7 +734,7 @@ public class SplitPaneLayout extends ViewGroup
 		{
 			@SuppressWarnings("synthetic-access")
 			@Override
-			public SavedState createFromParcel(final Parcel in)
+			public SavedState createFromParcel(@NonNull final Parcel in)
 			{
 				return new SavedState(in);
 			}
@@ -750,14 +756,14 @@ public class SplitPaneLayout extends ViewGroup
 			super(superState);
 		}
 
-		private SavedState(final Parcel in)
+		private SavedState(@NonNull final Parcel in)
 		{
 			super(in);
 			this.splitterPositionPercent = in.readFloat();
 		}
 
 		@Override
-		public void writeToParcel(final Parcel out, final int flags)
+		public void writeToParcel(@NonNull final Parcel out, final int flags)
 		{
 			super.writeToParcel(out, flags);
 			out.writeFloat(this.splitterPositionPercent);

@@ -1,5 +1,7 @@
 package treebolic.core.location;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -16,6 +18,7 @@ public class EuclideanCircle implements Serializable
 	/**
 	 * Center in (Euclidean space) unit circle
 	 */
+	@NonNull
 	public final Complex center;
 
 	/**
@@ -36,6 +39,7 @@ public class EuclideanCircle implements Serializable
 
 	// S T R I N G
 
+	@NonNull
 	@Override
 	public String toString()
 	{

@@ -1,5 +1,8 @@
 package treebolic;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -104,6 +107,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Action listener
 	 */
+	@Nullable
 	private final ActionListener theLinkActionListener;
 
 	// M O D E L - V I E W - C O N T R O L L E R
@@ -111,6 +115,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Model
 	 */
+	@Nullable
 	private Model theModel;
 
 	/**
@@ -121,6 +126,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Controller
 	 */
+	@NonNull
 	private final Controller theController;
 
 	// D A T A . P R O V I D E R
@@ -128,6 +134,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Provider
 	 */
+	@Nullable
 	private IProvider theProvider;
 
 	// A G E N T S
@@ -135,11 +142,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Weigher
 	 */
+	@NonNull
 	private final Weigher theWeigher;
 
 	/**
 	 * Provider
 	 */
+	@NonNull
 	private final AbstractLayerOut theLayerOut;
 
 	// C O M P O N E N T S
@@ -157,6 +166,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Progress
 	 */
+	@NonNull
 	private final Progress theProgress;
 
 	// I M A G E . M A N A G E M E N T
@@ -174,12 +184,16 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Default images
 	 */
+	@Nullable
 	private Image theBackgroundImage;
 
+	@Nullable
 	private Image theDefaultNodeImage;
 
+	@Nullable
 	private Image theDefaultTreeEdgeImage;
 
+	@Nullable
 	private Image theDefaultEdgeImage;
 
 	/**
@@ -220,7 +234,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theLinkActionListener = new ActionListener()
 		{
 			@Override
-			public boolean onAction(final Object... theseParams)
+			public boolean onAction(@NonNull final Object... theseParams)
 			{
 				final String thisLink = (String) theseParams[0];
 				final String thisTarget = theseParams.length > 1 ? (String) theseParams[1] : null;
@@ -304,12 +318,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 			final Model thisModel = thisDeSerializer.deserialize();
 			init(thisModel);
 		}
-		catch (final IOException thisException)
+		catch (@NonNull final IOException thisException)
 		{
 			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true);
 			thisException.printStackTrace();
 		}
-		catch (final ClassNotFoundException thisException)
+		catch (@NonNull final ClassNotFoundException thisException)
 		{
 			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true);
 			thisException.printStackTrace();
@@ -377,6 +391,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 					{
 						try
 						{
+							assert Widget.this.theProvider != null;
 							initModel(Widget.this.theProvider, thisSource);
 						}
 						catch (Throwable e)
@@ -397,7 +412,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param thisSource   data source
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected void initModel(final IProvider thisProvider, final String thisSource)
+	protected void initModel(@NonNull final IProvider thisProvider, @Nullable final String thisSource)
 	{
 		if (Widget.DEBUG)
 		{
@@ -414,11 +429,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		progress(thisMessage, false);
 		final Model thisModel = thisProvider.makeModel(thisSource, this.theContext.getBase(), this.theContext.getParameters());
+		/*
 		if (thisModel == null)
 		{
 			progress(String.format(Messages.getString("Widget.progress_err_model_null_provider_source"), thisProvider.getClass().getCanonicalName(), thisSource), true);
 			return;
 		}
+		*/
 		progress(Messages.getString("Widget.progress_loaded") + ' ' + thisSource, false);
 
 		// load model
@@ -437,7 +454,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param thisModel model
 	 */
-	private void initModel(final Model thisModel)
+	private void initModel(@Nullable final Model thisModel)
 	{
 		if (thisModel == null)
 		{
@@ -546,7 +563,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 		validate();
 
 		// animate
-		final INode thisFocus = getFocusNode();
 		if (!Widget.ANIMATE_ON_START)
 		{
 			// initial transform
@@ -557,19 +573,23 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.theView.applyInitialTransform();
 
 			// animation to focus
-			if (this.theModel.theSettings.theXMoveTo != null && this.theModel.theSettings.theXMoveTo < 1. || this.theModel.theSettings.theYMoveTo != null && this.theModel.theSettings.theYMoveTo < 1.)
+			final INode thisFocus = getFocusNode();
+			if (thisFocus != null)
 			{
-				// move required
-				final Complex thisTo = new Complex(this.theModel.theSettings.theXMoveTo == null ? 0. : this.theModel.theSettings.theXMoveTo, this.theModel.theSettings.theYMoveTo == null ? 0. : this.theModel.theSettings.theYMoveTo);
-				if (thisTo.abs2() > 1.)
+				if (this.theModel.theSettings.theXMoveTo != null && this.theModel.theSettings.theXMoveTo < 1. || this.theModel.theSettings.theYMoveTo != null && this.theModel.theSettings.theYMoveTo < 1.)
 				{
-					thisTo.normalize().multiply(.9);
+					// move required
+					final Complex thisTo = new Complex(this.theModel.theSettings.theXMoveTo == null ? 0. : this.theModel.theSettings.theXMoveTo, this.theModel.theSettings.theYMoveTo == null ? 0. : this.theModel.theSettings.theYMoveTo);
+					if (thisTo.abs2() > 1.)
+					{
+						thisTo.normalize().multiply(.9);
+					}
+					this.theView.animateTo(thisFocus, thisTo, false);
 				}
-				this.theView.animateTo(thisFocus, thisTo, false);
-			}
-			else
-			{
-				this.theView.animateToCenter(thisFocus, false);
+				else
+				{
+					this.theView.animateToCenter(thisFocus, false);
+				}
 			}
 		}
 	}
@@ -582,7 +602,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param thisMountingNode mounting node
 	 * @param thisSource       mounted source
 	 */
-	public synchronized void mount(final INode thisMountingNode, final String thisSource)
+	public synchronized void mount(@NonNull final INode thisMountingNode, final String thisSource)
 	{
 		putStatus(Messages.getString("Widget.status_mount"), thisSource, Statusbar.PutType.MOUNT);
 
@@ -615,11 +635,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// make model
 		final Tree thisTree = this.theProvider.makeTree(thisSource, this.theContext.getBase(), this.theContext.getParameters(), false);
+		/*
 		if (thisTree == null)
 		{
 			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_model_null") + thisSource + "</div>", Statusbar.PutType.MOUNT);
 			return;
 		}
+        */
 
 		// extract subroot + edges
 		final INode thisMountedRoot = thisTree.getRoot();
@@ -630,6 +652,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		loadImages(theseMountedEdges);
 
 		// ensure edge list is non null
+		assert this.theModel != null;
 		if (this.theModel.theTree.getEdges() == null)
 		{
 			this.theModel.theTree.setEdges(new ArrayList<>());
@@ -649,6 +672,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// compute locations : layout
 		final MountPoint.Mounting thisMountingPoint = (MountPoint.Mounting) thisMountingNode.getMountPoint();
+		assert thisMountingPoint != null;
 		this.theLayerOut.layout(thisMountedRoot, thisMountingNode.getLocation().hyper.center0, thisMountingPoint.theHalfWedge, thisMountingPoint.theOrientation);
 
 		// notify view
@@ -660,11 +684,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param thisMountedNode mounted node
 	 */
-	public synchronized void umount(final INode thisMountedNode)
+	public synchronized void umount(@NonNull final INode thisMountedNode)
 	{
 		putStatus(Messages.getString("Widget.status_unmount"), "", Statusbar.PutType.MOUNT);
 
 		// model
+		assert this.theModel != null;
 		final INode thisMountingNode = Mounter.prune(thisMountedNode, this.theModel.theTree.getEdges());
 		if (thisMountingNode == null)
 		{
@@ -688,6 +713,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @return version
 	 */
+	@NonNull
 	@Override
 	public String getVersion()
 	{
@@ -699,6 +725,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @return model
 	 */
+	@Nullable
 	public Model getModel()
 	{
 		return this.theModel;
@@ -764,27 +791,27 @@ public class Widget extends Container implements IWidget, IProviderContext
 			final Object thisInstance = thisConstructor.newInstance(theseArgs);
 			return (IProvider) thisInstance;
 		}
-		catch (final ClassNotFoundException e)
+		catch (@NonNull final ClassNotFoundException e)
 		{
 			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
-		catch (final NoSuchMethodException e)
+		catch (@NonNull final NoSuchMethodException e)
 		{
 			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
-		catch (final IllegalAccessException e)
+		catch (@NonNull final IllegalAccessException e)
 		{
 			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
-		catch (final InstantiationException e)
+		catch (@NonNull final InstantiationException e)
 		{
 			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
-		catch (final IllegalArgumentException e)
+		catch (@NonNull final IllegalArgumentException e)
 		{
 			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
-		catch (final InvocationTargetException e)
+		catch (@NonNull final InvocationTargetException e)
 		{
 			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
@@ -805,7 +832,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		{
 			return new URL(this.theImageBase, thisImageSource);
 		}
-		catch (final MalformedURLException ignored)
+		catch (@NonNull final MalformedURLException ignored)
 		{
 			// do nothing
 		}
@@ -821,6 +848,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	{
 		this.theImages = new Hashtable<>();
 		this.theImageBase = this.theContext.getImagesBase();
+		assert this.theModel != null;
 		loadImages(this.theModel.theTree.getRoot());
 		loadImages(this.theModel.theTree.getEdges());
 		loadTopImages(this.theModel.theSettings);
@@ -831,7 +859,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param thisNode starting node
 	 */
-	private void loadImages(final INode thisNode)
+	private void loadImages(@Nullable final INode thisNode)
 	{
 		if (thisNode == null)
 		{
@@ -855,13 +883,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 				thisNode.setImage(thisImage);
 			}
 
-			// set node image from index
-			final int thisImageIndex = thisNode.getImageIndex();
-			if (thisImageIndex != -1 && this.theModel.theImages != null)
-			{
-				thisNode.setImage(this.theModel.theImages[thisImageIndex]);
-			}
-
 			// edge image
 			thisSource = thisNode.getEdgeImageFile();
 			if (thisSource != null)
@@ -876,7 +897,16 @@ public class Widget extends Container implements IWidget, IProviderContext
 				thisNode.setEdgeImage(thisImage);
 			}
 
+			assert this.theModel != null;
+
 			// set node image from index
+			final int thisImageIndex = thisNode.getImageIndex();
+			if (thisImageIndex != -1 && this.theModel.theImages != null)
+			{
+				thisNode.setImage(this.theModel.theImages[thisImageIndex]);
+			}
+
+			// set edge image from index
 			final int thisEdgeImageIndex = thisNode.getEdgeImageIndex();
 			if (thisEdgeImageIndex != -1 && this.theModel.theImages != null)
 			{
@@ -909,7 +939,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param thisEdgeList edge list
 	 */
-	private void loadImages(final List<IEdge> thisEdgeList)
+	private void loadImages(@Nullable final List<IEdge> thisEdgeList)
 	{
 		if (thisEdgeList != null)
 		{
@@ -925,7 +955,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param thisEdge edge
 	 */
-	private void loadImage(final IEdge thisEdge)
+	private void loadImage(@Nullable final IEdge thisEdge)
 	{
 		if (thisEdge == null)
 		{
@@ -946,6 +976,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 			thisEdge.setImage(thisImage);
 		}
 
+		assert this.theModel != null;
+
 		// set node image from index
 		final int thisImageIndex = thisEdge.getImageIndex();
 		if (thisImageIndex != -1 && this.theModel.theImages != null)
@@ -959,12 +991,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param theseSettings settings
 	 */
-	private void loadTopImages(final Settings theseSettings)
+	private void loadTopImages(@NonNull final Settings theseSettings)
 	{
 		this.theBackgroundImage = loadImage(theseSettings.theBackgroundImageFile);
 		this.theDefaultNodeImage = loadImage(theseSettings.theDefaultNodeImage);
 		this.theDefaultTreeEdgeImage = loadImage(theseSettings.theDefaultTreeEdgeImage);
 		this.theDefaultEdgeImage = loadImage(theseSettings.theDefaultEdgeImage);
+		assert this.theModel != null;
 		if (this.theModel.theImages != null)
 		{
 			if (theseSettings.theBackgroundImageIndex != -1)
@@ -992,7 +1025,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param thisSource source
 	 * @return image
 	 */
-	private Image loadImage(final String thisSource)
+	@Nullable
+	private Image loadImage(@Nullable final String thisSource)
 	{
 		if (thisSource == null)
 		{
@@ -1017,7 +1051,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 				this.theImages.put(thisSource, thisImage);
 				return thisImage;
 			}
-			catch (final IOException e)
+			catch (@NonNull final IOException e)
 			{
 				if (Widget.WARNIMAGEFAILS)
 				{
@@ -1035,8 +1069,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @return node
 	 */
+	@Nullable
 	private INode getFocusNode()
 	{
+		assert this.theModel != null;
+
 		// focus node
 		String thisFocusNodeId = null;
 		if (this.theModel.theSettings.theFocus != null)
@@ -1090,6 +1127,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @return target
 	 */
+	@NonNull
 	public String getTarget()
 	{
 		return this.theContext.getInput();
@@ -1104,7 +1142,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param thisMessage message
 	 * @param thisType    type of message
 	 */
-	public void putStatus(final String thisHeader, final String thisMessage, final Statusbar.PutType thisType)
+	public void putStatus(final String thisHeader, final String thisMessage, @NonNull final Statusbar.PutType thisType)
 	{
 		if (this.theStatusbar == null)
 		{
@@ -1145,8 +1183,9 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.theController.focus(thisNodeId);
 	}
 
+	@Nullable
 	@Override
-	public String match(final String thisTargetString, final String thisScopeString, final String thisModeString)
+	public String match(@NonNull final String thisTargetString, @Nullable final String thisScopeString, @Nullable final String thisModeString)
 	{
 		if (this.theModel == null)
 		{
@@ -1181,7 +1220,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	}
 
 	@Override
-	public void search(final String thisCommandString, final String... theseParams)
+	public void search(@NonNull final String thisCommandString, final String... theseParams)
 	{
 		final SearchCommand thisCommand = SearchCommand.valueOf(thisCommandString.toUpperCase(Locale.ROOT));
 		switch (thisCommand)

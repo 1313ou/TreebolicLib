@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ class NodeData implements Serializable
 	/**
 	 * Node id
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theId;
 
@@ -31,42 +34,49 @@ class NodeData implements Serializable
 	/**
 	 * Node label
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theLabel;
 
 	/**
 	 * Node content
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theContent;
 
 	/**
 	 * Node URL link
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theLink;
 
 	/**
 	 * Node link target frame
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theTarget;
 
 	/**
 	 * Background color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theBackColor;
 
 	/**
 	 * Foreground color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theForeColor;
 
 	/**
 	 * Node image filename
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theImageFile;
 
@@ -81,24 +91,28 @@ class NodeData implements Serializable
 	/**
 	 * Tree edge label
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theEdgeLabel;
 
 	/**
 	 * Tree edge color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theEdgeColor;
 
 	/**
 	 * Tree edge style
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Integer theEdgeStyle;
 
 	/**
 	 * Edge image filename
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theEdgeImageFile;
 
@@ -135,6 +149,7 @@ class NodeData implements Serializable
 
 	// I D
 
+	@Nullable
 	public String getId()
 	{
 		return this.theId;
@@ -143,22 +158,26 @@ class NodeData implements Serializable
 	// A C C E S S
 
 	// display
+	@Nullable
 	@Override
 	public String toString()
 	{
 		return this.theLabel;
 	}
 
+	@Nullable
 	public String toWritableString()
 	{
 		return this.theLabel != null ? this.theLabel : super.toString();
 	}
 
+	@Nullable
 	public String getLabel()
 	{
 		return this.theLabel;
 	}
 
+	@Nullable
 	public String getEdgeLabel()
 	{
 		return this.theEdgeLabel;
@@ -169,21 +188,25 @@ class NodeData implements Serializable
 		this.theEdgeLabel = thisLabel;
 	}
 
+	@Nullable
 	public String getContent()
 	{
 		return this.theContent;
 	}
 
+	@Nullable
 	public Color getBackColor()
 	{
 		return this.theBackColor;
 	}
 
+	@Nullable
 	public Color getForeColor()
 	{
 		return this.theForeColor;
 	}
 
+	@Nullable
 	public Color getEdgeColor()
 	{
 		return this.theEdgeColor;
@@ -194,6 +217,7 @@ class NodeData implements Serializable
 		this.theEdgeColor = thisColor;
 	}
 
+	@Nullable
 	public Integer getEdgeStyle()
 	{
 		return this.theEdgeStyle;
@@ -206,11 +230,13 @@ class NodeData implements Serializable
 
 	// link
 
+	@Nullable
 	public String getLink()
 	{
 		return this.theLink;
 	}
 
+	@Nullable
 	public String getTarget()
 	{
 		return this.theTarget;
@@ -223,6 +249,7 @@ class NodeData implements Serializable
 		return this.theImageIndex;
 	}
 
+	@Nullable
 	public String getImageFile()
 	{
 		return this.theImageFile;
@@ -238,6 +265,7 @@ class NodeData implements Serializable
 		this.theEdgeImageIndex = thisImageIndex;
 	}
 
+	@Nullable
 	public String getEdgeImageFile()
 	{
 		return this.theEdgeImageFile;
@@ -265,12 +293,14 @@ class XNodeData extends NodeData
 	/**
 	 * Node image
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Image theImage;
 
 	/**
 	 * Tree edge image
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Image theEdgeImage;
 
@@ -295,6 +325,7 @@ class XNodeData extends NodeData
 	/**
 	 * MountPoint
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected MountPoint theMountPoint;
 
@@ -357,6 +388,7 @@ class XNodeData extends NodeData
 	}
 
 	// mountpoint
+	@Nullable
 	public MountPoint getMountPoint()
 	{
 		return this.theMountPoint;
@@ -373,6 +405,7 @@ class XNodeData extends NodeData
 	}
 
 	// images
+	@Nullable
 	public Image getImage()
 	{
 		return this.theImage;
@@ -384,6 +417,7 @@ class XNodeData extends NodeData
 		this.theImage = thisImage;
 	}
 
+	@Nullable
 	public Image getEdgeImage()
 	{
 		return this.theEdgeImage;
@@ -409,12 +443,14 @@ public class Node extends XNodeData implements INode
 	/**
 	 * Node children
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected List<INode> theChildren;
 
 	/**
 	 * Parent node
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected INode theParent;
 
@@ -427,19 +463,21 @@ public class Node extends XNodeData implements INode
 	 * @param thisId     node id
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Node(final INode thisParent, final String thisId)
+	public Node(@Nullable final INode thisParent, final String thisId)
 	{
 		super();
-		this.theParent = thisParent;
+		this.theChildren = new ArrayList<>();
+		this.theId = thisId;
 		if (thisParent != null)
 		{
-			thisParent.getChildren().add(this);
+			this.theParent = thisParent;
+			final List<INode> theseChildren = thisParent.getChildren();
+			assert theseChildren != null;
+			theseChildren.add(this);
 		}
-		this.theChildren = new ArrayList<>();
-
-		this.theId = thisId;
 	}
 
+	@Nullable
 	@Override
 	public INode getParent()
 	{
@@ -452,6 +490,7 @@ public class Node extends XNodeData implements INode
 		this.theParent = thisParent;
 	}
 
+	@Nullable
 	@Override
 	public List<INode> getChildren()
 	{

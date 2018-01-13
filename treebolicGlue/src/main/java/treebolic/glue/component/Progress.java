@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 		}
 
 		@Override
-		public void handleMessage(final Message m)
+		public void handleMessage(@NonNull final Message m)
 		{
 			final boolean fail = m.getData().getBoolean("fail");
 			String thisMessage = m.getData().getString("text");
@@ -58,6 +59,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	/**
 	 * Message handler
 	 */
+	@NonNull
 	private final Handler handler;
 
 	/**
@@ -81,7 +83,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	 * @param context context
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected Progress(final Context context)
+	protected Progress(@NonNull final Context context)
 	{
 		super(context);
 		setOrientation(LinearLayout.HORIZONTAL);

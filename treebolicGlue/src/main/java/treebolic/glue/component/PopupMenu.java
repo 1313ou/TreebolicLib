@@ -4,6 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.treebolic.glue.R;
@@ -35,12 +37,14 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	/**
 	 * Labels
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	static public String[] labels = null; //{  "Cancel", "Info", "Focus", "Link", "Mount", "UnMount", "Goto", "Search" };
 
 	/**
 	 * Context
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	final Context context;
 
@@ -53,6 +57,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	/**
 	 * Quick action component
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	final QuickAction quickAction;
 
@@ -60,7 +65,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	 * Constructor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected PopupMenu(final Context context0, final View anchor0)
+	protected PopupMenu(@NonNull final Context context0, final View anchor0)
 	{
 		this.context = context0;
 		this.anchor = anchor0;
@@ -84,7 +89,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	 *
 	 * @param handle anchor view
 	 */
-	protected PopupMenu(final Object handle)
+	protected PopupMenu(@NonNull final Object handle)
 	{
 		this(((View) handle).getContext(), (View) handle);
 	}

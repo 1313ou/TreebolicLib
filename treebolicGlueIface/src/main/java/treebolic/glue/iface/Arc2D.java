@@ -1,5 +1,7 @@
 package treebolic.glue.iface;
 
+import android.support.annotation.NonNull;
+
 /**
  * Glue interface for Arc2D
  *
@@ -58,6 +60,7 @@ public interface Arc2D<P>
 	 *
 	 * @return start point
 	 */
+	@NonNull
 	P getStartPoint();
 
 	/**
@@ -65,6 +68,7 @@ public interface Arc2D<P>
 	 *
 	 * @return end point
 	 */
+	@NonNull
 	P getEndPoint();
 
 	/**

@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 import android.view.Display;
@@ -18,7 +19,8 @@ import android.view.WindowManager;
  */
 public class Utils
 {
-	static public int[] fetchColors(final Context context, int... attrs)
+	@NonNull
+	static public int[] fetchColors(@NonNull final Context context, @NonNull int... attrs)
 	{
 		final TypedValue typedValue = new TypedValue();
 		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
@@ -31,7 +33,8 @@ public class Utils
 		return colors;
 	}
 
-	static public Integer[] fetchColorsNullable(final Context context, @SuppressWarnings("SameParameterValue") int... attrs)
+	@NonNull
+	static public Integer[] fetchColorsNullable(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... attrs)
 	{
 		final TypedValue typedValue = new TypedValue();
 		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
@@ -64,7 +67,7 @@ public class Utils
 	}
 	*/
 
-	static public int getColor(final Context context, @SuppressWarnings("SameParameterValue") int resId)
+	static public int getColor(@NonNull final Context context, @SuppressWarnings("SameParameterValue") int resId)
 	{
 		final Resources resources = context.getResources();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -85,7 +88,7 @@ public class Utils
 	 * @param resId   drawable id
 	 * @return drawable
 	 */
-	static public Drawable getDrawable(final Context context, int resId)
+	static public Drawable getDrawable(@NonNull final Context context, int resId)
 	{
 		final Resources resources = context.getResources();
 		Drawable drawable;
@@ -108,7 +111,8 @@ public class Utils
 	 * @param resIds  drawable ids
 	 * @return drawables
 	 */
-	static public Drawable[] getDrawables(final Context context, @SuppressWarnings("SameParameterValue") int... resIds)
+	@NonNull
+	static public Drawable[] getDrawables(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... resIds)
 	{
 		final Resources resources = context.getResources();
 		Drawable[] drawables = new Drawable[resIds.length];
@@ -130,7 +134,7 @@ public class Utils
 		return drawables;
 	}
 
-	static public void tint(final Drawable drawable, int iconTint)
+	static public void tint(@NonNull final Drawable drawable, int iconTint)
 	{
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
 		{
@@ -142,7 +146,7 @@ public class Utils
 		}
 	}
 
-	static public int screenWidth(final Context context)
+	static public int screenWidth(@NonNull final Context context)
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 		assert wm != null;

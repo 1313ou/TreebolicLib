@@ -1,5 +1,7 @@
 package treebolic.core.math;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -56,11 +58,13 @@ public class Arc
 	/**
 	 * from-end
 	 */
+	@NonNull
 	public final Complex from;
 
 	/**
 	 * to-end
 	 */
+	@NonNull
 	public final Complex to;
 
 	// C O N S T R U C T O R
@@ -71,7 +75,7 @@ public class Arc
 	 * @param z1 start endpoint
 	 * @param z2 end endpoint
 	 */
-	public Arc(final Complex z1, final Complex z2)
+	public Arc(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		// ends
 		this.from = z1;

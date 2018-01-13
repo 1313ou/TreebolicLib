@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -16,7 +18,7 @@ public class HyperOrientationPreservingTransform extends HyperTransform
 	 * @param to              to-point
 	 * @param thisOrientation orientation
 	 */
-	public HyperOrientationPreservingTransform(final Complex from, final Complex to, final Complex thisOrientation)
+	public HyperOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex thisOrientation)
 	{
 		// the HXlat(from, to) translates 'from' to 'to' below but has
 		// rotational side-effects

@@ -1,5 +1,7 @@
 package treebolic.glue.iface;
 
+import android.support.annotation.NonNull;
+
 /**
  * Glue interface for GraphicsCache
  *
@@ -12,6 +14,7 @@ public interface GraphicsCache<G>
 	 *
 	 * @return cache graphics context
 	 */
+	@NonNull
 	G getGraphics();
 
 	/**

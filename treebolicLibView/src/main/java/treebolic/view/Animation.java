@@ -1,5 +1,8 @@
 package treebolic.view;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.core.transform.HyperTransform;
@@ -34,7 +37,7 @@ public class Animation extends ActionListener
 	 * @param thisAnimation animation (with update callback)
 	 * @param thisView      the view being animated
 	 */
-	public Animation(final AnimationTransforms thisAnimation, final View thisView)
+	public Animation(@NonNull final AnimationTransforms thisAnimation, final View thisView)
 	{
 		this.theTransforms = thisAnimation.theTransforms;
 		this.theIndex = -1;
@@ -52,7 +55,7 @@ public class Animation extends ActionListener
 	}
 
 	@Override
-	public boolean onAction(final Object... theseParams)
+	public boolean onAction(@Nullable final Object... theseParams)
 	{
 		final Integer thisSuggestedIndex = theseParams == null || theseParams.length == 0 ? null : (Integer) theseParams[0];
 		int thisIndex;

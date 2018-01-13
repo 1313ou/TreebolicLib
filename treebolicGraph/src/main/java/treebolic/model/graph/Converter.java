@@ -1,5 +1,8 @@
 package treebolic.model.graph;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -25,7 +28,8 @@ public class Converter<T extends TreeMutableNode>
 	 * @param thisGraph graph
 	 * @return tree
 	 */
-	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph)
+	@NonNull
+	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph thisGraph)
 	{
 		// determine root node
 		GraphNode thisRootNode;
@@ -55,8 +59,9 @@ public class Converter<T extends TreeMutableNode>
 	 * @param thisRootNode root node
 	 * @return tree
 	 */
+	@NonNull
 	@SuppressWarnings({"unchecked"})
-	public Tree graphToTree(final treebolic.model.graph.Graph thisGraph, final GraphNode thisRootNode)
+	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph thisGraph, @Nullable final GraphNode thisRootNode)
 	{
 		// spanning tree
 		if (thisRootNode == null)

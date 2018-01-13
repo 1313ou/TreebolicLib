@@ -1,9 +1,12 @@
 package treebolic;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import treebolic.model.Model;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
 import treebolic.model.Types.SearchCommand;
-import treebolic.model.Model;
 import treebolic.provider.IProvider;
 
 /**
@@ -61,6 +64,7 @@ public interface IWidget
 	/**
 	 * Get version (wrapper)
 	 */
+	@NonNull
 	String getVersion();
 
 	// JavaScript
@@ -110,6 +114,7 @@ public interface IWidget
 	 * @param thisModeString   mode ("EQUALS", "STARTSWITH", "INCLUDES")
 	 * @return node id
 	 */
+	@Nullable
 	String match(String thisTargetString, String thisScopeString, String thisModeString);
 
 	/**

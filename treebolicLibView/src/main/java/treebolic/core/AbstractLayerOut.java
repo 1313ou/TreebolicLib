@@ -1,5 +1,8 @@
 package treebolic.core;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
 import treebolic.model.INode;
@@ -90,12 +93,14 @@ public abstract class AbstractLayerOut
 	/**
 	 * Expansion from settings
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Float theSettingsExpansion;
 
 	/**
 	 * Sweep from settings
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Float theSettingsSweep;
 
@@ -218,7 +223,7 @@ public abstract class AbstractLayerOut
 	 *
 	 * @param thisExpansion expansion
 	 */
-	private void setDefaultSettingsExpansion(final Float thisExpansion)
+	private void setDefaultSettingsExpansion(@Nullable final Float thisExpansion)
 	{
 		setDefaultExpansion();
 		if (thisExpansion != null && thisExpansion > 0.)
@@ -318,7 +323,7 @@ public abstract class AbstractLayerOut
 	 * @param radial    radial
 	 * @param thisSweep sweep
 	 */
-	private void setDefaultSettingsSweep(boolean radial, final Float thisSweep)
+	private void setDefaultSettingsSweep(boolean radial, @Nullable final Float thisSweep)
 	{
 		setDefaultRootSweep(radial);
 		setDefaultChildSweep(radial);
@@ -336,7 +341,7 @@ public abstract class AbstractLayerOut
 	 *
 	 * @param theseSettings settings
 	 */
-	public void apply(final Settings theseSettings)
+	public void apply(@NonNull final Settings theseSettings)
 	{
 		boolean radial = true;
 		if (theseSettings.theOrientation != null)

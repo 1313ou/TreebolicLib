@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+
 /**
  * Extended mutable node (mutable ends, copy constructor)
  *
@@ -28,7 +30,7 @@ public class TreeMutableEdge extends MutableEdge
 	 *
 	 * @param thatEdge edge
 	 */
-	public TreeMutableEdge(final IEdge thatEdge)
+	public TreeMutableEdge(@NonNull final IEdge thatEdge)
 	{
 		super(null, null);
 		this.theColor = thatEdge.getColor();

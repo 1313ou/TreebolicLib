@@ -1,5 +1,8 @@
 package treebolic.view;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import treebolic.control.Controller;
 import treebolic.control.EventListenerAdapter;
 import treebolic.control.Finder;
@@ -40,16 +43,19 @@ public class View extends Surface
 	/**
 	 * Painter
 	 */
+	@NonNull
 	private final AbstractPainter thePainter;
 
 	/**
 	 * Transformer
 	 */
+	@NonNull
 	private final Transformer theTransformer;
 
 	/**
 	 * Animator
 	 */
+	@NonNull
 	private final Animator theAnimator;
 
 	/**
@@ -82,6 +88,7 @@ public class View extends Surface
 	/**
 	 * Drawing cache
 	 */
+	@Nullable
 	private GraphicsCache theCache;
 
 	// R E F E R E N C E . N O D E S
@@ -89,6 +96,7 @@ public class View extends Surface
 	/**
 	 * Focus node
 	 */
+	@Nullable
 	private INode theFocusNode;
 
 	// B E H A V I O U R
@@ -196,7 +204,7 @@ public class View extends Surface
 	}
 
 	@Override
-	public void paint(final Graphics thisScreenGraphics)
+	public void paint(@NonNull final Graphics thisScreenGraphics)
 	{
 		// drag
 		if (this.theListener.drag())
@@ -286,7 +294,7 @@ public class View extends Surface
 	 *
 	 * @param thisMountedRoot mounted node
 	 */
-	public void mount(final INode thisMountedRoot)
+	public void mount(@NonNull final INode thisMountedRoot)
 	{
 		this.theTransformer.transform(thisMountedRoot);
 		repaint();
@@ -295,7 +303,7 @@ public class View extends Surface
 	/**
 	 * Unmount notification hook
 	 */
-	public void umount(final INode thisMountingRoot)
+	public void umount(@NonNull final INode thisMountingRoot)
 	{
 		this.theTransformer.transform(thisMountingRoot);
 		repaint();
@@ -308,7 +316,7 @@ public class View extends Surface
 	 *
 	 * @param thisFlag whether hovering on node triggers gaining focus (null toggles value)
 	 */
-	public void setFocusOnHover(final Boolean thisFlag)
+	public void setFocusOnHover(@Nullable final Boolean thisFlag)
 	{
 		this.focusOnHover = thisFlag != null ? thisFlag : !this.focusOnHover;
 
@@ -324,7 +332,7 @@ public class View extends Surface
 	 * @param thisFlag whether transformations preserve orientation (null toggles value)
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public void setPreserveOrientation(final Boolean thisFlag)
+	public void setPreserveOrientation(@Nullable final Boolean thisFlag)
 	{
 		this.theTransformer.setPreserveOrientation(thisFlag != null ? thisFlag : !this.theTransformer.getPreserveOrientation());
 	}
@@ -399,7 +407,7 @@ public class View extends Surface
 	 * @param thisFlag whether edges are rendered as arcs (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
-	public void setArcEdges(@SuppressWarnings("SameParameterValue") final Boolean thisFlag)
+	public void setArcEdges(@Nullable @SuppressWarnings("SameParameterValue") final Boolean thisFlag)
 	{
 		this.thePainter.setArcEdges(thisFlag != null ? thisFlag : !this.thePainter.getArcEdges());
 	}
@@ -410,7 +418,7 @@ public class View extends Surface
 	 * @param thisFlag whether label texts are ellipsized (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
-	public void setEllipsize(final Boolean thisFlag)
+	public void setEllipsize(@Nullable final Boolean thisFlag)
 	{
 		this.thePainter.setEllipsize(thisFlag != null ? thisFlag : !this.thePainter.getEllipsize());
 	}
@@ -423,7 +431,7 @@ public class View extends Surface
 	 * @param thisFlag whether view has popup menu (null toggles value)
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public void setPopUpMenu(final Boolean thisFlag)
+	public void setPopUpMenu(@Nullable final Boolean thisFlag)
 	{
 		this.theListener.hasPopUp = thisFlag != null ? thisFlag : !this.theListener.hasPopUp;
 	}
@@ -435,7 +443,7 @@ public class View extends Surface
 	 *
 	 * @param theseSettings settings
 	 */
-	public void apply(final Settings theseSettings)
+	public void apply(@NonNull final Settings theseSettings)
 	{
 		// view settings
 		if (theseSettings.theHasPopUpMenuFlag != null)
@@ -502,7 +510,7 @@ public class View extends Surface
 	 * @param thisTransform transform to compose with current transform
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void applyComposedTransform(final HyperTransform thisTransform)
+	public void applyComposedTransform(@NonNull final HyperTransform thisTransform)
 	{
 		this.theTransformer.composeTransform(thisTransform);
 		this.theTransformer.transform(this.theModel.theTree.getRoot());
@@ -545,7 +553,7 @@ public class View extends Surface
 	 * @param thisStart unit circle delta vector start
 	 * @param thisEnd   unit circle delta vector start
 	 */
-	public void composeTranslate(final Complex thisStart, final Complex thisEnd)
+	public void composeTranslate(@NonNull final Complex thisStart, @NonNull final Complex thisEnd)
 	{
 		final HyperTransform thisTransform = this.theTransformer.makeTransform(thisStart, thisEnd, this.theLayerOut.getOrientation());
 		applyComposedTransform(thisTransform);
@@ -557,7 +565,7 @@ public class View extends Surface
 	 * @param thisStart unit circle delta vector start
 	 * @param thisEnd   unit circle delta vector end
 	 */
-	public void composeRotate(final Complex thisStart, final Complex thisEnd)
+	public void composeRotate(@NonNull final Complex thisStart, @NonNull final Complex thisEnd)
 	{
 		final HyperRotation thisRotation = new HyperRotation(Complex.ONE);
 		thisRotation.div(thisEnd, thisStart);
@@ -573,7 +581,7 @@ public class View extends Surface
 	 * @param thisStart unit circle vector start
 	 * @param thisEnd   unit circle vector end
 	 */
-	private void translate(final Complex thisStart, final Complex thisEnd)
+	private void translate(@NonNull final Complex thisStart, @NonNull final Complex thisEnd)
 	{
 		final HyperTransform thisTransform = this.theTransformer.makeTransform(thisStart, thisEnd, this.theLayerOut.getOrientation());
 		applyTransform(thisTransform);
@@ -585,7 +593,7 @@ public class View extends Surface
 	 * @param thisNode        node
 	 * @param thisDestination unit circle destination location
 	 */
-	public void moveTo(final INode thisNode, final Complex thisDestination)
+	public void moveTo(@NonNull final INode thisNode, @NonNull final Complex thisDestination)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		translate(thisLocation.hyper.center0, thisDestination);
@@ -598,7 +606,7 @@ public class View extends Surface
 	 *
 	 * @param thisNode node
 	 */
-	public void moveToCenter(final INode thisNode)
+	public void moveToCenter(@NonNull final INode thisNode)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		translate(thisLocation.hyper.center0, Complex.ZERO);
@@ -614,7 +622,7 @@ public class View extends Surface
 	 * @param thisNode node
 	 * @param now      whether to start now
 	 */
-	public void animateToCenter(final INode thisNode, @SuppressWarnings("SameParameterValue") final boolean now)
+	public void animateToCenter(@NonNull final INode thisNode, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		final Complex thisFrom = thisLocation.hyper.center;
@@ -629,7 +637,7 @@ public class View extends Surface
 	 * @param thisDestination unit circle destination location
 	 * @param now             whether to start now
 	 */
-	public void animateTo(final INode thisNode, final Complex thisDestination, @SuppressWarnings("SameParameterValue") final boolean now)
+	public void animateTo(@NonNull final INode thisNode, @NonNull final Complex thisDestination, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		final Complex thisFrom = thisLocation.hyper.center;
@@ -644,7 +652,7 @@ public class View extends Surface
 	 * @param thisTo   unit circle vector end
 	 * @param now      whether to start now
 	 */
-	private synchronized void animate(final Complex thisFrom, final Complex thisTo, final boolean now)
+	private synchronized void animate(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, final boolean now)
 	{
 		final AnimationTransforms theseTransforms = AnimationTransforms.make(thisFrom, thisTo, this.theTransformer, this.theLayerOut.getOrientation(), 0);
 		if (theseTransforms.theTransforms == null)
@@ -674,6 +682,7 @@ public class View extends Surface
 	 * @param vy view y location
 	 * @return node
 	 */
+	@Nullable
 	public INode findNode(final int vx, final int vy)
 	{
 		final Complex thisEuclideanLocation = this.thePainter.viewToUnitCircle(vx, vy, this.theWidth, this.theHeight);
@@ -685,6 +694,7 @@ public class View extends Surface
 	 *
 	 * @return focus noe (at center of unit circle)
 	 */
+	@Nullable
 	public INode getFocusNode()
 	{
 		return this.theFocusNode;
@@ -699,6 +709,7 @@ public class View extends Surface
 	 * @param vy view x-coordinate
 	 * @return unit circle euclidean coordinate
 	 */
+	@NonNull
 	public Complex viewToUnitCircle(final int vx, final int vy)
 	{
 		return this.thePainter.viewToUnitCircle(vx, vy, getWidth(), getHeight());

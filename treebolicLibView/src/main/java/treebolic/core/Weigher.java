@@ -1,5 +1,7 @@
 package treebolic.core;
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
 import treebolic.model.INode;
@@ -28,7 +30,7 @@ public class Weigher
 	 *
 	 * @param thisNode node
 	 */
-	public void weigh(final INode thisNode)
+	public void weigh(@NonNull final INode thisNode)
 	{
 		final List<INode> theseChildren = thisNode.getChildren();
 		if (theseChildren == null || theseChildren.isEmpty())

@@ -1,5 +1,7 @@
 package treebolic.control;
 
+import android.support.annotation.NonNull;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -68,6 +70,7 @@ public abstract class Generator<T> implements Iterable<T>
 
 	private RuntimeException exceptionRaisedByProducer;
 
+	@NonNull
 	@SuppressWarnings("NullableProblems")
 	@Override
 	public Iterator<T> iterator()

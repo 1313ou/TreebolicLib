@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.glue.Image;
@@ -17,7 +20,7 @@ public class ModelDump
 	 * @param thisModel model
 	 * @return string for model
 	 */
-	static public String toString(final Model thisModel)
+	static public String toString(@NonNull final Model thisModel)
 	{
 		return ModelDump.toString(thisModel.theTree) + ModelDump.toString(thisModel.theSettings) + ModelDump.toString(thisModel.theImages);
 	}
@@ -29,7 +32,7 @@ public class ModelDump
 	 * @return string for tree
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final Tree thisTree)
+	static public String toString(@NonNull final Tree thisTree)
 	{
 		return "NODES\n" + ModelDump.toString(thisTree.getRoot(), 0) + "EDGES\n" + ModelDump.toString(thisTree.getEdges());
 	}
@@ -42,7 +45,7 @@ public class ModelDump
 	 * @return string for node
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final INode thisNode, final int thisLevel)
+	static public String toString(@Nullable final INode thisNode, final int thisLevel)
 	{
 		final StringBuilder thisBuffer = new StringBuilder();
 		for (int i = 0; i < thisLevel; i++)
@@ -89,9 +92,13 @@ public class ModelDump
 
 			// children
 			thisBuffer.append('\n');
-			for (final INode thisChildNode : thisNode.getChildren())
+			final List<INode> theseChildNodes = thisNode.getChildren();
+			if (theseChildNodes != null)
 			{
-				thisBuffer.append(ModelDump.toString(thisChildNode, thisLevel + 1));
+				for (final INode thisChildNode : theseChildNodes)
+				{
+					thisBuffer.append(ModelDump.toString(thisChildNode, thisLevel + 1));
+				}
 			}
 		}
 		return thisBuffer.toString();
@@ -104,7 +111,7 @@ public class ModelDump
 	 * @return string for edge list
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final List<IEdge> thisEdgeList)
+	static public String toString(@Nullable final List<IEdge> thisEdgeList)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
 		if (thisEdgeList != null)
@@ -125,7 +132,7 @@ public class ModelDump
 	 * @return string for images
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final Image[] theseImages)
+	static public String toString(@Nullable final Image[] theseImages)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
 		thisBuilder.append("IMAGES\n");
@@ -151,7 +158,7 @@ public class ModelDump
 	 * @return string for settings
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final Settings theseSettings)
+	static public String toString(@NonNull final Settings theseSettings)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
 		thisBuilder.append("SETTINGS\n");
@@ -235,7 +242,7 @@ public class ModelDump
 		return thisBuilder.toString();
 	}
 
-	static private String toString(final float[] theseFloats)
+	static private String toString(@Nullable final float[] theseFloats)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
 		if (theseFloats != null)

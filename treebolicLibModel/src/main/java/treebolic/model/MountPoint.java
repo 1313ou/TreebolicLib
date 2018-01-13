@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,6 +22,7 @@ public class MountPoint implements Serializable
 		/**
 		 * URL
 		 */
+		@Nullable
 		@SuppressWarnings("CanBeFinal")
 		public String theURL;
 
@@ -40,6 +44,7 @@ public class MountPoint implements Serializable
 		/**
 		 * Mounted node reference
 		 */
+		@Nullable
 		public INode theMountedNode;
 
 		/**
@@ -62,11 +67,13 @@ public class MountPoint implements Serializable
 		/**
 		 * Mounting node reference
 		 */
+		@Nullable
 		public INode theMountingNode;
 
 		/**
 		 * Mounted edges
 		 */
+		@Nullable
 		public List<IEdge> theMountedEdges;
 
 		/**
@@ -96,7 +103,8 @@ public class MountPoint implements Serializable
 	 * @param down      allow mounting -> mounted
 	 * @return target node (or source if no mounting)
 	 */
-	public static INode follow(final INode thisINode, @SuppressWarnings("SameParameterValue") boolean up, @SuppressWarnings("SameParameterValue") boolean down)
+	@NonNull
+	public static INode follow(@NonNull final INode thisINode, @SuppressWarnings("SameParameterValue") boolean up, @SuppressWarnings("SameParameterValue") boolean down)
 	{
 		MountPoint thisMountPoint = thisINode.getMountPoint();
 

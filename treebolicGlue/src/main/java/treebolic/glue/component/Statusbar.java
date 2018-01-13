@@ -7,6 +7,8 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
@@ -66,6 +68,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Activity
 	 */
+	@NonNull
 	private final AppCompatActivity activity;
 
 	/**
@@ -109,17 +112,20 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		 * @param view view
 		 * @return out text
 		 */
+		@NonNull
 		String process(final String in, final View view);
 	}
 
 	/**
 	 * Label processor
 	 */
+	@Nullable
 	static private Processor labelProcessor = null;
 
 	/**
 	 * Content processor
 	 */
+	@Nullable
 	static private Processor contentProcessor = null;
 
 	// C O N S T R U C T O R
@@ -131,7 +137,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"WeakerAccess"})
-	protected Statusbar(final AppCompatActivity activity0)
+	protected Statusbar(@NonNull final AppCompatActivity activity0)
 	{
 		super(activity0);
 		this.activity = activity0;
@@ -211,7 +217,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 *
 	 * @param processor processor
 	 */
-	static public void setLabelProcessor(@SuppressWarnings("SameParameterValue") final Processor processor)
+	static public void setLabelProcessor(@Nullable @SuppressWarnings("SameParameterValue") final Processor processor)
 	{
 		Statusbar.labelProcessor = processor;
 	}
@@ -221,7 +227,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 *
 	 * @param processor processor
 	 */
-	static public void setContentProcessor(final Processor processor)
+	static public void setContentProcessor(@Nullable final Processor processor)
 	{
 		Statusbar.contentProcessor = processor;
 	}
@@ -264,7 +270,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		String label = label0;
 		if (Statusbar.labelProcessor != null)
 		{
-			label = Statusbar.labelProcessor.process(label, this);
+			assert labelProcessor != null;
+			label = labelProcessor.process(label, this);
 		}
 		this.statusView.setText(label == null ? "" : label);
 
@@ -272,7 +279,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		String content = content0;
 		if (Statusbar.contentProcessor != null)
 		{
-			content = Statusbar.contentProcessor.process(content, this);
+			assert contentProcessor != null;
+			content = contentProcessor.process(content, this);
 		}
 
 		if (content == null)
@@ -314,7 +322,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 				}
 
 				@Override
-				public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
+				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 				{
 					if (this.intercept && url != null)
 					{
@@ -327,7 +335,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 				@TargetApi(Build.VERSION_CODES.N)
 				@Override
-				public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request)
+				public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
 				{
 					final Uri uri = request.getUrl();
 					if (this.intercept && uri != null)

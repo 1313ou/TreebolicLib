@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -45,7 +47,7 @@ public class HyperTransform implements IHyperTransform
 	 * @param p translation vector
 	 * @param r rotation angle
 	 */
-	public HyperTransform(final Complex p, final Complex r)
+	public HyperTransform(@NonNull final Complex p, @NonNull final Complex r)
 	{
 		this.theXlat = new HyperTranslation(p);
 		this.theRot = new HyperRotation(r);
@@ -56,7 +58,7 @@ public class HyperTransform implements IHyperTransform
 	 *
 	 * @param p translation vector
 	 */
-	public HyperTransform(final HyperTranslation p)
+	public HyperTransform(@NonNull final HyperTranslation p)
 	{
 		this.theXlat = new HyperTranslation(p);
 		this.theRot = new HyperRotation(1., 0.);
@@ -106,7 +108,7 @@ public class HyperTransform implements IHyperTransform
 	 *
 	 * @param t source transform
 	 */
-	public HyperTransform(final HyperTransform t)
+	public HyperTransform(@NonNull final HyperTransform t)
 	{
 		this.theXlat = new HyperTranslation(t.theXlat);
 		this.theRot = new HyperRotation(t.theRot);
@@ -118,8 +120,9 @@ public class HyperTransform implements IHyperTransform
 	 * @param t source transform
 	 * @return this transform with value set to t
 	 */
+	@NonNull
 	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
-	public HyperTransform set(final HyperTransform t)
+	public HyperTransform set(@NonNull final HyperTransform t)
 	{
 		this.theXlat.set(t.theXlat);
 		this.theRot.set(t.theRot);
@@ -132,7 +135,7 @@ public class HyperTransform implements IHyperTransform
 	 * @param t1 transform
 	 * @param t2 transform
 	 */
-	public HyperTransform(final HyperTranslation t1, final HyperTranslation t2)
+	public HyperTransform(@NonNull final HyperTranslation t1, @NonNull final HyperTranslation t2)
 	{
 		composeXlats(t1, t2);
 	}
@@ -144,6 +147,7 @@ public class HyperTransform implements IHyperTransform
 	 *
 	 * @return this transform with inverse value
 	 */
+	@NonNull
 	public HyperTransform inverse()
 	{
 		this.theRot.inverse();
@@ -155,8 +159,9 @@ public class HyperTransform implements IHyperTransform
 	// map() does hyperbolic motion:
 	// rotation on t.theta over center and translation over t.theXlat;
 
+	@NonNull
 	@Override
-	public Complex map(final Complex z)
+	public Complex map(@NonNull final Complex z)
 	{
 		// <BOUTHIER>
 		// rigid transformation of the hyperbolic plane
@@ -190,7 +195,8 @@ public class HyperTransform implements IHyperTransform
 	 * @param t2 transform
 	 * @return this transform as the result of composing the initial transform with t2
 	 */
-	public HyperTransform compose(final HyperTransform t2)
+	@NonNull
+	public HyperTransform compose(@NonNull final HyperTransform t2)
 	{
 		// t1=this transform
 		// this transform is applied first
@@ -228,8 +234,9 @@ public class HyperTransform implements IHyperTransform
 	 * @param t2 translation
 	 * @return composition of t1 and t2
 	 */
+	@NonNull
 	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
-	public HyperTransform composeXlats(final HyperTranslation t1, final HyperTranslation t2)
+	public HyperTransform composeXlats(@NonNull final HyperTranslation t1, @NonNull final HyperTranslation t2)
 	{
 		set(HyperTranslation.compose(t1, t2));
 		return this;
@@ -237,6 +244,7 @@ public class HyperTransform implements IHyperTransform
 
 	// S T R I N G
 
+	@NonNull
 	@Override
 	public String toString()
 	{

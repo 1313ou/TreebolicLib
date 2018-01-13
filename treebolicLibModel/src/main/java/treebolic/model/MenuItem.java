@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 import treebolic.model.Types.MatchMode;
@@ -30,6 +32,7 @@ public class MenuItem implements Serializable
 	/**
 	 * Action
 	 */
+	@Nullable
 	public Action theAction;
 
 	/**
@@ -50,10 +53,12 @@ public class MenuItem implements Serializable
 	/**
 	 * Match scope
 	 */
+	@Nullable
 	public MatchScope theMatchScope;
 
 	/**
 	 * Match mode
 	 */
+	@Nullable
 	public MatchMode theMatchMode;
 }

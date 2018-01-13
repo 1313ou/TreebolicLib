@@ -1,5 +1,7 @@
 package treebolic.core.math;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 import treebolic.core.location.EuclideanCircle;
 import treebolic.core.location.HyperCircle;
@@ -22,7 +24,7 @@ public class MapperToEuclidean
 	 *
 	 * @param thisLocation location
 	 */
-	static public void mapToEuclidean(final Location thisLocation)
+	static public void mapToEuclidean(@NonNull final Location thisLocation)
 	{
 		MapperToEuclidean.mapToEuclidean(thisLocation.hyper, thisLocation.euclidean);
 	}
@@ -34,7 +36,7 @@ public class MapperToEuclidean
 	 * @param thisEuclideanCircle euclidean circle
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public void mapToEuclidean(final HyperCircle thisHyperCircle, final EuclideanCircle thisEuclideanCircle)
+	static public void mapToEuclidean(@NonNull final HyperCircle thisHyperCircle, @NonNull final EuclideanCircle thisEuclideanCircle)
 	{
 		// euclidean radius, assuming center is at origin
 		thisEuclideanCircle.radius = Distance.distanceToOrigin_h2e(thisHyperCircle.radius);

@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -26,7 +28,7 @@ public class HyperRotation extends Complex
 	 *
 	 * @param z rotation expressed as cartesian value
 	 */
-	public HyperRotation(final Complex z)
+	public HyperRotation(@NonNull final Complex z)
 	{
 		super(z);
 	}
@@ -49,6 +51,7 @@ public class HyperRotation extends Complex
 	 *
 	 * @return return complex expressing in cartesian value
 	 */
+	@NonNull
 	public Complex toComplex()
 	{
 		return this;
@@ -64,7 +67,7 @@ public class HyperRotation extends Complex
 	 * @return this point with rotated values
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public Complex map(final Complex z, final Complex thisAngle)
+	static public Complex map(@NonNull final Complex z, @NonNull final Complex thisAngle)
 	{
 		// z = (z*theta+p)/(1+(~p)*z)
 		// = (z*theta+0)/(1+(~0)*z)
@@ -78,7 +81,8 @@ public class HyperRotation extends Complex
 	 * @param z point
 	 * @return rotated point
 	 */
-	public Complex map(final Complex z)
+	@NonNull
+	public Complex map(@NonNull final Complex z)
 	{
 		return HyperRotation.map(z, this);
 	}
@@ -121,6 +125,7 @@ public class HyperRotation extends Complex
 	 *
 	 * @return this rotation with reversed values
 	 */
+	@NonNull
 	@SuppressWarnings("UnusedReturnValue")
 	public HyperRotation inverse()
 	{

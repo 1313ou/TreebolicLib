@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 import treebolic.glue.Color;
@@ -20,24 +23,28 @@ class EdgeData implements Serializable
 	/**
 	 * Label
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theLabel;
 
 	/**
 	 * Edge color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theColor;
 
 	/**
 	 * Edge style
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Integer theStyle;
 
 	/**
 	 * Edge image filename
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected String theImageFile;
 
@@ -60,21 +67,25 @@ class EdgeData implements Serializable
 		this.theImageIndex = -1;
 	}
 
+	@Nullable
 	public String getLabel()
 	{
 		return this.theLabel;
 	}
 
+	@Nullable
 	public Color getColor()
 	{
 		return this.theColor;
 	}
 
+	@Nullable
 	public Integer getStyle()
 	{
 		return this.theStyle;
 	}
 
+	@Nullable
 	public String getImageFile()
 	{
 		return this.theImageFile;
@@ -99,9 +110,11 @@ class XEdgeData extends EdgeData
 	/**
 	 * Edge image
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Image theImage;
 
+	@Nullable
 	public Image getImage()
 	{
 		return this.theImage;
@@ -165,6 +178,7 @@ public class Edge extends XEdgeData implements IEdge
 		return this.theToNode;
 	}
 
+	@NonNull
 	@Override
 	public String toString()
 	{

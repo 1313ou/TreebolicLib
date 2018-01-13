@@ -3,6 +3,7 @@ package treebolic.glue;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
+import android.support.annotation.NonNull;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -64,7 +65,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param resource resource URL
 	 */
-	static public Image make(final URL resource) throws IOException
+	static public Image make(@NonNull final URL resource) throws IOException
 	{
 		InputStream inputStream = null;
 		try
@@ -94,13 +95,13 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param resource resource URL
 	 */
-	static public Image try_make(final URL resource)
+	static public Image try_make(@NonNull final URL resource)
 	{
 		try
 		{
 			return Image.make(resource);
 		}
-		catch (final Exception ignored)
+		catch (@NonNull final Exception ignored)
 		{
 			return null;
 		}
@@ -147,7 +148,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @param imageByteArray byte array
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setFromByteArray(final byte[] imageByteArray)
+	public void setFromByteArray(@NonNull final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
 		opt.inDither = true;
@@ -161,7 +162,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @param out serialized stream
 	 * @throws IOException io exception
 	 */
-	private void writeObject(final ObjectOutputStream out) throws IOException
+	private void writeObject(@NonNull final ObjectOutputStream out) throws IOException
 	{
 		final byte[] imageBytes = getByteArray();
 		out.writeObject(imageBytes);
@@ -174,7 +175,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
-	private void readObject(final ObjectInputStream in) throws IOException, ClassNotFoundException
+	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
 		final byte[] imageBytes = (byte[]) in.readObject();
 		setFromByteArray(imageBytes);

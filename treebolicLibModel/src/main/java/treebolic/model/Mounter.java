@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 /**
@@ -18,7 +21,7 @@ public class Mounter
 	 * @param theseMountedEdges edge list from mounted model
 	 * @return true if successful, null otherwise
 	 */
-	public static synchronized boolean graft(final INode thisMountingNode, final INode thisMountedNode, final List<IEdge> theseEdges, final List<IEdge> theseMountedEdges)
+	public static synchronized boolean graft(@NonNull final INode thisMountingNode, @NonNull final INode thisMountedNode, @NonNull final List<IEdge> theseEdges, @Nullable final List<IEdge> theseMountedEdges)
 	{
 		// REQUISITES
 
@@ -59,9 +62,12 @@ public class Mounter
 
 		// tree down connect
 		final List<INode> theseMountingParentChildren = thisMountingParent.getChildren();
-		final int thisIndex = theseMountingParentChildren.indexOf(thisMountingNode);
-		theseMountingParentChildren.remove(thisIndex);
-		theseMountingParentChildren.add(thisIndex, thisMountedNode);
+		if (theseMountingParentChildren != null)
+		{
+			final int thisIndex = theseMountingParentChildren.indexOf(thisMountingNode);
+			theseMountingParentChildren.remove(thisIndex);
+			theseMountingParentChildren.add(thisIndex, thisMountedNode);
+		}
 
 		// tree up connect
 		thisMountedNode.setParent(thisMountingParent);
@@ -94,7 +100,7 @@ public class Mounter
 	 * @param theseEdges      edge list to scan for orphaned edges
 	 * @return mounting node if successful, null otherwise
 	 */
-	public static synchronized INode prune(final INode thisMountedNode, final List<IEdge> theseEdges)
+	public static synchronized INode prune(@NonNull final INode thisMountedNode, @Nullable final List<IEdge> theseEdges)
 	{
 		// REQUISITES
 
@@ -150,9 +156,12 @@ public class Mounter
 
 		// tree down connect
 		final List<INode> theseMountedParentChildren = thisMountedParent.getChildren();
-		final int thisIndex = theseMountedParentChildren.indexOf(thisMountedNode);
-		theseMountedParentChildren.remove(thisIndex);
-		theseMountedParentChildren.add(thisIndex, thisMountingNode);
+		if (theseMountedParentChildren != null)
+		{
+			final int thisIndex = theseMountedParentChildren.indexOf(thisMountedNode);
+			theseMountedParentChildren.remove(thisIndex);
+			theseMountedParentChildren.add(thisIndex, thisMountingNode);
+		}
 
 		// tree up connect
 		thisMountingNode.setParent(thisMountedParent);
@@ -181,22 +190,26 @@ public class Mounter
 		return thisMountingNode;
 	}
 
-	static private void removeSubtreeEdges(final List<IEdge> theseEdges, final INode thisMountedNode)
+	static private void removeSubtreeEdges(@NonNull final List<IEdge> theseEdges, @NonNull final INode thisMountedNode)
 	{
-		for (final INode thisChildNode : thisMountedNode.getChildren())
+		final List<INode> theseMountedNodeChildren = thisMountedNode.getChildren();
+		if (theseMountedNodeChildren != null)
 		{
-			// if mounted mount point having edges
-			final MountPoint thisMountPoint = thisChildNode.getMountPoint();
-			if (thisMountPoint != null && thisMountPoint instanceof MountPoint.Mounted)
+			for (final INode thisChildNode : theseMountedNodeChildren)
 			{
-				final MountPoint.Mounted thisMountedMountPoint = (MountPoint.Mounted) thisMountPoint;
-				if (thisMountedMountPoint.theMountedEdges != null)
+				// if mounted mount point having edges
+				final MountPoint thisMountPoint = thisChildNode.getMountPoint();
+				if (thisMountPoint != null && thisMountPoint instanceof MountPoint.Mounted)
 				{
-					theseEdges.removeAll(thisMountedMountPoint.theMountedEdges);
+					final MountPoint.Mounted thisMountedMountPoint = (MountPoint.Mounted) thisMountPoint;
+					if (thisMountedMountPoint.theMountedEdges != null)
+					{
+						theseEdges.removeAll(thisMountedMountPoint.theMountedEdges);
+					}
 				}
+				// recurse
+				Mounter.removeSubtreeEdges(theseEdges, thisChildNode);
 			}
-			// recurse
-			Mounter.removeSubtreeEdges(theseEdges, thisChildNode);
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package treebolic;
 
+import android.support.annotation.NonNull;
+
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -18,7 +20,7 @@ public class Messages
 	{
 	}
 
-	public static String getString(String key)
+	public static String getString(@NonNull String key)
 	{
 		try
 		{

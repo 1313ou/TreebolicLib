@@ -1,5 +1,8 @@
 package treebolic.control;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.core.location.Complex;
@@ -22,7 +25,8 @@ public class Finder
 	 * @param thisPoint point
 	 * @return node if found, null otherwise
 	 */
-	static public INode findNodeAt(final INode thisStart, final Complex thisPoint)
+	@Nullable
+	static public INode findNodeAt(@Nullable final INode thisStart, @NonNull final Complex thisPoint)
 	{
 		if (thisStart == null)
 		{
@@ -71,7 +75,8 @@ public class Finder
 	 * @param thisId    target id
 	 * @return node if found, null otherwise
 	 */
-	static public INode findNodeById(final INode thisStart, final String thisId)
+	@Nullable
+	static public INode findNodeById(@Nullable final INode thisStart, @NonNull final String thisId)
 	{
 		if (thisStart == null)
 		{
@@ -85,12 +90,16 @@ public class Finder
 		}
 
 		// children
-		for (final INode thisChildNode : thisStart.getChildren())
+		final List<INode> theseChildNodes = thisStart.getChildren();
+		if (theseChildNodes != null)
 		{
-			final INode thisNode = Finder.findNodeById(thisChildNode, thisId);
-			if (thisNode != null)
+			for (final INode thisChildNode : theseChildNodes)
 			{
-				return thisNode;
+				final INode thisNode = Finder.findNodeById(thisChildNode, thisId);
+				if (thisNode != null)
+				{
+					return thisNode;
+				}
 			}
 		}
 		return null;

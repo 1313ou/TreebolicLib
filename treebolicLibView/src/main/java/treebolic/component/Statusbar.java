@@ -1,5 +1,8 @@
 package treebolic.component;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
 import treebolic.model.Settings;
@@ -57,7 +60,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	}
 
 	@SuppressWarnings("WeakerAccess")
-	public void init(@SuppressWarnings("SameParameterValue") final Settings theseSettings)
+	public void init(@Nullable @SuppressWarnings("SameParameterValue") final Settings theseSettings)
 	{
 		// colors
 		if (theseSettings != null)
@@ -82,7 +85,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 		super.init(PutType.INFO.ordinal());
 	}
 
-	private void setColors(final PutType thisType)
+	private void setColors(@NonNull final PutType thisType)
 	{
 		final Color thisBackColor = Statusbar.theBackColor[thisType.ordinal()];
 		final Color thisForeColor = Statusbar.theForeColor[thisType.ordinal()];
@@ -96,7 +99,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	 * @param thisContent content
 	 * @param thisType    status type as per below
 	 */
-	public void put(final String thisLabel, final String thisContent, final PutType thisType)
+	public void put(final String thisLabel, final String thisContent, @NonNull final PutType thisType)
 	{
 		setColors(thisType);
 		super.put(thisLabel, thisContent, thisType.ordinal());

@@ -1,5 +1,8 @@
 package treebolic.provider;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
@@ -11,7 +14,7 @@ import java.util.Properties;
  */
 public class ProviderUtils
 {
-	static public URL makeURL(final String thisSource, final URL thisBase, final Properties theseExtras, final IProviderContext thisContext)
+	static public URL makeURL(@Nullable final String thisSource, final URL thisBase, final Properties theseExtras, @NonNull final IProviderContext thisContext)
 	{
 		final boolean DEBUG = true;
 		if (thisSource == null)
@@ -35,7 +38,7 @@ public class ProviderUtils
 			}
 			return thisUrl;
 		}
-		catch (final MalformedURLException ignored)
+		catch (@NonNull final MalformedURLException ignored)
 		{
 			// do nothing
 		}
@@ -51,7 +54,7 @@ public class ProviderUtils
 			}
 			return thisUrl;
 		}
-		catch (final MalformedURLException ignored)
+		catch (@NonNull final MalformedURLException ignored)
 		{
 			// do nothing
 		}

@@ -1,5 +1,8 @@
 package treebolic.component;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -50,7 +53,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	 * Constructor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public PopupMenu(final View thisView)
+	public PopupMenu(@NonNull final View thisView)
 	{
 		super(thisView);
 	}
@@ -67,11 +70,13 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	 * @param theseSettings  settings
 	 * @return popup menu
 	 */
-	static public PopupMenu makePopup(final View thisView, final Controller thisController, final String thisValue, final INode thisNode, final Settings theseSettings)
+	@NonNull
+	static public PopupMenu makePopup(@NonNull final View thisView, @NonNull final Controller thisController, final String thisValue, @NonNull final INode thisNode, @NonNull final Settings theseSettings)
 	{
 		final PopupMenu thisPopupMenu = new PopupMenu(thisView);
 
 		// info
+		assert labels != null;
 		thisPopupMenu.addItem(labels[LABEL_INFO], ImageIndices.IMAGE_INFO.ordinal(), new ActionListener()
 		{
 			@Override
@@ -130,6 +135,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 			{
 				String thisMenuLabel = null;
 				boolean prepend = thatMenuItem.theLabel != null && (thatMenuItem.theLabel.length() == 0 || Character.isLowerCase(thatMenuItem.theLabel.charAt(0)));
+				assert thatMenuItem.theAction != null;
 				switch (thatMenuItem.theAction)
 				{
 					case GOTO:
@@ -168,7 +174,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 						}
 					});
 				}
-				catch (final ArrayIndexOutOfBoundsException ignored)
+				catch (@NonNull final ArrayIndexOutOfBoundsException ignored)
 				{
 					// do nothing
 				}
@@ -190,7 +196,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 	// U R L . V A L I D A T I O N
 
-	static private boolean isURL(final String thisLink)
+	static private boolean isURL(@Nullable final String thisLink)
 	{
 		if (thisLink != null && !thisLink.isEmpty())
 		{
@@ -201,7 +207,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 				new URL(thisLink);
 				return true;
 			}
-			catch (final MalformedURLException ignored)
+			catch (@NonNull final MalformedURLException ignored)
 			{
 				// well-formed URI
 				try
@@ -224,7 +230,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 					// desperate attempt
 					return thisUri.getScheme().matches("[a-z]*");
 				}
-				catch (final URISyntaxException ignored2)
+				catch (@NonNull final URISyntaxException ignored2)
 				{
 					//
 				}
@@ -243,7 +249,8 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	 * @param thisNode   node node
 	 * @return expanded string
 	 */
-	static public String expandMacro(final String thisString, final String thisValue, final INode thisNode)
+	@Nullable
+	static public String expandMacro(@Nullable final String thisString, @Nullable final String thisValue, @NonNull final INode thisNode)
 	{
 		if (thisString == null)
 		{

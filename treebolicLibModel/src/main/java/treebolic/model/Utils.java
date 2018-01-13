@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
@@ -43,7 +46,7 @@ public class Utils
 	 * @return style
 	 */
 	@SuppressWarnings("boxing")
-	static public Integer parseStyle(final String thisStroke, final String thisFromTerminator, final String thisToTerminator, final String thisLineFlag, final String thisHiddenFlag)
+	static public Integer parseStyle(@Nullable final String thisStroke, @Nullable final String thisFromTerminator, @Nullable final String thisToTerminator, @Nullable final String thisLineFlag, @Nullable final String thisHiddenFlag)
 	{
 		boolean isDefined = false;
 		int thisStyle = 0;
@@ -88,8 +91,9 @@ public class Utils
 	 * @param thisComponent style component to modify
 	 * @return modified style
 	 */
+	@Nullable
 	@SuppressWarnings("boxing")
-	static public Integer modifyStyle(final Integer thatStyle, final Object thisValue, final StyleComponent thisComponent)
+	static public Integer modifyStyle(@Nullable final Integer thatStyle, @Nullable final Object thisValue, @NonNull final StyleComponent thisComponent)
 	{
 		// System.out.println(">modifyStyle" + " oldvalue=" + (thatStyle == null ? "null" : Integer.toHexString(thatStyle)) + " value=" + thisValue + " "
 		// + thisComponent.name());
@@ -224,8 +228,9 @@ public class Utils
 	 * @param thisComponent part of style to stringify
 	 * @return string
 	 */
+	@Nullable
 	@SuppressWarnings({"boxing", "WeakerAccess"})
-	static public String toString(final Integer thisStyle, final StyleComponent thisComponent)
+	static public String toString(@Nullable final Integer thisStyle, @NonNull final StyleComponent thisComponent)
 	{
 		if (thisStyle == null)
 		{
@@ -299,7 +304,8 @@ public class Utils
 	 * @param thisComponent part of style to stringify
 	 * @return string
 	 */
-	static public Integer toInteger(final Integer thisStyle, final StyleComponent thisComponent)
+	@Nullable
+	static public Integer toInteger(@Nullable final Integer thisStyle, @NonNull final StyleComponent thisComponent)
 	{
 		if (thisStyle == null)
 		{
@@ -347,7 +353,8 @@ public class Utils
 	 * @param thisComponent part of style to convert
 	 * @return true or null
 	 */
-	static public Boolean toTrueBoolean(final Integer thisStyle, final StyleComponent thisComponent)
+	@Nullable
+	static public Boolean toTrueBoolean(@Nullable final Integer thisStyle, @NonNull final StyleComponent thisComponent)
 	{
 		if (thisStyle == null)
 		{
@@ -378,7 +385,7 @@ public class Utils
 	 * @return stroke code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToStroke(final String thisString)
+	public static int stringToStroke(@Nullable final String thisString)
 	{
 		int thisStyle = 0;
 		if (thisString != null)
@@ -406,7 +413,7 @@ public class Utils
 	 * @return stroke code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToStrokeWidth(final String thisString)
+	public static int stringToStrokeWidth(@Nullable final String thisString)
 	{
 		int thisStyle = 0;
 		if (thisString != null)
@@ -434,8 +441,9 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke string
 	 */
+	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
-	public static String strokeToString(final Integer thisStyle)
+	public static String strokeToString(@Nullable final Integer thisStyle)
 	{
 		if (thisStyle == null)
 		{
@@ -463,7 +471,7 @@ public class Utils
 	 * @return stroke width string
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public static String strokeWidthToString(final Integer thisStyle)
+	public static String strokeWidthToString(@Nullable final Integer thisStyle)
 	{
 		if (thisStyle == null)
 		{
@@ -483,8 +491,9 @@ public class Utils
 	 * @param thisStyle stroke code style
 	 * @return stroke witch
 	 */
+	@Nullable
 	@SuppressWarnings({"boxing", "WeakerAccess"})
-	public static Integer strokeWidthToInteger(final Integer thisStyle)
+	public static Integer strokeWidthToInteger(@Nullable final Integer thisStyle)
 	{
 		if (thisStyle == null)
 		{
@@ -507,7 +516,7 @@ public class Utils
 	 * @return fill code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToFill(final String thisString)
+	public static int stringToFill(@NonNull final String thisString)
 	{
 		if (thisString.length() > 1 && thisString.charAt(1) == 'f')
 		{
@@ -522,8 +531,9 @@ public class Utils
 	 * @param thisStyle fill code style
 	 * @return fill string
 	 */
+	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
-	public static String fillToString(final Integer thisStyle)
+	public static String fillToString(@Nullable final Integer thisStyle)
 	{
 		if (thisStyle == null)
 		{
@@ -541,7 +551,7 @@ public class Utils
 	 * @return shape code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToShape(final String thisString)
+	public static int stringToShape(@NonNull final String thisString)
 	{
 		switch (thisString.charAt(0))
 		{
@@ -567,8 +577,9 @@ public class Utils
 	 * @param thisStyle shape code style
 	 * @return shape string
 	 */
+	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
-	public static String shapeToString(final Integer thisStyle)
+	public static String shapeToString(@Nullable final Integer thisStyle)
 	{
 		if (thisStyle == null)
 		{
@@ -605,7 +616,7 @@ public class Utils
 	 * @param thisScopeString  scope string
 	 * @param thisModeString   mode string
 	 */
-	static public void parseMenuItem(final MenuItem thisMenuItem, final String thisActionString, final String thisScopeString, final String thisModeString)
+	static public void parseMenuItem(@NonNull final MenuItem thisMenuItem, final String thisActionString, final String thisScopeString, final String thisModeString)
 	{
 		thisMenuItem.theAction = Utils.stringToAction(thisActionString);
 		thisMenuItem.theMatchScope = Utils.stringToScope(thisScopeString);
@@ -618,8 +629,9 @@ public class Utils
 	 * @param thisActionString action string
 	 * @return action
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public Action stringToAction(final String thisActionString)
+	static public Action stringToAction(@Nullable final String thisActionString)
 	{
 		return thisActionString == null || thisActionString.isEmpty() ? null : Action.valueOf(thisActionString.toUpperCase(Locale.ROOT));
 	}
@@ -630,8 +642,9 @@ public class Utils
 	 * @param thisScopeString scope string
 	 * @return scope
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public MatchScope stringToScope(final String thisScopeString)
+	static public MatchScope stringToScope(@Nullable final String thisScopeString)
 	{
 		return thisScopeString == null || thisScopeString.isEmpty() ? null : MatchScope.valueOf(thisScopeString.toUpperCase(Locale.ROOT));
 	}
@@ -642,8 +655,9 @@ public class Utils
 	 * @param thisModeString mode string
 	 * @return mode
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public MatchMode stringToMode(final String thisModeString)
+	static public MatchMode stringToMode(@Nullable final String thisModeString)
 	{
 		return thisModeString == null || thisModeString.isEmpty() ? null : MatchMode.valueOf(thisModeString.toUpperCase(Locale.ROOT));
 	}
@@ -654,8 +668,9 @@ public class Utils
 	 * @param thisAction action
 	 * @return action string
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final Action thisAction)
+	static public String toString(@Nullable final Action thisAction)
 	{
 		return thisAction == null ? null : thisAction.name();
 	}
@@ -666,8 +681,9 @@ public class Utils
 	 * @param thisScope scope
 	 * @return scope string
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final MatchScope thisScope)
+	static public String toString(@Nullable final MatchScope thisScope)
 	{
 		return thisScope == null ? null : thisScope.name();
 	}
@@ -678,8 +694,9 @@ public class Utils
 	 * @param thisMode mode
 	 * @return mode string
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final MatchMode thisMode)
+	static public String toString(@Nullable final MatchMode thisMode)
 	{
 		return thisMode == null ? null : thisMode.name();
 	}
@@ -690,7 +707,7 @@ public class Utils
 	 * @param thisMenuItem menuitem
 	 * @return action, matchscope, matchmode strings
 	 */
-	static public String[] toStrings(final MenuItem thisMenuItem)
+	static public String[] toStrings(@NonNull final MenuItem thisMenuItem)
 	{
 		final String thisAction = Utils.toString(thisMenuItem.theAction);
 		final String thisScope = Utils.toString(thisMenuItem.theMatchScope);
@@ -706,7 +723,8 @@ public class Utils
 	 * @param thisColor color
 	 * @return prefixless hexadecimal representation of color
 	 */
-	static public String colorToString(final Color thisColor)
+	@NonNull
+	static public String colorToString(@Nullable final Color thisColor)
 	{
 		return thisColor == null ? NONE : Integer.toHexString(thisColor.getRGB()).substring(2);
 	}
@@ -734,7 +752,7 @@ public class Utils
 			thisColor.parse(thisString);
 			return thisColor;
 		}
-		catch (final Exception ignored)
+		catch (@NonNull final Exception ignored)
 		{
 			// do nothing
 		}
@@ -747,7 +765,7 @@ public class Utils
 	 * @param thisScalerString scaler string representation
 	 * @return scaler
 	 */
-	public static float[] stringToFloats(final String thisScalerString)
+	public static float[] stringToFloats(@NonNull final String thisScalerString)
 	{
 		final String[] thisScalerItem = thisScalerString.split("[\\s,;]+");
 		final float[] thisScaler = new float[thisScalerItem.length];
@@ -758,7 +776,7 @@ public class Utils
 				final float f = Float.parseFloat(thisScalerItem[i]);
 				thisScaler[i] = f;
 			}
-			catch (final NumberFormatException ignored)
+			catch (@NonNull final NumberFormatException ignored)
 			{
 				return null;
 			}
@@ -772,7 +790,7 @@ public class Utils
 	 * @param thisScaler scaler
 	 * @return string representation
 	 */
-	public static String floatsToString(final float[] thisScaler)
+	public static String floatsToString(@NonNull final float[] thisScaler)
 	{
 		final StringBuilder thisBuilder = new StringBuilder();
 		boolean first = true;
@@ -797,7 +815,8 @@ public class Utils
 	 * @param thisUrl url of property file to load from
 	 * @throws IOException io exception
 	 */
-	static public Properties load(final URL thisUrl) throws IOException
+	@NonNull
+	static public Properties load(@NonNull final URL thisUrl) throws IOException
 	{
 		final Properties theseProperties = new Properties();
 		theseProperties.load(thisUrl.openStream());

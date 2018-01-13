@@ -3,6 +3,7 @@ package treebolic.glue.component;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialog;
@@ -30,6 +31,7 @@ public class Tip extends AppCompatDialogFragment
 	/**
 	 * Text
 	 */
+	@Nullable
 	private String text;
 
 	/**
@@ -41,7 +43,7 @@ public class Tip extends AppCompatDialogFragment
 	}
 
 	@Override
-	public void onCreate(final Bundle savedInstanceState)
+	public void onCreate(@Nullable final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
@@ -103,7 +105,7 @@ public class Tip extends AppCompatDialogFragment
 	 *
 	 * @param text0 text
 	 */
-	public void setText(final String text0)
+	public void setText(@Nullable final String text0)
 	{
 		this.text = text0;
 	}

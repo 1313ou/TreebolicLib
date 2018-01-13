@@ -1,5 +1,7 @@
 package treebolic.core.location;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -23,11 +25,13 @@ public class HyperCircle implements Serializable
 	/**
 	 * Center as computed by initial layout
 	 */
+	@NonNull
 	public final Complex center0;
 
 	/**
 	 * Center as mapped by current transform
 	 */
+	@NonNull
 	public final Complex center;
 
 	/**
@@ -76,7 +80,7 @@ public class HyperCircle implements Serializable
 	 * @param o center
 	 * @param r radius
 	 */
-	public void set(final Complex o, final double r)
+	public void set(@NonNull final Complex o, final double r)
 	{
 		this.center0.set(o);
 		this.center.set(o);
@@ -102,7 +106,7 @@ public class HyperCircle implements Serializable
 	 *
 	 * @param thisHyperCircle hyper circle
 	 */
-	public void clone(final HyperCircle thisHyperCircle)
+	public void clone(@NonNull final HyperCircle thisHyperCircle)
 	{
 		this.center0.set(thisHyperCircle.center0);
 		this.center.set(thisHyperCircle.center);
@@ -114,6 +118,7 @@ public class HyperCircle implements Serializable
 
 	// S T R I N G
 
+	@NonNull
 	@Override
 	public String toString()
 	{

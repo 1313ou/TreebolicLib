@@ -1,5 +1,8 @@
 package treebolic.core;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.core.location.Complex;
@@ -34,7 +37,7 @@ public class LayerOut extends AbstractLayerOut
 	// O P E R A T I O N
 
 	@Override
-	public synchronized void layout(final INode thisNode)
+	public synchronized void layout(@Nullable final INode thisNode)
 	{
 		if (thisNode == null)
 		{
@@ -49,7 +52,7 @@ public class LayerOut extends AbstractLayerOut
 	}
 
 	@Override
-	public synchronized void layout(final INode thisNode, final Complex thisCenter, final double thisHalfWedge, final double thisOrientation)
+	public synchronized void layout(@Nullable final INode thisNode, @NonNull final Complex thisCenter, final double thisHalfWedge, final double thisOrientation)
 	{
 		if (thisNode == null)
 		{
@@ -72,7 +75,7 @@ public class LayerOut extends AbstractLayerOut
 	 * @param thisHalfWedge   half wedge allocated to this node
 	 * @param thisOrientation orientation of this node
 	 */
-	private void layoutChildren(final INode thisNode, final double thisHalfWedge, final double thisOrientation)
+	private void layoutChildren(@NonNull final INode thisNode, final double thisHalfWedge, final double thisOrientation)
 	{
 		// children
 		final List<INode> theseChildren = thisNode.getChildren();
@@ -123,6 +126,7 @@ public class LayerOut extends AbstractLayerOut
 					break;
 				}
 				final MountPoint.Mounted thisMountedPoint = (MountPoint.Mounted) thisMountPoint;
+				assert thisMountedPoint.theMountingNode != null;
 				thisMountPoint = thisMountedPoint.theMountingNode.getMountPoint();
 			}
 
@@ -163,7 +167,7 @@ public class LayerOut extends AbstractLayerOut
 	 * @param thisOrientation  orientation
 	 * @return orientation
 	 */
-	private static double computeOrientation(final Complex thisParentCenter, final Complex thisCenter, final double thisOrientation)
+	private static double computeOrientation(@NonNull final Complex thisParentCenter, @NonNull final Complex thisCenter, final double thisOrientation)
 	{
 		// <BOUTHIER>
 		// compute the new orientation (oc)

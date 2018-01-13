@@ -2,6 +2,8 @@ package treebolic.glue;
 
 import android.graphics.Canvas;
 import android.graphics.Picture;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import treebolic.glue.component.Component;
 
@@ -9,6 +11,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 {
 	private static final boolean CACHE = true;
 
+	@Nullable
 	private final Picture picture;
 
 	private final Canvas canvas;
@@ -17,7 +20,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 
 	private final int height;
 
-	public GraphicsCache(@SuppressWarnings("unused") final Component component, final Graphics thatGraphics, final int width0, final int height0)
+	public GraphicsCache(@SuppressWarnings("unused") final Component component, @NonNull final Graphics thatGraphics, final int width0, final int height0)
 	{
 		this.canvas = thatGraphics.canvas;
 		if (GraphicsCache.CACHE)
@@ -34,6 +37,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 		}
 	}
 
+	@NonNull
 	@Override
 	@SuppressWarnings("ConstantConditions")
 	public Graphics getGraphics()
@@ -48,7 +52,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 
 	@Override
 	@SuppressWarnings("ConstantConditions")
-	public void put(final Graphics thisGraphics)
+	public void put(@NonNull final Graphics thisGraphics)
 	{
 		if (GraphicsCache.CACHE)
 		{

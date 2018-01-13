@@ -1,6 +1,8 @@
 package treebolic.glue.component;
 
 import android.graphics.Canvas;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
@@ -24,16 +26,19 @@ public class TreebolicThread extends Thread
 	/**
 	 * Handle to the surface
 	 */
+	@Nullable
 	private Surface surface;
 
 	/**
 	 * Handle to the surface manager object we interact with
 	 */
+	@Nullable
 	private SurfaceHolder surfaceHolder;
 
 	/**
 	 * Synchronizer
 	 */
+	@NonNull
 	final private Object synchronizer;
 
 	/**
@@ -57,7 +62,7 @@ public class TreebolicThread extends Thread
 	 * @param surface0       surface
 	 * @param surfaceHolder0 surface holder
 	 */
-	public TreebolicThread(final Surface surface0, final SurfaceHolder surfaceHolder0)
+	public TreebolicThread(@Nullable final Surface surface0, @Nullable final SurfaceHolder surfaceHolder0)
 	{
 		// get handles
 		this.surface = surface0;
@@ -103,7 +108,7 @@ public class TreebolicThread extends Thread
 				join();
 				retry = false;
 			}
-			catch (final InterruptedException ignored)
+			catch (@NonNull final InterruptedException ignored)
 			{
 				// do nothing
 			}
@@ -143,6 +148,7 @@ public class TreebolicThread extends Thread
 			Canvas canvas = null;
 			try
 			{
+				assert this.surfaceHolder != null;
 				canvas = this.surfaceHolder.lockCanvas(null);
 				synchronized (this.synchronizer)
 				{
@@ -184,7 +190,7 @@ public class TreebolicThread extends Thread
 						}
 					}
 				}
-				catch (final InterruptedException ignored)
+				catch (@NonNull final InterruptedException ignored)
 				{
 					Log.d(TreebolicThread.TAG, "interrupted");
 				}
@@ -212,7 +218,7 @@ public class TreebolicThread extends Thread
 	/**
 	 * Draws to the provided Canvas.
 	 */
-	private void doDraw(final Canvas canvas)
+	private void doDraw(@Nullable final Canvas canvas)
 	{
 		// Draw the background image. Operations on the Canvas accumulate so this is like clearing the screen.
 		if (canvas != null)
@@ -226,6 +232,7 @@ public class TreebolicThread extends Thread
 			// canvas.drawCircle(w, h, Math.min(w, h), thisPaint);
 
 			final Graphics g = new Graphics(canvas);
+			assert this.surface != null;
 			this.surface.paint(g);
 
 			canvas.restore();

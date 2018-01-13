@@ -1,5 +1,7 @@
 package treebolic.view;
 
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.glue.Color;
@@ -166,6 +168,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Image down scaler
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected float theImageDownscaler[];
 
@@ -184,6 +187,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Font down scaler
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected float theFontDownscaler[];
 
@@ -217,36 +221,42 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Default background color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theBackColor;
 
 	/**
 	 * Default foreground color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theForeColor;
 
 	/**
 	 * Default node background color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theNodeBackColor;
 
 	/**
 	 * Default node foreground color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theNodeForeColor;
 
 	/**
 	 * Default tree edge color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theTreeEdgeColor;
 
 	/**
 	 * Default edge color
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	protected Color theEdgeColor;
 
@@ -358,7 +368,7 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisScaleImagesFlag whether to scale images
 	 * @param thisScaler          array of float to act as down scaler (as we move away from center)
 	 */
-	public void setImageScaling(final Boolean thisScaleImagesFlag, final float[] thisScaler)
+	public void setImageScaling(@Nullable final Boolean thisScaleImagesFlag, @Nullable final float[] thisScaler)
 	{
 		// whether to scale images
 		if (thisScaleImagesFlag != null)
@@ -384,7 +394,7 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisDownscaleFontFlag downscale images flag
 	 * @param thisFontDownscaler    arrays of factors to apply to font size (moving away from center)
 	 */
-	public void setFont(final String thisFontFace, final Integer thisFontSize, final Float thisFontSizeFactor, final Boolean thisDownscaleFontFlag, final float[] thisFontDownscaler)
+	public void setFont(@Nullable final String thisFontFace, @Nullable final Integer thisFontSize, @Nullable final Float thisFontSizeFactor, @Nullable final Boolean thisDownscaleFontFlag, @Nullable final float[] thisFontDownscaler)
 	{
 		// face
 		this.theFontFace = thisFontFace == null ? "SansSerif" : thisFontFace;
@@ -416,7 +426,7 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisTreeEdgeColor tree edge default color
 	 * @param thisEdgeColor     edge default color
 	 */
-	public void setColors(final Color thisBackColor, final Color thisForeColor, final Color thisNodeBackColor, final Color thisNodeForeColor, final Color thisTreeEdgeColor, final Color thisEdgeColor)
+	public void setColors(@Nullable final Color thisBackColor, @Nullable final Color thisForeColor, @Nullable final Color thisNodeBackColor, @Nullable final Color thisNodeForeColor, @Nullable final Color thisTreeEdgeColor, @Nullable final Color thisEdgeColor)
 	{
 		if (thisBackColor != null)
 		{
@@ -465,7 +475,7 @@ public abstract class AbstractPainter extends Mapper
 	 * @param thisTreeEdgeStyle default tree edge style
 	 * @param thisEdgeStyle     default edge style
 	 */
-	public void setEdgeStyles(final Integer thisTreeEdgeStyle, final Integer thisEdgeStyle)
+	public void setEdgeStyles(@Nullable final Integer thisTreeEdgeStyle, @Nullable final Integer thisEdgeStyle)
 	{
 		if (thisTreeEdgeStyle != null)
 		{
@@ -500,7 +510,7 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true if label have borders
 	 */
-	public void setBorder(final Boolean thisFlag)
+	public void setBorder(@Nullable final Boolean thisFlag)
 	{
 		if (thisFlag != null)
 		{
@@ -523,7 +533,7 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true if label texts are ellipsized
 	 */
-	public void setEllipsize(final Boolean thisFlag)
+	public void setEllipsize(@Nullable final Boolean thisFlag)
 	{
 		if (thisFlag != null)
 		{
@@ -536,7 +546,7 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisMaxLines label max lines
 	 */
-	public void setLabelMaxLines(final Integer thisMaxLines)
+	public void setLabelMaxLines(@Nullable final Integer thisMaxLines)
 	{
 		if (thisMaxLines != null)
 		{
@@ -549,7 +559,7 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFactor label extra line (excluding first) factor
 	 */
-	public void setLabelExtraLineFactor(final Float thisFactor)
+	public void setLabelExtraLineFactor(@Nullable final Float thisFactor)
 	{
 		if (thisFactor != null)
 		{
@@ -572,7 +582,7 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true if edges are rendered as arcs
 	 */
-	public void setArcEdges(final Boolean thisFlag)
+	public void setArcEdges(@Nullable final Boolean thisFlag)
 	{
 		if (thisFlag != null)
 		{
@@ -675,7 +685,7 @@ public abstract class AbstractPainter extends Mapper
 	 *
 	 * @param thisFlag true true if images are scaled
 	 */
-	public void setScaleImages(final Boolean thisFlag)
+	public void setScaleImages(@Nullable final Boolean thisFlag)
 	{
 		if (thisFlag != null)
 		{

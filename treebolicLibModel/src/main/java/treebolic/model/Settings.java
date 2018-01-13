@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -169,11 +172,13 @@ public class Settings implements Serializable
 	/**
 	 * Background color
 	 */
+	@Nullable
 	public Color theBackColor;
 
 	/**
 	 * Foreground color
 	 */
+	@Nullable
 	public Color theForeColor;
 
 	/**
@@ -211,6 +216,7 @@ public class Settings implements Serializable
 	/**
 	 * Font size downscaler (as per hyperbolic distance to center)
 	 */
+	@Nullable
 	public float[] theFontDownscaler;
 
 	/**
@@ -221,6 +227,7 @@ public class Settings implements Serializable
 	/**
 	 * Image size downscaler (as per hyperbolic distance to center)
 	 */
+	@Nullable
 	public float[] theImageDownscaler;
 
 	// T R E E
@@ -312,11 +319,13 @@ public class Settings implements Serializable
 	/**
 	 * Node default background color
 	 */
+	@Nullable
 	public Color theNodeBackColor;
 
 	/**
 	 * Node default foreground color
 	 */
+	@Nullable
 	public Color theNodeForeColor;
 
 	// images
@@ -358,11 +367,13 @@ public class Settings implements Serializable
 	/**
 	 * Tree edge default color
 	 */
+	@Nullable
 	public Color theTreeEdgeColor;
 
 	/**
 	 * Tree edge default style
 	 */
+	@Nullable
 	public Integer theTreeEdgeStyle;
 
 	/**
@@ -380,11 +391,13 @@ public class Settings implements Serializable
 	/**
 	 * Edge default color
 	 */
+	@Nullable
 	public Color theEdgeColor;
 
 	/**
 	 * Edge default style
 	 */
+	@Nullable
 	public Integer theEdgeStyle;
 
 	/**
@@ -427,7 +440,7 @@ public class Settings implements Serializable
 	 *
 	 * @param theseProperties properties
 	 */
-	public void load(final Properties theseProperties)
+	public void load(@NonNull final Properties theseProperties)
 	{
 		String thisParam;
 		Color thisColor;

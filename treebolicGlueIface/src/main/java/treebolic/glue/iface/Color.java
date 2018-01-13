@@ -1,5 +1,7 @@
 package treebolic.glue.iface;
 
+import android.support.annotation.NonNull;
+
 /**
  * Glue interface for
  *
@@ -49,6 +51,7 @@ public interface Color<C>
 	 *
 	 * @return brighter color
 	 */
+	@NonNull
 	C makeBrighter();
 
 	/**
@@ -56,5 +59,6 @@ public interface Color<C>
 	 *
 	 * @return darker color
 	 */
+	@NonNull
 	C makeDarker();
 }

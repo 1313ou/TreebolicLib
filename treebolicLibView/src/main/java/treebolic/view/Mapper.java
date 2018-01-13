@@ -1,5 +1,7 @@
 package treebolic.view;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 import treebolic.glue.Point;
 import treebolic.model.INode;
@@ -247,6 +249,7 @@ public class Mapper
 	 * @param thisHeight view height
 	 * @return point in unit circle
 	 */
+	@NonNull
 	public Complex viewToUnitCircle(final int vx, final int vy, final int thisWidth, final int thisHeight)
 	{
 		final Complex p = new Complex(vx, vy);
@@ -272,7 +275,8 @@ public class Mapper
 	 * @param thisNode node
 	 * @return view coordinate of node
 	 */
-	public Point getViewLocation(final INode thisNode)
+	@NonNull
+	public Point getViewLocation(@NonNull final INode thisNode)
 	{
 		final Location thisLocation = thisNode.getLocation();
 		return new Point(xUnitCircleToView(thisLocation.euclidean.center.re) - this.theLeft, yUnitCircleToView(thisLocation.euclidean.center.im) - this.theTop);

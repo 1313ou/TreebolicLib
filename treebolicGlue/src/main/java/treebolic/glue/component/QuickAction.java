@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,6 +91,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Layout inflater
 	 */
+	@Nullable
 	private final LayoutInflater inflater;
 
 	/**
@@ -156,7 +159,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 *
 	 * @param context0 context
 	 */
-	public QuickAction(final Context context0)
+	public QuickAction(@NonNull final Context context0)
 	{
 		this(context0, QuickAction.VERTICAL);
 	}
@@ -167,7 +170,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 * @param context0     context
 	 * @param orientation0 layout orientation, can be vertical or horizontal
 	 */
-	public QuickAction(final Context context0, @SuppressWarnings("SameParameterValue") final int orientation0)
+	public QuickAction(@NonNull final Context context0, @SuppressWarnings("SameParameterValue") final int orientation0)
 	{
 		super(context0);
 
@@ -198,6 +201,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	@SuppressWarnings("WeakerAccess")
 	public void setRootViewId(final int id)
 	{
+		assert this.inflater != null;
 		this.view = this.inflater.inflate(id, null);
 		this.tracks = this.view.findViewById(R.id.tracks);
 		this.arrowDown = this.view.findViewById(R.id.arrow_down);
@@ -225,12 +229,13 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 *
 	 * @param action {@link ActionItem}
 	 */
-	public void addActionItem(final ActionItem action)
+	public void addActionItem(@NonNull final ActionItem action)
 	{
 		this.actionItems.add(action);
 
 		final String title = action.title;
 		final Drawable icon = action.icon;
+		assert this.inflater != null;
 		final View itemView = this.inflater.inflate(this.orientation == QuickAction.HORIZONTAL ? R.layout.popup_horizontal_item : R.layout.popup_vertical_item, null);
 
 		final ImageView img = itemView.findViewById(R.id.iv_icon);
@@ -294,7 +299,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Show quickaction popup. Popup is automatically positioned, on top or bottom of anchor view.
 	 */
-	public void show(final View anchor)
+	public void show(@NonNull final View anchor)
 	{
 		preShow();
 		this.didAction = false;
@@ -314,6 +319,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 		// screen size
 		final Point size = new Point();
+		assert this.windowManager != null;
 		this.windowManager.getDefaultDisplay().getSize(size);
 		final int screenWidth = size.x;
 		final int screenHeight = size.y;
@@ -380,7 +386,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	 * @param x0     x location
 	 * @param y0     y location
 	 */
-	public void show(final View anchor, final float x0, final float y0)
+	public void show(@NonNull final View anchor, final float x0, final float y0)
 	{
 		preShow();
 		this.didAction = false;
@@ -392,6 +398,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 		// screen size
 		final Point size = new Point();
+		assert this.windowManager != null;
 		this.windowManager.getDefaultDisplay().getSize(size);
 		final int screenWidth = size.x;
 

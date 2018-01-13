@@ -1,5 +1,8 @@
 package treebolic.core;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.core.location.Complex;
@@ -91,7 +94,7 @@ public class Transformer
 	 *
 	 * @param thisTransform transform
 	 */
-	public void composeTransform(final HyperTransform thisTransform)
+	public void composeTransform(@NonNull final HyperTransform thisTransform)
 	{
 		this.theTransform = this.theTransform.compose(thisTransform);
 	}
@@ -103,7 +106,7 @@ public class Transformer
 	 *
 	 * @param thisNode node to apply transform to
 	 */
-	public synchronized void transform(final INode thisNode)
+	public synchronized void transform(@NonNull final INode thisNode)
 	{
 		applyTransform(thisNode, new HyperOptimizedTransform(this.theTransform));
 		thisNode.getLocation().hyper.isBorder = false;
@@ -130,7 +133,8 @@ public class Transformer
 	 * @param thisOrientation orientation
 	 * @return transform
 	 */
-	public HyperTransform makeTransform(final Complex from, final Complex to, final Complex thisOrientation)
+	@NonNull
+	public HyperTransform makeTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex thisOrientation)
 	{
 		if (!this.thePreserveOrientationFlag)
 		{
@@ -153,7 +157,7 @@ public class Transformer
 	 * @param thisNode      node to apply transform to
 	 * @param thisTransform transform to apply
 	 */
-	private void applyTransform(final INode thisNode, final IHyperTransform thisTransform)
+	private void applyTransform(@Nullable final INode thisNode, @NonNull final IHyperTransform thisTransform)
 	{
 		if (thisNode == null)
 		{
@@ -179,7 +183,7 @@ public class Transformer
 	 *
 	 * @param thisNode node to apply reset to
 	 */
-	private void applyReset(final INode thisNode)
+	private void applyReset(@Nullable final INode thisNode)
 	{
 		if (thisNode == null)
 		{
@@ -188,9 +192,13 @@ public class Transformer
 
 		thisNode.getLocation().hyper.reset();
 
-		for (final INode thisChild : thisNode.getChildren())
+		final List<INode> theseChildren = thisNode.getChildren();
+		if (theseChildren != null)
 		{
-			applyReset(thisChild);
+			for (final INode thisChild : theseChildren)
+			{
+				applyReset(thisChild);
+			}
 		}
 	}
 
@@ -202,7 +210,7 @@ public class Transformer
 	 * @param t               transform
 	 * @param thisHyperCircle hypercircle
 	 */
-	static private void transform(final IHyperTransform t, final HyperCircle thisHyperCircle)
+	static private void transform(@NonNull final IHyperTransform t, @NonNull final HyperCircle thisHyperCircle)
 	{
 		// map
 		t.map(thisHyperCircle.center.set(thisHyperCircle.center0));

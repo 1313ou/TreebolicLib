@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +33,12 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent parent
-	 * @param thisId id
-	 * @param thisLabel label
+	 * @param thisParent     parent
+	 * @param thisId         id
+	 * @param thisLabel      label
 	 * @param thisImageIndex image index
-	 * @param thisBackColor backcolor
-	 * @param thisForeColor forecolor
+	 * @param thisBackColor  backcolor
+	 * @param thisForeColor  forecolor
 	 */
 	public TreeMutableNode(final INode thisParent, final String thisId, final String thisLabel, final int thisImageIndex, final Color thisBackColor, final Color thisForeColor)
 	{
@@ -47,7 +50,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param thatNode node
 	 */
-	public TreeMutableNode(final INode thatNode)
+	public TreeMutableNode(@NonNull final INode thatNode)
 	{
 		super(null, thatNode.getId());
 		this.theChildren = null;
@@ -98,7 +101,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param thisChild child
 	 */
-	static public void assertNoLink(final INode thisParent, final INode thisChild)
+	static public void assertNoLink(@NonNull final INode thisParent, @NonNull final INode thisChild)
 	{
 		List<INode> theseChildren = thisParent.getChildren();
 		if (theseChildren != null)
@@ -122,7 +125,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param thisChild child
 	 */
-	public void addChild(final INode thisChild)
+	public void addChild(@NonNull final INode thisChild)
 	{
 		// assertNoLink(this, thisChild);
 
@@ -141,7 +144,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param theseChildren children nodes
 	 */
-	public void addChildren(final INode... theseChildren)
+	public void addChildren(@Nullable final INode... theseChildren)
 	{
 		if (theseChildren != null)
 		{
@@ -157,7 +160,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param theseChildren children nodes
 	 */
-	public void addChildren(final List<? extends INode> theseChildren)
+	public void addChildren(@Nullable final List<? extends INode> theseChildren)
 	{
 		if (theseChildren != null)
 		{
@@ -175,7 +178,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param i         ith position
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void insertChild(final INode thisChild, @SuppressWarnings("SameParameterValue") final int i)
+	public void insertChild(@NonNull final INode thisChild, @SuppressWarnings("SameParameterValue") final int i)
 	{
 		List<INode> theseChildren = this.getChildren();
 		if (theseChildren == null)
@@ -192,7 +195,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param thisChild child
 	 */
-	public void prependChild(final INode thisChild)
+	public void prependChild(@NonNull final INode thisChild)
 	{
 		insertChild(thisChild, 0);
 	}
@@ -202,7 +205,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param thisChild child
 	 */
-	static public void removeFromParent(final INode thisChild)
+	static public void removeFromParent(@NonNull final INode thisChild)
 	{
 		remove(thisChild.getParent(), thisChild);
 	}
@@ -214,7 +217,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param thisChild  child
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public void remove(final INode thisParent, final INode thisChild)
+	static public void remove(@Nullable final INode thisParent, @NonNull final INode thisChild)
 	{
 		if (thisParent != null)
 		{

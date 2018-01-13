@@ -1,5 +1,8 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 import treebolic.core.location.EuclideanCircle;
@@ -19,6 +22,7 @@ public class Location implements Serializable
 	/**
 	 * Hyper location
 	 */
+	@NonNull
 	public final HyperCircle hyper;
 
 	// E U C L I D I A N . U N I T C I R C L E
@@ -26,6 +30,7 @@ public class Location implements Serializable
 	/**
 	 * Unit circle location
 	 */
+	@NonNull
 	public final EuclideanCircle euclidean;
 
 	// V I E W D A T A
@@ -33,6 +38,7 @@ public class Location implements Serializable
 	/**
 	 * Opaque view rendering data
 	 */
+	@Nullable
 	public Object theViewData;
 
 	// C O N S T R U C T O R

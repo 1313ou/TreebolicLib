@@ -1,5 +1,7 @@
 package treebolic.glue;
 
+import android.support.annotation.NonNull;
+
 /**
  * Arc2D
  *
@@ -78,6 +80,7 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		return this.width;
 	}
 
+	@NonNull
 	@Override
 	public Point2D getStartPoint()
 	{
@@ -87,6 +90,7 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		return new Point2D(xs, ys);
 	}
 
+	@NonNull
 	@Override
 	public Point2D getEndPoint()
 	{
@@ -97,7 +101,7 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 	}
 
 	@Override
-	public void setAngles(final Point2D from, final Point2D to)
+	public void setAngles(@NonNull final Point2D from, @NonNull final Point2D to)
 	{
 		final double x1 = from.x;
 		final double y1 = from.y;

@@ -1,5 +1,7 @@
 package treebolic.component;
 
+import android.support.annotation.NonNull;
+
 import treebolic.control.Controller;
 import treebolic.glue.ActionListener;
 import treebolic.glue.component.Component;
@@ -35,22 +37,22 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 
 		for (final Button button : toolbar())
 		{
-			ActionListener listener = null;
+			ActionListener listener;
 			final String action = button.name();
 			try
 			{
 				final Controller.Command command = Controller.Command.valueOf(action);
 				listener = makeListener(command);
+				addButton(button, listener);
 			}
 			catch (IllegalArgumentException ignored)
 			{
 				//
 			}
-			addButton(button, listener);
 		}
 	}
 
-	private ActionListener makeListener(final Controller.Command thisCommand)
+	private ActionListener makeListener(@NonNull final Controller.Command thisCommand)
 	{
 		return new ActionListener()
 		{

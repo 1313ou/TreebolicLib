@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -15,5 +17,6 @@ public interface IHyperTransform
 	 * @param z point is hyperbolic space
 	 * @return map z to z' with z'=map(z)
 	 */
+	@NonNull
 	Complex map(Complex z);
 }

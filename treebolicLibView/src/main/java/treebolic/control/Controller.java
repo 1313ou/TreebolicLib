@@ -1,5 +1,8 @@
 package treebolic.control;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.net.URLDecoder;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -17,9 +20,9 @@ import treebolic.model.INode;
 import treebolic.model.MenuItem.Action;
 import treebolic.model.Model;
 import treebolic.model.MountPoint;
-import treebolic.model.Types.SearchCommand;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
+import treebolic.model.Types.SearchCommand;
 import treebolic.view.View;
 
 /**
@@ -34,21 +37,25 @@ public class Controller extends Commander
 	/**
 	 * Connected widget
 	 */
+	@Nullable
 	private Widget theWidget;
 
 	/**
 	 * Connected model
 	 */
+	@Nullable
 	private Model theModel;
 
 	/**
 	 * Connected view
 	 */
+	@Nullable
 	private View theView;
 
 	/**
 	 * Connected layout agent
 	 */
+	@Nullable
 	private AbstractLayerOut theLayerOut;
 
 	// behaviour
@@ -155,18 +162,21 @@ public class Controller extends Commander
 
 	// R E F E R E N C E . F O R . C O M M A N D E R
 
+	@Nullable
 	@Override
 	protected Model getModel()
 	{
 		return this.theModel;
 	}
 
+	@Nullable
 	@Override
 	protected View getView()
 	{
 		return this.theView;
 	}
 
+	@Nullable
 	@Override
 	protected AbstractLayerOut getLayerOut()
 	{
@@ -181,9 +191,10 @@ public class Controller extends Commander
 	 * @param thisEventType   event type
 	 * @param theseParameters event-specific objects
 	 */
-	public void handle(final Event thisEventType, final Object... theseParameters)
+	public void handle(@NonNull final Event thisEventType, final Object... theseParameters)
 	{
 		// System.out.println(thisEventType);
+		assert this.theView != null;
 		switch (thisEventType)
 		{
 			case MOVE:
@@ -276,6 +287,7 @@ public class Controller extends Commander
 				if (thisMountPoint != null)
 				{
 					// mount/umount
+					assert this.theWidget != null;
 					if (thisMountPoint instanceof MountPoint.Mounted)
 					{
 						this.theWidget.umount(thisNode);
@@ -327,7 +339,7 @@ public class Controller extends Commander
 	 * @param thisMatchMode   match mode
 	 * @param thisNode        node
 	 */
-	public void dispatch(final Action thisAction, final String thisLink, final String thisLinkTarget, final String thisMatchTarget, final MatchScope thisMatchScope, final MatchMode thisMatchMode, final INode thisNode)
+	public void dispatch(@NonNull final Action thisAction, final String thisLink, final String thisLinkTarget, final String thisMatchTarget, @Nullable final MatchScope thisMatchScope, @Nullable final MatchMode thisMatchMode, @NonNull final INode thisNode)
 	{
 		switch (thisAction)
 		{
@@ -369,6 +381,7 @@ public class Controller extends Commander
 								.append(String.format(Messages.getString("Controller.status_search_origin"), thisNode.getLabel())); //
 					}
 					thisMessage.append("</div>").append('\n');
+					assert this.theWidget != null;
 					this.theWidget.putStatus(Messages.getString("Controller.status_searching"), thisMessage.toString(), Statusbar.PutType.SEARCH);
 
 					// search: scope, mode, target, [start]
@@ -398,6 +411,7 @@ public class Controller extends Commander
 				break;
 
 			case FOCUS:
+				assert this.theView != null;
 				this.theView.animateToCenter(thisNode, false);
 				break;
 
@@ -410,11 +424,13 @@ public class Controller extends Commander
 		}
 	}
 
-	public String getGotoTarget(final String thisLink, final INode thisNode)
+	@Nullable
+	public String getGotoTarget(@Nullable final String thisLink, @NonNull final INode thisNode)
 	{
 		String thisExpandedLink = null;
 		if (thisLink != null && !thisLink.isEmpty())
 		{
+			assert this.theWidget != null;
 			final String thisEdit = this.theWidget.getTarget();
 			thisExpandedLink = PopupMenu.expandMacro(thisLink, thisEdit, thisNode);
 			thisExpandedLink = Controller.decode(thisExpandedLink);
@@ -422,12 +438,14 @@ public class Controller extends Commander
 		return thisExpandedLink;
 	}
 
-	public String getSearchTarget(final String thisMatchTarget, final INode thisNode)
+	@Nullable
+	public String getSearchTarget(@Nullable final String thisMatchTarget, @NonNull final INode thisNode)
 	{
+		assert this.theWidget != null;
 		final String thisEdit = this.theWidget.getTarget();
 		if (thisMatchTarget == null || thisMatchTarget.isEmpty())
 		{
-			return thisEdit == null || thisEdit.isEmpty() ? null : thisEdit;
+			return /*thisEdit == null ||*/ thisEdit.isEmpty() ? null : thisEdit;
 		}
 		return PopupMenu.expandMacro(thisMatchTarget, thisEdit, thisNode);
 	}
@@ -439,10 +457,11 @@ public class Controller extends Commander
 	 *
 	 * @param thisNode node
 	 */
-	private void putStatus(final INode thisNode)
+	private void putStatus(@NonNull final INode thisNode)
 	{
 		final String thisLabel = Controller.getLabel(thisNode);
 		final String thisContent = Controller.getContent(thisNode);
+		assert this.theWidget != null;
 		this.theWidget.putStatus(thisLabel, thisContent, Statusbar.PutType.INFO);
 	}
 
@@ -451,7 +470,7 @@ public class Controller extends Commander
 	 *
 	 * @param thisNode node
 	 */
-	private void putInfo(final INode thisNode)
+	private void putInfo(@NonNull final INode thisNode)
 	{
 		final String thisLabel = Controller.getLabel(thisNode);
 		final StringBuffer thisBuffer = new StringBuffer();
@@ -459,6 +478,7 @@ public class Controller extends Commander
 		thisBuffer.append(Commander.TOOLTIPHTML ? "<br/>" : "\n");
 		addLink(thisBuffer, thisNode);
 		addMountPoint(thisBuffer, thisNode);
+		assert this.theWidget != null;
 		this.theWidget.putInfo(thisLabel, thisBuffer.toString());
 	}
 
@@ -468,7 +488,8 @@ public class Controller extends Commander
 	 * @param thisNode node
 	 * @return label string
 	 */
-	private static String getLabel(final INode thisNode)
+	@NonNull
+	private static String getLabel(@NonNull final INode thisNode)
 	{
 		// guard against null
 		String thisLabel = thisNode.getLabel();
@@ -510,7 +531,7 @@ public class Controller extends Commander
 	 * @param thisNode node
 	 * @return content string
 	 */
-	static private String getContent(final INode thisNode)
+	static private String getContent(@NonNull final INode thisNode)
 	{
 		final StringBuffer thisBuffer = new StringBuffer();
 
@@ -563,7 +584,7 @@ public class Controller extends Commander
 	 * @param thisBuffer string buffer
 	 * @param thisNode   node
 	 */
-	static private void addLink(final StringBuffer thisBuffer, final INode thisNode)
+	static private void addLink(@NonNull final StringBuffer thisBuffer, @NonNull final INode thisNode)
 	{
 		final String thisLink = thisNode.getLink();
 		if (thisLink != null && !thisLink.isEmpty())
@@ -592,7 +613,7 @@ public class Controller extends Commander
 	 * @param thisBuffer string buffer
 	 * @param thisNode   node
 	 */
-	static private void addMountPoint(final StringBuffer thisBuffer, final INode thisNode)
+	static private void addMountPoint(@NonNull final StringBuffer thisBuffer, @NonNull final INode thisNode)
 	{
 		//
 		final MountPoint thisMountPoint = thisNode.getMountPoint();
@@ -621,6 +642,7 @@ public class Controller extends Commander
 	public void setHasTooltip(final Boolean thisFlag)
 	{
 		super.setHasTooltip(thisFlag);
+		assert this.theView != null;
 		this.theView.setToolTipText(null);
 	}
 
@@ -629,7 +651,7 @@ public class Controller extends Commander
 	 *
 	 * @param thisNode node
 	 */
-	private void putTip(final INode thisNode)
+	private void putTip(@NonNull final INode thisNode)
 	{
 		if (!Commander.hasTooltip)
 		{
@@ -700,15 +722,20 @@ public class Controller extends Commander
 		{
 			thisBuilder.append("</html>");
 		}
+		assert this.theView != null;
 		this.theView.setToolTipText(thisBuilder.toString());
 	}
 
 	// P O P U P
 
 	@SuppressWarnings("WeakerAccess")
-	public void popup(final int x, final int y, final INode thisNode)
+	public void popup(final int x, final int y, @NonNull final INode thisNode)
 	{
-		final PopupMenu thisMenu = PopupMenu.makePopup(getView(), this, this.theWidget.getTarget(), thisNode, this.theModel.theSettings);
+		final View thisView = getView();
+		assert thisView != null;
+		assert this.theWidget != null;
+		assert this.theModel != null;
+		final PopupMenu thisMenu = PopupMenu.makePopup(thisView, this, this.theWidget.getTarget(), thisNode, this.theModel.theSettings);
 		thisMenu.popup(this.theView, x, y);
 	}
 
@@ -720,7 +747,8 @@ public class Controller extends Commander
 	 * @param thisCommand     command
 	 * @param theseParameters parameters (scope, mode, target, [start])
 	 */
-	public INode search(final SearchCommand thisCommand, final Object... theseParameters)
+	@Nullable
+	public INode search(@NonNull final SearchCommand thisCommand, @NonNull final Object... theseParameters)
 	{
 		System.out.print("Search: " + thisCommand);
 		for (Object thisParameter : theseParameters)
@@ -774,8 +802,10 @@ public class Controller extends Commander
 
 	// M A T C H . N O D E
 
+	@Nullable
 	private Traverser theTraverser = null;
 
+	@Nullable
 	private Iterator<INode> theTraversedNodes = null;
 
 	/**
@@ -787,7 +817,7 @@ public class Controller extends Commander
 	 * @param thisNode   start node
 	 * @return next found node
 	 */
-	private INode match(final String thisTarget, final MatchScope thisScope, final MatchMode thisMode, final INode thisNode)
+	private INode match(@NonNull final String thisTarget, final MatchScope thisScope, final MatchMode thisMode, final INode thisNode)
 	{
 		if (this.theTraversedNodes == null)
 		{
@@ -813,7 +843,8 @@ public class Controller extends Commander
 	 * @param thisMode   mode (EQUALS, STARTSWITH, INCLUDES)
 	 * @return next found node
 	 */
-	public INode match(final String thisTarget, final MatchScope thisScope, final MatchMode thisMode)
+	@Nullable
+	public INode match(@NonNull final String thisTarget, final MatchScope thisScope, final MatchMode thisMode)
 	{
 		if (this.theModel == null || this.theModel.theTree == null)
 		{
@@ -854,6 +885,7 @@ public class Controller extends Commander
 		}
 		try
 		{
+			assert this.theTraverser != null;
 			this.theTraverser.terminate();
 		}
 		catch (InterruptedException ignored)
@@ -873,8 +905,11 @@ public class Controller extends Commander
 	 * @param vy at view y position
 	 * @return found node or null
 	 */
+	@Nullable
 	public INode findNode(final int vx, final int vy)
 	{
+		assert this.theView != null;
+		assert this.theModel != null;
 		final Complex thisEuclideanLocation = this.theView.viewToUnitCircle(vx, vy);
 		return Finder.findNodeAt(this.theModel.theTree.getRoot(), thisEuclideanLocation);
 	}
@@ -886,7 +921,7 @@ public class Controller extends Commander
 	 *
 	 * @param thisNodeId node id to get focus
 	 */
-	public void focus(final String thisNodeId)
+	public void focus(@Nullable final String thisNodeId)
 	{
 		if (this.theModel == null || this.theModel.theTree == null)
 		{
@@ -902,10 +937,11 @@ public class Controller extends Commander
 	 * @param thisNode node to get focus
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void focus(final INode thisNode)
+	public void focus(@Nullable final INode thisNode)
 	{
 		if (thisNode != null)
 		{
+			assert this.theView != null;
 			this.theView.animateToCenter(thisNode, false);
 		}
 	}
@@ -924,7 +960,7 @@ public class Controller extends Commander
 		{
 			return URLDecoder.decode(thisString, "UTF8");
 		}
-		catch (final Exception ignored)
+		catch (@NonNull final Exception ignored)
 		{
 			// System.err.println("Can't decode " + thisString + " - " + e);
 		}
@@ -937,7 +973,7 @@ public class Controller extends Commander
 	 * @param thisHref   url string
 	 * @param thisTarget target frame
 	 */
-	public void linkTo(final String thisHref, final String thisTarget)
+	public void linkTo(@Nullable final String thisHref, final String thisTarget)
 	{
 		if (thisHref == null)
 		{
@@ -947,10 +983,12 @@ public class Controller extends Commander
 		// reference hook : find node with identifier
 		if (thisHref.startsWith("#"))
 		{
+			assert this.theModel != null;
 			final String thisBookmark = thisHref.substring(1);
 			final INode thisFocus = Finder.findNodeById(this.theModel.theTree.getRoot(), thisBookmark);
 			if (thisFocus != null)
 			{
+				assert this.theView != null;
 				this.theView.animateToCenter(thisFocus, false);
 				return;
 			}
@@ -960,6 +998,7 @@ public class Controller extends Commander
 		final String thisDecodedLink = Controller.decode(thisHref);
 
 		// status
+		assert this.theWidget != null;
 		this.theWidget.putStatus(Messages.getString("Controller.status_linkto"), "<div class='linking'>" + thisDecodedLink + "</div>", Statusbar.PutType.LINK);
 		this.theWidget.getIContext().status(Messages.getString("Controller.status_linkto") + ' ' + thisDecodedLink);
 
@@ -979,8 +1018,10 @@ public class Controller extends Commander
 	 * @param thisPoint view space coordinate
 	 * @return unit circle coordinate
 	 */
-	public Complex viewToUnitCircle(final Point thisPoint)
+	@NonNull
+	public Complex viewToUnitCircle(@NonNull final Point thisPoint)
 	{
+		assert this.theView != null;
 		return this.theView.viewToUnitCircle(thisPoint.x, thisPoint.y);
 	}
 }

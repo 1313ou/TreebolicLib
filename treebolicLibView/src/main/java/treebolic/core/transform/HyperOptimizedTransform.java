@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -27,16 +29,19 @@ public class HyperOptimizedTransform implements IHyperTransform
 	/**
 	 * Precomputed 1/theta
 	 */
+	@NonNull
 	private final Complex theInverseRot;
 
 	/**
 	 * Precomputed p/theta
 	 */
+	@NonNull
 	private final Complex theXlatOnRot;
 
 	/**
 	 * Precomputed ~p
 	 */
+	@NonNull
 	private final Complex theXlatConj;
 
 	// C O N S T R U C T
@@ -46,7 +51,7 @@ public class HyperOptimizedTransform implements IHyperTransform
 	 *
 	 * @param t transform to optimize
 	 */
-	public HyperOptimizedTransform(final HyperTransform t)
+	public HyperOptimizedTransform(@NonNull final HyperTransform t)
 	{
 		this.theXlatConj = new Complex(t.theXlat).conj();
 		this.theInverseRot = new Complex(t.theRot).onediv();
@@ -56,8 +61,9 @@ public class HyperOptimizedTransform implements IHyperTransform
 	// M A P
 	// map() does hyperbolic motion:
 
+	@NonNull
 	@Override
-	public Complex map(final Complex z)
+	public Complex map(@NonNull final Complex z)
 	{
 		// rigid transformation of the hyperbolic plane
 		// z = (z+pontheta)/(invtheta+z*~p)

@@ -1,5 +1,8 @@
 package treebolic.control;
 
+import android.support.annotation.NonNull;
+
+import java.util.List;
 import java.util.Locale;
 
 import treebolic.model.INode;
@@ -27,6 +30,7 @@ public class Traverser extends Generator<INode>
 		}
 	}
 
+	@NonNull
 	static public Matcher ALLMATCHER = new AllMatcher();
 
 	static abstract public class SelectiveMatcher implements Matcher
@@ -67,7 +71,7 @@ public class Traverser extends Generator<INode>
 		}
 
 		@Override
-		public boolean match(final INode thisNode)
+		public boolean match(@NonNull final INode thisNode)
 		{
 			if (this.theTarget == null || this.theTarget.isEmpty())
 			{
@@ -136,13 +140,13 @@ public class Traverser extends Generator<INode>
 		 * @param thisScope  scope
 		 * @param thisMode   mode
 		 */
-		public NoCaseMatcher(String thisTarget, MatchScope thisScope, MatchMode thisMode)
+		public NoCaseMatcher(@NonNull String thisTarget, MatchScope thisScope, MatchMode thisMode)
 		{
 			super(thisTarget.toLowerCase(Locale.getDefault()), thisScope, thisMode);
 		}
 
 		@Override
-		public boolean match(final INode thisNode)
+		public boolean match(@NonNull final INode thisNode)
 		{
 			if (this.theTarget == null || this.theTarget.isEmpty())
 			{
@@ -233,7 +237,7 @@ public class Traverser extends Generator<INode>
 		traverse(this.theNode);
 	}
 
-	private void traverse(final INode thisNode) throws InterruptedException
+	private void traverse(@NonNull final INode thisNode) throws InterruptedException
 	{
 		// match
 		if (this.theMatcher.match(thisNode))
@@ -242,9 +246,13 @@ public class Traverser extends Generator<INode>
 		}
 
 		// try to match match this node's children
-		for (final INode thisChild : thisNode.getChildren())
+		final List<INode> theseChildren = thisNode.getChildren();
+		if (theseChildren != null)
 		{
-			traverse(thisChild);
+			for (final INode thisChild : thisNode.getChildren())
+			{
+				traverse(thisChild);
+			}
 		}
 	}
 

@@ -1,6 +1,7 @@
 package treebolic.glue;
 
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
 
 /**
  * Rectangle2D
@@ -114,7 +115,7 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 	}
 
 	@Override
-	public boolean intersects(final Rectangle2D rect)
+	public boolean intersects(@NonNull final Rectangle2D rect)
 	{
 		return super.intersects(rect.left, rect.top, rect.right, rect.bottom);
 	}
@@ -130,7 +131,7 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 	public static final int OUT_TOP = 8;
 
 	@Override
-	public int outcode(final Point2D point)
+	public int outcode(@NonNull final Point2D point)
 	{
 		// Determines where the specified coordinates lie with respect to this Rectangle.
 		// This method computes a binary OR of the appropriate mask values indicating, for each side of this Rectangle,

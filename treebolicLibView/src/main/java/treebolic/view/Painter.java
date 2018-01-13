@@ -1,5 +1,8 @@
 package treebolic.view;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import treebolic.core.location.Complex;
@@ -119,7 +122,10 @@ public class Painter extends AbstractPainter
 	public void paintBackground()
 	{
 		// background color
-		this.theGraphics.drawBackgroundColor(this.theBackColor, this.theLeft, this.theTop, this.theWidth, this.theHeight);
+		if (this.theBackColor != null)
+		{
+			this.theGraphics.drawBackgroundColor(this.theBackColor, this.theLeft, this.theTop, this.theWidth, this.theHeight);
+		}
 
 		// background image
 		if (this.theBackgroundImage != null)
@@ -131,7 +137,7 @@ public class Painter extends AbstractPainter
 	// D R A W
 
 	@Override
-	public void paint(final INode thisRoot, final List<IEdge> thisEdgeList)
+	public void paint(final INode thisRoot, @Nullable final List<IEdge> thisEdgeList)
 	{
 		if (this.theZoomFactor != 1F)
 		{
@@ -165,7 +171,7 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisNode starting node
 	 */
-	private void computeTree(final INode thisNode)
+	private void computeTree(@Nullable final INode thisNode)
 	{
 		if (thisNode == null)
 		{
@@ -198,7 +204,7 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisNode starting node
 	 */
-	private void drawTree(final INode thisNode)
+	private void drawTree(@Nullable final INode thisNode)
 	{
 		if (thisNode == null)
 		{
@@ -261,6 +267,7 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node space
 		 */
+		@Nullable
 		public Rectangle2D theSpace;
 
 		/**
@@ -271,6 +278,7 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node label lines
 		 */
+		@Nullable
 		public String[] theLabelLines;
 
 		/**
@@ -296,6 +304,7 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node image
 		 */
+		@Nullable
 		public Image theImage;
 
 		/**
@@ -321,11 +330,13 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node backcolor
 		 */
+		@Nullable
 		public Color theBackColor;
 
 		/**
 		 * Node forecolor
 		 */
+		@Nullable
 		public Color theForeColor;
 
 		/**
@@ -336,6 +347,7 @@ public class Painter extends AbstractPainter
 		/**
 		 * Is mountable
 		 */
+		@Nullable
 		public Boolean isMountable;
 	}
 
@@ -344,7 +356,7 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisNodeData computed node data
 	 */
-	private void drawNode(final NodeData thisNodeData)
+	private void drawNode(@Nullable final NodeData thisNodeData)
 	{
 		if (thisNodeData == null)
 		{
@@ -440,7 +452,7 @@ public class Painter extends AbstractPainter
 	 * @return node data
 	 */
 	@SuppressWarnings({"boxing"})
-	private NodeData computeNodeData(final INode thisNode)
+	private NodeData computeNodeData(@NonNull final INode thisNode)
 	{
 		final NodeData thisNodeData = new NodeData();
 
@@ -487,6 +499,7 @@ public class Painter extends AbstractPainter
 		if (thisNodeData.theImage != null)
 		{
 			// scale down as per hyperbolic distance
+			assert this.theImageDownscaler != null;
 			final int thisImageScaleIndex = Math.min(this.theImageDownscaler.length - 1, (int) Math.round(thisLocation.hyper.dist * this.theImageDownscaler.length));
 			double thisImageScale = this.downscaleImages ? this.theImageDownscaler[thisImageScaleIndex] : 1.F;
 			if (thisImageScale == -1F)
@@ -587,7 +600,7 @@ public class Painter extends AbstractPainter
 	 * @param thisParent from-node
 	 * @param thisNode   to-node
 	 */
-	private void drawTreeEdge(final INode thisParent, final INode thisNode)
+	private void drawTreeEdge(@NonNull final INode thisParent, @NonNull final INode thisNode)
 	{
 		// style
 		final Integer thatStyle = thisNode.getEdgeStyle();
@@ -631,6 +644,7 @@ public class Painter extends AbstractPainter
 		if (thisImage != null)
 		{
 			final Location thisLocation = thisNode.getLocation();
+			assert this.theImageDownscaler != null;
 			final int thisImageScaleIndex = Math.min(this.theImageDownscaler.length - 1, (int) Math.round(thisLocation.hyper.dist * this.theImageDownscaler.length));
 			thisImageScale = this.downscaleImages ? this.theImageDownscaler[thisImageScaleIndex] : 1.F;
 			if (thisImageScale == -1F)
@@ -651,7 +665,7 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisEdge edge
 	 */
-	private void drawNonTreeEdge(final IEdge thisEdge)
+	private void drawNonTreeEdge(@NonNull final IEdge thisEdge)
 	{
 		// style
 		final Integer thatStyle = thisEdge.getStyle();
@@ -735,6 +749,7 @@ public class Painter extends AbstractPainter
 		if (thisImage != null && this.downscaleImages)
 		{
 			// font size
+			assert this.theImageDownscaler != null;
 			final int thisScaleIdx = Math.min(this.theImageDownscaler.length - 1, (int) Math.round(thisToLocation.hyper.dist * this.theImageDownscaler.length));
 			thisImageScale = this.theImageDownscaler[thisScaleIdx];
 			if (thisImageScale == -1F)
@@ -761,7 +776,7 @@ public class Painter extends AbstractPainter
 	 * @param thisToSpace    to-node space
 	 * @param isBorder       true if arc neighbours border
 	 */
-	private void drawEdge(final Complex z1, final Complex z2, final String thisLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
+	private void drawEdge(@NonNull final Complex z1, @NonNull final Complex z2, final String thisLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		if (Painter.STRAIGHT_EDGE_WHILE_MOVING && this.isDragging || !this.arcEdges || (thisStyle & IEdge.LINE) != 0)
 		{
@@ -781,6 +796,7 @@ public class Painter extends AbstractPainter
 	 */
 	private float hyperdistanceToSize(final double thisHyperDistance)
 	{
+		assert this.theFontDownscaler != null;
 		final int thisBucket = Math.min(this.theFontDownscaler.length - 1, (int) Math.round(thisHyperDistance * this.theFontDownscaler.length));
 		return this.theFontSize * this.theFontSizeFactor * this.theFontScaleFactor * this.theFontDownscaler[thisBucket];
 	}
@@ -800,7 +816,7 @@ public class Painter extends AbstractPainter
 	 * @param thisToSpace    to-node space
 	 * @param isBorder       true if arc neighbours border
 	 */
-	private void drawArc(final Complex z1, final Complex z2, final String thatLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
+	private void drawArc(@NonNull final Complex z1, @NonNull final Complex z2, final String thatLabel, @Nullable final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		final Arc thisArc = new Arc(z1, z2);
 
@@ -939,7 +955,7 @@ public class Painter extends AbstractPainter
 	 * @param thisFromAnchor from-anchor
 	 * @param thisToAnchor   to-anchor
 	 */
-	private void drawArc(final Arc2D thisArc2D, final Point2D thisFromAnchor, final Point2D thisToAnchor, final int thisStyle)
+	private void drawArc(@NonNull final Arc2D thisArc2D, final Point2D thisFromAnchor, final Point2D thisToAnchor, final int thisStyle)
 	{
 		final int x = (int) thisArc2D.x;
 		final int y = (int) thisArc2D.y;
@@ -985,7 +1001,8 @@ public class Painter extends AbstractPainter
 	 * @param thisArc arc
 	 * @return arc
 	 */
-	private Arc2D toArc2D(final Arc thisArc)
+	@NonNull
+	private Arc2D toArc2D(@NonNull final Arc thisArc)
 	{
 		final Arc2D thisArc2D = new Arc2D();
 
@@ -1029,7 +1046,7 @@ public class Painter extends AbstractPainter
 	 * @param thisToSpace    to-node-space
 	 * @param isBorder       true if is nearing border
 	 */
-	private void drawLine(final Complex z1, final Complex z2, final String thatLabel, final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
+	private void drawLine(@NonNull final Complex z1, @NonNull final Complex z2, final String thatLabel, @Nullable final Image thisImage, final float thisImageScale, final int thisStyle, final Rectangle2D thisFromSpace, final Rectangle2D thisToSpace, final boolean isBorder)
 	{
 		Point2D thisFrom = new Point2D(xUnitCircleToView(z1.re), yUnitCircleToView(z1.im));
 		Point2D thisTo = new Point2D(xUnitCircleToView(z2.re), yUnitCircleToView(z2.im));
@@ -1088,7 +1105,7 @@ public class Painter extends AbstractPainter
 	 * @param thisFromPoint from-point
 	 * @param thisToPoint   to-point
 	 */
-	private void drawLine(final Point2D thisFromPoint, final Point2D thisToPoint, final int thisStyle)
+	private void drawLine(@NonNull final Point2D thisFromPoint, @NonNull final Point2D thisToPoint, final int thisStyle)
 	{
 		if ((thisStyle & (IEdge.STROKEMASK | IEdge.STROKEWIDTHMASK)) != 0)
 		{
@@ -1157,7 +1174,7 @@ public class Painter extends AbstractPainter
 	 * @param thisWhere       where to put text (centered on this point)
 	 * @param thatOrientation text orientation
 	 */
-	private void drawText(final String thisString, final Point2D thisWhere, final double thatOrientation)
+	private void drawText(@NonNull final String thisString, @NonNull final Point2D thisWhere, final double thatOrientation)
 	{
 		double thisOrientation = thatOrientation;
 
@@ -1196,7 +1213,7 @@ public class Painter extends AbstractPainter
 	 * @param thisFrom   from-point
 	 * @param thisTo     to-point
 	 */
-	private void drawText(final String thisString, final Point2D thisFrom, final Point2D thisTo)
+	private void drawText(@NonNull final String thisString, @NonNull final Point2D thisFrom, @NonNull final Point2D thisTo)
 	{
 		final double x1 = thisFrom.getX();
 		final double y1 = thisFrom.getY();
@@ -1225,7 +1242,7 @@ public class Painter extends AbstractPainter
 	 * @param thisTo     to-point
 	 * @return mangled string or null
 	 */
-	private String mangleString(final String thatString, final Point2D thisFrom, final Point2D thisTo)
+	private String mangleString(final String thatString, @NonNull final Point2D thisFrom, @NonNull final Point2D thisTo)
 	{
 		String thisString = thatString;
 		final double cx = thisTo.getX() - thisFrom.getX();
@@ -1275,7 +1292,7 @@ public class Painter extends AbstractPainter
 	 * @param where          location
 	 * @param thisImageScale image scale
 	 */
-	private void drawImage(final Image thisImage, final Point2D where, final float thisImageScale)
+	private void drawImage(@Nullable final Image thisImage, @NonNull final Point2D where, final float thisImageScale)
 	{
 		if (thisImage != null)
 		{
@@ -1316,7 +1333,7 @@ public class Painter extends AbstractPainter
 	 * @param thisArc2D arc
 	 * @param thisStyle style code
 	 */
-	private void drawEdgeEnds(final Point2D thisFrom, final Point2D thisTo, final Arc2D thisArc2D, final int thisStyle)
+	private void drawEdgeEnds(@NonNull final Point2D thisFrom, @NonNull final Point2D thisTo, @Nullable final Arc2D thisArc2D, final int thisStyle)
 	{
 		if (thisStyle == 0)
 		{
@@ -1564,7 +1581,7 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisNode node
 	 */
-	private void drawSpace(final INode thisNode)
+	private void drawSpace(@NonNull final INode thisNode)
 	{
 		// color
 		Color thisBackColor = thisNode.getBackColor();
@@ -1595,7 +1612,7 @@ public class Painter extends AbstractPainter
 	 * @param r         radius
 	 * @param thisColor color
 	 */
-	private void drawCircle(final double x, final double y, final double r, final Color thisColor)
+	private void drawCircle(final double x, final double y, final double r, @Nullable final Color thisColor)
 	{
 		this.theGraphics.setColor(thisColor);
 		this.theGraphics.drawOval(xUnitCircleToView(x - r), yUnitCircleToView(y - r), wUnitCircleToView(2 * r), hUnitCircleToView(2 * r));
@@ -1623,7 +1640,7 @@ public class Painter extends AbstractPainter
 	 * @param thatStyle   local style
 	 * @return style
 	 */
-	static private int mergeStyles(int thisDefault, final Integer thatStyle)
+	static private int mergeStyles(int thisDefault, @Nullable final Integer thatStyle)
 	{
 		if (thatStyle == null)
 		{
@@ -1673,7 +1690,7 @@ public class Painter extends AbstractPainter
 	 * @param x2 to mpoint
 	 * @return middle
 	 */
-	private static Point2D getMidPoint(final Point2D x1, final Point2D x2)
+	private static Point2D getMidPoint(@NonNull final Point2D x1, @NonNull final Point2D x2)
 	{
 		final double x = (x1.getX() + x2.getX()) / 2.0;
 		final double y = (x1.getY() + x2.getY()) / 2.0;
@@ -1690,7 +1707,7 @@ public class Painter extends AbstractPainter
 	 * @param thisTo   to-point on line
 	 * @return intersection point
 	 */
-	static private Point2D getIntersection(final Rectangle2D thisRect, final Point2D thisFrom, final Point2D thisTo)
+	static private Point2D getIntersection(@Nullable final Rectangle2D thisRect, @NonNull final Point2D thisFrom, @NonNull final Point2D thisTo)
 	{
 		if (!CROP_EDGES)
 		{
@@ -1773,7 +1790,7 @@ public class Painter extends AbstractPainter
 	 * @param thisArc  arc
 	 * @return intersection point
 	 */
-	static private Point2D getIntersection(final Rectangle2D thisRect, final Arc2D thisArc)
+	static private Point2D getIntersection(@Nullable final Rectangle2D thisRect, @NonNull final Arc2D thisArc)
 	{
 		if (!CROP_EDGES)
 		{
@@ -1907,7 +1924,7 @@ public class Painter extends AbstractPainter
 	 * @param thisRect2 rect2
 	 * @return true if nodes' rects intersect
 	 */
-	private static boolean boxesIntersect(final Rectangle2D thisRect1, final Rectangle2D thisRect2)
+	private static boolean boxesIntersect(@Nullable final Rectangle2D thisRect1, @Nullable final Rectangle2D thisRect2)
 	{
 		if (thisRect1 != null && thisRect2 != null)
 		{
@@ -1936,7 +1953,7 @@ public class Painter extends AbstractPainter
 	 * @param thisArc arc
 	 * @return whether the point is on arc
 	 */
-	private static boolean isOnArc(final double dx, final double dy, final Arc2D thisArc)
+	private static boolean isOnArc(final double dx, final double dy, @NonNull final Arc2D thisArc)
 	{
 		final double a = Painter.pointToAngle(dx, dy, thisArc);
 		return thisArc.containsAngle(Math.toDegrees(a));
@@ -1952,7 +1969,7 @@ public class Painter extends AbstractPainter
 	 * @param thisArc arc
 	 * @return computed angle
 	 */
-	private static double pointToAngle(final double dx, final double dy, final Arc2D thisArc)
+	private static double pointToAngle(final double dx, final double dy, @NonNull final Arc2D thisArc)
 	{
 		return Math.atan2(-dy * thisArc.getWidth(), dx * thisArc.getHeight());
 	}
@@ -1965,7 +1982,7 @@ public class Painter extends AbstractPainter
 	 * @param thisNode node
 	 * @return lines
 	 */
-	private String[] makeLabel(final INode thisNode)
+	private String[] makeLabel(@NonNull final INode thisNode)
 	{
 		final String thisLabel = thisNode.toString();
 		if (thisLabel == null || thisLabel.isEmpty())
@@ -1979,7 +1996,9 @@ public class Painter extends AbstractPainter
 		// multiline
 		final String[] result = thisLabel.split("\\n", this.theLabelMaxLines);
 		if (this.theLabelMaxLines > 1 && result.length == this.theLabelMaxLines)
+		{
 			result[result.length - 1] = ELLIPSIS;
+		}
 		return result;
 	}
 
@@ -1994,7 +2013,7 @@ public class Painter extends AbstractPainter
 	 * @param dnode        node space diameter
 	 * @return new text width
 	 */
-	private int ellipsizeLabel(final NodeData thisNodeData, final int dnode)
+	private int ellipsizeLabel(@NonNull final NodeData thisNodeData, final int dnode)
 	{
 		// compute average character width
 		int wunit = this.theGraphics.stringWidth(AVERAGE_CHAR);
@@ -2012,6 +2031,7 @@ public class Painter extends AbstractPainter
 		}
 
 		// truncation
+		assert thisNodeData.theLabelLines != null;
 		int thisLen = thisNodeData.theLabelLines[0].length();
 		if (thisLen > thisNChars)
 		{
@@ -2064,8 +2084,9 @@ public class Painter extends AbstractPainter
 	 * @param thisNodeData node data
 	 * @return label's width
 	 */
-	private int labelWidth(final NodeData thisNodeData)
+	private int labelWidth(@NonNull final NodeData thisNodeData)
 	{
+		assert thisNodeData.theLabelLines != null;
 		int n = thisNodeData.theLabelLines.length;
 		thisNodeData.theLabelLinesW = new int[n];
 		thisNodeData.theLabelLinesW[0] = this.theGraphics.stringWidth(thisNodeData.theLabelLines[0]);
@@ -2093,9 +2114,10 @@ public class Painter extends AbstractPainter
 	 * @param thisNodeData node data
 	 * @return label's height
 	 */
-	private int labelHeight(final NodeData thisNodeData)
+	private int labelHeight(@NonNull final NodeData thisNodeData)
 	{
 		int h = this.theGraphics.getAscent(); // +fm.getDescent();
+		assert thisNodeData.theLabelLines != null;
 		if (thisNodeData.theLabelLines.length > 1)
 		{
 			this.theGraphics.setTextSize(thisNodeData.theTextSize * this.theLabelExtraLineFactor);
@@ -2110,10 +2132,11 @@ public class Painter extends AbstractPainter
 	 *
 	 * @param thisNodeData node data
 	 */
-	private void drawLabel(final NodeData thisNodeData)
+	private void drawLabel(@NonNull final NodeData thisNodeData)
 	{
 		this.theGraphics.setTextSize(thisNodeData.theTextSize);
 		int dx = (thisNodeData.theLabelW - thisNodeData.theLabelLinesW[0]) / 2;
+		assert thisNodeData.theLabelLines != null;
 		this.theGraphics.drawString(thisNodeData.theLabelLines[0], thisNodeData.theLabelX + dx, thisNodeData.theLabelY);
 
 		if (thisNodeData.theLabelLines.length > 1)

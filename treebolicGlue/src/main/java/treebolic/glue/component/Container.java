@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -27,16 +29,19 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	/**
 	 * View
 	 */
+	@Nullable
 	private View view;
 
 	/**
 	 * Toolbar
 	 */
+	@Nullable
 	private View toolbar;
 
 	/**
 	 * Statusbar
 	 */
+	@Nullable
 	private View statusbar;
 
 	/**
@@ -45,7 +50,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	 * @param context context
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected Container(final Context context)
+	protected Container(@NonNull final Context context)
 	{
 		super(context);
 

@@ -1,5 +1,7 @@
 package treebolic.core.location;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.Locale;
 
@@ -83,7 +85,7 @@ public class Complex implements Serializable
 	 *
 	 * @param z copied complex
 	 */
-	public Complex(final Complex z)
+	public Complex(@NonNull final Complex z)
 	{
 		this.re = z.re;
 		this.im = z.im;
@@ -131,7 +133,8 @@ public class Complex implements Serializable
 	 * @param z complex
 	 * @return original complex object, whose value has been set to z
 	 */
-	public Complex set(final Complex z)
+	@NonNull
+	public Complex set(@NonNull final Complex z)
 	{
 		this.re = z.re;
 		this.im = z.im;
@@ -145,6 +148,7 @@ public class Complex implements Serializable
 	 * @param y imaginary part
 	 * @return original complex object, whose value has been set to x,z
 	 */
+	@NonNull
 	@SuppressWarnings("UnusedReturnValue")
 	public Complex set(final double x, final double y)
 	{
@@ -158,6 +162,7 @@ public class Complex implements Serializable
 	 *
 	 * @return original complex object, whose value has been set to 0
 	 */
+	@NonNull
 	@SuppressWarnings("UnusedReturnValue")
 	public Complex reset()
 	{
@@ -174,7 +179,7 @@ public class Complex implements Serializable
 	 * @param z complex
 	 * @return true if this complex z0 is equal to complex z
 	 */
-	public boolean equals(final Complex z)
+	public boolean equals(@NonNull final Complex z)
 	{
 		return this.re == z.re && this.im == z.im;
 	}
@@ -187,7 +192,8 @@ public class Complex implements Serializable
 	 * @param z complex to be added to this complex
 	 * @return this complex, whose value has been set to z0+z
 	 */
-	public Complex add(final Complex z)
+	@NonNull
+	public Complex add(@NonNull final Complex z)
 	{
 		this.re += z.re;
 		this.im += z.im;
@@ -201,8 +207,9 @@ public class Complex implements Serializable
 	 * @param z2 complex
 	 * @return this complex, whose value has been set to z1+z2 and whose original value is not used
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
-	public Complex add(final Complex z1, final Complex z2)
+	public Complex add(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		this.re = z1.re + z2.re;
 		this.im = z1.im + z2.im;
@@ -217,7 +224,8 @@ public class Complex implements Serializable
 	 * @param z complex
 	 * @return this complex, whose value has been set to z0-z
 	 */
-	public Complex sub(final Complex z)
+	@NonNull
+	public Complex sub(@NonNull final Complex z)
 	{
 		this.re -= z.re;
 		this.im -= z.im;
@@ -231,7 +239,8 @@ public class Complex implements Serializable
 	 * @param z2 complex
 	 * @return this complex whose value has been set to z1-z2 and whose original value is not used
 	 */
-	public Complex sub(final Complex z1, final Complex z2)
+	@NonNull
+	public Complex sub(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		this.re = z1.re - z2.re;
 		this.im = z1.im - z2.im;
@@ -245,6 +254,7 @@ public class Complex implements Serializable
 	 *
 	 * @return this complex, whose value has been to the conjugate of this complex
 	 */
+	@NonNull
 	public Complex conj()
 	{
 		this.im = -this.im;
@@ -257,7 +267,8 @@ public class Complex implements Serializable
 	 * @param z complex
 	 * @return this complex, whose value has been set to conjugate of z and whose original value is not used
 	 */
-	public Complex conj(final Complex z)
+	@NonNull
+	public Complex conj(@NonNull final Complex z)
 	{
 		this.re = z.re;
 		this.im = -z.im;
@@ -271,6 +282,7 @@ public class Complex implements Serializable
 	 *
 	 * @return this complex, whose value has been set to the negation of this complex
 	 */
+	@NonNull
 	public Complex neg()
 	{
 		this.re = -this.re;
@@ -284,7 +296,8 @@ public class Complex implements Serializable
 	 * @param z complex
 	 * @return this complex, whose value has been set to the negation of z and whose original value is not used
 	 */
-	public Complex neg(final Complex z)
+	@NonNull
+	public Complex neg(@NonNull final Complex z)
 	{
 		this.re = -z.re;
 		this.im = -z.im;
@@ -299,7 +312,8 @@ public class Complex implements Serializable
 	 * @param z complex
 	 * @return this complex, whose value has been set to the division of this complex by complex z (=z0/z)
 	 */
-	public Complex div(final Complex z)
+	@NonNull
+	public Complex div(@NonNull final Complex z)
 	{
 		final double d = z.re * z.re + z.im * z.im; // (x2.x2 + y2.y2)
 		final double t = (this.re * z.re + this.im * z.im) / d; // (x1.x2 +
@@ -319,7 +333,8 @@ public class Complex implements Serializable
 	 * @param z2 complex
 	 * @return this complex, whose value has been set to the division of z1 by z2 (=z1/z2) and whose original value is not used
 	 */
-	public Complex div(final Complex z1, final Complex z2)
+	@NonNull
+	public Complex div(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		final double d = z2.re * z2.re + z2.im * z2.im;
 		this.re = (z1.re * z2.re + z1.im * z2.im) / d;
@@ -332,6 +347,7 @@ public class Complex implements Serializable
 	 *
 	 * @return this complex, as the result of inverting its original value (=1/z0)
 	 */
+	@NonNull
 	public Complex onediv()
 	{
 		// 1/z
@@ -349,7 +365,8 @@ public class Complex implements Serializable
 	 * @param z multiplier
 	 * @return this complex, whose value has been multiplied by z (=z0.z)
 	 */
-	public Complex mul(final Complex z)
+	@NonNull
+	public Complex mul(@NonNull final Complex z)
 	{
 		final double t = this.re * z.im + this.im * z.re; // x1.y2 + x2.y1
 		this.re = this.re * z.re - this.im * z.im; // x1.x2 - y1.y2
@@ -364,8 +381,9 @@ public class Complex implements Serializable
 	 * @param b complex
 	 * @return this complex as the result of a.b and whose original value not used
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
-	public Complex mul(final Complex a, final Complex b)
+	public Complex mul(@NonNull final Complex a, @NonNull final Complex b)
 	{
 		this.re = a.re * b.re - a.im * b.im;
 		this.im = a.re * b.im + a.im * b.re;
@@ -381,7 +399,8 @@ public class Complex implements Serializable
 	 * @param m multiplicator
 	 * @return this complex, as the result of multiplying z by m
 	 */
-	public Complex multiply(final Complex z, final double m)
+	@NonNull
+	public Complex multiply(@NonNull final Complex z, final double m)
 	{
 		this.im = z.im * m;
 		this.re = z.re * m;
@@ -394,6 +413,7 @@ public class Complex implements Serializable
 	 * @param m multiplicator
 	 * @return this complex, multiplied by m
 	 */
+	@NonNull
 	public Complex multiply(final double m)
 	{
 		this.im *= m;
@@ -408,7 +428,8 @@ public class Complex implements Serializable
 	 * @param d divisor
 	 * @return this complex, as the result of dividing z by d
 	 */
-	public Complex divide(final Complex z, final double d)
+	@NonNull
+	public Complex divide(@NonNull final Complex z, final double d)
 	{
 		this.im = z.im / d;
 		this.re = z.re / d;
@@ -421,6 +442,7 @@ public class Complex implements Serializable
 	 * @param d divisor
 	 * @return this complex, divided by d
 	 */
+	@NonNull
 	public Complex divide(final double d)
 	{
 		this.im /= d;
@@ -473,6 +495,7 @@ public class Complex implements Serializable
 	 *
 	 * @return magnitude 1 complex with same argument
 	 */
+	@NonNull
 	public Complex normalize()
 	{
 		final double r = mag();

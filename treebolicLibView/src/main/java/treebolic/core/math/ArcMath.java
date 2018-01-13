@@ -1,5 +1,7 @@
 package treebolic.core.math;
 
+import android.support.annotation.NonNull;
+
 import treebolic.glue.Arc2D;
 import treebolic.glue.Point2D;
 
@@ -21,7 +23,7 @@ public class ArcMath
 	 * @param thisArc2D arc
 	 * @return eccentricity of arc
 	 */
-	static private double getEccentricity(final Arc2D thisArc2D)
+	static private double getEccentricity(@NonNull final Arc2D thisArc2D)
 	{
 		final double a = thisArc2D.getWidth() / 2.;
 		final double b = thisArc2D.getHeight() / 2.;
@@ -35,7 +37,7 @@ public class ArcMath
 	 * @param thisArc2D arc
 	 * @return point at mid-arc
 	 */
-	public static Point2D getMidArc(final Arc2D thisArc2D)
+	public static Point2D getMidArc(@NonNull final Arc2D thisArc2D)
 	{
 		final double a = thisArc2D.getWidth() / 2.;
 		final double b = thisArc2D.getHeight() / 2.;
@@ -69,7 +71,7 @@ public class ArcMath
 	 * @param thisWhere point on arc
 	 * @return tangent of this arc at given point
 	 */
-	public static double getTextTangent(final Arc2D thisArc2D, final Point2D thisWhere)
+	public static double getTextTangent(@NonNull final Arc2D thisArc2D, @NonNull final Point2D thisWhere)
 	{
 		// center, eccentricity, major axis, minor axis
 		final double x = thisWhere.getX() - thisArc2D.getCenterX();
@@ -106,7 +108,7 @@ public class ArcMath
 	 * @param isStart   whether point is start point
 	 * @return tangent of this arc at given point
 	 */
-	public static double getTangent(final Arc2D thisArc2D, final Point2D thisWhere, final boolean isStart)
+	public static double getTangent(@NonNull final Arc2D thisArc2D, @NonNull final Point2D thisWhere, final boolean isStart)
 	{
 		// angle
 		double thisAngle = ArcMath.getAngleAt(thisArc2D, thisWhere);
@@ -132,7 +134,7 @@ public class ArcMath
 	 * @param thisWhere point on arc
 	 * @return angle (of radius) at given point on this Arc2D
 	 */
-	public static double getCircleAngleAt(final Arc2D thisArc2D, final Point2D thisWhere)
+	public static double getCircleAngleAt(@NonNull final Arc2D thisArc2D, @NonNull final Point2D thisWhere)
 	{
 		// coordinates of point relative to center
 		final double x = thisWhere.getX() - thisArc2D.getCenterX();
@@ -147,7 +149,7 @@ public class ArcMath
 	 * @param thisWhere point on arc where (outgoing) radius orientation is to be computed
 	 * @return (outgoing) radius orientation
 	 */
-	private static double getAngleAt(final Arc2D thisArc2D, final Point2D thisWhere)
+	private static double getAngleAt(@NonNull final Arc2D thisArc2D, @NonNull final Point2D thisWhere)
 	{
 		// eccentricity, this normally doesn't have to be recomputed : it is dependent on surface dimensions
 		final double e = ArcMath.getEccentricity(thisArc2D);

@@ -2,6 +2,7 @@ package treebolic.glue;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
+import android.support.annotation.NonNull;
 import android.view.animation.LinearInterpolator;
 
 /**
@@ -67,7 +68,7 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 
 	@SuppressWarnings("boxing")
 	@Override
-	public void onAnimationUpdate(final ValueAnimator animator)
+	public void onAnimationUpdate(@NonNull final ValueAnimator animator)
 	{
 		int thisStep = (int) animator.getAnimatedValue();
 		this.theListener.onAction(thisStep);

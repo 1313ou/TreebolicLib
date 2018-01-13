@@ -1,5 +1,7 @@
 package treebolic.model;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 import treebolic.glue.Color;
@@ -237,6 +239,7 @@ public interface IEdge extends Serializable
 	 *
 	 * @return edge label
 	 */
+	@Nullable
 	String getLabel();
 
 	/**
@@ -244,6 +247,7 @@ public interface IEdge extends Serializable
 	 *
 	 * @return edge color
 	 */
+	@Nullable
 	Color getColor();
 
 	/**
@@ -251,6 +255,7 @@ public interface IEdge extends Serializable
 	 *
 	 * @return edge style
 	 */
+	@Nullable
 	Integer getStyle();
 
 	/**
@@ -258,6 +263,7 @@ public interface IEdge extends Serializable
 	 *
 	 * @return path to edge image filename
 	 */
+	@Nullable
 	String getImageFile();
 
 	/**
@@ -272,6 +278,7 @@ public interface IEdge extends Serializable
 	 *
 	 * @return edge image
 	 */
+	@Nullable
 	Image getImage();
 
 	/**

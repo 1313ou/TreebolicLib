@@ -1,5 +1,7 @@
 package treebolic.core.math;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -18,7 +20,7 @@ public class Distance
 	 * @param z2 point
 	 * @return Euclidean distance between z1 and z2
 	 */
-	static public double getEuclideanDistance(final Complex z1, final Complex z2)
+	static public double getEuclideanDistance(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		final double dx = z1.re - z2.re;
 		final double dy = z1.im - z2.im;
@@ -32,7 +34,7 @@ public class Distance
 	 * @param z2 point
 	 * @return squared Euclidean distance between z1 and z2
 	 */
-	static public double getEuclideanDistanceSquared(final Complex z1, final Complex z2)
+	static public double getEuclideanDistanceSquared(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		final double dx = z1.re - z2.re;
 		final double dy = z1.im - z2.im;
@@ -48,7 +50,7 @@ public class Distance
 	 * @param z2 point2
 	 * @return Hyperbolic distance between two points
 	 */
-	static public double getHyperDistance(final Complex z1, final Complex z2)
+	static public double getHyperDistance(@NonNull final Complex z1, @NonNull final Complex z2)
 	{
 		// 2*atanh((z1-z2)/(1-z1*~z2));
 		// 2*atanh(z) if distance from 0,0 origin

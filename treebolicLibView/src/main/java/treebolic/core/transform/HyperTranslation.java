@@ -1,5 +1,7 @@
 package treebolic.core.transform;
 
+import android.support.annotation.NonNull;
+
 import treebolic.core.location.Complex;
 
 /**
@@ -35,7 +37,7 @@ public class HyperTranslation extends Complex
 	 *
 	 * @param p cartesian representation of translation as a point (relative to 0,0 origin)
 	 */
-	public HyperTranslation(final Complex p)
+	public HyperTranslation(@NonNull final Complex p)
 	{
 		super(p);
 	}
@@ -58,7 +60,7 @@ public class HyperTranslation extends Complex
 	 * @param to    target point 0,0 is to be translated to
 	 * @param dummy dummy
 	 */
-	public HyperTranslation(final Complex from, final Complex to, @SuppressWarnings("SameParameterValue") final boolean dummy)
+	public HyperTranslation(@NonNull final Complex from, @NonNull final Complex to, @SuppressWarnings("SameParameterValue") final boolean dummy)
 	{
 		// make hyperbolic translation which maps 'from' to 0,0 and 0,0 to 'to'
 		// but this does NOT imply that t(from) = to
@@ -74,7 +76,7 @@ public class HyperTranslation extends Complex
 	 * @param from source point
 	 * @param to   destination point
 	 */
-	public HyperTranslation(final Complex from, final Complex to)
+	public HyperTranslation(@NonNull final Complex from, @NonNull final Complex to)
 	{
 		// make hyperbolic translation which maps 'from' to 'to'
 		// t(from) = to
@@ -112,6 +114,7 @@ public class HyperTranslation extends Complex
 	 *
 	 * @return cartesian representation of translation as point relative to 0,0
 	 */
+	@NonNull
 	public Complex toComplex()
 	{
 		return this;
@@ -126,7 +129,7 @@ public class HyperTranslation extends Complex
 	 * @param p point expressing translation relative to 0,0
 	 * @return this point with mapped values
 	 */
-	static public Complex map(final Complex z, final Complex p)
+	static public Complex map(@NonNull final Complex z, @NonNull final Complex p)
 	{
 		// z = (z*theta+p)/(1+(~p)*z)
 		// = (z*1+p)/(1+(~p)*z)
@@ -146,7 +149,7 @@ public class HyperTranslation extends Complex
 	 * @return this point with mapped values
 	 */
 	@SuppressWarnings("UnusedReturnValue")
-	static public Complex map2(final Complex z, final Complex p1, final Complex p2)
+	static public Complex map2(@NonNull final Complex z, @NonNull final Complex p1, @NonNull final Complex p2)
 	{
 		return HyperTranslation.map(HyperTranslation.map(z, p1), p2);
 	}
@@ -159,7 +162,7 @@ public class HyperTranslation extends Complex
 	 * @return this point with mapped values (by inverse translation)
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public Complex mapinv(final Complex z, final Complex p)
+	static public Complex mapinv(@NonNull final Complex z, @NonNull final Complex p)
 	{
 		final Complex pinv = new Complex(p).neg();
 		final Complex nom = new Complex().add(z, pinv);
@@ -174,7 +177,8 @@ public class HyperTranslation extends Complex
 	 * @param z point to be mapped
 	 * @return this point with mapped values
 	 */
-	public Complex map(final Complex z)
+	@NonNull
+	public Complex map(@NonNull final Complex z)
 	{
 		return HyperTranslation.map(z, this);
 	}
@@ -185,7 +189,8 @@ public class HyperTranslation extends Complex
 	 * @param z point to be mapped
 	 * @return this point with mapped values
 	 */
-	public Complex mapinv(final Complex z)
+	@NonNull
+	public Complex mapinv(@NonNull final Complex z)
 	{
 		return HyperTranslation.mapinv(z, this);
 	}
@@ -197,6 +202,7 @@ public class HyperTranslation extends Complex
 	 *
 	 * @return this translation with inversed values
 	 */
+	@NonNull
 	public HyperTranslation inverse()
 	{
 		neg();
@@ -210,7 +216,8 @@ public class HyperTranslation extends Complex
 	 * @param t2 translation
 	 * @return transform resulting from the composition of 2 translations
 	 */
-	static public HyperTransform compose(final HyperTranslation t1, final HyperTranslation t2)
+	@NonNull
+	static public HyperTransform compose(@NonNull final HyperTranslation t1, @NonNull final HyperTranslation t2)
 	{
 		// t1 is applied first
 		// t1 o t2
@@ -246,6 +253,7 @@ public class HyperTranslation extends Complex
 
 	// S T R I N G
 
+	@NonNull
 	@Override
 	public String toString()
 	{

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialog;
@@ -50,11 +51,13 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	/**
 	 * Header
 	 */
+	@Nullable
 	private String header;
 
 	/**
 	 * Content
 	 */
+	@Nullable
 	private String content;
 
 	/**
@@ -97,7 +100,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	}
 
 	@Override
-	public void onCreate(final Bundle savedInstanceState)
+	public void onCreate(@Nullable final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
@@ -178,7 +181,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 			}
 
 			@Override
-			public boolean shouldOverrideUrlLoading(final WebView view0, final String url)
+			public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 			{
 				if (this.intercept && url != null)
 				{
@@ -191,7 +194,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 
 			@TargetApi(Build.VERSION_CODES.N)
 			@Override
-			public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request)
+			public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
 			{
 				final Uri uri = request.getUrl();
 				if (this.intercept && uri != null)

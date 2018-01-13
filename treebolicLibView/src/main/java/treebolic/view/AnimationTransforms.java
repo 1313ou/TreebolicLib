@@ -1,5 +1,7 @@
 package treebolic.view;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -47,7 +49,7 @@ public class AnimationTransforms
 	 * @param thisOrientation orientation
 	 * @param theseSteps      number of steps
 	 */
-	static public AnimationTransforms make(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation, @SuppressWarnings("SameParameterValue") final int theseSteps)
+	static public AnimationTransforms make(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, @NonNull final Transformer thisTransformer, @NonNull final Complex thisOrientation, @SuppressWarnings("SameParameterValue") final int theseSteps)
 	{
 		final List<HyperTransform> theseTransforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ?
 				AnimationTransforms.makeTransform1(thisFrom, thisTo, thisTransformer, thisOrientation) :
@@ -65,7 +67,7 @@ public class AnimationTransforms
 	 * @param thoseSteps      number of steps
 	 * @return transforms or null
 	 */
-	static private List<HyperTransform> makeTransforms(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation, final int thoseSteps)
+	static private List<HyperTransform> makeTransforms(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, @NonNull final Transformer thisTransformer, @NonNull final Complex thisOrientation, final int thoseSteps)
 	{
 		int theseSteps = thoseSteps;
 		final HyperTransform thisCurrentTransform = thisTransformer.getTransform();
@@ -143,7 +145,8 @@ public class AnimationTransforms
 	 * @param thisOrientation orientation
 	 * @return sequence of one transform
 	 */
-	static private Vector<HyperTransform> makeTransform1(final Complex thisFrom, final Complex thisTo, final Transformer thisTransformer, final Complex thisOrientation)
+	@NonNull
+	static private Vector<HyperTransform> makeTransform1(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, @NonNull final Transformer thisTransformer, @NonNull final Complex thisOrientation)
 	{
 		final HyperTransform thisCurrentTransform = thisTransformer.getTransform();
 

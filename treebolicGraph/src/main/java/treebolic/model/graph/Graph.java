@@ -1,5 +1,8 @@
 package treebolic.model.graph;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -22,12 +25,14 @@ public class Graph
 	/**
 	 * The set of nodes.
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	protected final Set<GraphNode> theNodes;
 
 	/**
 	 * The set of edges
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	protected final Set<GraphEdge> theEdges;
 
@@ -160,10 +165,12 @@ public class Graph
 	 *
 	 * @return A spanning tree of the graph.
 	 */
+	@NonNull
 	public Tree makeSpanningTree()
 	{
 		// root
 		final GraphNode thisRoot = getNodeWithMinimumIncomingDegree();
+		assert thisRoot != null;
 		return makeSpanningTree(thisRoot);
 	}
 
@@ -173,7 +180,8 @@ public class Graph
 	 * @param thisRoot root to start from
 	 * @return spanning tree
 	 */
-	public synchronized Tree makeSpanningTree(final GraphNode thisRoot)
+	@NonNull
+	public synchronized Tree makeSpanningTree(@NonNull final GraphNode thisRoot)
 	{
 		// System.err.println("root " + thisRoot);
 
@@ -200,7 +208,7 @@ public class Graph
 	 * @param thisSpanningTree spanning tree (stub)
 	 * @param thisRoot         starting node
 	 */
-	private void processSpanningTreeDFS(final Graph thisSpanningTree, final GraphNode thisRoot)
+	private void processSpanningTreeDFS(@NonNull final Graph thisSpanningTree, @NonNull final GraphNode thisRoot)
 	{
 		// check all outgoing nodes, whether they are already in the spanning tree or not. If not, add them.
 		for (GraphEdge thisEdge : getTreeEdges(thisRoot))
@@ -257,7 +265,7 @@ public class Graph
 	 * @param thisSpanningTree spanning tree (stub)
 	 * @param thisRoot         starting node
 	 */
-	private void processSpanningTreeBFS(final Graph thisSpanningTree, final GraphNode thisRoot)
+	private void processSpanningTreeBFS(@NonNull final Graph thisSpanningTree, final GraphNode thisRoot)
 	{
 		// bag
 		final Set<GraphNode> thisBag = new HashSet<>();
@@ -327,6 +335,7 @@ public class Graph
 	 *
 	 * @return A node with the minimal incoming degree.
 	 */
+	@Nullable
 	public GraphNode getNodeWithMinimumIncomingDegree()
 	{
 		// the node with the smallest incoming degree so far
@@ -370,6 +379,7 @@ public class Graph
 	 *
 	 * @return A node with the minimal incoming degree.
 	 */
+	@Nullable
 	public List<GraphNode> getNodesWithZeroDegree()
 	{
 		// the nodes with zero incoming degree
@@ -404,6 +414,7 @@ public class Graph
 
 	// S T R I N G
 
+	@NonNull
 	@Override
 	public String toString()
 	{
