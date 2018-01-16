@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lint>
+	<issue id="ViewConstructor">
+		<ignore path="src/main/java/treebolic/Widget.java" />
+		<ignore path="src/main/java/treebolic/component/Progress.java" />
+		<ignore path="src/main/java/treebolic/component/Statusbar.java" />
+		<ignore path="src/main/java/treebolic/component/Toolbar.java" />
+		<ignore path="src/main/java/treebolic/view/View.java" />
+	</issue>
 </lint>

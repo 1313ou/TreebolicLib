@@ -445,7 +445,7 @@ public class Controller extends Commander
 		final String thisEdit = this.theWidget.getTarget();
 		if (thisMatchTarget == null || thisMatchTarget.isEmpty())
 		{
-			return /*thisEdit == null ||*/ thisEdit.isEmpty() ? null : thisEdit;
+			return thisEdit == null || thisEdit.isEmpty() ? null : thisEdit;
 		}
 		return PopupMenu.expandMacro(thisMatchTarget, thisEdit, thisNode);
 	}

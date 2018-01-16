@@ -205,6 +205,7 @@ public class Settings implements Serializable
 	/**
 	 * Font size factor
 	 */
+	@Nullable
 	public Float theFontSizeFactor;
 
 	// downscaling
@@ -345,21 +346,25 @@ public class Settings implements Serializable
 	/**
 	 * Whether labels have borders
 	 */
+	@Nullable
 	public Boolean theBorderFlag;
 
 	/**
 	 * Whether label texts are ellipsized
 	 */
+	@Nullable
 	public Boolean theEllipsizeFlag;
 
 	/**
 	 * Maximum lines in label (default=0: unlimited, 1:'\n' is replaced with space)
 	 */
+	@Nullable
 	public Integer theLabelMaxLines;
 
 	/**
 	 * Label font factor in extra line (not first line)
 	 */
+	@Nullable
 	public Float theLabelExtraLineFactor;
 
 	// T R E E . E D G E S

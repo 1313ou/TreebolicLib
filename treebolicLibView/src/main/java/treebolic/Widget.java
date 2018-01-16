@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 
 import treebolic.component.Progress;
 import treebolic.component.Statusbar;
@@ -250,7 +251,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 	public void init()
 	{
 		// source
-		String thisSource = this.theContext.getParameters().getProperty("source");
+		final Properties theseParameters = this.theContext.getParameters();
+		String thisSource = theseParameters == null ? null : theseParameters.getProperty("source");
 		if (thisSource == null || thisSource.isEmpty())
 		{
 			thisSource = this.theContext.getParameters().getProperty("doc");
@@ -611,7 +613,8 @@ public class Widget extends Container implements IWidget, IProviderContext
 			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_null") + "</div>", Statusbar.PutType.MOUNT);
 
 			// get provider name
-			final String thisProviderName = this.theContext.getParameters().getProperty("provider");
+			final Properties theseParameters = this.theContext.getParameters();
+			final String thisProviderName = theseParameters == null ? null : theseParameters.getProperty("provider");
 			if (thisProviderName == null || thisProviderName.isEmpty())
 			{
 				putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_providername_null") + "</div>", Statusbar.PutType.MOUNT);
@@ -644,6 +647,7 @@ public class Widget extends Container implements IWidget, IProviderContext
         */
 
 		// extract subroot + edges
+		assert thisTree != null;
 		final INode thisMountedRoot = thisTree.getRoot();
 		final List<IEdge> theseMountedEdges = thisTree.getEdges();
 
@@ -1127,7 +1131,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @return target
 	 */
-	@NonNull
+	@Nullable
 	public String getTarget()
 	{
 		return this.theContext.getInput();

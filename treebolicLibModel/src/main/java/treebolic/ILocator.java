@@ -1,6 +1,6 @@
 package treebolic;
 
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.net.URL;
 
@@ -16,7 +16,7 @@ public interface ILocator
 	 *
 	 * @return base url
 	 */
-	@NonNull
+	@Nullable
 	URL getBase();
 
 	/**
@@ -24,6 +24,6 @@ public interface ILocator
 	 *
 	 * @return images base url
 	 */
-	@NonNull
+	@Nullable
 	URL getImagesBase();
 }

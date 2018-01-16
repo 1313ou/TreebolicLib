@@ -1,6 +1,5 @@
 package treebolic.glue.component;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
@@ -32,7 +31,6 @@ import treebolic.glue.iface.ActionListener;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
 public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar<Color, ActionListener>
 {
 	private static final String TAG = "Statusbar";
@@ -112,7 +110,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		 * @param view view
 		 * @return out text
 		 */
-		@NonNull
+		@Nullable
 		String process(final String in, final View view);
 	}
 

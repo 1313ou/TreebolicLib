@@ -1,6 +1,5 @@
 package treebolic.glue.component;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
@@ -26,7 +25,6 @@ import treebolic.glue.ActionListener;
  *
  * @author Bernard Bou
  */
-@SuppressLint("ViewConstructor")
 public class Toolbar extends FrameLayout implements treebolic.glue.iface.component.Toolbar<ActionListener>
 {
 	/**

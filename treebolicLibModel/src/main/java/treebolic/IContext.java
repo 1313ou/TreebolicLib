@@ -1,6 +1,6 @@
 package treebolic;
 
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.Properties;
 
@@ -16,7 +16,7 @@ public interface IContext extends ILocator
 	 *
 	 * @return parameters
 	 */
-	@NonNull
+	@Nullable
 	Properties getParameters();
 
 	/**
@@ -24,7 +24,7 @@ public interface IContext extends ILocator
 	 *
 	 * @return style string (CSS syntax)
 	 */
-	@NonNull
+	@Nullable
 	String getStyle();
 
 	/**
@@ -41,7 +41,7 @@ public interface IContext extends ILocator
 	 *
 	 * @return input
 	 */
-	@NonNull
+	@Nullable
 	String getInput();
 
 	/**

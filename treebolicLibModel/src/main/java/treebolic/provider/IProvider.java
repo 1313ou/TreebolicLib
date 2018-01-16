@@ -1,6 +1,6 @@
 package treebolic.provider;
 
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.net.URL;
 import java.util.Properties;
@@ -46,7 +46,7 @@ public interface IProvider
 	 * @param theseParameters extra parameters
 	 * @return model
 	 */
-	@NonNull
+	@Nullable
 	Model makeModel(String thisSource, URL thisBase, Properties theseParameters);
 
 	/**
@@ -58,6 +58,6 @@ public interface IProvider
 	 * @param checkRecursion  whether immediate recursion is checked (avoid mount-now infinite recursion)
 	 * @return tree
 	 */
-	@NonNull
+	@Nullable
 	Tree makeTree(String thisSource, URL thisBase, Properties theseParameters, @SuppressWarnings("SameParameterValue") boolean checkRecursion);
 }
