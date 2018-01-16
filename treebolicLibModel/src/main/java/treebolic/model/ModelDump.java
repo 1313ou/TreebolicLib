@@ -20,8 +20,12 @@ public class ModelDump
 	 * @param thisModel model
 	 * @return string for model
 	 */
-	static public String toString(@NonNull final Model thisModel)
+	static public String toString(@Nullable final Model thisModel)
 	{
+		if (thisModel == null)
+		{
+			return "null";
+		}
 		return ModelDump.toString(thisModel.theTree) + ModelDump.toString(thisModel.theSettings) + ModelDump.toString(thisModel.theImages);
 	}
 
@@ -32,8 +36,12 @@ public class ModelDump
 	 * @return string for tree
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@NonNull final Tree thisTree)
+	static public String toString(@Nullable final Tree thisTree)
 	{
+		if (thisTree == null)
+		{
+			return "null";
+		}
 		return "NODES\n" + ModelDump.toString(thisTree.getRoot(), 0) + "EDGES\n" + ModelDump.toString(thisTree.getEdges());
 	}
 

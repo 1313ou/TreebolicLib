@@ -26,7 +26,6 @@ android {
 dependencies {
     api project(':treebolicGlue')
     implementation project(':treebolicLibModel')
-
     implementation 'com.android.support:appcompat-v7:27.0.2'
 
     testImplementation 'junit:junit:4.12'
