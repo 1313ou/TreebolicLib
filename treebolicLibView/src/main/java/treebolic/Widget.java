@@ -175,6 +175,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Images base Url
 	 */
+	@Nullable
 	private URL theImageBase;
 
 	/**
