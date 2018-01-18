@@ -4,9 +4,11 @@
 	<style name="TreebolicTheme">
 	</style>
 
+	<!--
 	<style name="TreebolicToolbarTheme" parent="TreebolicTheme">
 		<item name="android:background">?attr/treebolic_toolbar_background</item>
 	</style>
+	-->
 
 	<style name="TreebolicStatusTheme" parent="TreebolicTheme">
 		<item name="android:background">?attr/treebolic_statusbar_background</item>

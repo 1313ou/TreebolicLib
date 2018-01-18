@@ -33,6 +33,30 @@ public class Utils
 		return colors;
 	}
 
+	/*
+	 * Get color from theme
+	 *
+	 * @param context      context
+	 * @param styleId      style id (ex: R.style.MyTheme)
+	 * @param colorAttrIds attr ids (ex: R.attr.editTextColor)
+	 * @return colors
+	 */
+	/*
+	@SuppressWarnings("WeakerAccess")
+	@NonNull
+	static public int[] fetchColorsFromStyle(@NonNull final Context context,  @NonNull int styleId,  @NonNull int... colorAttrIds)
+	{
+		final TypedArray array = context.obtainStyledAttributes(styleId, colorAttrIds);
+		final int[] colors = new int[colorAttrIds.length];
+		for (int i = 0; i < colorAttrIds.length; i++)
+		{
+			colors[i] = array.getColor(i, 0);
+		}
+		array.recycle();
+		return colors;
+	}
+	*/
+
 	@NonNull
 	static public Integer[] fetchColorsNullable(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... attrs)
 	{
@@ -66,7 +90,6 @@ public class Utils
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 	*/
-
 	static public int getColor(@NonNull final Context context, @SuppressWarnings("SameParameterValue") int resId)
 	{
 		final Resources resources = context.getResources();
