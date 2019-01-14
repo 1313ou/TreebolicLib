@@ -2,8 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
 
-    buildToolsVersion "28.0.3"
-
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
