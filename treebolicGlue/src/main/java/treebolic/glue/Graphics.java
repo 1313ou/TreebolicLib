@@ -315,8 +315,8 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	@Override
 	public int stringWidth(@NonNull final String string)
 	{
-		final Rect bounds = new Rect();
-		this.paint.getTextBounds(string, 0, string.length(), bounds);
+		//final Rect bounds = new Rect();
+		//this.paint.getTextBounds(string, 0, string.length(), bounds);
 		return (int) this.paint.measureText(string);
 	}
 

@@ -7,16 +7,16 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlue" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGlueIface" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicGraph" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicIface" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLib" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibModel" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLibView" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicLoadBalancer" />
-            <option value="/mnt/data2/devel/android-treebolic-as/TreebolicLib/treebolicMutable" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/treebolicGlue" />
+            <option value="$PROJECT_DIR$/treebolicGlueIface" />
+            <option value="$PROJECT_DIR$/treebolicGraph" />
+            <option value="$PROJECT_DIR$/treebolicIface" />
+            <option value="$PROJECT_DIR$/treebolicLib" />
+            <option value="$PROJECT_DIR$/treebolicLibModel" />
+            <option value="$PROJECT_DIR$/treebolicLibView" />
+            <option value="$PROJECT_DIR$/treebolicLoadBalancer" />
+            <option value="$PROJECT_DIR$/treebolicMutable" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
