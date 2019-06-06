@@ -268,14 +268,14 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node space
 		 */
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 		@Nullable
 		public Rectangle2D space;
 
 		/**
 		 * Node label box
 		 */
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 		public Rectangle2D box;
 
 		/**
@@ -312,7 +312,7 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node image
 		 */
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 		@Nullable
 		public Image image;
 
@@ -343,14 +343,14 @@ public class Painter extends AbstractPainter
 		/**
 		 * Node backcolor
 		 */
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 		@Nullable
 		public Color backColor;
 
 		/**
 		 * Node forecolor
 		 */
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 		@Nullable
 		public Color foreColor;
 
@@ -604,6 +604,7 @@ public class Painter extends AbstractPainter
 
 		// is mountable
 		final MountPoint mountPoint = node.getMountPoint();
+		//noinspection InstanceofConcreteClass
 		nodeData.isMountable = mountPoint == null ? null : mountPoint instanceof MountPoint.Mounting;
 
 		return nodeData;
@@ -1230,7 +1231,7 @@ public class Painter extends AbstractPainter
 	 * @param from from-point
 	 * @param to   to-point
 	 */
-	private void drawText(@NonNull final String str, @NonNull final Point2D from, @NonNull final Point2D to)
+	private void drawText(@NonNull final String str, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
 	{
 		final double x1 = from.getX();
 		final double y1 = from.getY();
@@ -1259,7 +1260,7 @@ public class Painter extends AbstractPainter
 	 * @param to   to-point
 	 * @return mangled string or null
 	 */
-	private String mangleString(final String str0, @NonNull final Point2D from, @NonNull final Point2D to)
+	private String mangleString(final String str0, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
 	{
 		String str = str0;
 		final double cx = to.getX() - from.getX();
@@ -1707,7 +1708,7 @@ public class Painter extends AbstractPainter
 	 * @param x2 to mpoint
 	 * @return middle
 	 */
-	private static Point2D getMidPoint(@NonNull final Point2D x1, @NonNull final Point2D x2)
+	private static Point2D getMidPoint(@SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D x1, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D x2)
 	{
 		final double x = (x1.getX() + x2.getX()) / 2.0;
 		final double y = (x1.getY() + x2.getY()) / 2.0;
@@ -1724,7 +1725,7 @@ public class Painter extends AbstractPainter
 	 * @param to   to-point on line
 	 * @return intersection point
 	 */
-	static private Point2D getIntersection(@Nullable final Rectangle2D rect, @NonNull final Point2D from, @NonNull final Point2D to)
+	static private Point2D getIntersection(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Rectangle2D rect, @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
 	{
 		if (!CROP_EDGES)
 		{
@@ -1807,7 +1808,7 @@ public class Painter extends AbstractPainter
 	 * @param arc  arc
 	 * @return intersection point
 	 */
-	static private Point2D getIntersection(@Nullable final Rectangle2D rect, @NonNull final Arc2D arc)
+	static private Point2D getIntersection(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Rectangle2D rect, @NonNull final Arc2D arc)
 	{
 		if (!CROP_EDGES)
 		{
@@ -1946,7 +1947,7 @@ public class Painter extends AbstractPainter
 		if (rect1 != null && rect2 != null)
 		{
 			// inflate
-			final Rectangle2D fromRect2 = new Rectangle2D();
+			@SuppressWarnings("TypeMayBeWeakened") final Rectangle2D fromRect2 = new Rectangle2D();
 			fromRect2.setFrame(rect1.getMinX() - 1, rect1.getMinY() - 1, (int) rect1.getWidth() + 2, (int) rect1.getHeight() + 2);
 			final Rectangle2D toRect2 = new Rectangle2D();
 			toRect2.setFrame(rect2.getMinX() - 1, rect2.getMinY() - 1, (int) rect2.getWidth() + 2, (int) rect2.getHeight() + 2);
@@ -1983,7 +1984,7 @@ public class Painter extends AbstractPainter
 	 * @param arc arc
 	 * @return computed angle
 	 */
-	private static double pointToAngle(final double dx, final double dy, @NonNull final Arc2D arc)
+	private static double pointToAngle(final double dx, final double dy, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Arc2D arc)
 	{
 		return Math.atan2(-dy * arc.getWidth(), dx * arc.getHeight());
 	}

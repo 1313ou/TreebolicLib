@@ -25,12 +25,14 @@ public class HyperCircle implements Serializable
 	/**
 	 * Center as computed by initial layout
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final Complex center0;
 
 	/**
 	 * Center as mapped by current transform
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final Complex center;
 

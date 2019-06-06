@@ -29,18 +29,21 @@ public class HyperOptimizedTransform implements IHyperTransform
 	/**
 	 * Precomputed 1/theta
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Complex inverseRot;
 
 	/**
 	 * Precomputed p/theta
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Complex xlatOnRot;
 
 	/**
 	 * Precomputed ~p
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Complex xlatConj;
 

@@ -64,14 +64,14 @@ class NodeData implements Serializable
 	 * Background color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color backColor;
 
 	/**
 	 * Foreground color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color foreColor;
 
 	/**
@@ -100,7 +100,7 @@ class NodeData implements Serializable
 	 * Tree edge color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color edgeColor;
 
 	/**
@@ -184,7 +184,7 @@ class NodeData implements Serializable
 		return this.edgeLabel;
 	}
 
-	public void setEdgeLabel(final String label)
+	public void setEdgeLabel(@Nullable final String label)
 	{
 		this.edgeLabel = label;
 	}
@@ -213,7 +213,7 @@ class NodeData implements Serializable
 		return this.edgeColor;
 	}
 
-	public void setEdgeColor(final Color color)
+	public void setEdgeColor(@Nullable final Color color)
 	{
 		this.edgeColor = color;
 	}
@@ -224,7 +224,7 @@ class NodeData implements Serializable
 		return this.edgeStyle;
 	}
 
-	public void setEdgeStyle(final Integer style)
+	public void setEdgeStyle(@Nullable final Integer style)
 	{
 		this.edgeStyle = style;
 	}
@@ -288,6 +288,7 @@ class XNodeData extends NodeData
 	/**
 	 * Node location
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private transient Location location;
 
 	// images
@@ -295,14 +296,14 @@ class XNodeData extends NodeData
 	 * Node image
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Image image;
 
 	/**
 	 * Tree edge image
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Image edgeImage;
 
 	// weight
@@ -327,7 +328,7 @@ class XNodeData extends NodeData
 	 * MountPoint
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected MountPoint mountPoint;
 
 	// C O N S T R U C T O R
@@ -400,7 +401,7 @@ class XNodeData extends NodeData
 	 *
 	 * @param mountPoint mount point
 	 */
-	public void setMountPoint(final MountPoint mountPoint)
+	public void setMountPoint(@Nullable final MountPoint mountPoint)
 	{
 		this.mountPoint = mountPoint;
 	}
@@ -413,7 +414,7 @@ class XNodeData extends NodeData
 	}
 
 	@SuppressWarnings("WeakerAccess")
-	public void setImage(final Image image)
+	public void setImage(@Nullable final Image image)
 	{
 		this.image = image;
 	}
@@ -424,7 +425,7 @@ class XNodeData extends NodeData
 		return this.edgeImage;
 	}
 
-	public void setEdgeImage(final Image image)
+	public void setEdgeImage(@Nullable final Image image)
 	{
 		this.edgeImage = image;
 	}
@@ -487,7 +488,7 @@ public class Node extends XNodeData implements INode
 	}
 
 	@Override
-	public void setParent(final INode parent)
+	public void setParent(@Nullable final INode parent)
 	{
 		this.parent = parent;
 	}

@@ -58,12 +58,14 @@ public class Arc
 	/**
 	 * from-end
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final Complex from;
 
 	/**
 	 * to-end
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final Complex to;
 

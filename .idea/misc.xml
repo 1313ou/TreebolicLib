@@ -146,6 +146,8 @@
       <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$5 boolean onAction(java.lang.Object... theseParams)" />
       <entry_point TYPE="method" FQNAME="treebolic.component.PopupMenu$6 boolean onAction(java.lang.Object... theseParams)" />
       <entry_point TYPE="method" FQNAME="treebolic.Widget$2 boolean onAction(java.lang.Object... theseParams)" />
+      <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter fontStyle" />
+      <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter foreColor" />
     </entry_points>
     <pattern value="treebolic.core.AbstractLayerOut" />
     <pattern value="treebolic.core.AbstractLayerOut" method="AbstractLayerOut" />
@@ -683,6 +685,7 @@
     <pattern value="treebolic.model.Tree" method="Tree" />
     <pattern value="treebolic.Widget" method="warn" />
     <pattern value="treebolic.model.XNodeData" method="XNodeData" />
+    <pattern value="treebolic.glue.Worker" method="execute" />
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />

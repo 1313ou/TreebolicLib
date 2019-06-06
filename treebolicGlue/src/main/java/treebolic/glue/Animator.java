@@ -22,6 +22,7 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	/**
 	 * Animation listener
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private ActionListener listener;
 
 	/**

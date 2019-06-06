@@ -104,7 +104,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		final MountPoint mountPoint = node.getMountPoint();
 		if (mountPoint != null)
 		{
-			final boolean isMounted = mountPoint instanceof MountPoint.Mounted;
+			@SuppressWarnings("InstanceofConcreteClass") final boolean isMounted = mountPoint instanceof MountPoint.Mounted;
 			popupMenu.addItem(labels[isMounted ? LABEL_UNMOUNT : LABEL_MOUNT], ImageIndices.IMAGE_MOUNT.ordinal(), new ActionListener()
 			{
 				@SuppressWarnings("SameReturnValue")
@@ -256,7 +256,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	 * @return expanded string
 	 */
 	@Nullable
-	static public String expandMacro(@Nullable final String str, @Nullable final String value, @NonNull final INode node)
+	static public String expandMacro(@Nullable final CharSequence str, @Nullable final String value, @NonNull final INode node)
 	{
 		if (str == null)
 		{

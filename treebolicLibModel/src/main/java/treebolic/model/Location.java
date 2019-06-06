@@ -22,6 +22,7 @@ public class Location implements Serializable
 	/**
 	 * Hyper location
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final HyperCircle hyper;
 
@@ -30,6 +31,7 @@ public class Location implements Serializable
 	/**
 	 * Unit circle location
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final EuclideanCircle euclidean;
 

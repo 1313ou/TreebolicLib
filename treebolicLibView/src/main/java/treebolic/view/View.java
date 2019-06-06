@@ -36,6 +36,7 @@ public class View extends Surface
 	/**
 	 * Data model
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Model model;
 
 	// A G E N T S
@@ -43,29 +44,34 @@ public class View extends Surface
 	/**
 	 * Painter
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final AbstractPainter painter;
 
 	/**
 	 * Transformer
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Transformer transformer;
 
 	/**
 	 * Animator
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Animator animator;
 
 	/**
 	 * LayerOut
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private AbstractLayerOut layerOut;
 
 	/**
 	 * Event listener adapter
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private EventListenerAdapter listenerAdapter;
 
 	// G R A P H I C S
@@ -88,6 +94,7 @@ public class View extends Surface
 	/**
 	 * Drawing cache
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private GraphicsCache cache;
 

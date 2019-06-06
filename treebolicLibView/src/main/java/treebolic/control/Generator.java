@@ -57,11 +57,13 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Object to wait on : item available or producer has finished
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private final Condition itemAvailableOrHasFinished = new Condition();
 
 	/**
 	 * Object to wait on : item requested
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private final Condition itemRequested = new Condition();
 
 	private T nextItem;
@@ -128,12 +130,58 @@ public abstract class Generator<T> implements Iterable<T>
 				}
 				return !Generator.this.hasFinished;
 			}
+
+			/**
+			 * Start producer thread
+			 */
+			private void startProducer()
+			{
+				assert Generator.this.producer == null;
+
+				// thread group
+				if (THREAD_GROUP == null)
+				{
+					THREAD_GROUP = new ThreadGroup("generatorfunctions");
+				}
+
+				// new thread definition
+				Generator.this.producer = new Thread(THREAD_GROUP, () -> {
+					try
+					{
+						// wait for request before starting generation
+						Generator.this.itemRequested.await();
+
+						// generate
+						Generator.this.run();
+					}
+					catch (InterruptedException ignored)
+					{
+						// No need to do anything here
+						// Remaining steps in run() will cleanly shut down the thread.
+					}
+					catch (RuntimeException e)
+					{
+						Generator.this.exceptionRaisedByProducer = e;
+					}
+
+					// generation has terminated
+					Generator.this.hasFinished = true;
+
+					// signal finish
+					Generator.this.itemAvailableOrHasFinished.set();
+
+					// System.out.println("FINISHED");
+				});
+
+				// start
+				Generator.this.producer.setDaemon(true);
+				Generator.this.producer.start();
+			}
 		};
 	}
 
 	/**
 	 * Run generator. Each element is generated with a yield
-	 *
 	 */
 	@SuppressWarnings("RedundantThrows")
 	protected abstract void run() throws InterruptedException;
@@ -151,54 +199,6 @@ public abstract class Generator<T> implements Iterable<T>
 		this.nextItemAvailable = true;
 		this.itemAvailableOrHasFinished.set();
 		this.itemRequested.await();
-	}
-
-	/**
-	 * Start producer thread
-	 */
-	private void startProducer()
-	{
-		assert this.producer == null;
-
-		// thread group
-		if (THREAD_GROUP == null)
-		{
-			THREAD_GROUP = new ThreadGroup("generatorfunctions");
-		}
-
-		// new thread definition
-		this.producer = new Thread(THREAD_GROUP, () ->
-		{
-			try
-			{
-				// wait for request before starting generation
-				Generator.this.itemRequested.await();
-
-				// generate
-				Generator.this.run();
-			}
-			catch (InterruptedException ignored)
-			{
-				// No need to do anything here
-				// Remaining steps in run() will cleanly shut down the thread.
-			}
-			catch (RuntimeException e)
-			{
-				Generator.this.exceptionRaisedByProducer = e;
-			}
-
-			// generation has terminated
-			Generator.this.hasFinished = true;
-
-			// signal finish
-			Generator.this.itemAvailableOrHasFinished.set();
-
-			// System.out.println("FINISHED");
-		});
-
-		// start
-		this.producer.setDaemon(true);
-		this.producer.start();
 	}
 
 	@Override

@@ -41,16 +41,19 @@ public class LoadBalancer
 	/**
 	 * Back color of intermediate node
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Color backColor;
 
 	/**
 	 * Fore color of intermediate node
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Color foreColor;
 
 	/**
 	 * Edge color of intermediate node
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Color edgeColor;
 
 	/**
@@ -61,6 +64,7 @@ public class LoadBalancer
 	/**
 	 * Image of intermediate node
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Image image;
 
 	// C O N S T R U C T O R

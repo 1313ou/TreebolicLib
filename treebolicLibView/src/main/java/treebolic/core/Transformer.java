@@ -27,6 +27,7 @@ public class Transformer
 	/**
 	 * Current transform
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private HyperTransform transform;
 
 	/**

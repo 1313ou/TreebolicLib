@@ -15,6 +15,7 @@ public class Tree
 	/**
 	 * Graph
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	public final Graph graph;
 
 	/**

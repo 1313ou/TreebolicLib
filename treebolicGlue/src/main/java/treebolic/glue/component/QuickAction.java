@@ -57,7 +57,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		/**
 		 * Action listener
 		 */
-		@SuppressWarnings("WeakerAccess")
+		@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 		public final ActionListener listener;
 
 		/**

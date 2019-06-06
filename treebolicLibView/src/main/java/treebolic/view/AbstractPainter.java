@@ -87,7 +87,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Cached graphics context
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Graphics graphics;
 
 	// state
@@ -222,42 +222,42 @@ public abstract class AbstractPainter extends Mapper
 	 * Default background color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color backColor;
 
 	/**
 	 * Default foreground color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color foreColor;
 
 	/**
 	 * Default node background color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color nodeBackColor;
 
 	/**
 	 * Default node foreground color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color nodeForeColor;
 
 	/**
 	 * Default tree edge color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color treeEdgeColor;
 
 	/**
 	 * Default edge color
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Color edgeColor;
 
 	// styles
@@ -277,25 +277,25 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Default node image
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	public Image defaultNodeImage;
 
 	/**
 	 * Default tree edge image
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	public Image defaultTreeEdgeImage;
 
 	/**
 	 * Default edge image
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	public Image defaultEdgeImage;
 
 	/**
 	 * Background (tiled) image
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	public Image backgroundImage;
 
 	// C O N S T R U C T O R

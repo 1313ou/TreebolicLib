@@ -15,54 +15,57 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="renames (this, that, the, these)">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_common_1_0_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_common_1_0_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_27_0_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v13_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_2_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_2_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_exposed_instrumentation_api_publish_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_rules_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_0_5.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/ActionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/EventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/PopupAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/PopupAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/PopupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/PopupMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/QuickAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/QuickAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Statusbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Statusbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/TreebolicThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/TreebolicThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/grow_from_bottomright_to_topleft.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/grow_from_bottomright_to_topleft.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/grow_from_topright_to_bottomleft.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/grow_from_topright_to_bottomleft.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/shrink_from_bottomleft_to_topright.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/shrink_from_bottomleft_to_topright.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/shrink_from_topleft_to_bottomright.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/anim/shrink_from_topleft_to_bottomright.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/drawable/quickaction_item_btn.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/drawable/quickaction_item_btn.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout/popup_vertical.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout/popup_vertical.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout/popup_vertical_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout/popup_vertical_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/treebolicGlue.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/treebolicGlue.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/PopupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/PopupMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Progress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Toolbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/treebolicGlueIface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/treebolicGlueIface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/treebolicGraph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/treebolicGraph.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicIface/treebolicIface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/treebolicIface.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/IContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/IContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/Complex.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/Complex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/EuclideanCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/EuclideanCircle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/HyperCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/HyperCircle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Edge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/IEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/IEdge.java" afterDir="false" />
@@ -70,23 +73,15 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MenuItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelDump.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelDump.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Mounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Mounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProviderContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProviderContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/ProviderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/ProviderUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/treebolicLibModel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/treebolicLibModel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/IWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/IWidget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java" afterDir="false" />
@@ -97,14 +92,13 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Finder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Traverser.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Traverser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/Transformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/Transformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/Weigher.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/Weigher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Arc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/MapperToEuclidean.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/MapperToEuclidean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/XMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/XMath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" afterDir="false" />
@@ -115,17 +109,11 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Animation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Mapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/treebolicLibView.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/treebolicLibView.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/src/main/java/treebolic/provider/LoadBalancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/src/main/java/treebolic/provider/LoadBalancer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicMutable/treebolicMutable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/treebolicMutable.iml" afterDir="false" />
     </list>
     <ignored path="./" />
@@ -152,104 +140,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="962" column="55" selection-start-line="962" selection-start-column="55" selection-end-line="962" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="203" column="27" selection-start-line="203" selection-start-column="27" selection-end-line="203" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="1561" column="37" selection-start-line="1561" selection-start-column="37" selection-end-line="1561" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="126" column="62" selection-start-line="126" selection-start-column="62" selection-end-line="126" selection-end-column="62" />
-              <folding>
-                <element signature="e#3674#3675#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="643" column="13" selection-start-line="643" selection-start-column="13" selection-end-line="643" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Finder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="22" column="147" selection-start-line="22" selection-start-column="147" selection-end-line="22" selection-end-column="147" />
-              <folding>
-                <element signature="e#504#531#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -264,6 +155,7 @@
       <find>the[^\s.;,()]</find>
       <find>the[^\s.;,()tmry]</find>
       <find>the[^\s.;,()tmrnys]</find>
+      <find>that</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/treebolicGlue</dir>
@@ -287,34 +179,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java" />
-        <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" />
-        <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java" />
-        <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/TreebolicThread.java" />
-        <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java" />
-        <option value="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java" />
-        <option value="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java" />
-        <option value="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java" />
-        <option value="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java" />
         <option value="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableNode.java" />
         <option value="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java" />
         <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java" />
-        <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" />
         <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java" />
         <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java" />
         <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java" />
-        <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" />
         <option value="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperTransform.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/Weigher.java" />
-        <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java" />
         <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Animation.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRotation.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/IWidget.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Mapper.java" />
@@ -324,25 +198,43 @@
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/Transformer.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Traverser.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/View.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Arc.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Controller.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java" />
         <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Finder.java" />
         <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java" />
-        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" />
         <option value="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Edge.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Node.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Animation.java" />
+        <option value="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Arc.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/HyperCircle.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperTransform.java" />
+        <option value="$PROJECT_DIR$/treebolicLoadBalancer/src/main/java/treebolic/provider/LoadBalancer.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Controller.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java" />
+        <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Mounter.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" />
+        <option value="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java" />
+        <option value="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" />
+        <option value="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Generator.java" />
       </list>
     </option>
   </component>
   <component name="NamedScopeManager">
-    <scope name="source" pattern="(file[treebolicMutable]:src/main/java//*||file[treebolicLibView]:src/main/java//*||file[treebolicLibModel]:src/main/java//*||file[treebolicLib]:src/main//*||file[treebolicIface]:src/main//*||file[treebolicGraph]:src/main//*||file[treebolicGlueIface]:src/main//*||file[treebolicGlue]:src/main//*||file[treebolicGlue]:build.gradle||file[treebolicGlue]:build/generated/source/buildConfig/debug//*||file[treebolicGlue]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlue]:lint.xml||file[treebolicGlueIface]:lint.xml||file[treebolicGlueIface]:build.gradle||file[treebolicGraph]:lint.xml||file[treebolicGraph]:build.gradle||file[treebolicGraph]:build/generated/source/buildConfig/debug//*||file[treebolicGraph]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/debug//*||file[TreebolicLib]:build.gradle||file[TreebolicLib]:gradle.properties||file[TreebolicLib]:local.properties||file[TreebolicLib]:proguard-rules.pro||file[TreebolicLib]:settings.gradle||file[treebolicLib]:build/generated/source/buildConfig/debug//*||file[treebolicLib]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLib]:build.gradle||file[treebolicIface]:build.gradle||file[treebolicLibModel]:build.gradle||file[treebolicLibModel]:src/main//*||file[treebolicLibView]:src/main//*||file[treebolicLibView]:build/generated/source/buildConfig/debug//*||file[treebolicLibView]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicMutable]:src/main//*||file[treebolicLibView]:build.gradle||file[treebolicMutable]:build.gradle||file[treebolicLibView]:lint.xml||file[treebolicMutable]:lint.xml||file[treebolicLoadBalancer]:src/main//*||file[treebolicLoadBalancer]:build.gradle||file[treebolicLoadBalancer]:lint.xml||file[treebolicLoadBalancer]:build/generated/source/buildConfig/debug//*||file[treebolicLoadBalancer]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:lint.xml)&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages.properties&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages_fr.properties" />
+    <scope name="source" pattern="(file[treebolicMutable]:src/main/java//*||file[treebolicLibView]:src/main/java//*||file[treebolicLibModel]:src/main/java//*||file[treebolicLib]:src/main//*||file[treebolicIface]:src/main//*||file[treebolicGraph]:src/main//*||file[treebolicGlueIface]:src/main//*||file[treebolicGlue]:src/main//*||file[treebolicGlue]:build.gradle||file[treebolicGlue]:build/generated/source/buildConfig/debug//*||file[treebolicGlue]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlue]:lint.xml||file[treebolicGlueIface]:lint.xml||file[treebolicGlueIface]:build.gradle||file[treebolicGraph]:lint.xml||file[treebolicGraph]:build.gradle||file[treebolicGraph]:build/generated/source/buildConfig/debug//*||file[treebolicGraph]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/debug//*||file[TreebolicLib]:build.gradle||file[TreebolicLib]:gradle.properties||file[TreebolicLib]:local.properties||file[TreebolicLib]:proguard-rules.pro||file[TreebolicLib]:settings.gradle||file[treebolicLib]:build/generated/source/buildConfig/debug//*||file[treebolicLib]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLib]:build.gradle||file[treebolicIface]:build.gradle||file[treebolicLibModel]:build.gradle||file[treebolicLibModel]:src/main//*||file[treebolicLibView]:src/main//*||file[treebolicLibView]:build/generated/source/buildConfig/debug//*||file[treebolicLibView]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicMutable]:src/main//*||file[treebolicLibView]:build.gradle||file[treebolicMutable]:build.gradle||file[treebolicLibView]:lint.xml||file[treebolicMutable]:lint.xml||file[treebolicLoadBalancer]:src/main//*||file[treebolicLoadBalancer]:build.gradle||file[treebolicLoadBalancer]:lint.xml||file[treebolicLoadBalancer]:build/generated/source/buildConfig/debug//*||file[treebolicLoadBalancer]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:lint.xml)&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages.properties&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages_fr.properties||file[treebolicLib]:lint.xml||file[treebolicIface]:lint.xml" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="51" />
@@ -355,10 +247,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,13 +332,20 @@
       <option name="project" value="LOCAL" />
       <updated>1547459890544</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="renames (this, that, the, these)">
+      <created>1559800870457</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559800870458</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1173" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20197044" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120415986" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -456,7 +355,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Resources Explorer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -465,7 +364,7 @@
       <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32485324" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32485324" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.32876712" />
       <window_info anchor="bottom" id="Android Profiler" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.41682974" />
@@ -485,109 +384,10 @@
     <MESSAGE value="cleanup&#10;fixes result message in Messenger Service" />
     <MESSAGE value="trim build gradle" />
     <MESSAGE value="new build tools" />
-    <option name="LAST_COMMIT_MESSAGE" value="new build tools" />
+    <MESSAGE value="renames (this, that, the, these)" />
+    <option name="LAST_COMMIT_MESSAGE" value="renames (this, that, the, these)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="169" column="33" selection-start-line="169" selection-start-column="33" selection-end-line="169" selection-end-column="33" />
-          <folding>
-            <element signature="e#3820#3821#0" expanded="true" />
-            <element signature="e#3863#3864#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Toolbar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="180" column="56" selection-start-line="180" selection-start-column="56" selection-end-line="180" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/TreebolicThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="231" column="56" selection-start-line="231" selection-start-column="56" selection-end-line="231" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Progress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="108" column="6" lean-forward="true" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
-          <folding>
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1546">
-          <caret line="155" column="40" selection-start-line="155" selection-start-column="40" selection-end-line="155" selection-end-column="40" />
-          <folding>
-            <element signature="e#2236#2237#0" expanded="true" />
-            <element signature="e#2269#2270#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
-          <folding>
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="72" column="42" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -609,31 +409,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="55" column="14" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperTransform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -651,13 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -665,42 +437,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="325" column="80" selection-start-line="325" selection-start-column="80" selection-end-line="325" selection-end-column="80" />
-          <folding>
-            <element signature="e#5039#5040#0" expanded="true" />
-            <element signature="e#5072#5073#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="333" column="56" selection-start-line="333" selection-start-column="56" selection-end-line="333" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="349" column="23" selection-start-line="349" selection-start-column="23" selection-end-line="349" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="188" column="25" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -793,27 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Arc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="110" column="47" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -828,31 +547,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="203" column="27" selection-start-line="203" selection-start-column="27" selection-end-line="203" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="962" column="55" selection-start-line="962" selection-start-column="55" selection-end-line="962" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="643" column="13" selection-start-line="643" selection-start-column="13" selection-end-line="643" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -873,27 +571,302 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java">
+    <entry file="file://$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="1561" column="37" selection-start-line="1561" selection-start-column="37" selection-end-line="1561" selection-end-column="37" />
+        <state relative-caret-position="219">
+          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="426" column="51" selection-start-line="426" selection-start-column="51" selection-end-line="426" selection-end-column="51" />
+          <folding>
+            <element signature="e#2859#2860#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#3222#3223#0" expanded="true" />
+            <element signature="e#3251#3252#0" expanded="true" />
+            <element signature="e#5776#5777#0" expanded="true" />
+            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="e#5966#5967#0" expanded="true" />
+            <element signature="e#5991#5992#0" expanded="true" />
+            <element signature="e#6112#6113#0" expanded="true" />
+            <element signature="e#6141#6142#0" expanded="true" />
+            <element signature="e#7154#7155#0" expanded="true" />
+            <element signature="e#7181#7182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
+          <folding>
+            <element signature="e#1813#1814#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <element signature="e#591#643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Arc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding>
+            <element signature="e#728#780#0" expanded="true" />
+            <element signature="e#788#840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/PopupMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/EventListenerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+          <folding>
+            <element signature="e#1026#1078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/HyperCircle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+          <folding>
+            <element signature="e#638#690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding>
+            <element signature="e#904#956#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperTransform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <folding>
+            <element signature="e#459#511#0" expanded="true" />
+            <element signature="e#611#663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLoadBalancer/src/main/java/treebolic/provider/LoadBalancer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
+          <folding>
+            <element signature="e#927#979#0" expanded="true" />
+            <element signature="e#1054#1106#0" expanded="true" />
+            <element signature="e#1181#1233#0" expanded="true" />
+            <element signature="e#1381#1433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AbstractPainter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="298" column="11" selection-start-line="298" selection-start-column="11" selection-end-line="298" selection-end-column="11" />
+          <folding>
+            <element signature="e#1697#1767#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="623" column="34" selection-start-line="623" selection-start-column="34" selection-end-line="623" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/LayerOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="143" column="44" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="270" column="36" selection-start-line="270" selection-start-column="36" selection-end-line="270" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Mounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="24" column="147" selection-start-line="24" selection-start-column="147" selection-end-line="24" selection-end-column="147" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="126" column="62" selection-start-line="126" selection-start-column="62" selection-end-line="126" selection-end-column="62" />
+        <state relative-caret-position="182">
+          <caret line="258" column="65" selection-start-line="258" selection-start-column="53" selection-end-line="258" selection-end-column="65" />
           <folding>
-            <element signature="e#3674#3675#0" expanded="true" />
+            <element signature="e#2877#2921#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java">
+    <entry file="file:///opt/androidstudio/sdk/sources/android-28/java/lang/CharSequence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+        <state relative-caret-position="377">
+          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="511" column="63" selection-start-line="511" selection-start-column="63" selection-end-line="511" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="151" column="127" selection-start-line="151" selection-start-column="127" selection-end-line="151" selection-end-column="127" />
+          <folding>
+            <element signature="e#823#861#0" expanded="true" />
+            <element signature="e#1886#1924#0" expanded="true" />
+            <element signature="e#4081#4119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1810" column="110" selection-start-line="1810" selection-start-column="110" selection-end-line="1810" selection-end-column="110" />
+          <folding>
+            <element signature="e#44781#44819#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="116" column="56" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="1185" column="63" selection-start-line="1185" selection-start-column="63" selection-end-line="1185" selection-end-column="63" />
+          <folding>
+            <element signature="e#27787#27825#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/AnimationTransforms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="180" column="5" lean-forward="true" selection-start-line="180" selection-start-column="5" selection-end-line="180" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#Generator#0" />
+            <element signature="docComment;class#Condition#0;class#Generator#0" />
+            <element signature="class#Condition#0;class#Generator#0" />
+            <element signature="method#set#0;class#Condition#0;class#Generator#0" />
+            <element signature="method#await#0;class#Condition#0;class#Generator#0" />
+            <element signature="e#984#1047#0" />
+            <element signature="e#1010#1030#1" />
+            <element signature="e#1062#1092#0" />
+            <element signature="docComment;field#itemAvailableOrHasFinished#0;class#Generator#0" />
+            <element signature="docComment;field#itemRequested#0;class#Generator#0" />
+            <element signature="e#1732#1740#0" />
+            <element signature="method#next#0;class#1799:2824" />
+            <element signature="e#1960#2008#1" />
+            <element signature="method#waitForNext#0;class#1799:2824" />
+            <element signature="e#2276#2301#1" />
+            <element signature="e#2342#2368#1" />
+            <element signature="e#2414#2443#1" />
+            <element signature="e#2496#2559#0" />
+            <element signature="e#2605#2652#0" />
+            <element signature="e#2715#2775#1" />
+            <element signature="e#2981#3043#1" />
+            <element signature="e#3115#3706#0" />
+            <element signature="e#3135#3277#0" />
+            <element signature="e#3327#3357#0" />
+            <element signature="e#3463#3519#0" />
+            <element signature="docComment;method#run#0;class#Generator#0" />
+            <element signature="docComment;method#yield#0;class#Generator#0" />
+            <element signature="method#yield#0;class#Generator#0" />
+            <element signature="method#finalize#0;class#Generator#0" />
+            <element signature="docComment;method#terminate#0;class#Generator#0" />
+            <element signature="method#terminate#0;class#Generator#0" />
+            <element signature="e#4580#4766#1" />
+            <element signature="e#4624#4703#1" />
+          </folding>
         </state>
       </provider>
     </entry>

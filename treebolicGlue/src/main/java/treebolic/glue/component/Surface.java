@@ -43,12 +43,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * The thread that actually draws the animation
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private TreebolicThread thread;
 
 	/**
 	 * Touch, gesture, hover event listener
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private EventListener listener;
 

@@ -65,6 +65,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Warn image download fails
 	 */
+	@SuppressWarnings("WeakerAccess")
 	static public final boolean WARNIMAGEFAILS = false;
 
 	/**
@@ -107,6 +108,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Action listener
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private final ActionListener linkActionListener;
 
@@ -115,17 +117,20 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Model
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Model model;
 
 	/**
 	 * View
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private View view;
 
 	/**
 	 * Controller
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Controller controller;
 
@@ -142,12 +147,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Weigher
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Weigher weigher;
 
 	/**
 	 * Provider
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final AbstractLayerOut layerOut;
 
@@ -156,16 +163,19 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Toolbar
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Toolbar toolbar;
 
 	/**
 	 * Status bar
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Statusbar statusbar;
 
 	/**
 	 * Progress
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private final Progress progress;
 
@@ -185,15 +195,19 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Default images
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Image backgroundImage;
 
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Image defaultNodeImage;
 
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Image defaultTreeEdgeImage;
 
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Image defaultEdgeImage;
 
@@ -390,7 +404,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		else
 		{
-			final Worker worker = new InitWorker( //
+			final treebolic.glue.iface.Worker worker = new InitWorker( //
 					() -> {
 						try
 						{
@@ -922,6 +936,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// recurse on mounting node obfuscated by mounted node)
 		final MountPoint mountPoint = node.getMountPoint();
+		//noinspection InstanceofConcreteClass
 		if (mountPoint instanceof MountPoint.Mounted)
 		{
 			final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
@@ -945,7 +960,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @param edgeList edge list
 	 */
-	private void loadImages(@Nullable final List<IEdge> edgeList)
+	private void loadImages(@Nullable final Iterable<IEdge> edgeList)
 	{
 		if (edgeList != null)
 		{
@@ -1168,7 +1183,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public void putInfo(final String header, final String content)
 	{
-		final WebDialog webDialog = new WebDialog();
+		@SuppressWarnings("TypeMayBeWeakened") final WebDialog webDialog = new WebDialog();
 		webDialog.setHandle(this.handle);
 		webDialog.setListener(this.linkActionListener);
 		final String style = this.context.getStyle();

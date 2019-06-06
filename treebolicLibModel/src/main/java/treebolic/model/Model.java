@@ -18,16 +18,19 @@ public class Model implements Serializable
 	/**
 	 * Tree
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	public final Tree tree;
 
 	/**
 	 * Settings
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	public final Settings settings;
 
 	/**
 	 * Images
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public final Image[] images;
 

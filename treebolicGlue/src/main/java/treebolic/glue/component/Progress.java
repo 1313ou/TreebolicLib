@@ -28,6 +28,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	 */
 	static class ProgressHandler extends Handler
 	{
+		@SuppressWarnings("InstanceVariableOfConcreteClass")
 		private final Progress progress;
 
 		@SuppressWarnings("WeakerAccess")

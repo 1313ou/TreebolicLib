@@ -79,7 +79,7 @@ public class Graph
 	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphEdge> getTreeEdges(final GraphNode node)
 	{
-		final Set<GraphEdge> edgeSet = new HashSet<>();
+		final Collection<GraphEdge> edgeSet = new HashSet<>();
 		for (final GraphEdge edge : this.edges)
 		{
 			final Boolean isTreeEdge = edge.getIsTreeEdge();
@@ -105,7 +105,7 @@ public class Graph
 	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphEdge> getNonTreeEdges(final GraphNode node)
 	{
-		final Set<GraphEdge> edgeSet = new HashSet<>();
+		final Collection<GraphEdge> edgeSet = new HashSet<>();
 		for (final GraphEdge edge : this.edges)
 		{
 			final Boolean isTreeEdge = edge.getIsTreeEdge();
@@ -130,7 +130,7 @@ public class Graph
 	@SuppressWarnings("WeakerAccess")
 	public Collection<GraphEdge> getEdges(final GraphNode node)
 	{
-		final Set<GraphEdge> edgeSet = new HashSet<>();
+		final Collection<GraphEdge> edgeSet = new HashSet<>();
 		for (final GraphEdge edge : this.edges)
 		{
 			if (edge.getFrom().equals(node) || edge.getTo().equals(node))
@@ -268,7 +268,7 @@ public class Graph
 	private void processSpanningTreeBFS(@NonNull final Graph spanningTree, final GraphNode root)
 	{
 		// bag
-		final Set<GraphNode> bag = new HashSet<>();
+		final Collection<GraphNode> bag = new HashSet<>();
 		bag.add(root);
 
 		while (!bag.isEmpty())

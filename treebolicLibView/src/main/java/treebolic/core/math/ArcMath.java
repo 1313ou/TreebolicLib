@@ -23,7 +23,7 @@ public class ArcMath
 	 * @param arc2D arc
 	 * @return eccentricity of arc
 	 */
-	static private double getEccentricity(@NonNull final Arc2D arc2D)
+	static private double getEccentricity(@SuppressWarnings("TypeMayBeWeakened") @NonNull final Arc2D arc2D)
 	{
 		final double a = arc2D.getWidth() / 2.;
 		final double b = arc2D.getHeight() / 2.;
@@ -37,7 +37,7 @@ public class ArcMath
 	 * @param arc2D arc
 	 * @return point at mid-arc
 	 */
-	public static Point2D getMidArc(@NonNull final Arc2D arc2D)
+	public static Point2D getMidArc(@SuppressWarnings("TypeMayBeWeakened") @NonNull final Arc2D arc2D)
 	{
 		final double a = arc2D.getWidth() / 2.;
 		final double b = arc2D.getHeight() / 2.;
@@ -71,7 +71,7 @@ public class ArcMath
 	 * @param where point on arc
 	 * @return tangent of this arc at given point
 	 */
-	public static double getTextTangent(@NonNull final Arc2D arc2D, @NonNull final Point2D where)
+	public static double getTextTangent(@NonNull final Arc2D arc2D, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D where)
 	{
 		// center, eccentricity, major axis, minor axis
 		final double x = where.getX() - arc2D.getCenterX();
@@ -149,7 +149,7 @@ public class ArcMath
 	 * @param where point on arc where (outgoing) radius orientation is to be computed
 	 * @return (outgoing) radius orientation
 	 */
-	private static double getAngleAt(@NonNull final Arc2D arc2D, @NonNull final Point2D where)
+	private static double getAngleAt(@NonNull final Arc2D arc2D, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D where)
 	{
 		// eccentricity, this normally doesn't have to be recomputed : it is dependent on surface dimensions
 		final double e = ArcMath.getEccentricity(arc2D);

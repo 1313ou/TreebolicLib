@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -29,7 +30,7 @@ public class ZipSerializer
 		final ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(archive, false));
 		final ZipEntry ze = new ZipEntry(entry);
 		zos.putNextEntry(ze);
-		final ObjectOutputStream oos = new ObjectOutputStream(zos);
+		final ObjectOutput oos = new ObjectOutputStream(zos);
 		oos.writeObject(object);
 		zos.closeEntry();
 		zos.close();

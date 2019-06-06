@@ -21,6 +21,7 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 	/**
 	 * Controller to send action requests to
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private final Controller controller;
 
 	// C O N S T R U C T O R

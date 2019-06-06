@@ -37,24 +37,28 @@ public class Controller extends Commander
 	/**
 	 * Connected widget
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Widget widget;
 
 	/**
 	 * Connected model
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Model model;
 
 	/**
 	 * Connected view
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private View view;
 
 	/**
 	 * Connected layout agent
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private AbstractLayerOut layerOut;
 
@@ -287,6 +291,7 @@ public class Controller extends Commander
 				{
 					// mount/umount
 					assert this.widget != null;
+					//noinspection InstanceofConcreteClass
 					if (mountPoint instanceof MountPoint.Mounted)
 					{
 						this.widget.umount(node);
@@ -615,6 +620,7 @@ public class Controller extends Commander
 	static private void addMountPoint(@NonNull final StringBuffer sb, @NonNull final INode node)
 	{
 		final MountPoint mountPoint = node.getMountPoint();
+		//noinspection InstanceofConcreteClass
 		if (mountPoint instanceof MountPoint.Mounting)
 		{
 			if (Commander.TOOLTIPHTML)
@@ -800,6 +806,7 @@ public class Controller extends Commander
 
 	// M A T C H . N O D E
 
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Traverser traverser = null;
 

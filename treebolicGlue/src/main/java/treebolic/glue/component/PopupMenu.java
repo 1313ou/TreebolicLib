@@ -58,7 +58,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	 * Quick action component
 	 */
 	@NonNull
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	final QuickAction quickAction;
 
 	/**

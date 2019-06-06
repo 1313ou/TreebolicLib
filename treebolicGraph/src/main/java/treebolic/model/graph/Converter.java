@@ -9,7 +9,6 @@ import java.util.List;
 
 import treebolic.model.IEdge;
 import treebolic.model.INode;
-import treebolic.model.MutableEdge;
 import treebolic.model.MutableNode;
 import treebolic.model.Tree;
 import treebolic.model.TreeMutableNode;
@@ -99,7 +98,7 @@ public class Converter<T extends TreeMutableNode>
 			{
 				continue;
 			}
-			final MutableEdge edge = (MutableEdge) graphEdge.getUserData();
+			final IEdge edge = (IEdge) graphEdge.getUserData();
 			if (edges == null)
 			{
 				edges = new ArrayList<>();

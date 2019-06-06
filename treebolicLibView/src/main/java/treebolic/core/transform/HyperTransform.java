@@ -23,11 +23,13 @@ public class HyperTransform implements IHyperTransform
 	/**
 	 * Translation component, with abs(xlat) < 1
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	public HyperTranslation xlat;
 
 	/**
 	 * Rotation component of transform, with abs(rot) == 1
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	public HyperRotation rot;
 
 	// C O N S T R U C T

@@ -18,6 +18,7 @@ public class EuclideanCircle implements Serializable
 	/**
 	 * Center in (Euclidean space) unit circle
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	public final Complex center;
 

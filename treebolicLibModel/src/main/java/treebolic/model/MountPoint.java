@@ -11,6 +11,7 @@ import java.util.List;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("ClassReferencesSubclass")
 public class MountPoint implements Serializable
 {
 	private static final long serialVersionUID = 8846293010235597970L;
@@ -112,6 +113,7 @@ public class MountPoint implements Serializable
 		if (mountPoint != null)
 		{
 			// if mounting mountpoint: mounting -> mounted (down)
+			//noinspection InstanceofConcreteClass
 			if (down && mountPoint instanceof MountPoint.Mounting)
 			{
 				final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
@@ -125,6 +127,7 @@ public class MountPoint implements Serializable
 					if (mountPoint != null)
 					{
 						// mounted mountpoint must be mounted
+						//noinspection InstanceofConcreteClass
 						if (mountPoint instanceof MountPoint.Mounted)
 						{
 							final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
@@ -140,7 +143,8 @@ public class MountPoint implements Serializable
 			}
 
 			// if mounted mountpoint: mounted -> mounting (up)
-			else if (up && mountPoint instanceof MountPoint.Mounted)
+			else //noinspection InstanceofConcreteClass
+				if (up && mountPoint instanceof MountPoint.Mounted)
 			{
 				final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 
@@ -153,6 +157,7 @@ public class MountPoint implements Serializable
 					if (mountPoint != null)
 					{
 						// mounting mountpoint must be mounting
+						//noinspection InstanceofConcreteClass
 						if (mountPoint instanceof MountPoint.Mounting)
 						{
 							final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;

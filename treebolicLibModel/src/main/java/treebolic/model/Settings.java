@@ -172,12 +172,14 @@ public class Settings implements Serializable
 	/**
 	 * Background color
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public Color backColor;
 
 	/**
 	 * Foreground color
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public Color foreColor;
 
@@ -320,12 +322,14 @@ public class Settings implements Serializable
 	/**
 	 * Node default background color
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public Color nodeBackColor;
 
 	/**
 	 * Node default foreground color
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public Color nodeForeColor;
 
@@ -372,6 +376,7 @@ public class Settings implements Serializable
 	/**
 	 * Tree edge default color
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public Color treeEdgeColor;
 
@@ -396,6 +401,7 @@ public class Settings implements Serializable
 	/**
 	 * Edge default color
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	public Color edgeColor;
 

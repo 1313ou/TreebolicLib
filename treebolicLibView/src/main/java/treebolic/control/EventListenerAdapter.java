@@ -21,6 +21,7 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Controller
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private final Controller controller;
 
 	// D R A G A N D D R O P
@@ -60,11 +61,13 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Drag starting point
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private final Complex dragStart = new Complex();
 
 	/**
 	 * Drag end point
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@NonNull
 	private Complex dragEnd = new Complex();
 

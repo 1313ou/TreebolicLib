@@ -26,6 +26,7 @@ public class TreebolicThread extends Thread
 	/**
 	 * Handle to the surface
 	 */
+	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	@Nullable
 	private Surface surface;
 

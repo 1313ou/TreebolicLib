@@ -29,7 +29,7 @@ public class Animation extends ActionListener
 	/**
 	 * View
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	public final View view;
 
 	/**

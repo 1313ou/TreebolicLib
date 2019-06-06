@@ -509,7 +509,7 @@ public class Utils
 	 * @return fill code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToFill(@NonNull final String str)
+	public static int stringToFill(@NonNull final CharSequence str)
 	{
 		if (str.length() > 1 && str.charAt(1) == 'f')
 		{
@@ -544,7 +544,7 @@ public class Utils
 	 * @return shape code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToShape(@NonNull final String str)
+	public static int stringToShape(@NonNull final CharSequence str)
 	{
 		switch (str.charAt(0))
 		{
@@ -717,7 +717,7 @@ public class Utils
 	 * @return prefixless hexadecimal representation of color
 	 */
 	@NonNull
-	static public String colorToString(@Nullable final Color color)
+	static public String colorToString(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Color color)
 	{
 		return color == null ? NONE : Integer.toHexString(color.getRGB()).substring(2);
 	}

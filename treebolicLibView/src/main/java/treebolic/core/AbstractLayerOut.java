@@ -57,7 +57,7 @@ public abstract class AbstractLayerOut
 	/**
 	 * Root orientation
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
 	protected Complex rootOrientation;
 
 	/**

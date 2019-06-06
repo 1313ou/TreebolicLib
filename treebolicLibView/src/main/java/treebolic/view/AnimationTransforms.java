@@ -144,7 +144,7 @@ public class AnimationTransforms
 	 * @return sequence of one transform
 	 */
 	@NonNull
-	static private Vector<HyperTransform> makeTransform1(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex orientation)
+	static private List<HyperTransform> makeTransform1(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex orientation)
 	{
 		final HyperTransform currentTransform = transformer.getTransform();
 
