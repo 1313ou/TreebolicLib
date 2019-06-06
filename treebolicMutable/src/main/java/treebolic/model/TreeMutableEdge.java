@@ -17,26 +17,26 @@ public class TreeMutableEdge extends MutableEdge
 	/**
 	 * Constructor
 	 *
-	 * @param thisFrom from node (may be null)
-	 * @param thisTo   to node (may be null)
+	 * @param fromNode from node (may be null)
+	 * @param toNode   to node (may be null)
 	 */
-	public TreeMutableEdge(final MutableNode thisFrom, final MutableNode thisTo)
+	public TreeMutableEdge(final MutableNode fromNode, final MutableNode toNode)
 	{
-		super(thisFrom, thisTo);
+		super(fromNode, toNode);
 	}
 
 	/**
 	 * Copy constructor (the resulting edge has no node ends)
 	 *
-	 * @param thatEdge edge
+	 * @param edge edge
 	 */
-	public TreeMutableEdge(@NonNull final IEdge thatEdge)
+	public TreeMutableEdge(@NonNull final IEdge edge)
 	{
 		super(null, null);
-		this.theColor = thatEdge.getColor();
-		this.theLabel = thatEdge.getLabel();
-		this.theStyle = thatEdge.getStyle();
-		this.theImageFile = thatEdge.getImageFile();
+		this.color = edge.getColor();
+		this.label = edge.getLabel();
+		this.style = edge.getStyle();
+		this.imageFile = edge.getImageFile();
 	}
 
 	// E N D S
@@ -44,20 +44,20 @@ public class TreeMutableEdge extends MutableEdge
 	/**
 	 * Set from-node (origin)
 	 *
-	 * @param thisFromNode from-node (may be null)
+	 * @param fromNode from-node (may be null)
 	 */
-	public void setFrom(final MutableNode thisFromNode)
+	public void setFrom(final MutableNode fromNode)
 	{
-		this.theFromNode = thisFromNode;
+		this.fromNode = fromNode;
 	}
 
 	/**
 	 * Set to-node (destination)
 	 *
-	 * @param thisToNode to-node (may be null)
+	 * @param toNode to-node (may be null)
 	 */
-	public void setTo(final MutableNode thisToNode)
+	public void setTo(final MutableNode toNode)
 	{
-		this.theToNode = thisToNode;
+		this.toNode = toNode;
 	}
 }

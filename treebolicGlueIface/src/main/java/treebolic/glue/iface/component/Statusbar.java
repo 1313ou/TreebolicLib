@@ -21,9 +21,9 @@ public interface Statusbar<C, L>
 	/**
 	 * Set hyperlink listener
 	 *
-	 * @param thisActionListener listener
+	 * @param actionListener listener
 	 */
-	void setListener(final ActionListener thisActionListener);
+	void setListener(final ActionListener actionListener);
 
 	/**
 	 * Set colors

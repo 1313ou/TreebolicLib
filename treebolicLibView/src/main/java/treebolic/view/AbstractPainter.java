@@ -41,45 +41,45 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Font down scaler
 	 */
-	static private final float FONTSCALE0[] = new float[]{1.F, .9F, .8F, .7F, .6F};
+	static private final float[] FONTSCALE0 = new float[]{1.F, .9F, .8F, .7F, .6F};
 
 	// font
 
 	/**
 	 * Image scaling
 	 */
-	static private final float IMAGESCALE0[] = new float[]{1.F, .9F, .8F, .7F, .6F, .5F, .4F};
+	static private final float[] IMAGESCALE0 = new float[]{1.F, .9F, .8F, .7F, .6F, .5F, .4F};
 
 	// colors
 	/**
 	 * Initial default background color
 	 */
-	static private final Color theBackColor0 = Color.WHITE;
+	static private final Color backColor0 = Color.WHITE;
 
 	/**
 	 * Initial default foreground color
 	 */
-	static private final Color theForeColor0 = Color.BLACK;
+	static private final Color foreColor0 = Color.BLACK;
 
 	/**
 	 * Initial default node background color
 	 */
-	static private final Color theNodeBackColor0 = Color.WHITE;
+	static private final Color nodeBackColor0 = Color.WHITE;
 
 	/**
 	 * Initial default node foreground color
 	 */
-	static private final Color theNodeForeColor0 = Color.BLACK;
+	static private final Color nodeForeColor0 = Color.BLACK;
 
 	/**
 	 * Initial default tree edge color
 	 */
-	static private final Color theTreeEdgeColor0 = Color.GRAY;
+	static private final Color treeEdgeColor0 = Color.GRAY;
 
 	/**
 	 * Initial default tree edge color
 	 */
-	static private final Color theEdgeColor0 = Color.DARK_GRAY;
+	static private final Color edgeColor0 = Color.DARK_GRAY;
 
 	// D A T A
 
@@ -88,7 +88,7 @@ public abstract class AbstractPainter extends Mapper
 	 * Cached graphics context
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected Graphics theGraphics;
+	protected Graphics graphics;
 
 	// state
 
@@ -123,13 +123,13 @@ public abstract class AbstractPainter extends Mapper
 	 * Label max lines
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theLabelMaxLines = 0;
+	protected int labelMaxLines = 0;
 
 	/**
 	 * Label extra line (excluding first) factor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theLabelExtraLineFactor = .6F;
+	protected float labelExtraLineFactor = .6F;
 
 	// scaling
 
@@ -137,19 +137,19 @@ public abstract class AbstractPainter extends Mapper
 	 * Zoom
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theZoomFactor;
+	protected float zoomFactor;
 
 	/**
 	 * Zoom pivot X
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theZoomPivotX;
+	protected float zoomPivotX;
 
 	/**
 	 * Zoom pivot Y
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theZoomPivotY;
+	protected float zoomPivotY;
 
 	// scaling
 
@@ -157,39 +157,39 @@ public abstract class AbstractPainter extends Mapper
 	 * Image scaling
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theImageScaleFactor;
+	protected float imageScaleFactor;
 
 	/**
 	 * Downscale images
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected boolean downscaleImages = true;
+	protected boolean downscaleImages;
 
 	/**
 	 * Image down scaler
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected float theImageDownscaler[];
+	protected float[] imageDownscaler;
 
 	/**
 	 * Font scaling
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theFontScaleFactor;
+	protected float fontScaleFactor;
 
 	/**
 	 * Downscale fonts
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected boolean downscaleFonts = true;
+	protected boolean downscaleFonts;
 
 	/**
 	 * Font down scaler
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected float theFontDownscaler[];
+	protected float[] fontDownscaler;
 
 	// fonts
 
@@ -197,25 +197,25 @@ public abstract class AbstractPainter extends Mapper
 	 * Base font face
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected String theFontFace;
+	protected String fontFace;
 
 	/**
 	 * Base font style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theFontStyle;
+	protected int fontStyle;
 
 	/**
 	 * Base font size
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theFontSize;
+	protected int fontSize;
 
 	/**
 	 * Base font size factor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theFontSizeFactor;
+	protected float fontSizeFactor;
 
 	// colors
 	/**
@@ -223,80 +223,80 @@ public abstract class AbstractPainter extends Mapper
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theBackColor;
+	protected Color backColor;
 
 	/**
 	 * Default foreground color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theForeColor;
+	protected Color foreColor;
 
 	/**
 	 * Default node background color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theNodeBackColor;
+	protected Color nodeBackColor;
 
 	/**
 	 * Default node foreground color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theNodeForeColor;
+	protected Color nodeForeColor;
 
 	/**
 	 * Default tree edge color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theTreeEdgeColor;
+	protected Color treeEdgeColor;
 
 	/**
 	 * Default edge color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theEdgeColor;
+	protected Color edgeColor;
 
 	// styles
 	/**
 	 * Default tree edge style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theTreeEdgeStyle;
+	protected int treeEdgeStyle;
 
 	/**
 	 * Default edge style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theEdgeStyle;
+	protected int edgeStyle;
 
 	// images
 	/**
 	 * Default node image
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Image theDefaultNodeImage;
+	public Image defaultNodeImage;
 
 	/**
 	 * Default tree edge image
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Image theDefaultTreeEdgeImage;
+	public Image defaultTreeEdgeImage;
 
 	/**
 	 * Default edge image
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Image theDefaultEdgeImage;
+	public Image defaultEdgeImage;
 
 	/**
 	 * Background (tiled) image
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Image theBackgroundImage;
+	public Image backgroundImage;
 
 	// C O N S T R U C T O R
 
@@ -305,17 +305,17 @@ public abstract class AbstractPainter extends Mapper
 	 */
 	public AbstractPainter()
 	{
-		this.theZoomFactor = 1F;
-		this.theZoomPivotX = 0F;
-		this.theZoomPivotY = 0F;
+		this.zoomFactor = 1F;
+		this.zoomPivotX = 0F;
+		this.zoomPivotY = 0F;
 
-		this.theFontScaleFactor = 1F;
+		this.fontScaleFactor = 1F;
 		this.downscaleFonts = true;
-		this.theFontDownscaler = AbstractPainter.FONTSCALE0;
+		this.fontDownscaler = AbstractPainter.FONTSCALE0;
 
-		this.theImageScaleFactor = 1F;
+		this.imageScaleFactor = 1F;
 		this.downscaleImages = true;
-		this.theImageDownscaler = AbstractPainter.IMAGESCALE0;
+		this.imageDownscaler = AbstractPainter.IMAGESCALE0;
 	}
 
 	// P A I N T
@@ -328,33 +328,33 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Paint
 	 *
-	 * @param thisRoot     starting node
-	 * @param thisEdgeList edges
+	 * @param root     starting node
+	 * @param edgeList edges
 	 */
-	public abstract void paint(INode thisRoot, List<IEdge> thisEdgeList);
+	public abstract void paint(INode root, List<IEdge> edgeList);
 
 	// S E T U P
 
 	/**
 	 * Set up graphics context for the painter to work on
 	 *
-	 * @param thisGraphics graphics context to work on
-	 * @param thisWidth    width of the graphics context
-	 * @param thisHeight   height of the graphics context
+	 * @param graphics graphics context to work on
+	 * @param width    width of the graphics context
+	 * @param height   height of the graphics context
 	 */
-	public void setup(final Graphics thisGraphics, final int thisWidth, final int thisHeight)
+	public void setup(final Graphics graphics, final int width, final int height)
 	{
-		this.theGraphics = thisGraphics;
-		this.theWidth = thisWidth;
-		this.theHeight = thisHeight;
-		this.theTop = -thisHeight / 2;
-		this.theLeft = -thisWidth / 2;
+		this.graphics = graphics;
+		this.width = width;
+		this.height = height;
+		this.top = -height / 2;
+		this.left = -width / 2;
 
 		// translation
-		this.theGraphics.translate(-this.theLeft, -this.theTop);
+		this.graphics.translate(-this.left, -this.top);
 
 		// font
-		this.theGraphics.setFont(this.theFontFace, this.theFontStyle);
+		this.graphics.setFont(this.fontFace, this.fontStyle);
 
 		// scale
 		computeScale();
@@ -365,21 +365,21 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set images scaling
 	 *
-	 * @param thisScaleImagesFlag whether to scale images
-	 * @param thisScaler          array of float to act as down scaler (as we move away from center)
+	 * @param scaleImagesFlag whether to scale images
+	 * @param scaler          array of float to act as down scaler (as we move away from center)
 	 */
-	public void setImageScaling(@Nullable final Boolean thisScaleImagesFlag, @Nullable final float[] thisScaler)
+	public void setImageScaling(@Nullable final Boolean scaleImagesFlag, @Nullable final float[] scaler)
 	{
 		// whether to scale images
-		if (thisScaleImagesFlag != null)
+		if (scaleImagesFlag != null)
 		{
-			this.downscaleImages = thisScaleImagesFlag;
+			this.downscaleImages = scaleImagesFlag;
 		}
 
 		// scaling factors
-		if (thisScaler != null)
+		if (scaler != null)
 		{
-			this.theImageDownscaler = thisScaler;
+			this.imageDownscaler = scaler;
 		}
 	}
 
@@ -388,29 +388,29 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set font
 	 *
-	 * @param thisFontFace          font
-	 * @param thisFontSize          font size
-	 * @param thisFontSizeFactor    font size factor
-	 * @param thisDownscaleFontFlag downscale images flag
-	 * @param thisFontDownscaler    arrays of factors to apply to font size (moving away from center)
+	 * @param fontFace          font
+	 * @param fontSize          font size
+	 * @param fontSizeFactor    font size factor
+	 * @param downscaleFontFlag downscale images flag
+	 * @param fontDownscaler    arrays of factors to apply to font size (moving away from center)
 	 */
-	public void setFont(@Nullable final String thisFontFace, @Nullable final Integer thisFontSize, @Nullable final Float thisFontSizeFactor, @Nullable final Boolean thisDownscaleFontFlag, @Nullable final float[] thisFontDownscaler)
+	public void setFont(@Nullable final String fontFace, @Nullable final Integer fontSize, @Nullable final Float fontSizeFactor, @Nullable final Boolean downscaleFontFlag, @Nullable final float[] fontDownscaler)
 	{
 		// face
-		this.theFontFace = thisFontFace == null ? "SansSerif" : thisFontFace;
+		this.fontFace = fontFace == null ? "SansSerif" : fontFace;
 
 		// size
-		this.theFontSize = thisFontSize == null ? AbstractPainter.FONT_DEFAULT_SIZE : thisFontSize;
-		this.theFontSizeFactor = thisFontSizeFactor == null ? 1F : thisFontSizeFactor;
+		this.fontSize = fontSize == null ? AbstractPainter.FONT_DEFAULT_SIZE : fontSize;
+		this.fontSizeFactor = fontSizeFactor == null ? 1F : fontSizeFactor;
 
 		// downscaling
-		this.downscaleFonts = thisDownscaleFontFlag == null ? AbstractPainter.DOWNSCALEFONTS0 : thisDownscaleFontFlag;
+		this.downscaleFonts = downscaleFontFlag == null ? AbstractPainter.DOWNSCALEFONTS0 : downscaleFontFlag;
 
 		// downscaler
-		this.theFontDownscaler = this.downscaleFonts ? AbstractPainter.FONTSCALE0 : AbstractPainter.SCALENONE;
-		if (this.downscaleFonts && thisFontDownscaler != null)
+		this.fontDownscaler = this.downscaleFonts ? AbstractPainter.FONTSCALE0 : AbstractPainter.SCALENONE;
+		if (this.downscaleFonts && fontDownscaler != null)
 		{
-			this.theFontDownscaler = thisFontDownscaler;
+			this.fontDownscaler = fontDownscaler;
 		}
 	}
 
@@ -419,38 +419,38 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set colors
 	 *
-	 * @param thisBackColor     background default color
-	 * @param thisForeColor     foreground default color
-	 * @param thisNodeBackColor node background default color
-	 * @param thisNodeForeColor node foreground default color
-	 * @param thisTreeEdgeColor tree edge default color
-	 * @param thisEdgeColor     edge default color
+	 * @param backColor     background default color
+	 * @param foreColor     foreground default color
+	 * @param nodeBackColor node background default color
+	 * @param nodeForeColor node foreground default color
+	 * @param treeEdgeColor tree edge default color
+	 * @param edgeColor     edge default color
 	 */
-	public void setColors(@Nullable final Color thisBackColor, @Nullable final Color thisForeColor, @Nullable final Color thisNodeBackColor, @Nullable final Color thisNodeForeColor, @Nullable final Color thisTreeEdgeColor, @Nullable final Color thisEdgeColor)
+	public void setColors(@Nullable final Color backColor, @Nullable final Color foreColor, @Nullable final Color nodeBackColor, @Nullable final Color nodeForeColor, @Nullable final Color treeEdgeColor, @Nullable final Color edgeColor)
 	{
-		if (thisBackColor != null)
+		if (backColor != null)
 		{
-			this.theBackColor = thisBackColor;
+			this.backColor = backColor;
 		}
-		if (thisForeColor != null)
+		if (foreColor != null)
 		{
-			this.theForeColor = thisForeColor;
+			this.foreColor = foreColor;
 		}
-		if (thisNodeBackColor != null)
+		if (nodeBackColor != null)
 		{
-			this.theNodeBackColor = thisNodeBackColor;
+			this.nodeBackColor = nodeBackColor;
 		}
-		if (thisNodeForeColor != null)
+		if (nodeForeColor != null)
 		{
-			this.theNodeForeColor = thisNodeForeColor;
+			this.nodeForeColor = nodeForeColor;
 		}
-		if (thisTreeEdgeColor != null)
+		if (treeEdgeColor != null)
 		{
-			this.theTreeEdgeColor = thisTreeEdgeColor;
+			this.treeEdgeColor = treeEdgeColor;
 		}
-		if (thisEdgeColor != null)
+		if (edgeColor != null)
 		{
-			this.theEdgeColor = thisEdgeColor;
+			this.edgeColor = edgeColor;
 		}
 	}
 
@@ -459,12 +459,12 @@ public abstract class AbstractPainter extends Mapper
 	 */
 	public void resetColors()
 	{
-		this.theForeColor = AbstractPainter.theForeColor0;
-		this.theBackColor = AbstractPainter.theBackColor0;
-		this.theNodeBackColor = AbstractPainter.theNodeBackColor0;
-		this.theNodeForeColor = AbstractPainter.theNodeForeColor0;
-		this.theTreeEdgeColor = AbstractPainter.theTreeEdgeColor0;
-		this.theEdgeColor = AbstractPainter.theEdgeColor0;
+		this.foreColor = AbstractPainter.foreColor0;
+		this.backColor = AbstractPainter.backColor0;
+		this.nodeBackColor = AbstractPainter.nodeBackColor0;
+		this.nodeForeColor = AbstractPainter.nodeForeColor0;
+		this.treeEdgeColor = AbstractPainter.treeEdgeColor0;
+		this.edgeColor = AbstractPainter.edgeColor0;
 	}
 
 	// S T Y L E S
@@ -472,35 +472,35 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set default edge styles
 	 *
-	 * @param thisTreeEdgeStyle default tree edge style
-	 * @param thisEdgeStyle     default edge style
+	 * @param treeEdgeStyle default tree edge style
+	 * @param edgeStyle     default edge style
 	 */
-	public void setEdgeStyles(@Nullable final Integer thisTreeEdgeStyle, @Nullable final Integer thisEdgeStyle)
+	public void setEdgeStyles(@Nullable final Integer treeEdgeStyle, @Nullable final Integer edgeStyle)
 	{
-		if (thisTreeEdgeStyle != null)
+		if (treeEdgeStyle != null)
 		{
-			this.theTreeEdgeStyle = thisTreeEdgeStyle;
+			this.treeEdgeStyle = treeEdgeStyle;
 		}
-		if (thisEdgeStyle != null)
+		if (edgeStyle != null)
 		{
-			this.theEdgeStyle = thisEdgeStyle;
+			this.edgeStyle = edgeStyle;
 		}
 	}
 
 	/**
 	 * Set images
 	 *
-	 * @param thisBackgroundImage      background image
-	 * @param thisDefaultNodeImage     default node image
-	 * @param thisDefaultTreeEdgeImage default tree edge image
-	 * @param thisDefaultEdgeImage     default edge image
+	 * @param backgroundImage      background image
+	 * @param defaultNodeImage     default node image
+	 * @param defaultTreeEdgeImage default tree edge image
+	 * @param defaultEdgeImage     default edge image
 	 */
-	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage, final Image thisDefaultEdgeImage)
+	public void setImages(final Image backgroundImage, final Image defaultNodeImage, final Image defaultTreeEdgeImage, final Image defaultEdgeImage)
 	{
-		this.theBackgroundImage = thisBackgroundImage;
-		this.theDefaultNodeImage = thisDefaultNodeImage;
-		this.theDefaultTreeEdgeImage = thisDefaultTreeEdgeImage;
-		this.theDefaultEdgeImage = thisDefaultEdgeImage;
+		this.backgroundImage = backgroundImage;
+		this.defaultNodeImage = defaultNodeImage;
+		this.defaultTreeEdgeImage = defaultTreeEdgeImage;
+		this.defaultEdgeImage = defaultEdgeImage;
 	}
 
 	// B E H A V I O U R
@@ -508,13 +508,13 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set border mode
 	 *
-	 * @param thisFlag true if label have borders
+	 * @param flag true if label have borders
 	 */
-	public void setBorder(@Nullable final Boolean thisFlag)
+	public void setBorder(@Nullable final Boolean flag)
 	{
-		if (thisFlag != null)
+		if (flag != null)
 		{
-			this.border = thisFlag;
+			this.border = flag;
 		}
 	}
 
@@ -531,39 +531,39 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set ellipsize flag
 	 *
-	 * @param thisFlag true if label texts are ellipsized
+	 * @param flag true if label texts are ellipsized
 	 */
-	public void setEllipsize(@Nullable final Boolean thisFlag)
+	public void setEllipsize(@Nullable final Boolean flag)
 	{
-		if (thisFlag != null)
+		if (flag != null)
 		{
-			this.ellipsize = thisFlag;
+			this.ellipsize = flag;
 		}
 	}
 
 	/**
 	 * Set label max lines
 	 *
-	 * @param thisMaxLines label max lines
+	 * @param maxLines label max lines
 	 */
-	public void setLabelMaxLines(@Nullable final Integer thisMaxLines)
+	public void setLabelMaxLines(@Nullable final Integer maxLines)
 	{
-		if (thisMaxLines != null)
+		if (maxLines != null)
 		{
-			this.theLabelMaxLines = thisMaxLines;
+			this.labelMaxLines = maxLines;
 		}
 	}
 
 	/**
 	 * Set label extra line factor
 	 *
-	 * @param thisFactor label extra line (excluding first) factor
+	 * @param factor label extra line (excluding first) factor
 	 */
-	public void setLabelExtraLineFactor(@Nullable final Float thisFactor)
+	public void setLabelExtraLineFactor(@Nullable final Float factor)
 	{
-		if (thisFactor != null)
+		if (factor != null)
 		{
-			this.theLabelExtraLineFactor = thisFactor;
+			this.labelExtraLineFactor = factor;
 		}
 	}
 
@@ -580,13 +580,13 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set edge rendering mode
 	 *
-	 * @param thisFlag true if edges are rendered as arcs
+	 * @param flag true if edges are rendered as arcs
 	 */
-	public void setArcEdges(@Nullable final Boolean thisFlag)
+	public void setArcEdges(@Nullable final Boolean flag)
 	{
-		if (thisFlag != null)
+		if (flag != null)
 		{
-			this.arcEdges = thisFlag;
+			this.arcEdges = flag;
 		}
 	}
 
@@ -605,27 +605,27 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set zoom factor
 	 *
-	 * @param thisZoomFactor zoom factor
-	 * @param thisZoomPivotX zoom pivot X
-	 * @param thisZoomPivotY zoom pivot Y
+	 * @param zoomFactor zoom factor
+	 * @param zoomPivotX zoom pivot X
+	 * @param zoomPivotY zoom pivot Y
 	 */
-	public void setZoomFactor(final float thisZoomFactor, final float thisZoomPivotX, final float thisZoomPivotY)
+	public void setZoomFactor(final float zoomFactor, final float zoomPivotX, final float zoomPivotY)
 	{
-		if (thisZoomFactor >= 0)
+		if (zoomFactor >= 0)
 		{
-			this.theZoomFactor = thisZoomFactor;
+			this.zoomFactor = zoomFactor;
 		}
 		else
 		{
-			this.theZoomFactor *= -thisZoomFactor;
+			this.zoomFactor *= -zoomFactor;
 		}
-		if (thisZoomPivotX != Float.MAX_VALUE)
+		if (zoomPivotX != Float.MAX_VALUE)
 		{
-			this.theZoomPivotX = thisZoomPivotX;
+			this.zoomPivotX = zoomPivotX;
 		}
-		if (thisZoomPivotY != Float.MAX_VALUE)
+		if (zoomPivotY != Float.MAX_VALUE)
 		{
-			this.theZoomPivotY = thisZoomPivotY;
+			this.zoomPivotY = zoomPivotY;
 		}
 	}
 
@@ -634,48 +634,48 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set scale factors
 	 *
-	 * @param thisMapScaleFactor   map scale factor (how unit circle is mapped to view)
-	 * @param thisFontScaleFactor  font scale factor
-	 * @param thisImageScaleFactor image scale factor
+	 * @param mapScaleFactor   map scale factor (how unit circle is mapped to view)
+	 * @param fontScaleFactor  font scale factor
+	 * @param imageScaleFactor image scale factor
 	 */
-	public void setScaleFactors(final float thisMapScaleFactor, final float thisFontScaleFactor, final float thisImageScaleFactor)
+	public void setScaleFactors(final float mapScaleFactor, final float fontScaleFactor, final float imageScaleFactor)
 	{
 		// map
-		if (thisMapScaleFactor != 0)
+		if (mapScaleFactor != 0)
 		{
-			if (thisMapScaleFactor > 0)
+			if (mapScaleFactor > 0)
 			{
-				this.theMapScaleFactor = thisMapScaleFactor;
+				this.mapScaleFactor = mapScaleFactor;
 			}
 			else
 			{
-				this.theMapScaleFactor *= -thisMapScaleFactor;
+				this.mapScaleFactor *= -mapScaleFactor;
 			}
 		}
 
 		// fonts
-		if (thisFontScaleFactor != 0)
+		if (fontScaleFactor != 0)
 		{
-			if (thisFontScaleFactor > 0)
+			if (fontScaleFactor > 0)
 			{
-				this.theFontScaleFactor = thisFontScaleFactor;
+				this.fontScaleFactor = fontScaleFactor;
 			}
 			else
 			{
-				this.theFontScaleFactor *= -thisFontScaleFactor;
+				this.fontScaleFactor *= -fontScaleFactor;
 			}
 		}
 
 		// images
-		if (thisImageScaleFactor != 0)
+		if (imageScaleFactor != 0)
 		{
-			if (thisImageScaleFactor > 0)
+			if (imageScaleFactor > 0)
 			{
-				this.theImageScaleFactor = thisImageScaleFactor;
+				this.imageScaleFactor = imageScaleFactor;
 			}
 			else
 			{
-				this.theImageScaleFactor *= -thisImageScaleFactor;
+				this.imageScaleFactor *= -imageScaleFactor;
 			}
 		}
 	}
@@ -683,13 +683,13 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set scale images flag
 	 *
-	 * @param thisFlag true true if images are scaled
+	 * @param flag true true if images are scaled
 	 */
-	public void setScaleImages(@Nullable final Boolean thisFlag)
+	public void setScaleImages(@Nullable final Boolean flag)
 	{
-		if (thisFlag != null)
+		if (flag != null)
 		{
-			this.downscaleImages = thisFlag;
+			this.downscaleImages = flag;
 		}
 	}
 

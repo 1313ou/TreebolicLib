@@ -17,25 +17,25 @@ public class Tree implements Serializable
 	/**
 	 * Root node
 	 */
-	private INode theRoot;
+	private INode root;
 
 	/**
 	 * Edge list
 	 */
-	private List<IEdge> theEdges;
+	private List<IEdge> edges;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisRoot   root node
-	 * @param theseEdges edge list
+	 * @param root   root node
+	 * @param edges edge list
 	 */
-	public Tree(final INode thisRoot, final List<IEdge> theseEdges)
+	public Tree(final INode root, final List<IEdge> edges)
 	{
-		this.theRoot = thisRoot;
-		this.theEdges = theseEdges;
+		this.root = root;
+		this.edges = edges;
 	}
 
 	// A C C E S S
@@ -47,7 +47,7 @@ public class Tree implements Serializable
 	 */
 	public INode getRoot()
 	{
-		return this.theRoot;
+		return this.root;
 	}
 
 	/**
@@ -57,26 +57,26 @@ public class Tree implements Serializable
 	 */
 	public List<IEdge> getEdges()
 	{
-		return this.theEdges;
+		return this.edges;
 	}
 
 	/**
 	 * Set root node
 	 *
-	 * @param thisRoot node
+	 * @param root node
 	 */
-	public void setRoot(final INode thisRoot)
+	public void setRoot(final INode root)
 	{
-		this.theRoot = thisRoot;
+		this.root = root;
 	}
 
 	/**
 	 * Set edges
 	 *
-	 * @param theseEdges edge list
+	 * @param edges edge list
 	 */
-	public void setEdges(final List<IEdge> theseEdges)
+	public void setEdges(final List<IEdge> edges)
 	{
-		this.theEdges = theseEdges;
+		this.edges = edges;
 	}
 }

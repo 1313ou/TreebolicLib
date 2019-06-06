@@ -15,39 +15,39 @@ public class Mounter
 	/**
 	 * Graft mounted node onto mounting node
 	 *
-	 * @param thisMountingNode  grafting node
-	 * @param thisMountedNode   grafted node
-	 * @param theseEdges        edge list from mounting model
-	 * @param theseMountedEdges edge list from mounted model
+	 * @param mountingNode grafting node
+	 * @param mountedNode  grafted node
+	 * @param edges        edge list from mounting model
+	 * @param mountedEdges edge list from mounted model
 	 * @return true if successful, null otherwise
 	 */
-	public static synchronized boolean graft(@NonNull final INode thisMountingNode, @NonNull final INode thisMountedNode, @NonNull final List<IEdge> theseEdges, @Nullable final List<IEdge> theseMountedEdges)
+	public static synchronized boolean graft(@NonNull final INode mountingNode, @NonNull final INode mountedNode, @NonNull final List<IEdge> edges, @Nullable final List<IEdge> mountedEdges)
 	{
 		// REQUISITES
 
 		// mounting node must have a parent
-		final INode thisMountingParent = thisMountingNode.getParent();
-		if (thisMountingParent == null)
+		final INode mountingParent = mountingNode.getParent();
+		if (mountingParent == null)
 		{
 			return false;
 		}
 
 		// mounting mountpoint must be non null
-		final MountPoint thisMountPoint = thisMountingNode.getMountPoint();
-		if (thisMountPoint == null)
+		final MountPoint mountPoint = mountingNode.getMountPoint();
+		if (mountPoint == null)
 		{
 			return false;
 		}
 
 		// mounting mountpoint must be mounting
-		if (!(thisMountPoint instanceof MountPoint.Mounting))
+		if (!(mountPoint instanceof MountPoint.Mounting))
 		{
 			return false;
 		}
-		final MountPoint.Mounting thisMountingMountPoint = (MountPoint.Mounting) thisMountPoint;
+		final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
 
 		// mounted mountpoint must null
-		if (thisMountedNode.getMountPoint() != null)
+		if (mountedNode.getMountPoint() != null)
 		{
 			return false;
 		}
@@ -55,39 +55,39 @@ public class Mounter
 		// ALLOCATE
 
 		// setup mounted mountpoint
-		final MountPoint.Mounted thisMountedMountPoint = new MountPoint.Mounted();
-		thisMountedNode.setMountPoint(thisMountedMountPoint);
+		final MountPoint.Mounted mountedMountPoint = new MountPoint.Mounted();
+		mountedNode.setMountPoint(mountedMountPoint);
 
 		// TREE
 
 		// tree down connect
-		final List<INode> theseMountingParentChildren = thisMountingParent.getChildren();
-		if (theseMountingParentChildren != null)
+		final List<INode> mountingParentChildren = mountingParent.getChildren();
+		if (mountingParentChildren != null)
 		{
-			final int thisIndex = theseMountingParentChildren.indexOf(thisMountingNode);
-			theseMountingParentChildren.remove(thisIndex);
-			theseMountingParentChildren.add(thisIndex, thisMountedNode);
+			final int index = mountingParentChildren.indexOf(mountingNode);
+			mountingParentChildren.remove(index);
+			mountingParentChildren.add(index, mountedNode);
 		}
 
 		// tree up connect
-		thisMountedNode.setParent(thisMountingParent);
-		thisMountedNode.setEdgeLabel(thisMountingNode.getEdgeLabel());
-		thisMountedNode.setEdgeStyle(thisMountingNode.getEdgeStyle());
-		thisMountedNode.setEdgeColor(thisMountingNode.getEdgeColor());
-		thisMountedNode.setEdgeImageIndex(thisMountingNode.getEdgeImageIndex());
-		thisMountedNode.setEdgeImage(thisMountingNode.getEdgeImage());
+		mountedNode.setParent(mountingParent);
+		mountedNode.setEdgeLabel(mountingNode.getEdgeLabel());
+		mountedNode.setEdgeStyle(mountingNode.getEdgeStyle());
+		mountedNode.setEdgeColor(mountingNode.getEdgeColor());
+		mountedNode.setEdgeImageIndex(mountingNode.getEdgeImageIndex());
+		mountedNode.setEdgeImage(mountingNode.getEdgeImage());
 
 		// STATE
 
 		// cross reference mounting node and mounted
-		thisMountedMountPoint.theMountingNode = thisMountingNode;
-		thisMountingMountPoint.theMountedNode = thisMountedNode;
+		mountedMountPoint.mountingNode = mountingNode;
+		mountingMountPoint.mountedNode = mountedNode;
 
 		// EDGES
-		thisMountedMountPoint.theMountedEdges = theseMountedEdges;
-		if (theseMountedEdges != null)
+		mountedMountPoint.mountedEdges = mountedEdges;
+		if (mountedEdges != null)
 		{
-			theseEdges.addAll(theseMountedEdges);
+			edges.addAll(mountedEdges);
 		}
 
 		return true;
@@ -96,58 +96,58 @@ public class Mounter
 	/**
 	 * Prune mounted children nodes, and remove orphaned edges
 	 *
-	 * @param thisMountedNode node
-	 * @param theseEdges      edge list to scan for orphaned edges
+	 * @param mountedNode node
+	 * @param edges       edge list to scan for orphaned edges
 	 * @return mounting node if successful, null otherwise
 	 */
-	public static synchronized INode prune(@NonNull final INode thisMountedNode, @Nullable final List<IEdge> theseEdges)
+	public static synchronized INode prune(@NonNull final INode mountedNode, @Nullable final List<IEdge> edges)
 	{
 		// REQUISITES
 
 		// mounting node must have a parent
-		final INode thisMountedParent = thisMountedNode.getParent();
-		if (thisMountedParent == null)
+		final INode mountedParent = mountedNode.getParent();
+		if (mountedParent == null)
 		{
 			return null;
 		}
 
 		// mounted mountpoint must be non-null
-		MountPoint thisMountPoint = thisMountedNode.getMountPoint();
-		if (thisMountPoint == null)
+		MountPoint mountPoint = mountedNode.getMountPoint();
+		if (mountPoint == null)
 		{
 			return null;
 		}
 
 		// mounted mountpoint must not be mounting
-		if (!(thisMountPoint instanceof MountPoint.Mounted))
+		if (!(mountPoint instanceof MountPoint.Mounted))
 		{
 			return null;
 		}
-		final MountPoint.Mounted thisMountedMountPoint = (MountPoint.Mounted) thisMountPoint;
+		final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 
 		// mounted mountpoint must be reference a mounting node
-		final INode thisMountingNode = thisMountedMountPoint.theMountingNode;
-		if (thisMountingNode == null)
+		final INode mountingNode = mountedMountPoint.mountingNode;
+		if (mountingNode == null)
 		{
 			return null;
 		}
 
 		// mounting mountpoint must be non null
-		thisMountPoint = thisMountingNode.getMountPoint();
-		if (thisMountPoint == null)
+		mountPoint = mountingNode.getMountPoint();
+		if (mountPoint == null)
 		{
 			return null;
 		}
 
 		// mounting mountpoint must be mounting
-		if (!(thisMountPoint instanceof MountPoint.Mounting))
+		if (!(mountPoint instanceof MountPoint.Mounting))
 		{
 			return null;
 		}
-		final MountPoint.Mounting thisMountingMountPoint = (MountPoint.Mounting) thisMountPoint;
+		final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
 
 		// mounting mountpoint must reference mounted node
-		if (thisMountingMountPoint.theMountedNode != thisMountedNode)
+		if (mountingMountPoint.mountedNode != mountedNode)
 		{
 			return null;
 		}
@@ -155,60 +155,60 @@ public class Mounter
 		// TREE CONNECT
 
 		// tree down connect
-		final List<INode> theseMountedParentChildren = thisMountedParent.getChildren();
-		if (theseMountedParentChildren != null)
+		final List<INode> mountedParentChildren = mountedParent.getChildren();
+		if (mountedParentChildren != null)
 		{
-			final int thisIndex = theseMountedParentChildren.indexOf(thisMountedNode);
-			theseMountedParentChildren.remove(thisIndex);
-			theseMountedParentChildren.add(thisIndex, thisMountingNode);
+			final int index = mountedParentChildren.indexOf(mountedNode);
+			mountedParentChildren.remove(index);
+			mountedParentChildren.add(index, mountingNode);
 		}
 
 		// tree up connect
-		thisMountingNode.setParent(thisMountedParent);
+		mountingNode.setParent(mountedParent);
 
 		// STATE
 
 		// cross reference mounting node and mounted
-		thisMountedMountPoint.theMountingNode = null;
-		thisMountingMountPoint.theMountedNode = null;
+		mountedMountPoint.mountingNode = null;
+		mountingMountPoint.mountedNode = null;
 
 		// EDGES
-		if (theseEdges != null)
+		if (edges != null)
 		{
-			if (thisMountedMountPoint.theMountedEdges != null)
+			if (mountedMountPoint.mountedEdges != null)
 			{
-				theseEdges.removeAll(thisMountedMountPoint.theMountedEdges);
+				edges.removeAll(mountedMountPoint.mountedEdges);
 			}
-			Mounter.removeSubtreeEdges(theseEdges, thisMountedNode);
+			Mounter.removeSubtreeEdges(edges, mountedNode);
 		}
 
 		// FREE
 
 		// dispose mounted node mountpoint
-		thisMountedNode.setMountPoint(null);
+		mountedNode.setMountPoint(null);
 
-		return thisMountingNode;
+		return mountingNode;
 	}
 
-	static private void removeSubtreeEdges(@NonNull final List<IEdge> theseEdges, @NonNull final INode thisMountedNode)
+	static private void removeSubtreeEdges(@NonNull final List<IEdge> edges, @NonNull final INode mountedNode)
 	{
-		final List<INode> theseMountedNodeChildren = thisMountedNode.getChildren();
-		if (theseMountedNodeChildren != null)
+		final List<INode> mountedNodeChildren = mountedNode.getChildren();
+		if (mountedNodeChildren != null)
 		{
-			for (final INode thisChildNode : theseMountedNodeChildren)
+			for (final INode childNode : mountedNodeChildren)
 			{
 				// if mounted mount point having edges
-				final MountPoint thisMountPoint = thisChildNode.getMountPoint();
-				if (thisMountPoint != null && thisMountPoint instanceof MountPoint.Mounted)
+				final MountPoint mountPoint = childNode.getMountPoint();
+				if (mountPoint instanceof MountPoint.Mounted)
 				{
-					final MountPoint.Mounted thisMountedMountPoint = (MountPoint.Mounted) thisMountPoint;
-					if (thisMountedMountPoint.theMountedEdges != null)
+					final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
+					if (mountedMountPoint.mountedEdges != null)
 					{
-						theseEdges.removeAll(thisMountedMountPoint.theMountedEdges);
+						edges.removeAll(mountedMountPoint.mountedEdges);
 					}
 				}
 				// recurse
-				Mounter.removeSubtreeEdges(theseEdges, thisChildNode);
+				Mounter.removeSubtreeEdges(edges, childNode);
 			}
 		}
 	}

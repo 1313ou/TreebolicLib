@@ -21,14 +21,14 @@ public class HyperTransform implements IHyperTransform
 	// D A T A
 
 	/**
-	 * Translation component, with abs(theXlat) < 1
+	 * Translation component, with abs(xlat) < 1
 	 */
-	public HyperTranslation theXlat;
+	public HyperTranslation xlat;
 
 	/**
-	 * Rotation component of transform, with abs(theRot) == 1
+	 * Rotation component of transform, with abs(rot) == 1
 	 */
-	public HyperRotation theRot;
+	public HyperRotation rot;
 
 	// C O N S T R U C T
 
@@ -37,8 +37,8 @@ public class HyperTransform implements IHyperTransform
 	 */
 	public HyperTransform()
 	{
-		this.theXlat = new HyperTranslation(0., 0.);
-		this.theRot = new HyperRotation(1., 0.);
+		this.xlat = new HyperTranslation(0., 0.);
+		this.rot = new HyperRotation(1., 0.);
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class HyperTransform implements IHyperTransform
 	 */
 	public HyperTransform(@NonNull final Complex p, @NonNull final Complex r)
 	{
-		this.theXlat = new HyperTranslation(p);
-		this.theRot = new HyperRotation(r);
+		this.xlat = new HyperTranslation(p);
+		this.rot = new HyperRotation(r);
 	}
 
 	/**
@@ -60,8 +60,8 @@ public class HyperTransform implements IHyperTransform
 	 */
 	public HyperTransform(@NonNull final HyperTranslation p)
 	{
-		this.theXlat = new HyperTranslation(p);
-		this.theRot = new HyperRotation(1., 0.);
+		this.xlat = new HyperTranslation(p);
+		this.rot = new HyperRotation(1., 0.);
 	}
 
 	/**
@@ -71,8 +71,8 @@ public class HyperTransform implements IHyperTransform
 	 */
 	public HyperTransform(final HyperRotation r)
 	{
-		this.theXlat = new HyperTranslation(0., 0.);
-		this.theRot = r;
+		this.xlat = new HyperTranslation(0., 0.);
+		this.rot = r;
 	}
 
 	/**
@@ -84,8 +84,8 @@ public class HyperTransform implements IHyperTransform
 	public HyperTransform(final HyperTranslation p, final HyperRotation r)
 	{
 		// == set(HRotation.compose(r, p));
-		this.theXlat = p;
-		this.theRot = r;
+		this.xlat = p;
+		this.rot = r;
 	}
 
 	/**
@@ -99,8 +99,8 @@ public class HyperTransform implements IHyperTransform
 	@SuppressWarnings("WeakerAccess")
 	public HyperTransform(@SuppressWarnings("SameParameterValue") final double px, @SuppressWarnings("SameParameterValue") final double py, @SuppressWarnings("SameParameterValue") final double rx, @SuppressWarnings("SameParameterValue") final double ry)
 	{
-		this.theXlat = new HyperTranslation(px, py);
-		this.theRot = new HyperRotation(rx, ry);
+		this.xlat = new HyperTranslation(px, py);
+		this.rot = new HyperRotation(rx, ry);
 	}
 
 	/**
@@ -110,8 +110,8 @@ public class HyperTransform implements IHyperTransform
 	 */
 	public HyperTransform(@NonNull final HyperTransform t)
 	{
-		this.theXlat = new HyperTranslation(t.theXlat);
-		this.theRot = new HyperRotation(t.theRot);
+		this.xlat = new HyperTranslation(t.xlat);
+		this.rot = new HyperRotation(t.rot);
 	}
 
 	/**
@@ -124,8 +124,8 @@ public class HyperTransform implements IHyperTransform
 	@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 	public HyperTransform set(@NonNull final HyperTransform t)
 	{
-		this.theXlat.set(t.theXlat);
-		this.theRot.set(t.theRot);
+		this.xlat.set(t.xlat);
+		this.rot.set(t.rot);
 		return this;
 	}
 
@@ -150,14 +150,14 @@ public class HyperTransform implements IHyperTransform
 	@NonNull
 	public HyperTransform inverse()
 	{
-		this.theRot.inverse();
-		this.theXlat.mul(this.theRot).neg();
+		this.rot.inverse();
+		this.xlat.mul(this.rot).neg();
 		return this;
 	}
 
 	// M A P
 	// map() does hyperbolic motion:
-	// rotation on t.theta over center and translation over t.theXlat;
+	// rotation on t.theta over center and translation over t.xlat;
 
 	@NonNull
 	@Override
@@ -168,8 +168,8 @@ public class HyperTransform implements IHyperTransform
 		// z = (z*theta+p)/(1+(~p)*z*theta)
 		// </BOUTHIER>
 
-		final Complex num = new Complex(z).mul(this.theRot).add(this.theXlat);
-		final Complex denom = new Complex(this.theXlat).conj().mul(z).mul(this.theRot).add(Complex.ONE);
+		final Complex num = new Complex(z).mul(this.rot).add(this.xlat);
+		final Complex denom = new Complex(this.xlat).conj().mul(z).mul(this.rot).add(Complex.ONE);
 		return z.div(num, denom);
 
 		// OPTIMIZED
@@ -209,20 +209,20 @@ public class HyperTransform implements IHyperTransform
 
 		// denominator : theta2*p1*~p2+1
 		// ~p2 * p1 * theta2 + 1
-		final Complex denom = new Complex(t2.theXlat).conj().mul(this.theXlat).mul(t2.theRot).add(Complex.ONE);
+		final Complex denom = new Complex(t2.xlat).conj().mul(this.xlat).mul(t2.rot).add(Complex.ONE);
 
 		// translation
 		// p1 * theta2 + p2
-		final Complex nom1 = new Complex(this.theXlat).mul(t2.theRot).add(t2.theXlat); // (theta2*p1)+p2
+		final Complex nom1 = new Complex(this.xlat).mul(t2.rot).add(t2.xlat); // (theta2*p1)+p2
 
 		// rotation
 		// ~p1 * p2 + theta2 * theta1
-		final Complex nom2 = new Complex(this.theXlat).conj().mul(t2.theXlat).add(t2.theRot).mul(this.theRot); // theta1*(theta2+~p1*p2)
+		final Complex nom2 = new Complex(this.xlat).conj().mul(t2.xlat).add(t2.rot).mul(this.rot); // theta1*(theta2+~p1*p2)
 
 		// make
-		this.theXlat.div(nom1, denom);
-		this.theRot.div(nom2, denom);
-		this.theRot.normalize();
+		this.xlat.div(nom1, denom);
+		this.rot.div(nom2, denom);
+		this.rot.normalize();
 
 		return this;
 	}
@@ -248,6 +248,6 @@ public class HyperTransform implements IHyperTransform
 	@Override
 	public String toString()
 	{
-		return "p=" + this.theXlat.toString() + " theta=" + this.theRot.toString();
+		return "p=" + this.xlat.toString() + " theta=" + this.rot.toString();
 	}
 }

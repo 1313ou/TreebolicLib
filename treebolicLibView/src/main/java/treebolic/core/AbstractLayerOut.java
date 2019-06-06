@@ -58,51 +58,51 @@ public abstract class AbstractLayerOut
 	 * Root orientation
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected Complex theRootOrientation;
+	protected Complex rootOrientation;
 
 	/**
 	 * Root sweep
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected double theRootSweep;
+	protected double rootSweep;
 
 	/**
 	 * Node distance
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected double theNodeDistance;
+	protected double nodeDistance;
 
 	/**
 	 * Sweep factor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected double theSweepFactor;
+	protected double sweepFactor;
 
 	/**
 	 * Radius
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected double theRadius;
+	protected double radius;
 
 	/**
 	 * Node sweep
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected double theNodeSweep;
+	protected double nodeSweep;
 
 	/**
 	 * Expansion from settings
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Float theSettingsExpansion;
+	protected Float settingsExpansion;
 
 	/**
 	 * Sweep from settings
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Float theSettingsSweep;
+	protected Float settingsSweep;
 
 	/**
 	 * Whether node space is allocated clockwise
@@ -113,7 +113,7 @@ public abstract class AbstractLayerOut
 	// C O N S T R U C T O R
 
 	/**
-	 * Contructor
+	 * Constructor
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public AbstractLayerOut()
@@ -131,17 +131,17 @@ public abstract class AbstractLayerOut
 	/**
 	 * Do layout
 	 */
-	abstract public void layout(INode thisNode);
+	abstract public void layout(INode node);
 
 	/**
 	 * Do layout
 	 *
-	 * @param thisNode        start node
-	 * @param thisCenter      starting point (hyperbolic circle center)
-	 * @param thisHalfWedge   half wedge allocated to layout
-	 * @param thisOrientation orientation
+	 * @param node        start node
+	 * @param center      starting point (hyperbolic circle center)
+	 * @param halfWedge   half wedge allocated to layout
+	 * @param orientation orientation
 	 */
-	abstract public void layout(INode thisNode, Complex thisCenter, double thisHalfWedge, double thisOrientation);
+	abstract public void layout(INode node, Complex center, double halfWedge, double orientation);
 
 	// A C C E S S
 
@@ -154,18 +154,18 @@ public abstract class AbstractLayerOut
 	 */
 	public Complex getOrientation()
 	{
-		return this.theRootOrientation;
+		return this.rootOrientation;
 	}
 
 	/**
 	 * Set layout orientation
 	 *
-	 * @param thisOrientation orientation
+	 * @param orientation orientation
 	 */
-	public void setOrientation(final Complex thisOrientation)
+	public void setOrientation(final Complex orientation)
 	{
-		this.theRootOrientation = thisOrientation;
-		this.clockwise = !(thisOrientation == Complex.NORTH || thisOrientation == Complex.EAST);
+		this.rootOrientation = orientation;
+		this.clockwise = !(orientation == Complex.NORTH || orientation == Complex.EAST);
 	}
 
 	/**
@@ -188,18 +188,18 @@ public abstract class AbstractLayerOut
 	 */
 	public double getExpansion()
 	{
-		return this.theNodeDistance;
+		return this.nodeDistance;
 	}
 
 	/**
 	 * Set expansion factor
 	 *
-	 * @param thisExpansion expansion factor
+	 * @param expansion expansion factor
 	 */
-	public void setExpansion(final double thisExpansion)
+	public void setExpansion(final double expansion)
 	{
-		this.theNodeDistance = thisExpansion;
-		this.theRadius = Distance.distanceToOrigin_e2h(this.theNodeDistance);
+		this.nodeDistance = expansion;
+		this.radius = Distance.distanceToOrigin_e2h(this.nodeDistance);
 	}
 
 	/**
@@ -215,21 +215,21 @@ public abstract class AbstractLayerOut
 	 */
 	public void setDefaultSettingsExpansion()
 	{
-		setDefaultSettingsExpansion(this.theSettingsExpansion);
+		setDefaultSettingsExpansion(this.settingsExpansion);
 	}
 
 	/**
 	 * Set settings default expansion factor to parameter factor and apply it (used by apply)
 	 *
-	 * @param thisExpansion expansion
+	 * @param expansion expansion
 	 */
-	private void setDefaultSettingsExpansion(@Nullable final Float thisExpansion)
+	private void setDefaultSettingsExpansion(@Nullable final Float expansion)
 	{
 		setDefaultExpansion();
-		if (thisExpansion != null && thisExpansion > 0.)
+		if (expansion != null && expansion > 0.)
 		{
-			this.theSettingsExpansion = thisExpansion; // store value of factor
-			setExpansion(getExpansion() * thisExpansion);
+			this.settingsExpansion = expansion; // store value of factor
+			setExpansion(getExpansion() * expansion);
 		}
 	}
 
@@ -242,18 +242,18 @@ public abstract class AbstractLayerOut
 	 */
 	public double getRootSweep()
 	{
-		return this.theRootSweep;
+		return this.rootSweep;
 	}
 
 	/**
 	 * Get root sweep angle allocated to layout
 	 *
-	 * @param thisSweep sweep angle allocated to layout
+	 * @param sweep sweep angle allocated to layout
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setRootSweep(final double thisSweep)
+	public void setRootSweep(final double sweep)
 	{
-		this.theRootSweep = thisSweep;
+		this.rootSweep = sweep;
 	}
 
 	/**
@@ -275,18 +275,18 @@ public abstract class AbstractLayerOut
 	 */
 	public double getChildSweep()
 	{
-		return this.theNodeSweep;
+		return this.nodeSweep;
 	}
 
 	/**
 	 * Set sweep angle allocated to children
 	 *
-	 * @param thisSweep sweep angle allocated to children
+	 * @param sweep sweep angle allocated to children
 	 */
-	public void setChildSweep(final double thisSweep)
+	public void setChildSweep(final double sweep)
 	{
-		this.theNodeSweep = thisSweep;
-		this.theSweepFactor = Math.PI - this.theNodeSweep;
+		this.nodeSweep = sweep;
+		this.sweepFactor = Math.PI - this.nodeSweep;
 	}
 
 	/**
@@ -314,23 +314,23 @@ public abstract class AbstractLayerOut
 	 */
 	public void setDefaultSettingsSweep()
 	{
-		setDefaultSettingsSweep(getOrientation() == Complex.ZERO, this.theSettingsSweep);
+		setDefaultSettingsSweep(getOrientation() == Complex.ZERO, this.settingsSweep);
 	}
 
 	/**
 	 * Set settings default sweep factor to parameter factor and apply it (used by apply)
 	 *
 	 * @param radial    radial
-	 * @param thisSweep sweep
+	 * @param sweep sweep
 	 */
-	private void setDefaultSettingsSweep(boolean radial, @Nullable final Float thisSweep)
+	private void setDefaultSettingsSweep(boolean radial, @Nullable final Float sweep)
 	{
 		setDefaultRootSweep(radial);
 		setDefaultChildSweep(radial);
-		if (thisSweep != null && thisSweep > 0.)
+		if (sweep != null && sweep > 0.)
 		{
-			this.theSettingsSweep = thisSweep;
-			setChildSweep(getChildSweep() * thisSweep);
+			this.settingsSweep = sweep;
+			setChildSweep(getChildSweep() * sweep);
 		}
 	}
 
@@ -339,34 +339,34 @@ public abstract class AbstractLayerOut
 	/**
 	 * Apply settings
 	 *
-	 * @param theseSettings settings
+	 * @param settings settings
 	 */
-	public void apply(@NonNull final Settings theseSettings)
+	public void apply(@NonNull final Settings settings)
 	{
 		boolean radial = true;
-		if (theseSettings.theOrientation != null)
+		if (settings.orientation != null)
 		{
-			if (theseSettings.theOrientation.startsWith("n"))
+			if (settings.orientation.startsWith("n"))
 			{
 				setOrientation(Complex.SOUTH);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("s"))
+			else if (settings.orientation.startsWith("s"))
 			{
 				setOrientation(Complex.NORTH);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("e"))
+			else if (settings.orientation.startsWith("e"))
 			{
 				setOrientation(Complex.EAST);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("w"))
+			else if (settings.orientation.startsWith("w"))
 			{
 				setOrientation(Complex.WEST);
 				radial = false;
 			}
-			else if (theseSettings.theOrientation.startsWith("r"))
+			else if (settings.orientation.startsWith("r"))
 			{
 				setOrientation(Complex.ZERO);
 				radial = true;
@@ -374,9 +374,9 @@ public abstract class AbstractLayerOut
 		}
 
 		// expansion
-		setDefaultSettingsExpansion(theseSettings.theExpansion);
+		setDefaultSettingsExpansion(settings.expansion);
 
 		// sweep
-		setDefaultSettingsSweep(radial, theseSettings.theSweep);
+		setDefaultSettingsSweep(radial, settings.sweep);
 	}
 }

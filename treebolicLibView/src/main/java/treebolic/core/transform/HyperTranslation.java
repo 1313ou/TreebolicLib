@@ -239,14 +239,14 @@ public class HyperTranslation extends Complex
 		final Complex denom = new Complex(t2).conj().mul(t1).add(Complex.ONE);
 
 		// translation
-		t.theXlat.add(t2); // p1+p2
-		t.theXlat.div(denom); // (p1+p2)/(~p2*p1+1)
+		t.xlat.add(t2); // p1+p2
+		t.xlat.div(denom); // (p1+p2)/(~p2*p1+1)
 
 		// rotation
-		t.theRot.set(t1); // p1
-		t.theRot.conj().mul(t2).add(Complex.ONE); // ~p1*p2+1
-		t.theRot.div(denom); // (~p1*p2+1) /(~p2*p1+1)
-		t.theRot.normalize();
+		t.rot.set(t1); // p1
+		t.rot.conj().mul(t2).add(Complex.ONE); // ~p1*p2+1
+		t.rot.div(denom); // (~p1*p2+1) /(~p2*p1+1)
+		t.rot.normalize();
 
 		return t;
 	}

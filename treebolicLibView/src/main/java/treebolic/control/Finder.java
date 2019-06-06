@@ -21,84 +21,84 @@ public class Finder
 	/**
 	 * Find node nearest to point
 	 *
-	 * @param thisStart start node (only descendants are considered)
-	 * @param thisPoint point
+	 * @param start start node (only descendants are considered)
+	 * @param point point
 	 * @return node if found, null otherwise
 	 */
 	@Nullable
-	static public INode findNodeAt(@Nullable final INode thisStart, @NonNull final Complex thisPoint)
+	static public INode findNodeAt(@Nullable final INode start, @NonNull final Complex point)
 	{
-		if (thisStart == null)
+		if (start == null)
 		{
 			return null;
 		}
 
-		INode thisResult = thisStart;
-		Location thisResultLocation = thisStart.getLocation();
+		INode result = start;
+		Location resultLocation = start.getLocation();
 
 		// find nearest (using squares as a measure)
-		double thisDistance = Distance.getEuclideanDistanceSquared(thisResultLocation.hyper.center, thisPoint);
-		final List<INode> theseChildren = thisStart.getChildren();
-		if (theseChildren != null)
+		double distance = Distance.getEuclideanDistanceSquared(resultLocation.hyper.center, point);
+		final List<INode> children = start.getChildren();
+		if (children != null)
 		{
-			for (final INode thisChild : theseChildren)
+			for (final INode child : children)
 			{
-				final INode thisTargetNode = Finder.findNodeAt(thisChild, thisPoint);
-				if (thisTargetNode != null)
+				final INode targetNode = Finder.findNodeAt(child, point);
+				if (targetNode != null)
 				{
-					final Location thisTargetLocation = thisTargetNode.getLocation();
-					if (!thisTargetLocation.hyper.isBorder)
+					final Location targetLocation = targetNode.getLocation();
+					if (!targetLocation.hyper.isBorder)
 					{
-						final double thatDistance = Distance.getEuclideanDistanceSquared(thisTargetLocation.hyper.center, thisPoint);
-						if (thatDistance < thisDistance)
+						final double distance2 = Distance.getEuclideanDistanceSquared(targetLocation.hyper.center, point);
+						if (distance2 < distance)
 						{
-							thisResult = thisTargetNode;
-							thisResultLocation = thisTargetLocation;
-							thisDistance = thatDistance;
+							result = targetNode;
+							resultLocation = targetLocation;
+							distance = distance2;
 						}
 					}
 				}
 			}
 		}
 
-		if (thisResultLocation.euclidean.radius * thisResultLocation.euclidean.radius * Surface.FINDERRORMARGINFACTOR <= thisDistance)
+		if (resultLocation.euclidean.radius * resultLocation.euclidean.radius * Surface.FINDERRORMARGINFACTOR <= distance)
 		{
 			return null;
 		}
-		return thisResult;
+		return result;
 	}
 
 	/**
 	 * Find node by id
 	 *
-	 * @param thisStart start node
-	 * @param thisId    target id
+	 * @param start start node
+	 * @param id    target id
 	 * @return node if found, null otherwise
 	 */
 	@Nullable
-	static public INode findNodeById(@Nullable final INode thisStart, @NonNull final String thisId)
+	static public INode findNodeById(@Nullable final INode start, @NonNull final String id)
 	{
-		if (thisStart == null)
+		if (start == null)
 		{
 			return null;
 		}
 
 		// node test
-		if (thisId.equals(thisStart.getId()))
+		if (id.equals(start.getId()))
 		{
-			return thisStart;
+			return start;
 		}
 
 		// children
-		final List<INode> theseChildNodes = thisStart.getChildren();
-		if (theseChildNodes != null)
+		final List<INode> childNodes = start.getChildren();
+		if (childNodes != null)
 		{
-			for (final INode thisChildNode : theseChildNodes)
+			for (final INode childNode : childNodes)
 			{
-				final INode thisNode = Finder.findNodeById(thisChildNode, thisId);
-				if (thisNode != null)
+				final INode node = Finder.findNodeById(childNode, id);
+				if (node != null)
 				{
-					return thisNode;
+					return node;
 				}
 			}
 		}

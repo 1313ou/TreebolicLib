@@ -19,18 +19,18 @@ public class ZipSerializer
 	/**
 	 * Append serialization to archive
 	 *
-	 * @param thisArchive archive
-	 * @param thisName    name (will be the zipfile entry)
-	 * @param thisObject  object to serialize
+	 * @param archive archive
+	 * @param entry   the zipfile entry
+	 * @param object  object to serialize
 	 * @throws IOException io exception
 	 */
-	static public void serializeZip(@NonNull final String thisArchive, @SuppressWarnings("SameParameterValue") final String thisName, final Object thisObject) throws IOException
+	static public void serializeZip(@NonNull final String archive, @SuppressWarnings("SameParameterValue") final String entry, final Object object) throws IOException
 	{
-		final ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(thisArchive, false));
-		final ZipEntry ze = new ZipEntry(thisName);
+		final ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(archive, false));
+		final ZipEntry ze = new ZipEntry(entry);
 		zos.putNextEntry(ze);
 		final ObjectOutputStream oos = new ObjectOutputStream(zos);
-		oos.writeObject(thisObject);
+		oos.writeObject(object);
 		zos.closeEntry();
 		zos.close();
 	}

@@ -29,105 +29,102 @@ public class Utils
 	 * Style component pointer
 	 */
 	public enum StyleComponent
-	{
-		STROKE, STROKEWIDTH, FROMTERMINATOR, TOTERMINATOR, LINE, HIDDEN
-	}
+	{STROKE, STROKEWIDTH, FROMTERMINATOR, TOTERMINATOR, LINE, HIDDEN}
 
 	// 0000 dddd ttttt tttt ffff ffff 0000 sssh
 
 	/**
 	 * Parse edge style
 	 *
-	 * @param thisStroke         stroke
-	 * @param thisFromTerminator from-terminator
-	 * @param thisToTerminator   to-terminator
-	 * @param thisLineFlag       whether edge is rendered as line ('true' or 'false')
-	 * @param thisHiddenFlag     whether edge is hidden ('true' or 'false')
+	 * @param stroke         stroke
+	 * @param fromTerminator from-terminator
+	 * @param toTerminator   to-terminator
+	 * @param lineFlag       whether edge is rendered as line ('true' or 'false')
+	 * @param hiddenFlag     whether edge is hidden ('true' or 'false')
 	 * @return style
 	 */
 	@SuppressWarnings("boxing")
-	static public Integer parseStyle(@Nullable final String thisStroke, @Nullable final String thisFromTerminator, @Nullable final String thisToTerminator, @Nullable final String thisLineFlag, @Nullable final String thisHiddenFlag)
+	static public Integer parseStyle(@Nullable final String stroke, @Nullable final String fromTerminator, @Nullable final String toTerminator, @Nullable final String lineFlag, @Nullable final String hiddenFlag)
 	{
 		boolean isDefined = false;
-		int thisStyle = 0;
-		if (thisHiddenFlag != null && !thisHiddenFlag.isEmpty())
+		int style = 0;
+		if (hiddenFlag != null && !hiddenFlag.isEmpty())
 		{
-			thisStyle |= (Boolean.valueOf(thisHiddenFlag) ? IEdge.HIDDEN : 0) | IEdge.HIDDENDEF;
+			style |= (Boolean.valueOf(hiddenFlag) ? IEdge.HIDDEN : 0) | IEdge.HIDDENDEF;
 			isDefined = true;
 		}
-		if (thisLineFlag != null && !thisLineFlag.isEmpty())
+		if (lineFlag != null && !lineFlag.isEmpty())
 		{
-			thisStyle |= (Boolean.valueOf(thisLineFlag) ? IEdge.LINE : 0) | IEdge.LINEDEF;
+			style |= (Boolean.valueOf(lineFlag) ? IEdge.LINE : 0) | IEdge.LINEDEF;
 			isDefined = true;
 		}
-		if (thisStroke != null && !thisStroke.isEmpty())
+		if (stroke != null && !stroke.isEmpty())
 		{
-			thisStyle |= Utils.stringToStroke(thisStroke) | IEdge.STROKEDEF;
-			thisStyle |= Utils.stringToStrokeWidth(thisStroke) | IEdge.STROKEWIDTHDEF;
+			style |= Utils.stringToStroke(stroke) | IEdge.STROKEDEF;
+			style |= Utils.stringToStrokeWidth(stroke) | IEdge.STROKEWIDTHDEF;
 			isDefined = true;
 		}
-		if (thisFromTerminator != null && !thisFromTerminator.isEmpty())
+		if (fromTerminator != null && !fromTerminator.isEmpty())
 		{
-			thisStyle |= Utils.stringToShape(thisFromTerminator) << IEdge.FROMSHIFT;
-			thisStyle |= Utils.stringToFill(thisFromTerminator) << IEdge.FROMSHIFT;
-			thisStyle |= IEdge.FROMDEF;
+			style |= Utils.stringToShape(fromTerminator) << IEdge.FROMSHIFT;
+			style |= Utils.stringToFill(fromTerminator) << IEdge.FROMSHIFT;
+			style |= IEdge.FROMDEF;
 			isDefined = true;
 		}
-		if (thisToTerminator != null && !thisToTerminator.isEmpty())
+		if (toTerminator != null && !toTerminator.isEmpty())
 		{
-			thisStyle |= Utils.stringToShape(thisToTerminator) << IEdge.TOSHIFT;
-			thisStyle |= Utils.stringToFill(thisToTerminator) << IEdge.TOSHIFT;
-			thisStyle |= IEdge.TODEF;
+			style |= Utils.stringToShape(toTerminator) << IEdge.TOSHIFT;
+			style |= Utils.stringToFill(toTerminator) << IEdge.TOSHIFT;
+			style |= IEdge.TODEF;
 			isDefined = true;
 		}
-		return !isDefined ? null : thisStyle;
+		return !isDefined ? null : style;
 	}
 
 	/**
 	 * Modify style
 	 *
-	 * @param thatStyle     current style
-	 * @param thisValue     string value
-	 * @param thisComponent style component to modify
+	 * @param style0    current style
+	 * @param value     string value
+	 * @param component style component to modify
 	 * @return modified style
 	 */
 	@Nullable
 	@SuppressWarnings("boxing")
-	static public Integer modifyStyle(@Nullable final Integer thatStyle, @Nullable final Object thisValue, @NonNull final StyleComponent thisComponent)
+	static public Integer modifyStyle(@Nullable final Integer style0, @Nullable final Object value, @NonNull final StyleComponent component)
 	{
-		// System.out.println(">modifyStyle" + " oldvalue=" + (thatStyle == null ? "null" : Integer.toHexString(thatStyle)) + " value=" + thisValue + " "
-		// + thisComponent.name());
+		// System.out.println(">modifyStyle" + " oldvalue=" + (style0 == null ? "null" : Integer.toHexString(style0)) + " value=" + value + " " + component.name());
 
-		if (thatStyle == null && thisValue == null)
+		if (style0 == null && value == null)
 		{
 			// System.out.println("<modifyStyle null");
 			return null;
 		}
 
 		// initial value
-		Integer thisStyle = thatStyle;
-		if (thisStyle == null)
+		Integer style = style0;
+		if (style == null)
 		{
-			thisStyle = 0;
+			style = 0;
 		}
 
 		// change relevant bits
-		switch (thisComponent)
+		switch (component)
 		{
 			case HIDDEN:
 			{
 				// clear
-				thisStyle &= ~(IEdge.HIDDEN | IEdge.HIDDENDEF);
+				style &= ~(IEdge.HIDDEN | IEdge.HIDDENDEF);
 
 				// set
-				final Boolean thisBooleanValue = (Boolean) thisValue;
-				if (thisBooleanValue != null)
+				final Boolean booleanValue = (Boolean) value;
+				if (booleanValue != null)
 				{
-					if (thisBooleanValue)
+					if (booleanValue)
 					{
-						thisStyle |= IEdge.HIDDEN;
+						style |= IEdge.HIDDEN;
 					}
-					thisStyle |= IEdge.HIDDENDEF;
+					style |= IEdge.HIDDENDEF;
 				}
 				break;
 			}
@@ -135,17 +132,17 @@ public class Utils
 			case LINE:
 			{
 				// clear
-				thisStyle &= ~(IEdge.LINE | IEdge.LINEDEF);
+				style &= ~(IEdge.LINE | IEdge.LINEDEF);
 
 				// set
-				final Boolean thisBooleanValue = (Boolean) thisValue;
-				if (thisBooleanValue != null)
+				final Boolean booleanValue = (Boolean) value;
+				if (booleanValue != null)
 				{
-					if (thisBooleanValue)
+					if (booleanValue)
 					{
-						thisStyle |= IEdge.LINE;
+						style |= IEdge.LINE;
 					}
-					thisStyle |= IEdge.LINEDEF;
+					style |= IEdge.LINEDEF;
 				}
 				break;
 			}
@@ -153,14 +150,14 @@ public class Utils
 			case STROKE:
 			{
 				// clear
-				thisStyle &= ~(IEdge.STROKEMASK | IEdge.STROKEDEF);
+				style &= ~(IEdge.STROKEMASK | IEdge.STROKEDEF);
 
 				// set
-				final String thisStringValue = (String) thisValue;
-				if (thisStringValue != null && !thisStringValue.isEmpty())
+				final String stringValue = (String) value;
+				if (stringValue != null && !stringValue.isEmpty())
 				{
-					thisStyle |= Utils.stringToStroke(thisStringValue);
-					thisStyle |= IEdge.STROKEDEF;
+					style |= Utils.stringToStroke(stringValue);
+					style |= IEdge.STROKEDEF;
 				}
 				break;
 			}
@@ -168,14 +165,14 @@ public class Utils
 			case STROKEWIDTH:
 			{
 				// clear
-				thisStyle &= ~(IEdge.STROKEWIDTHMASK | IEdge.STROKEWIDTHDEF);
+				style &= ~(IEdge.STROKEWIDTHMASK | IEdge.STROKEWIDTHDEF);
 
 				// set
-				final Integer thisIntValue = (Integer) thisValue;
-				if (thisIntValue != null)
+				final Integer intValue = (Integer) value;
+				if (intValue != null)
 				{
-					thisStyle |= thisIntValue << IEdge.STROKEWIDTHSHIFT;
-					thisStyle |= IEdge.STROKEWIDTHDEF;
+					style |= intValue << IEdge.STROKEWIDTHSHIFT;
+					style |= IEdge.STROKEWIDTHDEF;
 				}
 				break;
 			}
@@ -183,15 +180,15 @@ public class Utils
 			case FROMTERMINATOR:
 			{
 				// clear
-				thisStyle &= ~(IEdge.FROMMASK | IEdge.FROMDEF);
+				style &= ~(IEdge.FROMMASK | IEdge.FROMDEF);
 
 				// set
-				final String thisStringValue = (String) thisValue;
-				if (thisStringValue != null && !thisStringValue.isEmpty())
+				final String stringValue = (String) value;
+				if (stringValue != null && !stringValue.isEmpty())
 				{
-					thisStyle |= Utils.stringToShape(thisStringValue) << IEdge.FROMSHIFT;
-					thisStyle |= Utils.stringToFill(thisStringValue) << IEdge.FROMSHIFT;
-					thisStyle |= IEdge.FROMDEF;
+					style |= Utils.stringToShape(stringValue) << IEdge.FROMSHIFT;
+					style |= Utils.stringToFill(stringValue) << IEdge.FROMSHIFT;
+					style |= IEdge.FROMDEF;
 				}
 				break;
 			}
@@ -199,15 +196,15 @@ public class Utils
 			case TOTERMINATOR:
 			{
 				// clear
-				thisStyle &= ~(IEdge.TOMASK | IEdge.TODEF);
+				style &= ~(IEdge.TOMASK | IEdge.TODEF);
 
 				// set
-				final String thisStringValue = (String) thisValue;
-				if (thisStringValue != null && !thisStringValue.isEmpty())
+				final String stringValue = (String) value;
+				if (stringValue != null && !stringValue.isEmpty())
 				{
-					thisStyle |= Utils.stringToShape(thisStringValue) << IEdge.TOSHIFT;
-					thisStyle |= Utils.stringToFill(thisStringValue) << IEdge.TOSHIFT;
-					thisStyle |= IEdge.TODEF;
+					style |= Utils.stringToShape(stringValue) << IEdge.TOSHIFT;
+					style |= Utils.stringToFill(stringValue) << IEdge.TOSHIFT;
+					style |= IEdge.TODEF;
 				}
 				break;
 			}
@@ -217,77 +214,77 @@ public class Utils
 				return null;
 			}
 		}
-		// System.out.println("<modifyStyle " + Integer.toHexString(thisStyle));
-		return thisStyle;
+		// System.out.println("<modifyStyle " + Integer.toHexString(style));
+		return style;
 	}
 
 	/**
 	 * Stringify edge style component
 	 *
-	 * @param thisStyle     style
-	 * @param thisComponent part of style to stringify
+	 * @param style     style
+	 * @param component part of style to stringify
 	 * @return string
 	 */
 	@Nullable
 	@SuppressWarnings({"boxing", "WeakerAccess"})
-	static public String toString(@Nullable final Integer thisStyle, @NonNull final StyleComponent thisComponent)
+	static public String toString(@Nullable final Integer style, @NonNull final StyleComponent component)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return null;
 		}
 
-		switch (thisComponent)
+		switch (component)
 		{
 			case HIDDEN:
 			{
-				if ((thisStyle & IEdge.HIDDENDEF) == 0)
+				if ((style & IEdge.HIDDENDEF) == 0)
 				{
 					return null;
 				}
-				return (thisStyle & IEdge.HIDDEN) != 0 ? "true" : "false";
+				return (style & IEdge.HIDDEN) != 0 ? "true" : "false";
 			}
 			case LINE:
 			{
-				if ((thisStyle & IEdge.LINEDEF) == 0)
+				if ((style & IEdge.LINEDEF) == 0)
 				{
 					return null;
 				}
-				return (thisStyle & IEdge.LINE) != 0 ? "true" : "false";
+				return (style & IEdge.LINE) != 0 ? "true" : "false";
 			}
 			case STROKE:
 			{
-				if ((thisStyle & IEdge.STROKEDEF) == 0)
+				if ((style & IEdge.STROKEDEF) == 0)
 				{
 					return null;
 				}
-				return Utils.strokeToString(thisStyle);
+				return Utils.strokeToString(style);
 			}
 			case STROKEWIDTH:
 			{
-				if ((thisStyle & IEdge.STROKEWIDTHDEF) == 0)
+				if ((style & IEdge.STROKEWIDTHDEF) == 0)
 				{
 					return null;
 				}
-				return Utils.strokeWidthToString(thisStyle);
+				return Utils.strokeWidthToString(style);
 			}
 			case FROMTERMINATOR:
 			{
-				if ((thisStyle & IEdge.FROMDEF) == 0)
+				if ((style & IEdge.FROMDEF) == 0)
 				{
 					return null;
 				}
-				int n = thisStyle & IEdge.FROMMASK;
+				int n = style & IEdge.FROMMASK;
 				n >>= IEdge.FROMSHIFT;
 				return Utils.shapeToString(n) + Utils.fillToString(n);
 			}
 			case TOTERMINATOR:
 			{
-				if ((thisStyle & IEdge.TODEF) == 0)
+				if ((style & IEdge.TODEF) == 0)
 				{
 					return null;
 				}
-				int n = thisStyle & IEdge.TOMASK;
+				int n = style & IEdge.TOMASK;
 				n >>= IEdge.TOSHIFT;
 				return Utils.shapeToString(n) + Utils.fillToString(n);
 			}
@@ -300,48 +297,44 @@ public class Utils
 	/**
 	 * Integer value from edge style component
 	 *
-	 * @param thisStyle     style
-	 * @param thisComponent part of style to stringify
+	 * @param style     style
+	 * @param component part of style to stringify
 	 * @return string
 	 */
 	@Nullable
-	static public Integer toInteger(@Nullable final Integer thisStyle, @NonNull final StyleComponent thisComponent)
+	static public Integer toInteger(@Nullable final Integer style, @NonNull final StyleComponent component)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return null;
 		}
 
-		switch (thisComponent)
+		if (component == StyleComponent.STROKEWIDTH)
 		{
-			case STROKEWIDTH:
+			if ((style & IEdge.STROKEWIDTHDEF) == 0)
 			{
-				if ((thisStyle & IEdge.STROKEWIDTHDEF) == 0)
-				{
-					return null;
-				}
-				return Utils.strokeWidthToInteger(thisStyle);
-			}
-			default:
 				return null;
+			}
+			return Utils.strokeWidthToInteger(style);
 		}
+		return null;
 	}
 
 	/**
 	 * Stringify edge style component
 	 *
-	 * @param thisStyle style
+	 * @param style style
 	 * @return hidden, stroke, fromterminator, toterminator strings
 	 */
-	static public String[] toStrings(final Integer thisStyle)
+	static public String[] toStrings(final Integer style)
 	{
 		return new String[]{ //
-				Utils.toString(thisStyle, StyleComponent.HIDDEN), //
-				Utils.toString(thisStyle, StyleComponent.LINE), //
-				Utils.toString(thisStyle, StyleComponent.STROKE), //
-				Utils.toString(thisStyle, StyleComponent.STROKEWIDTH), //
-				Utils.toString(thisStyle, StyleComponent.FROMTERMINATOR), //
-				Utils.toString(thisStyle, StyleComponent.TOTERMINATOR),};
+				Utils.toString(style, StyleComponent.HIDDEN), //
+				Utils.toString(style, StyleComponent.LINE), //
+				Utils.toString(style, StyleComponent.STROKE), //
+				Utils.toString(style, StyleComponent.STROKEWIDTH), //
+				Utils.toString(style, StyleComponent.FROMTERMINATOR), //
+				Utils.toString(style, StyleComponent.TOTERMINATOR),};
 	}
 
 	// hidden
@@ -349,27 +342,27 @@ public class Utils
 	/**
 	 * Convert to boolean (true,null)
 	 *
-	 * @param thisStyle     style
-	 * @param thisComponent part of style to convert
+	 * @param style     style
+	 * @param component part of style to convert
 	 * @return true or null
 	 */
 	@Nullable
-	static public Boolean toTrueBoolean(@Nullable final Integer thisStyle, @NonNull final StyleComponent thisComponent)
+	static public Boolean toTrueBoolean(@Nullable final Integer style, @NonNull final StyleComponent component)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return null;
 		}
 
-		switch (thisComponent)
+		switch (component)
 		{
 			case HIDDEN:
 			{
-				return (thisStyle & IEdge.HIDDEN) != 0 ? Boolean.TRUE : null;
+				return (style & IEdge.HIDDEN) != 0 ? Boolean.TRUE : null;
 			}
 			case LINE:
 			{
-				return (thisStyle & IEdge.LINE) != 0 ? Boolean.TRUE : null;
+				return (style & IEdge.LINE) != 0 ? Boolean.TRUE : null;
 			}
 			default:
 				return null;
@@ -381,50 +374,50 @@ public class Utils
 	/**
 	 * Convert string to stroke code
 	 *
-	 * @param thisString stroke string
+	 * @param str stroke string
 	 * @return stroke code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToStroke(@Nullable final String thisString)
+	public static int stringToStroke(@Nullable final String str)
 	{
-		int thisStyle = 0;
-		if (thisString != null)
+		int style = 0;
+		if (str != null)
 		{
-			if (thisString.startsWith("solid"))
+			if (str.startsWith("solid"))
 			{
-				thisStyle |= IEdge.SOLID;
+				style |= IEdge.SOLID;
 			}
-			else if (thisString.startsWith("dash"))
+			else if (str.startsWith("dash"))
 			{
-				thisStyle |= IEdge.DASH;
+				style |= IEdge.DASH;
 			}
-			else if (thisString.startsWith("dot"))
+			else if (str.startsWith("dot"))
 			{
-				thisStyle |= IEdge.DOT;
+				style |= IEdge.DOT;
 			}
 		}
-		return thisStyle;
+		return style;
 	}
 
 	/**
 	 * Convert string to stroke code
 	 *
-	 * @param thisString stroke string
+	 * @param str stroke string
 	 * @return stroke code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToStrokeWidth(@Nullable final String thisString)
+	public static int stringToStrokeWidth(@Nullable final String str)
 	{
-		int thisStyle = 0;
-		if (thisString != null)
+		int style = 0;
+		if (str != null)
 		{
-			int i = thisString.lastIndexOf(' ');
-			if (i != -1 && i < thisString.length())
+			int i = str.lastIndexOf(' ');
+			if (i != -1 && i < str.length())
 			{
 				try
 				{
-					int thisWidth = Integer.parseInt(thisString.substring(i + 1));
-					thisStyle |= (thisWidth << IEdge.STROKEWIDTHSHIFT) & IEdge.STROKEWIDTHMASK;
+					int width = Integer.parseInt(str.substring(i + 1));
+					style |= (width << IEdge.STROKEWIDTHSHIFT) & IEdge.STROKEWIDTHMASK;
 				}
 				catch (NumberFormatException ignored)
 				{
@@ -432,24 +425,24 @@ public class Utils
 				}
 			}
 		}
-		return thisStyle;
+		return style;
 	}
 
 	/**
 	 * Convert stroke code to string
 	 *
-	 * @param thisStyle stroke code style
+	 * @param style stroke code style
 	 * @return stroke string
 	 */
 	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
-	public static String strokeToString(@Nullable final Integer thisStyle)
+	public static String strokeToString(@Nullable final Integer style)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return NONE;
 		}
-		final int n = thisStyle & IEdge.STROKEMASK;
+		final int n = style & IEdge.STROKEMASK;
 		switch (n)
 		{
 			case IEdge.SOLID:
@@ -467,17 +460,17 @@ public class Utils
 	/**
 	 * Convert stroke width to string
 	 *
-	 * @param thisStyle stroke code style
+	 * @param style stroke code style
 	 * @return stroke width string
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public static String strokeWidthToString(@Nullable final Integer thisStyle)
+	public static String strokeWidthToString(@Nullable final Integer style)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return NONE;
 		}
-		final int w = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
+		final int w = (style & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
 		if (w == 0)
 		{
 			return NONE;
@@ -488,18 +481,18 @@ public class Utils
 	/**
 	 * Convert stroke width to int
 	 *
-	 * @param thisStyle stroke code style
+	 * @param style stroke code style
 	 * @return stroke witch
 	 */
 	@Nullable
 	@SuppressWarnings({"boxing", "WeakerAccess"})
-	public static Integer strokeWidthToInteger(@Nullable final Integer thisStyle)
+	public static Integer strokeWidthToInteger(@Nullable final Integer style)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return null;
 		}
-		final int w = (thisStyle & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
+		final int w = (style & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
 		if (w == 0)
 		{
 			return null;
@@ -512,13 +505,13 @@ public class Utils
 	/**
 	 * Convert string to fill code style
 	 *
-	 * @param thisString fill string
+	 * @param str fill string
 	 * @return fill code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToFill(@NonNull final String thisString)
+	public static int stringToFill(@NonNull final String str)
 	{
-		if (thisString.length() > 1 && thisString.charAt(1) == 'f')
+		if (str.length() > 1 && str.charAt(1) == 'f')
 		{
 			return IEdge.FILL;
 		}
@@ -528,18 +521,18 @@ public class Utils
 	/**
 	 * Convert string to fill code style
 	 *
-	 * @param thisStyle fill code style
+	 * @param style fill code style
 	 * @return fill string
 	 */
 	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
-	public static String fillToString(@Nullable final Integer thisStyle)
+	public static String fillToString(@Nullable final Integer style)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return NONE;
 		}
-		return (thisStyle & IEdge.FILL) != 0 ? "f" : NONE;
+		return (style & IEdge.FILL) != 0 ? "f" : NONE;
 	}
 
 	// shape
@@ -547,13 +540,13 @@ public class Utils
 	/**
 	 * Convert string to shape code style
 	 *
-	 * @param thisString shape string
+	 * @param str shape string
 	 * @return shape code style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static int stringToShape(@NonNull final String thisString)
+	public static int stringToShape(@NonNull final String str)
 	{
-		switch (thisString.charAt(0))
+		switch (str.charAt(0))
 		{
 			case 'a':
 				return IEdge.ARROW;
@@ -574,18 +567,18 @@ public class Utils
 	/**
 	 * Convert shape code style to string
 	 *
-	 * @param thisStyle shape code style
+	 * @param style shape code style
 	 * @return shape string
 	 */
 	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
-	public static String shapeToString(@Nullable final Integer thisStyle)
+	public static String shapeToString(@Nullable final Integer style)
 	{
-		if (thisStyle == null)
+		if (style == null)
 		{
 			return NONE;
 		}
-		final int n = thisStyle & IEdge.SHAPEMASK;
+		final int n = style & IEdge.SHAPEMASK;
 		switch (n)
 		{
 			case IEdge.ARROW:
@@ -611,108 +604,108 @@ public class Utils
 	/**
 	 * Parse strings and set menuitem fields accordingly
 	 *
-	 * @param thisMenuItem     menuitem
-	 * @param thisActionString action string
-	 * @param thisScopeString  scope string
-	 * @param thisModeString   mode string
+	 * @param menuItem     menuitem
+	 * @param actionString action string
+	 * @param scopeString  scope string
+	 * @param modeString   mode string
 	 */
-	static public void parseMenuItem(@NonNull final MenuItem thisMenuItem, final String thisActionString, final String thisScopeString, final String thisModeString)
+	static public void parseMenuItem(@NonNull final MenuItem menuItem, final String actionString, final String scopeString, final String modeString)
 	{
-		thisMenuItem.theAction = Utils.stringToAction(thisActionString);
-		thisMenuItem.theMatchScope = Utils.stringToScope(thisScopeString);
-		thisMenuItem.theMatchMode = Utils.stringToMode(thisModeString);
+		menuItem.action = Utils.stringToAction(actionString);
+		menuItem.matchScope = Utils.stringToScope(scopeString);
+		menuItem.matchMode = Utils.stringToMode(modeString);
 	}
 
 	/**
 	 * Parse menuitem action
 	 *
-	 * @param thisActionString action string
+	 * @param actionString action string
 	 * @return action
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public Action stringToAction(@Nullable final String thisActionString)
+	static public Action stringToAction(@Nullable final String actionString)
 	{
-		return thisActionString == null || thisActionString.isEmpty() ? null : Action.valueOf(thisActionString.toUpperCase(Locale.ROOT));
+		return actionString == null || actionString.isEmpty() ? null : Action.valueOf(actionString.toUpperCase(Locale.ROOT));
 	}
 
 	/**
 	 * Parse menuitem scope
 	 *
-	 * @param thisScopeString scope string
+	 * @param scopeString scope string
 	 * @return scope
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public MatchScope stringToScope(@Nullable final String thisScopeString)
+	static public MatchScope stringToScope(@Nullable final String scopeString)
 	{
-		return thisScopeString == null || thisScopeString.isEmpty() ? null : MatchScope.valueOf(thisScopeString.toUpperCase(Locale.ROOT));
+		return scopeString == null || scopeString.isEmpty() ? null : MatchScope.valueOf(scopeString.toUpperCase(Locale.ROOT));
 	}
 
 	/**
 	 * Parse menuitem mode
 	 *
-	 * @param thisModeString mode string
+	 * @param modeString mode string
 	 * @return mode
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public MatchMode stringToMode(@Nullable final String thisModeString)
+	static public MatchMode stringToMode(@Nullable final String modeString)
 	{
-		return thisModeString == null || thisModeString.isEmpty() ? null : MatchMode.valueOf(thisModeString.toUpperCase(Locale.ROOT));
+		return modeString == null || modeString.isEmpty() ? null : MatchMode.valueOf(modeString.toUpperCase(Locale.ROOT));
 	}
 
 	/**
 	 * Stringify action
 	 *
-	 * @param thisAction action
+	 * @param action action
 	 * @return action string
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final Action thisAction)
+	static public String toString(@Nullable final Action action)
 	{
-		return thisAction == null ? null : thisAction.name();
+		return action == null ? null : action.name();
 	}
 
 	/**
 	 * Stringify scope
 	 *
-	 * @param thisScope scope
+	 * @param scope scope
 	 * @return scope string
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final MatchScope thisScope)
+	static public String toString(@Nullable final MatchScope scope)
 	{
-		return thisScope == null ? null : thisScope.name();
+		return scope == null ? null : scope.name();
 	}
 
 	/**
 	 * Stringify mode
 	 *
-	 * @param thisMode mode
+	 * @param mode mode
 	 * @return mode string
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final MatchMode thisMode)
+	static public String toString(@Nullable final MatchMode mode)
 	{
-		return thisMode == null ? null : thisMode.name();
+		return mode == null ? null : mode.name();
 	}
 
 	/**
 	 * Parse menuitem action, matchmode, matchscope fields to strings
 	 *
-	 * @param thisMenuItem menuitem
+	 * @param menuItem menuitem
 	 * @return action, matchscope, matchmode strings
 	 */
-	static public String[] toStrings(@NonNull final MenuItem thisMenuItem)
+	static public String[] toStrings(@NonNull final MenuItem menuItem)
 	{
-		final String thisAction = Utils.toString(thisMenuItem.theAction);
-		final String thisScope = Utils.toString(thisMenuItem.theMatchScope);
-		final String thisMode = Utils.toString(thisMenuItem.theMatchMode);
-		return new String[]{thisAction, thisScope, thisMode};
+		final String action = Utils.toString(menuItem.action);
+		final String scope = Utils.toString(menuItem.matchScope);
+		final String mode = Utils.toString(menuItem.matchMode);
+		return new String[]{action, scope, mode};
 	}
 
 	// C O L O R
@@ -720,37 +713,37 @@ public class Utils
 	/**
 	 * Convert color to hexadecimal string
 	 *
-	 * @param thisColor color
+	 * @param color color
 	 * @return prefixless hexadecimal representation of color
 	 */
 	@NonNull
-	static public String colorToString(@Nullable final Color thisColor)
+	static public String colorToString(@Nullable final Color color)
 	{
-		return thisColor == null ? NONE : Integer.toHexString(thisColor.getRGB()).substring(2);
+		return color == null ? NONE : Integer.toHexString(color.getRGB()).substring(2);
 	}
 
 	/**
 	 * Convert hexadecimal string to color
 	 *
-	 * @param thatString prefixless hexadecimal representation of color
+	 * @param str0 prefixless hexadecimal representation of color
 	 * @return color
 	 */
-	static public Color stringToColor(final String thatString)
+	static public Color stringToColor(final String str0)
 	{
-		String thisString = thatString;
-		if (thisString == null || thisString.isEmpty())
+		String str = str0;
+		if (str == null || str.isEmpty())
 		{
 			return null;
 		}
-		if (thisString.startsWith("#"))
+		if (str.startsWith("#"))
 		{
-			thisString = thisString.substring(1);
+			str = str.substring(1);
 		}
 		try
 		{
-			final Color thisColor = new Color();
-			thisColor.parse(thisString);
-			return thisColor;
+			final Color color = new Color();
+			color.parse(str);
+			return color;
 		}
 		catch (@NonNull final Exception ignored)
 		{
@@ -762,39 +755,39 @@ public class Utils
 	/**
 	 * Scaler to string
 	 *
-	 * @param thisScalerString scaler string representation
+	 * @param scalerString scaler string representation
 	 * @return scaler
 	 */
-	public static float[] stringToFloats(@NonNull final String thisScalerString)
+	public static float[] stringToFloats(@NonNull final String scalerString)
 	{
-		final String[] thisScalerItem = thisScalerString.split("[\\s,;]+");
-		final float[] thisScaler = new float[thisScalerItem.length];
-		for (int i = 0; i < thisScalerItem.length; i++)
+		final String[] scalerItem = scalerString.split("[\\s,;]+");
+		final float[] scaler = new float[scalerItem.length];
+		for (int i = 0; i < scalerItem.length; i++)
 		{
 			try
 			{
-				final float f = Float.parseFloat(thisScalerItem[i]);
-				thisScaler[i] = f;
+				final float f = Float.parseFloat(scalerItem[i]);
+				scaler[i] = f;
 			}
 			catch (@NonNull final NumberFormatException ignored)
 			{
 				return null;
 			}
 		}
-		return thisScaler;
+		return scaler;
 	}
 
 	/**
 	 * Scaler to string
 	 *
-	 * @param thisScaler scaler
+	 * @param scaler scaler
 	 * @return string representation
 	 */
-	public static String floatsToString(@NonNull final float[] thisScaler)
+	public static String floatsToString(@NonNull final float[] scaler)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
+		final StringBuilder sb = new StringBuilder();
 		boolean first = true;
-		for (final float f : thisScaler)
+		for (final float f : scaler)
 		{
 			if (first)
 			{
@@ -802,24 +795,24 @@ public class Utils
 			}
 			else
 			{
-				thisBuilder.append(',');
+				sb.append(',');
 			}
-			thisBuilder.append(Float.toString(f));
+			sb.append(f);
 		}
-		return thisBuilder.toString();
+		return sb.toString();
 	}
 
 	/**
 	 * Load properties from URL
 	 *
-	 * @param thisUrl url of property file to load from
+	 * @param url url of property file to load from
 	 * @throws IOException io exception
 	 */
 	@NonNull
-	static public Properties load(@NonNull final URL thisUrl) throws IOException
+	static public Properties load(@NonNull final URL url) throws IOException
 	{
-		final Properties theseProperties = new Properties();
-		theseProperties.load(thisUrl.openStream());
-		return theseProperties;
+		final Properties properties = new Properties();
+		properties.load(url.openStream());
+		return properties;
 	}
 }

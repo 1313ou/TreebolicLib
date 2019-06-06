@@ -27,7 +27,7 @@ public class LayerOut extends AbstractLayerOut
 	// C O N S T R U C T O R
 
 	/**
-	 * Contructor
+	 * Constructor
 	 */
 	public LayerOut()
 	{
@@ -37,33 +37,33 @@ public class LayerOut extends AbstractLayerOut
 	// O P E R A T I O N
 
 	@Override
-	public synchronized void layout(@Nullable final INode thisNode)
+	public synchronized void layout(@Nullable final INode node)
 	{
-		if (thisNode == null)
+		if (node == null)
 		{
 			return;
 		}
 
 		// handle root node
-		thisNode.getLocation().hyper.set(Complex.ZERO, this.theRadius);
+		node.getLocation().hyper.set(Complex.ZERO, this.radius);
 
 		// handle its children
-		layoutChildren(thisNode, this.theRootSweep, this.theRootOrientation.arg());
+		layoutChildren(node, this.rootSweep, this.rootOrientation.arg());
 	}
 
 	@Override
-	public synchronized void layout(@Nullable final INode thisNode, @NonNull final Complex thisCenter, final double thisHalfWedge, final double thisOrientation)
+	public synchronized void layout(@Nullable final INode node, @NonNull final Complex center, final double halfWedge, final double orientation)
 	{
-		if (thisNode == null)
+		if (node == null)
 		{
 			return;
 		}
 
 		// layout node
-		thisNode.getLocation().hyper.set(thisCenter, this.theRadius);
+		node.getLocation().hyper.set(center, this.radius);
 
 		// handle its children
-		layoutChildren(thisNode, thisHalfWedge, thisOrientation);
+		layoutChildren(node, halfWedge, orientation);
 	}
 
 	// O P E R A T I O N S
@@ -71,111 +71,111 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Lay out children
 	 *
-	 * @param thisNode        starting node
-	 * @param thisHalfWedge   half wedge allocated to this node
-	 * @param thisOrientation orientation of this node
+	 * @param node      starting node
+	 * @param halfWedge half wedge allocated to this node
+	 * @param orientation   orientation of this node
 	 */
-	private void layoutChildren(@NonNull final INode thisNode, final double thisHalfWedge, final double thisOrientation)
+	private void layoutChildren(@NonNull final INode node, final double halfWedge, final double orientation)
 	{
 		// children
-		final List<INode> theseChildren = thisNode.getChildren();
-		if (theseChildren == null || theseChildren.isEmpty())
+		final List<INode> children = node.getChildren();
+		if (children == null || children.isEmpty())
 		{
 			return;
 		}
 
 		// center
-		final Complex thisCenter = thisNode.getLocation().hyper.center;
+		final Complex center = node.getLocation().hyper.center;
 
 		// compute node distance
-		final double thisNodeDistance = computeDistance(theseChildren.size());
-		final double thisRadius = Distance.distanceToOrigin_e2h(thisNodeDistance / 2.);
+		final double nodeDistance = computeDistance(children.size());
+		final double radius = Distance.distanceToOrigin_e2h(nodeDistance / 2.);
 
 		// iterate
-		double thisChildSweeper = thisOrientation - (this.clockwise ? thisHalfWedge : -thisHalfWedge);
-		for (final INode thisChild : theseChildren)
+		double childSweeper = orientation - (this.clockwise ? halfWedge : -halfWedge);
+		for (final INode child : children)
 		{
 			// compute child's share of the parent's wedge as per weight
-			final double thisShare = Math.abs(thisChild.getWeight()) / thisNode.getChildrenWeight();
-			final double thisChildHalfWedgeShare = thisHalfWedge * thisShare;
+			final double share = Math.abs(child.getWeight()) / node.getChildrenWeight();
+			final double childHalfWedgeShare = halfWedge * share;
 
 			// set child sweeper to child's orientation
-			thisChildSweeper += this.clockwise ? thisChildHalfWedgeShare : -thisChildHalfWedgeShare;
+			childSweeper += this.clockwise ? childHalfWedgeShare : -childHalfWedgeShare;
 
 			// translate by parent's coordinates
-			final Complex thisChildCenter = HyperTranslation.map(Complex.makeFromArgAbs(thisChildSweeper, thisNodeDistance), thisCenter);
+			final Complex childCenter = HyperTranslation.map(Complex.makeFromArgAbs(childSweeper, nodeDistance), center);
 
 			// set child's center and radius
-			thisChild.getLocation().hyper.set(thisChildCenter, thisRadius);
+			child.getLocation().hyper.set(childCenter, radius);
 
 			// compute child's orientation
-			final double thisChildOrientation = LayerOut.computeOrientation(thisCenter, thisChildCenter, thisChildSweeper);
+			final double childOrientation = LayerOut.computeOrientation(center, childCenter, childSweeper);
 
 			// compute child's wedge
-			final double thisChildHalfWedge = LayerOut.computeWedge(thisNodeDistance, thisChildHalfWedgeShare);
+			final double childHalfWedge = LayerOut.computeWedge(nodeDistance, childHalfWedgeShare);
 
 			// mountpoint handling
-			MountPoint thisMountPoint = thisChild.getMountPoint();
-			while (thisMountPoint != null)
+			MountPoint mountPoint = child.getMountPoint();
+			while (mountPoint != null)
 			{
-				if (thisMountPoint instanceof MountPoint.Mounting)
+				if (mountPoint instanceof MountPoint.Mounting)
 				{
-					final MountPoint.Mounting thisMountingPoint = (MountPoint.Mounting) thisMountPoint;
-					thisMountingPoint.theHalfWedge = thisChildHalfWedge;
-					thisMountingPoint.theOrientation = thisChildOrientation;
+					final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
+					mountingPoint.halfWedge = childHalfWedge;
+					mountingPoint.orientation = childOrientation;
 					break;
 				}
-				final MountPoint.Mounted thisMountedPoint = (MountPoint.Mounted) thisMountPoint;
-				assert thisMountedPoint.theMountingNode != null;
-				thisMountPoint = thisMountedPoint.theMountingNode.getMountPoint();
+				final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
+				assert mountedPoint.mountingNode != null;
+				mountPoint = mountedPoint.mountingNode.getMountPoint();
 			}
 
 			// recurse
-			layoutChildren(thisChild, thisChildHalfWedge, thisChildOrientation);
+			layoutChildren(child, childHalfWedge, childOrientation);
 
 			// sweep to next
-			thisChildSweeper += this.clockwise ? thisChildHalfWedgeShare : -thisChildHalfWedgeShare;
+			childSweeper += this.clockwise ? childHalfWedgeShare : -childHalfWedgeShare;
 		}
 	}
 
 	/**
 	 * Compute distance
 	 *
-	 * @param thisChildCount child count
+	 * @param childCount child count
 	 * @return distance
 	 */
-	private double computeDistance(final int thisChildCount)
+	private double computeDistance(final int childCount)
 	{
 		// <BOUTHIER>
-		// double l1 = (0.95 - this.theNodeDistance);
-		// double l2 = Math.cos((20. * Math.PI) / (2. * thisChildCount + 38.));
+		// double l1 = (0.95 - this.nodeDistance);
+		// double l2 = Math.cos((20. * Math.PI) / (2. * childCount + 38.));
 		// </BOUTHIER>
 
 		// <BOUTHIER>
-		final double l1 = 1 - 1 / LayerOut.ksi - this.theNodeDistance;
-		final double l2 = Math.cos(LayerOut.ksi * this.theSweepFactor / (LayerOut.ksi - 1. + thisChildCount));
+		final double l1 = 1 - 1 / LayerOut.ksi - this.nodeDistance;
+		final double l2 = Math.cos(LayerOut.ksi * this.sweepFactor / (LayerOut.ksi - 1. + childCount));
 		final double delta = l1 * l2;
-		return this.theNodeDistance + delta;
+		return this.nodeDistance + delta;
 		// </BOUTHIER>
 	}
 
 	/**
 	 * Compute orientation
 	 *
-	 * @param thisParentCenter parent node hypercircle center
-	 * @param thisCenter       this node's hypercircle
-	 * @param thisOrientation  orientation
+	 * @param parentCenter parent node hypercircle center
+	 * @param center       this node's hypercircle
+	 * @param orientation  orientation
 	 * @return orientation
 	 */
-	private static double computeOrientation(@NonNull final Complex thisParentCenter, @NonNull final Complex thisCenter, final double thisOrientation)
+	private static double computeOrientation(@NonNull final Complex parentCenter, @NonNull final Complex center, final double orientation)
 	{
 		// <BOUTHIER>
 		// compute the new orientation (oc)
 		// e(i oc) = T(-z) o T(zp) (e(i op))
 		// e(i op) = theta
-		final Complex theta = Complex.makeFromArg(thisOrientation);
-		final Complex nz = new Complex(thisCenter).neg();
-		HyperTranslation.map2(theta, thisParentCenter, nz);
+		final Complex theta = Complex.makeFromArg(orientation);
+		final Complex nz = new Complex(center).neg();
+		HyperTranslation.map2(theta, parentCenter, nz);
 		// </BOUTHIER>
 
 		return theta.arg();
@@ -184,24 +184,24 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Compute wedge
 	 *
-	 * @param thisNodeDistance node distance
-	 * @param thisWedge        wedge
+	 * @param nodeDistance node distance
+	 * @param wedge        wedge
 	 * @return wedge
 	 */
-	private static double computeWedge(final double thisNodeDistance, final double thisWedge)
+	private static double computeWedge(final double nodeDistance, final double wedge)
 	{
 		// <BOUTHIER>
 		// compute the new wedge from the child's share of the parent's wedge
 		// e(i w) = T(-length) (e(i wp))
-		final Complex theta = Complex.makeFromArg(-thisWedge);
-		final Complex ro = new Complex(-thisNodeDistance, 0);
+		final Complex theta = Complex.makeFromArg(-wedge);
+		final Complex ro = new Complex(-nodeDistance, 0);
 		HyperTranslation.map(theta, ro);
 		return Math.abs(theta.arg());
 
 		// <OPTIMIZED>
-		// double wx = Math.cos(thisWedge);
-		// double a = 1 + thisNodeDistance * thisNodeDistance;
-		// double b = 2 * thisNodeDistance;
+		// double wx = Math.cos(wedge);
+		// double a = 1 + nodeDistance * nodeDistance;
+		// double b = 2 * nodeDistance;
 		// return Math.abs(Math.acos((a * wx - b) / (a - b * wx)));
 		// </OPTIMIZED>
 		// </BOUTHIER>

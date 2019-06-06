@@ -7,6 +7,7 @@ package treebolic.glue;
  */
 public abstract class ActionListener implements treebolic.glue.iface.ActionListener
 {
+	@SuppressWarnings("UnusedReturnValue")
 	@Override
 	abstract public boolean onAction(Object... params);
 }

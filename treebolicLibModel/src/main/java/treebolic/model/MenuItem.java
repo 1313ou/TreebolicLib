@@ -27,38 +27,38 @@ public class MenuItem implements Serializable
 	/**
 	 * Label
 	 */
-	public String theLabel;
+	public String label;
 
 	/**
 	 * Action
 	 */
 	@Nullable
-	public Action theAction;
+	public Action action;
 
 	/**
 	 * Url link
 	 */
-	public String theLink;
+	public String link;
 
 	/**
 	 * Url target frame
 	 */
-	public String theTarget;
+	public String target;
 
 	/**
 	 * Match target
 	 */
-	public String theMatchTarget;
+	public String matchTarget;
 
 	/**
 	 * Match scope
 	 */
 	@Nullable
-	public MatchScope theMatchScope;
+	public MatchScope matchScope;
 
 	/**
 	 * Match mode
 	 */
 	@Nullable
-	public MatchMode theMatchMode;
+	public MatchMode matchMode;
 }

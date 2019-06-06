@@ -39,7 +39,7 @@ public class Location implements Serializable
 	 * Opaque view rendering data
 	 */
 	@Nullable
-	public Object theViewData;
+	public Object viewData;
 
 	// C O N S T R U C T O R
 

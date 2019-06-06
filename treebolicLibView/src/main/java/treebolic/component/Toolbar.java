@@ -21,19 +21,19 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 	/**
 	 * Controller to send action requests to
 	 */
-	private final Controller theController;
+	private final Controller controller;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle Handle required for component creation
+	 * @param handle Handle required for component creation
 	 */
-	public Toolbar(final Controller thisController, final boolean hasTooltip, final boolean tooltipDisplaysContent, final boolean arcEdges, final boolean focusOnHover, final Object thisHandle)
+	public Toolbar(final Controller controller, final boolean hasTooltip, final boolean tooltipDisplaysContent, final boolean arcEdges, final boolean focusOnHover, final Object handle)
 	{
-		super(thisHandle);
-		this.theController = thisController;
+		super(handle);
+		this.controller = controller;
 
 		for (final Button button : toolbar())
 		{
@@ -52,14 +52,14 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 		}
 	}
 
-	private ActionListener makeListener(@NonNull final Controller.Command thisCommand)
+	private ActionListener makeListener(@NonNull final Controller.Command command)
 	{
 		return new ActionListener()
 		{
 			@Override
-			public boolean onAction(final Object... theseParams)
+			public boolean onAction(final Object... params)
 			{
-				Toolbar.this.theController.execute(thisCommand);
+				Toolbar.this.controller.execute(command);
 				return true;
 			}
 		};

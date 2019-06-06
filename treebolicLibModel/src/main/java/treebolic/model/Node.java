@@ -1,5 +1,6 @@
 package treebolic.model;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.io.Serializable;
@@ -27,7 +28,7 @@ class NodeData implements Serializable
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theId;
+	protected String id;
 
 	// node data
 
@@ -36,55 +37,55 @@ class NodeData implements Serializable
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theLabel;
+	protected String label;
 
 	/**
 	 * Node content
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theContent;
+	protected String content;
 
 	/**
 	 * Node URL link
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theLink;
+	protected String link;
 
 	/**
 	 * Node link target frame
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theTarget;
+	protected String target;
 
 	/**
 	 * Background color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theBackColor;
+	protected Color backColor;
 
 	/**
 	 * Foreground color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theForeColor;
+	protected Color foreColor;
 
 	/**
 	 * Node image filename
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theImageFile;
+	protected String imageFile;
 
 	/**
 	 * Node image index
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theImageIndex;
+	protected int imageIndex;
 
 	// tree edge data
 
@@ -93,34 +94,34 @@ class NodeData implements Serializable
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theEdgeLabel;
+	protected String edgeLabel;
 
 	/**
 	 * Tree edge color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theEdgeColor;
+	protected Color edgeColor;
 
 	/**
 	 * Tree edge style
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Integer theEdgeStyle;
+	protected Integer edgeStyle;
 
 	/**
 	 * Edge image filename
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theEdgeImageFile;
+	protected String edgeImageFile;
 
 	/**
 	 * Edge image filename
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theEdgeImageIndex;
+	protected int edgeImageIndex;
 
 	// C O N S T R U C T O R
 
@@ -130,21 +131,21 @@ class NodeData implements Serializable
 	@SuppressWarnings("WeakerAccess")
 	public NodeData()
 	{
-		this.theId = null;
-		this.theLabel = null;
-		this.theContent = null;
-		this.theBackColor = null;
-		this.theForeColor = null;
-		this.theImageFile = null;
-		this.theImageIndex = -1;
-		this.theLink = null;
-		this.theTarget = null;
+		this.id = null;
+		this.label = null;
+		this.content = null;
+		this.backColor = null;
+		this.foreColor = null;
+		this.imageFile = null;
+		this.imageIndex = -1;
+		this.link = null;
+		this.target = null;
 
-		this.theEdgeLabel = null;
-		this.theEdgeColor = null;
-		this.theEdgeStyle = null;
-		this.theEdgeImageFile = null;
-		this.theEdgeImageIndex = -1;
+		this.edgeLabel = null;
+		this.edgeColor = null;
+		this.edgeStyle = null;
+		this.edgeImageFile = null;
+		this.edgeImageIndex = -1;
 	}
 
 	// I D
@@ -152,80 +153,80 @@ class NodeData implements Serializable
 	@Nullable
 	public String getId()
 	{
-		return this.theId;
+		return this.id;
 	}
 
 	// A C C E S S
 
 	// display
-	@Nullable
+	@NonNull
 	@Override
 	public String toString()
 	{
-		return this.theLabel;
+		return this.label != null ? this.label : "";
 	}
 
 	@Nullable
 	public String toWritableString()
 	{
-		return this.theLabel != null ? this.theLabel : super.toString();
+		return this.label != null ? this.label : super.toString();
 	}
 
 	@Nullable
 	public String getLabel()
 	{
-		return this.theLabel;
+		return this.label;
 	}
 
 	@Nullable
 	public String getEdgeLabel()
 	{
-		return this.theEdgeLabel;
+		return this.edgeLabel;
 	}
 
-	public void setEdgeLabel(final String thisLabel)
+	public void setEdgeLabel(final String label)
 	{
-		this.theEdgeLabel = thisLabel;
+		this.edgeLabel = label;
 	}
 
 	@Nullable
 	public String getContent()
 	{
-		return this.theContent;
+		return this.content;
 	}
 
 	@Nullable
 	public Color getBackColor()
 	{
-		return this.theBackColor;
+		return this.backColor;
 	}
 
 	@Nullable
 	public Color getForeColor()
 	{
-		return this.theForeColor;
+		return this.foreColor;
 	}
 
 	@Nullable
 	public Color getEdgeColor()
 	{
-		return this.theEdgeColor;
+		return this.edgeColor;
 	}
 
-	public void setEdgeColor(final Color thisColor)
+	public void setEdgeColor(final Color color)
 	{
-		this.theEdgeColor = thisColor;
+		this.edgeColor = color;
 	}
 
 	@Nullable
 	public Integer getEdgeStyle()
 	{
-		return this.theEdgeStyle;
+		return this.edgeStyle;
 	}
 
-	public void setEdgeStyle(final Integer thisStyle)
+	public void setEdgeStyle(final Integer style)
 	{
-		this.theEdgeStyle = thisStyle;
+		this.edgeStyle = style;
 	}
 
 	// link
@@ -233,42 +234,42 @@ class NodeData implements Serializable
 	@Nullable
 	public String getLink()
 	{
-		return this.theLink;
+		return this.link;
 	}
 
 	@Nullable
 	public String getTarget()
 	{
-		return this.theTarget;
+		return this.target;
 	}
 
 	// image
 
 	public int getImageIndex()
 	{
-		return this.theImageIndex;
+		return this.imageIndex;
 	}
 
 	@Nullable
 	public String getImageFile()
 	{
-		return this.theImageFile;
+		return this.imageFile;
 	}
 
 	public int getEdgeImageIndex()
 	{
-		return this.theEdgeImageIndex;
+		return this.edgeImageIndex;
 	}
 
-	public void setEdgeImageIndex(final int thisImageIndex)
+	public void setEdgeImageIndex(final int imageIndex)
 	{
-		this.theEdgeImageIndex = thisImageIndex;
+		this.edgeImageIndex = imageIndex;
 	}
 
 	@Nullable
 	public String getEdgeImageFile()
 	{
-		return this.theEdgeImageFile;
+		return this.edgeImageFile;
 	}
 }
 
@@ -287,7 +288,7 @@ class XNodeData extends NodeData
 	/**
 	 * Node location
 	 */
-	private transient Location theLocation;
+	private transient Location location;
 
 	// images
 	/**
@@ -295,30 +296,30 @@ class XNodeData extends NodeData
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Image theImage;
+	protected Image image;
 
 	/**
 	 * Tree edge image
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Image theEdgeImage;
+	protected Image edgeImage;
 
 	// weight
 	/**
 	 * Node weight
 	 */
-	private double theWeight;
+	private double weight;
 
 	/**
 	 * Children weight
 	 */
-	private double theChildrenWeight;
+	private double childrenWeight;
 
 	/**
 	 * Least weight
 	 */
-	private double theMinWeight;
+	private double minWeight;
 
 	// mounting
 
@@ -327,7 +328,7 @@ class XNodeData extends NodeData
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected MountPoint theMountPoint;
+	protected MountPoint mountPoint;
 
 	// C O N S T R U C T O R
 
@@ -337,11 +338,11 @@ class XNodeData extends NodeData
 	@SuppressWarnings("WeakerAccess")
 	protected XNodeData()
 	{
-		this.theLocation = new Location();
-		this.theWeight = 0.;
-		this.theImage = null;
-		this.theEdgeImage = null;
-		this.theMountPoint = null;
+		this.location = new Location();
+		this.weight = 0.;
+		this.image = null;
+		this.edgeImage = null;
+		this.mountPoint = null;
 	}
 
 	// A C C E S S
@@ -349,83 +350,83 @@ class XNodeData extends NodeData
 	// location
 	public Location getLocation()
 	{
-		if (this.theLocation == null)
+		if (this.location == null)
 		{
-			this.theLocation = new Location();
+			this.location = new Location();
 		}
-		return this.theLocation;
+		return this.location;
 	}
 
 	// weight
 	public double getWeight()
 	{
-		return this.theWeight;
+		return this.weight;
 	}
 
-	public void setWeight(final double thisWeight)
+	public void setWeight(final double weight)
 	{
-		this.theWeight = thisWeight;
+		this.weight = weight;
 	}
 
 	public double getChildrenWeight()
 	{
-		return this.theChildrenWeight;
+		return this.childrenWeight;
 	}
 
-	public void setChildrenWeight(final double thisWeight)
+	public void setChildrenWeight(final double weight)
 	{
-		this.theChildrenWeight = thisWeight;
+		this.childrenWeight = weight;
 	}
 
 	public double getMinWeight()
 	{
-		return this.theMinWeight;
+		return this.minWeight;
 	}
 
-	public void setMinWeight(final double thisWeight)
+	public void setMinWeight(final double weight)
 	{
-		this.theMinWeight = thisWeight;
+		this.minWeight = weight;
 	}
 
 	// mountpoint
 	@Nullable
 	public MountPoint getMountPoint()
 	{
-		return this.theMountPoint;
+		return this.mountPoint;
 	}
 
 	/**
 	 * Set mountpoint
 	 *
-	 * @param thisMountPoint mount point
+	 * @param mountPoint mount point
 	 */
-	public void setMountPoint(final MountPoint thisMountPoint)
+	public void setMountPoint(final MountPoint mountPoint)
 	{
-		this.theMountPoint = thisMountPoint;
+		this.mountPoint = mountPoint;
 	}
 
 	// images
 	@Nullable
 	public Image getImage()
 	{
-		return this.theImage;
+		return this.image;
 	}
 
 	@SuppressWarnings("WeakerAccess")
-	public void setImage(final Image thisImage)
+	public void setImage(final Image image)
 	{
-		this.theImage = thisImage;
+		this.image = image;
 	}
 
 	@Nullable
 	public Image getEdgeImage()
 	{
-		return this.theEdgeImage;
+		return this.edgeImage;
 	}
 
-	public void setEdgeImage(final Image thisImage)
+	public void setEdgeImage(final Image image)
 	{
-		this.theEdgeImage = thisImage;
+		this.edgeImage = image;
 	}
 }
 
@@ -434,6 +435,7 @@ class XNodeData extends NodeData
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class Node extends XNodeData implements INode
 {
 	private static final long serialVersionUID = 5742412970800366908L;
@@ -445,35 +447,35 @@ public class Node extends XNodeData implements INode
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected List<INode> theChildren;
+	protected List<INode> children;
 
 	/**
 	 * Parent node
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected INode theParent;
+	protected INode parent;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * Construct node
 	 *
-	 * @param thisParent parent node
-	 * @param thisId     node id
+	 * @param parent parent node
+	 * @param id     node id
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Node(@Nullable final INode thisParent, final String thisId)
+	public Node(@Nullable final INode parent, final String id)
 	{
 		super();
-		this.theChildren = new ArrayList<>();
-		this.theId = thisId;
-		if (thisParent != null)
+		this.children = new ArrayList<>();
+		this.id = id;
+		if (parent != null)
 		{
-			this.theParent = thisParent;
-			final List<INode> theseChildren = thisParent.getChildren();
-			assert theseChildren != null;
-			theseChildren.add(this);
+			this.parent = parent;
+			final List<INode> children = parent.getChildren();
+			assert children != null;
+			children.add(this);
 		}
 	}
 
@@ -481,19 +483,19 @@ public class Node extends XNodeData implements INode
 	@Override
 	public INode getParent()
 	{
-		return this.theParent;
+		return this.parent;
 	}
 
 	@Override
-	public void setParent(final INode thisParent)
+	public void setParent(final INode parent)
 	{
-		this.theParent = thisParent;
+		this.parent = parent;
 	}
 
 	@Nullable
 	@Override
 	public List<INode> getChildren()
 	{
-		return this.theChildren;
+		return this.children;
 	}
 }

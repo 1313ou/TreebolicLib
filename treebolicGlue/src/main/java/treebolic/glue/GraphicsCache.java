@@ -20,14 +20,14 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 
 	private final int height;
 
-	public GraphicsCache(@SuppressWarnings("unused") final Component component, @NonNull final Graphics thatGraphics, final int width0, final int height0)
+	public GraphicsCache(@SuppressWarnings("unused") final Component component, @NonNull final Graphics graphics, final int width, final int height)
 	{
-		this.canvas = thatGraphics.canvas;
+		this.canvas = graphics.canvas;
 		if (GraphicsCache.CACHE)
 		{
 			this.picture = new Picture();
-			this.width = width0;
-			this.height = height0;
+			this.width = width;
+			this.height = height;
 		}
 		else
 		{
@@ -44,20 +44,20 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 	{
 		if (GraphicsCache.CACHE)
 		{
-			final Canvas thisCanvas = this.picture.beginRecording(this.width, this.height);
-			return new Graphics(thisCanvas);
+			final Canvas canvas = this.picture.beginRecording(this.width, this.height);
+			return new Graphics(canvas);
 		}
 		return new Graphics(this.canvas);
 	}
 
 	@Override
 	@SuppressWarnings("ConstantConditions")
-	public void put(@NonNull final Graphics thisGraphics)
+	public void put(@NonNull final Graphics graphics)
 	{
 		if (GraphicsCache.CACHE)
 		{
 			this.picture.endRecording();
-			thisGraphics.canvas.drawPicture(this.picture);
+			graphics.canvas.drawPicture(this.picture);
 		}
 	}
 }

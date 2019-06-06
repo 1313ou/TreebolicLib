@@ -36,7 +36,7 @@ public class View extends Surface
 	/**
 	 * Data model
 	 */
-	private Model theModel;
+	private Model model;
 
 	// A G E N T S
 
@@ -44,29 +44,29 @@ public class View extends Surface
 	 * Painter
 	 */
 	@NonNull
-	private final AbstractPainter thePainter;
+	private final AbstractPainter painter;
 
 	/**
 	 * Transformer
 	 */
 	@NonNull
-	private final Transformer theTransformer;
+	private final Transformer transformer;
 
 	/**
 	 * Animator
 	 */
 	@NonNull
-	private final Animator theAnimator;
+	private final Animator animator;
 
 	/**
 	 * LayerOut
 	 */
-	private AbstractLayerOut theLayerOut;
+	private AbstractLayerOut layerOut;
 
 	/**
 	 * Event listener adapter
 	 */
-	private EventListenerAdapter theListener;
+	private EventListenerAdapter listenerAdapter;
 
 	// G R A P H I C S
 
@@ -78,18 +78,18 @@ public class View extends Surface
 	/**
 	 * View width
 	 */
-	private int theWidth;
+	private int width;
 
 	/**
 	 * View height
 	 */
-	private int theHeight;
+	private int height;
 
 	/**
 	 * Drawing cache
 	 */
 	@Nullable
-	private GraphicsCache theCache;
+	private GraphicsCache cache;
 
 	// R E F E R E N C E . N O D E S
 
@@ -97,7 +97,7 @@ public class View extends Surface
 	 * Focus node
 	 */
 	@Nullable
-	private INode theFocusNode;
+	private INode focusNode;
 
 	// B E H A V I O U R
 
@@ -111,30 +111,30 @@ public class View extends Surface
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle Handle required for component creation (unused)
+	 * @param handle handle required for component creation (unused)
 	 */
-	public View(final Object thisHandle)
+	public View(final Object handle)
 	{
-		super(thisHandle);
+		super(handle);
 
 		// painter
-		this.thePainter = new Painter();
-		this.thePainter.resetColors();
+		this.painter = new Painter();
+		this.painter.resetColors();
 
 		// transformer
-		this.theTransformer = new Transformer();
+		this.transformer = new Transformer();
 
 		// animator
-		this.theAnimator = new Animator();
+		this.animator = new Animator();
 
 		// graphics
-		this.theWidth = 0;
-		this.theHeight = 0;
-		this.theCache = null;
+		this.width = 0;
+		this.height = 0;
+		this.cache = null;
 		this.invalidatePainterGraphics = true;
 
 		// reference nodes
-		this.theFocusNode = null;
+		this.focusNode = null;
 
 		// behaviour flags
 		this.focusOnHover = true;
@@ -145,33 +145,33 @@ public class View extends Surface
 	/**
 	 * Connect controller
 	 *
-	 * @param thisController controller
+	 * @param controller controller
 	 */
-	public void connect(final Controller thisController)
+	public void connect(final Controller controller)
 	{
 		// listener
-		this.theListener = new EventListenerAdapter(thisController);
-		addEventListener(this.theListener);
+		this.listenerAdapter = new EventListenerAdapter(controller);
+		addEventListener(this.listenerAdapter);
 	}
 
 	/**
 	 * Set model
 	 *
-	 * @param thisModel data model
+	 * @param model data model
 	 */
-	public void connect(final Model thisModel)
+	public void connect(final Model model)
 	{
-		this.theModel = thisModel;
+		this.model = model;
 	}
 
 	/**
 	 * Connect layout agent
 	 *
-	 * @param thisLayerOut layout agent
+	 * @param layerOut layout agent
 	 */
-	public void connect(final AbstractLayerOut thisLayerOut)
+	public void connect(final AbstractLayerOut layerOut)
 	{
-		this.theLayerOut = thisLayerOut;
+		this.layerOut = layerOut;
 	}
 
 	// R E S E T
@@ -184,9 +184,9 @@ public class View extends Surface
 		applyNullTransform();
 		setXShift(0, false);
 		setYShift(0, false);
-		if (this.theListener != null)
+		if (this.listenerAdapter != null)
 		{
-			this.theListener.reset();
+			this.listenerAdapter.reset();
 		}
 		repaint();
 	}
@@ -196,56 +196,56 @@ public class View extends Surface
 	@Override
 	public void repaint()
 	{
-		if (this.theListener != null)
+		if (this.listenerAdapter != null)
 		{
-			this.theListener.resetHotNode();
+			this.listenerAdapter.resetHotNode();
 		}
 		super.repaint();
 	}
 
 	@Override
-	public void paint(@NonNull final Graphics thisScreenGraphics)
+	public void paint(@NonNull final Graphics screenGraphics)
 	{
 		// drag
-		if (this.theListener.drag())
+		if (this.listenerAdapter.drag())
 		{
 			this.invalidatePainterGraphics = true;
 		}
 
 		// create a cached image the first time or when size changes
-		final int thisWidth = getWidth();
-		final int thisHeight = getHeight();
-		if (this.theCache == null || thisWidth != this.theWidth || thisHeight != this.theHeight)
+		final int width = getWidth();
+		final int height = getHeight();
+		if (this.cache == null || width != this.width || height != this.height)
 		{
 			// invalidate old cache
 			this.invalidatePainterGraphics = true;
 
 			// size
-			this.theWidth = thisWidth;
-			this.theHeight = thisHeight;
+			this.width = width;
+			this.height = height;
 
 			// cache
-			this.theCache = new GraphicsCache(this, thisScreenGraphics, this.theWidth, this.theHeight);
+			this.cache = new GraphicsCache(this, screenGraphics, this.width, this.height);
 		}
 
 		// setup painter cached graphics and size
 		if (this.invalidatePainterGraphics)
 		{
 			// cached graphics context
-			final Graphics thisCacheGraphics = this.theCache.getGraphics();
+			final Graphics cacheGraphics = this.cache.getGraphics();
 
 			// tell painter
-			this.thePainter.setup(thisCacheGraphics, this.theWidth, this.theHeight);
+			this.painter.setup(cacheGraphics, this.width, this.height);
 		}
 
 		// paint background
-		this.thePainter.paintBackground();
+		this.painter.paintBackground();
 
 		// paint tree
-		this.thePainter.paint(this.theModel.theTree.getRoot(), this.theModel.theTree.getEdges());
+		this.painter.paint(this.model.tree.getRoot(), this.model.tree.getEdges());
 
 		// transfer cache on screen
-		this.theCache.put(thisScreenGraphics);
+		this.cache.put(screenGraphics);
 	}
 
 	/**
@@ -272,7 +272,7 @@ public class View extends Surface
 	 */
 	public void enterDrag()
 	{
-		this.thePainter.enterDrag();
+		this.painter.enterDrag();
 		this.invalidatePainterGraphics = true;
 		repaint();
 	}
@@ -282,7 +282,7 @@ public class View extends Surface
 	 */
 	public void leaveDrag()
 	{
-		this.thePainter.leaveDrag();
+		this.painter.leaveDrag();
 		this.invalidatePainterGraphics = true;
 		repaint();
 	}
@@ -292,20 +292,20 @@ public class View extends Surface
 	/**
 	 * Mount notification hook
 	 *
-	 * @param thisMountedRoot mounted node
+	 * @param mountedRoot mounted node
 	 */
-	public void mount(@NonNull final INode thisMountedRoot)
+	public void mount(@NonNull final INode mountedRoot)
 	{
-		this.theTransformer.transform(thisMountedRoot);
+		this.transformer.transform(mountedRoot);
 		repaint();
 	}
 
 	/**
 	 * Unmount notification hook
 	 */
-	public void umount(@NonNull final INode thisMountingRoot)
+	public void umount(@NonNull final INode mountingRoot)
 	{
-		this.theTransformer.transform(thisMountingRoot);
+		this.transformer.transform(mountingRoot);
 		repaint();
 	}
 
@@ -314,11 +314,11 @@ public class View extends Surface
 	/**
 	 * Control whether hovering on node triggers gaining focus
 	 *
-	 * @param thisFlag whether hovering on node triggers gaining focus (null toggles value)
+	 * @param flag whether hovering on node triggers gaining focus (null toggles value)
 	 */
-	public void setFocusOnHover(@Nullable final Boolean thisFlag)
+	public void setFocusOnHover(@Nullable final Boolean flag)
 	{
-		this.focusOnHover = thisFlag != null ? thisFlag : !this.focusOnHover;
+		this.focusOnHover = flag != null ? flag : !this.focusOnHover;
 
 		// implement
 		setFireHover(this.focusOnHover);
@@ -329,12 +329,12 @@ public class View extends Surface
 	/**
 	 * Preserve orientation
 	 *
-	 * @param thisFlag whether transformations preserve orientation (null toggles value)
+	 * @param flag whether transformations preserve orientation (null toggles value)
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public void setPreserveOrientation(@Nullable final Boolean thisFlag)
+	public void setPreserveOrientation(@Nullable final Boolean flag)
 	{
-		this.theTransformer.setPreserveOrientation(thisFlag != null ? thisFlag : !this.theTransformer.getPreserveOrientation());
+		this.transformer.setPreserveOrientation(flag != null ? flag : !this.transformer.getPreserveOrientation());
 	}
 
 	// S H I F T
@@ -350,9 +350,9 @@ public class View extends Surface
 		float cx = cx0;
 		if (xinc)
 		{
-			cx += this.thePainter.getXShift();
+			cx += this.painter.getXShift();
 		}
-		this.thePainter.setXShift(cx);
+		this.painter.setXShift(cx);
 	}
 
 	/**
@@ -366,9 +366,9 @@ public class View extends Surface
 		float cy = cy0;
 		if (yinc)
 		{
-			cy += this.thePainter.getYShift();
+			cy += this.painter.getYShift();
 		}
-		this.thePainter.setYShift(cy);
+		this.painter.setYShift(cy);
 	}
 
 	// S C A L I N G . A N D . Z O O M I N G
@@ -376,26 +376,26 @@ public class View extends Surface
 	/**
 	 * Set zoom factor
 	 *
-	 * @param thisZoomFactor zoom factor
-	 * @param thisZoomPivotX zoom pivot X
-	 * @param thisZoomPivotY zoom pivot Y
+	 * @param zoomFactor zoom factor
+	 * @param zoomPivotX zoom pivot X
+	 * @param zoomPivotY zoom pivot Y
 	 */
-	public void setZoomFactor(final float thisZoomFactor, final float thisZoomPivotX, final float thisZoomPivotY)
+	public void setZoomFactor(final float zoomFactor, final float zoomPivotX, final float zoomPivotY)
 	{
-		this.thePainter.setZoomFactor(thisZoomFactor, thisZoomPivotX, thisZoomPivotY);
+		this.painter.setZoomFactor(zoomFactor, zoomPivotX, zoomPivotY);
 		repaint();
 	}
 
 	/**
 	 * Set scale factors
 	 *
-	 * @param thisMapScaleFactor   map scale factor (how unit circle is mapped to view)
-	 * @param thisFontScaleFactor  font scale factor
-	 * @param thisImageScaleFactor image scale factor
+	 * @param mapScaleFactor   map scale factor (how unit circle is mapped to view)
+	 * @param fontScaleFactor  font scale factor
+	 * @param imageScaleFactor image scale factor
 	 */
-	public void setScaleFactors(final float thisMapScaleFactor, final float thisFontScaleFactor, final float thisImageScaleFactor)
+	public void setScaleFactors(final float mapScaleFactor, final float fontScaleFactor, final float imageScaleFactor)
 	{
-		this.thePainter.setScaleFactors(thisMapScaleFactor, thisFontScaleFactor, thisImageScaleFactor);
+		this.painter.setScaleFactors(mapScaleFactor, fontScaleFactor, imageScaleFactor);
 		repaint();
 	}
 
@@ -404,23 +404,23 @@ public class View extends Surface
 	/**
 	 * Set linear/arc rendering of edges
 	 *
-	 * @param thisFlag whether edges are rendered as arcs (null toggles value)
+	 * @param flag whether edges are rendered as arcs (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
-	public void setArcEdges(@Nullable @SuppressWarnings("SameParameterValue") final Boolean thisFlag)
+	public void setArcEdges(@Nullable @SuppressWarnings("SameParameterValue") final Boolean flag)
 	{
-		this.thePainter.setArcEdges(thisFlag != null ? thisFlag : !this.thePainter.getArcEdges());
+		this.painter.setArcEdges(flag != null ? flag : !this.painter.getArcEdges());
 	}
 
 	/**
 	 * Set linear/arc rendering of edges
 	 *
-	 * @param thisFlag whether label texts are ellipsized (null toggles value)
+	 * @param flag whether label texts are ellipsized (null toggles value)
 	 */
 	@SuppressWarnings("boxing")
-	public void setEllipsize(@Nullable final Boolean thisFlag)
+	public void setEllipsize(@Nullable final Boolean flag)
 	{
-		this.thePainter.setEllipsize(thisFlag != null ? thisFlag : !this.thePainter.getEllipsize());
+		this.painter.setEllipsize(flag != null ? flag : !this.painter.getEllipsize());
 	}
 
 	// P O P U P
@@ -428,12 +428,12 @@ public class View extends Surface
 	/**
 	 * Control whether view has popup menu
 	 *
-	 * @param thisFlag whether view has popup menu (null toggles value)
+	 * @param flag whether view has popup menu (null toggles value)
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public void setPopUpMenu(@Nullable final Boolean thisFlag)
+	public void setPopUpMenu(@Nullable final Boolean flag)
 	{
-		this.theListener.hasPopUp = thisFlag != null ? thisFlag : !this.theListener.hasPopUp;
+		this.listenerAdapter.hasPopUp = flag != null ? flag : !this.listenerAdapter.hasPopUp;
 	}
 
 	// A P P L Y . S E T T I N G S
@@ -441,55 +441,55 @@ public class View extends Surface
 	/**
 	 * Set view behaviour
 	 *
-	 * @param theseSettings settings
+	 * @param settings settings
 	 */
-	public void apply(@NonNull final Settings theseSettings)
+	public void apply(@NonNull final Settings settings)
 	{
 		// view settings
-		if (theseSettings.theHasPopUpMenuFlag != null)
+		if (settings.hasPopUpMenuFlag != null)
 		{
-			setPopUpMenu(theseSettings.theHasPopUpMenuFlag);
+			setPopUpMenu(settings.hasPopUpMenuFlag);
 		}
-		if (theseSettings.theFocusOnHoverFlag != null)
+		if (settings.focusOnHoverFlag != null)
 		{
-			setFocusOnHover(theseSettings.theFocusOnHoverFlag);
+			setFocusOnHover(settings.focusOnHoverFlag);
 		}
-		if (theseSettings.thePreserveOrientationFlag != null)
+		if (settings.preserveOrientationFlag != null)
 		{
-			setPreserveOrientation(theseSettings.thePreserveOrientationFlag);
+			setPreserveOrientation(settings.preserveOrientationFlag);
 		}
-		if (theseSettings.theXShift != null)
+		if (settings.xShift != null)
 		{
-			setXShift(theseSettings.theXShift, false);
+			setXShift(settings.xShift, false);
 		}
-		if (theseSettings.theYShift != null)
+		if (settings.yShift != null)
 		{
-			setYShift(theseSettings.theYShift, false);
+			setYShift(settings.yShift, false);
 		}
 
 		// painter
-		this.thePainter.setColors(theseSettings.theBackColor, theseSettings.theForeColor, theseSettings.theNodeBackColor, theseSettings.theNodeForeColor, theseSettings.theTreeEdgeColor, theseSettings.theEdgeColor);
-		this.thePainter.setImageScaling(theseSettings.theDownscaleImagesFlag, theseSettings.theImageDownscaler);
-		this.thePainter.setFont(theseSettings.theFontFace, theseSettings.theFontSize, theseSettings.theFontSizeFactor, theseSettings.theDownscaleFontsFlag, theseSettings.theFontDownscaler);
-		this.thePainter.setBorder(theseSettings.theBorderFlag);
-		this.thePainter.setEllipsize(theseSettings.theEllipsizeFlag);
-		this.thePainter.setLabelMaxLines(theseSettings.theLabelMaxLines);
-		this.thePainter.setLabelExtraLineFactor(theseSettings.theLabelExtraLineFactor);
-		this.thePainter.setArcEdges(theseSettings.theEdgesAsArcsFlag);
-		this.thePainter.setEdgeStyles(theseSettings.theTreeEdgeStyle, theseSettings.theEdgeStyle);
+		this.painter.setColors(settings.backColor, settings.foreColor, settings.nodeBackColor, settings.nodeForeColor, settings.treeEdgeColor, settings.edgeColor);
+		this.painter.setImageScaling(settings.downscaleImagesFlag, settings.imageDownscaler);
+		this.painter.setFont(settings.fontFace, settings.fontSize, settings.fontSizeFactor, settings.downscaleFontsFlag, settings.fontDownscaler);
+		this.painter.setBorder(settings.borderFlag);
+		this.painter.setEllipsize(settings.ellipsizeFlag);
+		this.painter.setLabelMaxLines(settings.labelMaxLines);
+		this.painter.setLabelExtraLineFactor(settings.labelExtraLineFactor);
+		this.painter.setArcEdges(settings.edgesAsArcsFlag);
+		this.painter.setEdgeStyles(settings.treeEdgeStyle, settings.edgeStyle);
 	}
 
 	/**
 	 * Set images
 	 *
-	 * @param thisBackgroundImage      background image
-	 * @param thisDefaultNodeImage     default node image
-	 * @param thisDefaultTreeEdgeImage default tree edge image
-	 * @param thisDefaultEdgeImage     default edge image
+	 * @param backgroundImage      background image
+	 * @param defaultNodeImage     default node image
+	 * @param defaultTreeEdgeImage default tree edge image
+	 * @param defaultEdgeImage     default edge image
 	 */
-	public void setImages(final Image thisBackgroundImage, final Image thisDefaultNodeImage, final Image thisDefaultTreeEdgeImage, final Image thisDefaultEdgeImage)
+	public void setImages(final Image backgroundImage, final Image defaultNodeImage, final Image defaultTreeEdgeImage, final Image defaultEdgeImage)
 	{
-		this.thePainter.setImages(thisBackgroundImage, thisDefaultNodeImage, thisDefaultTreeEdgeImage, thisDefaultEdgeImage);
+		this.painter.setImages(backgroundImage, defaultNodeImage, defaultTreeEdgeImage, defaultEdgeImage);
 	}
 
 	// S E T . T R A N S F O R M
@@ -499,7 +499,7 @@ public class View extends Surface
 	 */
 	public void resetTransform()
 	{
-		this.theTransformer.setTransform(HyperTransform.NULLTRANSFORM);
+		this.transformer.setTransform(HyperTransform.NULLTRANSFORM);
 	}
 
 	// A P P L Y . T R A N S F O R M
@@ -507,24 +507,24 @@ public class View extends Surface
 	/**
 	 * Compose this transform with current and apply
 	 *
-	 * @param thisTransform transform to compose with current transform
+	 * @param transform transform to compose with current transform
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void applyComposedTransform(@NonNull final HyperTransform thisTransform)
+	public void applyComposedTransform(@NonNull final HyperTransform transform)
 	{
-		this.theTransformer.composeTransform(thisTransform);
-		this.theTransformer.transform(this.theModel.theTree.getRoot());
+		this.transformer.composeTransform(transform);
+		this.transformer.transform(this.model.tree.getRoot());
 	}
 
 	/**
 	 * Apply transform
 	 *
-	 * @param thisTransform transform
+	 * @param transform transform
 	 */
-	public void applyTransform(final HyperTransform thisTransform)
+	public void applyTransform(final HyperTransform transform)
 	{
-		this.theTransformer.setTransform(thisTransform);
-		this.theTransformer.transform(this.theModel.theTree.getRoot());
+		this.transformer.setTransform(transform);
+		this.transformer.transform(this.model.tree.getRoot());
 	}
 
 	/**
@@ -532,7 +532,7 @@ public class View extends Surface
 	 */
 	public void applyNullTransform()
 	{
-		this.theTransformer.reset(this.theModel.theTree.getRoot());
+		this.transformer.reset(this.model.tree.getRoot());
 	}
 
 	/**
@@ -540,9 +540,9 @@ public class View extends Surface
 	 */
 	public void applyInitialTransform()
 	{
-		final Complex thisStart = new Complex(-1, -1).normalize().multiply(0.9);
-		final HyperTransform thisTransform = this.theTransformer.makeTransform(thisStart, Complex.ZERO, this.theLayerOut.getOrientation());
-		applyTransform(thisTransform);
+		final Complex start = new Complex(-1, -1).normalize().multiply(0.9);
+		final HyperTransform transform = this.transformer.makeTransform(start, Complex.ZERO, this.layerOut.getOrientation());
+		applyTransform(transform);
 	}
 
 	// D E L T A . M O V E
@@ -550,27 +550,27 @@ public class View extends Surface
 	/**
 	 * Compose delta translation
 	 *
-	 * @param thisStart unit circle delta vector start
-	 * @param thisEnd   unit circle delta vector start
+	 * @param start unit circle delta vector start
+	 * @param end   unit circle delta vector start
 	 */
-	public void composeTranslate(@NonNull final Complex thisStart, @NonNull final Complex thisEnd)
+	public void composeTranslate(@NonNull final Complex start, @NonNull final Complex end)
 	{
-		final HyperTransform thisTransform = this.theTransformer.makeTransform(thisStart, thisEnd, this.theLayerOut.getOrientation());
-		applyComposedTransform(thisTransform);
+		final HyperTransform transform = this.transformer.makeTransform(start, end, this.layerOut.getOrientation());
+		applyComposedTransform(transform);
 	}
 
 	/**
 	 * Compose delta rotation
 	 *
-	 * @param thisStart unit circle delta vector start
-	 * @param thisEnd   unit circle delta vector end
+	 * @param start unit circle delta vector start
+	 * @param end   unit circle delta vector end
 	 */
-	public void composeRotate(@NonNull final Complex thisStart, @NonNull final Complex thisEnd)
+	public void composeRotate(@NonNull final Complex start, @NonNull final Complex end)
 	{
-		final HyperRotation thisRotation = new HyperRotation(Complex.ONE);
-		thisRotation.div(thisEnd, thisStart);
-		thisRotation.normalize();
-		applyComposedTransform(new HyperTransform(thisRotation));
+		final HyperRotation rotation = new HyperRotation(Complex.ONE);
+		rotation.div(end, start);
+		rotation.normalize();
+		applyComposedTransform(new HyperTransform(rotation));
 	}
 
 	// M O V E
@@ -578,39 +578,39 @@ public class View extends Surface
 	/**
 	 * Translate tree according to vector
 	 *
-	 * @param thisStart unit circle vector start
-	 * @param thisEnd   unit circle vector end
+	 * @param start unit circle vector start
+	 * @param end   unit circle vector end
 	 */
-	private void translate(@NonNull final Complex thisStart, @NonNull final Complex thisEnd)
+	private void translate(@NonNull final Complex start, @NonNull final Complex end)
 	{
-		final HyperTransform thisTransform = this.theTransformer.makeTransform(thisStart, thisEnd, this.theLayerOut.getOrientation());
-		applyTransform(thisTransform);
+		final HyperTransform transform = this.transformer.makeTransform(start, end, this.layerOut.getOrientation());
+		applyTransform(transform);
 	}
 
 	/**
 	 * Translate node to point (unused, may be called by javascript)
 	 *
-	 * @param thisNode        node
-	 * @param thisDestination unit circle destination location
+	 * @param node        node
+	 * @param destination unit circle destination location
 	 */
-	public void moveTo(@NonNull final INode thisNode, @NonNull final Complex thisDestination)
+	public void moveTo(@NonNull final INode node, @NonNull final Complex destination)
 	{
-		final Location thisLocation = thisNode.getLocation();
-		translate(thisLocation.hyper.center0, thisDestination);
-		this.theFocusNode = thisNode;
+		final Location location = node.getLocation();
+		translate(location.hyper.center0, destination);
+		this.focusNode = node;
 		repaint();
 	}
 
 	/**
 	 * Translate node to unit circle center (unused, may be called by javascript)
 	 *
-	 * @param thisNode node
+	 * @param node node
 	 */
-	public void moveToCenter(@NonNull final INode thisNode)
+	public void moveToCenter(@NonNull final INode node)
 	{
-		final Location thisLocation = thisNode.getLocation();
-		translate(thisLocation.hyper.center0, Complex.ZERO);
-		this.theFocusNode = thisNode;
+		final Location location = node.getLocation();
+		translate(location.hyper.center0, Complex.ZERO);
+		this.focusNode = node;
 		repaint();
 	}
 
@@ -619,48 +619,48 @@ public class View extends Surface
 	/**
 	 * Animate to unit circle center
 	 *
-	 * @param thisNode node
+	 * @param node node
 	 * @param now      whether to start now
 	 */
-	public void animateToCenter(@NonNull final INode thisNode, @SuppressWarnings("SameParameterValue") final boolean now)
+	public void animateToCenter(@NonNull final INode node, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
-		final Location thisLocation = thisNode.getLocation();
-		final Complex thisFrom = thisLocation.hyper.center;
-		animate(thisFrom, Complex.ZERO, now);
-		this.theFocusNode = thisNode;
+		final Location location = node.getLocation();
+		final Complex from = location.hyper.center;
+		animate(from, Complex.ZERO, now);
+		this.focusNode = node;
 	}
 
 	/**
 	 * Animate node to destination location
 	 *
-	 * @param thisNode        node
-	 * @param thisDestination unit circle destination location
-	 * @param now             whether to start now
+	 * @param node        node
+	 * @param destination unit circle destination location
+	 * @param now         whether to start now
 	 */
-	public void animateTo(@NonNull final INode thisNode, @NonNull final Complex thisDestination, @SuppressWarnings("SameParameterValue") final boolean now)
+	public void animateTo(@NonNull final INode node, @NonNull final Complex destination, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
-		final Location thisLocation = thisNode.getLocation();
-		final Complex thisFrom = thisLocation.hyper.center;
-		animate(thisFrom, thisDestination, now);
-		this.theFocusNode = thisNode;
+		final Location location = node.getLocation();
+		final Complex from = location.hyper.center;
+		animate(from, destination, now);
+		this.focusNode = node;
 	}
 
 	/**
 	 * Animate tree. Translate as per vector(start,end)
 	 *
-	 * @param thisFrom unit circle vector start
-	 * @param thisTo   unit circle vector end
-	 * @param now      whether to start now
+	 * @param from unit circle vector start
+	 * @param to   unit circle vector end
+	 * @param now  whether to start now
 	 */
-	private synchronized void animate(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, final boolean now)
+	private synchronized void animate(@NonNull final Complex from, @NonNull final Complex to, final boolean now)
 	{
-		final AnimationTransforms theseTransforms = AnimationTransforms.make(thisFrom, thisTo, this.theTransformer, this.theLayerOut.getOrientation(), 0);
-		if (theseTransforms.theTransforms == null)
+		final AnimationTransforms transforms = AnimationTransforms.make(from, to, this.transformer, this.layerOut.getOrientation(), 0);
+		if (transforms.transforms == null)
 		{
 			return;
 		}
-		final Animation thisAnimation = new Animation(theseTransforms, this);
-		this.theAnimator.run(thisAnimation, thisAnimation.getSteps(), now ? 0 : Animation.ANIMATION_START_DELAY);
+		final Animation animation = new Animation(transforms, this);
+		this.animator.run(animation, animation.getSteps(), now ? 0 : Animation.ANIMATION_START_DELAY);
 	}
 
 	/**
@@ -670,7 +670,7 @@ public class View extends Surface
 	 */
 	public boolean isAnimating()
 	{
-		return this.theAnimator.isRunning();
+		return this.animator.isRunning();
 	}
 
 	// S E A R C H I N G
@@ -685,8 +685,8 @@ public class View extends Surface
 	@Nullable
 	public INode findNode(final int vx, final int vy)
 	{
-		final Complex thisEuclideanLocation = this.thePainter.viewToUnitCircle(vx, vy, this.theWidth, this.theHeight);
-		return Finder.findNodeAt(this.theModel.theTree.getRoot(), thisEuclideanLocation);
+		final Complex euclideanLocation = this.painter.viewToUnitCircle(vx, vy, this.width, this.height);
+		return Finder.findNodeAt(this.model.tree.getRoot(), euclideanLocation);
 	}
 
 	/**
@@ -697,7 +697,7 @@ public class View extends Surface
 	@Nullable
 	public INode getFocusNode()
 	{
-		return this.theFocusNode;
+		return this.focusNode;
 	}
 
 	// S P A C E . C O N V E R S I O N
@@ -712,6 +712,6 @@ public class View extends Surface
 	@NonNull
 	public Complex viewToUnitCircle(final int vx, final int vy)
 	{
-		return this.thePainter.viewToUnitCircle(vx, vy, getWidth(), getHeight());
+		return this.painter.viewToUnitCircle(vx, vy, getWidth(), getHeight());
 	}
 }

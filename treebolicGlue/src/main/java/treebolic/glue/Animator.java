@@ -22,17 +22,17 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	/**
 	 * Animation listener
 	 */
-	private ActionListener theListener;
+	private ActionListener listener;
 
 	/**
 	 * Android animator
 	 */
-	private ValueAnimator theAnimator;
+	private ValueAnimator animator;
 
 	/**
 	 * Android last step
 	 */
-	private int theLastStep;
+	private int lastStep;
 
 	/**
 	 * Constructor
@@ -43,38 +43,40 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 		// Log.d(Animator.TAG, "animate frame delay set=" + ANIMATIONTIMESLICE + " get=" + ValueAnimator.getFrameDelay());
 	}
 
+	@SuppressWarnings({"UnusedReturnValue", "SameReturnValue"})
 	@Override
-	public boolean run(final ActionListener thisListener, final int theseSteps, final int startDelay)
+	public boolean run(final ActionListener listener, final int steps, final int startDelay)
 	{
-		// Log.d(Animator.TAG, "animate steps " + theseSteps);
-		this.theLastStep = theseSteps - 1;
-		this.theListener = thisListener;
-		this.theAnimator = ValueAnimator.ofInt(0, this.theLastStep);
-		this.theAnimator.setRepeatCount(0);
-		this.theAnimator.setDuration(1000);
-		this.theAnimator.setStartDelay(startDelay);
-		this.theAnimator.setInterpolator(new LinearInterpolator());
-		this.theAnimator.addUpdateListener(this);
-		this.theAnimator.addListener(this);
-		this.theAnimator.start();
+		// Log.d(Animator.TAG, "animate steps " + steps);
+		this.lastStep = steps - 1;
+		this.listener = listener;
+		this.animator = ValueAnimator.ofInt(0, this.lastStep);
+		this.animator.setRepeatCount(0);
+		this.animator.setDuration(1000);
+		this.animator.setStartDelay(startDelay);
+		this.animator.setInterpolator(new LinearInterpolator());
+		this.animator.addUpdateListener(this);
+		this.animator.addListener(this);
+		this.animator.start();
 		return true;
 	}
 
 	@Override
 	public boolean isRunning()
 	{
-		return this.theAnimator.isRunning();
+		return this.animator.isRunning();
 	}
 
 	@SuppressWarnings("boxing")
 	@Override
 	public void onAnimationUpdate(@NonNull final ValueAnimator animator)
 	{
-		int thisStep = (int) animator.getAnimatedValue();
-		this.theListener.onAction(thisStep);
+		int step = (int) animator.getAnimatedValue();
+		this.listener.onAction(step);
 		// Log.d(Animator.TAG, "animate update value=" + animator.getAnimatedValue());
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void onAnimationStart(android.animation.Animator animator)
 	{
@@ -85,18 +87,19 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	@Override
 	public void onAnimationEnd(android.animation.Animator animator)
 	{
-		this.theListener.onAction(this.theLastStep);
-		// Log.d(Animator.TAG, "animate end value=" + this.theLastStep);
+		this.listener.onAction(this.lastStep);
+		// Log.d(Animator.TAG, "animate end value=" + this.lastStep);
 	}
 
 	@SuppressWarnings("boxing")
 	@Override
 	public void onAnimationCancel(android.animation.Animator animator)
 	{
-		this.theListener.onAction(this.theLastStep);
+		this.listener.onAction(this.lastStep);
 		// Log.d(Animator.TAG, "animate cancel value=" + ((ValueAnimator) animator).getAnimatedValue());
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void onAnimationRepeat(android.animation.Animator animator)
 	{

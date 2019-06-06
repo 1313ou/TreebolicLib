@@ -15,16 +15,16 @@ public class ModelReader
 	/**
 	 * Archive file
 	 */
-	private final String theArchive;
+	private final String archive;
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisArchive archive file
+	 * @param archive archive file
 	 */
-	public ModelReader(final String thisArchive)
+	public ModelReader(final String archive)
 	{
-		this.theArchive = thisArchive;
+		this.archive = archive;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class ModelReader
 	@NonNull
 	public Model deserialize() throws IOException, ClassNotFoundException
 	{
-		return (Model) ZipDeSerializer.deserializeZip(this.theArchive, "model");
+		return (Model) ZipDeSerializer.deserializeZip(this.archive, "model");
 	}
 
 	/**

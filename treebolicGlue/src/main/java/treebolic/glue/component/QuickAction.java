@@ -39,21 +39,25 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		/**
 		 * Icon
 		 */
+		@SuppressWarnings("WeakerAccess")
 		public final Drawable icon;
 
 		/**
 		 * Title
 		 */
+		@SuppressWarnings("WeakerAccess")
 		public final String title;
 
 		/**
 		 * Whether item is sticky (disable QuickAction dialog being dismissed after an item is clicked)
 		 */
+		@SuppressWarnings("WeakerAccess")
 		public final boolean sticky;
 
 		/**
 		 * Action listener
 		 */
+		@SuppressWarnings("WeakerAccess")
 		public final ActionListener listener;
 
 		/**

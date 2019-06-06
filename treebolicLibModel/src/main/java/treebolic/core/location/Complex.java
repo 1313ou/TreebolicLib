@@ -105,24 +105,24 @@ public class Complex implements Serializable
 	/**
 	 * Construct complex from argument and mag re = cos(arg) im = sin(arg)
 	 *
-	 * @param thisArg argument a
-	 * @param thisMag magnitude m
+	 * @param arg argument a
+	 * @param mag magnitude m
 	 * @return new complex of this argument a and magnitude m
 	 */
-	static public Complex makeFromArgAbs(final double thisArg, final double thisMag)
+	static public Complex makeFromArgAbs(final double arg, final double mag)
 	{
-		return new Complex(thisMag * Math.cos(thisArg), thisMag * Math.sin(thisArg));
+		return new Complex(mag * Math.cos(arg), mag * Math.sin(arg));
 	}
 
 	/**
 	 * Construct complex of magnitude 1 from argument re = cos(arg) im = sin(arg)
 	 *
-	 * @param thisArg argument a
+	 * @param arg argument a
 	 * @return new complex of magnitude 1 and argument a
 	 */
-	static public Complex makeFromArg(final double thisArg)
+	static public Complex makeFromArg(final double arg)
 	{
-		return new Complex(Math.cos(thisArg), Math.sin(thisArg));
+		return new Complex(Math.cos(arg), Math.sin(arg));
 	}
 
 	// S E T
@@ -506,6 +506,7 @@ public class Complex implements Serializable
 
 	// S T R I N G
 
+	@NonNull
 	@SuppressWarnings("boxing")
 	@Override
 	public String toString()

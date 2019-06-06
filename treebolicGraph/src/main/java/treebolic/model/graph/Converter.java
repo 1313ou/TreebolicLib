@@ -25,88 +25,88 @@ public class Converter<T extends TreeMutableNode>
 	/**
 	 * Convert graph to tree
 	 *
-	 * @param thisGraph graph
+	 * @param graph graph
 	 * @return tree
 	 */
 	@NonNull
-	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph thisGraph)
+	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph graph)
 	{
 		// determine root node
-		GraphNode thisRootNode;
-		final List<GraphNode> theseRootNodes = thisGraph.getNodesWithZeroDegree();
-		if (theseRootNodes != null)
+		GraphNode rootNode;
+		final List<GraphNode> rootNodes = graph.getNodesWithZeroDegree();
+		if (rootNodes != null)
 		{
-			if (theseRootNodes.size() == 1)
+			if (rootNodes.size() == 1)
 			{
-				thisRootNode = theseRootNodes.get(0);
+				rootNode = rootNodes.get(0);
 			}
 			else
 			{
-				throw new RuntimeException("No single root " + theseRootNodes); //$NON-NLS-1$
+				throw new RuntimeException("No single root " + rootNodes); //$NON-NLS-1$
 			}
 		}
 		else
 		{
-			thisRootNode = thisGraph.getNodeWithMinimumIncomingDegree();
+			rootNode = graph.getNodeWithMinimumIncomingDegree();
 		}
-		return graphToTree(thisGraph, thisRootNode);
+		return graphToTree(graph, rootNode);
 	}
 
 	/**
 	 * Convert graph to tree
 	 *
-	 * @param thisGraph    graph
-	 * @param thisRootNode root node
+	 * @param graph    graph
+	 * @param rootNode root node
 	 * @return tree
 	 */
 	@NonNull
 	@SuppressWarnings({"unchecked"})
-	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph thisGraph, @Nullable final GraphNode thisRootNode)
+	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph graph, @Nullable final GraphNode rootNode)
 	{
 		// spanning tree
-		if (thisRootNode == null)
+		if (rootNode == null)
 		{
 			throw new RuntimeException("Null root"); //$NON-NLS-1$
 		}
 
 		// spanning tree
-		final treebolic.model.graph.Tree thisSpanningTree = thisGraph.makeSpanningTree(thisRootNode);
+		final treebolic.model.graph.Tree spanningTree = graph.makeSpanningTree(rootNode);
 
 		// tree edges
-		final Collection<GraphEdge> theseGraphEdges = thisSpanningTree.theGraph.getEdges();
-		for (final GraphEdge thisGraphEdge : theseGraphEdges)
+		final Collection<GraphEdge> graphEdges = spanningTree.graph.getEdges();
+		for (final GraphEdge graphEdge : graphEdges)
 		{
 			// tree edge nodes
-			final T thisFromNode = (T) thisGraphEdge.getFrom();
-			final MutableNode thisToNode = (MutableNode) thisGraphEdge.getTo();
+			final T fromNode = (T) graphEdge.getFrom();
+			final MutableNode toNode = (MutableNode) graphEdge.getTo();
 
 			// parent child
-			thisFromNode.addChild(thisToNode);
+			fromNode.addChild(toNode);
 
 			// transfer style
-			final IEdge thisEdge = (IEdge) thisGraphEdge.getUserData();
-			thisToNode.setEdgeColor(thisEdge.getColor());
-			thisToNode.setEdgeStyle(thisEdge.getStyle());
-			thisToNode.setEdgeLabel(thisEdge.getLabel());
-			thisToNode.setEdgeImageFile(thisEdge.getImageFile());
+			final IEdge edge = (IEdge) graphEdge.getUserData();
+			toNode.setEdgeColor(edge.getColor());
+			toNode.setEdgeStyle(edge.getStyle());
+			toNode.setEdgeLabel(edge.getLabel());
+			toNode.setEdgeImageFile(edge.getImageFile());
 		}
 
 		// non-tree edges
-		List<IEdge> theseEdges = null;
-		for (final GraphEdge thisGraphEdge : thisGraph.getEdges())
+		List<IEdge> edges = null;
+		for (final GraphEdge graphEdge : graph.getEdges())
 		{
-			if (theseGraphEdges.contains(thisGraphEdge))
+			if (graphEdges.contains(graphEdge))
 			{
 				continue;
 			}
-			final MutableEdge thisEdge = (MutableEdge) thisGraphEdge.getUserData();
-			if (theseEdges == null)
+			final MutableEdge edge = (MutableEdge) graphEdge.getUserData();
+			if (edges == null)
 			{
-				theseEdges = new ArrayList<>();
+				edges = new ArrayList<>();
 			}
-			theseEdges.add(thisEdge);
+			edges.add(edge);
 		}
 
-		return new Tree((INode) thisSpanningTree.theRoot, theseEdges);
+		return new Tree((INode) spanningTree.root, edges);
 	}
 }

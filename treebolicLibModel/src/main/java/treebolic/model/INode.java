@@ -28,9 +28,9 @@ public interface INode extends Serializable
 	/**
 	 * Set tree node parent (used by mounting)
 	 *
-	 * @param thisParent tree node parent
+	 * @param parent tree node parent
 	 */
-	void setParent(final INode thisParent);
+	void setParent(final INode parent);
 
 	/**
 	 * Get children nodes
@@ -53,9 +53,9 @@ public interface INode extends Serializable
 	/**
 	 * Set mountpoint
 	 *
-	 * @param thisMountPoint mountpoint data
+	 * @param mountPoint mountpoint data
 	 */
-	void setMountPoint(final MountPoint thisMountPoint);
+	void setMountPoint(final MountPoint mountPoint);
 
 	// weight
 
@@ -69,9 +69,9 @@ public interface INode extends Serializable
 	/**
 	 * Set node weight (negative values will bypass computations and will be considered preset)
 	 *
-	 * @param thisWeight node weight
+	 * @param weight node weight
 	 */
-	void setWeight(final double thisWeight);
+	void setWeight(final double weight);
 
 	/**
 	 * Get children weight
@@ -83,9 +83,9 @@ public interface INode extends Serializable
 	/**
 	 * Set children weight
 	 *
-	 * @param thisWeight children weight
+	 * @param weight children weight
 	 */
-	void setChildrenWeight(final double thisWeight);
+	void setChildrenWeight(final double weight);
 
 	/**
 	 * Get least weight
@@ -97,9 +97,9 @@ public interface INode extends Serializable
 	/**
 	 * Set least weight
 	 *
-	 * @param thisWeight least weight
+	 * @param weight least weight
 	 */
-	void setMinWeight(final double thisWeight);
+	void setMinWeight(final double weight);
 
 	// location
 
@@ -141,9 +141,9 @@ public interface INode extends Serializable
 	/**
 	 * Set tree edge (to parent) label
 	 *
-	 * @param thisLabel edge (to parent) label
+	 * @param label edge (to parent) label
 	 */
-	void setEdgeLabel(final String thisLabel);
+	void setEdgeLabel(final String label);
 
 	/**
 	 * Get node content
@@ -182,9 +182,9 @@ public interface INode extends Serializable
 	/**
 	 * Set edge color
 	 *
-	 * @param thisColor edge color
+	 * @param color edge color
 	 */
-	void setEdgeColor(final Color thisColor);
+	void setEdgeColor(final Color color);
 
 	// edge
 
@@ -199,9 +199,9 @@ public interface INode extends Serializable
 	/**
 	 * Set edge style
 	 *
-	 * @param thisStyle edge style
+	 * @param style edge style
 	 */
-	void setEdgeStyle(final Integer thisStyle);
+	void setEdgeStyle(final Integer style);
 
 	// hyperlink
 
@@ -256,9 +256,9 @@ public interface INode extends Serializable
 	/**
 	 * Set edge image index
 	 *
-	 * @param thisImageIndex image index
+	 * @param imageIndex image index
 	 */
-	void setEdgeImageIndex(final int thisImageIndex);
+	void setEdgeImageIndex(final int imageIndex);
 
 	// get images
 
@@ -283,14 +283,14 @@ public interface INode extends Serializable
 	/**
 	 * Set image file
 	 *
-	 * @param thisImage node image
+	 * @param image node image
 	 */
-	void setImage(final Image thisImage);
+	void setImage(final Image image);
 
 	/**
 	 * Set tree edge image
 	 *
-	 * @param thisImage tree edge image
+	 * @param image tree edge image
 	 */
-	void setEdgeImage(final Image thisImage);
+	void setEdgeImage(final Image image);
 }

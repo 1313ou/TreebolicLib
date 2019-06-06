@@ -104,15 +104,15 @@ public class HyperCircle implements Serializable
 	/**
 	 * Clone
 	 *
-	 * @param thisHyperCircle hyper circle
+	 * @param hyperCircle hyper circle
 	 */
-	public void clone(@NonNull final HyperCircle thisHyperCircle)
+	public void clone(@NonNull final HyperCircle hyperCircle)
 	{
-		this.center0.set(thisHyperCircle.center0);
-		this.center.set(thisHyperCircle.center);
-		this.dist = thisHyperCircle.dist;
-		this.isBorder = thisHyperCircle.isBorder;
-		this.radius = thisHyperCircle.radius;
+		this.center0.set(hyperCircle.center0);
+		this.center.set(hyperCircle.center);
+		this.dist = hyperCircle.dist;
+		this.isBorder = hyperCircle.isBorder;
+		this.radius = hyperCircle.radius;
 		this.isDirty = true;
 	}
 

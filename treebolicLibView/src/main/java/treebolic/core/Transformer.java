@@ -27,12 +27,12 @@ public class Transformer
 	/**
 	 * Current transform
 	 */
-	private HyperTransform theTransform;
+	private HyperTransform transform;
 
 	/**
 	 * Whether orientation is preserved
 	 */
-	private boolean thePreserveOrientationFlag;
+	private boolean preserveOrientationFlag;
 
 	// C O N S T R U C T O R
 
@@ -41,8 +41,8 @@ public class Transformer
 	 */
 	public Transformer()
 	{
-		this.thePreserveOrientationFlag = true;
-		this.theTransform = new HyperTransform();
+		this.preserveOrientationFlag = true;
+		this.transform = new HyperTransform();
 	}
 
 	// A C C E S S
@@ -54,7 +54,7 @@ public class Transformer
 	 */
 	public HyperTransform getTransform()
 	{
-		return this.theTransform;
+		return this.transform;
 	}
 
 	/**
@@ -64,17 +64,17 @@ public class Transformer
 	 */
 	public boolean getPreserveOrientation()
 	{
-		return this.thePreserveOrientationFlag;
+		return this.preserveOrientationFlag;
 	}
 
 	/**
 	 * Get whether transform preserves orientation
 	 *
-	 * @param thisFlag if transform is to preserve orientation
+	 * @param flag if transform is to preserve orientation
 	 */
-	public void setPreserveOrientation(final boolean thisFlag)
+	public void setPreserveOrientation(final boolean flag)
 	{
-		this.thePreserveOrientationFlag = thisFlag;
+		this.preserveOrientationFlag = flag;
 	}
 
 	// S E T
@@ -82,21 +82,21 @@ public class Transformer
 	/**
 	 * Set current transform
 	 *
-	 * @param thisTransform new transform
+	 * @param transform new transform
 	 */
-	public void setTransform(final HyperTransform thisTransform)
+	public void setTransform(final HyperTransform transform)
 	{
-		this.theTransform = thisTransform;
+		this.transform = transform;
 	}
 
 	/**
 	 * Set current transform as composition of current transform and this transform
 	 *
-	 * @param thisTransform transform
+	 * @param transform transform
 	 */
-	public void composeTransform(@NonNull final HyperTransform thisTransform)
+	public void composeTransform(@NonNull final HyperTransform transform)
 	{
-		this.theTransform = this.theTransform.compose(thisTransform);
+		this.transform = this.transform.compose(transform);
 	}
 
 	// O P E R A T I O N
@@ -104,22 +104,22 @@ public class Transformer
 	/**
 	 * Transform
 	 *
-	 * @param thisNode node to apply transform to
+	 * @param node node to apply transform to
 	 */
-	public synchronized void transform(@NonNull final INode thisNode)
+	public synchronized void transform(@NonNull final INode node)
 	{
-		applyTransform(thisNode, new HyperOptimizedTransform(this.theTransform));
-		thisNode.getLocation().hyper.isBorder = false;
+		applyTransform(node, new HyperOptimizedTransform(this.transform));
+		node.getLocation().hyper.isBorder = false;
 	}
 
 	/**
 	 * Reset
 	 *
-	 * @param thisNode node to apply reset to
+	 * @param node node to apply reset to
 	 */
-	public synchronized void reset(final INode thisNode)
+	public synchronized void reset(final INode node)
 	{
-		applyReset(thisNode);
+		applyReset(node);
 		setTransform(HyperTransform.NULLTRANSFORM);
 	}
 
@@ -130,23 +130,23 @@ public class Transformer
 	 *
 	 * @param from            translation from-point
 	 * @param to              translation to-point
-	 * @param thisOrientation orientation
+	 * @param orientation orientation
 	 * @return transform
 	 */
 	@NonNull
-	public HyperTransform makeTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex thisOrientation)
+	public HyperTransform makeTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex orientation)
 	{
-		if (!this.thePreserveOrientationFlag)
+		if (!this.preserveOrientationFlag)
 		{
 			return new HyperTransform(new HyperTranslation(from, to, true));
 		}
 
 		// orientation preserving
-		if (thisOrientation == Complex.ZERO)
+		if (orientation == Complex.ZERO)
 		{
 			return new HyperRadialOrientationPreservingTransform(from, to, getTransform().map(new Complex(Complex.ZERO)));
 		}
-		return new HyperOrientationPreservingTransform(from, to, thisOrientation);
+		return new HyperOrientationPreservingTransform(from, to, orientation);
 	}
 
 	// A P P L Y
@@ -154,26 +154,26 @@ public class Transformer
 	/**
 	 * Apply transform
 	 *
-	 * @param thisNode      node to apply transform to
-	 * @param thisTransform transform to apply
+	 * @param node      node to apply transform to
+	 * @param transform transform to apply
 	 */
-	private void applyTransform(@Nullable final INode thisNode, @NonNull final IHyperTransform thisTransform)
+	private void applyTransform(@Nullable final INode node, @NonNull final IHyperTransform transform)
 	{
-		if (thisNode == null)
+		if (node == null)
 		{
 			return;
 		}
 
 		// this node
-		Transformer.transform(thisTransform, thisNode.getLocation().hyper);
+		Transformer.transform(transform, node.getLocation().hyper);
 
 		// recurse on children
-		final List<INode> theseChildren = thisNode.getChildren();
-		if (theseChildren != null)
+		final List<INode> children = node.getChildren();
+		if (children != null)
 		{
-			for (final INode thisChild : theseChildren)
+			for (final INode child : children)
 			{
-				applyTransform(thisChild, thisTransform);
+				applyTransform(child, transform);
 			}
 		}
 	}
@@ -181,23 +181,23 @@ public class Transformer
 	/**
 	 * Apply reset
 	 *
-	 * @param thisNode node to apply reset to
+	 * @param node node to apply reset to
 	 */
-	private void applyReset(@Nullable final INode thisNode)
+	private void applyReset(@Nullable final INode node)
 	{
-		if (thisNode == null)
+		if (node == null)
 		{
 			return;
 		}
 
-		thisNode.getLocation().hyper.reset();
+		node.getLocation().hyper.reset();
 
-		final List<INode> theseChildren = thisNode.getChildren();
-		if (theseChildren != null)
+		final List<INode> children = node.getChildren();
+		if (children != null)
 		{
-			for (final INode thisChild : theseChildren)
+			for (final INode child : children)
 			{
-				applyReset(thisChild);
+				applyReset(child);
 			}
 		}
 	}
@@ -208,25 +208,25 @@ public class Transformer
 	 * Apply transform to this hypercircle
 	 *
 	 * @param t               transform
-	 * @param thisHyperCircle hypercircle
+	 * @param hyperCircle hypercircle
 	 */
-	static private void transform(@NonNull final IHyperTransform t, @NonNull final HyperCircle thisHyperCircle)
+	static private void transform(@NonNull final IHyperTransform t, @NonNull final HyperCircle hyperCircle)
 	{
 		// map
-		t.map(thisHyperCircle.center.set(thisHyperCircle.center0));
+		t.map(hyperCircle.center.set(hyperCircle.center0));
 
 		// distance to (0,0)
-		thisHyperCircle.dist = thisHyperCircle.center.mag();
+		hyperCircle.dist = hyperCircle.center.mag();
 
 		// normalization (should not occur with proper transform)
-		if (thisHyperCircle.dist > 1.)
+		if (hyperCircle.dist > 1.)
 		{
-			thisHyperCircle.center.normalize();
-			thisHyperCircle.dist = thisHyperCircle.center.mag();
+			hyperCircle.center.normalize();
+			hyperCircle.dist = hyperCircle.center.mag();
 		}
 
 		// compute if off-limit
-		thisHyperCircle.isBorder = thisHyperCircle.dist > HyperCircle.BORDER;
-		thisHyperCircle.isDirty = true;
+		hyperCircle.isBorder = hyperCircle.dist > HyperCircle.BORDER;
+		hyperCircle.isDirty = true;
 	}
 }

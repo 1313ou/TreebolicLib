@@ -10,21 +10,21 @@ public interface IProviderContext
 	/**
 	 * Put status string (such as error)
 	 *
-	 * @param thisString message
+	 * @param message message
 	 */
-	void message(String thisString);
+	void message(String message);
 
 	/**
 	 * Warn
 	 *
-	 * @param thisMessage warning
+	 * @param message warning
 	 */
-	void warn(String thisMessage);
+	void warn(String message);
 
 	/**
 	 * Put progress
 	 *
-	 * @param thisString message
+	 * @param message message
 	 */
-	void progress(String thisString, boolean fail);
+	void progress(String message, boolean fail);
 }

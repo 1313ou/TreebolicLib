@@ -53,9 +53,9 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	 * Constructor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public PopupMenu(@NonNull final View thisView)
+	public PopupMenu(@NonNull final View view)
 	{
-		super(thisView);
+		super(view);
 	}
 
 	// public void show(final Component parent, final int x, final int y)
@@ -63,97 +63,101 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	/**
 	 * Make popup menu
 	 *
-	 * @param thisView       view
-	 * @param thisController controller
-	 * @param thisValue      input value
-	 * @param thisNode       target node
-	 * @param theseSettings  settings
+	 * @param view       view
+	 * @param controller controller
+	 * @param value      input value
+	 * @param node       target node
+	 * @param settings   settings
 	 * @return popup menu
 	 */
 	@NonNull
-	static public PopupMenu makePopup(@NonNull final View thisView, @NonNull final Controller thisController, final String thisValue, @NonNull final INode thisNode, @NonNull final Settings theseSettings)
+	static public PopupMenu makePopup(@NonNull final View view, @NonNull final Controller controller, final String value, @NonNull final INode node, @NonNull final Settings settings)
 	{
-		final PopupMenu thisPopupMenu = new PopupMenu(thisView);
+		final PopupMenu popupMenu = new PopupMenu(view);
 
 		// info
 		assert labels != null;
-		thisPopupMenu.addItem(labels[LABEL_INFO], ImageIndices.IMAGE_INFO.ordinal(), new ActionListener()
+		popupMenu.addItem(labels[LABEL_INFO], ImageIndices.IMAGE_INFO.ordinal(), new ActionListener()
 		{
+			@SuppressWarnings("SameReturnValue")
 			@Override
-			public boolean onAction(final Object... theseParams)
+			public boolean onAction(final Object... params)
 			{
-				thisController.dispatch(Action.INFO, null, null, null, null, null, thisNode);
+				controller.dispatch(Action.INFO, null, null, null, null, null, node);
 				return true;
 			}
 		});
 
 		// focus
-		thisPopupMenu.addItem(labels[LABEL_FOCUS], ImageIndices.IMAGE_FOCUS.ordinal(), new ActionListener()
+		popupMenu.addItem(labels[LABEL_FOCUS], ImageIndices.IMAGE_FOCUS.ordinal(), new ActionListener()
 		{
+			@SuppressWarnings("SameReturnValue")
 			@Override
-			public boolean onAction(final Object... theseParams)
+			public boolean onAction(final Object... params)
 			{
-				thisController.dispatch(Action.FOCUS, null, null, null, null, null, thisNode);
+				controller.dispatch(Action.FOCUS, null, null, null, null, null, node);
 				return true;
 			}
 		});
 
 		// mount
-		final MountPoint thisMountPoint = thisNode.getMountPoint();
-		if (thisMountPoint != null)
+		final MountPoint mountPoint = node.getMountPoint();
+		if (mountPoint != null)
 		{
-			final boolean isMounted = thisMountPoint instanceof MountPoint.Mounted;
-			thisPopupMenu.addItem(labels[isMounted ? LABEL_UNMOUNT : LABEL_MOUNT], ImageIndices.IMAGE_MOUNT.ordinal(), new ActionListener()
+			final boolean isMounted = mountPoint instanceof MountPoint.Mounted;
+			popupMenu.addItem(labels[isMounted ? LABEL_UNMOUNT : LABEL_MOUNT], ImageIndices.IMAGE_MOUNT.ordinal(), new ActionListener()
 			{
+				@SuppressWarnings("SameReturnValue")
 				@Override
-				public boolean onAction(final Object... theseParams)
+				public boolean onAction(final Object... params)
 				{
-					thisController.dispatch(Action.MOUNT, null, null, null, null, null, thisNode);
+					controller.dispatch(Action.MOUNT, null, null, null, null, null, node);
 					return true;
 				}
 			});
 		}
 
 		// link
-		if (PopupMenu.isURL(thisNode.getLink()))
+		if (PopupMenu.isURL(node.getLink()))
 		{
-			thisPopupMenu.addItem(labels[LABEL_LINKTO], ImageIndices.IMAGE_LINK.ordinal(), new ActionListener()
+			popupMenu.addItem(labels[LABEL_LINKTO], ImageIndices.IMAGE_LINK.ordinal(), new ActionListener()
 			{
+				@SuppressWarnings("SameReturnValue")
 				@Override
-				public boolean onAction(final Object... theseParams)
+				public boolean onAction(final Object... params)
 				{
-					thisController.dispatch(Action.LINK, null, null, null, null, null, thisNode);
+					controller.dispatch(Action.LINK, null, null, null, null, null, node);
 					return true;
 				}
 			});
 		}
 
 		// custom
-		if (theseSettings.theMenu != null)
+		if (settings.menu != null)
 		{
-			for (final MenuItem thatMenuItem : theseSettings.theMenu)
+			for (final MenuItem menuItem : settings.menu)
 			{
-				String thisMenuLabel = null;
-				boolean prepend = thatMenuItem.theLabel != null && (thatMenuItem.theLabel.length() == 0 || Character.isLowerCase(thatMenuItem.theLabel.charAt(0)));
-				assert thatMenuItem.theAction != null;
-				switch (thatMenuItem.theAction)
+				String menuLabel = null;
+				boolean prepend = menuItem.label != null && (menuItem.label.length() == 0 || Character.isLowerCase(menuItem.label.charAt(0)));
+				assert menuItem.action != null;
+				switch (menuItem.action)
 				{
 					case GOTO:
 						// check
-						if (thisController.getGotoTarget(thatMenuItem.theLink, thisNode) == null)
+						if (controller.getGotoTarget(menuItem.link, node) == null)
 						{
 							// illegal combination
 							continue;
 						}
-						thisMenuLabel = prepend ? labels[LABEL_GOTO] + ' ' + thatMenuItem.theLabel : thatMenuItem.theLabel;
+						menuLabel = prepend ? labels[LABEL_GOTO] + ' ' + menuItem.label : menuItem.label;
 						break;
 					case SEARCH:
-						if (thisController.getSearchTarget(thatMenuItem.theTarget, thisNode) == null)
+						if (controller.getSearchTarget(menuItem.target, node) == null)
 						{
 							// illegal combination
 							continue;
 						}
-						thisMenuLabel = prepend ? labels[LABEL_SEARCH] + ' ' + thatMenuItem.theLabel : thatMenuItem.theLabel;
+						menuLabel = prepend ? labels[LABEL_SEARCH] + ' ' + menuItem.label : menuItem.label;
 						break;
 					default:
 						break;
@@ -161,15 +165,16 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 				try
 				{
-					thisMenuLabel = PopupMenu.expandMacro(thisMenuLabel, thisValue, thisNode);
+					menuLabel = PopupMenu.expandMacro(menuLabel, value, node);
 
 					// assume ImageIndices.ordinal() = control.Action.ordinal()
-					thisPopupMenu.addItem(thisMenuLabel, thatMenuItem.theAction.ordinal(), new ActionListener()
+					popupMenu.addItem(menuLabel, menuItem.action.ordinal(), new ActionListener()
 					{
+						@SuppressWarnings("SameReturnValue")
 						@Override
-						public boolean onAction(final Object... theseParams)
+						public boolean onAction(final Object... params)
 						{
-							thisController.dispatch(thatMenuItem.theAction, thatMenuItem.theLink, thatMenuItem.theTarget, thatMenuItem.theMatchTarget, thatMenuItem.theMatchScope, thatMenuItem.theMatchMode, thisNode);
+							controller.dispatch(menuItem.action, menuItem.link, menuItem.target, menuItem.matchTarget, menuItem.matchScope, menuItem.matchMode, node);
 							return true;
 						}
 					});
@@ -182,29 +187,30 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		}
 
 		// cancel
-		thisPopupMenu.addItem(labels[LABEL_CANCEL], ImageIndices.IMAGE_CANCEL.ordinal(), new ActionListener()
+		popupMenu.addItem(labels[LABEL_CANCEL], ImageIndices.IMAGE_CANCEL.ordinal(), new ActionListener()
 		{
+			@SuppressWarnings("SameReturnValue")
 			@Override
-			public boolean onAction(final Object... theseParams)
+			public boolean onAction(final Object... params)
 			{
 				return false;
 			}
 		});
 
-		return thisPopupMenu;
+		return popupMenu;
 	}
 
 	// U R L . V A L I D A T I O N
 
-	static private boolean isURL(@Nullable final String thisLink)
+	static private boolean isURL(@Nullable final String link)
 	{
-		if (thisLink != null && !thisLink.isEmpty())
+		if (link != null && !link.isEmpty())
 		{
 			// well-formed URL
 			try
 			{
-				/* URL thisUrl = */
-				new URL(thisLink);
+				/* URL url = */
+				new URL(link);
 				return true;
 			}
 			catch (@NonNull final MalformedURLException ignored)
@@ -212,23 +218,23 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 				// well-formed URI
 				try
 				{
-					final URI thisUri = new URI(thisLink);
+					final URI uri = new URI(link);
 
 					// relative form not including scheme
-					if (thisLink.equals(thisUri.getPath()))
+					if (link.equals(uri.getPath()))
 					{
 						return true;
 					}
 
 					// fragment
-					final String thisFragment = '#' + thisUri.getFragment();
-					if (thisLink.equals(thisFragment))
+					final String fragment = '#' + uri.getFragment();
+					if (link.equals(fragment))
 					{
 						return true;
 					}
 
 					// desperate attempt
-					return thisUri.getScheme().matches("[a-z]*");
+					return uri.getScheme().matches("[a-z]*");
 				}
 				catch (@NonNull final URISyntaxException ignored2)
 				{
@@ -244,117 +250,117 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	/**
 	 * Expand string
 	 *
-	 * @param thisString string to expand
-	 * @param thisValue  interactively supplied value
-	 * @param thisNode   node node
+	 * @param str   string to expand
+	 * @param value interactively supplied value
+	 * @param node  node node
 	 * @return expanded string
 	 */
 	@Nullable
-	static public String expandMacro(@Nullable final String thisString, @Nullable final String thisValue, @NonNull final INode thisNode)
+	static public String expandMacro(@Nullable final String str, @Nullable final String value, @NonNull final INode node)
 	{
-		if (thisString == null)
+		if (str == null)
 		{
 			return null;
 		}
 
-		final StringBuilder thisBuilder = new StringBuilder();
-		final int n = thisString.length();
+		final StringBuilder sb = new StringBuilder();
+		final int n = str.length();
 		for (int i = 0; i < n; i++)
 		{
-			final char c = thisString.charAt(i);
+			final char c = str.charAt(i);
 			if (c != '$')
 			{
-				thisBuilder.append(c);
+				sb.append(c);
 			}
 			else
 			{
 				if (i < n - 1)
 				{
 					// c is not last : peek at next
-					final char c2 = thisString.charAt(++i);
+					final char c2 = str.charAt(++i);
 					switch (c2)
 					{
 
 						// label
 						case 'l':
-							final String thisLabel = thisNode.getLabel();
-							if (thisLabel != null)
+							final String label = node.getLabel();
+							if (label != null)
 							{
-								thisBuilder.append(thisLabel.toCharArray());
+								sb.append(label.toCharArray());
 							}
 							break;
 
 						// content
 						case 'c':
-							final String thisContent = thisNode.getContent();
-							if (thisContent != null)
+							final String content = node.getContent();
+							if (content != null)
 							{
-								thisBuilder.append(thisContent.toCharArray());
+								sb.append(content.toCharArray());
 							}
 							break;
 
 						// link url
 						case 'u':
-							final String thisLink = thisNode.getLink();
-							if (thisLink != null)
+							final String link = node.getLink();
+							if (link != null)
 							{
-								thisBuilder.append(thisLink.toCharArray());
+								sb.append(link.toCharArray());
 							}
 							break;
 
 						// id
 						case 'i':
-							final String thisId = thisNode.getId();
-							if (thisId != null)
+							final String id = node.getId();
+							if (id != null)
 							{
-								thisBuilder.append(thisId.toCharArray());
+								sb.append(id.toCharArray());
 							}
 							break;
 
 						// parent
 						case 'p':
-							final INode thisParent = thisNode.getParent();
-							if (thisParent != null)
+							final INode parent = node.getParent();
+							if (parent != null)
 							{
-								final String thisParentId = thisParent.getId();
-								if (thisParentId != null)
+								final String parentId = parent.getId();
+								if (parentId != null)
 								{
-									thisBuilder.append(thisParentId.toCharArray());
+									sb.append(parentId.toCharArray());
 								}
 							}
 							break;
 
 						// element value
 						case 'e':
-							if (thisValue != null)
+							if (value != null)
 							{
-								thisBuilder.append(thisValue.toCharArray());
+								sb.append(value.toCharArray());
 							}
 							break;
 
 						// escaped $
 						case '$':
-							thisBuilder.append(c2);
+							sb.append(c2);
 							break;
 
 						// unrecognized
 						default:
-							thisBuilder.append(c);
-							thisBuilder.append(c2);
+							sb.append(c);
+							sb.append(c2);
 					}
 				}
 				else
 				{
 					// is last : copy
-					thisBuilder.append(c);
+					sb.append(c);
 				}
 			}
 		}
-		final String thisResult = thisBuilder.toString();
-		if (thisResult.isEmpty())
+		final String result = sb.toString();
+		if (result.isEmpty())
 		{
 			return null;
 		}
-		return thisResult;
+		return result;
 	}
 }

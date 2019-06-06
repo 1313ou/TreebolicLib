@@ -22,53 +22,53 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent parent
-	 * @param thisId     id
+	 * @param parent parent
+	 * @param id     id
 	 */
-	public TreeMutableNode(@SuppressWarnings("SameParameterValue") final INode thisParent, final String thisId)
+	public TreeMutableNode(@SuppressWarnings("SameParameterValue") final INode parent, final String id)
 	{
-		super(thisParent, thisId);
+		super(parent, id);
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent     parent
-	 * @param thisId         id
-	 * @param thisLabel      label
-	 * @param thisImageIndex image index
-	 * @param thisBackColor  backcolor
-	 * @param thisForeColor  forecolor
+	 * @param parent     parent
+	 * @param id         id
+	 * @param label      label
+	 * @param imageIndex image index
+	 * @param backColor  backcolor
+	 * @param foreColor  forecolor
 	 */
-	public TreeMutableNode(final INode thisParent, final String thisId, final String thisLabel, final int thisImageIndex, final Color thisBackColor, final Color thisForeColor)
+	public TreeMutableNode(final INode parent, final String id, final String label, final int imageIndex, final Color backColor, final Color foreColor)
 	{
-		super(thisParent, thisId, thisLabel, thisImageIndex, thisBackColor, thisForeColor);
+		super(parent, id, label, imageIndex, backColor, foreColor);
 	}
 
 	/**
 	 * Copy constructor (the resulting node node has no tree parent nor tree children)
 	 *
-	 * @param thatNode node
+	 * @param node node
 	 */
-	public TreeMutableNode(@NonNull final INode thatNode)
+	public TreeMutableNode(@NonNull final INode node)
 	{
-		super(null, thatNode.getId());
-		this.theChildren = null;
+		super(null, node.getId());
+		this.children = null;
 
-		this.theLabel = thatNode.getLabel();
-		this.theContent = thatNode.getContent();
-		this.theBackColor = thatNode.getBackColor();
-		this.theForeColor = thatNode.getForeColor();
-		this.theImageFile = thatNode.getImageFile();
+		this.label = node.getLabel();
+		this.content = node.getContent();
+		this.backColor = node.getBackColor();
+		this.foreColor = node.getForeColor();
+		this.imageFile = node.getImageFile();
 
-		this.theEdgeLabel = thatNode.getEdgeLabel();
-		this.theEdgeColor = thatNode.getEdgeColor();
-		this.theEdgeStyle = thatNode.getEdgeStyle();
-		this.theEdgeImageFile = thatNode.getEdgeImageFile();
+		this.edgeLabel = node.getEdgeLabel();
+		this.edgeColor = node.getEdgeColor();
+		this.edgeStyle = node.getEdgeStyle();
+		this.edgeImageFile = node.getEdgeImageFile();
 
-		this.theLink = thatNode.getLink();
-		this.theTarget = thatNode.getTarget();
-		this.theMountPoint = thatNode.getMountPoint();
+		this.link = node.getLink();
+		this.target = node.getTarget();
+		this.mountPoint = node.getMountPoint();
 	}
 
 	// I D
@@ -76,11 +76,11 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Set id
 	 *
-	 * @param thisId id
+	 * @param id id
 	 */
-	public void setId(final String thisId)
+	public void setId(final String id)
 	{
-		this.theId = thisId;
+		this.id = id;
 	}
 
 	// T R E E . L I N K S
@@ -88,69 +88,69 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Set children
 	 *
-	 * @param theseChildren children
+	 * @param children children
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setChildren(final List<INode> theseChildren)
+	public void setChildren(final List<INode> children)
 	{
-		this.theChildren = theseChildren;
+		this.children = children;
 	}
 
 	/**
 	 * Add child to this node
 	 *
-	 * @param thisChild child
+	 * @param child child
 	 */
-	static public void assertNoLink(@NonNull final INode thisParent, @NonNull final INode thisChild)
+	static public void assertNoLink(@NonNull final INode parent, @NonNull final INode child)
 	{
-		List<INode> theseChildren = thisParent.getChildren();
-		if (theseChildren != null)
+		List<INode> children = parent.getChildren();
+		if (children != null)
 		{
-			// assert !theseChildren.contains(thisChild);
-			if (theseChildren.contains(thisChild))
+			// assert !children.contains(child);
+			if (children.contains(child))
 			{
-				throw new RuntimeException("parent " + thisParent.getId() + "] '" + thisParent.getLabel() + "' already has child " + thisChild.getId() + "] '" + thisChild.getLabel() + "'");
+				throw new RuntimeException("parent " + parent.getId() + "] '" + parent.getLabel() + "' already has child " + child.getId() + "] '" + child.getLabel() + "'");
 			}
 		}
 
-		// assert thisChild.getParent() == null;
-		if (thisChild.getParent() != null)
+		// assert child.getParent() == null;
+		if (child.getParent() != null)
 		{
-			throw new RuntimeException("child [" + thisChild.getId() + "] '" + thisChild.getLabel() + "' already has parent [" + thisParent.getId() + "] '" + thisParent.getLabel() + "'");
+			throw new RuntimeException("child [" + child.getId() + "] '" + child.getLabel() + "' already has parent [" + parent.getId() + "] '" + parent.getLabel() + "'");
 		}
 	}
 
 	/**
 	 * Add child to this node
 	 *
-	 * @param thisChild child
+	 * @param child child
 	 */
-	public void addChild(@NonNull final INode thisChild)
+	public void addChild(@NonNull final INode child)
 	{
-		// assertNoLink(this, thisChild);
+		// assertNoLink(this, child);
 
-		List<INode> theseChildren = this.getChildren();
-		if (theseChildren == null)
+		List<INode> children = this.getChildren();
+		if (children == null)
 		{
-			theseChildren = new ArrayList<>();
-			this.setChildren(theseChildren);
+			children = new ArrayList<>();
+			this.setChildren(children);
 		}
-		theseChildren.add(thisChild);
-		thisChild.setParent(this);
+		children.add(child);
+		child.setParent(this);
 	}
 
 	/**
 	 * Add children to parent
 	 *
-	 * @param theseChildren children nodes
+	 * @param children children nodes
 	 */
-	public void addChildren(@Nullable final INode... theseChildren)
+	public void addChildren(@Nullable final INode... children)
 	{
-		if (theseChildren != null)
+		if (children != null)
 		{
-			for (INode thisChild : theseChildren)
+			for (INode child : children)
 			{
-				addChild(thisChild);
+				addChild(child);
 			}
 		}
 	}
@@ -158,15 +158,15 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Add children to parent
 	 *
-	 * @param theseChildren children nodes
+	 * @param children children nodes
 	 */
-	public void addChildren(@Nullable final List<? extends INode> theseChildren)
+	public void addChildren(@Nullable final List<? extends INode> children)
 	{
-		if (theseChildren != null)
+		if (children != null)
 		{
-			for (INode thisChild : theseChildren)
+			for (INode child : children)
 			{
-				addChild(thisChild);
+				addChild(child);
 			}
 		}
 	}
@@ -174,59 +174,59 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Insert child to this node
 	 *
-	 * @param thisChild child
+	 * @param child child
 	 * @param i         ith position
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void insertChild(@NonNull final INode thisChild, @SuppressWarnings("SameParameterValue") final int i)
+	public void insertChild(@NonNull final INode child, @SuppressWarnings("SameParameterValue") final int i)
 	{
-		List<INode> theseChildren = this.getChildren();
-		if (theseChildren == null)
+		List<INode> children = this.getChildren();
+		if (children == null)
 		{
-			theseChildren = new ArrayList<>();
-			this.setChildren(theseChildren);
+			children = new ArrayList<>();
+			this.setChildren(children);
 		}
-		theseChildren.add(i, thisChild);
-		thisChild.setParent(this);
+		children.add(i, child);
+		child.setParent(this);
 	}
 
 	/**
 	 * Prepend child to this node
 	 *
-	 * @param thisChild child
+	 * @param child child
 	 */
-	public void prependChild(@NonNull final INode thisChild)
+	public void prependChild(@NonNull final INode child)
 	{
-		insertChild(thisChild, 0);
+		insertChild(child, 0);
 	}
 
 	/**
 	 * Remove from parent (handles down link and uplink)
 	 *
-	 * @param thisChild child
+	 * @param child child
 	 */
-	static public void removeFromParent(@NonNull final INode thisChild)
+	static public void removeFromParent(@NonNull final INode child)
 	{
-		remove(thisChild.getParent(), thisChild);
+		remove(child.getParent(), child);
 	}
 
 	/**
 	 * Remove child from parent (handles down link and uplink)
 	 *
-	 * @param thisParent parent
-	 * @param thisChild  child
+	 * @param parent parent
+	 * @param child  child
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public void remove(@Nullable final INode thisParent, @NonNull final INode thisChild)
+	static public void remove(@Nullable final INode parent, @NonNull final INode child)
 	{
-		if (thisParent != null)
+		if (parent != null)
 		{
-			final List<INode> theseChildren = thisParent.getChildren();
-			if (theseChildren != null)
+			final List<INode> children = parent.getChildren();
+			if (children != null)
 			{
-				theseChildren.remove(thisChild);
+				children.remove(child);
 			}
 		}
-		thisChild.setParent(null);
+		child.setParent(null);
 	}
 }

@@ -30,6 +30,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	{
 		private final Progress progress;
 
+		@SuppressWarnings("WeakerAccess")
 		public ProgressHandler(final Progress progress0)
 		{
 			this.progress = progress0;
@@ -39,10 +40,10 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 		public void handleMessage(@NonNull final Message m)
 		{
 			final boolean fail = m.getData().getBoolean("fail");
-			String thisMessage = m.getData().getString("text");
+			String str = m.getData().getString("text");
 			if (fail)
 			{
-				thisMessage = this.progress.statusView.getText() + "\n" + thisMessage;
+				str = this.progress.statusView.getText() + "\n" + str;
 				this.progress.progressBar.setIndeterminate(false);
 				this.progress.progressBar.setVisibility(View.GONE);
 				this.progress.progressIcon.setImageResource(R.drawable.progress_fail);
@@ -52,7 +53,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 				this.progress.progressBar.setIndeterminate(true);
 				this.progress.progressBar.setVisibility(View.VISIBLE);
 			}
-			this.progress.statusView.setText(thisMessage);
+			this.progress.statusView.setText(str);
 		}
 	}
 
@@ -114,12 +115,12 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	}
 
 	@Override
-	public void put(final String thisMessage, final boolean fail)
+	public void put(final String str, final boolean fail)
 	{
-		// setText(thisMessage); (passing it to a handler as only the original thread that created a view hierarchy can touch its views.
+		// setText(str); (passing it to a handler as only the original thread that created a view hierarchy can touch its views.
 		final Message message = this.handler.obtainMessage();
 		final Bundle bundle = new Bundle();
-		bundle.putString("text", thisMessage);
+		bundle.putString("text", str);
 		bundle.putBoolean("fail", fail);
 		message.setData(bundle);
 		this.handler.sendMessage(message);

@@ -87,12 +87,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		@NonNull
 		private final SparseArray<PointF> activePointers;
 
+		@SuppressWarnings("WeakerAccess")
 		public XScaleGestureDetector(final Context context, final OnScaleGestureListener listener0)
 		{
 			super(context, listener0);
 			this.activePointers = new SparseArray<>();
 		}
 
+		@SuppressWarnings("WeakerAccess")
 		public void reset()
 		{
 			this.activePointers.clear();
@@ -162,12 +164,12 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle handle
+	 * @param handle handle
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Surface(final Object thisHandle)
+	public Surface(final Object handle)
 	{
-		this((AppCompatActivity) thisHandle);
+		this((AppCompatActivity) handle);
 	}
 
 	/**
@@ -479,6 +481,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	// @Override
 	// public int getHeight();
 
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void setCursor(final int cursor)
 	{
@@ -547,12 +550,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		return super.onTouchEvent(event);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void addEventListener(final EventListener listener0)
 	{
 		this.listener = listener0;
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void setFireHover(final boolean flag)
 	{

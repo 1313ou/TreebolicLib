@@ -126,7 +126,6 @@ public class LoadBalancer
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
 			root.setEdgeColor(this.edgeColor);
-			// noinspection PointlessBitwiseExpression
 			root.setEdgeStyle(IEdge.SOLID | /* IEdge.FROMDEF | IEdge.FROMCIRCLE | */IEdge.TOTRIANGLE | IEdge.TOFILL | IEdge.TODEF);
 
 			// image

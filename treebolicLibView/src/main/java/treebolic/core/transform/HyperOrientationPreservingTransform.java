@@ -16,20 +16,20 @@ public class HyperOrientationPreservingTransform extends HyperTransform
 	 *
 	 * @param from            from-point
 	 * @param to              to-point
-	 * @param thisOrientation orientation
+	 * @param orientation orientation
 	 */
-	public HyperOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex thisOrientation)
+	public HyperOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex orientation)
 	{
 		// the HXlat(from, to) translates 'from' to 'to' below but has
 		// rotational side-effects
 		// we want a transform which maps 'from' to 'to' like HXlat(from, to)
 		// but unlike HXlat(from, to) has no rotational effect for
-		// thisOrientation (tail preserving)
+		// orientation (tail preserving)
 
 		// such a result is the composition of t1 and r2 and t2
 		// t1 and t2 are translations
 		// r2 accounts for offsetting of rotational side-effects for a given
-		// point (thisOrientation))
+		// point (orientation))
 		// the composition of r2 and t2 is the transform t(t2,r2)
 		// we are trying to compute r2
 
@@ -41,27 +41,27 @@ public class HyperOrientationPreservingTransform extends HyperTransform
 		// return;
 
 		// t1
-		// theXlat = new HXlat(from).inverse();
+		// xlat = new HXlat(from).inverse();
 		super(new HyperTranslation(from).inverse());
 
-		// thisOrientation points at tail
-		final Complex thisHead = new Complex(thisOrientation).neg();
+		// orientation points at tail
+		final Complex head = new Complex(orientation).neg();
 
 		// t2
 		final HyperTranslation t2 = new HyperTranslation(to);
 
 		// map theta by t1
-		final Complex thisTheta1 = this.theXlat.map(new Complex(thisHead));
+		final Complex theta1 = this.xlat.map(new Complex(head));
 
 		// map theta by t2 inverse()
-		final Complex thisTheta2 = t2.mapinv(new Complex(thisHead));
+		final Complex theta2 = t2.mapinv(new Complex(head));
 
 		// we compute the rotation
 		// angle(theta2) - angle(theta1)
-		thisTheta2.div(thisTheta1);
+		theta2.div(theta1);
 
 		// make rotation to offset computed side-effect rotation
-		final HyperRotation r2 = new HyperRotation(thisTheta2);
+		final HyperRotation r2 = new HyperRotation(theta2);
 
 		// compose
 		compose(HyperRotation.compose(r2, t2));

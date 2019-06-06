@@ -22,60 +22,60 @@ public class MapperToEuclidean
 	/**
 	 * Map hyperspace circle to unit circle euclidean space
 	 *
-	 * @param thisLocation location
+	 * @param location location
 	 */
-	static public void mapToEuclidean(@NonNull final Location thisLocation)
+	static public void mapToEuclidean(@NonNull final Location location)
 	{
-		MapperToEuclidean.mapToEuclidean(thisLocation.hyper, thisLocation.euclidean);
+		MapperToEuclidean.mapToEuclidean(location.hyper, location.euclidean);
 	}
 
 	/**
 	 * Map hyperspace circle to unit circle euclidean space
 	 *
-	 * @param thisHyperCircle     hypercircle
-	 * @param thisEuclideanCircle euclidean circle
+	 * @param hyperCircle     hypercircle
+	 * @param euclideanCircle euclidean circle
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public void mapToEuclidean(@NonNull final HyperCircle thisHyperCircle, @NonNull final EuclideanCircle thisEuclideanCircle)
+	static public void mapToEuclidean(@NonNull final HyperCircle hyperCircle, @NonNull final EuclideanCircle euclideanCircle)
 	{
 		// euclidean radius, assuming center is at origin
-		thisEuclideanCircle.radius = Distance.distanceToOrigin_h2e(thisHyperCircle.radius);
+		euclideanCircle.radius = Distance.distanceToOrigin_h2e(hyperCircle.radius);
 
 		// distance to (0,0)
-		if (thisHyperCircle.dist != 0.)
+		if (hyperCircle.dist != 0.)
 		{
 			if (MapperToEuclidean.adjustCircle)
 			{
 				// map this hypercircle circle HC (center, radius) to euclidean
 				// circle EC (origin, eradius)
 				// z1 and z2 are the ends of diameter on (0,C) direction
-				final Complex z1 = new Complex(thisHyperCircle.center).multiply(thisEuclideanCircle.radius / thisHyperCircle.dist);
+				final Complex z1 = new Complex(hyperCircle.center).multiply(euclideanCircle.radius / hyperCircle.dist);
 				final Complex z2 = new Complex(z1).neg();
 
 				// hyperbolic translation of this diameter
-				HyperTranslation.map(z1, thisHyperCircle.center);
-				HyperTranslation.map(z2, thisHyperCircle.center);
+				HyperTranslation.map(z1, hyperCircle.center);
+				HyperTranslation.map(z2, hyperCircle.center);
 
 				// middle of mapped diameter
 				z1.add(z2).multiply(0.5);
 
 				// computed center
-				thisEuclideanCircle.center.set(z1);
-				thisEuclideanCircle.radius = z2.sub(z1).mag();
+				euclideanCircle.center.set(z1);
+				euclideanCircle.radius = z2.sub(z1).mag();
 			}
 			else
 			{
-				thisEuclideanCircle.center.re = thisHyperCircle.center.re;
-				thisEuclideanCircle.center.im = thisHyperCircle.center.im;
+				euclideanCircle.center.re = hyperCircle.center.re;
+				euclideanCircle.center.im = hyperCircle.center.im;
 			}
 		}
 		else
 		{
 			// this is (0,0)
-			thisEuclideanCircle.center.set(thisHyperCircle.center);
+			euclideanCircle.center.set(hyperCircle.center);
 		}
 
 		// flag computation state
-		thisHyperCircle.isDirty = false;
+		hyperCircle.isDirty = false;
 	}
 }

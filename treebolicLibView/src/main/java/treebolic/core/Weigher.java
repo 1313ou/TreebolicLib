@@ -28,48 +28,48 @@ public class Weigher
 	/**
 	 * Weigh this node
 	 *
-	 * @param thisNode node
+	 * @param node node
 	 */
-	public void weigh(@NonNull final INode thisNode)
+	public void weigh(@NonNull final INode node)
 	{
-		final List<INode> theseChildren = thisNode.getChildren();
-		if (theseChildren == null || theseChildren.isEmpty())
+		final List<INode> children = node.getChildren();
+		if (children == null || children.isEmpty())
 		{
-			thisNode.setChildrenWeight(0.);
-			thisNode.setMinWeight(1.);
+			node.setChildrenWeight(0.);
+			node.setMinWeight(1.);
 
 			// negative weights are considered preset and can't be changed
-			if (thisNode.getWeight() >= 0.)
+			if (node.getWeight() >= 0.)
 			{
-				thisNode.setWeight(1.);
+				node.setWeight(1.);
 			}
 		}
 		else
 		{
-			double thisChildrenWeightSum = 0.;
-			double thisMinWeight = 1000.;
-			for (final INode thisChild : thisNode.getChildren())
+			double childrenWeightSum = 0.;
+			double minWeight = 1000.;
+			for (final INode child : node.getChildren())
 			{
 				// compute this child's weight
-				weigh(thisChild);
+				weigh(child);
 
 				// sum
-				final double thisWeight = Math.abs(thisChild.getWeight());
-				thisChildrenWeightSum += thisWeight;
+				final double weight = Math.abs(child.getWeight());
+				childrenWeightSum += weight;
 
 				// min
-				if (thisWeight < thisMinWeight)
+				if (weight < minWeight)
 				{
-					thisMinWeight = thisWeight;
+					minWeight = weight;
 				}
 			}
-			thisNode.setChildrenWeight(thisChildrenWeightSum);
-			thisNode.setMinWeight(thisMinWeight);
+			node.setChildrenWeight(childrenWeightSum);
+			node.setMinWeight(minWeight);
 
 			// negative weights are considered preset and can't be changed
-			if (thisNode.getWeight() >= 0.)
+			if (node.getWeight() >= 0.)
 			{
-				thisNode.setWeight(Math.max(1., Math.log(1. + thisChildrenWeightSum)));
+				node.setWeight(Math.max(1., Math.log(1. + childrenWeightSum)));
 			}
 		}
 	}

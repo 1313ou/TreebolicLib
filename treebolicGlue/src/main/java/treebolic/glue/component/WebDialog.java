@@ -120,7 +120,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	}
 
 	@Override
-	public void onSaveInstanceState(final Bundle outState)
+	public void onSaveInstanceState(@NonNull final Bundle outState)
 	{
 		outState.putString(WebDialog.STATE_HEADER, this.header);
 		outState.putString(WebDialog.STATE_CONTENT, this.content);

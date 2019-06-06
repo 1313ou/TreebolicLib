@@ -8,6 +8,7 @@ import java.util.List;
 import treebolic.core.transform.HyperTransform;
 import treebolic.glue.ActionListener;
 
+@SuppressWarnings("WeakerAccess")
 public class Animation extends ActionListener
 {
 	/**
@@ -18,30 +19,30 @@ public class Animation extends ActionListener
 	/**
 	 * Animation iterator
 	 */
-	private final List<HyperTransform> theTransforms;
+	private final List<HyperTransform> transforms;
 
 	/**
 	 * Current index
 	 */
-	private int theIndex;
+	private int index;
 
 	/**
 	 * View
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public final View theView;
+	public final View view;
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisAnimation animation (with update callback)
-	 * @param thisView      the view being animated
+	 * @param animation animation (with update callback)
+	 * @param view      the view being animated
 	 */
-	public Animation(@NonNull final AnimationTransforms thisAnimation, final View thisView)
+	public Animation(@NonNull final AnimationTransforms animation, final View view)
 	{
-		this.theTransforms = thisAnimation.theTransforms;
-		this.theIndex = -1;
-		this.theView = thisView;
+		this.transforms = animation.transforms;
+		this.index = -1;
+		this.view = view;
 	}
 
 	/**
@@ -51,30 +52,30 @@ public class Animation extends ActionListener
 	 */
 	public int getSteps()
 	{
-		return this.theTransforms.size();
+		return this.transforms.size();
 	}
 
 	@Override
-	public boolean onAction(@Nullable final Object... theseParams)
+	public boolean onAction(@Nullable final Object... params)
 	{
-		final Integer thisSuggestedIndex = theseParams == null || theseParams.length == 0 ? null : (Integer) theseParams[0];
-		int thisIndex;
-		if (thisSuggestedIndex == null)
+		final Integer suggestedIndex = params == null || params.length == 0 ? null : (Integer) params[0];
+		int index;
+		if (suggestedIndex == null)
 		{
-			thisIndex = this.theIndex + 1;
+			index = this.index + 1;
 		}
 		else
 		{
-			thisIndex = thisSuggestedIndex;
+			index = suggestedIndex;
 		}
-		if (thisIndex != this.theIndex)
+		if (index != this.index)
 		{
-			if (thisIndex >= 0 && thisIndex < this.theTransforms.size())
+			if (index >= 0 && index < this.transforms.size())
 			{
-				this.theIndex = thisIndex;
-				final HyperTransform thisTransform = this.theTransforms.get(this.theIndex);
-				this.theView.applyTransform(thisTransform);
-				this.theView.repaint();
+				this.index = index;
+				final HyperTransform transform = this.transforms.get(this.index);
+				this.view.applyTransform(transform);
+				this.view.repaint();
 				return true;
 			}
 		}

@@ -30,19 +30,19 @@ public class HyperOptimizedTransform implements IHyperTransform
 	 * Precomputed 1/theta
 	 */
 	@NonNull
-	private final Complex theInverseRot;
+	private final Complex inverseRot;
 
 	/**
 	 * Precomputed p/theta
 	 */
 	@NonNull
-	private final Complex theXlatOnRot;
+	private final Complex xlatOnRot;
 
 	/**
 	 * Precomputed ~p
 	 */
 	@NonNull
-	private final Complex theXlatConj;
+	private final Complex xlatConj;
 
 	// C O N S T R U C T
 
@@ -53,9 +53,9 @@ public class HyperOptimizedTransform implements IHyperTransform
 	 */
 	public HyperOptimizedTransform(@NonNull final HyperTransform t)
 	{
-		this.theXlatConj = new Complex(t.theXlat).conj();
-		this.theInverseRot = new Complex(t.theRot).onediv();
-		this.theXlatOnRot = new Complex(this.theInverseRot).mul(t.theXlat);
+		this.xlatConj = new Complex(t.xlat).conj();
+		this.inverseRot = new Complex(t.rot).onediv();
+		this.xlatOnRot = new Complex(this.inverseRot).mul(t.xlat);
 	}
 
 	// M A P
@@ -69,17 +69,17 @@ public class HyperOptimizedTransform implements IHyperTransform
 		// z = (z+pontheta)/(invtheta+z*~p)
 
 		/*
-		 * Complex num = new Complex(z).add(theXlatOnRot); Complex denom = new Complex(z).mul(theXlatConj).add(theInverseRot); return z.div(num, denom);
+		 * Complex num = new Complex(z).add(xlatOnRot); Complex denom = new Complex(z).mul(xlatConj).add(inverseRot); return z.div(num, denom);
 		 */
 		// z
 		final double x = z.re;
 		final double y = z.im;
 		// z1 = z+pontheta;
-		final double numx = x + this.theXlatOnRot.re;
-		final double numy = y + this.theXlatOnRot.im;
+		final double numx = x + this.xlatOnRot.re;
+		final double numy = y + this.xlatOnRot.im;
 		// z2 = z.~p + invtheta
-		final double denomx = x * this.theXlatConj.re - y * this.theXlatConj.im + this.theInverseRot.re;
-		final double denomy = x * this.theXlatConj.im + y * this.theXlatConj.re + this.theInverseRot.im;
+		final double denomx = x * this.xlatConj.re - y * this.xlatConj.im + this.inverseRot.re;
+		final double denomy = x * this.xlatConj.im + y * this.xlatConj.re + this.inverseRot.im;
 		// z1/z2
 		final double d = denomx * denomx + denomy * denomy;
 		z.set((numx * denomx + numy * denomy) / d, (numy * denomx - numx * denomy) / d);

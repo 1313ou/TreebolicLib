@@ -1,1 +1,5 @@
-include ':treebolicLib', ':treebolicLibModel', ':treebolicLibView', ':treebolicGlue', ':treebolicGlueIface', ':treebolicIface', ':treebolicMutable', ':treebolicGraph', ':treebolicLoadBalancer'
+include ':treebolicLib', ':treebolicLibModel', ':treebolicLibView'
+include ':treebolicGlue', ':treebolicGlueIface'
+include ':treebolicIface'
+include ':treebolicMutable', ':treebolicGraph'
+include ':treebolicLoadBalancer'

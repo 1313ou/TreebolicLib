@@ -15,144 +15,146 @@ public class MutableNode extends Node
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent parent
-	 * @param thisId     id
+	 * @param parent parent
+	 * @param id     id
 	 */
-	public MutableNode(final INode thisParent, final String thisId)
+	@SuppressWarnings("WeakerAccess")
+	public MutableNode(final INode parent, final String id)
 	{
-		super(thisParent, thisId);
+		super(parent, id);
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent    parent
-	 * @param thisId        id
-	 * @param thisLabel     label
-	 * @param thisImage     image
-	 * @param thisBackColor backcolor
-	 * @param thisForeColor forecolor
+	 * @param parent    parent
+	 * @param id        id
+	 * @param label     label
+	 * @param image     image
+	 * @param backColor backcolor
+	 * @param foreColor forecolor
 	 */
-	public MutableNode(final INode thisParent, final String thisId, final String thisLabel, final Image thisImage, final Color thisBackColor, final Color thisForeColor)
+	public MutableNode(final INode parent, final String id, final String label, final Image image, final Color backColor, final Color foreColor)
 	{
-		super(thisParent, thisId);
-		setLabel(thisLabel);
-		setBackColor(thisBackColor);
-		setForeColor(thisForeColor);
-		setImage(thisImage);
+		super(parent, id);
+		setLabel(label);
+		setBackColor(backColor);
+		setForeColor(foreColor);
+		setImage(image);
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisParent     parent
-	 * @param thisId         id
-	 * @param thisLabel      label
-	 * @param thisImageIndex image index
-	 * @param thisBackColor  backcolor
-	 * @param thisForeColor  forecolor
+	 * @param parent     parent
+	 * @param id         id
+	 * @param label      label
+	 * @param imageIndex image index
+	 * @param backColor  backcolor
+	 * @param foreColor  forecolor
 	 */
-	public MutableNode(final INode thisParent, final String thisId, final String thisLabel, final int thisImageIndex, final Color thisBackColor, final Color thisForeColor)
+	@SuppressWarnings("WeakerAccess")
+	public MutableNode(final INode parent, final String id, final String label, final int imageIndex, final Color backColor, final Color foreColor)
 	{
-		super(thisParent, thisId);
-		setLabel(thisLabel);
-		setBackColor(thisBackColor);
-		setForeColor(thisForeColor);
-		setImageIndex(thisImageIndex);
+		super(parent, id);
+		setLabel(label);
+		setBackColor(backColor);
+		setForeColor(foreColor);
+		setImageIndex(imageIndex);
 	}
 
 	/**
 	 * Set label
 	 *
-	 * @param thisLabel label
+	 * @param label label
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setLabel(final String thisLabel)
+	public void setLabel(final String label)
 	{
-		this.theLabel = thisLabel;
+		this.label = label;
 	}
 
 	/**
 	 * Set content
 	 *
-	 * @param thisContent content
+	 * @param content content
 	 */
-	public void setContent(final String thisContent)
+	public void setContent(final String content)
 	{
-		this.theContent = thisContent;
+		this.content = content;
 	}
 
 	/**
 	 * Set backcolor
 	 *
-	 * @param thisColor backcolor
+	 * @param color backcolor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setBackColor(final Color thisColor)
+	public void setBackColor(final Color color)
 	{
-		this.theBackColor = thisColor;
+		this.backColor = color;
 	}
 
 	/**
 	 * Set forecolor
 	 *
-	 * @param thisColor forecolor
+	 * @param color forecolor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setForeColor(final Color thisColor)
+	public void setForeColor(final Color color)
 	{
-		this.theForeColor = thisColor;
+		this.foreColor = color;
 	}
 
 	/**
 	 * Set node image file
 	 *
-	 * @param thisImageFile image file
+	 * @param imageFile image file
 	 */
-	public void setImageFile(final String thisImageFile)
+	public void setImageFile(final String imageFile)
 	{
-		this.theImageFile = thisImageFile;
-		this.theImage = null;
+		this.imageFile = imageFile;
+		this.image = null;
 	}
 
 	/**
 	 * Set node image index
 	 *
-	 * @param thisImageIndex image index
+	 * @param imageIndex image index
 	 */
-	public void setImageIndex(final int thisImageIndex)
+	public void setImageIndex(final int imageIndex)
 	{
-		this.theImageIndex = thisImageIndex;
-		this.theImage = null;
+		this.imageIndex = imageIndex;
+		this.image = null;
 	}
 
 	/**
 	 * Set edge image file
 	 *
-	 * @param thisImageFile image file
+	 * @param imageFile image file
 	 */
-	public void setEdgeImageFile(final String thisImageFile)
+	public void setEdgeImageFile(final String imageFile)
 	{
-		this.theEdgeImageFile = thisImageFile;
+		this.edgeImageFile = imageFile;
 	}
 
 	/**
 	 * Set node link URL
 	 *
-	 * @param thisLink link URL
+	 * @param link link URL
 	 */
-	public void setLink(@SuppressWarnings("SameParameterValue") final String thisLink)
+	public void setLink(@SuppressWarnings("SameParameterValue") final String link)
 	{
-		this.theLink = thisLink;
+		this.link = link;
 	}
 
 	/**
 	 * Set node link target frame
 	 *
-	 * @param thisTarget link target frame
+	 * @param target link target frame
 	 */
-	public void setTarget(final String thisTarget)
+	public void setTarget(final String target)
 	{
-		this.theTarget = thisTarget;
+		this.target = target;
 	}
 }

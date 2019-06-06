@@ -1,7 +1,7 @@
 package treebolic.glue.iface.component;
 
 /**
- * Glue interface for PopupLenu
+ * Glue interface for PopupMenu
  *
  * @author Bernard Bou
  */

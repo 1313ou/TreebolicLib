@@ -109,10 +109,6 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	{
 		super();
 		this.canvas = canvas0;
-		// if (theScale != 1F)
-		// this.canvas.scale(theScale, theScale, this.canvas.getWidth() / 2F, this.canvas.getHeight() / 2F);
-		// if (Graphics.scale != 1F)
-		// this.theCanvas.scale(Graphics.scale, Graphics.scale, this.theCanvas.getWidth() / 2F, this.theCanvas.getHeight() / 2F);
 
 		this.paint = new Paint();
 		this.paint.setAntiAlias(true);
@@ -302,8 +298,8 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	@Override
 	public void setFont(final String face0, final int style0)
 	{
-		final Typeface thisTypeface = Typeface.create(face0, style0 == Graphics.BOLD ? Typeface.BOLD : Typeface.NORMAL);
-		this.paint.setTypeface(thisTypeface);
+		final Typeface typeface = Typeface.create(face0, style0 == Graphics.BOLD ? Typeface.BOLD : Typeface.NORMAL);
+		this.paint.setTypeface(typeface);
 	}
 
 	@Override
@@ -395,7 +391,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	@Override
 	public void pushMatrix()
 	{
-		this.canvas.save(Canvas.ALL_SAVE_FLAG);
+		this.canvas.save();
 	}
 
 	@Override

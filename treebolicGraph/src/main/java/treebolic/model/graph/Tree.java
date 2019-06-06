@@ -10,22 +10,22 @@ public class Tree
 	/**
 	 * Tree root
 	 */
-	public final GraphNode theRoot;
+	public final GraphNode root;
 
 	/**
 	 * Graph
 	 */
-	public final Graph theGraph;
+	public final Graph graph;
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisGraph graph
-	 * @param thisRoot  tree root
+	 * @param graph graph
+	 * @param root  tree root
 	 */
-	public Tree(final Graph thisGraph, final GraphNode thisRoot)
+	public Tree(final Graph graph, final GraphNode root)
 	{
-		this.theRoot = thisRoot;
-		this.theGraph = thisGraph;
+		this.root = root;
+		this.graph = graph;
 	}
 }

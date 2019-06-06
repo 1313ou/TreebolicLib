@@ -19,52 +19,52 @@ public class Mapper
 	 * Size of graphics context
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theWidth;
+	protected int width;
 
 	@SuppressWarnings("WeakerAccess")
-	protected int theHeight;
+	protected int height;
 
 	/**
 	 * Map scale factor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theMapScaleFactor = 1;
+	protected float mapScaleFactor = 1;
 
 	/**
 	 * Scale x factor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theScaleX = 1F;
+	protected float scaleX = 1F;
 
 	/**
 	 * Scale y factor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theScaleY = 1F;
+	protected float scaleY = 1F;
 
 	/**
 	 * X shift
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theXShift = 0F;
+	protected float xShift = 0F;
 
 	/**
 	 * Y shift
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected float theYShift = 0F;
+	protected float yShift = 0F;
 
 	/**
 	 * Top coordinate
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theTop;
+	protected int top;
 
 	/**
 	 * Left coordinate
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theLeft;
+	protected int left;
 
 	// S I Z E
 
@@ -75,7 +75,7 @@ public class Mapper
 	 */
 	public int getWidth()
 	{
-		return this.theWidth;
+		return this.width;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class Mapper
 	 */
 	public int getHeight()
 	{
-		return this.theHeight;
+		return this.height;
 	}
 
 	// A C C E S S
@@ -93,21 +93,21 @@ public class Mapper
 	/**
 	 * Set view x-shift
 	 *
-	 * @param thisX view x-shift (0,1)
+	 * @param x view x-shift (0,1)
 	 */
-	public void setXShift(final float thisX)
+	public void setXShift(final float x)
 	{
-		this.theXShift = thisX;
+		this.xShift = x;
 	}
 
 	/**
 	 * Set view y-shift
 	 *
-	 * @param thisY view y-shift (0,1)
+	 * @param y view y-shift (0,1)
 	 */
-	public void setYShift(final float thisY)
+	public void setYShift(final float y)
 	{
-		this.theYShift = thisY;
+		this.yShift = y;
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class Mapper
 	 */
 	public float getXShift()
 	{
-		return this.theXShift;
+		return this.xShift;
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class Mapper
 	 */
 	public float getYShift()
 	{
-		return this.theYShift;
+		return this.yShift;
 	}
 
 	/**
@@ -136,8 +136,8 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected void computeScale()
 	{
-		this.theScaleX = (0.5F + (this.theXShift > 0. ? this.theXShift : -this.theXShift)) * this.theWidth;
-		this.theScaleY = (0.5F + (this.theYShift > 0. ? this.theYShift : -this.theYShift)) * this.theHeight;
+		this.scaleX = (0.5F + (this.xShift > 0. ? this.xShift : -this.xShift)) * this.width;
+		this.scaleY = (0.5F + (this.yShift > 0. ? this.yShift : -this.yShift)) * this.height;
 	}
 
 	// M A P . U N I T C I R C L E . T O . V I E W
@@ -151,7 +151,7 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected int xUnitCircleToView(final double x)
 	{
-		return (int) (this.theScaleX * this.theMapScaleFactor * x + this.theXShift * this.theWidth);
+		return (int) (this.scaleX * this.mapScaleFactor * x + this.xShift * this.width);
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected int yUnitCircleToView(final double y)
 	{
-		return (int) (this.theScaleY * this.theMapScaleFactor * y + this.theYShift * this.theWidth);
+		return (int) (this.scaleY * this.mapScaleFactor * y + this.yShift * this.width);
 	}
 
 	/**
@@ -175,7 +175,7 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected int wUnitCircleToView(final double cx)
 	{
-		return (int) (this.theScaleX * this.theMapScaleFactor * cx);
+		return (int) (this.scaleX * this.mapScaleFactor * cx);
 	}
 
 	/**
@@ -187,7 +187,7 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected int hUnitCircleToView(final double cy)
 	{
-		return (int) (this.theScaleY * this.theMapScaleFactor * cy);
+		return (int) (this.scaleY * this.mapScaleFactor * cy);
 	}
 
 	// M A P . V I E W . T O . U N I T C I R C L E
@@ -201,7 +201,7 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected double xViewToUnitCircle(final double vx)
 	{
-		return (vx - this.theXShift * this.theWidth) / (this.theScaleX * this.theMapScaleFactor);
+		return (vx - this.xShift * this.width) / (this.scaleX * this.mapScaleFactor);
 	}
 
 	/**
@@ -213,7 +213,7 @@ public class Mapper
 	@SuppressWarnings("WeakerAccess")
 	protected double yViewToUnitCircle(final double vy)
 	{
-		return (vy - this.theYShift * this.theHeight) / (this.theScaleY * this.theMapScaleFactor);
+		return (vy - this.yShift * this.height) / (this.scaleY * this.mapScaleFactor);
 	}
 
 	/**
@@ -224,7 +224,7 @@ public class Mapper
 	 */
 	protected double wViewToUnitCircle(final double cvx)
 	{
-		return cvx / (this.theScaleX * this.theMapScaleFactor);
+		return cvx / (this.scaleX * this.mapScaleFactor);
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class Mapper
 	 */
 	protected double hViewToUnitCircle(final double cvy)
 	{
-		return cvy / (this.theScaleY * this.theMapScaleFactor);
+		return cvy / (this.scaleY * this.mapScaleFactor);
 	}
 
 	// S P A C E . C O N V E R S I O N
@@ -243,19 +243,19 @@ public class Mapper
 	/**
 	 * Convert view coordinates to unit circle coordinates
 	 *
-	 * @param vx         x coordinate in view space
-	 * @param vy         y coordinate in view space
-	 * @param thisWidth  view width
-	 * @param thisHeight view height
+	 * @param vx     x coordinate in view space
+	 * @param vy     y coordinate in view space
+	 * @param width  view width
+	 * @param height view height
 	 * @return point in unit circle
 	 */
 	@NonNull
-	public Complex viewToUnitCircle(final int vx, final int vy, final int thisWidth, final int thisHeight)
+	public Complex viewToUnitCircle(final int vx, final int vy, final int width, final int height)
 	{
 		final Complex p = new Complex(vx, vy);
 
 		// this offsets for translation on cache graphics
-		p.set(p.re - thisWidth / 2, p.im - thisHeight / 2);
+		p.set(p.re - width / 2f, p.im - height / 2f);
 
 		// convert
 		p.set(xViewToUnitCircle(p.re), yViewToUnitCircle(p.im));
@@ -272,13 +272,13 @@ public class Mapper
 	/**
 	 * Get view coordinates of node
 	 *
-	 * @param thisNode node
+	 * @param node node
 	 * @return view coordinate of node
 	 */
 	@NonNull
-	public Point getViewLocation(@NonNull final INode thisNode)
+	public Point getViewLocation(@NonNull final INode node)
 	{
-		final Location thisLocation = thisNode.getLocation();
-		return new Point(xUnitCircleToView(thisLocation.euclidean.center.re) - this.theLeft, yUnitCircleToView(thisLocation.euclidean.center.im) - this.theTop);
+		final Location location = node.getLocation();
+		return new Point(xUnitCircleToView(location.euclidean.center.re) - this.left, yUnitCircleToView(location.euclidean.center.im) - this.top);
 	}
 }

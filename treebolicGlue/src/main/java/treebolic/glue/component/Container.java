@@ -78,6 +78,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		this((Context) handle);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void addComponent(final Component component, final int position)
 	{
@@ -110,6 +111,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		}
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void removeAll()
 	{
@@ -119,6 +121,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		this.statusbar = null;
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void validate()
 	{

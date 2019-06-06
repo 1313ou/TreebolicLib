@@ -17,6 +17,7 @@ import android.view.WindowManager;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class Utils
 {
 	@NonNull
@@ -24,7 +25,7 @@ public class Utils
 	{
 		final TypedValue typedValue = new TypedValue();
 		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
-		final int colors[] = new int[attrs.length];
+		final int[] colors = new int[attrs.length];
 		for (int i = 0; i < attrs.length; i++)
 		{
 			colors[i] = array.getColor(i, 0);
@@ -62,7 +63,7 @@ public class Utils
 	{
 		final TypedValue typedValue = new TypedValue();
 		final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs);
-		final Integer colors[] = new Integer[attrs.length];
+		final Integer[] colors = new Integer[attrs.length];
 		for (int i = 0; i < attrs.length; i++)
 		{
 			colors[i] = array.hasValue(i) ? array.getColor(i, 0) : null;

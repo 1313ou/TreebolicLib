@@ -18,36 +18,36 @@ public class Model implements Serializable
 	/**
 	 * Tree
 	 */
-	public final Tree theTree;
+	public final Tree tree;
 
 	/**
 	 * Settings
 	 */
-	public final Settings theSettings;
+	public final Settings settings;
 
 	/**
 	 * Images
 	 */
 	@Nullable
-	public final Image[] theImages;
+	public final Image[] images;
 
 	/**
 	 * Constructor
 	 */
-	public Model(final Tree thisTree, final Settings theseSettings)
+	public Model(final Tree tree, final Settings settings)
 	{
-		this.theTree = thisTree;
-		this.theSettings = theseSettings;
-		this.theImages = null;
+		this.tree = tree;
+		this.settings = settings;
+		this.images = null;
 	}
 
 	/**
 	 * Constructor
 	 */
-	public Model(final Tree thisTree, final Settings theseSettings, @Nullable final Image[] theseImages)
+	public Model(final Tree tree, final Settings settings, @Nullable final Image[] images)
 	{
-		this.theTree = thisTree;
-		this.theSettings = theseSettings;
-		this.theImages = theseImages;
+		this.tree = tree;
+		this.settings = settings;
+		this.images = images;
 	}
 }

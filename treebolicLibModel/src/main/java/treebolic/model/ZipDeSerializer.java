@@ -17,60 +17,60 @@ public class ZipDeSerializer
 	/**
 	 * Deserialize from archive
 	 *
-	 * @param thisArchive archive name
-	 * @param thisName    (will be the zipfile entry)
+	 * @param archive archive name
+	 * @param entry   the zipfile entry
 	 * @return deserialized object
 	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
-	static public Object deserializeZip(final String thisArchive, @SuppressWarnings("SameParameterValue") final String thisName) throws IOException, ClassNotFoundException
+	static public Object deserializeZip(final String archive, @SuppressWarnings("SameParameterValue") final String entry) throws IOException, ClassNotFoundException
 	{
-		ZipFile thisZipFile = null;
-		InputStream thisInputStream = null;
-		ObjectInputStream thisObjectInputStream = null;
+		ZipFile zipFile = null;
+		InputStream inputStream = null;
+		ObjectInputStream objectInputStream = null;
 		try
 		{
-			thisZipFile = new ZipFile(thisArchive);
-			final ZipEntry thisZipEntry = thisZipFile.getEntry(thisName);
-			if (thisZipEntry == null)
+			zipFile = new ZipFile(archive);
+			final ZipEntry zipEntry = zipFile.getEntry(entry);
+			if (zipEntry == null)
 			{
-				throw new IOException("zip entry not found " + thisName);
+				throw new IOException("zip entry not found " + entry);
 			}
 
-			thisInputStream = thisZipFile.getInputStream(thisZipEntry);
-			thisObjectInputStream = new ObjectInputStream(thisInputStream);
+			inputStream = zipFile.getInputStream(zipEntry);
+			objectInputStream = new ObjectInputStream(inputStream);
 
-			return thisObjectInputStream.readObject();
+			return objectInputStream.readObject();
 		}
 		finally
 		{
-			if (thisObjectInputStream != null)
+			if (objectInputStream != null)
 			{
 				try
 				{
-					thisObjectInputStream.close();
+					objectInputStream.close();
 				}
 				catch (IOException ignored)
 				{
 					//
 				}
 			}
-			if (thisInputStream != null)
+			if (inputStream != null)
 			{
 				try
 				{
-					thisInputStream.close();
+					inputStream.close();
 				}
 				catch (IOException ignored)
 				{
 					//
 				}
 			}
-			if (thisZipFile != null)
+			if (zipFile != null)
 			{
 				try
 				{
-					thisZipFile.close();
+					zipFile.close();
 				}
 				catch (IOException ignored)
 				{

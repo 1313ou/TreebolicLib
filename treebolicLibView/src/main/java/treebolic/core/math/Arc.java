@@ -92,55 +92,55 @@ public class Arc
 		final double s1 = 1. + z1.abs2();
 		final double s2 = 1. + z2.abs2();
 		final double norm = 1. / (2 * (z1.re * z2.im - z2.re * z1.im));
-		final Complex thisCenter = new Complex((s1 * z2.im - s2 * z1.im) * norm, -(s1 * z2.re - s2 * z1.re) * norm);
+		final Complex center = new Complex((s1 * z2.im - s2 * z1.im) * norm, -(s1 * z2.re - s2 * z1.re) * norm);
 
 		// radius
-		final double thisRadius = Distance.getEuclideanDistance(thisCenter, z2);
-		if (thisRadius > Arc.R)
+		final double radius = Distance.getEuclideanDistance(center, z2);
+		if (radius > Arc.R)
 		{
 			this.r = 0.;
 			return;
 		}
 
 		// start angle
-		final Complex t1 = new Complex(z1).sub(thisCenter);
-		double thisStartAngle = t1.arg(); // Arg(z1-thisCenter);
+		final Complex t1 = new Complex(z1).sub(center);
+		double startAngle = t1.arg(); // Arg(z1-center);
 
 		// end angle
-		final Complex t2 = new Complex(z2).sub(thisCenter);
-		double thisAngleEnd = t2.arg(); // Arg(z2-thisCenter);
+		final Complex t2 = new Complex(z2).sub(center);
+		double endAngle = t2.arg(); // Arg(z2-center);
 
 		// normalize start angle
-		if (thisStartAngle < 0.)
+		if (startAngle < 0.)
 		{
-			thisStartAngle += Arc.TWOPI;
+			startAngle += Arc.TWOPI;
 		}
 
 		// normalize end angle
-		if (thisAngleEnd < 0.)
+		if (endAngle < 0.)
 		{
-			thisAngleEnd += Arc.TWOPI;
+			endAngle += Arc.TWOPI;
 		}
 
 		// angle extent
-		double thisAngleExtent = thisAngleEnd - thisStartAngle;
+		double angleExtent = endAngle - startAngle;
 
 		// normalize
-		if (thisAngleExtent > Math.PI)
+		if (angleExtent > Math.PI)
 		{
-			thisAngleExtent -= Arc.TWOPI;
+			angleExtent -= Arc.TWOPI;
 		}
-		else if (thisAngleExtent < -Math.PI)
+		else if (angleExtent < -Math.PI)
 		{
-			thisAngleExtent += Arc.TWOPI;
+			angleExtent += Arc.TWOPI;
 		}
 
 		// result
-		this.x = thisCenter.re;
-		this.y = thisCenter.im;
-		this.r = thisRadius;
-		this.start = thisStartAngle;
-		this.angle = thisAngleExtent;
+		this.x = center.re;
+		this.y = center.im;
+		this.r = radius;
+		this.start = startAngle;
+		this.angle = angleExtent;
 	}
 
 	/**

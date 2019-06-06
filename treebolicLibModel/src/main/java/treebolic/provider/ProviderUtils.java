@@ -12,17 +12,18 @@ import java.util.Properties;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class ProviderUtils
 {
-	static public URL makeURL(@Nullable final String thisSource, final URL thisBase, final Properties theseExtras, @NonNull final IProviderContext thisContext)
+	static public URL makeURL(@Nullable final String source, final URL base, final Properties extras, @NonNull final IProviderContext context)
 	{
 		final boolean DEBUG = true;
-		if (thisSource == null)
+		if (source == null)
 		{
 			// noinspection ConstantConditions
 			if (DEBUG)
 			{
-				thisContext.warn("URL= null (null source)");
+				context.warn("URL= null (null source)");
 			}
 			return null;
 		}
@@ -30,13 +31,13 @@ public class ProviderUtils
 		// try to consider it well-formed full-fledged url
 		try
 		{
-			final URL thisUrl = new URL(thisSource);
+			final URL url = new URL(source);
 			//noinspection ConstantConditions
 			if (DEBUG)
 			{
-				thisContext.message("URL=" + thisUrl.toString());
+				context.message("URL=" + url.toString());
 			}
-			return thisUrl;
+			return url;
 		}
 		catch (@NonNull final MalformedURLException ignored)
 		{
@@ -46,13 +47,13 @@ public class ProviderUtils
 		// default to source relative to a base
 		try
 		{
-			final URL thisUrl = new URL(thisBase, thisSource);
+			final URL url = new URL(base, source);
 			//noinspection ConstantConditions
 			if (DEBUG)
 			{
-				thisContext.message("URL=" + thisUrl.toString()); // + " from BASE URL=" + thisBase.toString());
+				context.message("URL=" + url.toString()); // + " from BASE URL=" + base.toString());
 			}
-			return thisUrl;
+			return url;
 		}
 		catch (@NonNull final MalformedURLException ignored)
 		{
@@ -61,7 +62,7 @@ public class ProviderUtils
 		//noinspection ConstantConditions
 		if (DEBUG)
 		{
-			thisContext.warn("URL= null (fail)");
+			context.warn("URL= null (fail)");
 		}
 		return null;
 	}

@@ -30,54 +30,54 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	/**
 	 * Label background color
 	 */
-	static private final Color[] theBackColor = new Color[PutType.values().length];
+	static private final Color[] backColor = new Color[PutType.values().length];
 
 	/**
 	 * Label foreground color
 	 */
-	static private final Color[] theForeColor = new Color[PutType.values().length];
+	static private final Color[] foreColor = new Color[PutType.values().length];
 
 	// init
 	static
 	{
 		for (int i = 0; i < PutType.values().length; i++)
 		{
-			Statusbar.theBackColor[i] = Color.WHITE;
-			Statusbar.theForeColor[i] = Color.BLACK;
+			Statusbar.backColor[i] = Color.WHITE;
+			Statusbar.foreColor[i] = Color.BLACK;
 		}
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle Handle required for component creation
+	 * @param handle Handle required for component creation
 	 */
-	public Statusbar(final Object thisHandle)
+	public Statusbar(final Object handle)
 	{
-		super(thisHandle);
+		super(handle);
 
 		init(null);
 	}
 
 	@SuppressWarnings("WeakerAccess")
-	public void init(@Nullable @SuppressWarnings("SameParameterValue") final Settings theseSettings)
+	public void init(@Nullable @SuppressWarnings("SameParameterValue") final Settings settings)
 	{
 		// colors
-		if (theseSettings != null)
+		if (settings != null)
 		{
-			if (theseSettings.theBackColor != null)
+			if (settings.backColor != null)
 			{
-				Statusbar.theBackColor[PutType.INFO.ordinal()] = theseSettings.theBackColor;
-				Statusbar.theBackColor[PutType.LINK.ordinal()] = theseSettings.theBackColor;
-				Statusbar.theBackColor[PutType.MOUNT.ordinal()] = theseSettings.theBackColor;
-				Statusbar.theBackColor[PutType.SEARCH.ordinal()] = theseSettings.theBackColor;
+				Statusbar.backColor[PutType.INFO.ordinal()] = settings.backColor;
+				Statusbar.backColor[PutType.LINK.ordinal()] = settings.backColor;
+				Statusbar.backColor[PutType.MOUNT.ordinal()] = settings.backColor;
+				Statusbar.backColor[PutType.SEARCH.ordinal()] = settings.backColor;
 			}
-			if (theseSettings.theForeColor != null)
+			if (settings.foreColor != null)
 			{
-				Statusbar.theForeColor[PutType.INFO.ordinal()] = theseSettings.theForeColor;
-				Statusbar.theForeColor[PutType.LINK.ordinal()] = theseSettings.theForeColor;
-				Statusbar.theForeColor[PutType.MOUNT.ordinal()] = theseSettings.theForeColor;
-				Statusbar.theForeColor[PutType.SEARCH.ordinal()] = theseSettings.theForeColor;
+				Statusbar.foreColor[PutType.INFO.ordinal()] = settings.foreColor;
+				Statusbar.foreColor[PutType.LINK.ordinal()] = settings.foreColor;
+				Statusbar.foreColor[PutType.MOUNT.ordinal()] = settings.foreColor;
+				Statusbar.foreColor[PutType.SEARCH.ordinal()] = settings.foreColor;
 			}
 		}
 
@@ -85,31 +85,31 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 		super.init(PutType.INFO.ordinal());
 	}
 
-	private void setColors(@NonNull final PutType thisType)
+	private void setColors(@NonNull final PutType type)
 	{
-		final Color thisBackColor = Statusbar.theBackColor[thisType.ordinal()];
-		final Color thisForeColor = Statusbar.theForeColor[thisType.ordinal()];
-		setColors(thisBackColor, thisForeColor);
+		final Color backColor = Statusbar.backColor[type.ordinal()];
+		final Color foreColor = Statusbar.foreColor[type.ordinal()];
+		setColors(backColor, foreColor);
 	}
 
 	/**
 	 * Put status
 	 *
-	 * @param thisLabel   label
-	 * @param thisContent content
-	 * @param thisType    status type as per below
+	 * @param label   label
+	 * @param content content
+	 * @param type    status type as per below
 	 */
-	public void put(final String thisLabel, final String thisContent, @NonNull final PutType thisType)
+	public void put(final String label, final String content, @NonNull final PutType type)
 	{
-		setColors(thisType);
-		super.put(thisLabel, thisContent, thisType.ordinal());
+		setColors(type);
+		super.put(label, content, type.ordinal());
 	}
 
 	/*
 	 * Put status
 	 *
-	 * @param thisMessage
+	 * @param message
 	 *            content
 	 */
-	// public void put(final String thisMessage);
+	// public void put(final String message);
 }

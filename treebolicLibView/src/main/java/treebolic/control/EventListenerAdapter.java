@@ -21,7 +21,7 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Controller
 	 */
-	private final Controller theController;
+	private final Controller controller;
 
 	// D R A G A N D D R O P
 
@@ -37,7 +37,7 @@ public class EventListenerAdapter extends EventListener
 	 * Drag mode
 	 */
 	@NonNull
-	private DragMode theDragMode = DragMode.TRANSLATE;
+	private DragMode dragMode = DragMode.TRANSLATE;
 
 	/**
 	 * Whether pointer was dragged
@@ -60,13 +60,13 @@ public class EventListenerAdapter extends EventListener
 	/**
 	 * Drag starting point
 	 */
-	private final Complex theDragStart = new Complex();
+	private final Complex dragStart = new Complex();
 
 	/**
 	 * Drag end point
 	 */
 	@NonNull
-	private Complex theDragEnd = new Complex();
+	private Complex dragEnd = new Complex();
 
 	// selection
 
@@ -74,24 +74,24 @@ public class EventListenerAdapter extends EventListener
 	 * Hot node
 	 */
 	@Nullable
-	private INode theHotNode = null;
+	private INode hotNode = null;
 
 	/**
 	 * Linger node
 	 */
 	@Nullable
-	private INode theHoverNode = null;
+	private INode hoverNode = null;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisController controller
+	 * @param controller controller
 	 */
-	public EventListenerAdapter(final Controller thisController)
+	public EventListenerAdapter(final Controller controller)
 	{
-		this.theController = thisController;
+		this.controller = controller;
 	}
 
 	// R E S E T
@@ -101,12 +101,12 @@ public class EventListenerAdapter extends EventListener
 	 */
 	public void reset()
 	{
-		this.theHotNode = null;
-		this.theHoverNode = null;
+		this.hotNode = null;
+		this.hoverNode = null;
 		this.wasDragged = false;
 		this.wasMoved = false;
-		this.theDragStart.reset();
-		this.theDragEnd.reset();
+		this.dragStart.reset();
+		this.dragEnd.reset();
 	}
 
 	// L I S T E N E R
@@ -114,10 +114,10 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onFocus(final int x, final int y)
 	{
-		final INode thisNode = this.theController.findNode(x, y);
-		if (thisNode != null)
+		final INode node = this.controller.findNode(x, y);
+		if (node != null)
 		{
-			this.theController.handle(Controller.Event.FOCUS, thisNode);
+			this.controller.handle(Controller.Event.FOCUS, node);
 			return true;
 		}
 		return false;
@@ -126,12 +126,12 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onMenu(final int x, final int y)
 	{
-		final INode thisNode = this.theController.findNode(x, y);
-		if (thisNode != null)
+		final INode node = this.controller.findNode(x, y);
+		if (node != null)
 		{
 			if (this.hasPopUp)
 			{
-				this.theController.handle(Controller.Event.POPUP, new Point(x, y), thisNode);
+				this.controller.handle(Controller.Event.POPUP, new Point(x, y), node);
 				return true;
 			}
 		}
@@ -141,10 +141,10 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onMount(final int x, final int y)
 	{
-		final INode thisNode = this.theController.findNode(x, y);
-		if (thisNode != null)
+		final INode node = this.controller.findNode(x, y);
+		if (node != null)
 		{
-			this.theController.handle(Controller.Event.MOUNT, thisNode);
+			this.controller.handle(Controller.Event.MOUNT, node);
 			return true;
 		}
 		return false;
@@ -153,25 +153,27 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onLink(final int x, final int y)
 	{
-		final INode thisNode = this.theController.findNode(x, y);
-		if (thisNode != null)
+		final INode node = this.controller.findNode(x, y);
+		if (node != null)
 		{
-			this.theController.handle(Controller.Event.LINK, thisNode);
+			this.controller.handle(Controller.Event.LINK, node);
 			return true;
 		}
 		return false;
 	}
 
+	@SuppressWarnings("SameReturnValue")
 	@Override
 	public boolean onDown(final int x, final int y, final boolean rotate)
 	{
-		final Complex thisDragStart = this.theController.viewToUnitCircle(new Point(x, y));
-		this.theDragMode = rotate ? DragMode.ROTATE : DragMode.TRANSLATE;
-		this.theDragStart.set(thisDragStart);
-		this.theDragEnd.set(this.theDragStart);
+		final Complex dragStart = this.controller.viewToUnitCircle(new Point(x, y));
+		this.dragMode = rotate ? DragMode.ROTATE : DragMode.TRANSLATE;
+		this.dragStart.set(dragStart);
+		this.dragEnd.set(this.dragStart);
 		return true;
 	}
 
+	@SuppressWarnings("SameReturnValue")
 	@Override
 	public boolean onUp(final int x, final int y)
 	{
@@ -179,47 +181,49 @@ public class EventListenerAdapter extends EventListener
 		if (this.wasDragged)
 		{
 			this.wasDragged = false;
-			this.theController.handle(Controller.Event.LEAVEDRAG);
+			this.controller.handle(Controller.Event.LEAVEDRAG);
 		}
 		else
 		{
 			// selection
-			final INode thisNode = this.theController.findNode(x, y);
-			if (thisNode != null)
+			final INode node = this.controller.findNode(x, y);
+			if (node != null)
 			{
-				this.theController.handle(Controller.Event.SELECT, thisNode);
+				this.controller.handle(Controller.Event.SELECT, node);
 			}
 		}
 		return true;
 	}
 
+	@SuppressWarnings("SameReturnValue")
 	@Override
 	public boolean onDragged(final int x, final int y)
 	{
-		final double theMaxShiftSpan = .5;
+		final double maxShiftSpan = .5;
 
 		// avoid wide pointer shift which will lead to cross-circle xlations
-		Complex thisDragEnd = this.theController.viewToUnitCircle(new Point(x, y));
-		if (Distance.getEuclideanDistance(this.theDragStart, thisDragEnd) > theMaxShiftSpan)
+		Complex dragEnd = this.controller.viewToUnitCircle(new Point(x, y));
+		if (Distance.getEuclideanDistance(this.dragStart, dragEnd) > maxShiftSpan)
 		{
 			// keep shift direction but limit span
-			thisDragEnd = Complex.makeFromArgAbs(thisDragEnd.sub(this.theDragStart).arg(), theMaxShiftSpan).add(this.theDragStart);
+			dragEnd = Complex.makeFromArgAbs(dragEnd.sub(this.dragStart).arg(), maxShiftSpan).add(this.dragStart);
 		}
-		this.theDragEnd = thisDragEnd;
+		this.dragEnd = dragEnd;
 		this.wasMoved = true;
 		this.wasDragged = true;
-		this.theController.handle(Controller.Event.DRAG);
+		this.controller.handle(Controller.Event.DRAG);
 		return true;
 	}
 
+	@SuppressWarnings("SameReturnValue")
 	@Override
 	public boolean onSelect(final int x, final int y)
 	{
 		// selection
-		final INode thisNode = this.theController.findNode(x, y);
-		if (thisNode != null)
+		final INode node = this.controller.findNode(x, y);
+		if (node != null)
 		{
-			this.theController.handle(Controller.Event.SELECT, thisNode);
+			this.controller.handle(Controller.Event.SELECT, node);
 		}
 		return true;
 	}
@@ -231,8 +235,8 @@ public class EventListenerAdapter extends EventListener
 	 */
 	private synchronized void rotate()
 	{
-		this.theController.handle(Controller.Event.ROTATE, this.theDragStart, this.theDragEnd);
-		this.theDragStart.set(this.theDragEnd); // eat
+		this.controller.handle(Controller.Event.ROTATE, this.dragStart, this.dragEnd);
+		this.dragStart.set(this.dragEnd); // eat
 	}
 
 	/**
@@ -240,8 +244,8 @@ public class EventListenerAdapter extends EventListener
 	 */
 	private synchronized void move()
 	{
-		this.theController.handle(Controller.Event.MOVE, this.theDragStart, this.theDragEnd);
-		this.theDragStart.set(this.theDragEnd); // eat
+		this.controller.handle(Controller.Event.MOVE, this.dragStart, this.dragEnd);
+		this.dragStart.set(this.dragEnd); // eat
 	}
 
 	/**
@@ -254,7 +258,7 @@ public class EventListenerAdapter extends EventListener
 		if (this.wasMoved)
 		{
 			// move it now
-			switch (this.theDragMode)
+			switch (this.dragMode)
 			{
 				case TRANSLATE:
 					move();
@@ -278,12 +282,12 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onHover(final int x, final int y)
 	{
-		final INode thisNode = this.theController.findNode(x, y);
-		final boolean again = this.theHotNode == thisNode;
-		this.theHotNode = thisNode;
-		if (thisNode != null && !again)
+		final INode node = this.controller.findNode(x, y);
+		final boolean again = this.hotNode == node;
+		this.hotNode = node;
+		if (node != null && !again)
 		{
-			this.theController.handle(Controller.Event.HOVER, thisNode);
+			this.controller.handle(Controller.Event.HOVER, node);
 			return true;
 		}
 		return false;
@@ -292,13 +296,13 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onLongHover()
 	{
-		final boolean again = this.theHotNode == this.theHoverNode;
-		this.theHoverNode = this.theHotNode;
-		if (!again || this.theHoverNode == null || this.theHoverNode.getLocation().hyper.center.equals(Complex.ZERO))
+		final boolean again = this.hotNode == this.hoverNode;
+		this.hoverNode = this.hotNode;
+		if (!again || this.hoverNode == null || this.hoverNode.getLocation().hyper.center.equals(Complex.ZERO))
 		{
 			return false;
 		}
-		this.theController.handle(Controller.Event.FOCUS, this.theHoverNode);
+		this.controller.handle(Controller.Event.FOCUS, this.hoverNode);
 		return true;
 	}
 
@@ -307,7 +311,7 @@ public class EventListenerAdapter extends EventListener
 	 */
 	public void resetHotNode()
 	{
-		this.theHotNode = null;
+		this.hotNode = null;
 	}
 
 	/**
@@ -318,20 +322,20 @@ public class EventListenerAdapter extends EventListener
 	@Nullable
 	public INode getHotNode()
 	{
-		return this.theHotNode;
+		return this.hotNode;
 	}
 
 	@SuppressWarnings("boxing")
 	@Override
-	public void onZoom(final float thisZoomFactor, final float thisZoomPivotX, final float thisZoomPivotY)
+	public void onZoom(final float zoomFactor, final float zoomPivotX, final float zoomPivotY)
 	{
-		this.theController.handle(Controller.Event.ZOOM, thisZoomFactor, thisZoomPivotX, thisZoomPivotY);
+		this.controller.handle(Controller.Event.ZOOM, zoomFactor, zoomPivotX, zoomPivotY);
 	}
 
 	@SuppressWarnings("boxing")
 	@Override
-	public void onScale(final float thisMapScaleFactor, final float thisFontScaleFactor, final float thisImageScaleFactor)
+	public void onScale(final float mapScaleFactor, final float fontScaleFactor, final float imageScaleFactor)
 	{
-		this.theController.handle(Controller.Event.SCALE, thisMapScaleFactor, thisFontScaleFactor, thisImageScaleFactor);
+		this.controller.handle(Controller.Event.SCALE, mapScaleFactor, fontScaleFactor, imageScaleFactor);
 	}
 }

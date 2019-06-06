@@ -14,63 +14,64 @@ public class MutableEdge extends Edge
 	/**
 	 * Construct node
 	 *
-	 * @param thisFromNode from node
-	 * @param thisToNode   to node
+	 * @param fromNode from node
+	 * @param toNode   to node
 	 */
-	public MutableEdge(final INode thisFromNode, final INode thisToNode)
+	@SuppressWarnings("WeakerAccess")
+	public MutableEdge(final INode fromNode, final INode toNode)
 	{
-		super(thisFromNode, thisToNode);
+		super(fromNode, toNode);
 	}
 
 	/**
 	 * Set label
 	 *
-	 * @param thisLabel label
+	 * @param label label
 	 */
-	public void setLabel(final String thisLabel)
+	public void setLabel(final String label)
 	{
-		this.theLabel = thisLabel;
+		this.label = label;
 	}
 
 	/**
 	 * Set color
 	 *
-	 * @param thisColor color
+	 * @param color color
 	 */
-	public void setColor(final Color thisColor)
+	public void setColor(final Color color)
 	{
-		this.theColor = thisColor;
+		this.color = color;
 	}
 
 	/**
 	 * Set style
 	 *
-	 * @param thisStyle edge style
+	 * @param style edge style
 	 */
-	public void setStyle(final Integer thisStyle)
+	public void setStyle(final Integer style)
 	{
-		this.theStyle = thisStyle;
+		this.style = style;
 	}
 
 	/**
 	 * Set image filename
 	 *
-	 * @param thisImageFile image filename
+	 * @param imageFile image filename
 	 */
-	public void setImageFile(final String thisImageFile)
+	public void setImageFile(final String imageFile)
 	{
-		this.theImageFile = thisImageFile;
-		this.theImage = null;
+		this.imageFile = imageFile;
+		this.image = null;
 	}
 
 	/**
 	 * Set image index
 	 *
-	 * @param thisImageIndex image index
+	 * @param imageIndex image index
 	 */
-	public void setImageIndex(final int thisImageIndex)
+	public void setImageIndex(final int imageIndex)
 	{
-		this.theImageIndex = thisImageIndex;
-		this.theImage = null;
+		this.imageIndex = imageIndex;
+		this.image = null;
 	}
 }

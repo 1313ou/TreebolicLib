@@ -7,6 +7,7 @@ import treebolic.model.TreeMutableNode;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class MutableGraphNode extends TreeMutableNode implements GraphNode
 {
 	private static final long serialVersionUID = 8850315428753155363L;
@@ -18,11 +19,11 @@ public class MutableGraphNode extends TreeMutableNode implements GraphNode
 	/**
 	 * Constructor
 	 *
-	 * @param thisId id
+	 * @param id id
 	 */
-	public MutableGraphNode(final String thisId)
+	public MutableGraphNode(final String id)
 	{
-		super(null, thisId);
+		super(null, id);
 		this.index = MutableGraphNode.indexAllocator++;
 	}
 

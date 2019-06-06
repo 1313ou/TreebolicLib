@@ -11,13 +11,13 @@ import treebolic.core.location.Complex;
  */
 public class HyperRadialOrientationPreservingTransform extends HyperTransform
 {
-	public HyperRadialOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex thisRoot)
+	public HyperRadialOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex root)
 	{
-		// thisRoot->0
-		this.theXlat = new HyperTranslation(thisRoot).inverse();
+		// root->0
+		this.xlat = new HyperTranslation(root).inverse();
 
 		// from -> from1 -> to
-		final Complex from1 = this.theXlat.map(new Complex(from));
-		composeXlats(this.theXlat, new HyperTranslation(from1, to));
+		final Complex from1 = this.xlat.map(new Complex(from));
+		composeXlats(this.xlat, new HyperTranslation(from1, to));
 	}
 }

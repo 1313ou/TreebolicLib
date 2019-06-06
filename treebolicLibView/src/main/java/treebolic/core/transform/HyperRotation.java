@@ -63,16 +63,16 @@ public class HyperRotation extends Complex
 	 * Rotate point
 	 *
 	 * @param z         input point
-	 * @param thisAngle rotation angle
+	 * @param angle rotation angle
 	 * @return this point with rotated values
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public Complex map(@NonNull final Complex z, @NonNull final Complex thisAngle)
+	static public Complex map(@NonNull final Complex z, @NonNull final Complex angle)
 	{
 		// z = (z*theta+p)/(1+(~p)*z)
 		// = (z*theta+0)/(1+(~0)*z)
 		// = z*theta
-		return z.mul(thisAngle);
+		return z.mul(angle);
 	}
 
 	/**

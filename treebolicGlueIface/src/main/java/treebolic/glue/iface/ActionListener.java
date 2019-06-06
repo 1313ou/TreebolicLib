@@ -10,9 +10,9 @@ public interface ActionListener
 	/**
 	 * Action callback
 	 *
-	 * @param theseParams parameter
+	 * @param params parameters
 	 * @return true if handled
 	 */
 	@SuppressWarnings("UnusedReturnValue")
-	boolean onAction(Object... theseParams);
+	boolean onAction(Object... params);
 }

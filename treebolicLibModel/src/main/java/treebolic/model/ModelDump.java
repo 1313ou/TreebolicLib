@@ -12,251 +12,252 @@ import treebolic.glue.Image;
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class ModelDump
 {
 	/**
 	 * Stringify model
 	 *
-	 * @param thisModel model
+	 * @param model model
 	 * @return string for model
 	 */
-	static public String toString(@Nullable final Model thisModel)
+	static public String toString(@Nullable final Model model)
 	{
-		if (thisModel == null)
+		if (model == null)
 		{
 			return "null";
 		}
-		return ModelDump.toString(thisModel.theTree) + ModelDump.toString(thisModel.theSettings) + ModelDump.toString(thisModel.theImages);
+		return ModelDump.toString(model.tree) + ModelDump.toString(model.settings) + ModelDump.toString(model.images);
 	}
 
 	/**
 	 * Stringify tree
 	 *
-	 * @param thisTree tree
+	 * @param tree tree
 	 * @return string for tree
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final Tree thisTree)
+	static public String toString(@Nullable final Tree tree)
 	{
-		if (thisTree == null)
+		if (tree == null)
 		{
 			return "null";
 		}
-		return "NODES\n" + ModelDump.toString(thisTree.getRoot(), 0) + "EDGES\n" + ModelDump.toString(thisTree.getEdges());
+		return "NODES\n" + ModelDump.toString(tree.getRoot(), 0) + "EDGES\n" + ModelDump.toString(tree.getEdges());
 	}
 
 	/**
 	 * Stringify node and children
 	 *
-	 * @param thisNode  node
-	 * @param thisLevel level
+	 * @param node  node
+	 * @param level level
 	 * @return string for node
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final INode thisNode, final int thisLevel)
+	static public String toString(@Nullable final INode node, final int level)
 	{
-		final StringBuilder thisBuffer = new StringBuilder();
-		for (int i = 0; i < thisLevel; i++)
+		final StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < level; i++)
 		{
-			thisBuffer.append('\t');
+			sb.append('\t');
 		}
 
-		if (thisNode == null)
+		if (node == null)
 		{
-			thisBuffer.append("[null node]");
+			sb.append("[null node]");
 		}
 		else
 		{
 			// id
-			thisBuffer.append('#');
-			thisBuffer.append(thisNode.getId());
+			sb.append('#');
+			sb.append(node.getId());
 
 			// label
-			thisBuffer.append(" '");
-			thisBuffer.append(thisNode.toString());
+			sb.append(" '");
+			sb.append(node.toString());
 
 			// parent
-			thisBuffer.append("' ^");
-			final INode thisParent = thisNode.getParent();
-			if (thisParent != null)
+			sb.append("' ^");
+			final INode parent = node.getParent();
+			if (parent != null)
 			{
-				thisBuffer.append('#');
-				thisBuffer.append(thisParent.getId());
+				sb.append('#');
+				sb.append(parent.getId());
 			}
 
 			// image
-			final String thisImageFile = thisNode.getImageFile();
-			final int thisImageIndex = thisNode.getImageIndex();
-			if (thisImageFile != null)
+			final String imageFile = node.getImageFile();
+			final int imageIndex = node.getImageIndex();
+			if (imageFile != null)
 			{
-				thisBuffer.append(" !");
-				thisBuffer.append(thisImageFile);
+				sb.append(" !");
+				sb.append(imageFile);
 			}
-			if (thisImageIndex != -1)
+			if (imageIndex != -1)
 			{
-				thisBuffer.append(" !");
-				thisBuffer.append(thisImageIndex);
+				sb.append(" !");
+				sb.append(imageIndex);
 			}
 
 			// children
-			thisBuffer.append('\n');
-			final List<INode> theseChildNodes = thisNode.getChildren();
-			if (theseChildNodes != null)
+			sb.append('\n');
+			final List<INode> childNodes = node.getChildren();
+			if (childNodes != null)
 			{
-				for (final INode thisChildNode : theseChildNodes)
+				for (final INode childNode : childNodes)
 				{
-					thisBuffer.append(ModelDump.toString(thisChildNode, thisLevel + 1));
+					sb.append(ModelDump.toString(childNode, level + 1));
 				}
 			}
 		}
-		return thisBuffer.toString();
+		return sb.toString();
 	}
 
 	/**
 	 * Stringify edge list
 	 *
-	 * @param thisEdgeList edge list
+	 * @param edgeList edge list
 	 * @return string for edge list
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final List<IEdge> thisEdgeList)
+	static public String toString(@Nullable final List<IEdge> edgeList)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
-		if (thisEdgeList != null)
+		final StringBuilder sb = new StringBuilder();
+		if (edgeList != null)
 		{
-			for (final IEdge thisEdge : thisEdgeList)
+			for (final IEdge edge : edgeList)
 			{
-				thisBuilder.append(thisEdge.toString());
-				thisBuilder.append('\n');
+				sb.append(edge.toString());
+				sb.append('\n');
 			}
 		}
-		return thisBuilder.toString();
+		return sb.toString();
 	}
 
 	/**
 	 * Stringify image list
 	 *
-	 * @param theseImages images
+	 * @param images images
 	 * @return string for images
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final Image[] theseImages)
+	static public String toString(@Nullable final Image[] images)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
-		thisBuilder.append("IMAGES\n");
+		final StringBuilder sb = new StringBuilder();
+		sb.append("IMAGES\n");
 		int i = 0;
-		if (theseImages != null)
+		if (images != null)
 		{
-			for (Image thisImage : theseImages)
+			for (Image image : images)
 			{
-				thisBuilder.append(i);
-				thisBuilder.append('-');
-				thisBuilder.append(thisImage.getHeight() + 'x' + thisImage.getHeight());
-				thisBuilder.append('\n');
+				sb.append(i);
+				sb.append('-');
+				sb.append(image.getHeight() + 'x' + image.getHeight());
+				sb.append('\n');
 				i++;
 			}
 		}
-		return thisBuilder.toString();
+		return sb.toString();
 	}
 
 	/**
 	 * Stringify settings
 	 *
-	 * @param theseSettings settings
+	 * @param settings settings
 	 * @return string for settings
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@NonNull final Settings theseSettings)
+	static public String toString(@NonNull final Settings settings)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
-		thisBuilder.append("SETTINGS\n");
-		thisBuilder.append("BackColor=").append(Utils.colorToString(theseSettings.theBackColor)).append('\n');
-		thisBuilder.append("ForeColor=").append(Utils.colorToString(theseSettings.theForeColor)).append('\n');
-		thisBuilder.append("BackgroundImage=").append(theseSettings.theBackgroundImageFile).append('\n');
-		thisBuilder.append("FontFace=").append(theseSettings.theFontFace).append('\n');
-		thisBuilder.append("FontSize=").append(theseSettings.theFontSize).append('\n');
-		thisBuilder.append("FontSizeFactor=").append(theseSettings.theFontSizeFactor).append('\n');
-		thisBuilder.append("DownScaleFonts=").append(theseSettings.theDownscaleFontsFlag).append('\n');
-		thisBuilder.append("FontScaler=").append(toString(theseSettings.theFontDownscaler)).append('\n');
-		thisBuilder.append("DownScaleImages=").append(theseSettings.theDownscaleImagesFlag).append('\n');
-		thisBuilder.append("ImageScaler=").append(toString(theseSettings.theImageDownscaler)).append('\n');
-		thisBuilder.append("Orientation=").append(theseSettings.theOrientation).append('\n');
-		thisBuilder.append("Expansion=").append(theseSettings.theExpansion).append('\n');
-		thisBuilder.append("Sweep=").append(theseSettings.theSweep).append('\n');
-		thisBuilder.append("PreserveOrientationFlag=").append(theseSettings.thePreserveOrientationFlag).append('\n');
-		thisBuilder.append("HasToolbarFlag=").append(theseSettings.theHasToolbarFlag).append('\n');
-		thisBuilder.append("HasStatusbarFlag=").append(theseSettings.theHasStatusbarFlag).append('\n');
-		thisBuilder.append("HasPopUpMenuFlag=").append(theseSettings.theHasPopUpMenuFlag).append('\n');
-		thisBuilder.append("HasToolTipFlag=").append(theseSettings.theHasToolTipFlag).append('\n');
-		thisBuilder.append("ToolTipDisplaysContentFlag=").append(theseSettings.theToolTipDisplaysContentFlag).append('\n');
-		thisBuilder.append("FocusOnHoverFlag=").append(theseSettings.theFocusOnHoverFlag).append('\n');
-		thisBuilder.append("Focus=").append(theseSettings.theFocus).append('\n');
-		thisBuilder.append("XMoveTo=").append(theseSettings.theXMoveTo).append('\n');
-		thisBuilder.append("YMoveTo=").append(theseSettings.theYMoveTo).append('\n');
-		thisBuilder.append("XShift=").append(theseSettings.theXMoveTo).append('\n');
-		thisBuilder.append("YShift=").append(theseSettings.theYMoveTo).append('\n');
-		thisBuilder.append("NodeBackColor=").append(Utils.colorToString(theseSettings.theNodeBackColor)).append('\n');
-		thisBuilder.append("NodeForeColor=").append(Utils.colorToString(theseSettings.theNodeForeColor)).append('\n');
-		thisBuilder.append("DefaultNodeImage=").append(theseSettings.theDefaultNodeImage).append('\n');
-		thisBuilder.append("BorderFlag=").append(theseSettings.theBorderFlag).append('\n');
-		thisBuilder.append("EllipsizeFlag=").append(theseSettings.theEllipsizeFlag).append('\n');
-		thisBuilder.append("LabelMaxLines=").append(theseSettings.theLabelMaxLines).append('\n');
-		thisBuilder.append("LabelExtraLineFactor=").append(theseSettings.theLabelExtraLineFactor).append('\n');
-		thisBuilder.append("TreeEdgeColor=").append(Utils.colorToString(theseSettings.theTreeEdgeColor)).append('\n');
-		thisBuilder.append("TreeEdgeStyle=").append(ModelDump.toString(theseSettings.theTreeEdgeStyle)).append('\n');
-		thisBuilder.append("DefaultTreeEdgeImage=").append(theseSettings.theDefaultTreeEdgeImage).append('\n');
-		thisBuilder.append("EdgesAsArcsFlag=").append(theseSettings.theEdgesAsArcsFlag).append('\n');
-		thisBuilder.append("EdgeColor=").append(Utils.colorToString(theseSettings.theEdgeColor)).append('\n');
-		thisBuilder.append("EdgeStyle=").append(ModelDump.toString(theseSettings.theEdgeStyle)).append('\n');
-		thisBuilder.append("DefaultEdgeImage=").append(theseSettings.theDefaultEdgeImage).append('\n');
-		if (theseSettings.theMenu == null)
+		final StringBuilder sb = new StringBuilder();
+		sb.append("SETTINGS\n");
+		sb.append("BackColor=").append(Utils.colorToString(settings.backColor)).append('\n');
+		sb.append("ForeColor=").append(Utils.colorToString(settings.foreColor)).append('\n');
+		sb.append("BackgroundImage=").append(settings.backgroundImageFile).append('\n');
+		sb.append("FontFace=").append(settings.fontFace).append('\n');
+		sb.append("FontSize=").append(settings.fontSize).append('\n');
+		sb.append("FontSizeFactor=").append(settings.fontSizeFactor).append('\n');
+		sb.append("DownScaleFonts=").append(settings.downscaleFontsFlag).append('\n');
+		sb.append("FontScaler=").append(toString(settings.fontDownscaler)).append('\n');
+		sb.append("DownScaleImages=").append(settings.downscaleImagesFlag).append('\n');
+		sb.append("ImageScaler=").append(toString(settings.imageDownscaler)).append('\n');
+		sb.append("Orientation=").append(settings.orientation).append('\n');
+		sb.append("Expansion=").append(settings.expansion).append('\n');
+		sb.append("Sweep=").append(settings.sweep).append('\n');
+		sb.append("PreserveOrientationFlag=").append(settings.preserveOrientationFlag).append('\n');
+		sb.append("HasToolbarFlag=").append(settings.hasToolbarFlag).append('\n');
+		sb.append("HasStatusbarFlag=").append(settings.hasStatusbarFlag).append('\n');
+		sb.append("HasPopUpMenuFlag=").append(settings.hasPopUpMenuFlag).append('\n');
+		sb.append("HasToolTipFlag=").append(settings.hasToolTipFlag).append('\n');
+		sb.append("ToolTipDisplaysContentFlag=").append(settings.toolTipDisplaysContentFlag).append('\n');
+		sb.append("FocusOnHoverFlag=").append(settings.focusOnHoverFlag).append('\n');
+		sb.append("Focus=").append(settings.focus).append('\n');
+		sb.append("XMoveTo=").append(settings.xMoveTo).append('\n');
+		sb.append("YMoveTo=").append(settings.yMoveTo).append('\n');
+		sb.append("XShift=").append(settings.xMoveTo).append('\n');
+		sb.append("YShift=").append(settings.yMoveTo).append('\n');
+		sb.append("NodeBackColor=").append(Utils.colorToString(settings.nodeBackColor)).append('\n');
+		sb.append("NodeForeColor=").append(Utils.colorToString(settings.nodeForeColor)).append('\n');
+		sb.append("DefaultNodeImage=").append(settings.defaultNodeImage).append('\n');
+		sb.append("BorderFlag=").append(settings.borderFlag).append('\n');
+		sb.append("EllipsizeFlag=").append(settings.ellipsizeFlag).append('\n');
+		sb.append("LabelMaxLines=").append(settings.labelMaxLines).append('\n');
+		sb.append("LabelExtraLineFactor=").append(settings.labelExtraLineFactor).append('\n');
+		sb.append("TreeEdgeColor=").append(Utils.colorToString(settings.treeEdgeColor)).append('\n');
+		sb.append("TreeEdgeStyle=").append(ModelDump.toString(settings.treeEdgeStyle)).append('\n');
+		sb.append("DefaultTreeEdgeImage=").append(settings.defaultTreeEdgeImage).append('\n');
+		sb.append("EdgesAsArcsFlag=").append(settings.edgesAsArcsFlag).append('\n');
+		sb.append("EdgeColor=").append(Utils.colorToString(settings.edgeColor)).append('\n');
+		sb.append("EdgeStyle=").append(ModelDump.toString(settings.edgeStyle)).append('\n');
+		sb.append("DefaultEdgeImage=").append(settings.defaultEdgeImage).append('\n');
+		if (settings.menu == null)
 		{
-			thisBuilder.append("Menu=null");
+			sb.append("Menu=null");
 		}
 		else
 		{
-			for (final MenuItem thisMenuItem : theseSettings.theMenu)
+			for (final MenuItem menuItem : settings.menu)
 			{
-				thisBuilder.append("MenuItem");
-				thisBuilder.append(" action=").append(thisMenuItem.theAction);
-				thisBuilder.append(" link=").append(thisMenuItem.theLink);
-				thisBuilder.append(" target=").append(thisMenuItem.theMatchTarget);
-				thisBuilder.append(" scope=").append(thisMenuItem.theMatchScope);
-				thisBuilder.append(" mode=").append(thisMenuItem.theMatchMode);
-				thisBuilder.append(" label=").append(thisMenuItem.theLabel);
+				sb.append("MenuItem");
+				sb.append(" action=").append(menuItem.action);
+				sb.append(" link=").append(menuItem.link);
+				sb.append(" target=").append(menuItem.matchTarget);
+				sb.append(" scope=").append(menuItem.matchScope);
+				sb.append(" mode=").append(menuItem.matchMode);
+				sb.append(" label=").append(menuItem.label);
 			}
 		}
-		thisBuilder.append('\n');
-		return thisBuilder.toString();
+		sb.append('\n');
+		return sb.toString();
 	}
 
 	/**
 	 * Stringify style
 	 *
-	 * @param thisStyle style
+	 * @param style style
 	 * @return string for style
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(final Integer thisStyle)
+	static public String toString(final Integer style)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
-		final String[] theseStrings = Utils.toStrings(thisStyle);
-		thisBuilder.append("hidden=").append(theseStrings[0]);
-		thisBuilder.append(" line=").append(theseStrings[1]);
-		thisBuilder.append(" stroke=").append(theseStrings[2]);
-		thisBuilder.append(" width=").append(theseStrings[3]);
-		thisBuilder.append(" fromterminator=").append(theseStrings[4]);
-		thisBuilder.append(" toterminator=").append(theseStrings[5]);
-		return thisBuilder.toString();
+		final StringBuilder sb = new StringBuilder();
+		final String[] strings = Utils.toStrings(style);
+		sb.append("hidden=").append(strings[0]);
+		sb.append(" line=").append(strings[1]);
+		sb.append(" stroke=").append(strings[2]);
+		sb.append(" width=").append(strings[3]);
+		sb.append(" fromterminator=").append(strings[4]);
+		sb.append(" toterminator=").append(strings[5]);
+		return sb.toString();
 	}
 
-	static private String toString(@Nullable final float[] theseFloats)
+	static private String toString(@Nullable final float[] floats)
 	{
-		final StringBuilder thisBuilder = new StringBuilder();
-		if (theseFloats != null)
+		final StringBuilder sb = new StringBuilder();
+		if (floats != null)
 		{
 			boolean first = true;
-			for (float thisFloat : theseFloats)
+			for (float f : floats)
 			{
 				if (first)
 				{
@@ -264,11 +265,11 @@ public class ModelDump
 				}
 				else
 				{
-					thisBuilder.append(' ');
+					sb.append(' ');
 				}
-				thisBuilder.append(thisFloat);
+				sb.append(f);
 			}
 		}
-		return thisBuilder.toString();
+		return sb.toString();
 	}
 }

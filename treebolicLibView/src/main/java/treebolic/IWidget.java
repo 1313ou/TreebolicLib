@@ -25,39 +25,39 @@ public interface IWidget
 	/**
 	 * Init (typically called by embedding applet's init()). Data source and data provider names have been determined.
 	 *
-	 * @param thisProviderName provider class name (null will default to XML provider)
-	 * @param thisSource       source (anything the provider will make sense of)
+	 * @param providerName provider class name (null will default to XML provider)
+	 * @param source       source (anything the provider will make sense of)
 	 */
-	void init(String thisProviderName, final String thisSource);
+	void init(String providerName, final String source);
 
 	/**
 	 * Init from provider and source
 	 *
-	 * @param thisProvider provider
-	 * @param thisSource   source
+	 * @param provider provider
+	 * @param source   source
 	 */
-	void init(final IProvider thisProvider, final String thisSource);
+	void init(final IProvider provider, final String source);
 
 	/**
 	 * Init from model
 	 *
-	 * @param thisModel model
+	 * @param model model
 	 */
-	void init(final Model thisModel);
+	void init(final Model model);
 
 	/**
 	 * Init from serialized model
 	 *
-	 * @param thisSerFile serialized file
+	 * @param serFile serialized file
 	 */
-	void initSerialized(final String thisSerFile);
+	void initSerialized(final String serFile);
 
 	/**
 	 * Re-init from same provider and new source (this assumes the provider is loaded)
 	 *
-	 * @param thisSource data source
+	 * @param source data source
 	 */
-	void reinit(final String thisSource);
+	void reinit(final String source);
 
 	// Version
 
@@ -72,17 +72,17 @@ public interface IWidget
 	/**
 	 * Focus
 	 *
-	 * @param thisNodeId node id to get focus
+	 * @param nodeId node id to get focus
 	 */
-	void focus(@SuppressWarnings("SameParameterValue") String thisNodeId);
+	void focus(@SuppressWarnings("SameParameterValue") String nodeId);
 
 	/**
 	 * Link to Url
 	 *
-	 * @param thisUrlString url string
-	 * @param thisUrlTarget target string
+	 * @param urlString url string
+	 * @param urlTarget target string
 	 */
-	void link(String thisUrlString, String thisUrlTarget);
+	void link(String urlString, String urlTarget);
 
 	// SEARCH PARAMETER VALUES
 
@@ -109,19 +109,19 @@ public interface IWidget
 	/**
 	 * Match node against string
 	 *
-	 * @param thisTargetString string to search for
-	 * @param thisScopeString  scope ("LABEL", "CONTENT", "LINK", "ID")
-	 * @param thisModeString   mode ("EQUALS", "STARTSWITH", "INCLUDES")
+	 * @param targetString string to search for
+	 * @param scopeString  scope ("LABEL", "CONTENT", "LINK", "ID")
+	 * @param modeString   mode ("EQUALS", "STARTSWITH", "INCLUDES")
 	 * @return node id
 	 */
 	@Nullable
-	String match(String thisTargetString, String thisScopeString, String thisModeString);
+	String match(String targetString, String scopeString, String modeString);
 
 	/**
 	 * Match node against string
 	 *
-	 * @param thisCommandString command string ("SEARCH", "CONTINUE", "RESET")
-	 * @param theseParams       parameters for search ("CONTINUE", "RESET" don't require any)
+	 * @param commandString command string ("SEARCH", "CONTINUE", "RESET")
+	 * @param params        parameters for search ("CONTINUE", "RESET" don't require any)
 	 */
-	void search(String thisCommandString, String... theseParams);
+	void search(String commandString, String... params);
 }

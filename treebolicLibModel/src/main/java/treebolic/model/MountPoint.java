@@ -24,7 +24,7 @@ public class MountPoint implements Serializable
 		 */
 		@Nullable
 		@SuppressWarnings("CanBeFinal")
-		public String theURL;
+		public String url;
 
 		/**
 		 * Mount now (for editing only)
@@ -34,18 +34,18 @@ public class MountPoint implements Serializable
 		/**
 		 * Saved allocated half wedge
 		 */
-		public double theHalfWedge;
+		public double halfWedge;
 
 		/**
 		 * Saved orientation
 		 */
-		public double theOrientation;
+		public double orientation;
 
 		/**
 		 * Mounted node reference
 		 */
 		@Nullable
-		public INode theMountedNode;
+		public INode mountedNode;
 
 		/**
 		 * Constructor
@@ -53,10 +53,10 @@ public class MountPoint implements Serializable
 		public Mounting()
 		{
 			super();
-			this.theURL = null;
-			this.theHalfWedge = 0.;
-			this.theOrientation = 0.;
-			this.theMountedNode = null;
+			this.url = null;
+			this.halfWedge = 0.;
+			this.orientation = 0.;
+			this.mountedNode = null;
 		}
 	}
 
@@ -68,13 +68,13 @@ public class MountPoint implements Serializable
 		 * Mounting node reference
 		 */
 		@Nullable
-		public INode theMountingNode;
+		public INode mountingNode;
 
 		/**
 		 * Mounted edges
 		 */
 		@Nullable
-		public List<IEdge> theMountedEdges;
+		public List<IEdge> mountedEdges;
 
 		/**
 		 * Constructor
@@ -82,8 +82,8 @@ public class MountPoint implements Serializable
 		public Mounted()
 		{
 			super();
-			this.theMountingNode = null;
-			this.theMountedEdges = null;
+			this.mountingNode = null;
+			this.mountedEdges = null;
 		}
 	}
 
@@ -98,41 +98,41 @@ public class MountPoint implements Serializable
 	/**
 	 * Follow mounted->mounting or mounting->mounted
 	 *
-	 * @param thisINode source node
+	 * @param node source node
 	 * @param up        allow mounted -> mounting
 	 * @param down      allow mounting -> mounted
 	 * @return target node (or source if no mounting)
 	 */
 	@NonNull
-	public static INode follow(@NonNull final INode thisINode, @SuppressWarnings("SameParameterValue") boolean up, @SuppressWarnings("SameParameterValue") boolean down)
+	public static INode follow(@NonNull final INode node, @SuppressWarnings("SameParameterValue") boolean up, @SuppressWarnings("SameParameterValue") boolean down)
 	{
-		MountPoint thisMountPoint = thisINode.getMountPoint();
+		MountPoint mountPoint = node.getMountPoint();
 
 		// mounted mountpoint must be non-null
-		if (thisMountPoint != null)
+		if (mountPoint != null)
 		{
 			// if mounting mountpoint: mounting -> mounted (down)
-			if (down && thisMountPoint instanceof MountPoint.Mounting)
+			if (down && mountPoint instanceof MountPoint.Mounting)
 			{
-				final MountPoint.Mounting thisMountingMountPoint = (MountPoint.Mounting) thisMountPoint;
+				final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
 
 				// mounting mountpoint must be reference a mounted node
-				final INode thisMountedNode = thisMountingMountPoint.theMountedNode;
-				if (thisMountedNode != null)
+				final INode mountedNode = mountingMountPoint.mountedNode;
+				if (mountedNode != null)
 				{
 					// mounted mountpoint must be non null
-					thisMountPoint = thisMountedNode.getMountPoint();
-					if (thisMountPoint != null)
+					mountPoint = mountedNode.getMountPoint();
+					if (mountPoint != null)
 					{
 						// mounted mountpoint must be mounted
-						if (thisMountPoint instanceof MountPoint.Mounted)
+						if (mountPoint instanceof MountPoint.Mounted)
 						{
-							final MountPoint.Mounted thisMountedMountPoint = (MountPoint.Mounted) thisMountPoint;
+							final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 
 							// mounted mountpoint must reference mounting node
-							if (thisMountedMountPoint.theMountingNode == thisINode)
+							if (mountedMountPoint.mountingNode == node)
 							{
-								return thisMountedNode;
+								return mountedNode;
 							}
 						}
 					}
@@ -140,33 +140,33 @@ public class MountPoint implements Serializable
 			}
 
 			// if mounted mountpoint: mounted -> mounting (up)
-			else if (up && thisMountPoint instanceof MountPoint.Mounted)
+			else if (up && mountPoint instanceof MountPoint.Mounted)
 			{
-				final MountPoint.Mounted thisMountedMountPoint = (MountPoint.Mounted) thisMountPoint;
+				final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 
 				// mounted mountpoint must be reference a mounting node
-				final INode thisMountingNode = thisMountedMountPoint.theMountingNode;
-				if (thisMountingNode != null)
+				final INode mountingNode = mountedMountPoint.mountingNode;
+				if (mountingNode != null)
 				{
 					// mounting mountpoint must be non null
-					thisMountPoint = thisMountingNode.getMountPoint();
-					if (thisMountPoint != null)
+					mountPoint = mountingNode.getMountPoint();
+					if (mountPoint != null)
 					{
 						// mounting mountpoint must be mounting
-						if (thisMountPoint instanceof MountPoint.Mounting)
+						if (mountPoint instanceof MountPoint.Mounting)
 						{
-							final MountPoint.Mounting thisMountingMountPoint = (MountPoint.Mounting) thisMountPoint;
+							final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
 
 							// mounting mountpoint must reference mounted node
-							if (thisMountingMountPoint.theMountedNode == thisINode)
+							if (mountingMountPoint.mountedNode == node)
 							{
-								return thisMountingNode;
+								return mountingNode;
 							}
 						}
 					}
 				}
 			}
 		}
-		return thisINode;
+		return node;
 	}
 }

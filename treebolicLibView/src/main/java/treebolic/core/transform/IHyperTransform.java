@@ -17,6 +17,7 @@ public interface IHyperTransform
 	 * @param z point is hyperbolic space
 	 * @return map z to z' with z'=map(z)
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	@NonNull
 	Complex map(Complex z);
 }

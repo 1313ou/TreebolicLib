@@ -22,7 +22,7 @@ public class AnimationTransforms
 	/**
 	 * Sequence of transforms
 	 */
-	public final List<HyperTransform> theTransforms;
+	public final List<HyperTransform> transforms;
 
 	/**
 	 * Behaviour
@@ -32,106 +32,104 @@ public class AnimationTransforms
 	/**
 	 * Constructor
 	 *
-	 * @param theseTransforms list of transforms
+	 * @param transforms list of transforms
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected AnimationTransforms(final List<HyperTransform> theseTransforms)
+	protected AnimationTransforms(final List<HyperTransform> transforms)
 	{
-		this.theTransforms = theseTransforms;
+		this.transforms = transforms;
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisFrom        source point
-	 * @param thisTo          target point
-	 * @param thisTransformer transform generator
-	 * @param thisOrientation orientation
-	 * @param theseSteps      number of steps
+	 * @param from        source point
+	 * @param to          target point
+	 * @param transformer transform generator
+	 * @param orientation orientation
+	 * @param steps       number of steps
 	 */
-	static public AnimationTransforms make(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, @NonNull final Transformer thisTransformer, @NonNull final Complex thisOrientation, @SuppressWarnings("SameParameterValue") final int theseSteps)
+	static public AnimationTransforms make(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex orientation, @SuppressWarnings("SameParameterValue") final int steps)
 	{
-		final List<HyperTransform> theseTransforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ?
-				AnimationTransforms.makeTransform1(thisFrom, thisTo, thisTransformer, thisOrientation) :
-				AnimationTransforms.makeTransforms(thisFrom, thisTo, thisTransformer, thisOrientation, theseSteps);
-		return new AnimationTransforms(theseTransforms);
+		final List<HyperTransform> transforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ? AnimationTransforms.makeTransform1(from, to, transformer, orientation) : AnimationTransforms.makeTransforms(from, to, transformer, orientation, steps);
+		return new AnimationTransforms(transforms);
 	}
 
 	/**
 	 * Make sequence of transforms
 	 *
-	 * @param thisFrom        source point
-	 * @param thisTo          target point
-	 * @param thisTransformer transform generator
-	 * @param thisOrientation orientation
-	 * @param thoseSteps      number of steps
+	 * @param from         source point
+	 * @param to           target point
+	 * @param transformer  transform generator
+	 * @param oOrientation orientation
+	 * @param steps0       number of steps
 	 * @return transforms or null
 	 */
-	static private List<HyperTransform> makeTransforms(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, @NonNull final Transformer thisTransformer, @NonNull final Complex thisOrientation, final int thoseSteps)
+	static private List<HyperTransform> makeTransforms(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex oOrientation, final int steps0)
 	{
-		int theseSteps = thoseSteps;
-		final HyperTransform thisCurrentTransform = thisTransformer.getTransform();
-		final double thisHDist = Distance.getHyperDistance(thisFrom, thisTo);
-		if (thisHDist != 0.)
+		int steps = steps0;
+		final HyperTransform currentTransform = transformer.getTransform();
+		final double hDist = Distance.getHyperDistance(from, to);
+		if (hDist != 0.)
 		{
 			// steps
-			if (theseSteps == 0)
+			if (steps == 0)
 			{
-				theseSteps = (int) (thisHDist * 3);
+				steps = (int) (hDist * 3);
 			}
 
 			// vector
-			final List<HyperTransform> theseTransforms = new ArrayList<>(theseSteps);
+			final List<HyperTransform> transforms = new ArrayList<>(steps);
 
 			// final transform
-			final HyperTransform thisFinalTransform = thisTransformer.makeTransform(thisFrom, thisTo, thisOrientation);
-			final HyperTransform thisFinalTransformInverse = new HyperTransform(thisFinalTransform).inverse();
+			final HyperTransform finalTransform = transformer.makeTransform(from, to, oOrientation);
+			final HyperTransform finalTransformInverse = new HyperTransform(finalTransform).inverse();
 
 			// this point will eventually transform to (0,0)
-			final Complex z0 = thisFinalTransformInverse.map(new Complex(Complex.ZERO));
-			final HyperTranslation thisXlat = new HyperTranslation(z0);
+			final Complex z0 = finalTransformInverse.map(new Complex(Complex.ZERO));
+			final HyperTranslation xlat = new HyperTranslation(z0);
 
 			// distance = arc diameter
-			final double thisDist = thisXlat.mag();
-			// double thisRadius = thisDist / 2.;
+			final double dist = xlat.mag();
+			// double radius = dist / 2.;
 
 			// normalize z0
-			final Complex theta = new Complex(z0).divide(thisDist);
+			final Complex theta = new Complex(z0).divide(dist);
 
 			// iterate and make middle transforms
-			for (int i = 1; i < theseSteps; ++i)
+			for (int i = 1; i < steps; ++i)
 			{
 				// middle transform
-				HyperTransform thisiTransform;
-				if (thisDist != 0.)
+				HyperTransform transform;
+				if (dist != 0.)
 				{
 					// progress 1/n 2/n ... i/n ... n/n
-					final double thisProgress = (double) i / (double) theseSteps;
+					final double progress = (double) i / (double) steps;
 
 					// i distance
-					final double thisiDist = Distance.distanceToOrigin_h2e(Distance.distanceToOrigin_e2h(thisDist) * thisProgress);
+					final double di = Distance.distanceToOrigin_h2e(Distance.distanceToOrigin_e2h(dist) * progress);
 
 					// linear
-					final Complex z = new Complex(thisiDist, 0.);
+					final Complex z = new Complex(di, 0.);
 
 					// rotate z by theta
 					z.mul(theta);
 
 					// make z->0 transform
-					thisiTransform = thisTransformer.makeTransform(z, Complex.ZERO, thisOrientation);
+					transform = transformer.makeTransform(z, Complex.ZERO, oOrientation);
 				}
 				else
 				{
-					thisiTransform = thisFinalTransform;
+					transform = finalTransform;
 				}
 
 				// add to sequence
-				theseTransforms.add(new HyperTransform(thisCurrentTransform).compose(thisiTransform));
+				transforms.add(new HyperTransform(currentTransform).compose(transform));
 			}
 
 			// last in sequence
-			theseTransforms.add(new HyperTransform(thisCurrentTransform).compose(thisFinalTransform));
-			return theseTransforms;
+			transforms.add(new HyperTransform(currentTransform).compose(finalTransform));
+			return transforms;
 		}
 		return null;
 	}
@@ -139,23 +137,23 @@ public class AnimationTransforms
 	/**
 	 * Make animation with one transform only
 	 *
-	 * @param thisFrom        source point
-	 * @param thisTo          source point
-	 * @param thisTransformer transform generator
-	 * @param thisOrientation orientation
+	 * @param from        source point
+	 * @param to          source point
+	 * @param transformer transform generator
+	 * @param orientation orientation
 	 * @return sequence of one transform
 	 */
 	@NonNull
-	static private Vector<HyperTransform> makeTransform1(@NonNull final Complex thisFrom, @NonNull final Complex thisTo, @NonNull final Transformer thisTransformer, @NonNull final Complex thisOrientation)
+	static private Vector<HyperTransform> makeTransform1(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex orientation)
 	{
-		final HyperTransform thisCurrentTransform = thisTransformer.getTransform();
+		final HyperTransform currentTransform = transformer.getTransform();
 
 		// final transform
-		final HyperTransform thisFinalTransform = thisTransformer.makeTransform(thisFrom, thisTo, thisOrientation);
+		final HyperTransform finalTransform = transformer.makeTransform(from, to, orientation);
 
 		// vector
-		final Vector<HyperTransform> theseTransforms = new Vector<>(1);
-		theseTransforms.addElement(new HyperTransform(thisCurrentTransform).compose(thisFinalTransform));
-		return theseTransforms;
+		final Vector<HyperTransform> transforms = new Vector<>(1);
+		transforms.addElement(new HyperTransform(currentTransform).compose(finalTransform));
+		return transforms;
 	}
 }

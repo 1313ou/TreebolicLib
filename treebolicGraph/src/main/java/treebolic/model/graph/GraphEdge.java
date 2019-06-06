@@ -15,7 +15,7 @@ public class GraphEdge
 	/**
 	 * User data
 	 */
-	private Object theUserData;
+	private Object userData;
 
 	/**
 	 * Whether this edge is tree edge (null=undetermined)
@@ -27,40 +27,40 @@ public class GraphEdge
 	/**
 	 * Source node
 	 */
-	private final GraphNode theFromNode;
+	private final GraphNode fromNode;
 
 	/**
 	 * Destination node
 	 */
-	private final GraphNode theToNode;
+	private final GraphNode toNode;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisFromNode source node
-	 * @param thisToNode   destination node
+	 * @param fromNode source node
+	 * @param toNode   destination node
 	 */
-	public GraphEdge(final GraphNode thisFromNode, final GraphNode thisToNode, final Boolean isTreeEdgeFlag)
+	public GraphEdge(final GraphNode fromNode, final GraphNode toNode, final Boolean isTreeEdgeFlag)
 	{
-		this.theFromNode = thisFromNode;
-		this.theToNode = thisToNode;
+		this.fromNode = fromNode;
+		this.toNode = toNode;
 		this.isTreeEdge = isTreeEdgeFlag;
 	}
 
 	/**
 	 * Make inverse edge
 	 *
-	 * @param thatEdge edge
+	 * @param edge0 edge
 	 * @return edge
 	 */
 	@NonNull
-	static GraphEdge makeReverseOf(@NonNull final GraphEdge thatEdge)
+	static GraphEdge makeReverseOf(@NonNull final GraphEdge edge0)
 	{
-		final GraphEdge thisEdge = new GraphEdge(thatEdge.getTo(), thatEdge.getFrom(), thatEdge.getIsTreeEdge());
-		thisEdge.setUserData(thatEdge.getUserData());
-		return thisEdge;
+		final GraphEdge edge = new GraphEdge(edge0.getTo(), edge0.getFrom(), edge0.getIsTreeEdge());
+		edge.setUserData(edge0.getUserData());
+		return edge;
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class GraphEdge
 	 */
 	public GraphNode getFrom()
 	{
-		return this.theFromNode;
+		return this.fromNode;
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class GraphEdge
 	 */
 	public GraphNode getTo()
 	{
-		return this.theToNode;
+		return this.toNode;
 	}
 
 	/**
@@ -98,18 +98,18 @@ public class GraphEdge
 	 */
 	public Object getUserData()
 	{
-		return this.theUserData;
+		return this.userData;
 	}
 
 	/**
 	 * Set user data
 	 *
-	 * @param thisUserData user data
+	 * @param userData user data
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setUserData(final Object thisUserData)
+	public void setUserData(final Object userData)
 	{
-		this.theUserData = thisUserData;
+		this.userData = userData;
 	}
 
 	/**
@@ -125,18 +125,18 @@ public class GraphEdge
 	/**
 	 * Get node other than
 	 *
-	 * @param thisNode reference node
+	 * @param node reference node
 	 * @return node
 	 */
-	public GraphNode getOtherNode(@NonNull final GraphNode thisNode)
+	public GraphNode getOtherNode(@NonNull final GraphNode node)
 	{
-		return thisNode.equals(this.theFromNode) ? this.theToNode : this.theFromNode;
+		return node.equals(this.fromNode) ? this.toNode : this.fromNode;
 	}
 
 	@NonNull
 	@Override
 	public String toString()
 	{
-		return this.theFromNode.toString() + " -> " + this.theToNode.toString();
+		return this.fromNode.toString() + " -> " + this.toNode.toString();
 	}
 }

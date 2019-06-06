@@ -15,9 +15,6 @@ import treebolic.glue.Image;
  */
 class EdgeData implements Serializable
 {
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 2466948898564986160L;
 
 	/**
@@ -25,34 +22,34 @@ class EdgeData implements Serializable
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theLabel;
+	protected String label;
 
 	/**
 	 * Edge color
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Color theColor;
+	protected Color color;
 
 	/**
 	 * Edge style
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Integer theStyle;
+	protected Integer style;
 
 	/**
 	 * Edge image filename
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected String theImageFile;
+	protected String imageFile;
 
 	/**
 	 * Edge image filename
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected int theImageIndex;
+	protected int imageIndex;
 
 	/**
 	 * Constructor
@@ -60,40 +57,40 @@ class EdgeData implements Serializable
 	@SuppressWarnings("WeakerAccess")
 	public EdgeData()
 	{
-		this.theLabel = null;
-		this.theColor = null;
-		this.theStyle = null;
-		this.theImageFile = null;
-		this.theImageIndex = -1;
+		this.label = null;
+		this.color = null;
+		this.style = null;
+		this.imageFile = null;
+		this.imageIndex = -1;
 	}
 
 	@Nullable
 	public String getLabel()
 	{
-		return this.theLabel;
+		return this.label;
 	}
 
 	@Nullable
 	public Color getColor()
 	{
-		return this.theColor;
+		return this.color;
 	}
 
 	@Nullable
 	public Integer getStyle()
 	{
-		return this.theStyle;
+		return this.style;
 	}
 
 	@Nullable
 	public String getImageFile()
 	{
-		return this.theImageFile;
+		return this.imageFile;
 	}
 
 	public int getImageIndex()
 	{
-		return this.theImageIndex;
+		return this.imageIndex;
 	}
 
 }
@@ -105,29 +102,29 @@ class EdgeData implements Serializable
  */
 class XEdgeData extends EdgeData
 {
-	private static final long serialVersionUID = -3852875983533695071L;
+	private static final long serialVersionUID = -3852875983533695072L;
 
 	/**
 	 * Edge image
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
-	protected Image theImage;
+	protected Image image;
 
 	@Nullable
 	public Image getImage()
 	{
-		return this.theImage;
+		return this.image;
 	}
 
 	/**
 	 * Set image
 	 *
-	 * @param thisImage image
+	 * @param image image
 	 */
-	public void setImage(final Image thisImage)
+	public void setImage(final Image image)
 	{
-		this.theImage = thisImage;
+		this.image = image;
 	}
 }
 
@@ -136,6 +133,7 @@ class XEdgeData extends EdgeData
  *
  * @author Bernard Bou
  */
+@SuppressWarnings("WeakerAccess")
 public class Edge extends XEdgeData implements IEdge
 {
 	private static final long serialVersionUID = 4067969984015552298L;
@@ -144,44 +142,44 @@ public class Edge extends XEdgeData implements IEdge
 	 * From-node
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected INode theFromNode;
+	protected INode fromNode;
 
 	/**
 	 * To-node
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected INode theToNode;
+	protected INode toNode;
 
 	/**
 	 * Construct edge
 	 *
-	 * @param thisFromINode from node
-	 * @param thisToINode   to node
+	 * @param fromINode from node
+	 * @param toINode   to node
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public Edge(final INode thisFromINode, final INode thisToINode)
+	public Edge(final INode fromINode, final INode toINode)
 	{
 		super();
-		this.theFromNode = thisFromINode;
-		this.theToNode = thisToINode;
+		this.fromNode = fromINode;
+		this.toNode = toINode;
 	}
 
 	@Override
 	public INode getFrom()
 	{
-		return this.theFromNode;
+		return this.fromNode;
 	}
 
 	@Override
 	public INode getTo()
 	{
-		return this.theToNode;
+		return this.toNode;
 	}
 
 	@NonNull
 	@Override
 	public String toString()
 	{
-		return (this.theFromNode == null ? "null" : this.theFromNode.getLabel()) + "->" + (this.theToNode == null ? "null" : this.theToNode.getLabel());
+		return (this.fromNode == null ? "null" : this.fromNode.getLabel()) + "->" + (this.toNode == null ? "null" : this.toNode.getLabel());
 	}
 }

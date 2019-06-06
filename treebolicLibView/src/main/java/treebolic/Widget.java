@@ -65,7 +65,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Warn image download fails
 	 */
-	@SuppressWarnings("WeakerAccess")
 	static public final boolean WARNIMAGEFAILS = false;
 
 	/**
@@ -91,7 +90,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Version : 3.x
 	 */
-	private static final String theVersion = "3.7.0";
+	private static final String version = "3.8.0";
 
 	// C O N T E X T
 
@@ -100,7 +99,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 *
 	 * @see IContext
 	 */
-	private final IContext theContext;
+	private final IContext context;
 
 
 	// A C T I O N   L I S T E N E R
@@ -109,7 +108,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * Action listener
 	 */
 	@Nullable
-	private final ActionListener theLinkActionListener;
+	private final ActionListener linkActionListener;
 
 	// M O D E L - V I E W - C O N T R O L L E R
 
@@ -117,18 +116,18 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * Model
 	 */
 	@Nullable
-	private Model theModel;
+	private Model model;
 
 	/**
 	 * View
 	 */
-	private View theView;
+	private View view;
 
 	/**
 	 * Controller
 	 */
 	@NonNull
-	private final Controller theController;
+	private final Controller controller;
 
 	// D A T A . P R O V I D E R
 
@@ -136,7 +135,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * Provider
 	 */
 	@Nullable
-	private IProvider theProvider;
+	private IProvider provider;
 
 	// A G E N T S
 
@@ -144,31 +143,31 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * Weigher
 	 */
 	@NonNull
-	private final Weigher theWeigher;
+	private final Weigher weigher;
 
 	/**
 	 * Provider
 	 */
 	@NonNull
-	private final AbstractLayerOut theLayerOut;
+	private final AbstractLayerOut layerOut;
 
 	// C O M P O N E N T S
 
 	/**
 	 * Toolbar
 	 */
-	private Toolbar theToolbar;
+	private Toolbar toolbar;
 
 	/**
 	 * Status bar
 	 */
-	private Statusbar theStatusbar;
+	private Statusbar statusbar;
 
 	/**
 	 * Progress
 	 */
 	@NonNull
-	private final Progress theProgress;
+	private final Progress progress;
 
 	// I M A G E . M A N A G E M E N T
 
@@ -176,71 +175,71 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * Images base Url
 	 */
 	@Nullable
-	private URL theImageBase;
+	private URL imageBase;
 
 	/**
 	 * Name-to-image map, used to void loading twice the same images
 	 */
-	private Hashtable<String, Image> theImages;
+	private Hashtable<String, Image> images;
 
 	/**
 	 * Default images
 	 */
 	@Nullable
-	private Image theBackgroundImage;
+	private Image backgroundImage;
 
 	@Nullable
-	private Image theDefaultNodeImage;
+	private Image defaultNodeImage;
 
 	@Nullable
-	private Image theDefaultTreeEdgeImage;
+	private Image defaultTreeEdgeImage;
 
 	@Nullable
-	private Image theDefaultEdgeImage;
+	private Image defaultEdgeImage;
 
 	/**
 	 * Handle
 	 */
-	private final Object theHandle;
+	private final Object handle;
 
 	// C O N S T R U C T O R
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisContext context
-	 * @param thisHandle  opaque handle
+	 * @param context context
+	 * @param handle  opaque handle
 	 */
-	public Widget(final IContext thisContext, final Object thisHandle)
+	public Widget(final IContext context, final Object handle)
 	{
-		super(thisHandle);
-		this.theContext = thisContext;
-		this.theHandle = thisHandle;
+		super(handle);
+		this.context = context;
+		this.handle = handle;
 
 		// first components
-		this.theProgress = new Progress(thisHandle);
-		addComponent(this.theProgress, treebolic.glue.iface.component.Container.PANE);
+		this.progress = new Progress(handle);
+		addComponent(this.progress, treebolic.glue.iface.component.Container.PANE);
 
 		// controller
-		this.theController = new Controller();
-		this.theController.connect(this);
+		this.controller = new Controller();
+		this.controller.connect(this);
 
 		// weigher
-		this.theWeigher = new Weigher();
+		this.weigher = new Weigher();
 
 		// layer out
-		this.theLayerOut = new LayerOut();
-		this.theController.connect(this.theLayerOut);
+		this.layerOut = new LayerOut();
+		this.controller.connect(this.layerOut);
 
 		// action listener
-		this.theLinkActionListener = new ActionListener()
+		this.linkActionListener = new ActionListener()
 		{
 			@Override
-			public boolean onAction(@NonNull final Object... theseParams)
+			public boolean onAction(@NonNull final Object... params)
 			{
-				final String thisLink = (String) theseParams[0];
-				final String thisTarget = theseParams.length > 1 ? (String) theseParams[1] : null;
-				Widget.this.theContext.linkTo(thisLink, thisTarget);
+				final String link = (String) params[0];
+				final String target = params.length > 1 ? (String) params[1] : null;
+				Widget.this.context.linkTo(link, target);
 				return false;
 			}
 		};
@@ -252,98 +251,98 @@ public class Widget extends Container implements IWidget, IProviderContext
 	public void init()
 	{
 		// source
-		final Properties theseParameters = this.theContext.getParameters();
-		String thisSource = theseParameters == null ? null : theseParameters.getProperty("source");
-		if (thisSource == null || thisSource.isEmpty())
+		final Properties parameters = this.context.getParameters();
+		String source = parameters == null ? null : parameters.getProperty("source");
+		if (source == null || source.isEmpty())
 		{
-			thisSource = this.theContext.getParameters().getProperty("doc");
+			source = parameters == null ? null : parameters.getProperty("doc");
 		}
 
 		// provider
-		final String thisProviderName = this.theContext.getParameters().getProperty("provider");
+		final String providerName = parameters == null ? null : parameters.getProperty("provider");
 
 		// init
-		init(thisProviderName, thisSource);
+		init(providerName, source);
 	}
 
 	@Override
-	public void init(final String thatProviderName, final String thisSource)
+	public void init(final String providerName0, final String source)
 	{
-		String thisProviderName = thatProviderName;
-		if (thisProviderName == null)
+		String providerName = providerName0;
+		if (providerName == null)
 		{
-			thisProviderName = Widget.DEFAULT_PROVIDER;
+			providerName = Widget.DEFAULT_PROVIDER;
 		}
 
 		// log
 		if (Widget.DEBUG)
 		{
-			this.theContext.status("provider=" + thisProviderName);
+			this.context.status("provider=" + providerName);
 		}
 
 		// make provider
-		final IProvider thisProvider = makeProvider(thisProviderName);
-		if (thisProvider == null)
+		final IProvider provider = makeProvider(providerName);
+		if (provider == null)
 		{
-			progress(Messages.getString("Widget.progress_err_provider_create") + ' ' + '<' + thisProviderName + '>', true);
+			progress(Messages.getString("Widget.progress_err_provider_create") + ' ' + '<' + providerName + '>', true);
 			return;
 		}
 
 		// init
-		init(thisProvider, thisSource);
+		init(provider, source);
 	}
 
 	@Override
-	public void init(final IProvider thisProvider, final String thisSource)
+	public void init(final IProvider provider, final String source)
 	{
-		this.theProvider = thisProvider;
+		this.provider = provider;
 
 		// pass context reference to provider, so that it can access some services
-		this.theProvider.setLocator(this.theContext);
-		this.theProvider.setContext(this);
-		this.theProvider.setHandle(this.theHandle);
+		this.provider.setLocator(this.context);
+		this.provider.setContext(this);
+		this.provider.setHandle(this.handle);
 
 		// init
-		initProcess(thisSource);
+		initProcess(source);
 	}
 
 	/**
 	 * Init from serialized model
 	 *
-	 * @param thisSerFile zipped serialized model file
+	 * @param serFile zipped serialized model file
 	 */
 	@Override
-	public void initSerialized(final String thisSerFile)
+	public void initSerialized(final String serFile)
 	{
-		final ModelReader thisDeSerializer = new ModelReader(thisSerFile);
+		final ModelReader deSerializer = new ModelReader(serFile);
 		try
 		{
-			final Model thisModel = thisDeSerializer.deserialize();
-			init(thisModel);
+			final Model model = deSerializer.deserialize();
+			init(model);
 		}
-		catch (@NonNull final IOException thisException)
+		catch (@NonNull final IOException exception)
 		{
-			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true);
-			thisException.printStackTrace();
+			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + serFile + '>' + ' ' + exception, true);
+			exception.printStackTrace();
 		}
-		catch (@NonNull final ClassNotFoundException thisException)
+		catch (@NonNull final ClassNotFoundException exception)
 		{
-			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + thisSerFile + '>' + ' ' + thisException, true);
-			thisException.printStackTrace();
+			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + serFile + '>' + ' ' + exception, true);
+			exception.printStackTrace();
 		}
 	}
 
 	@Override
-	public void reinit(final String thisSource)
+	public void reinit(final String source)
 	{
-		if (this.theProvider == null)
+		if (this.provider == null)
 		{
-			progress(Messages.getString("Widget.progress_err_reinit_provider_null") + ' ' + this.theProvider, true);
+			progress(Messages.getString("Widget.progress_err_reinit_provider_null") + ' ' + this.provider, true);
 			return;
 		}
 
 		// init
-		initProcess(thisSource);
+		initProcess(source);
 	}
 
 	/**
@@ -354,6 +353,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		private final Runnable job;
 		private final Runnable done;
 
+		@SuppressWarnings("WeakerAccess")
 		public InitWorker(final Runnable job, final Runnable done)
 		{
 			this.job = job;
@@ -376,96 +376,96 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Init (typically called by embedding applet's init()). Data source and data provider have not yet been determined.
 	 *
-	 * @param thisSource source (anything the provider will make sense of)
+	 * @param source source (anything the provider will make sense of)
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected void initProcess(final String thisSource)
+	protected void initProcess(final String source)
 	{
 		// further (possibly lengthy) loading is done on separate thread
 		if (!Widget.THREADED)
 		{
-			initModel(this.theProvider, thisSource);
+			assert Widget.this.provider != null;
+			initModel(this.provider, source);
 			initDisplay();
 		}
 		else
 		{
-			final Worker thisWorker = new InitWorker( //
-					() ->
-					{
+			final Worker worker = new InitWorker( //
+					() -> {
 						try
 						{
-							assert Widget.this.theProvider != null;
-							initModel(Widget.this.theProvider, thisSource);
+							assert Widget.this.provider != null;
+							initModel(Widget.this.provider, source);
 						}
 						catch (Throwable e)
 						{
-							Widget.this.theContext.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
+							Widget.this.context.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
 							e.printStackTrace();
 						}
 					}, //
 					this::initDisplay);
-			thisWorker.execute();
+			worker.execute();
 		}
 	}
 
 	/**
 	 * Init from provider and source
 	 *
-	 * @param thisProvider data provider
-	 * @param thisSource   data source
+	 * @param provider data provider
+	 * @param source   data source
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected void initModel(@NonNull final IProvider thisProvider, @Nullable final String thisSource)
+	protected void initModel(@NonNull final IProvider provider, @Nullable final String source)
 	{
 		if (Widget.DEBUG)
 		{
-			this.theContext.status("source=" + thisSource);
-			this.theContext.status("base=" + this.theContext.getBase());
-			this.theContext.status("imagebase=" + this.theContext.getImagesBase());
-			this.theContext.status("parameters=" + this.theContext.getParameters());
+			this.context.status("source=" + source);
+			this.context.status("base=" + this.context.getBase());
+			this.context.status("imagebase=" + this.context.getImagesBase());
+			this.context.status("parameters=" + this.context.getParameters());
 		}
 
-		String thisMessage = Messages.getString("Widget.progress_loading");
-		if (thisSource != null)
+		String message = Messages.getString("Widget.progress_loading");
+		if (source != null)
 		{
-			thisMessage += ' ' + thisSource;
+			message += ' ' + source;
 		}
-		progress(thisMessage, false);
-		final Model thisModel = thisProvider.makeModel(thisSource, this.theContext.getBase(), this.theContext.getParameters());
+		progress(message, false);
+		final Model model = provider.makeModel(source, this.context.getBase(), this.context.getParameters());
 		/*
-		if (thisModel == null)
+		if (model == null)
 		{
-			progress(String.format(Messages.getString("Widget.progress_err_model_null_provider_source"), thisProvider.getClass().getCanonicalName(), thisSource), true);
+			progress(String.format(Messages.getString("Widget.progress_err_model_null_provider_source"), provider.getClass().getCanonicalName(), source), true);
 			return;
 		}
 		*/
-		progress(Messages.getString("Widget.progress_loaded") + ' ' + thisSource, false);
+		progress(Messages.getString("Widget.progress_loaded") + ' ' + source, false);
 
 		// load model
-		initModel(thisModel);
+		initModel(model);
 	}
 
 	@Override
-	public void init(final Model thisModel)
+	public void init(final Model model)
 	{
-		initModel(thisModel);
+		initModel(model);
 		initDisplay();
 	}
 
 	/**
 	 * Init model, weigh and lay out
 	 *
-	 * @param thisModel model
+	 * @param model model
 	 */
-	private void initModel(@Nullable final Model thisModel)
+	private void initModel(@Nullable final Model model)
 	{
-		if (thisModel == null)
+		if (model == null)
 		{
 			return;
 		}
 
 		// model/view/controller
-		this.theModel = thisModel;
+		this.model = model;
 
 		// initiate image loading
 		progress(Messages.getString("Widget.progress_images_loading"), false);
@@ -474,92 +474,93 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// weigh model
 		progress(Messages.getString("Widget.progress_weighing"), false);
-		this.theWeigher.weigh(thisModel.theTree.getRoot());
+		this.weigher.weigh(model.tree.getRoot());
 
 		// enforce settings
-		this.theLayerOut.apply(this.theModel.theSettings);
+		this.layerOut.apply(this.model.settings);
 
 		// lay out model
 		progress(Messages.getString("Widget.progress_layingout"), false);
-		this.theLayerOut.layout(thisModel.theTree.getRoot());
+		this.layerOut.layout(model.tree.getRoot());
 	}
 
 	@SuppressWarnings({"WeakerAccess"})
 	public void initDisplay()
 	{
-		if (this.theModel == null)
+		if (this.model == null)
 		{
 			progress(Messages.getString("Widget.progress_err_model_null"), true);
 			return;
 		}
 
 		// view
-		this.theView = new View(this.theHandle);
+		this.view = new View(this.handle);
 
 		// connect view and controller to each other
-		this.theController.connect(this.theView);
-		this.theView.connect(this.theController);
+		this.controller.connect(this.view);
+		this.view.connect(this.controller);
 
 		// connect both controller and view to model
-		this.theView.connect(this.theModel);
-		this.theController.connect(this.theModel);
+		this.view.connect(this.model);
+		this.controller.connect(this.model);
 
 		// connect view to layerout
-		this.theView.connect(this.theLayerOut);
+		this.view.connect(this.layerOut);
 
 		// settings
-		this.theController.apply(this.theModel.theSettings);
-		this.theView.apply(this.theModel.theSettings);
+		this.controller.apply(this.model.settings);
+		this.view.apply(this.model.settings);
 
 		// images
-		this.theView.setImages(this.theBackgroundImage, this.theDefaultNodeImage, this.theDefaultTreeEdgeImage, this.theDefaultEdgeImage);
+		this.view.setImages(this.backgroundImage, this.defaultNodeImage, this.defaultTreeEdgeImage, this.defaultEdgeImage);
 
 		// remove all previous components (possibly progress or previous view and tools)
 		removeAll();
 
 		// toolbar
-		if (this.theModel.theSettings.theHasToolbarFlag != null && this.theModel.theSettings.theHasToolbarFlag)
+		if (this.model.settings.hasToolbarFlag != null && this.model.settings.hasToolbarFlag)
 		{
-			final boolean hasTooltip = this.theModel.theSettings.theHasToolTipFlag != null ? this.theModel.theSettings.theHasToolTipFlag : true;
-			final boolean toolTipDisplaysContent = this.theModel.theSettings.theToolTipDisplaysContentFlag != null ? this.theModel.theSettings.theToolTipDisplaysContentFlag : true;
-			final boolean edgesAsArc = this.theModel.theSettings.theEdgesAsArcsFlag != null ? this.theModel.theSettings.theEdgesAsArcsFlag : true;
-			final boolean focusOnHover = this.theModel.theSettings.theFocusOnHoverFlag != null ? this.theModel.theSettings.theFocusOnHoverFlag : false;
-			this.theToolbar = new Toolbar(this.theController, hasTooltip, toolTipDisplaysContent, edgesAsArc, focusOnHover, this.theHandle);
-			addComponent(this.theToolbar, treebolic.glue.iface.component.Container.TOOLBAR);
+			final boolean hasTooltip = this.model.settings.hasToolTipFlag != null ? this.model.settings.hasToolTipFlag : true;
+			final boolean toolTipDisplaysContent = this.model.settings.toolTipDisplaysContentFlag != null ? this.model.settings.toolTipDisplaysContentFlag : true;
+			final boolean edgesAsArc = this.model.settings.edgesAsArcsFlag != null ? this.model.settings.edgesAsArcsFlag : true;
+			final boolean focusOnHover = this.model.settings.focusOnHoverFlag != null ? this.model.settings.focusOnHoverFlag : false;
+			this.toolbar = new Toolbar(this.controller, hasTooltip, toolTipDisplaysContent, edgesAsArc, focusOnHover, this.handle);
+			addComponent(this.toolbar, treebolic.glue.iface.component.Container.TOOLBAR);
 		}
 
 		// show view
-		addComponent(this.theView, treebolic.glue.iface.component.Container.VIEW);
+		addComponent(this.view, treebolic.glue.iface.component.Container.VIEW);
 
 		// status bar
-		if (this.theModel.theSettings.theHasStatusbarFlag != null && this.theModel.theSettings.theHasStatusbarFlag)
+		if (this.model.settings.hasStatusbarFlag != null && this.model.settings.hasStatusbarFlag)
 		{
-			this.theStatusbar = new Statusbar(this.theHandle);
-			this.theStatusbar.setListener(this.theLinkActionListener);
-			this.theStatusbar.addListener(new ActionListener()
+			this.statusbar = new Statusbar(this.handle);
+			this.statusbar.setListener(this.linkActionListener);
+			//noinspection SameReturnValue,SameReturnValue
+			this.statusbar.addListener(new ActionListener()
 			{
+				@SuppressWarnings("SameReturnValue")
 				@Override
-				public boolean onAction(final Object... theseParams)
+				public boolean onAction(final Object... params)
 				{
-					final SearchCommand thisCommand = SearchCommand.valueOf((String) theseParams[0]);
-					switch (thisCommand)
+					final SearchCommand command = SearchCommand.valueOf((String) params[0]);
+					if (command == SearchCommand.SEARCH)
 					{
-						case SEARCH:
-							final MatchScope thisScope = MatchScope.valueOf((String) theseParams[1]);
-							final MatchMode thisMode = MatchMode.valueOf((String) theseParams[2]);
-							final String thisTarget = (String) theseParams[3];
-							// scope, mode, target, [start]
-							Widget.this.theController.search(SearchCommand.SEARCH, thisScope, thisMode, thisTarget);
-							break;
-						default:
-							Widget.this.theController.search(thisCommand);
-							break;
+						final MatchScope scope = MatchScope.valueOf((String) params[1]);
+						final MatchMode mode = MatchMode.valueOf((String) params[2]);
+						final String target = (String) params[3];
+						// scope, mode, target, [start]
+						Widget.this.controller.search(SearchCommand.SEARCH, scope, mode, target);
+					}
+					else
+					{
+						Widget.this.controller.search(command);
 					}
 					return true;
 				}
 			});
-			this.theStatusbar.setStyle(this.theContext.getStyle());
-			addComponent(this.theStatusbar, treebolic.glue.iface.component.Container.STATUSBAR);
+			this.statusbar.setStyle(this.context.getStyle());
+			addComponent(this.statusbar, treebolic.glue.iface.component.Container.STATUSBAR);
 		}
 
 		// validate
@@ -569,29 +570,29 @@ public class Widget extends Container implements IWidget, IProviderContext
 		if (!Widget.ANIMATE_ON_START)
 		{
 			// initial transform
-			this.theView.applyNullTransform();
+			this.view.applyNullTransform();
 		}
 		else
 		{
-			this.theView.applyInitialTransform();
+			this.view.applyInitialTransform();
 
 			// animation to focus
-			final INode thisFocus = getFocusNode();
-			if (thisFocus != null)
+			final INode focus = getFocusNode();
+			if (focus != null)
 			{
-				if (this.theModel.theSettings.theXMoveTo != null && this.theModel.theSettings.theXMoveTo < 1. || this.theModel.theSettings.theYMoveTo != null && this.theModel.theSettings.theYMoveTo < 1.)
+				if (this.model.settings.xMoveTo != null && this.model.settings.xMoveTo < 1. || this.model.settings.yMoveTo != null && this.model.settings.yMoveTo < 1.)
 				{
 					// move required
-					final Complex thisTo = new Complex(this.theModel.theSettings.theXMoveTo == null ? 0. : this.theModel.theSettings.theXMoveTo, this.theModel.theSettings.theYMoveTo == null ? 0. : this.theModel.theSettings.theYMoveTo);
-					if (thisTo.abs2() > 1.)
+					final Complex to = new Complex(this.model.settings.xMoveTo == null ? 0. : this.model.settings.xMoveTo, this.model.settings.yMoveTo == null ? 0. : this.model.settings.yMoveTo);
+					if (to.abs2() > 1.)
 					{
-						thisTo.normalize().multiply(.9);
+						to.normalize().multiply(.9);
 					}
-					this.theView.animateTo(thisFocus, thisTo, false);
+					this.view.animateTo(focus, to, false);
 				}
 				else
 				{
-					this.theView.animateToCenter(thisFocus, false);
+					this.view.animateToCenter(focus, false);
 				}
 			}
 		}
@@ -602,113 +603,113 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Mount a source at node
 	 *
-	 * @param thisMountingNode mounting node
-	 * @param thisSource       mounted source
+	 * @param mountingNode mounting node
+	 * @param source       mounted source
 	 */
-	public synchronized void mount(@NonNull final INode thisMountingNode, final String thisSource)
+	public synchronized void mount(@NonNull final INode mountingNode, final String source)
 	{
-		putStatus(Messages.getString("Widget.status_mount"), thisSource, Statusbar.PutType.MOUNT);
+		putStatus(Messages.getString("Widget.status_mount"), source, Statusbar.PutType.MOUNT);
 
-		if (this.theProvider == null)
+		if (this.provider == null)
 		{
 			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_null") + "</div>", Statusbar.PutType.MOUNT);
 
 			// get provider name
-			final Properties theseParameters = this.theContext.getParameters();
-			final String thisProviderName = theseParameters == null ? null : theseParameters.getProperty("provider");
-			if (thisProviderName == null || thisProviderName.isEmpty())
+			final Properties parameters = this.context.getParameters();
+			final String providerName = parameters == null ? null : parameters.getProperty("provider");
+			if (providerName == null || providerName.isEmpty())
 			{
 				putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_providername_null") + "</div>", Statusbar.PutType.MOUNT);
 				return;
 			}
 
 			// make provider
-			this.theProvider = makeProvider(thisProviderName);
-			if (this.theProvider == null)
+			this.provider = makeProvider(providerName);
+			if (this.provider == null)
 			{
-				putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_create") + thisProviderName + "</div>", Statusbar.PutType.MOUNT);
+				putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_create") + providerName + "</div>", Statusbar.PutType.MOUNT);
 				return;
 			}
 
 			// pass context reference to provider, so that it can access some services
-			this.theProvider.setContext(this);
+			this.provider.setContext(this);
 
 			// pass context reference to provider, so that it can access some services
-			this.theProvider.setHandle(this.theHandle);
+			this.provider.setHandle(this.handle);
 		}
 
 		// make model
-		final Tree thisTree = this.theProvider.makeTree(thisSource, this.theContext.getBase(), this.theContext.getParameters(), false);
+		final Tree tree = this.provider.makeTree(source, this.context.getBase(), this.context.getParameters(), false);
 		/*
-		if (thisTree == null)
+		if (tree == null)
 		{
-			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_model_null") + thisSource + "</div>", Statusbar.PutType.MOUNT);
+			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_model_null") + source + "</div>", Statusbar.PutType.MOUNT);
 			return;
 		}
         */
 
 		// extract subroot + edges
-		assert thisTree != null;
-		final INode thisMountedRoot = thisTree.getRoot();
-		final List<IEdge> theseMountedEdges = thisTree.getEdges();
+		assert tree != null;
+		final INode mountedRoot = tree.getRoot();
+		final List<IEdge> mountedEdges = tree.getEdges();
 
 		// images
-		loadImages(thisMountedRoot);
-		loadImages(theseMountedEdges);
+		loadImages(mountedRoot);
+		loadImages(mountedEdges);
 
 		// ensure edge list is non null
-		assert this.theModel != null;
-		if (this.theModel.theTree.getEdges() == null)
+		assert this.model != null;
+		if (this.model.tree.getEdges() == null)
 		{
-			this.theModel.theTree.setEdges(new ArrayList<>());
+			this.model.tree.setEdges(new ArrayList<>());
 		}
 
 		// graft nodes
-		if (!Mounter.graft(thisMountingNode, thisMountedRoot, this.theModel.theTree.getEdges(), theseMountedEdges))
+		if (!Mounter.graft(mountingNode, mountedRoot, this.model.tree.getEdges(), mountedEdges))
 		{
 			putStatus(Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err"), Statusbar.PutType.MOUNT);
 			return;
 		}
 
 		// weigh
-		this.theWeigher.weigh(thisMountedRoot);
-		thisMountingNode.setChildrenWeight(thisMountedRoot.getChildrenWeight());
-		thisMountingNode.setMinWeight(thisMountedRoot.getMinWeight());
+		this.weigher.weigh(mountedRoot);
+		mountingNode.setChildrenWeight(mountedRoot.getChildrenWeight());
+		mountingNode.setMinWeight(mountedRoot.getMinWeight());
 
 		// compute locations : layout
-		final MountPoint.Mounting thisMountingPoint = (MountPoint.Mounting) thisMountingNode.getMountPoint();
-		assert thisMountingPoint != null;
-		this.theLayerOut.layout(thisMountedRoot, thisMountingNode.getLocation().hyper.center0, thisMountingPoint.theHalfWedge, thisMountingPoint.theOrientation);
+		final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountingNode.getMountPoint();
+		assert mountingPoint != null;
+		this.layerOut.layout(mountedRoot, mountingNode.getLocation().hyper.center0, mountingPoint.halfWedge, mountingPoint.orientation);
 
 		// notify view
-		this.theView.mount(thisMountedRoot);
+		this.view.mount(mountedRoot);
 	}
 
 	/**
 	 * Unmount at mountpoint node
 	 *
-	 * @param thisMountedNode mounted node
+	 * @param mountedNode mounted node
 	 */
-	public synchronized void umount(@NonNull final INode thisMountedNode)
+	public synchronized void umount(@NonNull final INode mountedNode)
 	{
 		putStatus(Messages.getString("Widget.status_unmount"), "", Statusbar.PutType.MOUNT);
 
 		// model
-		assert this.theModel != null;
-		final INode thisMountingNode = Mounter.prune(thisMountedNode, this.theModel.theTree.getEdges());
-		if (thisMountingNode == null)
+		assert this.model != null;
+		final INode mountingNode = Mounter.prune(mountedNode, this.model.tree.getEdges());
+		if (mountingNode == null)
 		{
 			putStatus(Messages.getString("Widget.status_unmount"), "<div class='mount'>" + Messages.getString("Widget.status_unmount_err") + "</div>", Statusbar.PutType.MOUNT);
 			return;
 		}
 
 		// compute locations : copy
-		final Location thisMountedNodeLocation = thisMountedNode.getLocation();
-		final Location thisMountingNodeLocation = thisMountingNode.getLocation();
-		thisMountingNodeLocation.hyper.clone(thisMountedNodeLocation.hyper);
+		final Location mountedNodeLocation = mountedNode.getLocation();
+		final Location mountingNodeLocation = mountingNode.getLocation();
+		mountingNodeLocation.hyper.clone(mountedNodeLocation.hyper);
 
 		// notify view
-		this.theView.umount(thisMountingNode);
+		this.view.umount(mountingNode);
 	}
 
 	// A C C E S S
@@ -722,7 +723,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Override
 	public String getVersion()
 	{
-		return Widget.theVersion;
+		return Widget.version;
 	}
 
 	/**
@@ -733,7 +734,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Nullable
 	public Model getModel()
 	{
-		return this.theModel;
+		return this.model;
 	}
 
 	/**
@@ -743,7 +744,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public View getView()
 	{
-		return this.theView;
+		return this.view;
 	}
 
 	/**
@@ -753,7 +754,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public Statusbar getStatusbar()
 	{
-		return this.theStatusbar;
+		return this.statusbar;
 	}
 
 	/**
@@ -763,7 +764,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public Toolbar getToolbar()
 	{
-		return this.theToolbar;
+		return this.toolbar;
 	}
 
 	/**
@@ -773,7 +774,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public IContext getIContext()
 	{
-		return this.theContext;
+		return this.context;
 	}
 
 	// P R O V I D E R - F A C T O R Y
@@ -781,44 +782,44 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Make provider
 	 *
-	 * @param thisProviderName provider name
+	 * @param providerName provider name
 	 * @return provider
 	 */
-	private IProvider makeProvider(final String thisProviderName)
+	private IProvider makeProvider(final String providerName)
 	{
 		try
 		{
-			final Class<?> thisClass = Class.forName(thisProviderName);
-			final Class<?>[] theseArgsClass = new Class[]{};
-			final Object[] theseArgs = new Object[]{};
+			final Class<?> clazz = Class.forName(providerName);
+			final Class<?>[] argsClass = new Class[]{};
+			final Object[] args = new Object[]{};
 
-			final Constructor<?> thisConstructor = thisClass.getConstructor(theseArgsClass);
-			final Object thisInstance = thisConstructor.newInstance(theseArgs);
-			return (IProvider) thisInstance;
+			final Constructor<?> constructor = clazz.getConstructor(argsClass);
+			final Object instance = constructor.newInstance(args);
+			return (IProvider) instance;
 		}
 		catch (@NonNull final ClassNotFoundException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (@NonNull final NoSuchMethodException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (@NonNull final IllegalAccessException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (@NonNull final InstantiationException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (@NonNull final IllegalArgumentException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		catch (@NonNull final InvocationTargetException e)
 		{
-			this.theContext.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
 		}
 		return null;
 	}
@@ -828,14 +829,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Get image Url
 	 *
-	 * @param thisImageSource image source
+	 * @param imageSource image source
 	 * @return image url
 	 */
-	private URL makeImageURL(final String thisImageSource)
+	private URL makeImageURL(final String imageSource)
 	{
 		try
 		{
-			return new URL(this.theImageBase, thisImageSource);
+			return new URL(this.imageBase, imageSource);
 		}
 		catch (@NonNull final MalformedURLException ignored)
 		{
@@ -851,90 +852,90 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	private void loadImages()
 	{
-		this.theImages = new Hashtable<>();
-		this.theImageBase = this.theContext.getImagesBase();
-		assert this.theModel != null;
-		loadImages(this.theModel.theTree.getRoot());
-		loadImages(this.theModel.theTree.getEdges());
-		loadTopImages(this.theModel.theSettings);
+		this.images = new Hashtable<>();
+		this.imageBase = this.context.getImagesBase();
+		assert this.model != null;
+		loadImages(this.model.tree.getRoot());
+		loadImages(this.model.tree.getEdges());
+		loadTopImages(this.model.settings);
 	}
 
 	/**
 	 * Load node and node's children's images
 	 *
-	 * @param thisNode starting node
+	 * @param node starting node
 	 */
-	private void loadImages(@Nullable final INode thisNode)
+	private void loadImages(@Nullable final INode node)
 	{
-		if (thisNode == null)
+		if (node == null)
 		{
 			return;
 		}
-		if (thisNode.getImage() == null)
+		if (node.getImage() == null)
 		{
 			// node image from file
-			String thisSource = thisNode.getImageFile();
-			if (thisSource != null)
+			String source = node.getImageFile();
+			if (source != null)
 			{
 				// cache lookup
-				Image thisImage = this.theImages.get(thisSource);
-				if (thisImage == null)
+				Image image = this.images.get(source);
+				if (image == null)
 				{
 					// cache miss
-					thisImage = loadImage(thisSource);
+					image = loadImage(source);
 				}
 
 				// store image in the node
-				thisNode.setImage(thisImage);
+				node.setImage(image);
 			}
 
 			// edge image
-			thisSource = thisNode.getEdgeImageFile();
-			if (thisSource != null)
+			source = node.getEdgeImageFile();
+			if (source != null)
 			{
 				// cache lookup
-				Image thisImage = this.theImages.get(thisSource);
-				if (thisImage == null)
+				Image image = this.images.get(source);
+				if (image == null)
 				{
 					// cache miss
-					thisImage = loadImage(thisSource);
+					image = loadImage(source);
 				}
-				thisNode.setEdgeImage(thisImage);
+				node.setEdgeImage(image);
 			}
 
-			assert this.theModel != null;
+			assert this.model != null;
 
 			// set node image from index
-			final int thisImageIndex = thisNode.getImageIndex();
-			if (thisImageIndex != -1 && this.theModel.theImages != null)
+			final int imageIndex = node.getImageIndex();
+			if (imageIndex != -1 && this.model.images != null)
 			{
-				thisNode.setImage(this.theModel.theImages[thisImageIndex]);
+				node.setImage(this.model.images[imageIndex]);
 			}
 
 			// set edge image from index
-			final int thisEdgeImageIndex = thisNode.getEdgeImageIndex();
-			if (thisEdgeImageIndex != -1 && this.theModel.theImages != null)
+			final int edgeImageIndex = node.getEdgeImageIndex();
+			if (edgeImageIndex != -1 && this.model.images != null)
 			{
-				thisNode.setEdgeImage(this.theModel.theImages[thisEdgeImageIndex]);
+				node.setEdgeImage(this.model.images[edgeImageIndex]);
 			}
 		}
 
 		// recurse on mounting node obfuscated by mounted node)
-		final MountPoint thisMountPoint = thisNode.getMountPoint();
-		if (thisMountPoint != null && thisMountPoint instanceof MountPoint.Mounted)
+		final MountPoint mountPoint = node.getMountPoint();
+		if (mountPoint instanceof MountPoint.Mounted)
 		{
-			final MountPoint.Mounted thisMountedPoint = (MountPoint.Mounted) thisMountPoint;
-			final INode theMountingNode = thisMountedPoint.theMountingNode;
-			loadImages(theMountingNode);
+			final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
+			final INode mountingNode = mountedPoint.mountingNode;
+			loadImages(mountingNode);
 		}
 
 		// recurse children
-		final List<INode> theseChildren = thisNode.getChildren();
-		if (theseChildren != null)
+		final List<INode> children = node.getChildren();
+		if (children != null)
 		{
-			for (final INode thisChild : thisNode.getChildren())
+			for (final INode child : node.getChildren())
 			{
-				loadImages(thisChild);
+				loadImages(child);
 			}
 		}
 	}
@@ -942,15 +943,15 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Load edges' images
 	 *
-	 * @param thisEdgeList edge list
+	 * @param edgeList edge list
 	 */
-	private void loadImages(@Nullable final List<IEdge> thisEdgeList)
+	private void loadImages(@Nullable final List<IEdge> edgeList)
 	{
-		if (thisEdgeList != null)
+		if (edgeList != null)
 		{
-			for (final IEdge thisEdge : thisEdgeList)
+			for (final IEdge edge : edgeList)
 			{
-				loadImage(thisEdge);
+				loadImage(edge);
 			}
 		}
 	}
@@ -958,68 +959,68 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Load edge image
 	 *
-	 * @param thisEdge edge
+	 * @param edge edge
 	 */
-	private void loadImage(@Nullable final IEdge thisEdge)
+	private void loadImage(@Nullable final IEdge edge)
 	{
-		if (thisEdge == null)
+		if (edge == null)
 		{
 			return;
 		}
 
 		// edge image
-		final String thisSource = thisEdge.getImageFile();
-		if (thisSource != null)
+		final String source = edge.getImageFile();
+		if (source != null)
 		{
 			// cache lookup
-			Image thisImage = this.theImages.get(thisSource);
-			if (thisImage == null)
+			Image image = this.images.get(source);
+			if (image == null)
 			{
 				// cache miss
-				thisImage = loadImage(thisSource);
+				image = loadImage(source);
 			}
-			thisEdge.setImage(thisImage);
+			edge.setImage(image);
 		}
 
-		assert this.theModel != null;
+		assert this.model != null;
 
 		// set node image from index
-		final int thisImageIndex = thisEdge.getImageIndex();
-		if (thisImageIndex != -1 && this.theModel.theImages != null)
+		final int imageIndex = edge.getImageIndex();
+		if (imageIndex != -1 && this.model.images != null)
 		{
-			thisEdge.setImage(this.theModel.theImages[thisImageIndex]);
+			edge.setImage(this.model.images[imageIndex]);
 		}
 	}
 
 	/**
 	 * Load top images
 	 *
-	 * @param theseSettings settings
+	 * @param settings settings
 	 */
-	private void loadTopImages(@NonNull final Settings theseSettings)
+	private void loadTopImages(@NonNull final Settings settings)
 	{
-		this.theBackgroundImage = loadImage(theseSettings.theBackgroundImageFile);
-		this.theDefaultNodeImage = loadImage(theseSettings.theDefaultNodeImage);
-		this.theDefaultTreeEdgeImage = loadImage(theseSettings.theDefaultTreeEdgeImage);
-		this.theDefaultEdgeImage = loadImage(theseSettings.theDefaultEdgeImage);
-		assert this.theModel != null;
-		if (this.theModel.theImages != null)
+		this.backgroundImage = loadImage(settings.backgroundImageFile);
+		this.defaultNodeImage = loadImage(settings.defaultNodeImage);
+		this.defaultTreeEdgeImage = loadImage(settings.defaultTreeEdgeImage);
+		this.defaultEdgeImage = loadImage(settings.defaultEdgeImage);
+		assert this.model != null;
+		if (this.model.images != null)
 		{
-			if (theseSettings.theBackgroundImageIndex != -1)
+			if (settings.backgroundImageIndex != -1)
 			{
-				this.theBackgroundImage = this.theModel.theImages[theseSettings.theBackgroundImageIndex];
+				this.backgroundImage = this.model.images[settings.backgroundImageIndex];
 			}
-			if (theseSettings.theDefaultNodeImageIndex != -1)
+			if (settings.defaultNodeImageIndex != -1)
 			{
-				this.theDefaultNodeImage = this.theModel.theImages[theseSettings.theDefaultNodeImageIndex];
+				this.defaultNodeImage = this.model.images[settings.defaultNodeImageIndex];
 			}
-			if (theseSettings.theDefaultTreeEdgeImageIndex != -1)
+			if (settings.defaultTreeEdgeImageIndex != -1)
 			{
-				this.theDefaultTreeEdgeImage = this.theModel.theImages[theseSettings.theDefaultTreeEdgeImageIndex];
+				this.defaultTreeEdgeImage = this.model.images[settings.defaultTreeEdgeImageIndex];
 			}
-			if (theseSettings.theDefaultEdgeImageIndex != -1)
+			if (settings.defaultEdgeImageIndex != -1)
 			{
-				this.theDefaultEdgeImage = this.theModel.theImages[theseSettings.theDefaultEdgeImageIndex];
+				this.defaultEdgeImage = this.model.images[settings.defaultEdgeImageIndex];
 			}
 		}
 	}
@@ -1027,40 +1028,40 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Load image given its source
 	 *
-	 * @param thisSource source
+	 * @param source source
 	 * @return image
 	 */
 	@Nullable
-	private Image loadImage(@Nullable final String thisSource)
+	private Image loadImage(@Nullable final String source)
 	{
-		if (thisSource == null)
+		if (source == null)
 		{
 			return null;
 		}
 
-		final URL thisUrl = makeImageURL(thisSource);
-		if (thisUrl != null)
+		final URL url = makeImageURL(source);
+		if (url != null)
 		{
 			if (Widget.DEBUG)
 			{
-				this.theContext.status("image=" + thisUrl);
+				this.context.status("image=" + url);
 			}
 
 			// image loading
-			Image thisImage;
+			Image image;
 			try
 			{
-				thisImage = Image.make(thisUrl);
+				image = Image.make(url);
 
 				// cache image
-				this.theImages.put(thisSource, thisImage);
-				return thisImage;
+				this.images.put(source, image);
+				return image;
 			}
 			catch (@NonNull final IOException e)
 			{
 				if (Widget.WARNIMAGEFAILS)
 				{
-					this.theContext.warn(Messages.getString("Widget.warn_err_image_load") + thisUrl + ' ' + e);
+					this.context.warn(Messages.getString("Widget.warn_err_image_load") + url + ' ' + e);
 				}
 			}
 		}
@@ -1077,52 +1078,53 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Nullable
 	private INode getFocusNode()
 	{
-		assert this.theModel != null;
+		assert this.model != null;
 
 		// focus node
-		String thisFocusNodeId = null;
-		if (this.theModel.theSettings.theFocus != null)
+		String focusNodeId = null;
+		if (this.model.settings.focus != null)
 		{
-			thisFocusNodeId = this.theModel.theSettings.theFocus;
+			focusNodeId = this.model.settings.focus;
 		}
 
 		// animate
-		INode thisFocus;
-		if (thisFocusNodeId == null)
+		INode focusNode;
+		if (focusNodeId == null)
 		{
-			thisFocus = this.theModel.theTree.getRoot();
+			focusNode = this.model.tree.getRoot();
 		}
 		else
 		{
-			thisFocus = Finder.findNodeById(this.theModel.theTree.getRoot(), thisFocusNodeId);
+			focusNode = Finder.findNodeById(this.model.tree.getRoot(), focusNodeId);
 
 			// default to root if not found
-			if (thisFocus == null)
+			if (focusNode == null)
 			{
-				thisFocus = this.theModel.theTree.getRoot();
+				focusNode = this.model.tree.getRoot();
 			}
 		}
-		return thisFocus;
+		return focusNode;
 	}
 
 	// I N T E R A C T I O N
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
-	public void progress(final String thisString, final boolean fail)
+	public void progress(final String message, final boolean fail)
 	{
-		this.theProgress.put(thisString, fail);
+		this.progress.put(message, fail);
 	}
 
 	@Override
-	public void message(final String thisString)
+	public void message(final String message)
 	{
-		this.theContext.status(thisString);
+		this.context.status(message);
 	}
 
 	@Override
-	public void warn(final String thisMessage)
+	public void warn(final String message)
 	{
-		this.theContext.warn(thisMessage);
+		this.context.warn(message);
 	}
 
 	// I N P U T
@@ -1135,7 +1137,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Nullable
 	public String getTarget()
 	{
-		return this.theContext.getInput();
+		return this.context.getInput();
 	}
 
 	// S T A T U S
@@ -1143,17 +1145,17 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Put information
 	 *
-	 * @param thisHeader  header
-	 * @param thisMessage message
-	 * @param thisType    type of message
+	 * @param header  header
+	 * @param message message
+	 * @param type    type of message
 	 */
-	public void putStatus(final String thisHeader, final String thisMessage, @NonNull final Statusbar.PutType thisType)
+	public void putStatus(final String header, final String message, @NonNull final Statusbar.PutType type)
 	{
-		if (this.theStatusbar == null)
+		if (this.statusbar == null)
 		{
 			return;
 		}
-		this.theStatusbar.put(thisHeader, thisMessage, thisType);
+		this.statusbar.put(header, message, type);
 	}
 
 	// I N F O
@@ -1161,85 +1163,84 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Put information
 	 *
-	 * @param thisHeader  header
-	 * @param thisContent content
+	 * @param header  header
+	 * @param content content
 	 */
-	public void putInfo(final String thisHeader, final String thisContent)
+	public void putInfo(final String header, final String content)
 	{
-		final WebDialog thisWebDialog = new WebDialog();
-		thisWebDialog.setHandle(this.theHandle);
-		thisWebDialog.setListener(this.theLinkActionListener);
-		final String thisStyle = this.theContext.getStyle();
-		thisWebDialog.setStyle(thisStyle);
-		thisWebDialog.set(thisHeader, thisContent);
-		thisWebDialog.display();
+		final WebDialog webDialog = new WebDialog();
+		webDialog.setHandle(this.handle);
+		webDialog.setListener(this.linkActionListener);
+		final String style = this.context.getStyle();
+		webDialog.setStyle(style);
+		webDialog.set(header, content);
+		webDialog.display();
 	}
 
 	// J A V A S C R I P T
 
 	@Override
-	public void focus(final String thisNodeId)
+	public void focus(final String nodeId)
 	{
-		if (this.theModel == null)
+		if (this.model == null)
 		{
 			return;
 		}
 
-		this.theController.focus(thisNodeId);
+		this.controller.focus(nodeId);
 	}
 
 	@Nullable
 	@Override
-	public String match(@NonNull final String thisTargetString, @Nullable final String thisScopeString, @Nullable final String thisModeString)
+	public String match(@NonNull final String targetString, @Nullable final String scopeString, @Nullable final String modeString)
 	{
-		if (this.theModel == null)
+		if (this.model == null)
 		{
 			return null;
 		}
 
-		MatchScope thisScope = MatchScope.LABEL;
-		if (thisScopeString != null)
+		MatchScope scope = MatchScope.LABEL;
+		if (scopeString != null)
 		{
-			thisScope = MatchScope.valueOf(thisScopeString.toUpperCase(Locale.ROOT));
+			scope = MatchScope.valueOf(scopeString.toUpperCase(Locale.ROOT));
 		}
 
-		MatchMode thisMode = MatchMode.EQUALS;
-		if (thisModeString != null)
+		MatchMode mode = MatchMode.EQUALS;
+		if (modeString != null)
 		{
-			thisMode = MatchMode.valueOf(thisModeString.toUpperCase(Locale.ROOT));
+			mode = MatchMode.valueOf(modeString.toUpperCase(Locale.ROOT));
 		}
 
 		// search
-		final INode thisFound = this.theController.match(thisTargetString, thisScope, thisMode);
-		if (thisFound != null)
+		final INode foundNode = this.controller.match(targetString, scope, mode);
+		if (foundNode != null)
 		{
-			return thisFound.getId();
+			return foundNode.getId();
 		}
 		return null;
 	}
 
 	@Override
-	public void link(final String thisUrlString, final String thisUrlTarget)
+	public void link(final String urlString, final String urlTarget)
 	{
-		this.theController.linkTo(thisUrlString, thisUrlTarget);
+		this.controller.linkTo(urlString, urlTarget);
 	}
 
 	@Override
-	public void search(@NonNull final String thisCommandString, final String... theseParams)
+	public void search(@NonNull final String commandString, final String... params)
 	{
-		final SearchCommand thisCommand = SearchCommand.valueOf(thisCommandString.toUpperCase(Locale.ROOT));
-		switch (thisCommand)
+		final SearchCommand command = SearchCommand.valueOf(commandString.toUpperCase(Locale.ROOT));
+		if (command == SearchCommand.SEARCH)
 		{
-			case SEARCH:
-				final MatchScope thisScope = MatchScope.valueOf(theseParams[0].toUpperCase(Locale.ROOT));
-				final MatchMode thisMode = MatchMode.valueOf(theseParams[1].toUpperCase(Locale.ROOT));
-				final String thisTarget = theseParams[2];
-				// scope, mode, target, [start]
-				this.theController.search(thisCommand, thisScope, thisMode, thisTarget);
-				break;
-			default:
-				this.theController.search(thisCommand);
-				break;
+			final MatchScope scope = MatchScope.valueOf(params[0].toUpperCase(Locale.ROOT));
+			final MatchMode mode = MatchMode.valueOf(params[1].toUpperCase(Locale.ROOT));
+			final String target = params[2];
+			// scope, mode, target, [start]
+			this.controller.search(command, scope, mode, target);
+		}
+		else
+		{
+			this.controller.search(command);
 		}
 	}
 }

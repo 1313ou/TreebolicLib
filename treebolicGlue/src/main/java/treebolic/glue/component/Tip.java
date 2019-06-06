@@ -55,7 +55,7 @@ public class Tip extends AppCompatDialogFragment
 	}
 
 	@Override
-	public void onSaveInstanceState(final Bundle outState)
+	public void onSaveInstanceState(@NonNull final Bundle outState)
 	{
 		outState.putString(Tip.STATE_TEXT, this.text);
 		super.onSaveInstanceState(outState);

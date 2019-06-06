@@ -15,18 +15,18 @@ public class Progress extends treebolic.glue.component.Progress implements Compo
 	/**
 	 * Constructor
 	 *
-	 * @param thisHandle Handle required for component creation
+	 * @param handle handle required for component creation
 	 */
-	public Progress(final Object thisHandle)
+	public Progress(final Object handle)
 	{
-		super(thisHandle);
+		super(handle);
 	}
 
 	/*
 	 * Put message
 	 *
-	 * @param thisMessage
+	 * @param message
 	 *            message
 	 */
-	// public void put(final String thisMessage, final boolean fail);
+	// public void put(final String message, final boolean fail);
 }

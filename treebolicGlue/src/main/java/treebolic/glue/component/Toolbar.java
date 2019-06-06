@@ -163,9 +163,10 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	// A D D  B U T T O N
 
+	@SuppressWarnings("WeakerAccess")
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
-	public void addButton(@NonNull final Button button, @NonNull final ActionListener thisListener)
+	public void addButton(@NonNull final Button button, @NonNull final ActionListener listener)
 	{
 		// interface button to implementation
 		final String name = button.name();
@@ -176,8 +177,8 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		imageButton.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 
 		// drawable
-		final int thisIconIndex = impl.getIconIndex();
-		final Drawable bitmapDrawable = this.drawables[thisIconIndex];
+		final int iconIndex = impl.getIconIndex();
+		final Drawable bitmapDrawable = this.drawables[iconIndex];
 
 		// tint drawable
 		Utils.tint(bitmapDrawable, this.iconTint);
@@ -193,7 +194,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		}
 
 		// listener
-		imageButton.setOnClickListener(thisListener::onAction);
+		imageButton.setOnClickListener(listener::onAction);
 
 		// add
 		this.panel.addView(imageButton, this.layoutParams);

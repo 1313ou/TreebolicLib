@@ -101,6 +101,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 	// P R O C E S S O R
 
+	@SuppressWarnings("WeakerAccess")
 	public interface Processor
 	{
 		/**
@@ -196,6 +197,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void addListener(final ActionListener arg0)
 	{
@@ -228,6 +230,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		Statusbar.contentProcessor = processor;
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void setColors(final Color backColor, final Color foreColor)
 	{
@@ -240,7 +243,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.style = style0;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void put(final String label0, final String content0, final int image)
 	{
@@ -266,7 +268,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		String label = label0;
 		if (Statusbar.labelProcessor != null)
 		{
-			assert labelProcessor != null;
 			label = labelProcessor.process(label, this);
 		}
 		this.statusView.setText(label == null ? "" : label);
@@ -275,7 +276,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		String content = content0;
 		if (Statusbar.contentProcessor != null)
 		{
-			assert contentProcessor != null;
 			content = contentProcessor.process(content, this);
 		}
 

@@ -225,11 +225,11 @@ public class TreebolicThread extends Thread
 		{
 			canvas.save();
 
-			// Paint thisPaint = new Paint();
-			// thisPaint.setColor(Color.LTGRAY);
+			// Paint paint = new Paint();
+			// paint.setColor(Color.LTGRAY);
 			// int w = canvas.getWidth() / 2;
 			// int h = canvas.getHeight() / 2;
-			// canvas.drawCircle(w, h, Math.min(w, h), thisPaint);
+			// canvas.drawCircle(w, h, Math.min(w, h), paint);
 
 			final Graphics g = new Graphics(canvas);
 			assert this.surface != null;

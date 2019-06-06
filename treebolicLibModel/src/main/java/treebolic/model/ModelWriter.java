@@ -13,26 +13,26 @@ public class ModelWriter
 	/**
 	 * Archive file
 	 */
-	private final String theArchive;
+	private final String archive;
 
 	/**
 	 * Constructor
 	 *
-	 * @param thisArchive archive file
+	 * @param archive archive file
 	 */
-	public ModelWriter(final String thisArchive)
+	public ModelWriter(final String archive)
 	{
-		this.theArchive = thisArchive;
+		this.archive = archive;
 	}
 
 	/**
 	 * Serialize
 	 *
-	 * @param thisModel model
+	 * @param model model
 	 * @throws IOException io exception
 	 */
-	public void serialize(final Model thisModel) throws IOException
+	public void serialize(final Model model) throws IOException
 	{
-		ZipSerializer.serializeZip(this.theArchive, "model", thisModel);
+		ZipSerializer.serializeZip(this.archive, "model", model);
 	}
 }

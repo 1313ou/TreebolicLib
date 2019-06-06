@@ -71,7 +71,6 @@ public abstract class Generator<T> implements Iterable<T>
 	private RuntimeException exceptionRaisedByProducer;
 
 	@NonNull
-	@SuppressWarnings("NullableProblems")
 	@Override
 	public Iterator<T> iterator()
 	{
@@ -135,8 +134,8 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Run generator. Each element is generated with a yield
 	 *
-	 * @throws InterruptedException interrupted exception
 	 */
+	@SuppressWarnings("RedundantThrows")
 	protected abstract void run() throws InterruptedException;
 
 	/**

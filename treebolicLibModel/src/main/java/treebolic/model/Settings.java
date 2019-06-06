@@ -173,85 +173,85 @@ public class Settings implements Serializable
 	 * Background color
 	 */
 	@Nullable
-	public Color theBackColor;
+	public Color backColor;
 
 	/**
 	 * Foreground color
 	 */
 	@Nullable
-	public Color theForeColor;
+	public Color foreColor;
 
 	/**
 	 * Background image file
 	 */
-	public String theBackgroundImageFile;
+	public String backgroundImageFile;
 
 	/**
 	 * Background image index
 	 */
-	public final int theBackgroundImageIndex;
+	public final int backgroundImageIndex;
 
 	// fonts
 	/**
 	 * Font face
 	 */
-	public String theFontFace;
+	public String fontFace;
 
 	/**
 	 * Font size
 	 */
-	public Integer theFontSize;
+	public Integer fontSize;
 
 	/**
 	 * Font size factor
 	 */
 	@Nullable
-	public Float theFontSizeFactor;
+	public Float fontSizeFactor;
 
 	// downscaling
 	/**
 	 * Whether to downscale fonts
 	 */
-	public Boolean theDownscaleFontsFlag;
+	public Boolean downscaleFontsFlag;
 
 	/**
 	 * Font size downscaler (as per hyperbolic distance to center)
 	 */
 	@Nullable
-	public float[] theFontDownscaler;
+	public float[] fontDownscaler;
 
 	/**
 	 * Whether to downscale fonts
 	 */
-	public Boolean theDownscaleImagesFlag;
+	public Boolean downscaleImagesFlag;
 
 	/**
 	 * Image size downscaler (as per hyperbolic distance to center)
 	 */
 	@Nullable
-	public float[] theImageDownscaler;
+	public float[] imageDownscaler;
 
 	// T R E E
 
 	/**
 	 * Tree orientation
 	 */
-	public String theOrientation;
+	public String orientation;
 
 	/**
 	 * Expansion
 	 */
-	public Float theExpansion;
+	public Float expansion;
 
 	/**
 	 * Sweep
 	 */
-	public Float theSweep;
+	public Float sweep;
 
 	/**
 	 * Whether orientation is preserved across transforms
 	 */
-	public Boolean thePreserveOrientationFlag;
+	public Boolean preserveOrientationFlag;
 
 	// B E H A V I O U R
 
@@ -259,60 +259,60 @@ public class Settings implements Serializable
 	/**
 	 * Whether toolbar is enabled
 	 */
-	public Boolean theHasToolbarFlag;
+	public Boolean hasToolbarFlag;
 
 	/**
 	 * Whether status bar is enabled
 	 */
-	public Boolean theHasStatusbarFlag;
+	public Boolean hasStatusbarFlag;
 
 	/**
 	 * Whether popup menus are enabled
 	 */
-	public Boolean theHasPopUpMenuFlag;
+	public Boolean hasPopUpMenuFlag;
 
 	/**
 	 * Whether tooltips are enabled
 	 */
-	public Boolean theHasToolTipFlag;
+	public Boolean hasToolTipFlag;
 
 	/**
 	 * Whether tooltips display contents
 	 */
-	public Boolean theToolTipDisplaysContentFlag;
+	public Boolean toolTipDisplaysContentFlag;
 
 	// focus
 	/**
 	 * Whether hovering on node triggers gaining focus
 	 */
-	public Boolean theFocusOnHoverFlag;
+	public Boolean focusOnHoverFlag;
 
 	/**
 	 * Focus
 	 */
-	public String theFocus;
+	public String focus;
 
 	// initial move
 	/**
 	 * Initial move to x position (0,1)
 	 */
-	public Float theXMoveTo;
+	public Float xMoveTo;
 
 	/**
 	 * Initial move to y position (0,1)
 	 */
-	public Float theYMoveTo;
+	public Float yMoveTo;
 
 	// shift
 	/**
 	 * Painting shift on x
 	 */
-	public Float theXShift;
+	public Float xShift;
 
 	/**
 	 * Painting shift on y
 	 */
-	public Float theYShift;
+	public Float yShift;
 
 	// N O D E S
 
@@ -321,25 +321,25 @@ public class Settings implements Serializable
 	 * Node default background color
 	 */
 	@Nullable
-	public Color theNodeBackColor;
+	public Color nodeBackColor;
 
 	/**
 	 * Node default foreground color
 	 */
 	@Nullable
-	public Color theNodeForeColor;
+	public Color nodeForeColor;
 
 	// images
 	/**
 	 * Default node image
 	 */
-	public String theDefaultNodeImage;
+	public String defaultNodeImage;
 
 	/**
 	 * Default node image index
 	 */
 	@SuppressWarnings("CanBeFinal")
-	public int theDefaultNodeImageIndex;
+	public int defaultNodeImageIndex;
 
 	// labels
 
@@ -347,25 +347,25 @@ public class Settings implements Serializable
 	 * Whether labels have borders
 	 */
 	@Nullable
-	public Boolean theBorderFlag;
+	public Boolean borderFlag;
 
 	/**
 	 * Whether label texts are ellipsized
 	 */
 	@Nullable
-	public Boolean theEllipsizeFlag;
+	public Boolean ellipsizeFlag;
 
 	/**
 	 * Maximum lines in label (default=0: unlimited, 1:'\n' is replaced with space)
 	 */
 	@Nullable
-	public Integer theLabelMaxLines;
+	public Integer labelMaxLines;
 
 	/**
 	 * Label font factor in extra line (not first line)
 	 */
 	@Nullable
-	public Float theLabelExtraLineFactor;
+	public Float labelExtraLineFactor;
 
 	// T R E E . E D G E S
 
@@ -373,23 +373,23 @@ public class Settings implements Serializable
 	 * Tree edge default color
 	 */
 	@Nullable
-	public Color theTreeEdgeColor;
+	public Color treeEdgeColor;
 
 	/**
 	 * Tree edge default style
 	 */
 	@Nullable
-	public Integer theTreeEdgeStyle;
+	public Integer treeEdgeStyle;
 
 	/**
 	 * Tree edge default image
 	 */
-	public String theDefaultTreeEdgeImage;
+	public String defaultTreeEdgeImage;
 
 	/**
 	 * Tree edge default image index
 	 */
-	public final int theDefaultTreeEdgeImageIndex;
+	public final int defaultTreeEdgeImageIndex;
 
 	// E D G E S
 
@@ -397,35 +397,35 @@ public class Settings implements Serializable
 	 * Edge default color
 	 */
 	@Nullable
-	public Color theEdgeColor;
+	public Color edgeColor;
 
 	/**
 	 * Edge default style
 	 */
 	@Nullable
-	public Integer theEdgeStyle;
+	public Integer edgeStyle;
 
 	/**
 	 * Default edge image
 	 */
-	public String theDefaultEdgeImage;
+	public String defaultEdgeImage;
 
 	/**
 	 * Default edge image index
 	 */
-	public final int theDefaultEdgeImageIndex;
+	public final int defaultEdgeImageIndex;
 
 	/**
 	 * Whether edges are represented as arcs (or straight lines)
 	 */
-	public Boolean theEdgesAsArcsFlag;
+	public Boolean edgesAsArcsFlag;
 
 	// M E N U
 
 	/**
 	 * Menu
 	 */
-	public List<MenuItem> theMenu;
+	public List<MenuItem> menu;
 
 	// C O N S T R U C T O R
 
@@ -434,250 +434,250 @@ public class Settings implements Serializable
 	 */
 	public Settings()
 	{
-		this.theBackgroundImageIndex = -1;
-		this.theDefaultNodeImageIndex = -1;
-		this.theDefaultTreeEdgeImageIndex = -1;
-		this.theDefaultEdgeImageIndex = -1;
+		this.backgroundImageIndex = -1;
+		this.defaultNodeImageIndex = -1;
+		this.defaultTreeEdgeImageIndex = -1;
+		this.defaultEdgeImageIndex = -1;
 	}
 
 	/**
 	 * Load settings from properties
 	 *
-	 * @param theseProperties properties
+	 * @param properties properties
 	 */
-	public void load(@NonNull final Properties theseProperties)
+	public void load(@NonNull final Properties properties)
 	{
-		String thisParam;
-		Color thisColor;
-		Integer thisStyle;
+		String param;
+		Color color;
+		Integer style;
 
 		// top
-		thisParam = theseProperties.getProperty(Settings.PROP_TOOLBAR);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_TOOLBAR);
+		if (param != null)
 		{
-			this.theHasToolbarFlag = Boolean.valueOf(thisParam);
+			this.hasToolbarFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_STATUSBAR);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_STATUSBAR);
+		if (param != null)
 		{
-			this.theHasStatusbarFlag = Boolean.valueOf(thisParam);
+			this.hasStatusbarFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_POPUPMENU);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_POPUPMENU);
+		if (param != null)
 		{
-			this.theHasPopUpMenuFlag = Boolean.valueOf(thisParam);
+			this.hasPopUpMenuFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_TOOLTIP);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_TOOLTIP);
+		if (param != null)
 		{
-			this.theHasToolTipFlag = Boolean.valueOf(thisParam);
+			this.hasToolTipFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_TOOLTIP_DISPLAYS_CONTENT);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_TOOLTIP_DISPLAYS_CONTENT);
+		if (param != null)
 		{
-			this.theToolTipDisplaysContentFlag = Boolean.valueOf(thisParam);
+			this.toolTipDisplaysContentFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_FOCUS);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_FOCUS);
+		if (param != null)
 		{
-			this.theFocus = thisParam;
+			this.focus = param;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_FOCUS_ON_HOVER);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_FOCUS_ON_HOVER);
+		if (param != null)
 		{
-			this.theFocusOnHoverFlag = Boolean.valueOf(thisParam);
+			this.focusOnHoverFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_XMOVETO);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_XMOVETO);
+		if (param != null)
 		{
-			this.theXMoveTo = Float.valueOf(thisParam);
+			this.xMoveTo = Float.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_YMOVETO);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_YMOVETO);
+		if (param != null)
 		{
-			this.theYMoveTo = Float.valueOf(thisParam);
+			this.yMoveTo = Float.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_XSHIFT);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_XSHIFT);
+		if (param != null)
 		{
-			this.theXShift = Float.valueOf(thisParam);
+			this.xShift = Float.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_YSHIFT);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_YSHIFT);
+		if (param != null)
 		{
-			this.theYShift = Float.valueOf(thisParam);
+			this.yShift = Float.valueOf(param);
 		}
 
 		// tree
-		thisParam = theseProperties.getProperty(Settings.PROP_ORIENTATION);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_ORIENTATION);
+		if (param != null)
 		{
-			this.theOrientation = thisParam;
+			this.orientation = param;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_EXPANSION);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_EXPANSION);
+		if (param != null)
 		{
-			this.theExpansion = Float.valueOf(thisParam);
+			this.expansion = Float.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_SWEEP);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_SWEEP);
+		if (param != null)
 		{
-			this.theSweep = Float.valueOf(thisParam);
+			this.sweep = Float.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_PRESERVE_ORIENTATION);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_PRESERVE_ORIENTATION);
+		if (param != null)
 		{
-			this.thePreserveOrientationFlag = Boolean.valueOf(thisParam);
+			this.preserveOrientationFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_FONTFACE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_FONTFACE);
+		if (param != null)
 		{
-			this.theFontFace = thisParam;
+			this.fontFace = param;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_FONTSIZE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_FONTSIZE);
+		if (param != null)
 		{
-			this.theFontSize = Integer.valueOf(thisParam);
+			this.fontSize = Integer.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_FONTSIZE_FACTOR);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_FONTSIZE_FACTOR);
+		if (param != null)
 		{
-			this.theFontSizeFactor = Float.valueOf(thisParam);
+			this.fontSizeFactor = Float.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_SCALE_FONTS);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_SCALE_FONTS);
+		if (param != null)
 		{
-			this.theDownscaleFontsFlag = Boolean.valueOf(thisParam);
+			this.downscaleFontsFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_FONT_SCALER);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_FONT_SCALER);
+		if (param != null)
 		{
-			this.theFontDownscaler = Utils.stringToFloats(thisParam);
+			this.fontDownscaler = Utils.stringToFloats(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_SCALE_IMAGES);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_SCALE_IMAGES);
+		if (param != null)
 		{
-			this.theDownscaleImagesFlag = Boolean.valueOf(thisParam);
+			this.downscaleImagesFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_IMAGE_SCALER);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_IMAGE_SCALER);
+		if (param != null)
 		{
-			this.theImageDownscaler = Utils.stringToFloats(thisParam);
+			this.imageDownscaler = Utils.stringToFloats(param);
 		}
-		thisColor = Utils.stringToColor(theseProperties.getProperty(Settings.PROP_BACKCOLOR));
-		if (thisColor != null)
+		color = Utils.stringToColor(properties.getProperty(Settings.PROP_BACKCOLOR));
+		if (color != null)
 		{
-			this.theBackColor = thisColor;
+			this.backColor = color;
 		}
-		thisColor = Utils.stringToColor(theseProperties.getProperty(Settings.PROP_FORECOLOR));
-		if (thisColor != null)
+		color = Utils.stringToColor(properties.getProperty(Settings.PROP_FORECOLOR));
+		if (color != null)
 		{
-			this.theForeColor = thisColor;
+			this.foreColor = color;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_BACKGROUND_IMAGE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_BACKGROUND_IMAGE);
+		if (param != null)
 		{
-			this.theBackgroundImageFile = thisParam;
+			this.backgroundImageFile = param;
 		}
 
 		// nodes
-		thisColor = Utils.stringToColor(theseProperties.getProperty(Settings.PROP_NODE_BACKCOLOR));
-		if (thisColor != null)
+		color = Utils.stringToColor(properties.getProperty(Settings.PROP_NODE_BACKCOLOR));
+		if (color != null)
 		{
-			this.theNodeBackColor = thisColor;
+			this.nodeBackColor = color;
 		}
-		thisColor = Utils.stringToColor(theseProperties.getProperty(Settings.PROP_NODE_FORECOLOR));
-		if (thisColor != null)
+		color = Utils.stringToColor(properties.getProperty(Settings.PROP_NODE_FORECOLOR));
+		if (color != null)
 		{
-			this.theNodeForeColor = thisColor;
+			this.nodeForeColor = color;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_NODE_IMAGE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_NODE_IMAGE);
+		if (param != null)
 		{
-			this.theDefaultNodeImage = thisParam;
+			this.defaultNodeImage = param;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_NODE_BORDER);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_NODE_BORDER);
+		if (param != null)
 		{
-			this.theBorderFlag = Boolean.valueOf(thisParam);
+			this.borderFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_NODE_ELLIPSIZE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_NODE_ELLIPSIZE);
+		if (param != null)
 		{
-			this.theEllipsizeFlag = Boolean.valueOf(thisParam);
+			this.ellipsizeFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_NODE_LABEL_MAX_LINES);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_NODE_LABEL_MAX_LINES);
+		if (param != null)
 		{
-			this.theLabelMaxLines = Integer.valueOf(thisParam);
+			this.labelMaxLines = Integer.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_NODE_LABEL_EXTRA_LINE_FACTOR);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_NODE_LABEL_EXTRA_LINE_FACTOR);
+		if (param != null)
 		{
-			this.theLabelExtraLineFactor = Float.valueOf(thisParam);
+			this.labelExtraLineFactor = Float.valueOf(param);
 		}
 
 		// edges
-		thisParam = theseProperties.getProperty(Settings.PROP_EDGE_AS_ARC);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_EDGE_AS_ARC);
+		if (param != null)
 		{
-			this.theEdgesAsArcsFlag = Boolean.valueOf(thisParam);
+			this.edgesAsArcsFlag = Boolean.valueOf(param);
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_EDGE_IMAGE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_EDGE_IMAGE);
+		if (param != null)
 		{
-			this.theDefaultEdgeImage = thisParam;
+			this.defaultEdgeImage = param;
 		}
-		thisParam = theseProperties.getProperty(Settings.PROP_TREE_EDGE_IMAGE);
-		if (thisParam != null)
+		param = properties.getProperty(Settings.PROP_TREE_EDGE_IMAGE);
+		if (param != null)
 		{
-			this.theDefaultTreeEdgeImage = thisParam;
+			this.defaultTreeEdgeImage = param;
 		}
-		thisColor = Utils.stringToColor(theseProperties.getProperty(Settings.PROP_EDGE_COLOR));
-		if (thisColor != null)
+		color = Utils.stringToColor(properties.getProperty(Settings.PROP_EDGE_COLOR));
+		if (color != null)
 		{
-			this.theEdgeColor = thisColor;
+			this.edgeColor = color;
 		}
-		thisColor = Utils.stringToColor(theseProperties.getProperty(Settings.PROP_TREE_EDGE_COLOR));
-		if (thisColor != null)
+		color = Utils.stringToColor(properties.getProperty(Settings.PROP_TREE_EDGE_COLOR));
+		if (color != null)
 		{
-			this.theTreeEdgeColor = thisColor;
+			this.treeEdgeColor = color;
 		}
-		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_TOTERMINATOR), theseProperties.getProperty(Settings.PROP_EDGE_LINE), theseProperties.getProperty(Settings.PROP_EDGE_HIDDEN));
-		if (thisStyle != null)
+		style = Utils.parseStyle(properties.getProperty(Settings.PROP_EDGE_STROKE), properties.getProperty(Settings.PROP_EDGE_FROMTERMINATOR), properties.getProperty(Settings.PROP_EDGE_TOTERMINATOR), properties.getProperty(Settings.PROP_EDGE_LINE), properties.getProperty(Settings.PROP_EDGE_HIDDEN));
+		if (style != null)
 		{
-			this.theEdgeStyle = thisStyle;
+			this.edgeStyle = style;
 		}
-		thisStyle = Utils.parseStyle(theseProperties.getProperty(Settings.PROP_TREE_EDGE_STROKE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_FROMTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_TOTERMINATOR), theseProperties.getProperty(Settings.PROP_TREE_EDGE_LINE), theseProperties.getProperty(Settings.PROP_TREE_EDGE_HIDDEN));
-		if (thisStyle != null)
+		style = Utils.parseStyle(properties.getProperty(Settings.PROP_TREE_EDGE_STROKE), properties.getProperty(Settings.PROP_TREE_EDGE_FROMTERMINATOR), properties.getProperty(Settings.PROP_TREE_EDGE_TOTERMINATOR), properties.getProperty(Settings.PROP_TREE_EDGE_LINE), properties.getProperty(Settings.PROP_TREE_EDGE_HIDDEN));
+		if (style != null)
 		{
-			this.theTreeEdgeStyle = thisStyle;
+			this.treeEdgeStyle = style;
 		}
 
 		// menu
-		for (int i = 0; (thisParam = theseProperties.getProperty(Settings.PROP_MENUITEM + i)) != null; i++)
+		for (int i = 0; (param = properties.getProperty(Settings.PROP_MENUITEM + i)) != null; i++)
 		{
 			// label;action;link;target;matchTarget;matchScope;matchMode
-			final String[] theseFields = thisParam.split(";");
-			if (theseFields.length != 7)
+			final String[] fields = param.split(";");
+			if (fields.length != 7)
 			{
 				continue;
 			}
 
 			// menu item
-			final MenuItem thisMenuItem = new MenuItem();
-			thisMenuItem.theLabel = theseFields[0];
-			thisMenuItem.theLink = theseFields[2];
-			thisMenuItem.theTarget = theseFields[3];
-			thisMenuItem.theMatchTarget = theseFields[4];
-			Utils.parseMenuItem(thisMenuItem, theseFields[1], theseFields[5], theseFields[6]); // action,scope,mode
+			final MenuItem menuItem = new MenuItem();
+			menuItem.label = fields[0];
+			menuItem.link = fields[2];
+			menuItem.target = fields[3];
+			menuItem.matchTarget = fields[4];
+			Utils.parseMenuItem(menuItem, fields[1], fields[5], fields[6]); // action,scope,mode
 
 			// add
-			if (this.theMenu == null)
+			if (this.menu == null)
 			{
-				this.theMenu = new ArrayList<>();
+				this.menu = new ArrayList<>();
 			}
-			this.theMenu.add(thisMenuItem);
+			this.menu.add(menuItem);
 		}
 	}
 }

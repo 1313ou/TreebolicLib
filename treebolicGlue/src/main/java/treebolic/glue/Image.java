@@ -67,26 +67,11 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 */
 	static public Image make(@NonNull final URL resource) throws IOException
 	{
-		InputStream inputStream = null;
-		try
+		try (InputStream inputStream = resource.openStream())
 		{
-			inputStream = resource.openStream();
 			// final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 			final Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null, Image.options);
 			return new Image(bitmap);
-		}
-		finally
-		{
-			if (inputStream != null)
-			{
-				try
-				{
-					inputStream.close();
-				}
-				catch (IOException ignored)
-				{
-				}
-			}
 		}
 	}
 
