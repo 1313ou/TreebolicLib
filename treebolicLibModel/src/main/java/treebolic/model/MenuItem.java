@@ -1,9 +1,8 @@
 package treebolic.model;
 
-import androidx.annotation.Nullable;
-
 import java.io.Serializable;
 
+import androidx.annotation.Nullable;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
 

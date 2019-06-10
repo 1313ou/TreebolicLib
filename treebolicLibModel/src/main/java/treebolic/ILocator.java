@@ -1,8 +1,8 @@
 package treebolic;
 
-import androidx.annotation.Nullable;
-
 import java.net.URL;
+
+import androidx.annotation.Nullable;
 
 /**
  * Locator interface

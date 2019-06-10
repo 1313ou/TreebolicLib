@@ -1,11 +1,11 @@
 package treebolic.provider;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Provider utils

@@ -2,7 +2,6 @@ package treebolic.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import treebolic.control.Controller;
 import treebolic.control.EventListenerAdapter;
 import treebolic.control.Finder;

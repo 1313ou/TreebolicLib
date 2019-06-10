@@ -1,9 +1,8 @@
 package treebolic.view;
 
-import androidx.annotation.Nullable;
-
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Graphics;
 import treebolic.glue.Image;

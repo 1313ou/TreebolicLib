@@ -2,7 +2,6 @@ package treebolic.control;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.location.Complex;
 import treebolic.model.Model;

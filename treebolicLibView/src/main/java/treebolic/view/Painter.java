@@ -1,10 +1,9 @@
 package treebolic.view;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Arc;
 import treebolic.core.math.ArcMath;

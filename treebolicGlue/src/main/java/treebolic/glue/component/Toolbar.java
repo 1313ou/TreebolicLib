@@ -5,8 +5,6 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.WindowManager;
@@ -18,6 +16,8 @@ import android.widget.ScrollView;
 
 import org.treebolic.glue.R;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import treebolic.glue.ActionListener;
 
 /**

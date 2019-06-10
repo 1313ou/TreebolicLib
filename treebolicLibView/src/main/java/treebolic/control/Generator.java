@@ -1,9 +1,9 @@
 package treebolic.control;
 
-import androidx.annotation.NonNull;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import androidx.annotation.NonNull;
 
 /**
  * This class allows specifying Python generator-like sequences. For examples, see the JUnit test case. The implementation uses a separate Thread to produce the

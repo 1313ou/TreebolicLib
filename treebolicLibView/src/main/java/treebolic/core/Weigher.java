@@ -1,9 +1,8 @@
 package treebolic.core;
 
-import androidx.annotation.NonNull;
-
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import treebolic.model.INode;
 
 /**

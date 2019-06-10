@@ -1,8 +1,8 @@
 package treebolic;
 
-import androidx.annotation.Nullable;
-
 import java.util.Properties;
+
+import androidx.annotation.Nullable;
 
 /**
  * Context interface (to be implemented by the application/applet/window that is hosting the widget

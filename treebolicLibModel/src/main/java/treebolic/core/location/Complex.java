@@ -1,9 +1,9 @@
 package treebolic.core.location;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
 
 /**
  * Complex

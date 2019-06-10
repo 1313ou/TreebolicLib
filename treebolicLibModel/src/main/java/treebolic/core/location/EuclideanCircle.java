@@ -1,8 +1,8 @@
 package treebolic.core.location;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
+
+import androidx.annotation.NonNull;
 
 /**
  * How hyperbolic circles are mapped to Unit Circle

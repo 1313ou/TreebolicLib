@@ -1,7 +1,6 @@
 package treebolic.view;
 
 import androidx.annotation.NonNull;
-
 import treebolic.core.location.Complex;
 import treebolic.glue.Point;
 import treebolic.model.INode;

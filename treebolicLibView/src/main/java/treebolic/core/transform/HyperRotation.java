@@ -1,7 +1,6 @@
 package treebolic.core.transform;
 
 import androidx.annotation.NonNull;
-
 import treebolic.core.location.Complex;
 
 /**

@@ -1,13 +1,12 @@
 package treebolic.model;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.Properties;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.glue.Color;
 import treebolic.model.MenuItem.Action;
 import treebolic.model.Types.MatchMode;

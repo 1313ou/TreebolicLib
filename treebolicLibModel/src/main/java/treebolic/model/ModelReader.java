@@ -1,9 +1,9 @@
 package treebolic.model;
 
+import java.io.IOException;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import java.io.IOException;
 
 /**
  * Analysis deserializer

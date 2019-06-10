@@ -1,7 +1,6 @@
 package treebolic.core.math;
 
 import androidx.annotation.NonNull;
-
 import treebolic.core.location.Complex;
 import treebolic.core.location.EuclideanCircle;
 import treebolic.core.location.HyperCircle;

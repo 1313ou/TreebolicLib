@@ -1,10 +1,9 @@
 package treebolic.control;
 
-import androidx.annotation.NonNull;
-
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
 import treebolic.model.INode;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;

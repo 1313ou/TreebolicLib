@@ -1,10 +1,9 @@
 package treebolic.provider;
 
-import androidx.annotation.Nullable;
-
 import java.net.URL;
 import java.util.Properties;
 
+import androidx.annotation.Nullable;
 import treebolic.ILocator;
 import treebolic.model.Model;
 import treebolic.model.Tree;

@@ -1,8 +1,8 @@
 package treebolic.core.location;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
+
+import androidx.annotation.NonNull;
 
 /**
  * Hypercircle node location in hyperspace

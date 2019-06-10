@@ -1,9 +1,9 @@
 package treebolic;
 
-import androidx.annotation.NonNull;
-
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+
+import androidx.annotation.NonNull;
 
 /**
  * Language dependency

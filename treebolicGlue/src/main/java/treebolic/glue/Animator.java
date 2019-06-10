@@ -2,8 +2,9 @@ package treebolic.glue;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
-import androidx.annotation.NonNull;
 import android.view.animation.LinearInterpolator;
+
+import androidx.annotation.NonNull;
 
 /**
  * Animator

@@ -1,7 +1,6 @@
 package treebolic.core.math;
 
 import androidx.annotation.NonNull;
-
 import treebolic.glue.Arc2D;
 import treebolic.glue.Point2D;
 

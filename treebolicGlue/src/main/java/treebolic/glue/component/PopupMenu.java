@@ -4,12 +4,12 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.View;
 
 import org.treebolic.glue.R;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.glue.ActionListener;
 import treebolic.glue.component.QuickAction.ActionItem;
 

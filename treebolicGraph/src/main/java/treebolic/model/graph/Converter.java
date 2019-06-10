@@ -1,12 +1,11 @@
 package treebolic.model.graph;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.model.IEdge;
 import treebolic.model.INode;
 import treebolic.model.MutableNode;

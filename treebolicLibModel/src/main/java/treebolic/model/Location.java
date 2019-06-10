@@ -1,10 +1,9 @@
 package treebolic.model;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.io.Serializable;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.core.location.EuclideanCircle;
 import treebolic.core.location.HyperCircle;
 

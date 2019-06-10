@@ -15,47 +15,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="lint">
+    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_cancel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_cancel.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_focus.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_focus.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_goto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_goto.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_info.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_info.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_link.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_link.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_mount.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_mount.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/menu_search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/menu_search.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/progress_fail.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/progress_fail.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/splash.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/splash.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/status_info.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/status_info.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/status_link.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/status_link.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/status_mount.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/status_mount.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/status_search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/status_search.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_east.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_east.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_expand.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_expand.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_expand_reset.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_expand_reset.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_expand_widen_reset.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_expand_widen_reset.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_home.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_home.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_narrow.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_narrow.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_north.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_north.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_radial.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_radial.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_scaledown.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_scaledown.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_scaleone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_scaleone.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_scaleup.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_scaleup.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_shrink.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_shrink.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_south.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_south.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_west.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_west.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_widen.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_widen.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_widen_reset.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_widen_reset.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_zoomin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_zoomin.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_zoomone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_zoomone.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_zoomout.svg" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/artwork/toolbar_zoomout.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Animator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Arc2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Arc2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Graphics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Point2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Point2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Rectangle2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Rectangle2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Worker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Container.java" afterDir="false" />
@@ -72,23 +41,31 @@
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/WebDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlue/treebolicGlue.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/treebolicGlue.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/ActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Animator.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Animator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Arc2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Arc2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/EventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Graphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Graphics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/GraphicsCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/GraphicsCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Point2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Point2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Rectangle2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Rectangle2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/PopupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/PopupMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Progress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Statusbar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Surface.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Surface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/Toolbar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/src/main/java/treebolic/glue/iface/component/WebDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGlueIface/treebolicGlueIface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/treebolicGlueIface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/treebolicGraph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/treebolicGraph.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicIface/treebolicIface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/treebolicIface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLib/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLib/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/IContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/IContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/ILocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/ILocator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/Complex.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/core/location/Complex.java" afterDir="false" />
@@ -102,6 +79,7 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelDump.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelDump.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/MountPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Mounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Mounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Node.java" afterDir="false" />
@@ -109,16 +87,17 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Types.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProviderContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/IProviderContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/ProviderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/provider/ProviderUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibModel/treebolicLibModel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/treebolicLibModel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/lint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/lint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/IWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/IWidget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Messages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/Widget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/PopupMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Progress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Statusbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Statusbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/component/Toolbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java" afterDir="false" />
@@ -135,6 +114,7 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/ArcMath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Distance.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/Distance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/MapperToEuclidean.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/MapperToEuclidean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/XMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/XMath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOptimizedTransform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperOrientationPreservingTransform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/transform/HyperRadialOrientationPreservingTransform.java" afterDir="false" />
@@ -149,10 +129,10 @@
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/Painter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/treebolicLibView.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/treebolicLibView.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/src/main/java/treebolic/provider/LoadBalancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/src/main/java/treebolic/provider/LoadBalancer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/MutableNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableEdge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/src/main/java/treebolic/model/TreeMutableNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicMutable/treebolicMutable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/treebolicMutable.iml" afterDir="false" />
@@ -182,20 +162,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="252" column="15" selection-start-line="252" selection-start-column="15" selection-end-line="252" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java">
+        <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+            <state relative-caret-position="189">
+              <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
             </state>
           </provider>
         </entry>
@@ -308,20 +279,119 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Analyzed'; set:(file[treebolicMutable]:src/main/java//*||file[treebolicLibView]:src/main/java//*||file[treebolicLibModel]:src/main/java//*||file[treebolicLib]:src/main//*||file[treebolicIface]:src/main//*||file[treebolicGraph]:src/main//*||file[treebolicGlueIface]:src/main//*||file[treebolicGlue]:src/main//*||file[treebolicGlue]:build.gradle||file[treebolicGlue]:build/generated/source/buildConfig/debug//*||file[treebolicGlue]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlue]:lint.xml||file[treebolicGlueIface]:lint.xml||file[treebolicGlueIface]:build.gradle||file[treebolicGraph]:lint.xml||file[treebolicGraph]:build.gradle||file[treebolicGraph]:build/generated/source/buildConfig/debug//*||file[treebolicGraph]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/debug//*||file[TreebolicLib]:build.gradle||file[TreebolicLib]:gradle.properties||file[TreebolicLib]:local.properties||file[TreebolicLib]:proguard-rules.pro||file[TreebolicLib]:settings.gradle||file[treebolicLib]:build/generated/source/buildConfig/debug//*||file[treebolicLib]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLib]:build.gradle||file[treebolicIface]:build.gradle||file[treebolicLibModel]:build.gradle||file[treebolicLibModel]:src/main//*||file[treebolicLibView]:src/main//*||file[treebolicLibView]:build/generated/source/buildConfig/debug//*||file[treebolicLibView]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicMutable]:src/main//*||file[treebolicLibView]:build.gradle||file[treebolicMutable]:build.gradle||file[treebolicLibView]:lint.xml||file[treebolicMutable]:lint.xml||file[treebolicLoadBalancer]:src/main//*||file[treebolicLoadBalancer]:build.gradle||file[treebolicLoadBalancer]:lint.xml||file[treebolicLoadBalancer]:build/generated/source/buildConfig/debug//*||file[treebolicLoadBalancer]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:lint.xml)&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages.properties&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages_fr.properties||file[treebolicLib]:lint.xml||file[treebolicIface]:lint.xml; class com.intellij.psi.search.scope.packageSet.NamedScope">
           <expand>
             <path>
-              <item name="TreebolicLib" type="1abcf292:AndroidViewProjectNode" />
-              <item name="treebolicGlue" type="feadf853:AndroidModuleNode" />
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicGlue" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicGlueIface" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicGraph" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicIface" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLibModel" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLibView" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLoadBalancer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicMutable" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
+          <expand>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicGlue" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicGlueIface" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicGraph" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicIface" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLibModel" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLibView" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicLoadBalancer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TreebolicLib" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="treebolicMutable" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,13 +488,27 @@
       <option name="project" value="LOCAL" />
       <updated>1559804610593</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="androidx&#10;lint">
+      <created>1560160382706</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1560160382706</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update">
+      <created>1560160725324</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560160725324</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1173" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120415986" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10290093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -465,16 +549,11 @@
     <MESSAGE value="new build tools" />
     <MESSAGE value="renames (this, that, the, these)" />
     <MESSAGE value="lint" />
-    <option name="LAST_COMMIT_MESSAGE" value="lint" />
+    <MESSAGE value="androidx&#10;lint" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/MutableGraphNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/GraphEdge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1456">
@@ -789,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="143" column="44" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGraph/src/main/java/treebolic/model/graph/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -936,17 +1008,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="252" column="15" selection-start-line="252" selection-start-column="15" selection-end-line="252" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="252" column="15" selection-start-line="252" selection-start-column="15" selection-end-line="252" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
         </state>
       </provider>
     </entry>

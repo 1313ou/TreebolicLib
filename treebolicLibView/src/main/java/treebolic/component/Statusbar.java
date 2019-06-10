@@ -2,7 +2,6 @@ package treebolic.component;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
 import treebolic.model.Settings;

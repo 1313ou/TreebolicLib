@@ -113,7 +113,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.0.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
     <orderEntry type="module" module-name="treebolicLibModel" />
     <orderEntry type="module" module-name="treebolicGlue" />
     <orderEntry type="module" module-name="treebolicGlueIface" />

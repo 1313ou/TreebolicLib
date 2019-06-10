@@ -1,11 +1,11 @@
 package treebolic.glue;
 
-import androidx.annotation.NonNull;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
+import androidx.annotation.NonNull;
 
 /**
  * Color treebolic.glue

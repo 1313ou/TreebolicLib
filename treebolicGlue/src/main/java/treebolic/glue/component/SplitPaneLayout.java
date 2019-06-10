@@ -29,8 +29,6 @@ import android.graphics.drawable.PaintDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
@@ -38,6 +36,9 @@ import android.view.MotionEvent;
 import android.view.ViewGroup;
 
 import org.treebolic.glue.R;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * A layout that splits the available space between two child views.

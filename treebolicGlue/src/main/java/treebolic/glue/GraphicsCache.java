@@ -2,9 +2,9 @@ package treebolic.glue;
 
 import android.graphics.Canvas;
 import android.graphics.Picture;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import treebolic.glue.component.Component;
 
 public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphics>

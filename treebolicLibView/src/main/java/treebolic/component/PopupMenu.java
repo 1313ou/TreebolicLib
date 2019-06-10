@@ -1,13 +1,12 @@
 package treebolic.component;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.control.Controller;
 import treebolic.glue.ActionListener;
 import treebolic.model.INode;

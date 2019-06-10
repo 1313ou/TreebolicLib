@@ -1,11 +1,11 @@
 package treebolic.glue.component;
 
 import android.graphics.Canvas;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.glue.Graphics;
 
 public class TreebolicThread extends Thread

@@ -1,11 +1,10 @@
 package treebolic.view;
 
-import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import androidx.annotation.NonNull;
 import treebolic.core.Transformer;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;

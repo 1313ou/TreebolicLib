@@ -2,7 +2,6 @@ package treebolic;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import treebolic.model.Model;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;

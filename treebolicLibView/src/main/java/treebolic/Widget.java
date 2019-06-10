@@ -1,8 +1,5 @@
 package treebolic;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -14,6 +11,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.component.Progress;
 import treebolic.component.Statusbar;
 import treebolic.component.Toolbar;

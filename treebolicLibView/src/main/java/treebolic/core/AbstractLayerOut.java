@@ -2,7 +2,6 @@ package treebolic.core;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
 import treebolic.model.INode;
