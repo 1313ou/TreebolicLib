@@ -29,7 +29,7 @@ public class Tree implements Serializable
 	/**
 	 * Constructor
 	 *
-	 * @param root   root node
+	 * @param root  root node
 	 * @param edges edge list
 	 */
 	public Tree(final INode root, final List<IEdge> edges)

@@ -1,6 +1,6 @@
 package treebolic.core.transform;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import treebolic.core.location.Complex;
 
@@ -62,7 +62,7 @@ public class HyperRotation extends Complex
 	/**
 	 * Rotate point
 	 *
-	 * @param z         input point
+	 * @param z     input point
 	 * @param angle rotation angle
 	 * @return this point with rotated values
 	 */

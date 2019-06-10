@@ -1,7 +1,7 @@
 package treebolic;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -306,6 +306,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		init(provider, source);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void init(final IProvider provider, final String source)
 	{
@@ -459,6 +460,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		initModel(model);
 	}
 
+	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void init(final Model model)
 	{
@@ -799,7 +801,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param providerName provider name
 	 * @return provider
 	 */
-	private IProvider makeProvider(final String providerName)
+	private IProvider makeProvider(@NonNull final String providerName)
 	{
 		try
 		{

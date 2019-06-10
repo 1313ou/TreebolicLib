@@ -1,7 +1,7 @@
 package treebolic.core;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -129,8 +129,8 @@ public class Transformer
 	/**
 	 * Make transform
 	 *
-	 * @param from            translation from-point
-	 * @param to              translation to-point
+	 * @param from        translation from-point
+	 * @param to          translation to-point
 	 * @param orientation orientation
 	 * @return transform
 	 */
@@ -208,7 +208,7 @@ public class Transformer
 	/**
 	 * Apply transform to this hypercircle
 	 *
-	 * @param t               transform
+	 * @param t           transform
 	 * @param hyperCircle hypercircle
 	 */
 	static private void transform(@NonNull final IHyperTransform t, @NonNull final HyperCircle hyperCircle)

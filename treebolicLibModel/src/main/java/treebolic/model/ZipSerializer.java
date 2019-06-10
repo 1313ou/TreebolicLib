@@ -1,6 +1,6 @@
 package treebolic.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

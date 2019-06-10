@@ -1,7 +1,7 @@
 package treebolic.model;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.net.URL;
@@ -463,6 +463,7 @@ public class Utils
 	 * @param style stroke code style
 	 * @return stroke width string
 	 */
+	@NonNull
 	@SuppressWarnings({"WeakerAccess"})
 	public static String strokeWidthToString(@Nullable final Integer style)
 	{

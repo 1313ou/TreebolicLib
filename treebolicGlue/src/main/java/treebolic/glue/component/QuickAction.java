@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -264,8 +264,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 		final int pos = this.childPos;
 
-		itemView.setOnClickListener(v ->
-		{
+		itemView.setOnClickListener(v -> {
 			if (action.listener != null)
 			{
 				action.listener.onAction(action);

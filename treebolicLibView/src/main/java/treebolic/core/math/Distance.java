@@ -1,6 +1,6 @@
 package treebolic.core.math;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import treebolic.core.location.Complex;
 

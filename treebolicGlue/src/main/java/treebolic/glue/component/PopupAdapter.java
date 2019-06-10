@@ -4,8 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -59,8 +59,7 @@ public class PopupAdapter
 		this.window = new PopupWindow(context0);
 
 		// dismiss when touched outside
-		this.window.setTouchInterceptor((view0, event) ->
-		{
+		this.window.setTouchInterceptor((view0, event) -> {
 			switch (event.getAction())
 			{
 				case MotionEvent.ACTION_OUTSIDE:
@@ -126,9 +125,9 @@ public class PopupAdapter
 	 */
 	public void setContentView(final int layoutResID)
 	{
-		final LayoutInflater inflator = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		assert inflator != null;
-		setContentView(inflator.inflate(layoutResID, null));
+		final LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		assert inflater != null;
+		setContentView(inflater.inflate(layoutResID, null));
 	}
 
 	/**

@@ -1,6 +1,6 @@
 package treebolic.glue.iface;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Glue interface for Graphics context

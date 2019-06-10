@@ -1,7 +1,7 @@
 package treebolic.model;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.Serializable;
 import java.util.List;
@@ -100,8 +100,8 @@ public class MountPoint implements Serializable
 	 * Follow mounted->mounting or mounting->mounted
 	 *
 	 * @param node source node
-	 * @param up        allow mounted -> mounting
-	 * @param down      allow mounting -> mounted
+	 * @param up   allow mounted -> mounting
+	 * @param down allow mounting -> mounted
 	 * @return target node (or source if no mounting)
 	 */
 	@NonNull
@@ -145,32 +145,32 @@ public class MountPoint implements Serializable
 			// if mounted mountpoint: mounted -> mounting (up)
 			else //noinspection InstanceofConcreteClass
 				if (up && mountPoint instanceof MountPoint.Mounted)
-			{
-				final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
-
-				// mounted mountpoint must be reference a mounting node
-				final INode mountingNode = mountedMountPoint.mountingNode;
-				if (mountingNode != null)
 				{
-					// mounting mountpoint must be non null
-					mountPoint = mountingNode.getMountPoint();
-					if (mountPoint != null)
-					{
-						// mounting mountpoint must be mounting
-						//noinspection InstanceofConcreteClass
-						if (mountPoint instanceof MountPoint.Mounting)
-						{
-							final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
+					final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 
-							// mounting mountpoint must reference mounted node
-							if (mountingMountPoint.mountedNode == node)
+					// mounted mountpoint must be reference a mounting node
+					final INode mountingNode = mountedMountPoint.mountingNode;
+					if (mountingNode != null)
+					{
+						// mounting mountpoint must be non null
+						mountPoint = mountingNode.getMountPoint();
+						if (mountPoint != null)
+						{
+							// mounting mountpoint must be mounting
+							//noinspection InstanceofConcreteClass
+							if (mountPoint instanceof MountPoint.Mounting)
 							{
-								return mountingNode;
+								final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
+
+								// mounting mountpoint must reference mounted node
+								if (mountingMountPoint.mountedNode == node)
+								{
+									return mountingNode;
+								}
 							}
 						}
 					}
 				}
-			}
 		}
 		return node;
 	}

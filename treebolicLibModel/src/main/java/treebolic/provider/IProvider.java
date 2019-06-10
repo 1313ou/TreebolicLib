@@ -1,6 +1,6 @@
 package treebolic.provider;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import java.net.URL;
 import java.util.Properties;
@@ -41,7 +41,7 @@ public interface IProvider
 	/**
 	 * Make model
 	 *
-	 * @param source source (a string that refers to the data in a was that the provider implementation will understand)
+	 * @param source     source (a string that refers to the data in a was that the provider implementation will understand)
 	 * @param base       base (base for source)
 	 * @param parameters extra parameters
 	 * @return model
@@ -52,7 +52,7 @@ public interface IProvider
 	/**
 	 * Make tree. Settings are not parsed. This is used in mounting.
 	 *
-	 * @param source     source (a string that refers to the data in a was that the provider implementation will understand)
+	 * @param source         source (a string that refers to the data in a was that the provider implementation will understand)
 	 * @param base           base (base for source)
 	 * @param parameters     extra parameters
 	 * @param checkRecursion whether immediate recursion is checked (avoid mount-now infinite recursion)

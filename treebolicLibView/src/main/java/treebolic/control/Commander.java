@@ -1,7 +1,7 @@
 package treebolic.control;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.location.Complex;
@@ -20,13 +20,11 @@ public abstract class Commander
 	 * Commands
 	 */
 	public enum Command
-	{
-		REFRESH, //
+	{REFRESH, //
 		HOME, NORTH, SOUTH, EAST, WEST, RADIAL, //
 		ZOOMIN, ZOOMOUT, ZOOMONE, SCALEUP, SCALEDOWN, SCALEONE, //
 		EXPAND, SHRINK, EXPANSIONRESET, WIDEN, NARROW, SWEEPRESET, EXPANSIONSWEEPRESET, //
-		ARCEDGE, TOOLTIP, TOOLTIPCONTENT, FOCUSHOVER
-	}
+		ARCEDGE, TOOLTIP, TOOLTIPCONTENT, FOCUSHOVER}
 
 	/**
 	 * East/West shift step
@@ -521,7 +519,7 @@ public abstract class Commander
 	}
 
 	/*
-	 * Perform reset sweep 
+	 * Perform reset sweep
 	 */
 	/*
 	private void doResetSweep()
@@ -604,7 +602,7 @@ public abstract class Commander
 	/**
 	 * Command dispatcher
 	 *
-	 * @param command     command
+	 * @param command    command
 	 * @param parameters parameters
 	 */
 	public void execute(@NonNull final Command command, final Object... parameters)

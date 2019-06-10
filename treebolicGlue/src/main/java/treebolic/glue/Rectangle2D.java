@@ -1,7 +1,7 @@
 package treebolic.glue;
 
 import android.graphics.RectF;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Rectangle2D

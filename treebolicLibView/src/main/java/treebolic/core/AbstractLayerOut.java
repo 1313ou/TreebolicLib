@@ -1,7 +1,7 @@
 package treebolic.core;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
@@ -320,8 +320,8 @@ public abstract class AbstractLayerOut
 	/**
 	 * Set settings default sweep factor to parameter factor and apply it (used by apply)
 	 *
-	 * @param radial    radial
-	 * @param sweep sweep
+	 * @param radial radial
+	 * @param sweep  sweep
 	 */
 	private void setDefaultSettingsSweep(boolean radial, @Nullable final Float sweep)
 	{

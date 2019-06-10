@@ -4,8 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import org.treebolic.glue.R;
@@ -24,9 +24,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	 * Image index enum
 	 */
 	public enum ImageIndices
-	{
-		IMAGE_CANCEL, IMAGE_INFO, IMAGE_FOCUS, IMAGE_LINK, IMAGE_MOUNT, IMAGE_GOTO, IMAGE_SEARCH, COUNT
-	}
+	{IMAGE_CANCEL, IMAGE_INFO, IMAGE_FOCUS, IMAGE_LINK, IMAGE_MOUNT, IMAGE_GOTO, IMAGE_SEARCH, COUNT}
 
 	/**
 	 * Drawables
@@ -78,8 +76,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 
 		// set listener for on dismiss event
 		// this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.
-		this.quickAction.setOnDismissListener((QuickAction.OnDismissListener) () ->
-		{
+		this.quickAction.setOnDismissListener((QuickAction.OnDismissListener) () -> {
 			//
 		});
 	}

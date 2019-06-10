@@ -5,8 +5,8 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.WindowManager;
@@ -49,8 +49,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	@SuppressWarnings("unused")
 	private enum ButtonImplementation
-	{
-		HOME, //
+	{HOME, //
 		RADIAL, NORTH, SOUTH, EAST, WEST, //
 		EXPAND, SHRINK, EXPANSIONRESET, //
 		EXPANSIONSWEEPRESET, //
@@ -62,8 +61,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		public int getIconIndex()
 		{
 			return ordinal();
-		}
-	}
+		}}
 
 	/**
 	 * Drawables

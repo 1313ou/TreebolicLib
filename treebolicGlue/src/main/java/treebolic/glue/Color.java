@@ -1,6 +1,6 @@
 package treebolic.glue;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -189,7 +189,7 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	}
 
 	@Override
-	public void parse(final String string)
+	public void parse(@NonNull final String string)
 	{
 		this.isNull = true;
 		try
@@ -250,8 +250,8 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 * Read object from serialization stream
 	 *
 	 * @param in serialization stream
-	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
+	 * @throws IOException            io exception
 	 */
 	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{

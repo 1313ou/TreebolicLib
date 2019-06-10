@@ -1,7 +1,7 @@
 package treebolic.core;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -71,9 +71,9 @@ public class LayerOut extends AbstractLayerOut
 	/**
 	 * Lay out children
 	 *
-	 * @param node      starting node
-	 * @param halfWedge half wedge allocated to this node
-	 * @param orientation   orientation of this node
+	 * @param node        starting node
+	 * @param halfWedge   half wedge allocated to this node
+	 * @param orientation orientation of this node
 	 */
 	private void layoutChildren(@NonNull final INode node, final double halfWedge, final double orientation)
 	{

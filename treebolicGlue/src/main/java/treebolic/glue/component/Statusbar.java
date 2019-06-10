@@ -6,9 +6,9 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -39,9 +39,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 * Image index enum
 	 */
 	public enum ImageIndices
-	{
-		INFO, LINK, MOUNT, SEARCH
-	}
+	{INFO, LINK, MOUNT, SEARCH}
 
 	/**
 	 * Base URL for webview
@@ -230,7 +228,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		Statusbar.contentProcessor = processor;
 	}
 
-	@SuppressWarnings("EmptyMethod")
+	@SuppressWarnings({"EmptyMethod", "WeakerAccess"})
 	@Override
 	public void setColors(final Color backColor, final Color foreColor)
 	{

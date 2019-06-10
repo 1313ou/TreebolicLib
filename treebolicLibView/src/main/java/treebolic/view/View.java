@@ -1,7 +1,7 @@
 package treebolic.view;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import treebolic.control.Controller;
 import treebolic.control.EventListenerAdapter;
@@ -627,7 +627,7 @@ public class View extends Surface
 	 * Animate to unit circle center
 	 *
 	 * @param node node
-	 * @param now      whether to start now
+	 * @param now  whether to start now
 	 */
 	public void animateToCenter(@NonNull final INode node, @SuppressWarnings("SameParameterValue") final boolean now)
 	{

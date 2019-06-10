@@ -1,6 +1,6 @@
 package treebolic.component;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import treebolic.control.Controller;
 import treebolic.glue.ActionListener;

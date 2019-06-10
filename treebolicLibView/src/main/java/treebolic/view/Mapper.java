@@ -1,6 +1,6 @@
 package treebolic.view;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import treebolic.core.location.Complex;
 import treebolic.glue.Point;

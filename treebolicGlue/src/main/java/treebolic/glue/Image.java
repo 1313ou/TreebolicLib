@@ -3,7 +3,9 @@ package treebolic.glue;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -80,16 +82,20 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param resource resource URL
 	 */
-	static public Image try_make(@NonNull final URL resource)
+	@Nullable
+	static public Image try_make(@Nullable final URL resource)
 	{
-		try
+		if (resource != null)
 		{
-			return Image.make(resource);
+			try
+			{
+				return Image.make(resource);
+			}
+			catch (@NonNull final Exception ignored)
+			{
+			}
 		}
-		catch (@NonNull final Exception ignored)
-		{
-			return null;
-		}
+		return null;
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package treebolic.model;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -175,7 +175,7 @@ public class TreeMutableNode extends MutableNode
 	 * Insert child to this node
 	 *
 	 * @param child child
-	 * @param i         ith position
+	 * @param i     ith position
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public void insertChild(@NonNull final INode child, @SuppressWarnings("SameParameterValue") final int i)

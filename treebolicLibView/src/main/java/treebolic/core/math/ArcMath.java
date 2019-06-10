@@ -1,6 +1,6 @@
 package treebolic.core.math;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import treebolic.glue.Arc2D;
 import treebolic.glue.Point2D;
@@ -103,9 +103,9 @@ public class ArcMath
 	/**
 	 * Get tangent to arc at given point, the orientation returned is inwards arc
 	 *
-	 * @param arc2D arc
-	 * @param where point on arc
-	 * @param isStart   whether point is start point
+	 * @param arc2D   arc
+	 * @param where   point on arc
+	 * @param isStart whether point is start point
 	 * @return tangent of this arc at given point
 	 */
 	public static double getTangent(@NonNull final Arc2D arc2D, @NonNull final Point2D where, final boolean isStart)

@@ -1,7 +1,7 @@
 package treebolic.component;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
@@ -21,9 +21,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	 * Put type
 	 */
 	public enum PutType
-	{
-		INFO, LINK, MOUNT, SEARCH
-	}
+	{INFO, LINK, MOUNT, SEARCH}
 
 	// colors
 

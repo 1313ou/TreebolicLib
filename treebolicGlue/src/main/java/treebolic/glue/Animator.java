@@ -2,7 +2,7 @@ package treebolic.glue;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.animation.LinearInterpolator;
 
 /**

@@ -1,6 +1,6 @@
 package treebolic.model.graph;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Graph edge

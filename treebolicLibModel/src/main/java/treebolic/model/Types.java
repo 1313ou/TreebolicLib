@@ -11,23 +11,17 @@ public class Types
 	 * Search Commands
 	 */
 	public enum SearchCommand
-	{
-		SEARCH, CONTINUE, RESET
-	}
+	{SEARCH, CONTINUE, RESET}
 
 	/**
 	 * Match scope
 	 */
 	public enum MatchScope
-	{
-		LABEL, CONTENT, LINK, ID
-	}
+	{LABEL, CONTENT, LINK, ID}
 
 	/**
 	 * Match mode
 	 */
 	public enum MatchMode
-	{
-		EQUALS, STARTSWITH, INCLUDES
-	}
+	{EQUALS, STARTSWITH, INCLUDES}
 }

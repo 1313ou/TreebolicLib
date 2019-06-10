@@ -1,7 +1,7 @@
 package treebolic.control;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
@@ -30,9 +30,7 @@ public class EventListenerAdapter extends EventListener
 	 * Drag mode enum
 	 */
 	private enum DragMode
-	{
-		TRANSLATE, ROTATE
-	}
+	{TRANSLATE, ROTATE}
 
 	/**
 	 * Drag mode

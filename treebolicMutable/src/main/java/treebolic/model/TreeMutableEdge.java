@@ -1,6 +1,6 @@
 package treebolic.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Extended mutable node (mutable ends, copy constructor)

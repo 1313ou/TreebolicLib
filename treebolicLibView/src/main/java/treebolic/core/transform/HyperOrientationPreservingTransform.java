@@ -1,6 +1,6 @@
 package treebolic.core.transform;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import treebolic.core.location.Complex;
 
@@ -14,8 +14,8 @@ public class HyperOrientationPreservingTransform extends HyperTransform
 	/**
 	 * Construct orientation-preserving hyperbolic transform which translates from-point to to-point while preserving given orientation
 	 *
-	 * @param from            from-point
-	 * @param to              to-point
+	 * @param from        from-point
+	 * @param to          to-point
 	 * @param orientation orientation
 	 */
 	public HyperOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex orientation)

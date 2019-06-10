@@ -2,9 +2,9 @@ package treebolic.glue.component;
 
 import android.content.Context;
 import android.graphics.PointF;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.GestureDetector;
@@ -483,7 +483,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	// @Override
 	// public int getHeight();
 
-	@SuppressWarnings("EmptyMethod")
+	@SuppressWarnings({"EmptyMethod", "WeakerAccess"})
 	@Override
 	public void setCursor(final int cursor)
 	{

@@ -1,6 +1,6 @@
 package treebolic.glue;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Arc2D
