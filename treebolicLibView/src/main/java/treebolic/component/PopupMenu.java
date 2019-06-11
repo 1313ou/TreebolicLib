@@ -227,6 +227,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 					// fragment
 					final String fragment = '#' + uri.getFragment();
+					//noinspection SimplifiableIfStatement
 					if (link.equals(fragment))
 					{
 						return true;
