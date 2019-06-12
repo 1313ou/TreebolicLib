@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ */
+
 package treebolic.glue;
 
 import android.graphics.Bitmap;
@@ -163,8 +167,8 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * Deserialization override
 	 *
 	 * @param in serialized stream
-	 * @throws IOException            io exception
-	 * //@throws ClassNotFoundException class not found exception
+	 * @throws IOException io exception
+	 *                     //@throws ClassNotFoundException class not found exception
 	 */
 	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{

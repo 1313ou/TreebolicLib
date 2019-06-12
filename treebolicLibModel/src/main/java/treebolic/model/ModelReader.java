@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ */
+
 package treebolic.model;
 
 import java.io.IOException;
@@ -31,8 +35,8 @@ public class ModelReader
 	 * Deserialize
 	 *
 	 * @return model
-	 * @throws IOException            io exception
-	 * //@throws ClassNotFoundException class not found exception
+	 * @throws IOException io exception
+	 *                     //@throws ClassNotFoundException class not found exception
 	 */
 	@NonNull
 	public Model deserialize() throws IOException, ClassNotFoundException

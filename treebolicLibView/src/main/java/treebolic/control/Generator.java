@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ */
+
 package treebolic.control;
 
 import java.util.Iterator;
@@ -190,7 +194,7 @@ public abstract class Generator<T> implements Iterable<T>
 	 * Yield element
 	 *
 	 * @param element element
-	 * //@throws InterruptedException interrupted exception
+	 *                //@throws InterruptedException interrupted exception
 	 */
 	@SuppressWarnings("WeakerAccess")
 	protected void yield(T element) throws InterruptedException
@@ -210,7 +214,7 @@ public abstract class Generator<T> implements Iterable<T>
 
 	/**
 	 * Terminate generator
-	 *
+	 * <p>
 	 * //@throws InterruptedException interrupted exception
 	 */
 	public void terminate() throws InterruptedException

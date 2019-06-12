@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ */
+
 package treebolic.glue.component;
 
 import android.content.Context;
@@ -10,6 +14,9 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.drawable.DrawableCompat;
 
@@ -92,7 +99,7 @@ public class Utils
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 	*/
-	static public int getColor(@NonNull final Context context, @SuppressWarnings("SameParameterValue") int resId)
+	static public int getColor(@NonNull final Context context, @ColorRes @SuppressWarnings("SameParameterValue") int resId)
 	{
 		final Resources resources = context.getResources();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -113,7 +120,7 @@ public class Utils
 	 * @param resId   drawable id
 	 * @return drawable
 	 */
-	static public Drawable getDrawable(@NonNull final Context context, int resId)
+	static public Drawable getDrawable(@NonNull final Context context, @DrawableRes int resId)
 	{
 		final Resources resources = context.getResources();
 		Drawable drawable;
@@ -159,7 +166,7 @@ public class Utils
 		return drawables;
 	}
 
-	static public void tint(@NonNull final Drawable drawable, int iconTint)
+	static public void tint(@NonNull final Drawable drawable, @ColorInt int iconTint)
 	{
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
 		{

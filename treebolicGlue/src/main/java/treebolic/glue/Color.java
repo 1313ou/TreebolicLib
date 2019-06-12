@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ */
+
 package treebolic.glue;
 
 import java.io.IOException;
@@ -250,8 +254,8 @@ public class Color implements treebolic.glue.iface.Color<Color>, Serializable
 	 * Read object from serialization stream
 	 *
 	 * @param in serialization stream
-	 * @throws IOException            io exception
-	 * //@throws ClassNotFoundException class not found exception
+	 * @throws IOException io exception
+	 *                     //@throws ClassNotFoundException class not found exception
 	 */
 	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
