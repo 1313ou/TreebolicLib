@@ -190,7 +190,7 @@ public abstract class Generator<T> implements Iterable<T>
 	 * Yield element
 	 *
 	 * @param element element
-	 * @throws InterruptedException interrupted exception
+	 * //@throws InterruptedException interrupted exception
 	 */
 	@SuppressWarnings("WeakerAccess")
 	protected void yield(T element) throws InterruptedException
@@ -211,7 +211,7 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Terminate generator
 	 *
-	 * @throws InterruptedException interrupted exception
+	 * //@throws InterruptedException interrupted exception
 	 */
 	public void terminate() throws InterruptedException
 	{

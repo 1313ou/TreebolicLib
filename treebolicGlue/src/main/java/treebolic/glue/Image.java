@@ -164,7 +164,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param in serialized stream
 	 * @throws IOException            io exception
-	 * @throws ClassNotFoundException class not found exception
+	 * //@throws ClassNotFoundException class not found exception
 	 */
 	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
