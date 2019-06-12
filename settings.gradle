@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ */
+
 include ':treebolicLib', ':treebolicLibModel', ':treebolicLibView'
 include ':treebolicGlue', ':treebolicGlueIface'
 include ':treebolicIface'

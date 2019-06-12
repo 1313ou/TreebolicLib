@@ -16,16 +16,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="lint">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ModelReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/src/main/java/treebolic/model/ZipDeSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/treebolicLoadBalancer.iml" afterDir="false" />
+    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="annotations&#10;copyright">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <ignored path="./" />
     <ignored path="treebolicLib/build/" />
@@ -275,28 +270,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TreebolicLib" type="1abcf292:AndroidViewProjectNode" />
-              <item name="treebolicGlue" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="TreebolicLib" type="1abcf292:AndroidViewProjectNode" />
-              <item name="treebolicGlue" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="TreebolicLib" type="1abcf292:AndroidViewProjectNode" />
-              <item name="treebolicGlue" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="glue" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -428,13 +402,20 @@
       <option name="project" value="LOCAL" />
       <updated>1560319185232</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="annotations&#10;copyright">
+      <created>1560320681326</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1560320681326</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1869" height="1173" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10290093" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10290093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -453,10 +434,10 @@
       <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32485324" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32485324" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.32876712" />
       <window_info anchor="bottom" id="Android Profiler" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.33561644" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="13" visible="true" weight="0.33561644" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.24958949" />
@@ -477,7 +458,8 @@
     <MESSAGE value="androidx&#10;lint" />
     <MESSAGE value="update" />
     <MESSAGE value="lint" />
-    <option name="LAST_COMMIT_MESSAGE" value="lint" />
+    <MESSAGE value="annotations&#10;copyright" />
+    <option name="LAST_COMMIT_MESSAGE" value="annotations&#10;copyright" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/math/MapperToEuclidean.java">
@@ -822,13 +804,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/PopupMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -930,6 +905,16 @@
           <caret line="164" column="71" selection-start-line="164" selection-start-column="71" selection-end-line="164" selection-end-column="71" />
           <folding>
             <element signature="e#2882#2921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/core/AbstractLayerOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#7693#0" expanded="true" />
           </folding>
         </state>
       </provider>
