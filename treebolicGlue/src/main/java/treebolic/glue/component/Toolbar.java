@@ -165,7 +165,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	// A D D  B U T T O N
 
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "deprecation"})
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void addButton(@NonNull final Button button, @NonNull final ActionListener listener)

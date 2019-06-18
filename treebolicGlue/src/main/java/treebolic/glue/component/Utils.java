@@ -99,6 +99,7 @@ public class Utils
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 	*/
+	@SuppressWarnings("deprecation")
 	static public int getColor(@NonNull final Context context, @ColorRes @SuppressWarnings("SameParameterValue") int resId)
 	{
 		final Resources resources = context.getResources();
@@ -108,7 +109,6 @@ public class Utils
 		}
 		else
 		{
-			//noinspection deprecation
 			return resources.getColor(resId);
 		}
 	}
@@ -120,6 +120,7 @@ public class Utils
 	 * @param resId   drawable id
 	 * @return drawable
 	 */
+	@SuppressWarnings("deprecation")
 	static public Drawable getDrawable(@NonNull final Context context, @DrawableRes int resId)
 	{
 		final Resources resources = context.getResources();
@@ -143,6 +144,7 @@ public class Utils
 	 * @param resIds  drawable ids
 	 * @return drawables
 	 */
+	@SuppressWarnings("deprecation")
 	@NonNull
 	static public Drawable[] getDrawables(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... resIds)
 	{

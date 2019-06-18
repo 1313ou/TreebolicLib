@@ -374,7 +374,7 @@ public class SplitPaneLayout extends ViewGroup
 						performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 						this.isDragging = true;
 						this.splitterRectangle.set(this.splitterRect);
-						invalidate(this.splitterRectangle);
+						invalidate(/*this.splitterRectangle*/);
 						this.lastTouchX = x;
 						this.lastTouchY = y;
 					}

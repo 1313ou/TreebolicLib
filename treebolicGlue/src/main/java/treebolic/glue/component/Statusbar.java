@@ -245,6 +245,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.style = style0;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void put(final String label0, final String content0, final int image)
 	{

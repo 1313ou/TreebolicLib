@@ -85,6 +85,11 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 */
 	private boolean fireHover;
 
+	/*
+	 * Activity
+	 */
+	// private final AppCompatActivity activity;
+
 	/**
 	 * Scale detector that keeps track of active pointers
 	 */
@@ -187,6 +192,8 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	public Surface(@NonNull final AppCompatActivity activity)
 	{
 		super(activity);
+
+		// this.activity = activity;
 
 		// for debugging
 		this.setId(R.id.treebolicId);
@@ -494,14 +501,16 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		// pointless
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	@Override
-	public void setToolTipText(@Nullable final String text)
+	public void setToolTipText(@SuppressWarnings("unused") @Nullable final String text)
 	{
-		if (text != null)
-		{
-			final AppCompatActivity host = (AppCompatActivity) getContext();
-			Tip.tip(host, text);
-		}
+		//if (text != null)
+		//{
+			// final AppCompatActivity activity = (AppCompatActivity) this.activity;
+			// final FragmentManager manager = activity.getSupportFragmentManager();
+			// Tip.tip(manager, text);
+		//}
 	}
 
 	// T O U C H A N D H O V E R

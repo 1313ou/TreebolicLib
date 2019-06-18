@@ -136,8 +136,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
-		final Activity activity = getActivity();
-		assert activity != null;
+		final Activity activity = requireActivity();
 		final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
 		// get the layout inflater
@@ -184,6 +183,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 				this.intercept = true;
 			}
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 			{

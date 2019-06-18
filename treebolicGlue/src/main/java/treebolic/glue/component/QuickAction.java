@@ -165,25 +165,25 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Constructor for default vertical layout
 	 *
-	 * @param context0 context
+	 * @param context context
 	 */
-	public QuickAction(@NonNull final Context context0)
+	public QuickAction(@NonNull final Context context)
 	{
-		this(context0, QuickAction.VERTICAL);
+		this(context, QuickAction.VERTICAL);
 	}
 
 	/**
 	 * Constructor allowing orientation override
 	 *
-	 * @param context0     context
+	 * @param context     context
 	 * @param orientation0 layout orientation, can be vertical or horizontal
 	 */
-	public QuickAction(@NonNull final Context context0, @SuppressWarnings("SameParameterValue") final int orientation0)
+	public QuickAction(@NonNull final Context context, @SuppressWarnings("SameParameterValue") final int orientation0)
 	{
-		super(context0);
+		super(context);
 
 		this.orientation = orientation0;
-		this.inflater = (LayoutInflater) context0.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.animationStyle = QuickAction.ANIM_AUTO;
 		this.childPos = 0;
 		setRootViewId(this.orientation == QuickAction.HORIZONTAL ? R.layout.popup_horizontal : R.layout.popup_vertical);

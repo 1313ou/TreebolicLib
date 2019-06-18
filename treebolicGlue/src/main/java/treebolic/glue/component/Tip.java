@@ -16,9 +16,9 @@ import org.treebolic.glue.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 /**
  * Tip dialog
@@ -71,8 +71,7 @@ public class Tip extends AppCompatDialogFragment
 	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
-		final Activity activity = getActivity();
-		assert activity != null;
+		final Activity activity = requireActivity();
 		final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
 		// get the layout inflater
@@ -118,13 +117,13 @@ public class Tip extends AppCompatDialogFragment
 	/**
 	 * Convenience method to display tip
 	 *
-	 * @param activity activity
-	 * @param text     text to display
+	 * @param manager fragment manager
+	 * @param text    text to display
 	 */
-	static public void tip(final AppCompatActivity activity, final String text)
+	static public void tip(@NonNull FragmentManager manager, final String text)
 	{
-		// Tip tip = new Tip();
-		// tip.setText(text);
-		// tip.show(activity.getSupportFragmentManager(), STATE_TEXT);
+		Tip tip = new Tip();
+		tip.setText(text);
+		tip.show(manager, STATE_TEXT);
 	}
 }

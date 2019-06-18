@@ -56,12 +56,12 @@ public class PopupAdapter
 	/**
 	 * Constructor.
 	 *
-	 * @param context0 context
+	 * @param context context
 	 */
-	public PopupAdapter(@NonNull final Context context0)
+	public PopupAdapter(@NonNull final Context context)
 	{
-		this.context = context0;
-		this.window = new PopupWindow(context0);
+		this.context = context;
+		this.window = new PopupWindow(context);
 
 		// dismiss when touched outside
 		this.window.setTouchInterceptor((view0, event) -> {
@@ -80,7 +80,7 @@ public class PopupAdapter
 		});
 
 		// get windows manager
-		this.windowManager = (WindowManager) context0.getSystemService(Context.WINDOW_SERVICE);
+		this.windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 	}
 
 	/**

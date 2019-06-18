@@ -67,16 +67,16 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	 * Constructor
 	 */
 	@SuppressWarnings("WeakerAccess")
-	protected PopupMenu(@NonNull final Context context0, final View anchor0)
+	protected PopupMenu(@NonNull final Context context, final View anchor)
 	{
-		this.context = context0;
-		this.anchor = anchor0;
+		this.context = context;
+		this.anchor = anchor;
 
 		// labels: info,focus,linkto,mount,unmount,cancel
 		labels = this.context.getResources().getStringArray(R.array.popup_labels);
 
 		// create quickaction
-		this.quickAction = new QuickAction(context0, QuickAction.VERTICAL);
+		this.quickAction = new QuickAction(context, QuickAction.VERTICAL);
 
 		// set listener for on dismiss event
 		// this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.
