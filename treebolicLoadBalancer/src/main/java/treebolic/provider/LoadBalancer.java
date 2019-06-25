@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
-import treebolic.model.IEdge;
 import treebolic.model.INode;
 import treebolic.model.TreeMutableNode;
 
@@ -54,10 +53,20 @@ public class LoadBalancer
 	private Color foreColor;
 
 	/**
+	 * Label of intermediate node
+	 */
+	private String label;
+
+	/**
 	 * Edge color of intermediate node
 	 */
 	@SuppressWarnings("InstanceVariableOfConcreteClass")
 	private Color edgeColor;
+
+	/**
+	 * Edge style of intermediate node
+	 */
+	private int edgeStyle;
 
 	/**
 	 * Image index of intermediate node
@@ -85,17 +94,21 @@ public class LoadBalancer
 	/**
 	 * Set group node data
 	 *
+	 * @param label0 group node label
 	 * @param backColor0  group node back color
 	 * @param foreColor0  group node back color
 	 * @param edgeColor0  group node edge color
+	 * @param edgeStyle0 group node edge style
 	 * @param imageIndex0 group node image index
 	 * @param image0      group node image
 	 */
-	public void setGroupNode(final Color backColor0, final Color foreColor0, final Color edgeColor0, final int imageIndex0, @SuppressWarnings("SameParameterValue") final Image image0)
+	public void setGroupNode(final String label0, final Color backColor0, final Color foreColor0, final Color edgeColor0, final int edgeStyle0, final int imageIndex0, @SuppressWarnings("SameParameterValue") final Image image0)
 	{
+		this.label = label0;
 		this.backColor = backColor0;
 		this.foreColor = foreColor0;
 		this.edgeColor = edgeColor0;
+		this.edgeStyle = edgeStyle0;
 		this.imageIndex = imageIndex0;
 		this.image = image0;
 	}
@@ -124,7 +137,8 @@ public class LoadBalancer
 		{
 			m0--;
 		}
-		@SuppressWarnings("UnusedAssignment") int m = m0; // actual length of segment
+		@SuppressWarnings("UnusedAssignment")
+		int m = m0; // actual length of segment
 		for (int i = 0; i < z; i = i + m)
 		{
 			m = m0; // actual length of segment
@@ -132,8 +146,7 @@ public class LoadBalancer
 			root.setLink("directory:"); //$NON-NLS-1$
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
-			root.setEdgeColor(this.edgeColor);
-			root.setEdgeStyle(IEdge.SOLID | /* IEdge.FROMDEF | IEdge.FROMCIRCLE | */IEdge.TOTRIANGLE | IEdge.TOFILL | IEdge.TODEF);
+			root.setLabel(this.label);
 
 			// image
 			if (imageIndex >= 0)
@@ -183,6 +196,9 @@ public class LoadBalancer
 			for (int k = i; k < b; k++)
 			{
 				final INode node = nodes.get(k);
+				node.setEdgeColor(this.edgeColor);
+				node.setEdgeStyle(this.edgeStyle);
+
 				/*
 				 * if (!(node instanceof TreeMutableNode)) throw new IllegalArgumentException("Node is not tree mutable: " + node.getId()); final
 				 * TreeMutableNode mutableNode = (TreeMutableNode) node; mutableNode.addToParent(root);

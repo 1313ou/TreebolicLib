@@ -25,7 +25,7 @@ public class ZipDeSerializer
 	 * @param entry   the zipfile entry
 	 * @return deserialized object
 	 * @throws IOException io exception
-	 *                     //@throws ClassNotFoundException class not found exception
+	 * //@throws ClassNotFoundException class not found exception
 	 */
 	static public Object deserializeZip(final String archive, @SuppressWarnings("SameParameterValue") final String entry) throws IOException, ClassNotFoundException
 	{

@@ -23,7 +23,9 @@ public class MenuItem implements Serializable
 	 * Action types
 	 */
 	public enum Action
-	{CANCEL, INFO, FOCUS, LINK, MOUNT, GOTO, SEARCH}
+	{
+		CANCEL, INFO, FOCUS, LINK, MOUNT, GOTO, SEARCH
+	}
 
 	/**
 	 * Label

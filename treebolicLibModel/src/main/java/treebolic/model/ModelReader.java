@@ -36,7 +36,7 @@ public class ModelReader
 	 *
 	 * @return model
 	 * @throws IOException io exception
-	 *                     //@throws ClassNotFoundException class not found exception
+	 * //@throws ClassNotFoundException class not found exception
 	 */
 	@NonNull
 	public Model deserialize() throws IOException, ClassNotFoundException
