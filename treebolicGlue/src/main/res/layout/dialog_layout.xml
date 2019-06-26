@@ -16,9 +16,10 @@
 		style="@style/TreebolicDialogTheme"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:contentDescription="@string/desc_content_header"
+		android:drawableStart="@drawable/status_info"
 		android:drawableLeft="@drawable/status_info"
 		android:drawablePadding="10dp"
-		android:drawableStart="@drawable/status_info"
 		android:textColor="?attr/treebolic_dialog_foreground_enhanced"
 		android:textSize="20sp"/>
 
@@ -26,6 +27,7 @@
 		android:id="@+id/content"
 		style="@style/TreebolicDialogTheme"
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"/>
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/desc_content"/>
 
 </LinearLayout>

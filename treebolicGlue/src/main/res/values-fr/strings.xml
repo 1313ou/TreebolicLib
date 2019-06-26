@@ -28,4 +28,28 @@
 		<item name="search">Rechercher</item>
 	</string-array>
 
+	<!-- content description -->
+	<string name="desc_surface">Surface Treebolic</string>
+	<string name="desc_content_header">Type de contenu</string>
+	<string name="desc_content">Contenu du nœud</string>
+	<string name="desc_toolbar_home">Racine</string>
+	<string name="desc_toolbar_radial">Radial</string>
+	<string name="desc_toolbar_north">Nord</string>
+	<string name="desc_toolbar_south">Sud</string>
+	<string name="desc_toolbar_east">Est</string>
+	<string name="desc_toolbar_west">Ouest</string>
+	<string name="desc_toolbar_expand">Dilater</string>
+	<string name="desc_toolbar_shrink">Rétrécir</string>
+	<string name="desc_toolbar_expand_reset">RAZ dilatation</string>
+	<string name="desc_toolbar_expand_widen_reset">RAZ dilatation et ouverture</string>
+	<string name="desc_toolbar_widen">Ouvrir</string>
+	<string name="desc_toolbar_narrow">Fermer</string>
+	<string name="desc_toolbar_widen_reset">RAZ ouverture</string>
+	<string name="desc_toolbar_zoomin">Zoomer</string>
+	<string name="desc_toolbar_zoomout">Zoom arrière</string>
+	<string name="desc_toolbar_zoomone">Zoom 1:1</string>
+	<string name="desc_toolbar_scaleup">Agrandir up</string>
+	<string name="desc_toolbar_scaledown">Réduire</string>
+	<string name="desc_toolbar_scaleone">Agrandissement 1:1</string>
+
 </resources>

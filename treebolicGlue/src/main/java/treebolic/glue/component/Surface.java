@@ -198,6 +198,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		// for debugging
 		this.setId(R.id.treebolicId);
 
+		// content description
+		this.setContentDescription(activity.getString(R.string.desc_surface));
+
 		// graphics init
 		Graphics.init(activity.getApplicationContext());
 
@@ -507,9 +510,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		//if (text != null)
 		//{
-			// final AppCompatActivity activity = (AppCompatActivity) this.activity;
-			// final FragmentManager manager = activity.getSupportFragmentManager();
-			// Tip.tip(manager, text);
+		// final AppCompatActivity activity = (AppCompatActivity) this.activity;
+		// final FragmentManager manager = activity.getSupportFragmentManager();
+		// Tip.tip(manager, text);
 		//}
 	}
 

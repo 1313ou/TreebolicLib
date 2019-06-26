@@ -10,17 +10,18 @@
               android:padding="8dp">
 
 	<ImageView
-		android:contentDescription="@string/tip_info"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginRight="8dp"
 		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:contentDescription="@string/desc_content_header"
 		android:src="@drawable/status_info"/>
 
 	<WebView
 		android:id="@+id/text"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:contentDescription="@string/desc_content"
 		android:textColor="#FFF"/>
 
 </LinearLayout>

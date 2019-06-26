@@ -148,6 +148,7 @@
       <entry_point TYPE="method" FQNAME="treebolic.Widget$2 boolean onAction(java.lang.Object... theseParams)" />
       <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter fontStyle" />
       <entry_point TYPE="field" FQNAME="treebolic.view.AbstractPainter foreColor" />
+      <entry_point TYPE="field" FQNAME="treebolic.model.IEdge TOTRIANGLE" />
     </entry_points>
     <pattern value="treebolic.core.AbstractLayerOut" />
     <pattern value="treebolic.core.AbstractLayerOut" method="AbstractLayerOut" />

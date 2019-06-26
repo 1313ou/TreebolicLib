@@ -14,12 +14,12 @@
 		style="@style/TreebolicStatusTheme"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginLeft="10dp"
 		android:layout_marginStart="10dp"
+		android:layout_marginLeft="10dp"
+		android:contentDescription="@string/desc_content_header"
+		android:drawableStart="@drawable/status_info"
 		android:drawableLeft="@drawable/status_info"
 		android:drawablePadding="10dp"
-		android:drawableStart="@drawable/status_info"
-		android:hint="@string/status_hint"
 		android:maxEms="@integer/status_max_ems"
 		android:minEms="@integer/status_min_ems"
 		android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
@@ -29,6 +29,7 @@
 		android:id="@+id/content"
 		style="@style/TreebolicStatusTheme"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+		android:layout_height="match_parent"
+		android:contentDescription="@string/desc_content"/>
 
 </LinearLayout>

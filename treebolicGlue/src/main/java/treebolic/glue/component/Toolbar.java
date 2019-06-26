@@ -62,10 +62,20 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		SCALEUP, SCALEDOWN, SCALEONE //
 		;
 
-		public int getIconIndex()
+		public int getIndex()
 		{
 			return ordinal();
 		}}
+
+	/**
+	 * Content descriptors
+	 */
+	static private final int[] descIds = new int[]{R.string.desc_toolbar_home, //
+			R.string.desc_toolbar_radial, R.string.desc_toolbar_north, R.string.desc_toolbar_south, R.string.desc_toolbar_east, R.string.desc_toolbar_west, //
+			R.string.desc_toolbar_expand, R.string.desc_toolbar_shrink, R.string.desc_toolbar_expand_reset, R.string.desc_toolbar_expand_widen_reset, //
+			R.string.desc_toolbar_widen, R.string.desc_toolbar_narrow, R.string.desc_toolbar_widen_reset, //
+			R.string.desc_toolbar_zoomin, R.string.desc_toolbar_zoomout, R.string.desc_toolbar_zoomone, //
+			R.string.desc_toolbar_scaleup, R.string.desc_toolbar_scaledown, R.string.desc_toolbar_scaleone};
 
 	/**
 	 * Drawables
@@ -174,13 +184,16 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		final String name = button.name();
 		final ButtonImplementation impl = ButtonImplementation.valueOf(name);
 
+		final Context context = getContext();
+
 		// new button
-		final ImageButton imageButton = new ImageButton(getContext());
+		final ImageButton imageButton = new ImageButton(context);
 		imageButton.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+		final int index = impl.getIndex();
 
 		// drawable
-		final int iconIndex = impl.getIconIndex();
-		final Drawable bitmapDrawable = this.drawables[iconIndex];
+		final Drawable bitmapDrawable = this.drawables[index];
+
 
 		// tint drawable
 		Utils.tint(bitmapDrawable, this.iconTint);
@@ -194,6 +207,9 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		{
 			imageButton.setBackgroundDrawable(bitmapDrawable);
 		}
+
+		// description
+		imageButton.setContentDescription(context.getString(Toolbar.descIds[index]));
 
 		// listener
 		imageButton.setOnClickListener(listener::onAction);

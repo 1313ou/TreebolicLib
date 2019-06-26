@@ -27,25 +27,28 @@
 		<item name="search">Search</item>
 	</string-array>
 
-	<!-- toolbar buttons -->
-
-	<!--
-	<string name="button_home">Reset</string>
-	<string name="button_radial">Radial</string>
-	<string name="button_north">North</string>
-	<string name="button_south">South</string>
-	<string name="button_east">East</string>
-	<string name="button_west">West</string>
-	<string name="button_expand">Expand</string>
-	<string name="button_shrink">Shrink</string>
-	<string name="button_widen">Widen</string>
-	<string name="button_narrow">Narrow</string>
-	<string name="button_zoom_in">Zoom In</string>
-	<string name="button_zoom_out">Zoom Out</string>
-	<string name="button_zoom_reset">Zoom reset</string>
-	<string name="button_scale_up">Scale Up</string>
-	<string name="button_scale_donw">Scale Down</string>
-	<string name="button_scale_reset">Scale reset</string>
-	-->
+	<!-- content description -->
+	<string name="desc_surface">Treebolic surface</string>
+	<string name="desc_content_header">Type of content</string>
+	<string name="desc_content">Node content</string>
+	<string name="desc_toolbar_home">Home</string>
+	<string name="desc_toolbar_radial">Radial</string>
+	<string name="desc_toolbar_north">North</string>
+	<string name="desc_toolbar_south">South</string>
+	<string name="desc_toolbar_east">East</string>
+	<string name="desc_toolbar_west">West</string>
+	<string name="desc_toolbar_expand">Expand</string>
+	<string name="desc_toolbar_shrink">Shrink</string>
+	<string name="desc_toolbar_expand_reset">Reset expansion</string>
+	<string name="desc_toolbar_expand_widen_reset">Reset expansion and widening</string>
+	<string name="desc_toolbar_widen">Widen</string>
+	<string name="desc_toolbar_narrow">Narrow</string>
+	<string name="desc_toolbar_widen_reset">Reset widening</string>
+	<string name="desc_toolbar_zoomin">Zoom in</string>
+	<string name="desc_toolbar_zoomout">Zoom out</string>
+	<string name="desc_toolbar_zoomone">Zoom 1:1</string>
+	<string name="desc_toolbar_scaleup">Scale up</string>
+	<string name="desc_toolbar_scaledown">Scale down</string>
+	<string name="desc_toolbar_scaleone">Scale 1:1</string>
 
 </resources>
