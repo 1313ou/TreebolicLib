@@ -143,7 +143,7 @@ public class LoadBalancer
 		{
 			m = m0; // actual length of segment
 			final TreeMutableNode root = new TreeMutableNode(null, "root" + level + "-" + i);
-			root.setLink("directory:"); //$NON-NLS-1$
+			root.setLink("directory:");
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
 			root.setLabel(this.label);

@@ -17,7 +17,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="content description" />
+    <list default="true" id="d3ed22e3-c00a-43cf-8ee3-b6bd9de066f1" name="Default" comment="version number">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/treebolicGlue.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/treebolicGlue.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGraph/treebolicGraph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/treebolicGraph.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicIface/treebolicIface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/treebolicIface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLib/treebolicLib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibModel/treebolicLibModel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/treebolicLibModel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicMutable/treebolicMutable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/treebolicMutable.iml" afterDir="false" />
+    </list>
     <ignored path="./" />
     <ignored path="treebolicLib/build/" />
     <ignored path=".gradle/" />
@@ -158,9 +166,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Analyzed'; set:(file[treebolicMutable]:src/main/java//*||file[treebolicLibView]:src/main/java//*||file[treebolicLibModel]:src/main/java//*||file[treebolicLib]:src/main//*||file[treebolicIface]:src/main//*||file[treebolicGraph]:src/main//*||file[treebolicGlueIface]:src/main//*||file[treebolicGlue]:src/main//*||file[treebolicGlue]:build.gradle||file[treebolicGlue]:build/generated/source/buildConfig/debug//*||file[treebolicGlue]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/debug//*||file[treebolicGlueIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicGlue]:lint.xml||file[treebolicGlueIface]:lint.xml||file[treebolicGlueIface]:build.gradle||file[treebolicGraph]:lint.xml||file[treebolicGraph]:build.gradle||file[treebolicGraph]:build/generated/source/buildConfig/debug//*||file[treebolicGraph]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicIface]:build/generated/source/buildConfig/debug//*||file[TreebolicLib]:build.gradle||file[TreebolicLib]:gradle.properties||file[TreebolicLib]:local.properties||file[TreebolicLib]:proguard-rules.pro||file[TreebolicLib]:settings.gradle||file[treebolicLib]:build/generated/source/buildConfig/debug//*||file[treebolicLib]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLib]:build.gradle||file[treebolicIface]:build.gradle||file[treebolicLibModel]:build.gradle||file[treebolicLibModel]:src/main//*||file[treebolicLibView]:src/main//*||file[treebolicLibView]:build/generated/source/buildConfig/debug//*||file[treebolicLibView]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/debug//*||file[treebolicMutable]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicMutable]:src/main//*||file[treebolicLibView]:build.gradle||file[treebolicMutable]:build.gradle||file[treebolicLibView]:lint.xml||file[treebolicMutable]:lint.xml||file[treebolicLoadBalancer]:src/main//*||file[treebolicLoadBalancer]:build.gradle||file[treebolicLoadBalancer]:lint.xml||file[treebolicLoadBalancer]:build/generated/source/buildConfig/debug//*||file[treebolicLoadBalancer]:build/generated/source/buildConfig/androidTest/debug//*||file[treebolicLibModel]:lint.xml)&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages.properties&amp;&amp;!file[treebolicGlue]:src/main/resources/treebolic/messages_fr.properties||file[treebolicLib]:lint.xml||file[treebolicIface]:lint.xml; class com.intellij.psi.search.scope.packageSet.NamedScope">
           <expand>
@@ -458,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561539422472</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="version number">
+      <created>1561618084317</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1561618084317</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -483,8 +498,8 @@
       <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32485324" />
-      <window_info anchor="bottom" id="Build" order="11" weight="0.32876712" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32485324" />
+      <window_info anchor="bottom" id="Build" order="11" visible="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Android Profiler" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.33561644" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -512,7 +527,8 @@
     <MESSAGE value="lint" />
     <MESSAGE value="LoadBalancer" />
     <MESSAGE value="content description" />
-    <option name="LAST_COMMIT_MESSAGE" value="content description" />
+    <MESSAGE value="version number" />
+    <option name="LAST_COMMIT_MESSAGE" value="version number" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/GraphicsCache.java">
@@ -916,12 +932,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/treebolicLibView/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/Image.java">
       <provider selected="true" editor-type-id="text-editor">

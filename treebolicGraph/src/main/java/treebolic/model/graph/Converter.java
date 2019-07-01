@@ -44,7 +44,7 @@ public class Converter<T extends TreeMutableNode>
 			}
 			else
 			{
-				throw new RuntimeException("No single root " + rootNodes); //$NON-NLS-1$
+				throw new RuntimeException("No single root " + rootNodes);
 			}
 		}
 		else
@@ -68,7 +68,7 @@ public class Converter<T extends TreeMutableNode>
 		// spanning tree
 		if (rootNode == null)
 		{
-			throw new RuntimeException("Null root"); //$NON-NLS-1$
+			throw new RuntimeException("Null root");
 		}
 
 		// spanning tree
