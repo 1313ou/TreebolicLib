@@ -548,12 +548,10 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 							break;
 
 						case MotionEvent.ACTION_UP:
-							// if(LOG) Log.d(Surface.TAG, "touch up");
-							this.listener.onUp((int) event.getX(), (int) event.getY());
-							break;
 
 						case MotionEvent.ACTION_CANCEL:
 							// if(LOG) Log.d(Surface.TAG, "touch cancel");
+							// if(LOG) Log.d(Surface.TAG, "touch up");
 							this.listener.onUp((int) event.getX(), (int) event.getY());
 							break;
 

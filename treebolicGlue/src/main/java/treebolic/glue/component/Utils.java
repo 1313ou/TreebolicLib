@@ -120,7 +120,6 @@ public class Utils
 	 * @param resId   drawable id
 	 * @return drawable
 	 */
-	@SuppressWarnings("deprecation")
 	static public Drawable getDrawable(@NonNull final Context context, @DrawableRes int resId)
 	{
 		final Resources resources = context.getResources();
@@ -144,7 +143,6 @@ public class Utils
 	 * @param resIds  drawable ids
 	 * @return drawables
 	 */
-	@SuppressWarnings("deprecation")
 	@NonNull
 	static public Drawable[] getDrawables(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... resIds)
 	{

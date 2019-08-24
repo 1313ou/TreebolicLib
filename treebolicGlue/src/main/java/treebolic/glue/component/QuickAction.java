@@ -433,7 +433,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		}
 
 		// Y
-		final boolean above = y0 > anchor.getHeight() / 2;
+		final boolean above = y0 > anchor.getHeight() / 2F;
 		int y = (int) y0 + location[1];
 		if (above)
 		{

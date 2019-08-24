@@ -60,6 +60,7 @@ public interface Surface<G, L>
 	 *
 	 * @param string tooltip string
 	 */
+	@SuppressWarnings("EmptyMethod")
 	void setToolTipText(final String string);
 
 	/**

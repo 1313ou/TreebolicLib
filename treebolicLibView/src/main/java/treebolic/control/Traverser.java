@@ -21,6 +21,7 @@ public class Traverser extends Generator<INode>
 {
 	interface Matcher
 	{
+		@SuppressWarnings("WeakerAccess")
 		boolean match(final INode node);
 	}
 

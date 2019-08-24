@@ -17,6 +17,6 @@ public interface ActionListener
 	 * @param params parameters
 	 * @return true if handled
 	 */
-	@SuppressWarnings("UnusedReturnValue")
+	@SuppressWarnings({"UnusedReturnValue", "EmptyMethod"})
 	boolean onAction(Object... params);
 }

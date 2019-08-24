@@ -142,7 +142,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param imageByteArray byte array
 	 */
-	@SuppressWarnings({"WeakerAccess", "deprecation"})
+	@SuppressWarnings({"WeakerAccess"})
 	public void setFromByteArray(@NonNull final byte[] imageByteArray)
 	{
 		final Options opt = new Options();

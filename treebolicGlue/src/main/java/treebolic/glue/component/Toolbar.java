@@ -62,6 +62,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		SCALEUP, SCALEDOWN, SCALEONE //
 		;
 
+		@SuppressWarnings("WeakerAccess")
 		public int getIndex()
 		{
 			return ordinal();
@@ -175,7 +176,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	// A D D  B U T T O N
 
-	@SuppressWarnings({"WeakerAccess", "deprecation"})
+	@SuppressWarnings({"WeakerAccess"})
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void addButton(@NonNull final Button button, @NonNull final ActionListener listener)
