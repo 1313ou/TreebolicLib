@@ -30,7 +30,6 @@ android {
 dependencies {
     api project(':treebolicGlueIface')
 
-    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
 
     testImplementation 'junit:junit:4.12'
