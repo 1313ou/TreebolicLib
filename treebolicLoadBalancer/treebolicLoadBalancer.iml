@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":treebolicLoadBalancer" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":treebolicLoadBalancer" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/../../TreebolicOne" external.system.id="GRADLE" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
@@ -91,6 +91,10 @@
     <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
+    <orderEntry type="module" module-name="treebolicMutable" />
+    <orderEntry type="module" module-name="treebolicLibModel" />
+    <orderEntry type="module" module-name="treebolicGlue" />
+    <orderEntry type="module" module-name="treebolicGlueIface" />
     <orderEntry type="module" module-name="treebolicMutable" />
     <orderEntry type="module" module-name="treebolicLibModel" />
     <orderEntry type="module" module-name="treebolicGlue" />

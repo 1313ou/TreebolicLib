@@ -222,12 +222,13 @@ public class ModelDump
 			for (final MenuItem menuItem : settings.menu)
 			{
 				sb.append("MenuItem");
-				sb.append(" action=").append(menuItem.action);
-				sb.append(" link=").append(menuItem.link);
-				sb.append(" target=").append(menuItem.matchTarget);
-				sb.append(" scope=").append(menuItem.matchScope);
-				sb.append(" mode=").append(menuItem.matchMode);
-				sb.append(" label=").append(menuItem.label);
+				sb.append(" action=").append(menuItem.action == null ? "" : menuItem.action);
+				sb.append(" link=").append(menuItem.link == null ? "" : menuItem.link);
+				sb.append(" target=").append(menuItem.matchTarget == null ? "" : menuItem.matchTarget);
+				sb.append(" scope=").append(menuItem.matchScope == null ? "" : menuItem.matchScope);
+				sb.append(" mode=").append(menuItem.matchMode == null ? "" : menuItem.matchMode);
+				sb.append(" label=").append(menuItem.label == null ? "" : menuItem.label).append('\n');
+				sb.append('\n');
 			}
 		}
 		sb.append('\n');
