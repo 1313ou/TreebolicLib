@@ -471,6 +471,7 @@ public class Painter extends AbstractPainter
 	 * @param node node
 	 * @return node data
 	 */
+	@Nullable
 	@SuppressWarnings({"boxing"})
 	private NodeData computeNodeData(@NonNull final INode node)
 	{
@@ -1711,6 +1712,7 @@ public class Painter extends AbstractPainter
 	 * @param x2 to mpoint
 	 * @return middle
 	 */
+	@NonNull
 	private static Point2D getMidPoint(@SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D x1, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D x2)
 	{
 		final double x = (x1.getX() + x2.getX()) / 2.0;
@@ -1728,6 +1730,7 @@ public class Painter extends AbstractPainter
 	 * @param to   to-point on line
 	 * @return intersection point
 	 */
+	@Nullable
 	static private Point2D getIntersection(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Rectangle2D rect, @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
 	{
 		if (!CROP_EDGES)
@@ -1811,6 +1814,7 @@ public class Painter extends AbstractPainter
 	 * @param arc  arc
 	 * @return intersection point
 	 */
+	@Nullable
 	static private Point2D getIntersection(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Rectangle2D rect, @NonNull final Arc2D arc)
 	{
 		if (!CROP_EDGES)
@@ -2000,6 +2004,7 @@ public class Painter extends AbstractPainter
 	 * @param node node
 	 * @return lines
 	 */
+	@Nullable
 	private String[] makeLabel(@NonNull final INode node)
 	{
 		final String label = node.toString();

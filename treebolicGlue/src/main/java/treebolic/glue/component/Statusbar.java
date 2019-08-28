@@ -399,6 +399,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 *
 	 * @return default style
 	 */
+	@NonNull
 	@SuppressWarnings("boxing")
 	private String getDefaultBaseStyle()
 	{

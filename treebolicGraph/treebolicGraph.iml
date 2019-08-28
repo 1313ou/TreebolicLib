@@ -99,9 +99,5 @@
     <orderEntry type="module" module-name="treebolicLibModel" />
     <orderEntry type="module" module-name="treebolicGlue" />
     <orderEntry type="module" module-name="treebolicGlueIface" />
-    <orderEntry type="module" module-name="treebolicMutable" />
-    <orderEntry type="module" module-name="treebolicLibModel" />
-    <orderEntry type="module" module-name="treebolicGlue" />
-    <orderEntry type="module" module-name="treebolicGlueIface" />
   </component>
 </module>

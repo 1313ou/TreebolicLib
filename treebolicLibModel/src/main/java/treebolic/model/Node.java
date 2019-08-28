@@ -449,7 +449,7 @@ public class Node extends XNodeData implements INode
 	/**
 	 * Node children
 	 */
-	@Nullable
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	protected List<INode> children;
 
@@ -496,7 +496,7 @@ public class Node extends XNodeData implements INode
 		this.parent = parent;
 	}
 
-	@Nullable
+	@NonNull
 	@Override
 	public List<INode> getChildren()
 	{

@@ -40,6 +40,7 @@ public class ArcMath
 	 * @param arc2D arc
 	 * @return point at mid-arc
 	 */
+	@NonNull
 	public static Point2D getMidArc(@SuppressWarnings("TypeMayBeWeakened") @NonNull final Arc2D arc2D)
 	{
 		final double a = arc2D.getWidth() / 2.;

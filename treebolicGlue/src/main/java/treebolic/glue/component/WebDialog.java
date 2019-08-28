@@ -261,6 +261,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	 *
 	 * @return default style
 	 */
+	@NonNull
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"boxing"})
 	private String getDefaultBaseStyle()

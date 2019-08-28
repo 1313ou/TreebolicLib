@@ -106,6 +106,7 @@ public class Mounter
 	 * @param edges       edge list to scan for orphaned edges
 	 * @return mounting node if successful, null otherwise
 	 */
+	@Nullable
 	public static synchronized INode prune(@NonNull final INode mountedNode, @Nullable final List<IEdge> edges)
 	{
 		// REQUISITES

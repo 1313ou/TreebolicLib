@@ -538,6 +538,7 @@ public class Controller extends Commander
 	 * @param node node
 	 * @return content string
 	 */
+	@NonNull
 	static private String getContent(@NonNull final INode node)
 	{
 		final StringBuffer sb = new StringBuffer();
@@ -825,6 +826,7 @@ public class Controller extends Commander
 	 * @param node   start node
 	 * @return next found node
 	 */
+	@Nullable
 	private INode match(@NonNull final String target, final MatchScope scope, final MatchMode mode, final INode node)
 	{
 		if (this.traversedNodes == null)
@@ -866,6 +868,7 @@ public class Controller extends Commander
 	 *
 	 * @return next found node
 	 */
+	@Nullable
 	private INode reMatch()
 	{
 		if (this.traversedNodes == null)

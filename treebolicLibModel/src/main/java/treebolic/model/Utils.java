@@ -46,6 +46,7 @@ public class Utils
 	 * @param hiddenFlag     whether edge is hidden ('true' or 'false')
 	 * @return style
 	 */
+	@Nullable
 	@SuppressWarnings("boxing")
 	static public Integer parseStyle(@Nullable final String stroke, @Nullable final String fromTerminator, @Nullable final String toTerminator, @Nullable final String lineFlag, @Nullable final String hiddenFlag)
 	{
@@ -329,6 +330,7 @@ public class Utils
 	 * @param style style
 	 * @return hidden, stroke, fromterminator, toterminator strings
 	 */
+	@NonNull
 	static public String[] toStrings(final Integer style)
 	{
 		return new String[]{ //
@@ -705,6 +707,7 @@ public class Utils
 	 * @param menuItem menuitem
 	 * @return action, matchscope, matchmode strings
 	 */
+	@NonNull
 	static public String[] toStrings(@NonNull final MenuItem menuItem)
 	{
 		final String action = Utils.toString(menuItem.action);
@@ -733,6 +736,7 @@ public class Utils
 	 * @param str0 prefixless hexadecimal representation of color
 	 * @return color
 	 */
+	@Nullable
 	static public Color stringToColor(final String str0)
 	{
 		String str = str0;
@@ -763,6 +767,7 @@ public class Utils
 	 * @param scalerString scaler string representation
 	 * @return scaler
 	 */
+	@Nullable
 	public static float[] stringToFloats(@NonNull final String scalerString)
 	{
 		final String[] scalerItem = scalerString.split("[\\s,;]+");
@@ -788,6 +793,7 @@ public class Utils
 	 * @param scaler scaler
 	 * @return string representation
 	 */
+	@NonNull
 	public static String floatsToString(@NonNull final float[] scaler)
 	{
 		final StringBuilder sb = new StringBuilder();

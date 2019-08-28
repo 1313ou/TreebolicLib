@@ -56,6 +56,7 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 		}
 	}
 
+	@NonNull
 	private ActionListener makeListener(@NonNull final Controller.Command command)
 	{
 		return new ActionListener()

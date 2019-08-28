@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Vector;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import treebolic.core.Transformer;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
@@ -52,6 +53,7 @@ public class AnimationTransforms
 	 * @param orientation orientation
 	 * @param steps       number of steps
 	 */
+	@NonNull
 	static public AnimationTransforms make(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex orientation, @SuppressWarnings("SameParameterValue") final int steps)
 	{
 		final List<HyperTransform> transforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ? AnimationTransforms.makeTransform1(from, to, transformer, orientation) : AnimationTransforms.makeTransforms(from, to, transformer, orientation, steps);
@@ -68,6 +70,7 @@ public class AnimationTransforms
 	 * @param steps0       number of steps
 	 * @return transforms or null
 	 */
+	@Nullable
 	static private List<HyperTransform> makeTransforms(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex oOrientation, final int steps0)
 	{
 		int steps = steps0;

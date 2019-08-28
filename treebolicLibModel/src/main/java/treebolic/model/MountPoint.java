@@ -95,6 +95,7 @@ public class MountPoint implements Serializable
 	/**
 	 * Constructor
 	 */
+	@SuppressWarnings("EmptyMethod")
 	private MountPoint()
 	{
 		// do nothing

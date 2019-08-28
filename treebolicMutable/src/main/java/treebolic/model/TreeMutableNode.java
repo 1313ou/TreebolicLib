@@ -4,7 +4,6 @@
 
 package treebolic.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -56,7 +55,6 @@ public class TreeMutableNode extends MutableNode
 	public TreeMutableNode(@NonNull final INode node)
 	{
 		super(null, node.getId());
-		this.children = null;
 
 		this.label = node.getLabel();
 		this.content = node.getContent();
@@ -94,7 +92,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param children children
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public void setChildren(final List<INode> children)
+	public void setChildren(@NonNull final List<INode> children)
 	{
 		this.children = children;
 	}
@@ -131,13 +129,7 @@ public class TreeMutableNode extends MutableNode
 	public void addChild(@NonNull final INode child)
 	{
 		// assertNoLink(this, child);
-
-		List<INode> children = this.getChildren();
-		if (children == null)
-		{
-			children = new ArrayList<>();
-			this.setChildren(children);
-		}
+		final List<INode> children = this.getChildren();
 		children.add(child);
 		child.setParent(this);
 	}
@@ -183,12 +175,7 @@ public class TreeMutableNode extends MutableNode
 	@SuppressWarnings("WeakerAccess")
 	public void insertChild(@NonNull final INode child, @SuppressWarnings("SameParameterValue") final int i)
 	{
-		List<INode> children = this.getChildren();
-		if (children == null)
-		{
-			children = new ArrayList<>();
-			this.setChildren(children);
-		}
+		final List<INode> children = this.getChildren();
 		children.add(i, child);
 		child.setParent(this);
 	}

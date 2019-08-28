@@ -24,6 +24,7 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 	 * @param height0 height
 	 * @return rectangle
 	 */
+	@NonNull
 	public static RectF makeRect(final double left0, final double top0, final double width0, final double height0)
 	{
 		double left = left0;

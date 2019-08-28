@@ -36,6 +36,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 *
 	 * @return list of buttons
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	static public Button[] toolbar()
 	{

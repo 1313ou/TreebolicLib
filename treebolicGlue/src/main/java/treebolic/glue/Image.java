@@ -71,6 +71,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param resource resource URL
 	 */
+	@NonNull
 	static public Image make(@NonNull final URL resource) throws IOException
 	{
 		try (InputStream inputStream = resource.openStream())

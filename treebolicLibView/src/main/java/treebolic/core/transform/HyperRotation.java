@@ -69,6 +69,7 @@ public class HyperRotation extends Complex
 	 * @param angle rotation angle
 	 * @return this point with rotated values
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	static public Complex map(@NonNull final Complex z, @NonNull final Complex angle)
 	{
@@ -99,6 +100,7 @@ public class HyperRotation extends Complex
 	 * @param t2 translation
 	 * @return transform
 	 */
+	@NonNull
 	static public HyperTransform compose(final HyperRotation r1, final HyperTranslation t2)
 	{
 		// t1.p = p1 = ~p1 = (0,0)

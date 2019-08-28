@@ -67,6 +67,7 @@ public class Complex implements Serializable
 	/**
 	 * Default constructor which defaults to (0,0)
 	 */
+	@SuppressWarnings("EmptyMethod")
 	public Complex()
 	{
 		// this(0.,0.);
@@ -113,6 +114,7 @@ public class Complex implements Serializable
 	 * @param mag magnitude m
 	 * @return new complex of this argument a and magnitude m
 	 */
+	@NonNull
 	static public Complex makeFromArgAbs(final double arg, final double mag)
 	{
 		return new Complex(mag * Math.cos(arg), mag * Math.sin(arg));
@@ -124,6 +126,7 @@ public class Complex implements Serializable
 	 * @param arg argument a
 	 * @return new complex of magnitude 1 and argument a
 	 */
+	@NonNull
 	static public Complex makeFromArg(final double arg)
 	{
 		return new Complex(Math.cos(arg), Math.sin(arg));

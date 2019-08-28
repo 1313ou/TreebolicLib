@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 @SuppressWarnings("WeakerAccess")
 public class ProviderUtils
 {
+	@Nullable
 	static public URL makeURL(@Nullable final String source, final URL base, final Properties extras, @NonNull final IProviderContext context)
 	{
 		final boolean DEBUG = true;

@@ -132,6 +132,7 @@ public class HyperTranslation extends Complex
 	 * @param p point expressing translation relative to 0,0
 	 * @return this point with mapped values
 	 */
+	@NonNull
 	static public Complex map(@NonNull final Complex z, @NonNull final Complex p)
 	{
 		// z = (z*theta+p)/(1+(~p)*z)
@@ -151,6 +152,7 @@ public class HyperTranslation extends Complex
 	 * @param p2 point expressing translation relative to 0,0
 	 * @return this point with mapped values
 	 */
+	@NonNull
 	@SuppressWarnings("UnusedReturnValue")
 	static public Complex map2(@NonNull final Complex z, @NonNull final Complex p1, @NonNull final Complex p2)
 	{
@@ -164,6 +166,7 @@ public class HyperTranslation extends Complex
 	 * @param p point expressing translation relative to 0,0
 	 * @return this point with mapped values (by inverse translation)
 	 */
+	@NonNull
 	@SuppressWarnings("WeakerAccess")
 	static public Complex mapinv(@NonNull final Complex z, @NonNull final Complex p)
 	{

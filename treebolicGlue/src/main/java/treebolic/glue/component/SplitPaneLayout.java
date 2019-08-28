@@ -718,6 +718,7 @@ public class SplitPaneLayout extends ViewGroup
 		@SuppressWarnings("hiding")
 		public static final Creator<SavedState> CREATOR = new Creator<SavedState>()
 		{
+			@NonNull
 			@SuppressWarnings("synthetic-access")
 			@Override
 			public SavedState createFromParcel(@NonNull final Parcel in)
@@ -725,6 +726,7 @@ public class SplitPaneLayout extends ViewGroup
 				return new SavedState(in);
 			}
 
+			@NonNull
 			@Override
 			public SavedState[] newArray(final int size)
 			{

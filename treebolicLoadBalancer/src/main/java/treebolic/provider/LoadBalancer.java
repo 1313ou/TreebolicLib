@@ -261,6 +261,7 @@ public class LoadBalancer
 	 * @param last  last child node
 	 * @return makeRangeLabel of parent node
 	 */
+	@Nullable
 	private String makeRangeLabel(@NonNull final INode first, @NonNull final INode last)
 	{
 		String label1 = first.getTarget();

@@ -804,6 +804,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param providerName provider name
 	 * @return provider
 	 */
+	@Nullable
 	private IProvider makeProvider(@NonNull final String providerName)
 	{
 		try
@@ -851,6 +852,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param imageSource image source
 	 * @return image url
 	 */
+	@Nullable
 	private URL makeImageURL(final String imageSource)
 	{
 		try
