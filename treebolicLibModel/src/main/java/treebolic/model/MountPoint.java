@@ -34,6 +34,7 @@ public class MountPoint implements Serializable
 		/**
 		 * Mount now (for editing only)
 		 */
+		@Nullable
 		public Boolean now;
 
 		/**

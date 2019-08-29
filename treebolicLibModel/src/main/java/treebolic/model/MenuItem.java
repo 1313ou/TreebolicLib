@@ -30,6 +30,7 @@ public class MenuItem implements Serializable
 	/**
 	 * Label
 	 */
+	@Nullable
 	public String label;
 
 	/**
@@ -41,16 +42,19 @@ public class MenuItem implements Serializable
 	/**
 	 * Url link
 	 */
+	@Nullable
 	public String link;
 
 	/**
 	 * Url target frame
 	 */
+	@Nullable
 	public String target;
 
 	/**
 	 * Match target
 	 */
+	@Nullable
 	public String matchTarget;
 
 	/**

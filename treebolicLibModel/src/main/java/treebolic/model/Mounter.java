@@ -26,7 +26,7 @@ public class Mounter
 	 * @param mountedEdges edge list from mounted model
 	 * @return true if successful, null otherwise
 	 */
-	public static synchronized boolean graft(@NonNull final INode mountingNode, @NonNull final INode mountedNode, @NonNull final Collection<IEdge> edges, @Nullable final List<IEdge> mountedEdges)
+	public static synchronized boolean graft(@NonNull final INode mountingNode, @NonNull final INode mountedNode, @Nullable final Collection<IEdge> edges, @Nullable final List<IEdge> mountedEdges)
 	{
 		// REQUISITES
 
@@ -91,7 +91,7 @@ public class Mounter
 
 		// EDGES
 		mountedMountPoint.mountedEdges = mountedEdges;
-		if (mountedEdges != null)
+		if (edges != null && mountedEdges != null)
 		{
 			edges.addAll(mountedEdges);
 		}

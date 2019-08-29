@@ -189,6 +189,7 @@ public class Settings implements Serializable
 	/**
 	 * Background image file
 	 */
+	@Nullable
 	public String backgroundImageFile;
 
 	/**
@@ -200,11 +201,13 @@ public class Settings implements Serializable
 	/**
 	 * Font face
 	 */
+	@Nullable
 	public String fontFace;
 
 	/**
 	 * Font size
 	 */
+	@Nullable
 	public Integer fontSize;
 
 	/**
@@ -217,6 +220,7 @@ public class Settings implements Serializable
 	/**
 	 * Whether to downscale fonts
 	 */
+	@Nullable
 	public Boolean downscaleFontsFlag;
 
 	/**
@@ -228,6 +232,7 @@ public class Settings implements Serializable
 	/**
 	 * Whether to downscale fonts
 	 */
+	@Nullable
 	public Boolean downscaleImagesFlag;
 
 	/**
@@ -241,21 +246,25 @@ public class Settings implements Serializable
 	/**
 	 * Tree orientation
 	 */
+	@Nullable
 	public String orientation;
 
 	/**
 	 * Expansion
 	 */
+	@Nullable
 	public Float expansion;
 
 	/**
 	 * Sweep
 	 */
+	@Nullable
 	public Float sweep;
 
 	/**
 	 * Whether orientation is preserved across transforms
 	 */
+	@Nullable
 	public Boolean preserveOrientationFlag;
 
 	// B E H A V I O U R
@@ -264,59 +273,70 @@ public class Settings implements Serializable
 	/**
 	 * Whether toolbar is enabled
 	 */
+	@Nullable
 	public Boolean hasToolbarFlag;
 
 	/**
 	 * Whether status bar is enabled
 	 */
+	@Nullable
 	public Boolean hasStatusbarFlag;
 
 	/**
 	 * Whether popup menus are enabled
 	 */
+	@Nullable
 	public Boolean hasPopUpMenuFlag;
 
 	/**
 	 * Whether tooltips are enabled
 	 */
+	@Nullable
 	public Boolean hasToolTipFlag;
 
 	/**
 	 * Whether tooltips display contents
 	 */
+	@Nullable
 	public Boolean toolTipDisplaysContentFlag;
 
 	// focus
 	/**
 	 * Whether hovering on node triggers gaining focus
 	 */
+	@Nullable
 	public Boolean focusOnHoverFlag;
 
 	/**
 	 * Focus
 	 */
+	@Nullable
 	public String focus;
 
 	// initial move
 	/**
 	 * Initial move to x position (0,1)
 	 */
+	@Nullable
 	public Float xMoveTo;
 
 	/**
 	 * Initial move to y position (0,1)
 	 */
+	@Nullable
 	public Float yMoveTo;
 
 	// shift
 	/**
 	 * Painting shift on x
 	 */
+	@Nullable
 	public Float xShift;
 
 	/**
 	 * Painting shift on y
 	 */
+	@Nullable
 	public Float yShift;
 
 	// N O D E S
@@ -340,6 +360,7 @@ public class Settings implements Serializable
 	/**
 	 * Default node image
 	 */
+	@Nullable
 	public String defaultNodeImage;
 
 	/**
@@ -392,6 +413,7 @@ public class Settings implements Serializable
 	/**
 	 * Tree edge default image
 	 */
+	@Nullable
 	public String defaultTreeEdgeImage;
 
 	/**
@@ -417,6 +439,7 @@ public class Settings implements Serializable
 	/**
 	 * Default edge image
 	 */
+	@Nullable
 	public String defaultEdgeImage;
 
 	/**
@@ -427,6 +450,7 @@ public class Settings implements Serializable
 	/**
 	 * Whether edges are represented as arcs (or straight lines)
 	 */
+	@Nullable
 	public Boolean edgesAsArcsFlag;
 
 	// M E N U
@@ -434,6 +458,7 @@ public class Settings implements Serializable
 	/**
 	 * Menu
 	 */
+	@Nullable
 	public List<MenuItem> menu;
 
 	// C O N S T R U C T O R
