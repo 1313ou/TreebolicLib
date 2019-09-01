@@ -109,6 +109,7 @@ public class Tip extends AppCompatDialogFragment
 	 *
 	 * @param text0 text
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setText(@Nullable final String text0)
 	{
 		this.text = text0;

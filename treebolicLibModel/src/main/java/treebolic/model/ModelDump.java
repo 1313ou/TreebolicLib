@@ -127,7 +127,7 @@ public class ModelDump
 	 */
 	@NonNull
 	@SuppressWarnings("WeakerAccess")
-	static public String toString(@Nullable final List<IEdge> edgeList)
+	static public String toString(@Nullable final Iterable<IEdge> edgeList)
 	{
 		final StringBuilder sb = new StringBuilder();
 		if (edgeList != null)

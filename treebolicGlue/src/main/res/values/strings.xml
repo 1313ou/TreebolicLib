@@ -6,7 +6,7 @@
 
 	<!-- status -->
 	<string name="progress_text">Treebolic</string> <!-- progress text -->
-	<string name="status_text">-</string> <!-- status text -->
+	<string name="status_text">…</string> <!-- status text -->
 	<string name="status_hint">*</string> <!-- status hint -->
 
 	<!-- content descriptions -->

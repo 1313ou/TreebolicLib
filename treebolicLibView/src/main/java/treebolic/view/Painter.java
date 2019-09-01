@@ -1235,7 +1235,7 @@ public class Painter extends AbstractPainter
 	 * @param from from-point
 	 * @param to   to-point
 	 */
-	private void drawText(@NonNull final String str, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
+	private void drawText(@NonNull final String str, @NonNull final Point2D from, @NonNull final Point2D to)
 	{
 		final double x1 = from.getX();
 		final double y1 = from.getY();
@@ -1264,7 +1264,7 @@ public class Painter extends AbstractPainter
 	 * @param to   to-point
 	 * @return mangled string or null
 	 */
-	private String mangleString(final String str0, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
+	private String mangleString(final String str0, @NonNull final Point2D from, @NonNull final Point2D to)
 	{
 		String str = str0;
 		final double cx = to.getX() - from.getX();
@@ -1713,7 +1713,7 @@ public class Painter extends AbstractPainter
 	 * @return middle
 	 */
 	@NonNull
-	private static Point2D getMidPoint(@SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D x1, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D x2)
+	private static Point2D getMidPoint(@NonNull final Point2D x1, @NonNull final Point2D x2)
 	{
 		final double x = (x1.getX() + x2.getX()) / 2.0;
 		final double y = (x1.getY() + x2.getY()) / 2.0;
@@ -1731,7 +1731,7 @@ public class Painter extends AbstractPainter
 	 * @return intersection point
 	 */
 	@Nullable
-	static private Point2D getIntersection(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Rectangle2D rect, @NonNull final Point2D from, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Point2D to)
+	static private Point2D getIntersection(@SuppressWarnings("TypeMayBeWeakened") @Nullable final Rectangle2D rect, @NonNull final Point2D from, @NonNull final Point2D to)
 	{
 		if (!CROP_EDGES)
 		{
@@ -1991,7 +1991,7 @@ public class Painter extends AbstractPainter
 	 * @param arc arc
 	 * @return computed angle
 	 */
-	private static double pointToAngle(final double dx, final double dy, @SuppressWarnings("TypeMayBeWeakened") @NonNull final Arc2D arc)
+	private static double pointToAngle(final double dx, final double dy, @NonNull final Arc2D arc)
 	{
 		return Math.atan2(-dy * arc.getWidth(), dx * arc.getHeight());
 	}

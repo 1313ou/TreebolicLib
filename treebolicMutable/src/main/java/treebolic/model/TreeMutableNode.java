@@ -155,7 +155,7 @@ public class TreeMutableNode extends MutableNode
 	 *
 	 * @param children children nodes
 	 */
-	public void addChildren(@Nullable final List<? extends INode> children)
+	public void addChildren(@Nullable final Iterable<? extends INode> children)
 	{
 		if (children != null)
 		{

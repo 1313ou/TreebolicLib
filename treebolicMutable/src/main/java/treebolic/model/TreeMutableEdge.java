@@ -24,7 +24,7 @@ public class TreeMutableEdge extends MutableEdge
 	 * @param fromNode from node (may be null)
 	 * @param toNode   to node (may be null)
 	 */
-	public TreeMutableEdge(final MutableNode fromNode, final MutableNode toNode)
+	public TreeMutableEdge(final INode fromNode, final INode toNode)
 	{
 		super(fromNode, toNode);
 	}
@@ -50,7 +50,7 @@ public class TreeMutableEdge extends MutableEdge
 	 *
 	 * @param fromNode from-node (may be null)
 	 */
-	public void setFrom(final MutableNode fromNode)
+	public void setFrom(final INode fromNode)
 	{
 		this.fromNode = fromNode;
 	}
@@ -60,7 +60,7 @@ public class TreeMutableEdge extends MutableEdge
 	 *
 	 * @param toNode to-node (may be null)
 	 */
-	public void setTo(final MutableNode toNode)
+	public void setTo(final INode toNode)
 	{
 		this.toNode = toNode;
 	}
