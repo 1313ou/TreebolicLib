@@ -24,6 +24,7 @@ public interface IProvider
 	 *
 	 * @param locator locator context
 	 */
+	@SuppressWarnings("EmptyMethod")
 	void setLocator(ILocator locator);
 
 	/**
@@ -31,6 +32,7 @@ public interface IProvider
 	 *
 	 * @param providerContext provider context
 	 */
+	@SuppressWarnings("EmptyMethod")
 	void setContext(IProviderContext providerContext);
 
 	/**

@@ -126,6 +126,7 @@ public class MutableNode extends Node
 	 *
 	 * @param imageIndex image index
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public void setImageIndex(final int imageIndex)
 	{
 		this.imageIndex = imageIndex;

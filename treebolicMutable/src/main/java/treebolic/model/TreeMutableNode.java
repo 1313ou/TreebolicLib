@@ -27,6 +27,7 @@ public class TreeMutableNode extends MutableNode
 	 * @param parent parent
 	 * @param id     id
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public TreeMutableNode(@SuppressWarnings("SameParameterValue") final INode parent, final String id)
 	{
 		super(parent, id);
