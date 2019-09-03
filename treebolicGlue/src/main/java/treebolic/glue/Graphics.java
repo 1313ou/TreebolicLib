@@ -44,6 +44,12 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	static public float PT2PX = 160 * (1.0f / 72);
 
 	/**
+	 * Stroke width factor
+	 */
+	@SuppressWarnings("WeakerAccess")
+	static public float strokeWidthFactor = 2F;
+
+	/**
 	 * Font factor may be changed by application depending on screen size
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -69,7 +75,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Dot effect
 	 */
-	static private final PathEffect dotEffect = new DashPathEffect(new float[]{5, 2}, 0); // on-interval off-interval
+	static private final PathEffect dotEffect = new DashPathEffect(new float[]{5, 3}, 0); // on-interval off-interval
 
 	/**
 	 * Dash effect
@@ -119,7 +125,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 		this.paint.setAntiAlias(true);
 		this.paint.setHinting(Paint.HINTING_ON); // font
 
-		this.paint.setStrokeWidth(2);
+		this.paint.setStrokeWidth(strokeWidthFactor * 1F);
 		this.paint.setStrokeCap(Cap.BUTT);
 		this.paint.setStrokeJoin(Join.BEVEL);
 		this.paint.setStrokeMiter(1);
@@ -352,9 +358,9 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 			default:
 				break;
 		}
-		if (width >= 0)
+		if (width > 0)
 		{
-			this.paint.setStrokeWidth(width);
+			this.paint.setStrokeWidth(strokeWidthFactor * width);
 		}
 	}
 

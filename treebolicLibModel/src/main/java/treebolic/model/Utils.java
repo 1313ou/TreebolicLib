@@ -4,7 +4,9 @@
 
 package treebolic.model;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Locale;
 import java.util.Properties;
@@ -32,7 +34,9 @@ public class Utils
 	 * Style component pointer
 	 */
 	public enum StyleComponent
-	{STROKE, STROKEWIDTH, FROMTERMINATOR, TOTERMINATOR, LINE, HIDDEN}
+	{
+		STROKE, STROKEWIDTH, FROMTERMINATOR, TOTERMINATOR, LINE, HIDDEN
+	}
 
 	// 0000 dddd ttttt tttt ffff ffff 0000 sssh
 
@@ -823,7 +827,27 @@ public class Utils
 	static public Properties load(@NonNull final URL url) throws IOException
 	{
 		final Properties properties = new Properties();
-		properties.load(url.openStream());
+		try (InputStream is = url.openStream())
+		{
+			properties.load(is);
 		return properties;
+		}
+	}
+
+	/**
+	 * Load properties from file location
+	 *
+	 * @param location location of property file to load from
+	 * @throws IOException io exception
+	 */
+	@NonNull
+	static public Properties load(@NonNull final String location) throws IOException
+	{
+		final Properties properties = new Properties();
+		try (InputStream is = new FileInputStream(location))
+		{
+			properties.load(is);
+			return properties;
+		}
 	}
 }
