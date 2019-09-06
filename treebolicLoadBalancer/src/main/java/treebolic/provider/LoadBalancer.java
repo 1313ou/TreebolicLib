@@ -142,7 +142,8 @@ public class LoadBalancer
 		for (int i = 0; i < z; i = i + m)
 		{
 			m = m0; // actual length of segment
-			final TreeMutableNode root = new TreeMutableNode(null, "root" + level + "-" + i);
+			final String id = nodes.get(i).getId() + "~" + level + "-" + i; // composite id from first child node under root
+			final TreeMutableNode root = new TreeMutableNode(null, id);
 			root.setLink("directory:");
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);

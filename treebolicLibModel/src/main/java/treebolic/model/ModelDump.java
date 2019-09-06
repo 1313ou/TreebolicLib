@@ -106,8 +106,10 @@ public class ModelDump
 			}
 
 			// children
-			sb.append('\n');
 			final List<INode> childNodes = node.getChildren();
+			sb.append(" ~");
+			sb.append(childNodes == null ? -1 : childNodes.size());
+			sb.append('\n');
 			if (childNodes != null)
 			{
 				for (final INode childNode : childNodes)

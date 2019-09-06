@@ -1007,6 +1007,7 @@ public class Painter extends AbstractPainter
 
 			// width
 			int width = (style & IEdge.STROKEWIDTHMASK) >> IEdge.STROKEWIDTHSHIFT;
+
 			this.graphics.pushStroke();
 			this.graphics.setStroke(strokeValue, width);
 			this.graphics.drawArc(x, y, w, h, start, extent);
