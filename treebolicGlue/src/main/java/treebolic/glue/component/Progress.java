@@ -104,7 +104,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 		this.progressIcon = wrappedView.findViewById(R.id.progressIcon);
 		this.statusView = wrappedView.findViewById(R.id.progressStatus);
 		this.progressBar = wrappedView.findViewById(R.id.progressBar);
-		this.statusView.setText(R.string.status_text);
+		this.statusView.setText("");
 		this.progressBar.setMax(100);
 		this.progressBar.setVisibility(View.INVISIBLE);
 		this.progressBar.setIndeterminate(false);

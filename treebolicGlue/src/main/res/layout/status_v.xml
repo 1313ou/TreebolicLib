@@ -22,7 +22,7 @@
 		android:gravity="center_vertical"
 		android:maxLines="@integer/status_max_lines"
 		android:minLines="@integer/status_min_lines"
-		android:text="@string/status_text"
+		android:text=""
 		android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
 		android:textSize="20sp"/>
 
