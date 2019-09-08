@@ -37,7 +37,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * Log tag
 	 */
 	static private final boolean LOG = false;
-	static private final String TAG = "Treebolic Surface";
+	static private final String TAG = "TreebolicSurface";
 
 	/**
 	 * Margin of error when finding node
