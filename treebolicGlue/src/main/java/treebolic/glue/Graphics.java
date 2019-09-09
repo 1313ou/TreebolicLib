@@ -46,7 +46,7 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	/**
 	 * Stroke width factor
 	 */
-	@SuppressWarnings("WeakerAccess")
+	@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 	static public float strokeWidthFactor = 2F;
 
 	/**
