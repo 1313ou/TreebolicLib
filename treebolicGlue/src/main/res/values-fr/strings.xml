@@ -3,17 +3,16 @@
   ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 	<!-- status -->
 	<string name="progress_text">Treebolic</string> <!-- progress text -->
-	<string name="status_hint">*</string> <!-- status hint -->
 
 	<!-- content descriptions -->
 	<string name="progress_logo">logo</string> <!-- content description for progress pix -->
 	<string name="popup_arrow">flèche</string> <!-- content description for popup arrow pix -->
 	<string name="popup_item">élément</string> <!-- content description for popup bullet pix -->
-	<string name="tip_info">info</string> <!-- content description for tip info pix -->
+	<string name="tip_info" tools:keep="@string/tip_info">info</string> <!-- content description for tip info pix -->
 
 	<!-- popup labels -->
 	<string-array name="popup_labels">
