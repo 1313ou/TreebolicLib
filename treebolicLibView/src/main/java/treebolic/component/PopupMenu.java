@@ -170,6 +170,12 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 				{
 					menuLabel = PopupMenu.expandMacro(menuLabel, value, node);
 
+					// no item without label
+					if (menuLabel == null)
+					{
+						continue;
+					}
+
 					// assume ImageIndices.ordinal() = control.Action.ordinal()
 					popupMenu.addItem(menuLabel, menuItem.action.ordinal(), new ActionListener()
 					{

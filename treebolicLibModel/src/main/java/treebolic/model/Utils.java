@@ -58,12 +58,12 @@ public class Utils
 		int style = 0;
 		if (hiddenFlag != null && !hiddenFlag.isEmpty())
 		{
-			style |= (Boolean.valueOf(hiddenFlag) ? IEdge.HIDDEN : 0) | IEdge.HIDDENDEF;
+			style |= (Boolean.parseBoolean(hiddenFlag) ? IEdge.HIDDEN : 0) | IEdge.HIDDENDEF;
 			isDefined = true;
 		}
 		if (lineFlag != null && !lineFlag.isEmpty())
 		{
-			style |= (Boolean.valueOf(lineFlag) ? IEdge.LINE : 0) | IEdge.LINEDEF;
+			style |= (Boolean.parseBoolean(lineFlag) ? IEdge.LINE : 0) | IEdge.LINEDEF;
 			isDefined = true;
 		}
 		if (stroke != null && !stroke.isEmpty())

@@ -23,7 +23,7 @@ public abstract class Generator<T> implements Iterable<T>
 	/**
 	 * Condition
 	 */
-	private class Condition
+	private static class Condition
 	{
 		private boolean isSet;
 

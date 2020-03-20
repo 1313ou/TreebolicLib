@@ -23,6 +23,10 @@ import treebolic.model.TreeMutableNode;
 @SuppressWarnings("WeakerAccess")
 public class LoadBalancer
 {
+	// T A R G E T   T O   D I S C R I M I N A T E   D I R E C T O R I E S
+
+	private static final String DIR_TARGET = "directory:";
+
 	// S E T T I N G S D A T A
 
 	private static final String NL = "<br>";
@@ -94,11 +98,11 @@ public class LoadBalancer
 	/**
 	 * Set group node data
 	 *
-	 * @param label0 group node label
+	 * @param label0      group node label
 	 * @param backColor0  group node back color
 	 * @param foreColor0  group node back color
 	 * @param edgeColor0  group node edge color
-	 * @param edgeStyle0 group node edge style
+	 * @param edgeStyle0  group node edge style
 	 * @param imageIndex0 group node image index
 	 * @param image0      group node image
 	 */
@@ -137,14 +141,14 @@ public class LoadBalancer
 		{
 			m0--;
 		}
-		@SuppressWarnings("UnusedAssignment")
-		int m = m0; // actual length of segment
+		@SuppressWarnings("UnusedAssignment") int m = m0; // actual length of segment
 		for (int i = 0; i < z; i = i + m)
 		{
 			m = m0; // actual length of segment
 			final String id = nodes.get(i).getId() + "~" + level + "-" + i; // composite id from first child node under root
 			final TreeMutableNode root = new TreeMutableNode(null, id);
-			root.setLink("directory:");
+			root.setLink(null);
+			root.setTarget(DIR_TARGET);
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
 			root.setLabel(this.label);
@@ -276,8 +280,8 @@ public class LoadBalancer
 		final StringBuilder sb = new StringBuilder();
 		sb.append(left(label1, this.truncateLabelAt)) //
 				.append('-');
-		boolean isContact = !"directory:".equals(last.getLink());
-		if (isContact)
+		boolean isItem = !DIR_TARGET.equals(last.getTarget());
+		if (isItem)
 		{
 			sb.append(left(label2, this.truncateLabelAt));
 		}
