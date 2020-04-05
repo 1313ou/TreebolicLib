@@ -20,6 +20,7 @@ public interface ILocator
 	 *
 	 * @return base url
 	 */
+	@SuppressWarnings("SameReturnValue")
 	@Nullable
 	URL getBase();
 
@@ -28,6 +29,7 @@ public interface ILocator
 	 *
 	 * @return images base url
 	 */
+	@SuppressWarnings("SameReturnValue")
 	@Nullable
 	URL getImagesBase();
 }
