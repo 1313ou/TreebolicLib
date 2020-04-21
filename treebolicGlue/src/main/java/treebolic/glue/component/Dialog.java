@@ -265,7 +265,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 	}
 
 	@Override
-	public void setConverter(final Converter converter0)
+	public void setConverter(@Nullable final Converter converter0)
 	{
 		this.converter = converter0;
 	}

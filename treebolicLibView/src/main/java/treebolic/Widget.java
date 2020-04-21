@@ -1174,7 +1174,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param message message
 	 * @param type    type of message
 	 */
-	public void putStatus(@NonNull final Statusbar.PutType type, final String header, final String... message)
+	private void putStatus(@SuppressWarnings("SameParameterValue") @NonNull final Statusbar.PutType type, final String header, final String... message)
 	{
 		if (this.statusbar == null)
 		{
@@ -1208,7 +1208,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param header  header
 	 * @param content content
 	 */
-	public void putInfo(final String header, final String[] content)
+	public void putInfo(final CharSequence header, final String[] content)
 	{
 		@SuppressWarnings("TypeMayBeWeakened") final Dialog dialog = new Dialog();
 		dialog.setHandle(this.handle);

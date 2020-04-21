@@ -170,7 +170,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		// inflate
 		final LayoutInflater inflater = (LayoutInflater) this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		assert inflater != null;
-		TextView statusView0 = null;
+		TextView statusView0;
 		WebView webContentView0 = null;
 		TextView textContentView0 = null;
 		try

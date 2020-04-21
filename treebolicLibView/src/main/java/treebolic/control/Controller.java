@@ -19,7 +19,6 @@ import treebolic.control.Traverser.NoCaseMatcher;
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.location.Complex;
 import treebolic.glue.Point;
-import treebolic.glue.iface.component.Converter;
 import treebolic.model.INode;
 import treebolic.model.MenuItem.Action;
 import treebolic.model.Model;
@@ -408,7 +407,7 @@ public class Controller extends Commander
 					}
 					else
 					{
-						this.widget.putStatus(Statusbar.PutType.SEARCH, (Converter) null, Messages.getString("Controller.status_notfound"), message.toString());
+						this.widget.putStatus(Statusbar.PutType.SEARCH, null, Messages.getString("Controller.status_notfound"), message.toString());
 					}
 				}
 				break;
@@ -524,13 +523,13 @@ public class Controller extends Commander
 		return sb.toString();
 	}
 
-	public static final int IDX_NODE_CONTENT = 0;
+	private static final int IDX_NODE_CONTENT = 0;
 
-	public static final int IDX_NODE_LINK = 1;
+	private static final int IDX_NODE_LINK = 1;
 
-	public static final int IDX_NODE_MOUNTPOINT = 2;
+	private static final int IDX_NODE_MOUNTPOINT = 2;
 
-	public static final int IDX_NODE_WEIGHT = 3;
+	private static final int IDX_NODE_WEIGHT = 3;
 
 	/**
 	 * Get content string
@@ -592,7 +591,7 @@ public class Controller extends Commander
 	@NonNull
 	public static String makeHtmlContent(@NonNull final CharSequence[] contents, boolean div)
 	{
-		final StringBuffer sb = new StringBuffer();
+		final StringBuilder sb = new StringBuilder();
 		if (contents[IDX_NODE_CONTENT] != null)
 		{
 			sb.append(div ? makeHtml("content", contents[IDX_NODE_CONTENT]) : contents[IDX_NODE_CONTENT]);
@@ -621,7 +620,7 @@ public class Controller extends Commander
 	@NonNull
 	public static String makeHtml(String divStyle, @NonNull final CharSequence... contents)
 	{
-		final StringBuffer sb = new StringBuffer();
+		final StringBuilder sb = new StringBuilder();
 		for (CharSequence content : contents)
 		{
 			if (content != null && content.length() > 0)
