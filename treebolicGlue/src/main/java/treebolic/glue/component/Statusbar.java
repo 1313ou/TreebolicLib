@@ -4,6 +4,7 @@
 
 package treebolic.glue.component;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
@@ -12,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.Display;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import treebolic.glue.Color;
 import treebolic.glue.iface.ActionListener;
+import treebolic.glue.iface.component.Converter;
 
 /**
  * Status bar
@@ -61,9 +64,14 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	private final TextView statusView;
 
 	/**
-	 * Content status view
+	 * Web content status view
 	 */
-	private final WebView contentView;
+	private final WebView webContentView;
+
+	/**
+	 * Text content status view
+	 */
+	private final TextView textContentView;
 
 	/**
 	 * Activity
@@ -136,6 +144,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 *
 	 * @param activity0 activity
 	 */
+	@SuppressLint("CutPasteId")
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"WeakerAccess"})
 	protected Statusbar(@NonNull final AppCompatActivity activity0)
@@ -152,21 +161,71 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		final boolean isHorizontalScreen = size.x >= size.y;
 		this.isHorizontal = !isHorizontalScreen;
 
-		// inflate
-		final LayoutInflater inflater = (LayoutInflater) this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		assert inflater != null;
-		final ViewGroup wrappedView = (ViewGroup) inflater.inflate(isHorizontalScreen ? R.layout.status_h : R.layout.status_v, this);
-		this.statusView = wrappedView.findViewById(R.id.status);
-		this.contentView = wrappedView.findViewById(R.id.content);
-		this.contentView.setFocusable(false);
-
 		// colors
 		final int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_icon);
 		this.background = colors[0];
 		this.foreground = colors[1];
 		this.iconTint = colors[2];
 
-		this.contentView.setBackgroundColor(this.background);
+		// inflate
+		final LayoutInflater inflater = (LayoutInflater) this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		assert inflater != null;
+		TextView statusView0 = null;
+		WebView webContentView0 = null;
+		TextView textContentView0 = null;
+		try
+		{
+			final ViewGroup wrappedView = (ViewGroup) inflater.inflate(isHorizontalScreen ? R.layout.status_h : R.layout.status_v, this);
+			statusView0 = wrappedView.findViewById(R.id.status);
+			webContentView0 = wrappedView.findViewById(R.id.content);
+			webContentView0.setFocusable(false);
+			webContentView0.setBackgroundColor(this.background);
+			webContentView0.setWebViewClient(new WebViewClient()
+			{
+				private boolean intercept = false;
+
+				@Override
+				public void onPageFinished(final WebView view0, final String url)
+				{
+					this.intercept = true;
+				}
+
+				@Override
+				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
+				{
+					if (this.intercept && url != null)
+					{
+						Log.d(Statusbar.TAG, "url:" + url);
+						Statusbar.this.actionListener.onAction(url);
+						return true;
+					}
+					return false;
+				}
+
+				@TargetApi(Build.VERSION_CODES.N)
+				@Override
+				public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
+				{
+					final Uri uri = request.getUrl();
+					if (this.intercept && uri != null)
+					{
+						Log.d(Statusbar.TAG, "url:" + uri);
+						Statusbar.this.actionListener.onAction(uri.toString());
+						return true;
+					}
+					return false;
+				}
+			});
+		}
+		catch (InflateException e)
+		{
+			final ViewGroup wrappedView = (ViewGroup) inflater.inflate(isHorizontalScreen ? R.layout.status_h_text : R.layout.status_v_text, this);
+			statusView0 = wrappedView.findViewById(R.id.status);
+			textContentView0 = wrappedView.findViewById(R.id.content);
+		}
+		this.statusView = statusView0;
+		this.webContentView = webContentView0;
+		this.textContentView = textContentView0;
 	}
 
 	/**
@@ -246,10 +305,8 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	}
 
 	@Override
-	public void put(final String label0, final String content0, final int image)
+	public void put(final int image, final Converter converter, final String label0, final String[] content0)
 	{
-		// System.out.println("put("+label+","+content+");");
-
 		// icon
 		final Drawable drawable = getDrawable(image);
 
@@ -275,79 +332,47 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.statusView.setText(label == null ? "" : label);
 
 		// content
-		String content = content0;
-		if (Statusbar.contentProcessor != null)
+		if (this.webContentView != null)
 		{
-			content = contentProcessor.process(content, this);
-		}
-
-		if (content == null)
-		{
-			if (Build.VERSION.SDK_INT < 18)
+			String content = converter.convert(content0);
+			if (Statusbar.contentProcessor != null)
 			{
-				this.contentView.clearView();
+				content = contentProcessor.process(content, this);
+			}
+
+			if (content == null)
+			{
+				if (Build.VERSION.SDK_INT < 18)
+				{
+					this.webContentView.clearView();
+				}
+				else
+				{
+					this.webContentView.loadUrl("about:blank");
+				}
 			}
 			else
 			{
-				this.contentView.loadUrl("about:blank");
+				final StringBuilder html = new StringBuilder();
+				html.append("<html><head>");
+				html.append("<style type='text/css'>");
+				html.append(getDefaultBaseStyle());
+				if (this.style != null && !this.style.isEmpty())
+				{
+					html.append(this.style);
+				}
+				html.append("</style>");
+				html.append("</head><body><div class='body'>");
+				html.append(content);
+				html.append("</div></body></html>");
+				// Log.d(TAG, html.toString());
+
+				this.webContentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html", "UTF-8", null);
 			}
 		}
 		else
 		{
-			final StringBuilder html = new StringBuilder();
-			html.append("<html><head>");
-			html.append("<style type='text/css'>");
-			html.append(getDefaultBaseStyle());
-			if (this.style != null && !this.style.isEmpty())
-			{
-				html.append(this.style);
-			}
-			html.append("</style>");
-			html.append("</head><body><div class='body'>");
-			html.append(content);
-			html.append("</div></body></html>");
-			// Log.d(TAG, html.toString());
-
-			// client
-			final WebViewClient webViewClient = new WebViewClient()
-			{
-				private boolean intercept = false;
-
-				@Override
-				public void onPageFinished(final WebView view0, final String url)
-				{
-					this.intercept = true;
-				}
-
-				@Override
-				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
-				{
-					if (this.intercept && url != null)
-					{
-						Log.d(Statusbar.TAG, "url:" + url);
-						Statusbar.this.actionListener.onAction(url);
-						return true;
-					}
-					return false;
-				}
-
-				@TargetApi(Build.VERSION_CODES.N)
-				@Override
-				public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
-				{
-					final Uri uri = request.getUrl();
-					if (this.intercept && uri != null)
-					{
-						Log.d(Statusbar.TAG, "url:" + uri);
-						Statusbar.this.actionListener.onAction(uri.toString());
-						return true;
-					}
-					return false;
-				}
-			};
-			this.contentView.setWebViewClient(webViewClient);
-			//this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
-			this.contentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html", "UTF-8", null);
+			this.textContentView.setText(Utils.join("\n", content0));
 		}
 	}
 

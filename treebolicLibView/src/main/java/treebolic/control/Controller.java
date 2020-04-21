@@ -19,6 +19,7 @@ import treebolic.control.Traverser.NoCaseMatcher;
 import treebolic.core.AbstractLayerOut;
 import treebolic.core.location.Complex;
 import treebolic.glue.Point;
+import treebolic.glue.iface.component.Converter;
 import treebolic.model.INode;
 import treebolic.model.MenuItem.Action;
 import treebolic.model.Model;
@@ -378,18 +379,17 @@ public class Controller extends Commander
 				{
 					// status
 					final StringBuilder message = new StringBuilder();
-					message.append("<div class='searching'>") //
-							.append(String.format(Messages.getString("Controller.status_search_scope_mode_target"), Controller.matchScopeString[matchScope.ordinal()], //
-									Controller.matchModeString[matchMode.ordinal()], //
-									searchTarget)); //
+					message.append(String.format(Messages.getString("Controller.status_search_scope_mode_target"), //
+							Controller.matchScopeString[matchScope.ordinal()], //
+							Controller.matchModeString[matchMode.ordinal()], //
+							searchTarget)); //
 					if (node.getLabel() != null)
 					{
 						message.append(' ') //
 								.append(String.format(Messages.getString("Controller.status_search_origin"), node.getLabel())); //
 					}
-					message.append("</div>").append('\n');
 					assert this.widget != null;
-					this.widget.putStatus(Messages.getString("Controller.status_searching"), message.toString(), Statusbar.PutType.SEARCH);
+					this.widget.putStatus(Statusbar.PutType.SEARCH, (s) -> Controller.makeHtml("searching", s), Messages.getString("Controller.status_searching"), message.toString());
 
 					// search: scope, mode, target, [start]
 					final INode result = search(SearchCommand.SEARCH, matchScope, matchMode, searchTarget, node);
@@ -398,21 +398,17 @@ public class Controller extends Commander
 					{
 						// status
 						message.setLength(0);
-						message.append("<div class='searching'>") //
-								// .append(searchTarget) //
-								// .append(' ') //
-								.append(Messages.getString("Controller.status_result")) //
+						message.append(Messages.getString("Controller.status_result")) //
 								.append(' ') //
 								.append("ID") //
 								.append(' ') //
-								.append(result.getId()) //
-								.append("</div>");
-						this.widget.putStatus(Messages.getString("Controller.status_found"), message.toString(), Statusbar.PutType.SEARCH);
+								.append(result.getId());
+						this.widget.putStatus(Statusbar.PutType.SEARCH, (s) -> makeHtml("searching", s), Messages.getString("Controller.status_found"), message.toString());
 						putStatus(result);
 					}
 					else
 					{
-						this.widget.putStatus(Messages.getString("Controller.status_notfound"), message.toString(), Statusbar.PutType.SEARCH);
+						this.widget.putStatus(Statusbar.PutType.SEARCH, (Converter) null, Messages.getString("Controller.status_notfound"), message.toString());
 					}
 				}
 				break;
@@ -467,9 +463,9 @@ public class Controller extends Commander
 	private void putStatus(@NonNull final INode node)
 	{
 		final String label = Controller.getLabel(node);
-		final String content = Controller.getContent(node);
+		final String[] content = Controller.getContent(node);
 		assert this.widget != null;
-		this.widget.putStatus(label, content, Statusbar.PutType.INFO);
+		this.widget.putStatus(Statusbar.PutType.INFO, (s) -> makeHtmlContent(s, Controller.TOOLTIPHTML), label, content);
 	}
 
 	/**
@@ -480,13 +476,9 @@ public class Controller extends Commander
 	private void putInfo(@NonNull final INode node)
 	{
 		final String label = Controller.getLabel(node);
-		final StringBuffer sb = new StringBuffer();
-		sb.append(Controller.getContent(node));
-		sb.append(Commander.TOOLTIPHTML ? "<br/>" : "\n");
-		addLink(sb, node);
-		addMountPoint(sb, node);
+		final String[] content = Controller.getContent(node);
 		assert this.widget != null;
-		this.widget.putInfo(label, sb.toString());
+		this.widget.putInfo(label, content);
 	}
 
 	/**
@@ -532,6 +524,14 @@ public class Controller extends Commander
 		return sb.toString();
 	}
 
+	public static final int IDX_NODE_CONTENT = 0;
+
+	public static final int IDX_NODE_LINK = 1;
+
+	public static final int IDX_NODE_MOUNTPOINT = 2;
+
+	public static final int IDX_NODE_WEIGHT = 3;
+
 	/**
 	 * Get content string
 	 *
@@ -539,111 +539,101 @@ public class Controller extends Commander
 	 * @return content string
 	 */
 	@NonNull
-	static private String getContent(@NonNull final INode node)
+	static private String[] getContent(@NonNull final INode node)
 	{
-		final StringBuffer sb = new StringBuffer();
+		final String[] contents = new String[4];
 
-		final String content = node.getContent();
-		if (content != null)
-		{
-			if (Commander.TOOLTIPHTML)
-			{
-				sb.append("<div class='content'>");
-			}
-			sb.append(content);
-			if (Commander.TOOLTIPHTML)
-			{
-				sb.append("</div>");
-			}
-		}
+		contents[IDX_NODE_CONTENT] = node.getContent();
 
 		// link
 		if (Controller.CONTENT_HAS_LINK)
 		{
-			addLink(sb, node);
+			final String link = node.getLink();
+			if (link != null && !link.isEmpty())
+			{
+				contents[IDX_NODE_LINK] = '[' + Controller.decode(link) + ']'
+				// + 'L'
+				// + "&#x1F310;"
+				// + "🌐"
+				;
+			}
 		}
 
 		// mountpoint
 		if (Controller.CONTENT_HAS_MOUNT)
 		{
-			addMountPoint(sb, node);
+			final MountPoint mountPoint = node.getMountPoint();
+			//noinspection InstanceofConcreteClass
+			if (mountPoint instanceof MountPoint.Mounting)
+			{
+				final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
+				contents[IDX_NODE_MOUNTPOINT] = '[' + Controller.decode(mountingPoint.url) + ']'
+				// + 'M'
+				// + "&#x1F517;"
+				// + "🔗"
+				;
+			}
 		}
 
+		// weight
 		if (Controller.CONTENT_VERBOSE)
 		{
-			if (Commander.TOOLTIPHTML)
-			{
-				sb.append("<div class='weight'>");
-			}
-			sb.append(" [weight=");
-			sb.append(node.getWeight());
-			sb.append(']');
-			if (Commander.TOOLTIPHTML)
-			{
-				sb.append("</div>");
-			}
+			contents[IDX_NODE_WEIGHT] = "[weight=" + node.getWeight() + ']';
+		}
+		return contents;
+	}
+
+	/**
+	 * Get content string
+	 *
+	 * @param contents strings
+	 * @return html content string
+	 */
+	@NonNull
+	public static String makeHtmlContent(@NonNull final CharSequence[] contents, boolean div)
+	{
+		final StringBuffer sb = new StringBuffer();
+		if (contents[IDX_NODE_CONTENT] != null)
+		{
+			sb.append(div ? makeHtml("content", contents[IDX_NODE_CONTENT]) : contents[IDX_NODE_CONTENT]);
+		}
+
+		// link
+		if (contents[IDX_NODE_LINK] != null)
+		{
+			sb.append(div ? makeHtml("link", contents[IDX_NODE_LINK]) : contents[IDX_NODE_LINK]);
+		}
+
+		// mountpoint
+		if (contents[IDX_NODE_MOUNTPOINT] != null)
+		{
+			sb.append(div ? makeHtml("mount", contents[IDX_NODE_MOUNTPOINT]) : contents[IDX_NODE_MOUNTPOINT]);
+		}
+
+		// weight
+		if (contents[IDX_NODE_WEIGHT] != null)
+		{
+			sb.append(div ? makeHtml("weight", contents[IDX_NODE_WEIGHT]) : contents[IDX_NODE_WEIGHT]);
 		}
 		return sb.toString();
 	}
 
-	/**
-	 * Add link to string buffer
-	 *
-	 * @param sb   string buffer
-	 * @param node node
-	 */
-	static private void addLink(@NonNull final StringBuffer sb, @NonNull final INode node)
+	@NonNull
+	public static String makeHtml(String divStyle, @NonNull final CharSequence... contents)
 	{
-		final String link = node.getLink();
-		if (link != null && !link.isEmpty())
+		final StringBuffer sb = new StringBuffer();
+		for (CharSequence content : contents)
 		{
-			if (Commander.TOOLTIPHTML)
+			if (content != null && content.length() > 0)
 			{
-				sb.append("<div class='link'>");
-			}
-			sb.append('[');
-			sb.append(Controller.decode(link));
-			sb.append(']');
-			// {
-			// // sb.append('L');
-			// sb.append(Commander.tooltipHtml ? "&#x1F310;" : "🌐");
-			// }
-			if (Commander.TOOLTIPHTML)
-			{
+				sb.append("<div class='");
+				sb.append(divStyle);
+				sb.append("'>");
+				sb.append(content);
 				sb.append("</div>");
 			}
 		}
-	}
-
-	/**
-	 * Add mountpoint to string buffer
-	 *
-	 * @param sb   string buffer
-	 * @param node node
-	 */
-	static private void addMountPoint(@NonNull final StringBuffer sb, @NonNull final INode node)
-	{
-		final MountPoint mountPoint = node.getMountPoint();
-		//noinspection InstanceofConcreteClass
-		if (mountPoint instanceof MountPoint.Mounting)
-		{
-			if (Commander.TOOLTIPHTML)
-			{
-				sb.append("<div class='mount'>");
-			}
-			final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
-			sb.append('[');
-			sb.append(Controller.decode(mountingPoint.url));
-			sb.append(']');
-			// {
-			// // sb.append('M');
-			// sb.append(Commander.tooltipHtml ? "&#x1F517;" : "🔗");
-			// }
-			if (Commander.TOOLTIPHTML)
-			{
-				sb.append("</div>");
-			}
-		}
+		return sb.toString();
 	}
 
 	@Override
@@ -1010,7 +1000,7 @@ public class Controller extends Commander
 
 		// status
 		assert this.widget != null;
-		this.widget.putStatus(Messages.getString("Controller.status_linkto"), "<div class='linking'>" + decodedLink + "</div>", Statusbar.PutType.LINK);
+		this.widget.putStatus(Statusbar.PutType.LINK, (s) -> makeHtml("linking", s), Messages.getString("Controller.status_linkto"), decodedLink);
 		this.widget.getIContext().status(Messages.getString("Controller.status_linkto") + ' ' + decodedLink);
 
 		// jump link: try system link first

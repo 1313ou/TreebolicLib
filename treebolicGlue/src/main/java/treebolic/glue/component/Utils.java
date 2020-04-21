@@ -18,6 +18,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 /**
@@ -187,5 +188,33 @@ public class Utils
 		display.getSize(size);
 		// int height = size.y;
 		return size.x;
+	}
+
+	public static String join(@NonNull final CharSequence delim, @Nullable final CharSequence[] strs)
+	{
+		if (strs == null)
+		{
+			return "";
+		}
+
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		for (CharSequence str : strs)
+		{
+			if (str == null || str.length() == 0)
+			{
+				continue;
+			}
+			if (first)
+			{
+				first = false;
+			}
+			else
+			{
+				sb.append(delim);
+			}
+			sb.append(str);
+		}
+		return sb.toString();
 	}
 }

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -27,13 +28,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import treebolic.glue.iface.ActionListener;
+import treebolic.glue.iface.component.Converter;
 
 /**
  * WebDialog
  *
  * @author Bernard Bou
  */
-public class WebDialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.WebDialog
+public class Dialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.Dialog
 {
 	private static final String TAG = "WebDialog";
 
@@ -56,13 +58,19 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	 * Header
 	 */
 	@Nullable
-	private String header;
+	private CharSequence header;
 
 	/**
 	 * Content
 	 */
 	@Nullable
-	private String content;
+	private CharSequence[] content;
+
+	/**
+	 * Converter
+	 */
+	@Nullable
+	private Converter converter;
 
 	/**
 	 * Style
@@ -92,7 +100,7 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	/**
 	 * Constructor
 	 */
-	public WebDialog()
+	public Dialog()
 	{
 		super();
 	}
@@ -111,8 +119,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 		if (savedInstanceState != null)
 		{
 			// Restore value of members from saved state
-			this.header = savedInstanceState.getString(WebDialog.STATE_HEADER);
-			this.content = savedInstanceState.getString(WebDialog.STATE_CONTENT);
+			this.header = savedInstanceState.getString(Dialog.STATE_HEADER);
+			this.content = savedInstanceState.getStringArray(Dialog.STATE_CONTENT);
 		}
 
 		// colors
@@ -126,8 +134,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	@Override
 	public void onSaveInstanceState(@NonNull final Bundle outState)
 	{
-		outState.putString(WebDialog.STATE_HEADER, this.header);
-		outState.putString(WebDialog.STATE_CONTENT, this.content);
+		outState.putCharSequence(Dialog.STATE_HEADER, this.header);
+		outState.putCharSequenceArray(Dialog.STATE_CONTENT, this.content);
 		super.onSaveInstanceState(outState);
 	}
 
@@ -144,36 +152,74 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 
 		// inflate layout for the dialog
 		final FrameLayout frameLayout = activity.findViewById(android.R.id.custom);
-		final View view = inflater.inflate(R.layout.dialog_layout, frameLayout, false);
-
-		// header
-		final TextView headerView = view.findViewById(R.id.header);
-		headerView.setText(this.header);
-
-		// content
-		final WebView webView = view.findViewById(R.id.content);
-		final StringBuilder html = new StringBuilder();
-		html.append("<html><head>");
-		html.append("<style type='text/css'>");
-		html.append(getDefaultBaseStyle());
-		if (this.style != null && !this.style.isEmpty())
+		View view;
+		try
 		{
-			html.append(this.style);
-		}
-		html.append("</style>");
-		html.append("</head><body><div class='body'>");
-		// if (this.header != null && !this.header.isEmpty())
-		// {
-		// html.append("<div class='label'>");
-		// html.append(this.header);
-		// html.append("</div>");
-		// }
-		html.append(this.content);
-		html.append("</div></body></html>");
-		Log.d(TAG, html.toString());
+			view = inflater.inflate(R.layout.dialog_layout, frameLayout, false);
 
-		// client
-		final WebViewClient webViewClient = new WebViewClient()
+			// header
+			final TextView headerView = view.findViewById(R.id.header);
+			headerView.setText(this.header);
+
+			// content
+			final WebView webView = view.findViewById(R.id.content);
+			final StringBuilder html = new StringBuilder();
+			html.append("<html><head>");
+			html.append("<style type='text/css'>");
+			html.append(getDefaultBaseStyle());
+			if (this.style != null && !this.style.isEmpty())
+			{
+				html.append(this.style);
+			}
+			html.append("</style>");
+			html.append("</head><body><div class='body'>");
+			if (this.converter != null)
+			{
+				html.append(this.converter.convert(this.content));
+			}
+			else
+			{
+				html.append(Utils.join("<br>", this.content));
+			}
+
+			html.append("</div></body></html>");
+			Log.d(TAG, html.toString());
+
+			// client
+			webView.setWebViewClient(makeWebViewClient());
+
+			// load
+			//webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
+			webView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null);
+		}
+		catch (InflateException e)
+		{
+			view = inflater.inflate(R.layout.dialog_layout_text, frameLayout, false);
+
+			// header
+			final TextView headerView = view.findViewById(R.id.header_text);
+			headerView.setText(this.header);
+
+			// content
+			final TextView textView = view.findViewById(R.id.content_text);
+			textView.setText(Utils.join("\n", this.content));
+		}
+
+		// set the layout for the dialog
+		builder.setView(view) //
+		// .setMessage(R.string.title) //
+		// .setNegativeButton(R.string.dismiss, (dialog, id) -> {})
+		;
+
+		// create the dialog object and return it
+		final AppCompatDialog dialog = builder.create();
+		dialog.setCanceledOnTouchOutside(true);
+		return dialog;
+	}
+
+	private WebViewClient makeWebViewClient()
+	{
+		return new WebViewClient()
 		{
 			private boolean intercept = false;
 
@@ -188,8 +234,8 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 			{
 				if (this.intercept && url != null)
 				{
-					Log.d(WebDialog.TAG, "url:" + url);
-					WebDialog.this.actionListener.onAction(url);
+					Log.d(Dialog.TAG, "url:" + url);
+					Dialog.this.actionListener.onAction(url);
 					return true;
 				}
 				return false;
@@ -202,43 +248,26 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 				final Uri uri = request.getUrl();
 				if (this.intercept && uri != null)
 				{
-					Log.d(WebDialog.TAG, "url:" + uri);
-					WebDialog.this.actionListener.onAction(uri);
+					Log.d(Dialog.TAG, "url:" + uri);
+					Dialog.this.actionListener.onAction(uri);
 					return true;
 				}
 				return false;
 			}
 		};
-		webView.setWebViewClient(webViewClient);
-
-		// load
-		//webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
-		webView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null);
-
-		// set the layout for the dialog
-		builder.setView(view) //
-		// .setMessage(R.string.treebolic) //
-		// .setNegativeButton(R.string.action_dismiss, new DialogInterface.OnClickListener()
-		// {
-		// @Override
-		// public void onClick(DialogInterface dialog, int id)
-		// {
-		// // user cancelled the dialog
-		// }
-		// })
-		;
-
-		// create the dialog object and return it
-		final AppCompatDialog dialog = builder.create();
-		dialog.setCanceledOnTouchOutside(true);
-		return dialog;
 	}
 
 	@Override
-	public void set(final String header0, final String content0)
+	public void set(final CharSequence header0, final CharSequence... content0)
 	{
 		this.header = header0;
 		this.content = content0;
+	}
+
+	@Override
+	public void setConverter(final Converter converter0)
+	{
+		this.converter = converter0;
 	}
 
 	@Override
@@ -285,6 +314,6 @@ public class WebDialog extends AppCompatDialogFragment implements treebolic.glue
 	 */
 	public static void setBase(String base0)
 	{
-		WebDialog.base = base0;
+		Dialog.base = base0;
 	}
 }

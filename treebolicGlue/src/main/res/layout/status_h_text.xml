@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/TreebolicStatusTheme"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/status"
+		style="@style/TreebolicStatusTheme"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="10dp"
+		android:layout_marginLeft="10dp"
+		android:contentDescription="@string/desc_content_header"
+		android:drawableStart="@drawable/status_info"
+		android:drawableLeft="@drawable/status_info"
+		android:drawablePadding="10dp"
+		android:maxEms="@integer/status_max_ems"
+		android:minEms="@integer/status_min_ems"
+		android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
+		android:textSize="20sp" />
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="10dp"
+		android:scrollbars="none">
+
+		<TextView
+			android:id="@+id/content"
+			style="@style/TreebolicStatusTheme"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:contentDescription="@string/desc_content" />
+	</ScrollView>
+
+</LinearLayout>

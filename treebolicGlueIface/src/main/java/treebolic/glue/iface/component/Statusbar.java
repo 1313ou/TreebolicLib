@@ -48,11 +48,12 @@ public interface Statusbar<C, L>
 	/**
 	 * Put status
 	 *
-	 * @param label   label
-	 * @param content content
-	 * @param image   image
+	 * @param image     image
+	 * @param converter converter
+	 * @param label     label
+	 * @param content   content
 	 */
-	void put(final String label, final String content, final int image);
+	void put(final int image, final Converter converter, final String label, final String[] content);
 
 	/**
 	 * Put message

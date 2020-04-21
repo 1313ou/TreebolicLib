@@ -30,7 +30,8 @@ import treebolic.glue.ActionListener;
 import treebolic.glue.Image;
 import treebolic.glue.Worker;
 import treebolic.glue.component.Container;
-import treebolic.glue.component.WebDialog;
+import treebolic.glue.component.Dialog;
+import treebolic.glue.iface.component.Converter;
 import treebolic.model.IEdge;
 import treebolic.model.INode;
 import treebolic.model.Location;
@@ -627,18 +628,20 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public synchronized void mount(@NonNull final INode mountingNode, final String source)
 	{
-		putStatus(Messages.getString("Widget.status_mount"), source, Statusbar.PutType.MOUNT);
+		putStatus(Statusbar.PutType.MOUNT, (Converter) null, Messages.getString("Widget.status_mount"), source);
 
 		if (this.provider == null)
 		{
-			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_null") + "</div>", Statusbar.PutType.MOUNT);
+			final Converter toHtml = (CharSequence[] s) -> Controller.makeHtml("mount", s);
+
+			putStatus(Statusbar.PutType.MOUNT, toHtml, Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err_provider_null"));
 
 			// get provider name
 			final Properties parameters = this.context.getParameters();
 			final String providerName = parameters == null ? null : parameters.getProperty("provider");
 			if (providerName == null || providerName.isEmpty())
 			{
-				putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_providername_null") + "</div>", Statusbar.PutType.MOUNT);
+				putStatus(Statusbar.PutType.MOUNT, toHtml, Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err_providername_null"));
 				return;
 			}
 
@@ -646,7 +649,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.provider = makeProvider(providerName);
 			if (this.provider == null)
 			{
-				putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_provider_create") + providerName + "</div>", Statusbar.PutType.MOUNT);
+				putStatus(Statusbar.PutType.MOUNT, toHtml, Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err_provider_create"));
 				return;
 			}
 
@@ -662,7 +665,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		/*
 		if (tree == null)
 		{
-			putStatus(Messages.getString("Widget.status_mount"), "<div class='mount'>" + Messages.getString("Widget.status_mount_err_model_null") + source + "</div>", Statusbar.PutType.MOUNT);
+			putStatus(Statusbar.PutType.MOUNT, Messages.getString("Widget.status_mount"), Controller.makeHtml("mount", Messages.getString("Widget.status_mount_err_model_null") + source);
 			return;
 		}
         */
@@ -686,7 +689,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		// graft nodes
 		if (!Mounter.graft(mountingNode, mountedRoot, this.model.tree.getEdges(), mountedEdges))
 		{
-			putStatus(Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err"), Statusbar.PutType.MOUNT);
+			putStatus(Statusbar.PutType.MOUNT, Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err"));
 			return;
 		}
 
@@ -711,14 +714,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public synchronized void umount(@NonNull final INode mountedNode)
 	{
-		putStatus(Messages.getString("Widget.status_unmount"), "", Statusbar.PutType.MOUNT);
+		putStatus(Statusbar.PutType.MOUNT, Messages.getString("Widget.status_unmount"), "");
 
 		// model
 		assert this.model != null;
 		final INode mountingNode = Mounter.prune(mountedNode, this.model.tree.getEdges());
 		if (mountingNode == null)
 		{
-			putStatus(Messages.getString("Widget.status_unmount"), "<div class='mount'>" + Messages.getString("Widget.status_unmount_err") + "</div>", Statusbar.PutType.MOUNT);
+			putStatus(Statusbar.PutType.MOUNT, (s) -> Controller.makeHtml("mount", s), Messages.getString("Widget.status_unmount"), Messages.getString("Widget.status_unmount_err"));
 			return;
 		}
 
@@ -1171,13 +1174,30 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param message message
 	 * @param type    type of message
 	 */
-	public void putStatus(final String header, final String message, @NonNull final Statusbar.PutType type)
+	public void putStatus(@NonNull final Statusbar.PutType type, final String header, final String... message)
 	{
 		if (this.statusbar == null)
 		{
 			return;
 		}
-		this.statusbar.put(header, message, type);
+		this.statusbar.put(type, null, header, message);
+	}
+
+	/**
+	 * Put information
+	 *
+	 * @param type      type of message
+	 * @param converter converter
+	 * @param header    header
+	 * @param message   message
+	 */
+	public void putStatus(@NonNull final Statusbar.PutType type, final Converter converter, final String header, final String... message)
+	{
+		if (this.statusbar == null)
+		{
+			return;
+		}
+		this.statusbar.put(type, converter, header, message);
 	}
 
 	// I N F O
@@ -1188,15 +1208,16 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param header  header
 	 * @param content content
 	 */
-	public void putInfo(final String header, final String content)
+	public void putInfo(final String header, final String[] content)
 	{
-		@SuppressWarnings("TypeMayBeWeakened") final WebDialog webDialog = new WebDialog();
-		webDialog.setHandle(this.handle);
-		webDialog.setListener(this.linkActionListener);
+		@SuppressWarnings("TypeMayBeWeakened") final Dialog dialog = new Dialog();
+		dialog.setHandle(this.handle);
+		dialog.setListener(this.linkActionListener);
 		final String style = this.context.getStyle();
-		webDialog.setStyle(style);
-		webDialog.set(header, content);
-		webDialog.display();
+		dialog.setStyle(style);
+		dialog.setConverter((s) -> Controller.makeHtmlContent(s, Controller.TOOLTIPHTML));
+		dialog.set(header, content);
+		dialog.display();
 	}
 
 	// J A V A S C R I P T

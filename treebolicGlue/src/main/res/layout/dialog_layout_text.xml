@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/TreebolicDialogTheme"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:padding="5dp">
+
+	<TextView
+		android:id="@+id/header_text"
+		style="@style/TreebolicDialogTheme"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/desc_content_header"
+		android:drawableStart="@drawable/status_info"
+		android:drawableLeft="@drawable/status_info"
+		android:drawablePadding="10dp"
+		android:textColor="?attr/treebolic_dialog_foreground_enhanced"
+		android:textSize="20sp" />
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:scrollbars="none">
+		<TextView
+			android:id="@+id/content_text"
+			style="@style/TreebolicDialogTheme"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:contentDescription="@string/desc_content" />
+	</ScrollView>
+
+</LinearLayout>

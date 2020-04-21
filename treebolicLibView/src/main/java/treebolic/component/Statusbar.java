@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
+import treebolic.glue.iface.component.Converter;
 import treebolic.model.Settings;
 
 /**
@@ -96,14 +97,15 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	/**
 	 * Put status
 	 *
-	 * @param label   label
-	 * @param content content
-	 * @param type    status type as per below
+	 * @param type      status type as per below
+	 * @param converter converter
+	 * @param label     label
+	 * @param content   content
 	 */
-	public void put(final String label, final String content, @NonNull final PutType type)
+	public void put(@NonNull final PutType type, final Converter converter, final String label, final String[] content)
 	{
 		setColors(type);
-		super.put(label, content, type.ordinal());
+		super.put(type.ordinal(), converter, label, content);
 	}
 
 	/*

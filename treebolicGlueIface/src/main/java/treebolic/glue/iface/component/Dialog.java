@@ -7,11 +7,11 @@ package treebolic.glue.iface.component;
 import treebolic.glue.iface.ActionListener;
 
 /**
- * Glue interface for WebDialog
+ * Glue interface for Dialog
  *
  * @author Bernard Bou
  */
-public interface WebDialog
+public interface Dialog
 {
 	/**
 	 * Set handle
@@ -26,7 +26,14 @@ public interface WebDialog
 	 * @param header  header
 	 * @param content content
 	 */
-	void set(final String header, final String content);
+	void set(final CharSequence header, final CharSequence... content);
+
+	/**
+	 * Set converter
+	 *
+	 * @param converter converter
+	 */
+	void setConverter(final Converter converter);
 
 	/**
 	 * Set hyperlink listener
