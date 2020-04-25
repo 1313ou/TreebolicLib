@@ -6,10 +6,12 @@ package treebolic.glue.component;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import org.treebolic.glue.R;
 
@@ -77,15 +79,30 @@ public class Tip extends AppCompatDialogFragment
 		// get the layout inflater
 		final LayoutInflater inflater = activity.getLayoutInflater();
 
-		// inflate layout for the dialog
 		final FrameLayout frameLayout = activity.findViewById(android.R.id.custom);
-		final View view = inflater.inflate(R.layout.tip_layout, frameLayout, false);
 
-		// data
-		final WebView webView = view.findViewById(R.id.text);
-		webView.loadData(this.text, "text/html; charset=UTF-8", "utf-8");
+		// get the layout inflater
+		View view;
+		try
+		{
+			// inflate layout for the dialog
+			view = inflater.inflate(R.layout.tip_layout, frameLayout, false);
 
-		// set the layout for the dialog
+			// data
+			final WebView webView = view.findViewById(R.id.text);
+			webView.loadData(this.text, "text/html; charset=UTF-8", "utf-8");
+		}
+		catch(InflateException e)
+		{
+			// inflate layout for the dialog
+			view = inflater.inflate(R.layout.tip_layout_text, frameLayout, false);
+
+			// data
+			final TextView textView = view.findViewById(R.id.text_text);
+			textView.setText(this.text);
+		}
+
+		// attach view to the dialog
 		builder.setView(view) //
 		// .setMessage(R.string.treebolic) //
 		// .setNegativeButton(R.string.action_dismiss, new DialogInterface.OnClickListener()
