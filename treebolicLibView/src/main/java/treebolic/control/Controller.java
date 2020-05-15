@@ -464,7 +464,7 @@ public class Controller extends Commander
 		final String label = Controller.getLabel(node);
 		final String[] content = Controller.getContent(node);
 		assert this.widget != null;
-		this.widget.putStatus(Statusbar.PutType.INFO, (s) -> makeHtmlContent(s, Controller.TOOLTIPHTML), label, content);
+		this.widget.putStatus(Statusbar.PutType.INFO, (s) -> makeHtmlContent(s, Commander.TOOLTIPHTML), label, content);
 	}
 
 	/**

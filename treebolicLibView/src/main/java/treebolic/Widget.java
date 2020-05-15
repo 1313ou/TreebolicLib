@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
 import treebolic.component.Progress;
 import treebolic.component.Statusbar;
 import treebolic.component.Toolbar;
+import treebolic.control.Commander;
 import treebolic.control.Controller;
 import treebolic.control.Finder;
 import treebolic.core.AbstractLayerOut;
@@ -95,7 +96,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	/**
 	 * Version : 3.x
 	 */
-	private static final String version = "3.8.0";
+	private static final String version = "3.9.0";
 
 	// C O N T E X T
 
@@ -1215,7 +1216,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		dialog.setListener(this.linkActionListener);
 		final String style = this.context.getStyle();
 		dialog.setStyle(style);
-		dialog.setConverter((s) -> Controller.makeHtmlContent(s, Controller.TOOLTIPHTML));
+		dialog.setConverter((s) -> Controller.makeHtmlContent(s, Commander.TOOLTIPHTML));
 		dialog.set(header, content);
 		dialog.display();
 	}
