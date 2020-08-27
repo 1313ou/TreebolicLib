@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.TypedValue;
@@ -19,6 +20,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 /**
@@ -123,18 +125,7 @@ public class Utils
 	 */
 	static public Drawable getDrawable(@NonNull final Context context, @DrawableRes int resId)
 	{
-		final Resources resources = context.getResources();
-		Drawable drawable;
-		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
-		{
-			final Resources.Theme theme = context.getTheme();
-			drawable = resources.getDrawable(resId, theme);
-		}
-		else
-		{
-			drawable = resources.getDrawable(resId);
-		}
-		return drawable;
+		return ResourcesCompat.getDrawable(context.getResources(), resId, context.getTheme());
 	}
 
 	/**
@@ -148,21 +139,11 @@ public class Utils
 	static public Drawable[] getDrawables(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... resIds)
 	{
 		final Resources resources = context.getResources();
+		final Resources.Theme theme = context.getTheme();
 		Drawable[] drawables = new Drawable[resIds.length];
-		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
+		for (int i = 0; i < resIds.length; i++)
 		{
-			final Resources.Theme theme = context.getTheme();
-			for (int i = 0; i < resIds.length; i++)
-			{
-				drawables[i] = resources.getDrawable(resIds[i], theme);
-			}
-		}
-		else
-		{
-			for (int i = 0; i < resIds.length; i++)
-			{
-				drawables[i] = resources.getDrawable(resIds[i]);
-			}
+			drawables[i] = ResourcesCompat.getDrawable(resources, resIds[i], theme);
 		}
 		return drawables;
 	}
@@ -183,11 +164,19 @@ public class Utils
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 		assert wm != null;
-		final Display display = wm.getDefaultDisplay();
-		final Point size = new Point();
-		display.getSize(size);
-		// int height = size.y;
-		return size.x;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+		{
+			final Rect bounds = wm.getCurrentWindowMetrics().getBounds();
+			return bounds.width();
+		}
+		else
+		{
+			final Display display = wm.getDefaultDisplay();
+			final Point size = new Point();
+			display.getSize(size);
+			// int height = size.y;
+			return size.x;
+		}
 	}
 
 	public static String join(@NonNull final CharSequence delim, @Nullable final CharSequence[] strs)
