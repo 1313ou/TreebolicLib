@@ -190,6 +190,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 					this.intercept = true;
 				}
 
+				@SuppressWarnings("deprecation")
 				@Override
 				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 				{
@@ -342,13 +343,13 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 			if (content == null)
 			{
-				if (Build.VERSION.SDK_INT < 18)
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
 				{
-					this.webContentView.clearView();
+					this.webContentView.loadUrl("about:blank");
 				}
 				else
 				{
-					this.webContentView.loadUrl("about:blank");
+					this.webContentView.clearView();
 				}
 			}
 			else
