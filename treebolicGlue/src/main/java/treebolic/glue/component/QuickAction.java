@@ -337,7 +337,6 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		{
 			xPos = anchorRect.left - (this.popupWidth - anchor.getWidth());
 			xPos = xPos < 0 ? 0 : xPos;
-			arrowPos = anchorRect.centerX() - xPos;
 		}
 		else
 		{
@@ -349,8 +348,8 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 			{
 				xPos = anchorRect.left;
 			}
-			arrowPos = anchorRect.centerX() - xPos;
 		}
+		arrowPos = anchorRect.centerX() - xPos;
 
 		// Y coord of popup (top left)
 		int yPos;
