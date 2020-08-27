@@ -347,9 +347,9 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				}
 
 				// fire event
+				assert Surface.this.listener != null;
 				if (zoom)
 				{
-					assert Surface.this.listener != null;
 					Surface.this.listener.onZoom(scale, 0, 0);
 					if (LOG)
 					{
@@ -358,7 +358,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				}
 				else
 				{
-					assert Surface.this.listener != null;
 					Surface.this.listener.onScale(0, scale, scale);
 					if (LOG)
 					{
