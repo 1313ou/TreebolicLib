@@ -12,11 +12,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Custom popup window.
@@ -47,13 +45,6 @@ public class PopupAdapter
 	protected View view;
 
 	/**
-	 * Window manager
-	 */
-	@Nullable
-	@SuppressWarnings("WeakerAccess")
-	protected final WindowManager windowManager;
-
-	/**
 	 * Constructor.
 	 *
 	 * @param context context
@@ -78,9 +69,6 @@ public class PopupAdapter
 			}
 			return false;
 		});
-
-		// get windows manager
-		this.windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 	}
 
 	/**

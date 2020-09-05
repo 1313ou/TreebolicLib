@@ -3,29 +3,31 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	style="@style/TreebolicDialogTheme"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
 	android:padding="5dp">
 
-	<TextView
+	<androidx.appcompat.widget.AppCompatTextView
 		android:id="@+id/header_text"
 		style="@style/TreebolicDialogTheme"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:contentDescription="@string/desc_content_header"
-		android:drawableStart="@drawable/status_info"
-		android:drawableLeft="@drawable/status_info"
 		android:drawablePadding="10dp"
 		android:textColor="?attr/treebolic_dialog_foreground_enhanced"
-		android:textSize="20sp" />
+		android:textSize="20sp"
+		app:drawableLeftCompat="@drawable/status_info"
+		app:drawableStartCompat="@drawable/status_info" />
 
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"
 		android:scrollbars="none">
+
 		<TextView
 			android:id="@+id/content_text"
 			style="@style/TreebolicDialogTheme"

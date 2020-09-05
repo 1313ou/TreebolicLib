@@ -7,6 +7,7 @@ package treebolic.glue.component;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 		@SuppressWarnings("WeakerAccess")
 		public ProgressHandler(final Progress progress0)
 		{
+			super(Looper.getMainLooper());
 			this.progress = progress0;
 		}
 

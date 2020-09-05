@@ -12,12 +12,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
-import android.view.Display;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -153,11 +151,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.activity = activity0;
 
 		// determine orientation
-		final WindowManager windowManager = (WindowManager) this.activity.getSystemService(Context.WINDOW_SERVICE);
-		assert windowManager != null;
-		final Display display = windowManager.getDefaultDisplay();
-		final Point size = new Point();
-		display.getSize(size);
+		final Point size = Utils.screenSize(this.activity);
 		final boolean isHorizontalScreen = size.x >= size.y;
 		this.isHorizontal = !isHorizontalScreen;
 
@@ -305,6 +299,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.style = style0;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void put(final int image, final Converter converter, final String label0, final String[] content0)
 	{

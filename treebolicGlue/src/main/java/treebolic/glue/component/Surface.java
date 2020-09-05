@@ -426,7 +426,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * Callback invoked when the Surface has been created and is ready to be used.
 	 */
 	@Override
-	public void surfaceCreated(final SurfaceHolder holder0)
+	public void surfaceCreated(@NonNull final SurfaceHolder holder0)
 	{
 		if (LOG)
 		{
@@ -441,7 +441,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * Callback invoked when the surface dimensions change.
 	 */
 	@Override
-	public void surfaceChanged(final SurfaceHolder holder0, final int format, final int width, final int height)
+	public void surfaceChanged(@NonNull final SurfaceHolder holder0, final int format, final int width, final int height)
 	{
 		if (LOG)
 		{
@@ -457,7 +457,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	 * touched again!
 	 */
 	@Override
-	public void surfaceDestroyed(final SurfaceHolder holder0)
+	public void surfaceDestroyed(@NonNull final SurfaceHolder holder0)
 	{
 		if (LOG)
 		{

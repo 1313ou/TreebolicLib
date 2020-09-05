@@ -9,9 +9,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.view.Display;
 import android.view.Gravity;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -54,7 +52,8 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 */
 	@SuppressWarnings("unused")
 	private enum ButtonImplementation
-	{HOME, //
+	{
+		HOME, //
 		RADIAL, NORTH, SOUTH, EAST, WEST, //
 		EXPAND, SHRINK, EXPANSIONRESET, //
 		EXPANSIONSWEEPRESET, //
@@ -67,7 +66,8 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		public int getIndex()
 		{
 			return ordinal();
-		}}
+		}
+	}
 
 	/**
 	 * Content descriptors
@@ -123,11 +123,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		super(activity);
 
 		// orientation
-		final WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
-		assert windowManager != null;
-		final Display display = windowManager.getDefaultDisplay();
-		final Point size = new Point();
-		display.getSize(size);
+		final Point size = Utils.screenSize(activity);
 		final boolean isHorizontal = size.x >= size.y;
 
 		// panel
@@ -177,7 +173,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	// A D D  B U T T O N
 
-	@SuppressWarnings({"WeakerAccess"})
+	@SuppressWarnings({"WeakerAccess", "deprecation"})
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void addButton(@NonNull final Button button, @NonNull final ActionListener listener)
@@ -195,7 +191,6 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 		// drawable
 		final Drawable bitmapDrawable = this.drawables[index];
-
 
 		// tint drawable
 		Utils.tint(bitmapDrawable, this.iconTint);

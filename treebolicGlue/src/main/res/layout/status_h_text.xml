@@ -3,12 +3,13 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	style="@style/TreebolicStatusTheme"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<TextView
+	<androidx.appcompat.widget.AppCompatTextView
 		android:id="@+id/status"
 		style="@style/TreebolicStatusTheme"
 		android:layout_width="match_parent"
@@ -16,13 +17,13 @@
 		android:layout_marginStart="10dp"
 		android:layout_marginLeft="10dp"
 		android:contentDescription="@string/desc_content_header"
-		android:drawableStart="@drawable/status_info"
-		android:drawableLeft="@drawable/status_info"
 		android:drawablePadding="10dp"
 		android:maxEms="@integer/status_max_ems"
 		android:minEms="@integer/status_min_ems"
 		android:textColor="?attr/treebolic_statusbar_foreground_enhanced"
-		android:textSize="20sp" />
+		android:textSize="20sp"
+		app:drawableLeftCompat="@drawable/status_info"
+		app:drawableStartCompat="@drawable/status_info" />
 
 	<ScrollView
 		android:layout_width="match_parent"

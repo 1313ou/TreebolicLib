@@ -160,6 +160,7 @@ public class Utils
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	static public int screenWidth(@NonNull final Context context)
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -176,6 +177,25 @@ public class Utils
 			display.getSize(size);
 			// int height = size.y;
 			return size.x;
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	static public Point screenSize(@NonNull final Context context)
+	{
+		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		assert wm != null;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+		{
+			final Rect bounds = wm.getCurrentWindowMetrics().getBounds();
+			return new Point(bounds.width(),bounds.height());
+		}
+		else
+		{
+			final Display display = wm.getDefaultDisplay();
+			final Point size = new Point();
+			display.getSize(size);
+			return size;
 		}
 	}
 

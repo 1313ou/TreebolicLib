@@ -8,11 +8,9 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import org.treebolic.glue.R;
@@ -60,11 +58,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		super(context);
 
 		// determine orientation
-		final WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-		assert windowManager != null;
-		final Display display = windowManager.getDefaultDisplay();
-		final Point size = new Point();
-		display.getSize(size);
+		final Point size = Utils.screenSize(context);
 		this.isHorizontal = size.x >= size.y;
 		setOrientation(this.isHorizontal ? LinearLayout.HORIZONTAL : LinearLayout.VERTICAL);
 
