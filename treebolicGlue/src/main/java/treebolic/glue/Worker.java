@@ -7,8 +7,11 @@ package treebolic.glue;
 import android.os.Handler;
 import android.os.Looper;
 
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Worker thread
@@ -17,9 +20,26 @@ import java.util.concurrent.Executors;
  */
 abstract public class Worker implements treebolic.glue.iface.Worker
 {
-	private final Executor executor = Executors.newSingleThreadExecutor();
+	// E X E C U T O R
 
-	private final Handler handler = new Handler(Looper.getMainLooper());
+	private static final int CORE_POOL_SIZE = 5;
+
+	private static final int MAXIMUM_POOL_SIZE = 32;
+
+	private static final int KEEP_ALIVE = 1;
+
+	private static final BlockingQueue<Runnable> POOL_WORK_QUEUE = new LinkedBlockingQueue<>(10);
+
+	public static final Executor THREAD_POOL_EXECUTOR;
+
+	static
+	{
+		THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE, TimeUnit.SECONDS, POOL_WORK_QUEUE);
+	}
+
+	private static final Executor EXECUTOR = THREAD_POOL_EXECUTOR;
+
+	private static final Handler HANDLER = new Handler(Looper.getMainLooper());
 
 	@Override
 	abstract public void job();
@@ -30,9 +50,9 @@ abstract public class Worker implements treebolic.glue.iface.Worker
 	@Override
 	public void execute()
 	{
-		this.executor.execute(() -> {
+		EXECUTOR.execute(() -> {
 			job();
-			this.handler.post(this::onDone);
+			HANDLER.post(this::onDone);
 		});
 	}
 }
