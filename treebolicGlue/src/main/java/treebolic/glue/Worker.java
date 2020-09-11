@@ -39,13 +39,19 @@ abstract public class Worker implements treebolic.glue.iface.Worker
 
 	private static final Executor EXECUTOR = THREAD_POOL_EXECUTOR;
 
+	// H A N D L E R
+
 	private static final Handler HANDLER = new Handler(Looper.getMainLooper());
+
+	// A B S T R A C T S
 
 	@Override
 	abstract public void job();
 
 	@Override
 	abstract public void onDone();
+
+	// E X E C U T E
 
 	@Override
 	public void execute()
