@@ -294,7 +294,6 @@ public class Controller extends Commander
 				{
 					// mount/umount
 					assert this.widget != null;
-					//noinspection InstanceofConcreteClass
 					if (mountPoint instanceof MountPoint.Mounted)
 					{
 						this.widget.umount(node);
@@ -562,7 +561,6 @@ public class Controller extends Commander
 		if (Controller.CONTENT_HAS_MOUNT)
 		{
 			final MountPoint mountPoint = node.getMountPoint();
-			//noinspection InstanceofConcreteClass
 			if (mountPoint instanceof MountPoint.Mounting)
 			{
 				final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;

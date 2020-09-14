@@ -947,7 +947,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// recurse on mounting node obfuscated by mounted node)
 		final MountPoint mountPoint = node.getMountPoint();
-		//noinspection InstanceofConcreteClass
 		if (mountPoint instanceof MountPoint.Mounted)
 		{
 			final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;

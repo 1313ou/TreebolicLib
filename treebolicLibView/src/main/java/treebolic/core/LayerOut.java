@@ -121,7 +121,6 @@ public class LayerOut extends AbstractLayerOut
 			MountPoint mountPoint = child.getMountPoint();
 			while (mountPoint != null)
 			{
-				//noinspection InstanceofConcreteClass
 				if (mountPoint instanceof MountPoint.Mounting)
 				{
 					final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
