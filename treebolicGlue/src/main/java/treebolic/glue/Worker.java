@@ -30,12 +30,7 @@ abstract public class Worker implements treebolic.glue.iface.Worker
 
 	private static final BlockingQueue<Runnable> POOL_WORK_QUEUE = new LinkedBlockingQueue<>(10);
 
-	public static final Executor THREAD_POOL_EXECUTOR;
-
-	static
-	{
-		THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE, TimeUnit.SECONDS, POOL_WORK_QUEUE);
-	}
+	private static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE, TimeUnit.SECONDS, POOL_WORK_QUEUE);
 
 	private static final Executor EXECUTOR = THREAD_POOL_EXECUTOR;
 
