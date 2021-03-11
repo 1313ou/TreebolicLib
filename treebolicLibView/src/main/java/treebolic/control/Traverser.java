@@ -251,7 +251,7 @@ public class Traverser extends Generator<INode>
 		// match
 		if (this.matcher.match(node))
 		{
-			yield(node);
+			this.yield(node);
 		}
 
 		// try to match match this node's children
