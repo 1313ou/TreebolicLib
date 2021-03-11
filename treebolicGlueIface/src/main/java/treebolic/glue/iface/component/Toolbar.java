@@ -20,11 +20,11 @@ public interface Toolbar<L>
 		EXPANSIONSWEEPRESET, //
 		ZOOMIN, ZOOMOUT, ZOOMONE, //
 		SCALEUP, SCALEDOWN, SCALEONE, //
-		@SuppressWarnings("unused") REFRESH, //
-		@SuppressWarnings("unused") ARCEDGE, //
-		@SuppressWarnings("unused") TOOLTIP, @SuppressWarnings("unused") TOOLTIPCONTENT, //
-		@SuppressWarnings("unused") FOCUSHOVER, //
-		@SuppressWarnings("unused") SEPARATOR
+		REFRESH, //
+		ARCEDGE, //
+		TOOLTIP, TOOLTIPCONTENT, //
+		FOCUSHOVER, //
+		SEPARATOR
 	}
 
 	/**

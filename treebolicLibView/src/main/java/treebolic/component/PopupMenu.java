@@ -27,8 +27,7 @@ import treebolic.view.View;
  */
 public class PopupMenu extends treebolic.glue.component.PopupMenu
 {
-	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 6316113839021843464L;
+	// private static final long serialVersionUID = 6316113839021843464L;
 
 	/**
 	 * Indexes to labels

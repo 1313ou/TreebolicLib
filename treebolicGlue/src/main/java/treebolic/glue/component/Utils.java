@@ -160,7 +160,6 @@ public class Utils
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	static public int screenWidth(@NonNull final Context context)
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -180,7 +179,6 @@ public class Utils
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	static public Point screenSize(@NonNull final Context context)
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);

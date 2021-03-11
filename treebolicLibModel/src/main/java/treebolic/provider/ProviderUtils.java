@@ -25,7 +25,6 @@ public class ProviderUtils
 		final boolean DEBUG = true;
 		if (source == null)
 		{
-			// noinspection ConstantConditions
 			if (DEBUG)
 			{
 				context.warn("URL= null (null source)");
@@ -37,7 +36,6 @@ public class ProviderUtils
 		try
 		{
 			final URL url = new URL(source);
-			//noinspection ConstantConditions
 			if (DEBUG)
 			{
 				context.message("URL=" + url.toString());
@@ -53,7 +51,6 @@ public class ProviderUtils
 		try
 		{
 			final URL url = new URL(base, source);
-			//noinspection ConstantConditions
 			if (DEBUG)
 			{
 				context.message("URL=" + url.toString()); // + " from BASE URL=" + base.toString());
@@ -64,7 +61,6 @@ public class ProviderUtils
 		{
 			// do nothing
 		}
-		//noinspection ConstantConditions
 		if (DEBUG)
 		{
 			context.warn("URL= null (fail)");

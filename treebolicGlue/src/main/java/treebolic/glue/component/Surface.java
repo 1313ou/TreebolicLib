@@ -340,7 +340,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 					}
 				}
 				boolean zoom = false;
-				//noinspection ConstantConditions
 				if (left != null && right != null && left.y < right.y)
 				{
 					zoom = true;
@@ -505,7 +504,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 	@SuppressWarnings("EmptyMethod")
 	@Override
-	public void setToolTipText(@SuppressWarnings("unused") @Nullable final String text)
+	public void setToolTipText(@Nullable final String text)
 	{
 		//if (text != null)
 		//{

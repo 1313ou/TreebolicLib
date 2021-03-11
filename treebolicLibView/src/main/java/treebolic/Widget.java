@@ -56,8 +56,7 @@ import treebolic.view.View;
  */
 public class Widget extends Container implements IWidget, IProviderContext
 {
-	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 3962167000082869632L;
+	// private static final long serialVersionUID = 3962167000082869632L;
 
 	// B E H A V I O U R
 
@@ -947,6 +946,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// recurse on mounting node obfuscated by mounted node)
 		final MountPoint mountPoint = node.getMountPoint();
+		//noinspection InstanceofConcreteClass
 		if (mountPoint instanceof MountPoint.Mounted)
 		{
 			final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;

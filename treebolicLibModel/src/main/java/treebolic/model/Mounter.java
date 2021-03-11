@@ -45,6 +45,7 @@ public class Mounter
 		}
 
 		// mounting mountpoint must be mounting
+		//noinspection InstanceofConcreteClass
 		if (!(mountPoint instanceof MountPoint.Mounting))
 		{
 			return false;
@@ -125,6 +126,7 @@ public class Mounter
 		}
 
 		// mounted mountpoint must not be mounting
+		//noinspection InstanceofConcreteClass
 		if (!(mountPoint instanceof MountPoint.Mounted))
 		{
 			return null;
@@ -146,6 +148,7 @@ public class Mounter
 		}
 
 		// mounting mountpoint must be mounting
+		//noinspection InstanceofConcreteClass
 		if (!(mountPoint instanceof MountPoint.Mounting))
 		{
 			return null;
@@ -205,6 +208,7 @@ public class Mounter
 			{
 				// if mounted mount point having edges
 				final MountPoint mountPoint = childNode.getMountPoint();
+				//noinspection InstanceofConcreteClass
 				if (mountPoint instanceof MountPoint.Mounted)
 				{
 					final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;

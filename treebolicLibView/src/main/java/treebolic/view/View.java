@@ -31,8 +31,7 @@ import treebolic.model.Settings;
  */
 public class View extends Surface
 {
-	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 715569943397018102L;
+	// private static final long serialVersionUID = 715569943397018102L;
 
 	// D A T A
 

@@ -13,8 +13,7 @@ import treebolic.glue.component.Component;
  */
 public class Progress extends treebolic.glue.component.Progress implements Component
 {
-	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 4362329721644133327L;
+	// private static final long serialVersionUID = 4362329721644133327L;
 
 	/**
 	 * Constructor

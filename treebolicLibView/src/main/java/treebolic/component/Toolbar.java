@@ -16,8 +16,7 @@ import treebolic.glue.component.Component;
  */
 public class Toolbar extends treebolic.glue.component.Toolbar implements Component
 {
-	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 2278779010201821356L;
+	// private static final long serialVersionUID = 2278779010201821356L;
 
 	// D A T A
 

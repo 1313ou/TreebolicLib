@@ -394,7 +394,6 @@ public class Utils
 		{
 			if (str.startsWith("solid"))
 			{
-				//noinspection ConstantConditions
 				style |= IEdge.SOLID;
 			}
 			else if (str.startsWith("dash"))

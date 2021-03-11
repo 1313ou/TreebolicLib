@@ -608,6 +608,7 @@ public class Painter extends AbstractPainter
 
 		// is mountable
 		final MountPoint mountPoint = node.getMountPoint();
+		//noinspection InstanceofConcreteClass
 		nodeData.isMountable = mountPoint == null ? null : mountPoint instanceof MountPoint.Mounting;
 
 		return nodeData;

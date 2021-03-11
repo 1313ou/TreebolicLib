@@ -133,6 +133,7 @@ public class LoadBalancer
 	{
 		final List<INode> roots = new ArrayList<>();
 
+		//noinspection ManualMinMaxCalculation
 		int m0 = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
 		int z = nodes.size();
 
@@ -230,6 +231,7 @@ public class LoadBalancer
 	@SuppressWarnings({"unchecked", "WeakerAccess"})
 	public List<INode> buildHierarchy(@Nullable final List<? extends INode> nodes, final int imageIndex, final Image image, final int level)
 	{
+		//noinspection ManualMinMaxCalculation
 		int m = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
 		// System.out.println("level=" + level + " m=" + m);
 		if (nodes == null)
