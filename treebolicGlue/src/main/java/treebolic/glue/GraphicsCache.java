@@ -45,7 +45,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 	@Override
 	public Graphics getGraphics()
 	{
-		if (GraphicsCache.CACHE)
+		if (GraphicsCache.CACHE && this.picture != null)
 		{
 			final Canvas canvas = this.picture.beginRecording(this.width, this.height);
 			return new Graphics(canvas);
@@ -56,7 +56,7 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 	@Override
 	public void put(@NonNull final Graphics graphics)
 	{
-		if (GraphicsCache.CACHE)
+		if (GraphicsCache.CACHE && this.picture != null)
 		{
 			this.picture.endRecording();
 			graphics.canvas.drawPicture(this.picture);
