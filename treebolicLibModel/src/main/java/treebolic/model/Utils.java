@@ -392,10 +392,10 @@ public class Utils
 		int style = 0;
 		if (str != null)
 		{
+			//noinspection StatementWithEmptyBody
 			if (str.startsWith("solid"))
 			{
-				//noinspection ConstantConditions
-				style |= IEdge.SOLID;
+				// style |= IEdge.SOLID;
 			}
 			else if (str.startsWith("dash"))
 			{
