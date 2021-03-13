@@ -20,6 +20,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
@@ -102,18 +103,9 @@ public class Utils
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 	*/
-	@SuppressWarnings("deprecation")
 	static public int getColor(@NonNull final Context context, @ColorRes @SuppressWarnings("SameParameterValue") int resId)
 	{
-		final Resources resources = context.getResources();
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-		{
-			return resources.getColor(resId, null);
-		}
-		else
-		{
-			return resources.getColor(resId);
-		}
+		return ContextCompat.getColor(context, resId);
 	}
 
 	/**
