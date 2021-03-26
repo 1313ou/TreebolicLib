@@ -1191,7 +1191,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param header    header
 	 * @param message   message
 	 */
-	public void putStatus(@NonNull final Statusbar.PutType type, final Converter converter, final String header, final String... message)
+	public void putStatus(@NonNull final Statusbar.PutType type, @Nullable final Converter converter, final String header, final String... message)
 	{
 		if (this.statusbar == null)
 		{

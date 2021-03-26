@@ -300,7 +300,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	}
 
 	@Override
-	public void put(final int image, final Converter converter, final String label0, final String[] content0)
+	public void put(final int image, @Nullable final Converter converter, final String label0, final String[] content0)
 	{
 		// icon
 		final Drawable drawable = getDrawable(image);
@@ -329,7 +329,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		// content
 		if (this.webContentView != null)
 		{
-			String content = converter.convert(content0);
+			String content = converter == null ? Utils.join("<br>", content0) : converter.convert(content0);
 			if (Statusbar.contentProcessor != null)
 			{
 				content = contentProcessor.process(content, this);
