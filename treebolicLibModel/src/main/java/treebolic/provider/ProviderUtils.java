@@ -39,7 +39,7 @@ public class ProviderUtils
 			final URL url = new URL(source);
 			if (DEBUG)
 			{
-				context.message("URL=" + url.toString());
+				context.message("URL=" + url);
 			}
 			return url;
 		}
@@ -54,7 +54,7 @@ public class ProviderUtils
 			final URL url = new URL(base, source);
 			if (DEBUG)
 			{
-				context.message("URL=" + url.toString()); // + " from BASE URL=" + base.toString());
+				context.message("URL=" + url); // + " from BASE URL=" + base.toString());
 			}
 			return url;
 		}

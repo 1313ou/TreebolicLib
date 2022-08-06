@@ -264,10 +264,4 @@ public class Traverser extends Generator<INode>
 			}
 		}
 	}
-
-	@Override
-	public void finalize() throws Throwable
-	{
-		super.finalize();
-	}
 }

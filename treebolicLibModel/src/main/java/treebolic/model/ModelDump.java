@@ -80,7 +80,7 @@ public class ModelDump
 
 			// label
 			sb.append(" '");
-			sb.append(node.toString());
+			sb.append(node);
 
 			// parent
 			sb.append("' ^");

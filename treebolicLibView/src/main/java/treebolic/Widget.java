@@ -418,7 +418,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 						}
 						catch (Throwable e)
 						{
-							Widget.this.context.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e.toString());
+							Widget.this.context.warn(Messages.getString("Widget.warn_err_model_create") + ':' + e);
 							e.printStackTrace();
 						}
 					}, //
@@ -822,27 +822,27 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		catch (@NonNull final ClassNotFoundException e)
 		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
 		catch (@NonNull final NoSuchMethodException e)
 		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
 		catch (@NonNull final IllegalAccessException e)
 		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
 		catch (@NonNull final InstantiationException e)
 		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
 		catch (@NonNull final IllegalArgumentException e)
 		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
 		catch (@NonNull final InvocationTargetException e)
 		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e.toString());
+			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
 		return null;
 	}
@@ -946,7 +946,6 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// recurse on mounting node obfuscated by mounted node)
 		final MountPoint mountPoint = node.getMountPoint();
-		//noinspection InstanceofConcreteClass
 		if (mountPoint instanceof MountPoint.Mounted)
 		{
 			final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
