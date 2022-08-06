@@ -372,6 +372,7 @@ public abstract class AbstractLayerOut
 			else if (settings.orientation.startsWith("r"))
 			{
 				setOrientation(Complex.ZERO);
+				//noinspection ConstantConditions
 				radial = true;
 			}
 		}

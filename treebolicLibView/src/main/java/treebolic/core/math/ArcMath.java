@@ -121,11 +121,11 @@ public class ArcMath
 		final boolean counterclockwise = arc2D.getCounterclockwise();
 		if (counterclockwise)
 		{
-			angle += isStart ? -Math.PI / 2. : +Math.PI / 2.;
+			angle += isStart ? -Math.PI / 2. : Math.PI / 2.;
 		}
 		else
 		{
-			angle += isStart ? +Math.PI / 2. : -Math.PI / 2.;
+			angle += isStart ? Math.PI / 2. : -Math.PI / 2.;
 		}
 
 		return angle;
