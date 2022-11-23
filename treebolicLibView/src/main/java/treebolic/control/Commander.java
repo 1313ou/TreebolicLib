@@ -77,7 +77,7 @@ public abstract class Commander
 		 */
 		SCALEONE,
 		/**
-		 * Exapnd command
+		 * Expqnd command
 		 */
 		EXPAND,
 		/**
@@ -117,7 +117,7 @@ public abstract class Commander
 		 */
 		TOOLTIPCONTENT,
 		/**
-		 * Pocus node when hovered
+		 * Focus node when hovered
 		 */
 		FOCUSHOVER
 	}
