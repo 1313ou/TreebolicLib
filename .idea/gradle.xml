@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="JDK (11)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/treebolicGlue" />
+            <option value="$PROJECT_DIR$/treebolicGlueIface" />
+            <option value="$PROJECT_DIR$/treebolicGraph" />
+            <option value="$PROJECT_DIR$/treebolicIface" />
+            <option value="$PROJECT_DIR$/treebolicLibModel" />
+            <option value="$PROJECT_DIR$/treebolicLibView" />
+            <option value="$PROJECT_DIR$/treebolicLoadBalancer" />
+            <option value="$PROJECT_DIR$/treebolicMutable" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

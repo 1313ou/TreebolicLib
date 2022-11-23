@@ -1,8 +1,5 @@
 /build
+**/build
 /gradle
 /.gradle
-/.idea
-
-**/build
-
-**/*.iml
+/.idea/caches/
