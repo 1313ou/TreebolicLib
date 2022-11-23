@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface.component;
@@ -11,8 +11,6 @@ package treebolic.glue.iface.component;
  */
 public interface Progress
 {
-	// public Progress();
-
 	/**
 	 * Put progress
 	 *

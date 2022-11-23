@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
@@ -9,6 +9,9 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 
 /**
  * ZipDeSerializer.java
@@ -25,13 +28,13 @@ public class ZipDeSerializer
 	 * @param entry   the zipfile entry
 	 * @return deserialized object
 	 * @throws IOException io exception
-	 * //@throws ClassNotFoundException class not found exception
+	 * @throws ClassNotFoundException class not found exception
 	 */
-	static public Object deserializeZip(final String archive, @SuppressWarnings("SameParameterValue") final String entry) throws IOException, ClassNotFoundException
+	static public Object deserializeZip(@NonNull final String archive, @NonNull @SuppressWarnings("SameParameterValue") final String entry) throws IOException, ClassNotFoundException
 	{
-		ZipFile zipFile = null;
-		InputStream inputStream = null;
-		ObjectInputStream objectInputStream = null;
+		@Nullable ZipFile zipFile = null;
+		@Nullable InputStream inputStream = null;
+		@Nullable ObjectInputStream objectInputStream = null;
 		try
 		{
 			zipFile = new ZipFile(archive);

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.transform;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.core.location.Complex;
 
 /**
@@ -14,13 +14,18 @@ import treebolic.core.location.Complex;
  */
 public class HyperRadialOrientationPreservingTransform extends HyperTransform
 {
+	/**
+	 * @param from from point
+	 * @param to   to point
+	 * @param root root point
+	 */
 	public HyperRadialOrientationPreservingTransform(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Complex root)
 	{
 		// root->0
 		this.xlat = new HyperTranslation(root).inverse();
 
 		// from -> from1 -> to
-		final Complex from1 = this.xlat.map(new Complex(from));
+		@NonNull final Complex from1 = this.xlat.map(new Complex(from));
 		composeXlats(this.xlat, new HyperTranslation(from1, to));
 	}
 }

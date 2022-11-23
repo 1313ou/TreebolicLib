@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Image;
 
 /**
@@ -62,7 +62,7 @@ public class ModelDump
 	@SuppressWarnings("WeakerAccess")
 	static public String toString(@Nullable final INode node, final int level)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < level; i++)
 		{
 			sb.append('\t');
@@ -84,7 +84,7 @@ public class ModelDump
 
 			// parent
 			sb.append("' ^");
-			final INode parent = node.getParent();
+			@Nullable final INode parent = node.getParent();
 			if (parent != null)
 			{
 				sb.append('#');
@@ -92,7 +92,7 @@ public class ModelDump
 			}
 
 			// image
-			final String imageFile = node.getImageFile();
+			@Nullable final String imageFile = node.getImageFile();
 			final int imageIndex = node.getImageIndex();
 			if (imageFile != null)
 			{
@@ -106,7 +106,7 @@ public class ModelDump
 			}
 
 			// children
-			final List<INode> childNodes = node.getChildren();
+			@Nullable final List<INode> childNodes = node.getChildren();
 			sb.append(" ~");
 			sb.append(childNodes == null ? -1 : childNodes.size());
 			sb.append('\n');
@@ -131,12 +131,12 @@ public class ModelDump
 	@SuppressWarnings("WeakerAccess")
 	static public String toString(@Nullable final Iterable<IEdge> edgeList)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		if (edgeList != null)
 		{
-			for (final IEdge edge : edgeList)
+			for (@NonNull final IEdge edge : edgeList)
 			{
-				sb.append(edge.toString());
+				sb.append(edge);
 				sb.append('\n');
 			}
 		}
@@ -153,12 +153,12 @@ public class ModelDump
 	@SuppressWarnings("WeakerAccess")
 	static public String toString(@Nullable final Image[] images)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		sb.append("IMAGES\n");
 		int i = 0;
 		if (images != null)
 		{
-			for (Image image : images)
+			for (@NonNull Image image : images)
 			{
 				sb.append(i);
 				sb.append('-');
@@ -180,7 +180,7 @@ public class ModelDump
 	@SuppressWarnings("WeakerAccess")
 	static public String toString(@NonNull final Settings settings)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		sb.append("SETTINGS\n");
 		sb.append("BackColor=").append(Utils.colorToString(settings.backColor)).append('\n');
 		sb.append("ForeColor=").append(Utils.colorToString(settings.foreColor)).append('\n');
@@ -227,7 +227,7 @@ public class ModelDump
 		}
 		else
 		{
-			for (final MenuItem menuItem : settings.menu)
+			for (@NonNull final MenuItem menuItem : settings.menu)
 			{
 				sb.append("MenuItem");
 				sb.append(" action=").append(menuItem.action == null ? "" : menuItem.action);
@@ -253,8 +253,8 @@ public class ModelDump
 	@SuppressWarnings("WeakerAccess")
 	static public String toString(final Integer style)
 	{
-		final StringBuilder sb = new StringBuilder();
-		final String[] strings = Utils.toStrings(style);
+		@NonNull final StringBuilder sb = new StringBuilder();
+		@NonNull final String[] strings = Utils.toStrings(style);
 		sb.append("hidden=").append(strings[0]);
 		sb.append(" line=").append(strings[1]);
 		sb.append(" stroke=").append(strings[2]);
@@ -267,7 +267,7 @@ public class ModelDump
 	@NonNull
 	static private String toString(@Nullable final float[] floats)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		if (floats != null)
 		{
 			boolean first = true;

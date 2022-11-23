@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
 import java.io.Serializable;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
 
@@ -30,19 +30,36 @@ import treebolic.glue.Image;
 // @formatter:on
 public interface IEdge extends Serializable
 {
+	// Define bits
+
 	/**
-	 * Define bits
+	 * Mask for hidden bit
 	 */
 	int HIDDENDEF = 0x01000000;
 
+	/**
+	 * Mask for line bit
+	 */
 	int LINEDEF = 0x02000000;
 
+	/**
+	 * Mask for stroke bit
+	 */
 	int STROKEDEF = 0x04000000;
 
+	/**
+	 * Mask for stroke width bits
+	 */
 	int STROKEWIDTHDEF = 0x08000000;
 
+	/**
+	 * Flag indicating definition of source edge tip
+	 */
 	int FROMDEF = 0x10000000;
 
+	/**
+	 * Flag indicating definition of destination edge tip
+	 */
 	int TODEF = 0x20000000;
 
 	// S T R O K E

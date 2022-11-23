@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
@@ -8,8 +8,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
 
@@ -352,6 +352,7 @@ class XNodeData extends NodeData
 	// A C C E S S
 
 	// location
+	@NonNull
 	public Location getLocation()
 	{
 		if (this.location == null)
@@ -477,7 +478,7 @@ public class Node extends XNodeData implements INode
 		if (parent != null)
 		{
 			this.parent = parent;
-			final List<INode> children = parent.getChildren();
+			@Nullable final List<INode> children = parent.getChildren();
 			assert children != null;
 			children.add(this);
 		}

@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
 
 /**
  * Container
+ * API class
  *
  * @author Bernard Bou
  */
@@ -69,10 +70,11 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 
 	/**
 	 * Constructor
+	 * API
 	 *
 	 * @param handle context
 	 */
-	protected Container(final Object handle)
+	public Container(final Object handle)
 	{
 		this((Context) handle);
 	}

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.component;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
 import treebolic.glue.iface.component.Converter;
@@ -24,7 +24,24 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	 * Put type
 	 */
 	public enum PutType
-	{INFO, LINK, MOUNT, SEARCH}
+	{
+		/**
+		 * Tag as info
+		 */
+		INFO,
+		/**
+		 * Tag as link
+		 */
+		LINK,
+		/**
+		 * Tag as mount info
+		 */
+		MOUNT,
+		/**
+		 * Tag as search info
+		 */
+		SEARCH
+	}
 
 	// colors
 
@@ -60,6 +77,11 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 		init(null);
 	}
 
+	/**
+	 * Init
+	 *
+	 * @param settings settings
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public void init(@Nullable @SuppressWarnings("SameParameterValue") final Settings settings)
 	{

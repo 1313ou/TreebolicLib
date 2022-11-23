@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.view;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.control.Controller;
 import treebolic.control.EventListenerAdapter;
 import treebolic.control.Finder;
@@ -241,7 +241,7 @@ public class View extends Surface
 		if (this.invalidatePainterGraphics)
 		{
 			// cached graphics context
-			final Graphics cacheGraphics = this.cache.getGraphics();
+			@NonNull final Graphics cacheGraphics = this.cache.getGraphics();
 
 			// tell painter
 			this.painter.setup(cacheGraphics, this.width, this.height);
@@ -311,6 +311,8 @@ public class View extends Surface
 
 	/**
 	 * Unmount notification hook
+	 *
+	 * @param mountingRoot mounting root
 	 */
 	public void umount(@NonNull final INode mountingRoot)
 	{
@@ -447,6 +449,14 @@ public class View extends Surface
 
 	// A P P L Y . S E T T I N G S
 
+	@Override
+	public float getFinderDistanceEpsilonFactor()
+	{
+		return 1.F;
+	}
+
+	// A P P L Y . S E T T I N G S
+
 	/**
 	 * Set view behaviour
 	 *
@@ -549,8 +559,8 @@ public class View extends Surface
 	 */
 	public void applyInitialTransform()
 	{
-		final Complex start = new Complex(-1, -1).normalize().multiply(0.9);
-		final HyperTransform transform = this.transformer.makeTransform(start, Complex.ZERO, this.layerOut.getOrientation());
+		@NonNull final Complex start = new Complex(-1, -1).normalize().multiply(0.9);
+		@NonNull final HyperTransform transform = this.transformer.makeTransform(start, Complex.ZERO, this.layerOut.getOrientation());
 		applyTransform(transform);
 	}
 
@@ -564,7 +574,7 @@ public class View extends Surface
 	 */
 	public void composeTranslate(@NonNull final Complex start, @NonNull final Complex end)
 	{
-		final HyperTransform transform = this.transformer.makeTransform(start, end, this.layerOut.getOrientation());
+		@NonNull final HyperTransform transform = this.transformer.makeTransform(start, end, this.layerOut.getOrientation());
 		applyComposedTransform(transform);
 	}
 
@@ -576,7 +586,7 @@ public class View extends Surface
 	 */
 	public void composeRotate(@NonNull final Complex start, @NonNull final Complex end)
 	{
-		final HyperRotation rotation = new HyperRotation(Complex.ONE);
+		@NonNull final HyperRotation rotation = new HyperRotation(Complex.ONE);
 		rotation.div(end, start);
 		rotation.normalize();
 		applyComposedTransform(new HyperTransform(rotation));
@@ -592,7 +602,7 @@ public class View extends Surface
 	 */
 	private void translate(@NonNull final Complex start, @NonNull final Complex end)
 	{
-		final HyperTransform transform = this.transformer.makeTransform(start, end, this.layerOut.getOrientation());
+		@NonNull final HyperTransform transform = this.transformer.makeTransform(start, end, this.layerOut.getOrientation());
 		applyTransform(transform);
 	}
 
@@ -634,7 +644,7 @@ public class View extends Surface
 	public void animateToCenter(@NonNull final INode node, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
 		final Location location = node.getLocation();
-		final Complex from = location.hyper.center;
+		@NonNull final Complex from = location.hyper.center;
 		animate(from, Complex.ZERO, now);
 		this.focusNode = node;
 	}
@@ -649,7 +659,7 @@ public class View extends Surface
 	public void animateTo(@NonNull final INode node, @NonNull final Complex destination, @SuppressWarnings("SameParameterValue") final boolean now)
 	{
 		final Location location = node.getLocation();
-		final Complex from = location.hyper.center;
+		@NonNull final Complex from = location.hyper.center;
 		animate(from, destination, now);
 		this.focusNode = node;
 	}
@@ -663,12 +673,12 @@ public class View extends Surface
 	 */
 	private synchronized void animate(@NonNull final Complex from, @NonNull final Complex to, final boolean now)
 	{
-		final AnimationTransforms transforms = AnimationTransforms.make(from, to, this.transformer, this.layerOut.getOrientation(), 0);
+		@NonNull final AnimationTransforms transforms = AnimationTransforms.make(from, to, this.transformer, this.layerOut.getOrientation(), 0);
 		if (transforms.transforms == null)
 		{
 			return;
 		}
-		final Animation animation = new Animation(transforms, this);
+		@NonNull final Animation animation = new Animation(transforms, this);
 		this.animator.run(animation, animation.getSteps(), now ? 0 : Animation.ANIMATION_START_DELAY);
 	}
 
@@ -694,8 +704,8 @@ public class View extends Surface
 	@Nullable
 	public INode findNode(final int vx, final int vy)
 	{
-		final Complex euclideanLocation = this.painter.viewToUnitCircle(vx, vy, this.width, this.height);
-		return Finder.findNodeAt(this.model.tree.getRoot(), euclideanLocation);
+		@NonNull final Complex euclideanLocation = this.painter.viewToUnitCircle(vx, vy, this.width, this.height);
+		return Finder.findNodeAt(this.model.tree.getRoot(), euclideanLocation, getFinderDistanceEpsilonFactor());
 	}
 
 	/**

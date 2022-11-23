@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
 import java.io.Serializable;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Image;
 
 /**
@@ -39,6 +39,9 @@ public class Model implements Serializable
 
 	/**
 	 * Constructor
+	 *
+	 * @param tree     tree
+	 * @param settings settings
 	 */
 	public Model(final Tree tree, final Settings settings)
 	{
@@ -49,6 +52,10 @@ public class Model implements Serializable
 
 	/**
 	 * Constructor
+	 *
+	 * @param tree     tree
+	 * @param settings settings
+	 * @param images   images
 	 */
 	public Model(final Tree tree, final Settings settings, @Nullable final Image[] images)
 	{

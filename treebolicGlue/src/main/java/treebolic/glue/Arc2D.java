@@ -50,26 +50,15 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 	public boolean counterclockwise;
 
 	@Override
-	public void setFrameFromCenter(final double centerX, final double centerY, final double cornerX, final double cornerY)
+	public double getX()
 	{
-		final double w2 = Math.abs(cornerX - centerX);
-		final double h2 = Math.abs(cornerY - centerY);
-		this.x = centerX - w2;
-		this.y = centerY - h2;
-		this.width = w2 * 2.0;
-		this.height = h2 * 2.0;
+		return x;
 	}
 
 	@Override
-	public double getCenterX()
+	public double getY()
 	{
-		return this.x + this.width / 2.0;
-	}
-
-	@Override
-	public double getCenterY()
-	{
-		return this.y + this.height / 2.0;
+		return y;
 	}
 
 	@Override
@@ -82,6 +71,18 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 	public double getWidth()
 	{
 		return this.width;
+	}
+
+	@Override
+	public double getCenterX()
+	{
+		return this.x + this.width / 2.0;
+	}
+
+	@Override
+	public double getCenterY()
+	{
+		return this.y + this.height / 2.0;
 	}
 
 	@NonNull
@@ -178,6 +179,17 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		}
 
 		return angle >= 0.0 && angle < angExt;
+	}
+
+	@Override
+	public void setFrameFromCenter(final double centerX, final double centerY, final double cornerX, final double cornerY)
+	{
+		final double w2 = Math.abs(cornerX - centerX);
+		final double h2 = Math.abs(cornerY - centerY);
+		this.x = centerX - w2;
+		this.y = centerY - h2;
+		this.width = w2 * 2.0;
+		this.height = h2 * 2.0;
 	}
 
 	@Override

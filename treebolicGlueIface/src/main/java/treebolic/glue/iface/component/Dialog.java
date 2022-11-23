@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface.component;
@@ -18,7 +18,7 @@ public interface Dialog
 	 *
 	 * @param handle (opaque) handle
 	 */
-	void setHandle(final Object handle);
+	void setHandle(@SuppressWarnings("unused") final Object handle);
 
 	/**
 	 * Set header and content

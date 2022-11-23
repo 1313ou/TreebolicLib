@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.math;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.glue.Arc2D;
 import treebolic.glue.Point2D;
 
@@ -48,7 +48,7 @@ public class ArcMath
 		final double theta = Math.toRadians(-arc2D.getAngleStart()) + Math.toRadians(-arc2D.getAngleExtent() / 2.);
 		final double x = a * Math.cos(theta);
 		final double y = b * Math.sin(theta);
-		return new treebolic.glue.Point2D(x + arc2D.getCenterX(), y + arc2D.getCenterY());
+		return new Point2D(x + arc2D.getCenterX(), y + arc2D.getCenterY());
 	}
 
 	/*

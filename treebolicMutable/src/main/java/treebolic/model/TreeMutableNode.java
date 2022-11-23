@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 
 /**
@@ -101,11 +101,12 @@ public class TreeMutableNode extends MutableNode
 	/**
 	 * Add child to this node
 	 *
+	 * @param parent parent
 	 * @param child child
 	 */
 	static public void assertNoLink(@NonNull final INode parent, @NonNull final INode child)
 	{
-		List<INode> children = parent.getChildren();
+		@Nullable List<INode> children = parent.getChildren();
 		if (children != null)
 		{
 			// assert !children.contains(child);
@@ -130,7 +131,7 @@ public class TreeMutableNode extends MutableNode
 	public void addChild(@NonNull final INode child)
 	{
 		// assertNoLink(this, child);
-		final List<INode> children = this.getChildren();
+		@NonNull final List<INode> children = this.getChildren();
 		children.add(child);
 		child.setParent(this);
 	}
@@ -144,7 +145,7 @@ public class TreeMutableNode extends MutableNode
 	{
 		if (children != null)
 		{
-			for (INode child : children)
+			for (@NonNull INode child : children)
 			{
 				addChild(child);
 			}
@@ -160,7 +161,7 @@ public class TreeMutableNode extends MutableNode
 	{
 		if (children != null)
 		{
-			for (INode child : children)
+			for (@NonNull INode child : children)
 			{
 				addChild(child);
 			}
@@ -176,7 +177,7 @@ public class TreeMutableNode extends MutableNode
 	@SuppressWarnings("WeakerAccess")
 	public void insertChild(@NonNull final INode child, @SuppressWarnings("SameParameterValue") final int i)
 	{
-		final List<INode> children = this.getChildren();
+		@NonNull final List<INode> children = this.getChildren();
 		children.add(i, child);
 		child.setParent(this);
 	}
@@ -212,7 +213,7 @@ public class TreeMutableNode extends MutableNode
 	{
 		if (parent != null)
 		{
-			final List<INode> children = parent.getChildren();
+			@Nullable final List<INode> children = parent.getChildren();
 			if (children != null)
 			{
 				children.remove(child);

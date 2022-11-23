@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 
 /**
  * Progress panel
+ * API class
  *
  * @author Bernard Bou
  */
@@ -117,7 +118,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	 *
 	 * @param handle context
 	 */
-	protected Progress(final Object handle)
+	public Progress(final Object handle)
 	{
 		this((Context) handle);
 	}

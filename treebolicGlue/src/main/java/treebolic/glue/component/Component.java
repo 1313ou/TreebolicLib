@@ -6,6 +6,7 @@ package treebolic.glue.component;
 
 /**
  * Component interface
+ * API interface
  *
  * @author Bernard Bou
  */

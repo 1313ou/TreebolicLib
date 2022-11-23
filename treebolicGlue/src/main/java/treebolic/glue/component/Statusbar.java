@@ -33,18 +33,13 @@ import treebolic.glue.iface.component.Converter;
 
 /**
  * Status bar
+ * API class
  *
  * @author Bernard Bou
  */
 public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar<Color, ActionListener>
 {
 	private static final String TAG = "Statusbar";
-
-	/**
-	 * Image index enum
-	 */
-	public enum ImageIndices
-	{INFO, LINK, MOUNT, SEARCH}
 
 	/**
 	 * Base URL for webview
@@ -225,10 +220,11 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 	/**
 	 * Constructor from handle
+	 * API
 	 *
 	 * @param handle activity
 	 */
-	protected Statusbar(final Object handle)
+	public Statusbar(final Object handle)
 	{
 		this((AppCompatActivity) handle);
 	}

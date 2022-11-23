@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.core.location.Complex;
 import treebolic.core.location.HyperCircle;
 import treebolic.core.transform.HyperOptimizedTransform;
@@ -172,7 +172,7 @@ public class Transformer
 		Transformer.transform(transform, node.getLocation().hyper);
 
 		// recurse on children
-		final List<INode> children = node.getChildren();
+		@Nullable final List<INode> children = node.getChildren();
 		if (children != null)
 		{
 			for (final INode child : children)
@@ -196,7 +196,7 @@ public class Transformer
 
 		node.getLocation().hyper.reset();
 
-		final List<INode> children = node.getChildren();
+		@Nullable final List<INode> children = node.getChildren();
 		if (children != null)
 		{
 			for (final INode child : children)

@@ -1,15 +1,16 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 
 /**
  * Glue interface for
  *
  * @author Bernard Bou
+ * @param <C> platform color type
  */
 public interface Color<C>
 {

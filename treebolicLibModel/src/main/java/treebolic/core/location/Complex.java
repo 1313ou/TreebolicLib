@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.location;
@@ -7,7 +7,7 @@ package treebolic.core.location;
 import java.io.Serializable;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 
 /**
  * Complex

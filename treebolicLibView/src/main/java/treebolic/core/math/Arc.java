@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.math;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.core.location.Complex;
 
 /**
@@ -97,7 +97,7 @@ public class Arc
 		final double s1 = 1. + z1.abs2();
 		final double s2 = 1. + z2.abs2();
 		final double norm = 1. / (2 * (z1.re * z2.im - z2.re * z1.im));
-		final Complex center = new Complex((s1 * z2.im - s2 * z1.im) * norm, -(s1 * z2.re - s2 * z1.re) * norm);
+		@NonNull final Complex center = new Complex((s1 * z2.im - s2 * z1.im) * norm, -(s1 * z2.re - s2 * z1.re) * norm);
 
 		// radius
 		final double radius = Distance.getEuclideanDistance(center, z2);
@@ -108,11 +108,11 @@ public class Arc
 		}
 
 		// start angle
-		final Complex t1 = new Complex(z1).sub(center);
+		@NonNull final Complex t1 = new Complex(z1).sub(center);
 		double startAngle = t1.arg(); // Arg(z1-center);
 
 		// end angle
-		final Complex t2 = new Complex(z2).sub(center);
+		@NonNull final Complex t2 = new Complex(z2).sub(center);
 		double endAngle = t2.arg(); // Arg(z2-center);
 
 		// normalize start angle

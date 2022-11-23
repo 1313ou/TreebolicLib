@@ -29,6 +29,7 @@ android {
 
 dependencies {
     api project(':treebolicLibModel')
+    implementation 'io.github.treebolic:treebolic-annotations:4.0-SNAPSHOT'
 
-    implementation 'androidx.annotation:annotation:1.4.0'
+    implementation 'androidx.annotation:annotation:1.5.0'
 }

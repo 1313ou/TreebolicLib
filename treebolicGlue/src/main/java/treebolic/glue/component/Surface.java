@@ -28,6 +28,7 @@ import treebolic.glue.Graphics;
 
 /**
  * Surface treebolic.glue to serve as base for view
+ * API class
  *
  * @author Bernard Bou
  */
@@ -174,6 +175,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 	/**
 	 * Constructor
+	 * API
 	 *
 	 * @param handle handle
 	 */

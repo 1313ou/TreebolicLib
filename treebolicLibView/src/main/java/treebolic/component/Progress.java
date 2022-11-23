@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.component;
@@ -13,8 +13,6 @@ import treebolic.glue.component.Component;
  */
 public class Progress extends treebolic.glue.component.Progress implements Component
 {
-	// private static final long serialVersionUID = 4362329721644133327L;
-
 	/**
 	 * Constructor
 	 *

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic;
@@ -7,7 +7,7 @@ package treebolic;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 
 /**
  * Language dependency
@@ -24,6 +24,13 @@ public class Messages
 	{
 	}
 
+	/**
+	 * Get localized message
+	 *
+	 * @param key message key
+	 * @return localized message
+	 */
+	@NonNull
 	public static String getString(@NonNull String key)
 	{
 		try

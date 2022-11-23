@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.component;
@@ -9,8 +9,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.control.Controller;
 import treebolic.glue.ActionListener;
 import treebolic.model.INode;
@@ -27,40 +27,16 @@ import treebolic.view.View;
  */
 public class PopupMenu extends treebolic.glue.component.PopupMenu
 {
-	// private static final long serialVersionUID = 6316113839021843464L;
-
-	/**
-	 * Indexes to labels
-	 */
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_CANCEL = 0;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_INFO = 1;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_FOCUS = 2;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_LINKTO = 3;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_MOUNT = 4;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_UNMOUNT = 5;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_GOTO = 6;
-	@SuppressWarnings("WeakerAccess")
-	static public final int LABEL_SEARCH = 7;
-
-	// static String[] labels defined in glue for localization
-
 	/**
 	 * Constructor
+	 *
+	 * @param view view
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public PopupMenu(@NonNull final View view)
 	{
 		super(view);
 	}
-
-	// public void show(final Component parent, final int x, final int y)
 
 	/**
 	 * Make popup menu
@@ -75,11 +51,10 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 	@NonNull
 	static public PopupMenu makePopup(@NonNull final View view, @NonNull final Controller controller, final String value, @NonNull final INode node, @NonNull final Settings settings)
 	{
-		final PopupMenu popupMenu = new PopupMenu(view);
+		@NonNull final PopupMenu popupMenu = new PopupMenu(view);
 
 		// info
-		assert labels != null;
-		popupMenu.addItem(labels[LABEL_INFO], ImageIndices.IMAGE_INFO.ordinal(), new ActionListener()
+		popupMenu.addItem(LabelIndices.LABEL_INFO.ordinal(), ImageIndices.IMAGE_INFO.ordinal(), new ActionListener()
 		{
 			@SuppressWarnings("SameReturnValue")
 			@Override
@@ -91,7 +66,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		});
 
 		// focus
-		popupMenu.addItem(labels[LABEL_FOCUS], ImageIndices.IMAGE_FOCUS.ordinal(), new ActionListener()
+		popupMenu.addItem(LabelIndices.LABEL_FOCUS.ordinal(), ImageIndices.IMAGE_FOCUS.ordinal(), new ActionListener()
 		{
 			@SuppressWarnings("SameReturnValue")
 			@Override
@@ -103,11 +78,11 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		});
 
 		// mount
-		final MountPoint mountPoint = node.getMountPoint();
+		@Nullable final MountPoint mountPoint = node.getMountPoint();
 		if (mountPoint != null)
 		{
 			@SuppressWarnings("InstanceofConcreteClass") final boolean isMounted = mountPoint instanceof MountPoint.Mounted;
-			popupMenu.addItem(labels[isMounted ? LABEL_UNMOUNT : LABEL_MOUNT], ImageIndices.IMAGE_MOUNT.ordinal(), new ActionListener()
+			popupMenu.addItem(isMounted ? LabelIndices.LABEL_UNMOUNT.ordinal() : LabelIndices.LABEL_MOUNT.ordinal(), ImageIndices.IMAGE_MOUNT.ordinal(), new ActionListener()
 			{
 				@SuppressWarnings("SameReturnValue")
 				@Override
@@ -122,7 +97,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		// link
 		if (PopupMenu.isURL(node.getLink()))
 		{
-			popupMenu.addItem(labels[LABEL_LINKTO], ImageIndices.IMAGE_LINK.ordinal(), new ActionListener()
+			popupMenu.addItem(LabelIndices.LABEL_LINKTO.ordinal(), ImageIndices.IMAGE_LINK.ordinal(), new ActionListener()
 			{
 				@SuppressWarnings("SameReturnValue")
 				@Override
@@ -137,9 +112,9 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		// custom
 		if (settings.menu != null)
 		{
-			for (final MenuItem menuItem : settings.menu)
+			for (@NonNull final MenuItem menuItem : settings.menu)
 			{
-				String menuLabel = null;
+				@Nullable String menuLabel = null;
 				boolean prepend = menuItem.label != null && (menuItem.label.length() == 0 || Character.isLowerCase(menuItem.label.charAt(0)));
 				assert menuItem.action != null;
 				switch (menuItem.action)
@@ -151,16 +126,18 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 							// illegal combination
 							continue;
 						}
-						menuLabel = prepend ? labels[LABEL_GOTO] + ' ' + menuItem.label : menuItem.label;
+						menuLabel = prepend ? LabelIndices.LABEL_GOTO.ordinal() + ' ' + menuItem.label : menuItem.label;
 						break;
+
 					case SEARCH:
 						if (controller.getSearchTarget(menuItem.target, node) == null)
 						{
 							// illegal combination
 							continue;
 						}
-						menuLabel = prepend ? labels[LABEL_SEARCH] + ' ' + menuItem.label : menuItem.label;
+						menuLabel = prepend ? LabelIndices.LABEL_SEARCH.ordinal() + ' ' + menuItem.label : menuItem.label;
 						break;
+
 					default:
 						break;
 				}
@@ -195,7 +172,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 		}
 
 		// cancel
-		popupMenu.addItem(labels[LABEL_CANCEL], ImageIndices.IMAGE_CANCEL.ordinal(), new ActionListener()
+		popupMenu.addItem(LabelIndices.LABEL_CANCEL.ordinal(), ImageIndices.IMAGE_CANCEL.ordinal(), new ActionListener()
 		{
 			@SuppressWarnings("SameReturnValue")
 			@Override
@@ -226,7 +203,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 				// well-formed URI
 				try
 				{
-					final URI uri = new URI(link);
+					@NonNull final URI uri = new URI(link);
 
 					// relative form not including scheme
 					if (link.equals(uri.getPath()))
@@ -235,7 +212,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 					}
 
 					// fragment
-					final String fragment = '#' + uri.getFragment();
+					@NonNull final String fragment = '#' + uri.getFragment();
 					//noinspection SimplifiableIfStatement
 					if (link.equals(fragment))
 					{
@@ -272,7 +249,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 			return null;
 		}
 
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		final int n = str.length();
 		for (int i = 0; i < n; i++)
 		{
@@ -292,7 +269,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 						// label
 						case 'l':
-							final String label = node.getLabel();
+							@Nullable final String label = node.getLabel();
 							if (label != null)
 							{
 								sb.append(label.toCharArray());
@@ -301,7 +278,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 						// content
 						case 'c':
-							final String content = node.getContent();
+							@Nullable final String content = node.getContent();
 							if (content != null)
 							{
 								sb.append(content.toCharArray());
@@ -310,7 +287,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 						// link url
 						case 'u':
-							final String link = node.getLink();
+							@Nullable final String link = node.getLink();
 							if (link != null)
 							{
 								sb.append(link.toCharArray());
@@ -319,7 +296,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 						// id
 						case 'i':
-							final String id = node.getId();
+							@Nullable final String id = node.getId();
 							if (id != null)
 							{
 								sb.append(id.toCharArray());
@@ -328,10 +305,10 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 
 						// parent
 						case 'p':
-							final INode parent = node.getParent();
+							@Nullable final INode parent = node.getParent();
 							if (parent != null)
 							{
-								final String parentId = parent.getId();
+								@Nullable final String parentId = parent.getId();
 								if (parentId != null)
 								{
 									sb.append(parentId.toCharArray());
@@ -365,7 +342,7 @@ public class PopupMenu extends treebolic.glue.component.PopupMenu
 				}
 			}
 		}
-		final String result = sb.toString();
+		@NonNull final String result = sb.toString();
 		if (result.isEmpty())
 		{
 			return null;

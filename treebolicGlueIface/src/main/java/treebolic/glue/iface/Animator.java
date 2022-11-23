@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface;
@@ -7,6 +7,7 @@ package treebolic.glue.iface;
 /**
  * Glue interface for Animator
  *
+ * @param <A> platform action listener
  * @author Bernard Bou
  */
 public interface Animator<A>
@@ -20,7 +21,7 @@ public interface Animator<A>
 	 * @return true if successful
 	 */
 	@SuppressWarnings("SameReturnValue")
-	boolean run(A animation, int steps, int startDelay);
+	boolean run(A animation, @SuppressWarnings("unused") int steps, int startDelay);
 
 	/**
 	 * Running status

@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic;
 
 import java.net.URL;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 
 /**
  * Locator interface

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface.component;
@@ -9,10 +9,18 @@ import treebolic.glue.iface.ActionListener;
 /**
  * Glue interface for Statusbar
  *
+ * @param <C> component type
+ * @param <L> platform action listener type
  * @author Bernard Bou
  */
 public interface Statusbar<C, L>
 {
+	/**
+	 * Image indices
+	 */
+	enum ImageIndices
+	{ /** Info */ INFO, /** Link */  LINK,  /** Mount */ MOUNT,  /** Search */ SEARCH, /** Count */ COUNT}
+
 	// public Statusbar();
 
 	/**

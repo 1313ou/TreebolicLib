@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.model.Model;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
@@ -66,6 +66,8 @@ public interface IWidget
 
 	/**
 	 * Get version (wrapper)
+	 *
+	 * @return version
 	 */
 	@NonNull
 	String getVersion();
@@ -89,24 +91,54 @@ public interface IWidget
 
 	// SEARCH PARAMETER VALUES
 
+	/**
+	 * Search
+	 */
 	String SEARCH = SearchCommand.SEARCH.name();
 
+	/**
+	 * Continue search
+	 */
 	String SEARCHCONTINUE = SearchCommand.CONTINUE.name();
 
+	/**
+	 * Reset search
+	 */
 	String SEARCHRESET = SearchCommand.RESET.name();
 
+	/**
+	 * Search labels
+	 */
 	String SEARCHSCOPELABEL = MatchScope.LABEL.name();
 
+	/**
+	 * Search contents
+	 */
 	String SEARCHSCOPECONTENT = MatchScope.CONTENT.name();
 
+	/**
+	 * Search links
+	 */
 	String SEARCHSCOPELINK = MatchScope.LINK.name();
 
+	/**
+	 * Search links
+	 */
 	String SEARCHSCOPEID = MatchScope.ID.name();
 
+	/**
+	 * Match if equals parameter
+	 */
 	String SEARCHMODEEQUALS = MatchMode.EQUALS.name();
 
+	/**
+	 * Match if starts with parameter
+	 */
 	String SEARCHMODESTARTSWITH = MatchMode.STARTSWITH.name();
 
+	/**
+	 * Match if includes parameter
+	 */
 	String SEARCHMODEINCLUDES = MatchMode.INCLUDES.name();
 
 	/**

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
 import treebolic.model.INode;
@@ -133,6 +133,8 @@ public abstract class AbstractLayerOut
 
 	/**
 	 * Do layout
+	 *
+	 * @param node start node
 	 */
 	abstract public void layout(INode node);
 

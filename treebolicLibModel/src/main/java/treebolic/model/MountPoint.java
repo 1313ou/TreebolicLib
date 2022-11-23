@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
@@ -7,8 +7,8 @@ package treebolic.model;
 import java.io.Serializable;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 
 /**
  * Mount point
@@ -20,6 +20,9 @@ public class MountPoint implements Serializable
 {
 	private static final long serialVersionUID = 8846293010235597970L;
 
+	/**
+	 * Mountpoint in the mounting side
+	 */
 	static public class Mounting extends MountPoint
 	{
 		private static final long serialVersionUID = 5222027905366742742L;
@@ -66,6 +69,9 @@ public class MountPoint implements Serializable
 		}
 	}
 
+	/**
+	 * Mountpoint in the mounted side
+	 */
 	static public class Mounted extends MountPoint
 	{
 		private static final long serialVersionUID = 7749263337626673995L;
@@ -103,40 +109,40 @@ public class MountPoint implements Serializable
 	}
 
 	/**
-	 * Follow mounted->mounting or mounting->mounted
+	 * Follow mounted-&gt;mounting or mounting-&gt;mounted
 	 *
 	 * @param node source node
-	 * @param up   allow mounted -> mounting
-	 * @param down allow mounting -> mounted
+	 * @param up   allow mounted -&gt; mounting
+	 * @param down allow mounting -&gt; mounted
 	 * @return target node (or source if no mounting)
 	 */
 	@NonNull
 	public static INode follow(@NonNull final INode node, @SuppressWarnings("SameParameterValue") boolean up, @SuppressWarnings("SameParameterValue") boolean down)
 	{
-		MountPoint mountPoint = node.getMountPoint();
+		@Nullable MountPoint mountPoint = node.getMountPoint();
 
 		// mounted mountpoint must be non-null
 		if (mountPoint != null)
 		{
 			// if mounting mountpoint: mounting -> mounted (down)
 			//noinspection InstanceofConcreteClass
-			if (down && mountPoint instanceof MountPoint.Mounting)
+			if (down && mountPoint instanceof Mounting)
 			{
-				final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
+				@NonNull final Mounting mountingMountPoint = (Mounting) mountPoint;
 
 				// mounting mountpoint must be reference a mounted node
-				final INode mountedNode = mountingMountPoint.mountedNode;
+				@Nullable final INode mountedNode = mountingMountPoint.mountedNode;
 				if (mountedNode != null)
 				{
-					// mounted mountpoint must be non null
+					// mounted mountpoint must be non-null
 					mountPoint = mountedNode.getMountPoint();
 					if (mountPoint != null)
 					{
 						// mounted mountpoint must be mounted
 						//noinspection InstanceofConcreteClass
-						if (mountPoint instanceof MountPoint.Mounted)
+						if (mountPoint instanceof Mounted)
 						{
-							final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
+							@NonNull final Mounted mountedMountPoint = (Mounted) mountPoint;
 
 							// mounted mountpoint must reference mounting node
 							if (mountedMountPoint.mountingNode == node)
@@ -151,23 +157,23 @@ public class MountPoint implements Serializable
 			// if mounted mountpoint: mounted -> mounting (up)
 			else
 				//noinspection InstanceofConcreteClass
-				if (up && mountPoint instanceof MountPoint.Mounted)
+				if (up && mountPoint instanceof Mounted)
 				{
-					final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
+					@NonNull final Mounted mountedMountPoint = (Mounted) mountPoint;
 
 					// mounted mountpoint must be reference a mounting node
-					final INode mountingNode = mountedMountPoint.mountingNode;
+					@Nullable final INode mountingNode = mountedMountPoint.mountingNode;
 					if (mountingNode != null)
 					{
-						// mounting mountpoint must be non null
+						// mounting mountpoint must be non-null
 						mountPoint = mountingNode.getMountPoint();
 						if (mountPoint != null)
 						{
 							// mounting mountpoint must be mounting
 							//noinspection InstanceofConcreteClass
-							if (mountPoint instanceof MountPoint.Mounting)
+							if (mountPoint instanceof Mounting)
 							{
-								final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
+								@NonNull final Mounting mountingMountPoint = (Mounting) mountPoint;
 
 								// mounting mountpoint must reference mounted node
 								if (mountingMountPoint.mountedNode == node)

@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
 import treebolic.core.transform.HyperTranslation;
@@ -81,14 +81,14 @@ public class LayerOut extends AbstractLayerOut
 	private void layoutChildren(@NonNull final INode node, final double halfWedge, final double orientation)
 	{
 		// children
-		final List<INode> children = node.getChildren();
+		@Nullable final List<INode> children = node.getChildren();
 		if (children == null || children.isEmpty())
 		{
 			return;
 		}
 
 		// center
-		final Complex center = node.getLocation().hyper.center;
+		@NonNull final Complex center = node.getLocation().hyper.center;
 
 		// compute node distance
 		final double nodeDistance = computeDistance(children.size());
@@ -96,7 +96,7 @@ public class LayerOut extends AbstractLayerOut
 
 		// iterate
 		double childSweeper = orientation - (this.clockwise ? halfWedge : -halfWedge);
-		for (final INode child : children)
+		for (@NonNull final INode child : children)
 		{
 			// compute child's share of the parent's wedge as per weight
 			final double share = Math.abs(child.getWeight()) / node.getChildrenWeight();
@@ -106,7 +106,7 @@ public class LayerOut extends AbstractLayerOut
 			childSweeper += this.clockwise ? childHalfWedgeShare : -childHalfWedgeShare;
 
 			// translate by parent's coordinates
-			final Complex childCenter = HyperTranslation.map(Complex.makeFromArgAbs(childSweeper, nodeDistance), center);
+			@NonNull final Complex childCenter = HyperTranslation.map(Complex.makeFromArgAbs(childSweeper, nodeDistance), center);
 
 			// set child's center and radius
 			child.getLocation().hyper.set(childCenter, radius);
@@ -118,18 +118,18 @@ public class LayerOut extends AbstractLayerOut
 			final double childHalfWedge = LayerOut.computeWedge(nodeDistance, childHalfWedgeShare);
 
 			// mountpoint handling
-			MountPoint mountPoint = child.getMountPoint();
+			@Nullable MountPoint mountPoint = child.getMountPoint();
 			while (mountPoint != null)
 			{
 				//noinspection InstanceofConcreteClass
 				if (mountPoint instanceof MountPoint.Mounting)
 				{
-					final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
+					@NonNull final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
 					mountingPoint.halfWedge = childHalfWedge;
 					mountingPoint.orientation = childOrientation;
 					break;
 				}
-				final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
+				@NonNull final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
 				assert mountedPoint.mountingNode != null;
 				mountPoint = mountedPoint.mountingNode.getMountPoint();
 			}
@@ -177,8 +177,8 @@ public class LayerOut extends AbstractLayerOut
 		// compute the new orientation (oc)
 		// e(i oc) = T(-z) o T(zp) (e(i op))
 		// e(i op) = theta
-		final Complex theta = Complex.makeFromArg(orientation);
-		final Complex nz = new Complex(center).neg();
+		@NonNull final Complex theta = Complex.makeFromArg(orientation);
+		@NonNull final Complex nz = new Complex(center).neg();
 		HyperTranslation.map2(theta, parentCenter, nz);
 		// </BOUTHIER>
 
@@ -197,8 +197,8 @@ public class LayerOut extends AbstractLayerOut
 		// <BOUTHIER>
 		// compute the new wedge from the child's share of the parent's wedge
 		// e(i w) = T(-length) (e(i wp))
-		final Complex theta = Complex.makeFromArg(-wedge);
-		final Complex ro = new Complex(-nodeDistance, 0);
+		@NonNull final Complex theta = Complex.makeFromArg(-wedge);
+		@NonNull final Complex ro = new Complex(-nodeDistance, 0);
 		HyperTranslation.map(theta, ro);
 		return Math.abs(theta.arg());
 

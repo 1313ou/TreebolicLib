@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface;
@@ -11,9 +11,17 @@ package treebolic.glue.iface;
  */
 public interface Point
 {
-	// public int x;
+	/**
+	 * Get x
+	 *
+	 * @return x
+	 */
+	int x();
 
-	// public int y;
-
-	// public Point(final int x, final int y);
+	/**
+	 * Get y
+	 *
+	 * @return y
+	 */
+	int y();
 }

@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.view;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Graphics;
 import treebolic.glue.Image;
@@ -57,31 +57,37 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Initial default background color
 	 */
+	@Nullable
 	static private final Color backColor0 = Color.WHITE;
 
 	/**
 	 * Initial default foreground color
 	 */
+	@Nullable
 	static private final Color foreColor0 = Color.BLACK;
 
 	/**
 	 * Initial default node background color
 	 */
+	@Nullable
 	static private final Color nodeBackColor0 = Color.WHITE;
 
 	/**
 	 * Initial default node foreground color
 	 */
+	@Nullable
 	static private final Color nodeForeColor0 = Color.BLACK;
 
 	/**
 	 * Initial default tree edge color
 	 */
+	@Nullable
 	static private final Color treeEdgeColor0 = Color.GRAY;
 
 	/**
 	 * Initial default tree edge color
 	 */
+	@Nullable
 	static private final Color edgeColor0 = Color.DARK_GRAY;
 
 	// D A T A
@@ -686,7 +692,7 @@ public abstract class AbstractPainter extends Mapper
 	/**
 	 * Set scale images flag
 	 *
-	 * @param flag true true if images are scaled
+	 * @param flag true if images are scaled
 	 */
 	public void setScaleImages(@Nullable final Boolean flag)
 	{

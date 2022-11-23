@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.provider;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
 import treebolic.model.INode;
@@ -34,7 +34,7 @@ public class LoadBalancer
 	// P A R A M E T E R S
 
 	/**
-	 * Max children nodes at level 0, 1 .. n. Level is just above leaves. Last value i holds for level i to n.
+	 * Max children nodes at level 0, 1 ... n. Level is just above leaves. Last value i holds for level i to n.
 	 */
 	@NonNull
 	private final int[] limitNodesAtLevel;
@@ -131,7 +131,7 @@ public class LoadBalancer
 	@NonNull
 	private List<INode> buildHierarchy1(@NonNull final List<? extends INode> nodes, final int imageIndex, @Nullable final Image image, final int level)
 	{
-		final List<INode> roots = new ArrayList<>();
+		@NonNull final List<INode> roots = new ArrayList<>();
 
 		//noinspection ManualMinMaxCalculation
 		int m0 = this.limitNodesAtLevel[level > this.limitNodesAtLevel.length - 1 ? this.limitNodesAtLevel.length - 1 : level];
@@ -146,13 +146,14 @@ public class LoadBalancer
 		for (int i = 0; i < z; i = i + m)
 		{
 			m = m0; // actual length of segment
-			final String id = nodes.get(i).getId() + "~" + level + "-" + i; // composite id from first child node under root
-			final TreeMutableNode root = new TreeMutableNode(null, id);
+			@NonNull final String id = nodes.get(i).getId() + "~" + level + "-" + i; // composite id from first child node under root
+			@NonNull final TreeMutableNode root = new TreeMutableNode(null, id);
 			root.setLink(null);
 			root.setTarget(DIR_TARGET);
 			root.setBackColor(this.backColor);
 			root.setForeColor(this.foreColor);
 			root.setLabel(this.label);
+			root.setEdgeColor(this.edgeColor);
 
 			// image
 			if (imageIndex >= 0)
@@ -180,9 +181,9 @@ public class LoadBalancer
 			int b2 = Math.min(b + 1, z);
 			if (b != b2)
 			{
-				final String tag = last.getTarget();
+				@Nullable final String tag = last.getTarget();
 				final INode next = nodes.get(b2 - 1);
-				final String nextTag = next.getTarget();
+				@Nullable final String nextTag = next.getTarget();
 				if (tag != null && tag.equals(nextTag))
 				{
 					b = b2; // first of next segment = last index exclusive of current segment
@@ -191,9 +192,9 @@ public class LoadBalancer
 				}
 			}
 
-			final String startLabel = left(first.getTarget(), this.truncateLabelAt);
+			@Nullable final String startLabel = left(first.getTarget(), this.truncateLabelAt);
 			root.setEdgeLabel(startLabel);
-			final String rangeLabel = makeRangeLabel(first, last);
+			@Nullable final String rangeLabel = makeRangeLabel(first, last);
 			root.setTarget(rangeLabel);
 			// root.setLabel(rangeLabel);
 			// root.setContent(/* "root" + level + "-" + i + NL + */ rangeLabel + NL + getNodeLabel(first) + NL + getNodeLabel(last));
@@ -242,7 +243,7 @@ public class LoadBalancer
 		{
 			return (List<INode>) nodes;
 		}
-		final List<INode> nodes2 = buildHierarchy1(nodes, imageIndex, image, level);
+		@NonNull final List<INode> nodes2 = buildHierarchy1(nodes, imageIndex, image, level);
 		return buildHierarchy(nodes2, imageIndex, image, level + 1);
 	}
 
@@ -271,15 +272,15 @@ public class LoadBalancer
 	@Nullable
 	private String makeRangeLabel(@NonNull final INode first, @NonNull final INode last)
 	{
-		String label1 = first.getTarget();
-		String label2 = last.getTarget();
+		@Nullable String label1 = first.getTarget();
+		@Nullable String label2 = last.getTarget();
 		if (label1 == null || label2 == null)
 		{
 			return null;
 		}
 		label1 = label1.toLowerCase(Locale.getDefault());
 		label2 = label2.toLowerCase(Locale.getDefault());
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		sb.append(left(label1, this.truncateLabelAt)) //
 				.append('-');
 		boolean isItem = !DIR_TARGET.equals(last.getTarget());

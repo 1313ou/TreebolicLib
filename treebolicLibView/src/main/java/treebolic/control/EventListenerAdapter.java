@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.control;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
 import treebolic.glue.EventListener;
@@ -118,7 +118,7 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onFocus(final int x, final int y)
 	{
-		final INode node = this.controller.findNode(x, y);
+		@Nullable final INode node = this.controller.findNode(x, y);
 		if (node != null)
 		{
 			this.controller.handle(Controller.Event.FOCUS, node);
@@ -130,7 +130,7 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onMenu(final int x, final int y)
 	{
-		final INode node = this.controller.findNode(x, y);
+		@Nullable final INode node = this.controller.findNode(x, y);
 		if (node != null)
 		{
 			if (this.hasPopUp)
@@ -145,7 +145,7 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onMount(final int x, final int y)
 	{
-		final INode node = this.controller.findNode(x, y);
+		@Nullable final INode node = this.controller.findNode(x, y);
 		if (node != null)
 		{
 			this.controller.handle(Controller.Event.MOUNT, node);
@@ -157,7 +157,7 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onLink(final int x, final int y)
 	{
-		final INode node = this.controller.findNode(x, y);
+		@Nullable final INode node = this.controller.findNode(x, y);
 		if (node != null)
 		{
 			this.controller.handle(Controller.Event.LINK, node);
@@ -170,7 +170,7 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onDown(final int x, final int y, final boolean rotate)
 	{
-		final Complex dragStart = this.controller.viewToUnitCircle(new Point(x, y));
+		@NonNull final Complex dragStart = this.controller.viewToUnitCircle(new Point(x, y));
 		this.dragMode = rotate ? DragMode.ROTATE : DragMode.TRANSLATE;
 		this.dragStart.set(dragStart);
 		this.dragEnd.set(this.dragStart);
@@ -190,7 +190,7 @@ public class EventListenerAdapter extends EventListener
 		else
 		{
 			// selection
-			final INode node = this.controller.findNode(x, y);
+			@Nullable final INode node = this.controller.findNode(x, y);
 			if (node != null)
 			{
 				this.controller.handle(Controller.Event.SELECT, node);
@@ -206,7 +206,7 @@ public class EventListenerAdapter extends EventListener
 		final double maxShiftSpan = .5;
 
 		// avoid wide pointer shift which will lead to cross-circle xlations
-		Complex dragEnd = this.controller.viewToUnitCircle(new Point(x, y));
+		@NonNull Complex dragEnd = this.controller.viewToUnitCircle(new Point(x, y));
 		if (Distance.getEuclideanDistance(this.dragStart, dragEnd) > maxShiftSpan)
 		{
 			// keep shift direction but limit span
@@ -224,7 +224,7 @@ public class EventListenerAdapter extends EventListener
 	public boolean onSelect(final int x, final int y)
 	{
 		// selection
-		final INode node = this.controller.findNode(x, y);
+		@Nullable final INode node = this.controller.findNode(x, y);
 		if (node != null)
 		{
 			this.controller.handle(Controller.Event.SELECT, node);
@@ -286,7 +286,7 @@ public class EventListenerAdapter extends EventListener
 	@Override
 	public boolean onHover(final int x, final int y)
 	{
-		final INode node = this.controller.findNode(x, y);
+		@Nullable final INode node = this.controller.findNode(x, y);
 		final boolean again = this.hotNode == node;
 		this.hotNode = node;
 		if (node != null && !again)

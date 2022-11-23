@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.transform;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.core.location.Complex;
 
 /**
@@ -48,23 +48,23 @@ public class HyperOrientationPreservingTransform extends HyperTransform
 		super(new HyperTranslation(from).inverse());
 
 		// orientation points at tail
-		final Complex head = new Complex(orientation).neg();
+		@NonNull final Complex head = new Complex(orientation).neg();
 
 		// t2
-		final HyperTranslation t2 = new HyperTranslation(to);
+		@NonNull final HyperTranslation t2 = new HyperTranslation(to);
 
 		// map theta by t1
-		final Complex theta1 = this.xlat.map(new Complex(head));
+		@NonNull final Complex theta1 = this.xlat.map(new Complex(head));
 
 		// map theta by t2 inverse()
-		final Complex theta2 = t2.mapinv(new Complex(head));
+		@NonNull final Complex theta2 = t2.mapinv(new Complex(head));
 
 		// we compute the rotation
 		// angle(theta2) - angle(theta1)
 		theta2.div(theta1);
 
 		// make rotation to offset computed side-effect rotation
-		final HyperRotation r2 = new HyperRotation(theta2);
+		@NonNull final HyperRotation r2 = new HyperRotation(theta2);
 
 		// compose
 		compose(HyperRotation.compose(r2, t2));

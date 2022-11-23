@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 
 /**
  * Analysis deserializer
@@ -36,7 +36,7 @@ public class ModelReader
 	 *
 	 * @return model
 	 * @throws IOException io exception
-	 * //@throws ClassNotFoundException class not found exception
+	 * @throws ClassNotFoundException class not found exception
 	 */
 	@NonNull
 	public Model deserialize() throws IOException, ClassNotFoundException
@@ -56,11 +56,7 @@ public class ModelReader
 		{
 			return deserialize();
 		}
-		catch (@NonNull final ClassNotFoundException ignored)
-		{
-			//
-		}
-		catch (@NonNull final IOException ignored)
+		catch (@NonNull final ClassNotFoundException | IOException ignored)
 		{
 			//
 		}

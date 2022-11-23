@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.control;
@@ -7,11 +7,11 @@ package treebolic.control;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 
 /**
  * This class allows specifying Python generator-like sequences. For examples, see the JUnit test case. The implementation uses a separate Thread to produce the
- * sequence items. This is certainly not as fast as eg. a for-loop, but not horribly slow either. On a machine with a dual core i5 CPU @ 2.67 GHz, 1000 items
+ * sequence items. This is certainly not as fast as e.g. a for-loop, but not horribly slow either. On a machine with a dual-core i5 CPU @ 2.67 GHz, 1000 items
  * can be produced in &lt; 0.03s. By overriding finalize(), the class takes care not to leave any Threads running longer than necessary.
  *
  * @param <T> type of objects
@@ -186,6 +186,8 @@ public abstract class Generator<T> implements Iterable<T>
 
 	/**
 	 * Run generator. Each element is generated with a yield
+	 *
+	 * @throws InterruptedException interrupted exception
 	 */
 	@SuppressWarnings("RedundantThrows")
 	protected abstract void run() throws InterruptedException;
@@ -194,7 +196,7 @@ public abstract class Generator<T> implements Iterable<T>
 	 * Yield element
 	 *
 	 * @param element element
-	 *                //@throws InterruptedException interrupted exception
+	 * @throws InterruptedException interrupted exception
 	 */
 	@SuppressWarnings("WeakerAccess")
 	protected void yield(T element) throws InterruptedException
@@ -214,8 +216,8 @@ public abstract class Generator<T> implements Iterable<T>
 
 	/**
 	 * Terminate generator
-	 * <p>
-	 * //@throws InterruptedException interrupted exception
+	 *
+	 * @throws InterruptedException interrupted exception
 	 */
 	public void terminate() throws InterruptedException
 	{

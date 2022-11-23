@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.transform;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.core.location.Complex;
 
 /**

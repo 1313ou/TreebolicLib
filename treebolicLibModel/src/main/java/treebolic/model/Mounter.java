@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
@@ -7,8 +7,8 @@ package treebolic.model;
 import java.util.Collection;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 
 /**
  * Mounter
@@ -31,14 +31,14 @@ public class Mounter
 		// REQUISITES
 
 		// mounting node must have a parent
-		final INode mountingParent = mountingNode.getParent();
+		@Nullable final INode mountingParent = mountingNode.getParent();
 		if (mountingParent == null)
 		{
 			return false;
 		}
 
-		// mounting mountpoint must be non null
-		final MountPoint mountPoint = mountingNode.getMountPoint();
+		// mounting mountpoint must be non-null
+		@Nullable final MountPoint mountPoint = mountingNode.getMountPoint();
 		if (mountPoint == null)
 		{
 			return false;
@@ -50,7 +50,7 @@ public class Mounter
 		{
 			return false;
 		}
-		final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
+		@NonNull final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
 
 		// mounted mountpoint must null
 		if (mountedNode.getMountPoint() != null)
@@ -61,13 +61,13 @@ public class Mounter
 		// ALLOCATE
 
 		// setup mounted mountpoint
-		final MountPoint.Mounted mountedMountPoint = new MountPoint.Mounted();
+		@NonNull final MountPoint.Mounted mountedMountPoint = new MountPoint.Mounted();
 		mountedNode.setMountPoint(mountedMountPoint);
 
 		// TREE
 
 		// tree down connect
-		final List<INode> mountingParentChildren = mountingParent.getChildren();
+		@Nullable final List<INode> mountingParentChildren = mountingParent.getChildren();
 		if (mountingParentChildren != null)
 		{
 			final int index = mountingParentChildren.indexOf(mountingNode);
@@ -85,7 +85,7 @@ public class Mounter
 
 		// STATE
 
-		// cross reference mounting node and mounted
+		// cross-reference mounting node and mounted
 		mountedMountPoint.mountingNode = mountingNode;
 		mountingMountPoint.mountedNode = mountedNode;
 
@@ -112,14 +112,14 @@ public class Mounter
 		// REQUISITES
 
 		// mounting node must have a parent
-		final INode mountedParent = mountedNode.getParent();
+		@Nullable final INode mountedParent = mountedNode.getParent();
 		if (mountedParent == null)
 		{
 			return null;
 		}
 
 		// mounted mountpoint must be non-null
-		MountPoint mountPoint = mountedNode.getMountPoint();
+		@Nullable MountPoint mountPoint = mountedNode.getMountPoint();
 		if (mountPoint == null)
 		{
 			return null;
@@ -131,16 +131,16 @@ public class Mounter
 		{
 			return null;
 		}
-		final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
+		@NonNull final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 
 		// mounted mountpoint must be reference a mounting node
-		final INode mountingNode = mountedMountPoint.mountingNode;
+		@Nullable final INode mountingNode = mountedMountPoint.mountingNode;
 		if (mountingNode == null)
 		{
 			return null;
 		}
 
-		// mounting mountpoint must be non null
+		// mounting mountpoint must be non-null
 		mountPoint = mountingNode.getMountPoint();
 		if (mountPoint == null)
 		{
@@ -153,7 +153,7 @@ public class Mounter
 		{
 			return null;
 		}
-		final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
+		@NonNull final MountPoint.Mounting mountingMountPoint = (MountPoint.Mounting) mountPoint;
 
 		// mounting mountpoint must reference mounted node
 		if (mountingMountPoint.mountedNode != mountedNode)
@@ -164,7 +164,7 @@ public class Mounter
 		// TREE CONNECT
 
 		// tree down connect
-		final List<INode> mountedParentChildren = mountedParent.getChildren();
+		@Nullable final List<INode> mountedParentChildren = mountedParent.getChildren();
 		if (mountedParentChildren != null)
 		{
 			final int index = mountedParentChildren.indexOf(mountedNode);
@@ -177,7 +177,7 @@ public class Mounter
 
 		// STATE
 
-		// cross reference mounting node and mounted
+		// cross-reference mounting node and mounted
 		mountedMountPoint.mountingNode = null;
 		mountingMountPoint.mountedNode = null;
 
@@ -201,17 +201,17 @@ public class Mounter
 
 	static private void removeSubtreeEdges(@NonNull final List<IEdge> edges, @NonNull final INode mountedNode)
 	{
-		final List<INode> mountedNodeChildren = mountedNode.getChildren();
+		@Nullable final List<INode> mountedNodeChildren = mountedNode.getChildren();
 		if (mountedNodeChildren != null)
 		{
-			for (final INode childNode : mountedNodeChildren)
+			for (@NonNull final INode childNode : mountedNodeChildren)
 			{
-				// if mounted mount point having edges
-				final MountPoint mountPoint = childNode.getMountPoint();
+				// if mounted mountpoint has edges
+				@Nullable final MountPoint mountPoint = childNode.getMountPoint();
 				//noinspection InstanceofConcreteClass
 				if (mountPoint instanceof MountPoint.Mounted)
 				{
-					final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
+					@NonNull final MountPoint.Mounted mountedMountPoint = (MountPoint.Mounted) mountPoint;
 					if (mountedMountPoint.mountedEdges != null)
 					{
 						edges.removeAll(mountedMountPoint.mountedEdges);

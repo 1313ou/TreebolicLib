@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core.math;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.core.location.Complex;
 
 /**
@@ -57,8 +57,8 @@ public class Distance
 	{
 		// 2*atanh((z1-z2)/(1-z1*~z2));
 		// 2*atanh(z) if distance from 0,0 origin
-		final Complex denom = new Complex().conj(z2).mul(z1).neg().add(Complex.ONE);
-		final Complex z = new Complex().sub(z1, z2).div(denom);
+		@NonNull final Complex denom = new Complex().conj(z2).mul(z1).neg().add(Complex.ONE);
+		@NonNull final Complex z = new Complex().sub(z1, z2).div(denom);
 		return 2. * XMath.atanh(z.mag());
 	}
 

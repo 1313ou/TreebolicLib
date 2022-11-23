@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic;
 
 import java.util.Properties;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 
 /**
  * Context interface (to be implemented by the application/applet/window that is hosting the widget
@@ -38,7 +38,7 @@ public interface IContext extends ILocator
 	 * @param linkTarget link target
 	 * @return true if the context handles the link, false means the current provider will re-init () with the link as source
 	 */
-	boolean linkTo(String linkUrl, String linkTarget);
+	boolean linkTo(String linkUrl, @SuppressWarnings("unused") String linkTarget);
 
 	/**
 	 * Get input

@@ -26,23 +26,11 @@ import androidx.annotation.Nullable;
  */
 public class Image implements treebolic.glue.iface.Image, Serializable
 {
-	private static final long serialVersionUID = -6088374866767037559L;
-
 	/**
 	 * Bitmap (not serialized)
 	 */
+	@Nullable
 	transient public Bitmap bitmap;
-
-	/**
-	 * Constructor
-	 *
-	 * @param bitmap0 android bitmap
-	 */
-	@SuppressWarnings("WeakerAccess")
-	public Image(final Bitmap bitmap0)
-	{
-		this.bitmap = bitmap0;
-	}
 
 	/**
 	 * Bitmap factory options
@@ -67,19 +55,14 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	}
 
 	/**
-	 * Make image from resource
+	 * Constructor
 	 *
-	 * @param resource resource URL
+	 * @param bitmap0 android bitmap
 	 */
-	@NonNull
-	static public Image make(@NonNull final URL resource) throws IOException
+	@SuppressWarnings("WeakerAccess")
+	public Image(@Nullable final Bitmap bitmap0)
 	{
-		try (InputStream inputStream = resource.openStream())
-		{
-			// final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-			final Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null, Image.options);
-			return new Image(bitmap);
-		}
+		this.bitmap = bitmap0;
 	}
 
 	/**
@@ -87,16 +70,28 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param resource resource URL
 	 */
+	public Image(@Nullable final URL resource)
+	{
+		this(make(resource));
+	}
+
+	/**
+	 * Make bitmap from resource
+	 *
+	 * @param resource resource URL
+	 * @return bitmap or null
+	 */
 	@Nullable
-	static public Image try_make(@Nullable final URL resource)
+	static public Bitmap make(@Nullable final URL resource)
 	{
 		if (resource != null)
 		{
-			try
+			try (InputStream inputStream = resource.openStream())
 			{
-				return Image.make(resource);
+				// return BitmapFactory.decodeStream(inputStream);
+				return BitmapFactory.decodeStream(inputStream, null, Image.options);
 			}
-			catch (@NonNull final Exception ignored)
+			catch (@NonNull final IOException ignored)
 			{
 			}
 		}
@@ -130,9 +125,14 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @return byte array
 	 */
+	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	public byte[] getByteArray()
 	{
+		if (this.bitmap == null)
+		{
+			return null;
+		}
 		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		this.bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
 		return baos.toByteArray();
@@ -144,12 +144,12 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @param imageByteArray byte array
 	 */
 	@SuppressWarnings({"WeakerAccess"})
-	public void setFromByteArray(@NonNull final byte[] imageByteArray)
+	public void setFromByteArray(@Nullable final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
 		opt.inDither = true;
 		opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
-		this.bitmap = BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length, opt);
+		this.bitmap = imageByteArray == null ? null : BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length, opt);
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface;
@@ -11,9 +11,7 @@ package treebolic.glue.iface;
  */
 public interface Image
 {
-	// static public Image make(URL resource) throws IOException;
-
-	// static public Image try_make(URL resource);
+	// public Image(URL resource);
 
 	/**
 	 * Image width

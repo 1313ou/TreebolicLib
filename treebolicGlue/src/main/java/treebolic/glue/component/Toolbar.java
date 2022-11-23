@@ -24,29 +24,12 @@ import treebolic.glue.ActionListener;
 
 /**
  * Tool bar
+ * API class
  *
  * @author Bernard Bou
  */
 public class Toolbar extends FrameLayout implements treebolic.glue.iface.component.Toolbar<ActionListener>
 {
-	/**
-	 * (Ordered) toolbar
-	 *
-	 * @return list of buttons
-	 */
-	@NonNull
-	@SuppressWarnings("WeakerAccess")
-	static public Button[] toolbar()
-	{
-		return new Button[]{Button.HOME, //
-				Button.ZOOMIN, Button.ZOOMOUT, Button.ZOOMONE, //
-				Button.SCALEUP, Button.SCALEDOWN, Button.SCALEONE, //
-				Button.RADIAL, Button.SOUTH, Button.NORTH, Button.EAST, Button.WEST, //
-				Button.EXPAND, Button.SHRINK, Button.EXPANSIONRESET, //
-				Button.WIDEN, Button.NARROW, Button.SWEEPRESET, //
-				Button.EXPANSIONSWEEPRESET};
-	}
-
 	/**
 	 * Buttons
 	 */
@@ -87,6 +70,19 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 			R.drawable.toolbar_widen, R.drawable.toolbar_narrow, R.drawable.toolbar_widen_reset, //
 			R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone, //
 			R.drawable.toolbar_scaleup, R.drawable.toolbar_scaledown, R.drawable.toolbar_scaleone};
+
+	/**
+	 * Toolbar's ordered list of buttons
+	 */
+	static private Button[] buttons = new Button[]{ //
+			Button.HOME, //
+			Button.ZOOMIN, Button.ZOOMOUT, Button.ZOOMONE, //
+			Button.SCALEUP, Button.SCALEDOWN, Button.SCALEONE, //
+			Button.RADIAL, Button.SOUTH, Button.NORTH, Button.EAST, Button.WEST, //
+			Button.EXPAND, Button.SHRINK, Button.EXPANSIONRESET, //
+			Button.WIDEN, Button.NARROW, Button.SWEEPRESET, //
+			Button.EXPANSIONSWEEPRESET, //
+	};
 
 	@NonNull
 	private final Drawable[] drawables;
@@ -162,10 +158,11 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	/**
 	 * Constructor from handle
+	 * API
 	 *
 	 * @param handle activity
 	 */
-	protected Toolbar(final Object handle)
+	public Toolbar(final Object handle)
 	{
 		this((AppCompatActivity) handle);
 	}
@@ -212,5 +209,11 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 		// add
 		this.panel.addView(imageButton, this.layoutParams);
+	}
+
+	@Override
+	public Button[] getButtons()
+	{
+		return buttons;
 	}
 }

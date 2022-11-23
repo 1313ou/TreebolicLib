@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
 import java.io.Serializable;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
 
@@ -24,7 +24,34 @@ public class MenuItem implements Serializable
 	 */
 	public enum Action
 	{
-		CANCEL, INFO, FOCUS, LINK, MOUNT, GOTO, SEARCH
+		/**
+		 * Cancel
+		 */
+		CANCEL,
+		/**
+		 * Info on node
+		 */
+		INFO,
+		/**
+		 * Focus node
+		 */
+		FOCUS,
+		/**
+		 * Follow link
+		 */
+		LINK,
+		/**
+		 * Mount
+		 */
+		MOUNT,
+		/**
+		 * Go to
+		 */
+		GOTO,
+		/**
+		 * Search
+		 */
+		SEARCH
 	}
 
 	/**

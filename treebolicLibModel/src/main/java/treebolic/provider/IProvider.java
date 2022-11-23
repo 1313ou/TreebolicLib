@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.provider;
@@ -7,8 +7,8 @@ package treebolic.provider;
 import java.net.URL;
 import java.util.Properties;
 
-import androidx.annotation.Nullable;
 import treebolic.ILocator;
+import treebolic.annotations.Nullable;
 import treebolic.model.Model;
 import treebolic.model.Tree;
 
@@ -25,7 +25,7 @@ public interface IProvider
 	 * @param locator locator context
 	 */
 	@SuppressWarnings("EmptyMethod")
-	void setLocator(ILocator locator);
+	void setLocator(@SuppressWarnings("unused") ILocator locator);
 
 	/**
 	 * Called by framework to pass provider context reference (may default to void action if provider does not need it)
@@ -41,12 +41,12 @@ public interface IProvider
 	 * @param handle handle as passed to widget
 	 */
 	@SuppressWarnings("EmptyMethod")
-	void setHandle(Object handle);
+	void setHandle(@SuppressWarnings("unused") Object handle);
 
 	/**
 	 * Make model
 	 *
-	 * @param source     source (a string that refers to the data in a was that the provider implementation will understand)
+	 * @param source     source (a string that refers to the data in a way that the provider implementation will understand)
 	 * @param base       base (base for source)
 	 * @param parameters extra parameters
 	 * @return model
@@ -57,7 +57,7 @@ public interface IProvider
 	/**
 	 * Make tree. Settings are not parsed. This is used in mounting.
 	 *
-	 * @param source         source (a string that refers to the data in a was that the provider implementation will understand)
+	 * @param source         source (a string that refers to the data in a way that the provider implementation will understand)
 	 * @param base           base (base for source)
 	 * @param parameters     extra parameters
 	 * @param checkRecursion whether immediate recursion is checked (avoid mount-now infinite recursion)

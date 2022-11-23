@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic;
@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.component.Progress;
 import treebolic.component.Statusbar;
 import treebolic.component.Toolbar;
@@ -88,14 +88,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * Default provider
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public final String DEFAULT_PROVIDER = "treebolic.provider.xml.dom.Provider";
+	static public final String DEFAULT_PROVIDER = "treebolic.provider.xml.Provider";
 
 	// V E R S I O N
 
 	/**
 	 * Version : 3.x
 	 */
-	private static final String version = "3.9.0";
+	private static final String version = "4.0.0";
 
 	// C O N T E X T
 
@@ -269,7 +269,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	public void init()
 	{
 		// source
-		final Properties parameters = this.context.getParameters();
+		@Nullable final Properties parameters = this.context.getParameters();
 		String source = parameters == null ? null : parameters.getProperty("source");
 		if (source == null || source.isEmpty())
 		{
@@ -299,7 +299,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 
 		// make provider
-		final IProvider provider = makeProvider(providerName);
+		@Nullable final IProvider provider = makeProvider(providerName);
 		if (provider == null)
 		{
 			progress(Messages.getString("Widget.progress_err_provider_create") + ' ' + '<' + providerName + '>', true);
@@ -333,18 +333,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Override
 	public void initSerialized(final String serFile)
 	{
-		final ModelReader deSerializer = new ModelReader(serFile);
+		@NonNull final ModelReader deSerializer = new ModelReader(serFile);
 		try
 		{
-			final Model model = deSerializer.deserialize();
+			@NonNull final Model model = deSerializer.deserialize();
 			init(model);
 		}
-		catch (@NonNull final IOException exception)
-		{
-			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + serFile + '>' + ' ' + exception, true);
-			exception.printStackTrace();
-		}
-		catch (@NonNull final ClassNotFoundException exception)
+		catch (@NonNull final IOException | ClassNotFoundException exception)
 		{
 			progress(Messages.getString("Widget.progress_err_serialized_create") + ' ' + '<' + serFile + '>' + ' ' + exception, true);
 			exception.printStackTrace();
@@ -409,7 +404,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 		else
 		{
-			final treebolic.glue.iface.Worker worker = new InitWorker( //
+			@NonNull final treebolic.glue.iface.Worker worker = new InitWorker( //
 					() -> {
 						try
 						{
@@ -444,13 +439,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.context.status("parameters=" + this.context.getParameters());
 		}
 
-		String message = Messages.getString("Widget.progress_loading");
+		@NonNull String message = Messages.getString("Widget.progress_loading");
 		if (source != null)
 		{
 			message += ' ' + source;
 		}
 		progress(message, false);
-		final Model model = provider.makeModel(source, this.context.getBase(), this.context.getParameters());
+		@Nullable final Model model = provider.makeModel(source, this.context.getBase(), this.context.getParameters());
 		/*
 		if (model == null)
 		{
@@ -504,6 +499,9 @@ public class Widget extends Container implements IWidget, IProviderContext
 		this.layerOut.layout(model.tree.getRoot());
 	}
 
+	/**
+	 * Init display
+	 */
 	@SuppressWarnings({"WeakerAccess"})
 	public void initDisplay()
 	{
@@ -563,11 +561,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 				@Override
 				public boolean onAction(final Object... params)
 				{
-					final SearchCommand command = SearchCommand.valueOf((String) params[0]);
+					@NonNull final SearchCommand command = SearchCommand.valueOf((String) params[0]);
 					if (command == SearchCommand.SEARCH)
 					{
-						final MatchScope scope = MatchScope.valueOf((String) params[1]);
-						final MatchMode mode = MatchMode.valueOf((String) params[2]);
+						@NonNull final MatchScope scope = MatchScope.valueOf((String) params[1]);
+						@NonNull final MatchMode mode = MatchMode.valueOf((String) params[2]);
 						final String target = (String) params[3];
 						// scope, mode, target, [start]
 						Widget.this.controller.search(SearchCommand.SEARCH, scope, mode, target);
@@ -597,13 +595,13 @@ public class Widget extends Container implements IWidget, IProviderContext
 			this.view.applyInitialTransform();
 
 			// animation to focus
-			final INode focus = getFocusNode();
+			@Nullable final INode focus = getFocusNode();
 			if (focus != null)
 			{
 				if (this.model.settings.xMoveTo != null && this.model.settings.xMoveTo < 1. || this.model.settings.yMoveTo != null && this.model.settings.yMoveTo < 1.)
 				{
 					// move required
-					final Complex to = new Complex(this.model.settings.xMoveTo == null ? 0. : this.model.settings.xMoveTo, this.model.settings.yMoveTo == null ? 0. : this.model.settings.yMoveTo);
+					@NonNull final Complex to = new Complex(this.model.settings.xMoveTo == null ? 0. : this.model.settings.xMoveTo, this.model.settings.yMoveTo == null ? 0. : this.model.settings.yMoveTo);
 					if (to.abs2() > 1.)
 					{
 						to.normalize().multiply(.9);
@@ -632,12 +630,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		if (this.provider == null)
 		{
-			final Converter toHtml = (CharSequence[] s) -> Controller.makeHtml("mount", s);
+			@NonNull final Converter toHtml = (s) -> this.controller.makeHtml("mount", s);
 
 			putStatus(Statusbar.PutType.MOUNT, toHtml, Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err_provider_null"));
 
 			// get provider name
-			final Properties parameters = this.context.getParameters();
+			@Nullable final Properties parameters = this.context.getParameters();
 			final String providerName = parameters == null ? null : parameters.getProperty("provider");
 			if (providerName == null || providerName.isEmpty())
 			{
@@ -661,7 +659,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 
 		// make model
-		final Tree tree = this.provider.makeTree(source, this.context.getBase(), this.context.getParameters(), false);
+		@Nullable final Tree tree = this.provider.makeTree(source, this.context.getBase(), this.context.getParameters(), false);
 		/*
 		if (tree == null)
 		{
@@ -699,7 +697,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 		mountingNode.setMinWeight(mountedRoot.getMinWeight());
 
 		// compute locations : layout
-		final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountingNode.getMountPoint();
+		@Nullable final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountingNode.getMountPoint();
 		assert mountingPoint != null;
 		this.layerOut.layout(mountedRoot, mountingNode.getLocation().hyper.center0, mountingPoint.halfWedge, mountingPoint.orientation);
 
@@ -718,10 +716,10 @@ public class Widget extends Container implements IWidget, IProviderContext
 
 		// model
 		assert this.model != null;
-		final INode mountingNode = Mounter.prune(mountedNode, this.model.tree.getEdges());
+		@Nullable final INode mountingNode = Mounter.prune(mountedNode, this.model.tree.getEdges());
 		if (mountingNode == null)
 		{
-			putStatus(Statusbar.PutType.MOUNT, (s) -> Controller.makeHtml("mount", s), Messages.getString("Widget.status_unmount"), Messages.getString("Widget.status_unmount_err"));
+			putStatus(Statusbar.PutType.MOUNT, (s) -> this.controller.makeHtml("mount", s), Messages.getString("Widget.status_unmount"), Messages.getString("Widget.status_unmount_err"));
 			return;
 		}
 
@@ -812,35 +810,15 @@ public class Widget extends Container implements IWidget, IProviderContext
 	{
 		try
 		{
-			final Class<?> clazz = Class.forName(providerName);
-			final Class<?>[] argsClass = new Class[]{};
-			final Object[] args = new Object[]{};
+			@NonNull final Class<?> clazz = Class.forName(providerName);
+			@NonNull final Class<?>[] argsClass = new Class[]{};
+			@NonNull final Object[] args = new Object[]{};
 
-			final Constructor<?> constructor = clazz.getConstructor(argsClass);
-			final Object instance = constructor.newInstance(args);
+			@NonNull final Constructor<?> constructor = clazz.getConstructor(argsClass);
+			@NonNull final Object instance = constructor.newInstance(args);
 			return (IProvider) instance;
 		}
-		catch (@NonNull final ClassNotFoundException e)
-		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
-		}
-		catch (@NonNull final NoSuchMethodException e)
-		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
-		}
-		catch (@NonNull final IllegalAccessException e)
-		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
-		}
-		catch (@NonNull final InstantiationException e)
-		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
-		}
-		catch (@NonNull final IllegalArgumentException e)
-		{
-			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
-		}
-		catch (@NonNull final InvocationTargetException e)
+		catch (@NonNull final ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException | IllegalArgumentException | InvocationTargetException e)
 		{
 			this.context.warn(Messages.getString("Widget.warn_err_provider_create") + e);
 		}
@@ -856,7 +834,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @return image url
 	 */
 	@Nullable
-	private URL makeImageURL(final String imageSource)
+	private URL makeImageURL(@NonNull final String imageSource)
 	{
 		try
 		{
@@ -898,11 +876,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 		if (node.getImage() == null)
 		{
 			// node image from file
-			String source = node.getImageFile();
+			@Nullable String source = node.getImageFile();
 			if (source != null)
 			{
 				// cache lookup
-				Image image = this.images.get(source);
+				@Nullable Image image = this.images.get(source);
 				if (image == null)
 				{
 					// cache miss
@@ -918,7 +896,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			if (source != null)
 			{
 				// cache lookup
-				Image image = this.images.get(source);
+				@Nullable Image image = this.images.get(source);
 				if (image == null)
 				{
 					// cache miss
@@ -945,16 +923,16 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 
 		// recurse on mounting node obfuscated by mounted node)
-		final MountPoint mountPoint = node.getMountPoint();
+		@Nullable final MountPoint mountPoint = node.getMountPoint();
 		if (mountPoint instanceof MountPoint.Mounted)
 		{
-			final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
-			final INode mountingNode = mountedPoint.mountingNode;
+			@NonNull final MountPoint.Mounted mountedPoint = (MountPoint.Mounted) mountPoint;
+			@Nullable final INode mountingNode = mountedPoint.mountingNode;
 			loadImages(mountingNode);
 		}
 
 		// recurse children
-		final List<INode> children = node.getChildren();
+		@Nullable final List<INode> children = node.getChildren();
 		if (children != null)
 		{
 			for (final INode child : node.getChildren())
@@ -993,11 +971,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 		}
 
 		// edge image
-		final String source = edge.getImageFile();
+		@Nullable final String source = edge.getImageFile();
 		if (source != null)
 		{
 			// cache lookup
-			Image image = this.images.get(source);
+			@Nullable Image image = this.images.get(source);
 			if (image == null)
 			{
 				// cache miss
@@ -1063,7 +1041,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 			return null;
 		}
 
-		final URL url = makeImageURL(source);
+		@Nullable final URL url = makeImageURL(source);
 		if (url != null)
 		{
 			if (Widget.DEBUG)
@@ -1072,22 +1050,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 			}
 
 			// image loading
-			Image image;
-			try
-			{
-				image = Image.make(url);
+			Image image = new Image(url);
 
-				// cache image
-				this.images.put(source, image);
-				return image;
-			}
-			catch (@NonNull final IOException e)
-			{
-				if (Widget.WARNIMAGEFAILS)
-				{
-					this.context.warn(Messages.getString("Widget.warn_err_image_load") + url + ' ' + e);
-				}
-			}
+			// cache image
+			this.images.put(source, image);
+			return image;
 		}
 		return null;
 	}
@@ -1105,14 +1072,14 @@ public class Widget extends Container implements IWidget, IProviderContext
 		assert this.model != null;
 
 		// focus node
-		String focusNodeId = null;
+		@Nullable String focusNodeId = null;
 		if (this.model.settings.focus != null)
 		{
 			focusNodeId = this.model.settings.focus;
 		}
 
 		// animate
-		INode focusNode;
+		@Nullable INode focusNode;
 		if (focusNodeId == null)
 		{
 			focusNode = this.model.tree.getRoot();
@@ -1209,12 +1176,12 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public void putInfo(final CharSequence header, final String[] content)
 	{
-		@SuppressWarnings("TypeMayBeWeakened") final Dialog dialog = new Dialog();
+		@NonNull @SuppressWarnings("TypeMayBeWeakened") final Dialog dialog = new Dialog();
 		dialog.setHandle(this.handle);
 		dialog.setListener(this.linkActionListener);
-		final String style = this.context.getStyle();
+		@Nullable final String style = this.context.getStyle();
 		dialog.setStyle(style);
-		dialog.setConverter((s) -> Controller.makeHtmlContent(s, Commander.TOOLTIPHTML));
+		dialog.setConverter((s) -> this.controller.makeHtmlContent(s, Commander.TOOLTIPHTML));
 		dialog.set(header, content);
 		dialog.display();
 	}
@@ -1241,20 +1208,20 @@ public class Widget extends Container implements IWidget, IProviderContext
 			return null;
 		}
 
-		MatchScope scope = MatchScope.LABEL;
+		@NonNull MatchScope scope = MatchScope.LABEL;
 		if (scopeString != null)
 		{
 			scope = MatchScope.valueOf(scopeString.toUpperCase(Locale.ROOT));
 		}
 
-		MatchMode mode = MatchMode.EQUALS;
+		@NonNull MatchMode mode = MatchMode.EQUALS;
 		if (modeString != null)
 		{
 			mode = MatchMode.valueOf(modeString.toUpperCase(Locale.ROOT));
 		}
 
 		// search
-		final INode foundNode = this.controller.match(targetString, scope, mode);
+		@Nullable final INode foundNode = this.controller.match(targetString, scope, mode);
 		if (foundNode != null)
 		{
 			return foundNode.getId();
@@ -1271,11 +1238,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 	@Override
 	public void search(@NonNull final String commandString, final String... params)
 	{
-		final SearchCommand command = SearchCommand.valueOf(commandString.toUpperCase(Locale.ROOT));
+		@NonNull final SearchCommand command = SearchCommand.valueOf(commandString.toUpperCase(Locale.ROOT));
 		if (command == SearchCommand.SEARCH)
 		{
-			final MatchScope scope = MatchScope.valueOf(params[0].toUpperCase(Locale.ROOT));
-			final MatchMode mode = MatchMode.valueOf(params[1].toUpperCase(Locale.ROOT));
+			@NonNull final MatchScope scope = MatchScope.valueOf(params[0].toUpperCase(Locale.ROOT));
+			@NonNull final MatchMode mode = MatchMode.valueOf(params[1].toUpperCase(Locale.ROOT));
 			final String target = params[2];
 			// scope, mode, target, [start]
 			this.controller.search(command, scope, mode, target);

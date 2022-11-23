@@ -15,6 +15,8 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 
+import java.util.function.Function;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
@@ -216,4 +218,6 @@ public class Utils
 		}
 		return sb.toString();
 	}
+
+	static private Function<String,String> converter = (s) -> s;
 }

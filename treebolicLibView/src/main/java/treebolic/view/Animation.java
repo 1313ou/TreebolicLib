@@ -1,16 +1,19 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.view;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.core.transform.HyperTransform;
 import treebolic.glue.ActionListener;
 
+/**
+ * Animation
+ */
 @SuppressWarnings("WeakerAccess")
 public class Animation extends ActionListener
 {

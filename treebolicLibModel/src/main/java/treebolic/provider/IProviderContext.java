@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.provider;
@@ -29,6 +29,7 @@ public interface IProviderContext
 	 * Put progress
 	 *
 	 * @param message message
+	 * @param fail    whether failure occurred
 	 */
 	void progress(String message, boolean fail);
 }

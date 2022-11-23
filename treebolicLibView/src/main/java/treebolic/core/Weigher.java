@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.core;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.model.INode;
 
 /**
@@ -35,7 +36,7 @@ public class Weigher
 	 */
 	public void weigh(@NonNull final INode node)
 	{
-		final List<INode> children = node.getChildren();
+		@Nullable final List<INode> children = node.getChildren();
 		if (children == null || children.isEmpty())
 		{
 			node.setChildrenWeight(0.);
@@ -51,7 +52,7 @@ public class Weigher
 		{
 			double childrenWeightSum = 0.;
 			double minWeight = 1000.;
-			for (final INode child : node.getChildren())
+			for (@NonNull final INode child : node.getChildren())
 			{
 				// compute this child's weight
 				weigh(child);

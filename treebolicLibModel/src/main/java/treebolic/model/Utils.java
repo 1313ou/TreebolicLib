@@ -1,18 +1,19 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Locale;
 import java.util.Properties;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.model.MenuItem.Action;
 import treebolic.model.Types.MatchMode;
@@ -27,6 +28,9 @@ public class Utils
 {
 	// S T Y L E
 
+	/**
+	 * Empty style
+	 */
 	@SuppressWarnings("WeakerAccess")
 	static public final String NONE = "";
 
@@ -35,7 +39,30 @@ public class Utils
 	 */
 	public enum StyleComponent
 	{
-		STROKE, STROKEWIDTH, FROMTERMINATOR, TOTERMINATOR, LINE, HIDDEN
+		/**
+		 * Stroke
+		 */
+		STROKE,
+		/**
+		 * Stroke width
+		 */
+		STROKEWIDTH,
+		/**
+		 * Source tip terminator
+		 */
+		FROMTERMINATOR,
+		/**
+		 * Destination tip terminator
+		 */
+		TOTERMINATOR,
+		/**
+		 * Line edge
+		 */
+		LINE,
+		/**
+		 * Hidden
+		 */
+		HIDDEN
 	}
 
 	// 0000 dddd ttttt tttt ffff ffff 0000 sssh
@@ -110,7 +137,7 @@ public class Utils
 		}
 
 		// initial value
-		Integer style = style0;
+		@Nullable Integer style = style0;
 		if (style == null)
 		{
 			style = 0;
@@ -125,7 +152,7 @@ public class Utils
 				style &= ~(IEdge.HIDDEN | IEdge.HIDDENDEF);
 
 				// set
-				final Boolean booleanValue = (Boolean) value;
+				@Nullable final Boolean booleanValue = (Boolean) value;
 				if (booleanValue != null)
 				{
 					if (booleanValue)
@@ -143,7 +170,7 @@ public class Utils
 				style &= ~(IEdge.LINE | IEdge.LINEDEF);
 
 				// set
-				final Boolean booleanValue = (Boolean) value;
+				@Nullable final Boolean booleanValue = (Boolean) value;
 				if (booleanValue != null)
 				{
 					if (booleanValue)
@@ -161,7 +188,7 @@ public class Utils
 				style &= ~(IEdge.STROKEMASK | IEdge.STROKEDEF);
 
 				// set
-				final String stringValue = (String) value;
+				@Nullable final String stringValue = (String) value;
 				if (stringValue != null && !stringValue.isEmpty())
 				{
 					style |= Utils.stringToStroke(stringValue);
@@ -176,7 +203,7 @@ public class Utils
 				style &= ~(IEdge.STROKEWIDTHMASK | IEdge.STROKEWIDTHDEF);
 
 				// set
-				final Integer intValue = (Integer) value;
+				@Nullable final Integer intValue = (Integer) value;
 				if (intValue != null)
 				{
 					style |= intValue << IEdge.STROKEWIDTHSHIFT;
@@ -191,7 +218,7 @@ public class Utils
 				style &= ~(IEdge.FROMMASK | IEdge.FROMDEF);
 
 				// set
-				final String stringValue = (String) value;
+				@Nullable final String stringValue = (String) value;
 				if (stringValue != null && !stringValue.isEmpty())
 				{
 					style |= Utils.stringToShape(stringValue) << IEdge.FROMSHIFT;
@@ -207,7 +234,7 @@ public class Utils
 				style &= ~(IEdge.TOMASK | IEdge.TODEF);
 
 				// set
-				final String stringValue = (String) value;
+				@Nullable final String stringValue = (String) value;
 				if (stringValue != null && !stringValue.isEmpty())
 				{
 					style |= Utils.stringToShape(stringValue) << IEdge.TOSHIFT;
@@ -422,7 +449,7 @@ public class Utils
 		if (str != null)
 		{
 			int i = str.lastIndexOf(' ');
-			if (i != -1 && i < str.length())
+			if (i != -1)
 			{
 				try
 				{
@@ -714,9 +741,9 @@ public class Utils
 	@NonNull
 	static public String[] toStrings(@NonNull final MenuItem menuItem)
 	{
-		final String action = Utils.toString(menuItem.action);
-		final String scope = Utils.toString(menuItem.matchScope);
-		final String mode = Utils.toString(menuItem.matchMode);
+		@Nullable final String action = Utils.toString(menuItem.action);
+		@Nullable final String scope = Utils.toString(menuItem.matchScope);
+		@Nullable final String mode = Utils.toString(menuItem.matchMode);
 		return new String[]{action, scope, mode};
 	}
 
@@ -754,7 +781,7 @@ public class Utils
 		}
 		try
 		{
-			final Color color = new Color();
+			@NonNull final Color color = new Color();
 			color.parse(str);
 			return color;
 		}
@@ -774,8 +801,8 @@ public class Utils
 	@Nullable
 	public static float[] stringToFloats(@NonNull final String scalerString)
 	{
-		final String[] scalerItem = scalerString.split("[\\s,;]+");
-		final float[] scaler = new float[scalerItem.length];
+		@NonNull final String[] scalerItem = scalerString.split("[\\s,;]+");
+		@NonNull final float[] scaler = new float[scalerItem.length];
 		for (int i = 0; i < scalerItem.length; i++)
 		{
 			try
@@ -800,7 +827,7 @@ public class Utils
 	@NonNull
 	public static String floatsToString(@NonNull final float[] scaler)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		boolean first = true;
 		for (final float f : scaler)
 		{
@@ -821,16 +848,17 @@ public class Utils
 	 * Load properties from URL
 	 *
 	 * @param url url of property file to load from
+	 * @return properties
 	 * @throws IOException io exception
 	 */
 	@NonNull
 	static public Properties load(@NonNull final URL url) throws IOException
 	{
-		final Properties properties = new Properties();
+		@NonNull final Properties properties = new Properties();
 		try (InputStream is = url.openStream())
 		{
 			properties.load(is);
-		return properties;
+			return properties;
 		}
 	}
 
@@ -838,13 +866,14 @@ public class Utils
 	 * Load properties from file location
 	 *
 	 * @param location location of property file to load from
+	 * @return properties
 	 * @throws IOException io exception
 	 */
 	@NonNull
 	static public Properties load(@NonNull final String location) throws IOException
 	{
-		final Properties properties = new Properties();
-		try (InputStream is = new FileInputStream(location))
+		@NonNull final Properties properties = new Properties();
+		try (@NonNull InputStream is = Files.newInputStream(Paths.get(location)))
 		{
 			properties.load(is);
 			return properties;

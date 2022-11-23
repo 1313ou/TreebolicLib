@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 
 /**
  * Glue interface for Graphics context
@@ -228,10 +228,19 @@ public interface Graphics<C, I>
 
 	// S T R O K E
 
+	/**
+	 * Solid style
+	 */
 	int SOLID = 1;
 
+	/**
+	 * Dot style
+	 */
 	int DOT = 2;
 
+	/**
+	 * Dash style
+	 */
 	int DASH = 3;
 
 	/**

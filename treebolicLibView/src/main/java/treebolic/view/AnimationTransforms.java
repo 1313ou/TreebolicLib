@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.view;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.core.Transformer;
 import treebolic.core.location.Complex;
 import treebolic.core.math.Distance;
@@ -52,11 +52,12 @@ public class AnimationTransforms
 	 * @param transformer transform generator
 	 * @param orientation orientation
 	 * @param steps       number of steps
+	 * @return animation transforms
 	 */
 	@NonNull
 	static public AnimationTransforms make(@NonNull final Complex from, @NonNull final Complex to, @NonNull final Transformer transformer, @NonNull final Complex orientation, @SuppressWarnings("SameParameterValue") final int steps)
 	{
-		final List<HyperTransform> transforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ? AnimationTransforms.makeTransform1(from, to, transformer, orientation) : AnimationTransforms.makeTransforms(from, to, transformer, orientation, steps);
+		@Nullable final List<HyperTransform> transforms = AnimationTransforms.FINAL_TRANSFORM_ONLY ? AnimationTransforms.makeTransform1(from, to, transformer, orientation) : AnimationTransforms.makeTransforms(from, to, transformer, orientation, steps);
 		return new AnimationTransforms(transforms);
 	}
 
@@ -85,22 +86,22 @@ public class AnimationTransforms
 			}
 
 			// vector
-			final List<HyperTransform> transforms = new ArrayList<>(steps);
+			@NonNull final List<HyperTransform> transforms = new ArrayList<>(steps);
 
 			// final transform
-			final HyperTransform finalTransform = transformer.makeTransform(from, to, oOrientation);
-			final HyperTransform finalTransformInverse = new HyperTransform(finalTransform).inverse();
+			@NonNull final HyperTransform finalTransform = transformer.makeTransform(from, to, oOrientation);
+			@NonNull final HyperTransform finalTransformInverse = new HyperTransform(finalTransform).inverse();
 
 			// this point will eventually transform to (0,0)
-			final Complex z0 = finalTransformInverse.map(new Complex(Complex.ZERO));
-			final HyperTranslation xlat = new HyperTranslation(z0);
+			@NonNull final Complex z0 = finalTransformInverse.map(new Complex(Complex.ZERO));
+			@NonNull final HyperTranslation xlat = new HyperTranslation(z0);
 
 			// distance = arc diameter
 			final double dist = xlat.mag();
 			// double radius = dist / 2.;
 
 			// normalize z0
-			final Complex theta = new Complex(z0).divide(dist);
+			@NonNull final Complex theta = new Complex(z0).divide(dist);
 
 			// iterate and make middle transforms
 			for (int i = 1; i < steps; ++i)
@@ -116,7 +117,7 @@ public class AnimationTransforms
 					final double di = Distance.distanceToOrigin_h2e(Distance.distanceToOrigin_e2h(dist) * progress);
 
 					// linear
-					final Complex z = new Complex(di, 0.);
+					@NonNull final Complex z = new Complex(di, 0.);
 
 					// rotate z by theta
 					z.mul(theta);
@@ -155,10 +156,10 @@ public class AnimationTransforms
 		final HyperTransform currentTransform = transformer.getTransform();
 
 		// final transform
-		final HyperTransform finalTransform = transformer.makeTransform(from, to, orientation);
+		@NonNull final HyperTransform finalTransform = transformer.makeTransform(from, to, orientation);
 
 		// vector
-		final Vector<HyperTransform> transforms = new Vector<>(1);
+		@NonNull final Vector<HyperTransform> transforms = new Vector<>(1);
 		transforms.addElement(new HyperTransform(currentTransform).compose(finalTransform));
 		return transforms;
 	}

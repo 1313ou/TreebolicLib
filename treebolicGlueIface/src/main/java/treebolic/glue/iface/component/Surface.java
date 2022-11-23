@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.glue.iface.component;
@@ -7,6 +7,8 @@ package treebolic.glue.iface.component;
 /**
  * Glue interface for Surface (basis to view)
  *
+ * @param <G> platform graphics context type
+ * @param <L> platform action listener type
  * @author Bernard Bou
  */
 public interface Surface<G, L>
@@ -61,7 +63,7 @@ public interface Surface<G, L>
 	 * @param string tooltip string
 	 */
 	@SuppressWarnings("EmptyMethod")
-	void setToolTipText(final String string);
+	void setToolTipText(@SuppressWarnings("unused") final String string);
 
 	/**
 	 * Add event listener
@@ -76,4 +78,13 @@ public interface Surface<G, L>
 	 * @param flag whether to fire hover events
 	 */
 	void setFireHover(final boolean flag);
+
+	/**
+	 * Get factor used when evaluating min distance of node finder
+	 * Best results depend on platform.
+	 *
+	 * @return factor used when evaluating min distance of node finder
+	 */
+	@SuppressWarnings("SameReturnValue")
+	float getFinderDistanceEpsilonFactor();
 }

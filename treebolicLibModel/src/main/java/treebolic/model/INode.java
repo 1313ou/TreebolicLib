@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model;
@@ -7,7 +7,7 @@ package treebolic.model;
 import java.io.Serializable;
 import java.util.List;
 
-import androidx.annotation.Nullable;
+import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.Image;
 
@@ -91,14 +91,14 @@ public interface INode extends Serializable
 	void setChildrenWeight(final double weight);
 
 	/**
-	 * Get least weight
+	 * Get the least weight
 	 *
 	 * @return least weight
 	 */
 	double getMinWeight();
 
 	/**
-	 * Set least weight
+	 * Set the least weight
 	 *
 	 * @param weight least weight
 	 */

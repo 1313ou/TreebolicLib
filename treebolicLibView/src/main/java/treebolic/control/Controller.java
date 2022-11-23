@@ -1,18 +1,23 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.control;
 
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import treebolic.IWidget;
 import treebolic.Messages;
 import treebolic.Widget;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.component.PopupMenu;
 import treebolic.component.Statusbar;
 import treebolic.control.Traverser.NoCaseMatcher;
@@ -89,7 +94,13 @@ public class Controller extends Commander
 	 * Verbose status flag (use for debug purposes)
 	 */
 	@SuppressWarnings("WeakerAccess")
-	static public final boolean CONTENT_VERBOSE = false; // weight...
+	static public final boolean CONTENT_VERBOSE = false;
+
+	/**
+	 * Tweak relative IMG urls to absolute
+	 */
+	@SuppressWarnings("WeakerAccess")
+	static public final boolean ABSOLUTE_IMG_URLS = true;
 
 	// action
 
@@ -97,7 +108,36 @@ public class Controller extends Commander
 	 * Event types
 	 */
 	public enum Event
-	{SELECT, HOVER, DRAG, LEAVEDRAG, MOVE, ROTATE, FOCUS, MOUNT, LINK, POPUP, ZOOM, SCALE}
+	{
+		// @formatter:off
+		/** Select event */
+		SELECT,
+		/**
+		 * Hover event
+		 */
+		HOVER,
+		/** Drag event */
+		DRAG,
+		/** Leave drag event */
+		LEAVEDRAG,
+		/** Move event */
+		MOVE,
+		/** Rotate event */
+		ROTATE,
+		/** Focus event */
+		FOCUS,
+		/** Mount event */
+		MOUNT,
+		/** Link event */
+		LINK,
+		/** Popup event */
+		POPUP,
+		/** Zoom event */
+		ZOOM,
+		/** Scale event */
+		SCALE
+		// @formatter:on
+	}
 
 	/**
 	 * Match scopes
@@ -220,7 +260,7 @@ public class Controller extends Commander
 			case HOVER:
 			{
 				final INode node = (INode) parameters[0];
-				final String link = node.getLink();
+				@Nullable final String link = node.getLink();
 
 				// cursor
 				this.view.setHoverCursor(link != null && !link.isEmpty());
@@ -289,7 +329,7 @@ public class Controller extends Commander
 			case MOUNT:
 			{
 				final INode node = (INode) parameters[0];
-				final MountPoint mountPoint = node.getMountPoint();
+				@Nullable final MountPoint mountPoint = node.getMountPoint();
 				if (mountPoint != null)
 				{
 					// mount/umount
@@ -300,7 +340,7 @@ public class Controller extends Commander
 					}
 					else
 					{
-						final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
+						@NonNull final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
 						this.widget.mount(node, decode(mountingPoint.url));
 					}
 				}
@@ -310,8 +350,8 @@ public class Controller extends Commander
 			case LINK:
 			{
 				final INode node = (INode) parameters[0];
-				final String link = node.getLink();
-				final String target = node.getTarget();
+				@Nullable final String link = node.getLink();
+				@Nullable final String target = node.getTarget();
 				if (link != null)
 				{
 					linkTo(link, target);
@@ -323,7 +363,7 @@ public class Controller extends Commander
 			{
 				final Point point = (Point) parameters[0];
 				final INode node = (INode) parameters[1];
-				popup(point.x, point.y, node);
+				popup(point.x(), point.y(), node);
 				break;
 			}
 
@@ -350,16 +390,16 @@ public class Controller extends Commander
 		switch (action)
 		{
 			case LINK:
-				handle(Controller.Event.LINK, node);
+				handle(Event.LINK, node);
 				break;
 
 			case MOUNT:
-				handle(Controller.Event.MOUNT, node);
+				handle(Event.MOUNT, node);
 				break;
 
 			// goto (expanded) link
 			case GOTO:
-				final String gotoTarget = getGotoTarget(link, node);
+				@Nullable final String gotoTarget = getGotoTarget(link, node);
 				if (gotoTarget != null)
 				{
 					linkTo(gotoTarget, linkTarget);
@@ -372,11 +412,11 @@ public class Controller extends Commander
 				search(SearchCommand.RESET);
 
 				// start new search
-				final String searchTarget = getSearchTarget(matchTarget, node);
+				@Nullable final String searchTarget = getSearchTarget(matchTarget, node);
 				if (searchTarget != null && matchScope != null && matchMode != null)
 				{
 					// status
-					final StringBuilder message = new StringBuilder();
+					@NonNull final StringBuilder message = new StringBuilder();
 					message.append(String.format(Messages.getString("Controller.status_search_scope_mode_target"), //
 							Controller.matchScopeString[matchScope.ordinal()], //
 							Controller.matchModeString[matchMode.ordinal()], //
@@ -387,10 +427,10 @@ public class Controller extends Commander
 								.append(String.format(Messages.getString("Controller.status_search_origin"), node.getLabel())); //
 					}
 					assert this.widget != null;
-					this.widget.putStatus(Statusbar.PutType.SEARCH, (s) -> Controller.makeHtml("searching", s), Messages.getString("Controller.status_searching"), message.toString());
+					this.widget.putStatus(Statusbar.PutType.SEARCH, (s) -> makeHtml("searching", s), Messages.getString("Controller.status_searching"), message.toString());
 
 					// search: scope, mode, target, [start]
-					final INode result = search(SearchCommand.SEARCH, matchScope, matchMode, searchTarget, node);
+					@Nullable final INode result = search(SearchCommand.SEARCH, matchScope, matchMode, searchTarget, node);
 
 					if (result != null)
 					{
@@ -425,25 +465,39 @@ public class Controller extends Commander
 		}
 	}
 
+	/**
+	 * Get goto target
+	 *
+	 * @param link link
+	 * @param node node
+	 * @return target
+	 */
 	@Nullable
 	public String getGotoTarget(@Nullable final String link, @NonNull final INode node)
 	{
-		String expandedLink = null;
+		@Nullable String expandedLink = null;
 		if (link != null && !link.isEmpty())
 		{
 			assert this.widget != null;
-			final String edit = this.widget.getTarget();
+			@Nullable final String edit = this.widget.getTarget();
 			expandedLink = PopupMenu.expandMacro(link, edit, node);
 			expandedLink = Controller.decode(expandedLink);
 		}
 		return expandedLink;
 	}
 
+	/**
+	 * Get search target
+	 *
+	 * @param matchTarget match target
+	 * @param node        node
+	 * @return target
+	 */
 	@Nullable
 	public String getSearchTarget(@Nullable final String matchTarget, @NonNull final INode node)
 	{
 		assert this.widget != null;
-		final String edit = this.widget.getTarget();
+		@Nullable final String edit = this.widget.getTarget();
 		if (matchTarget == null || matchTarget.isEmpty())
 		{
 			return edit == null || edit.isEmpty() ? null : edit;
@@ -460,8 +514,8 @@ public class Controller extends Commander
 	 */
 	private void putStatus(@NonNull final INode node)
 	{
-		final String label = Controller.getLabel(node);
-		final String[] content = Controller.getContent(node);
+		@NonNull final String label = Controller.getLabel(node);
+		@NonNull final String[] content = Controller.getContent(node);
 		assert this.widget != null;
 		this.widget.putStatus(Statusbar.PutType.INFO, (s) -> makeHtmlContent(s, Commander.TOOLTIPHTML), label, content);
 	}
@@ -473,8 +527,8 @@ public class Controller extends Commander
 	 */
 	private void putInfo(@NonNull final INode node)
 	{
-		final String label = Controller.getLabel(node);
-		final String[] content = Controller.getContent(node);
+		@NonNull final String label = Controller.getLabel(node);
+		@NonNull final String[] content = Controller.getContent(node);
 		assert this.widget != null;
 		this.widget.putInfo(label, content);
 	}
@@ -489,7 +543,7 @@ public class Controller extends Commander
 	private static String getLabel(@NonNull final INode node)
 	{
 		// guard against null
-		String label = node.getLabel();
+		@Nullable String label = node.getLabel();
 		if (label == null)
 		{
 			label = "";
@@ -502,16 +556,16 @@ public class Controller extends Commander
 		}
 
 		// tags
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		sb.append(label);
-		final String link = node.getLink();
+		@Nullable final String link = node.getLink();
 		if (link != null)
 		{
 			sb.append(' ');
 			// sb.append('L');
 			sb.append("🌐"); // \uD83C\uDF10 // &#x1f310;
 		}
-		final MountPoint mountPoint = node.getMountPoint();
+		@Nullable final MountPoint mountPoint = node.getMountPoint();
 		if (mountPoint != null)
 		{
 			sb.append(' ');
@@ -539,14 +593,13 @@ public class Controller extends Commander
 	@NonNull
 	static private String[] getContent(@NonNull final INode node)
 	{
-		final String[] contents = new String[4];
-
+		@NonNull final String[] contents = new String[4];
 		contents[IDX_NODE_CONTENT] = node.getContent();
 
 		// link
 		if (Controller.CONTENT_HAS_LINK)
 		{
-			final String link = node.getLink();
+			@Nullable final String link = node.getLink();
 			if (link != null && !link.isEmpty())
 			{
 				contents[IDX_NODE_LINK] = '[' + Controller.decode(link) + ']'
@@ -560,10 +613,10 @@ public class Controller extends Commander
 		// mountpoint
 		if (Controller.CONTENT_HAS_MOUNT)
 		{
-			final MountPoint mountPoint = node.getMountPoint();
+			@Nullable final MountPoint mountPoint = node.getMountPoint();
 			if (mountPoint instanceof MountPoint.Mounting)
 			{
-				final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
+				@NonNull final MountPoint.Mounting mountingPoint = (MountPoint.Mounting) mountPoint;
 				contents[IDX_NODE_MOUNTPOINT] = '[' + Controller.decode(mountingPoint.url) + ']'
 				// + 'M'
 				// + "&#x1F517;"
@@ -584,12 +637,13 @@ public class Controller extends Commander
 	 * Get content string
 	 *
 	 * @param contents strings
+	 * @param div      embed in a div tag
 	 * @return html content string
 	 */
 	@NonNull
-	public static String makeHtmlContent(@NonNull final CharSequence[] contents, boolean div)
+	public String makeHtmlContent(@NonNull final CharSequence[] contents, boolean div)
 	{
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		if (contents[IDX_NODE_CONTENT] != null)
 		{
 			sb.append(div ? makeHtml("content", contents[IDX_NODE_CONTENT]) : contents[IDX_NODE_CONTENT]);
@@ -615,14 +669,26 @@ public class Controller extends Commander
 		return sb.toString();
 	}
 
+	/**
+	 * Make html
+	 *
+	 * @param divStyle div tag style
+	 * @param contents contents
+	 * @return content as HTML
+	 */
 	@NonNull
-	public static String makeHtml(String divStyle, @NonNull final CharSequence... contents)
+	public String makeHtml(String divStyle, @NonNull final CharSequence... contents)
 	{
-		final StringBuilder sb = new StringBuilder();
-		for (CharSequence content : contents)
+		@NonNull final StringBuilder sb = new StringBuilder();
+		for (@Nullable CharSequence content : contents)
 		{
 			if (content != null && content.length() > 0)
 			{
+				if (ABSOLUTE_IMG_URLS)
+				{
+					content = absoluteImageSrc(content.toString());
+				}
+
 				sb.append("<div class='");
 				sb.append(divStyle);
 				sb.append("'>");
@@ -631,6 +697,80 @@ public class Controller extends Commander
 			}
 		}
 		return sb.toString();
+	}
+
+	private static final Pattern SCR_QUOTE1_PATTERN = Pattern.compile("(?<=<img[^>]{1,20})src='([^']+)'", Pattern.CASE_INSENSITIVE);
+
+	private static final Pattern SRC_QUOTE2_PATTERN = Pattern.compile("(?<=<img[^>]{1,20})src=\"([^\"]+)\"", Pattern.CASE_INSENSITIVE);
+
+	/**
+	 * Replace src='rel_url' or src="rel_url" with absolute URLs in IMG tags
+	 *
+	 * @param content content
+	 * @return changed content
+	 */
+	private String absoluteImageSrc(@NonNull String content)
+	{
+		// "<IMG src='image'>"
+		// "<img src='http://somesite/path/image'>"
+		// "<img src='file:///path/image'>"
+		// "<img src='file://image'>"
+		// "<IMG src=\"jar:file:///proj/parser/jar/parser.jar!/test.xml\""
+		assert widget != null;
+		@Nullable URL imageBase = widget.getIContext().getImagesBase();
+		if (imageBase != null)
+		{
+			@NonNull Matcher m = SCR_QUOTE1_PATTERN.matcher(content);
+			while (m.find())
+			{
+				String f1 = m.group(1); // first group = src content
+				@Nullable URL url2 = makeUrlAbsolute(imageBase, f1);
+				if (url2 != null)
+				{
+					content = m.replaceFirst("src='" + url2 + "'");
+				}
+			}
+
+			@NonNull Matcher m2 = SRC_QUOTE2_PATTERN.matcher(content);
+			while (m2.find())
+			{
+				String f1 = m2.group(1); // first group = src content
+				@Nullable URL url2 = makeUrlAbsolute(imageBase, f1);
+				if (url2 != null)
+				{
+					content = m2.replaceFirst("src='" + url2 + "'");
+				}
+			}
+		}
+		return content;
+	}
+
+	/**
+	 * Make url absolute
+	 *
+	 * @param base    base url
+	 * @param urlSpec url spec
+	 * @return new url with base, null if unchanged and already absolute
+	 */
+	@Nullable
+	private URL makeUrlAbsolute(URL base, @NonNull String urlSpec)
+	{
+		try
+		{
+			new URL(urlSpec);
+			return null;
+		}
+		catch (MalformedURLException e)
+		{
+			try
+			{
+				return new URL(base, urlSpec);
+			}
+			catch (MalformedURLException ignored)
+			{
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -653,14 +793,14 @@ public class Controller extends Commander
 			return;
 		}
 
-		String label = node.getLabel();
-		String content = node.getContent();
+		@Nullable String label = node.getLabel();
+		@Nullable String content = node.getContent();
 		if (label == null && (!Commander.tooltipDisplaysContent || content == null))
 		{
 			return;
 		}
 
-		final StringBuilder sb = new StringBuilder();
+		@NonNull final StringBuilder sb = new StringBuilder();
 		if (Commander.TOOLTIPHTML)
 		{
 			sb.append("<html>");
@@ -688,10 +828,10 @@ public class Controller extends Commander
 			{
 				if (!Commander.TOOLTIPHTML)
 				{
-					final String[] lines = content.split("\n");
-					for (final String line : lines)
+					@NonNull final String[] lines = content.split("\n");
+					for (@NonNull final String line : lines)
 					{
-						final StringBuilder lineSb = new StringBuilder(line);
+						@NonNull final StringBuilder lineSb = new StringBuilder(line);
 
 						// force break after x characters
 						for (int offset = Commander.TOOLTIPLINESPAN; offset < lineSb.length(); offset += Commander.TOOLTIPLINESPAN)
@@ -707,6 +847,10 @@ public class Controller extends Commander
 				else
 				{
 					content = content.replaceAll("\n", "<br>");
+					if (ABSOLUTE_IMG_URLS)
+					{
+						content = absoluteImageSrc(content);
+					}
 					sb.append(content.length() <= Commander.TOOLTIPLINESPAN ? "<div>" : "<div width='" + Commander.TOOLTIPLINESPAN * 7 + "'>");
 					sb.append(content);
 					sb.append("</div>");
@@ -717,20 +861,28 @@ public class Controller extends Commander
 		{
 			sb.append("</html>");
 		}
+
+		@NonNull String tip = sb.toString();
 		assert this.view != null;
-		this.view.setToolTipText(sb.toString());
+		this.view.setToolTipText(tip);
 	}
 
 	// P O P U P
 
+	/**
+	 * Pop up
+	 *
+	 * @param x    x
+	 * @param y    y
+	 * @param node node
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public void popup(final int x, final int y, @NonNull final INode node)
 	{
-		final View view = getView();
-		assert view != null;
+		assert this.view != null;
 		assert this.widget != null;
 		assert this.model != null;
-		final PopupMenu menu = PopupMenu.makePopup(view, this, this.widget.getTarget(), node, this.model.settings);
+		@NonNull final PopupMenu menu = PopupMenu.makePopup(view, this, this.widget.getTarget(), node, this.model.settings);
 		menu.popup(this.view, x, y);
 	}
 
@@ -741,6 +893,7 @@ public class Controller extends Commander
 	 *
 	 * @param command    command
 	 * @param parameters parameters (scope, mode, target, [start])
+	 * @return found node or null
 	 */
 	@Nullable
 	public INode search(@NonNull final SearchCommand command, @NonNull final Object... parameters)
@@ -762,7 +915,7 @@ public class Controller extends Commander
 					final MatchMode mode = (MatchMode) parameters[1];
 					final String target = (String) parameters[2];
 					final INode startNode = parameters.length > 3 ? (INode) parameters[3] : null;
-					final INode result = startNode == null ? match(target, scope, mode) : match(target, scope, mode, startNode);
+					@Nullable final INode result = startNode == null ? match(target, scope, mode) : match(target, scope, mode, startNode);
 					if (result != null)
 					{
 						focus(result);
@@ -775,7 +928,7 @@ public class Controller extends Commander
 
 			case CONTINUE:
 			{
-				final INode result = reMatch();
+				@Nullable final INode result = reMatch();
 				if (result != null)
 				{
 					focus(result);
@@ -908,8 +1061,8 @@ public class Controller extends Commander
 	{
 		assert this.view != null;
 		assert this.model != null;
-		final Complex euclideanLocation = this.view.viewToUnitCircle(vx, vy);
-		return Finder.findNodeAt(this.model.tree.getRoot(), euclideanLocation);
+		@NonNull final Complex euclideanLocation = this.view.viewToUnitCircle(vx, vy);
+		return Finder.findNodeAt(this.model.tree.getRoot(), euclideanLocation, this.view.getFinderDistanceEpsilonFactor());
 	}
 
 	// F O C U S
@@ -925,7 +1078,7 @@ public class Controller extends Commander
 		{
 			return;
 		}
-		final INode node = nodeId == null || nodeId.isEmpty() ? this.model.tree.getRoot() : Finder.findNodeById(this.model.tree.getRoot(), nodeId);
+		@Nullable final INode node = nodeId == null || nodeId.isEmpty() ? this.model.tree.getRoot() : Finder.findNodeById(this.model.tree.getRoot(), nodeId);
 		focus(node);
 	}
 
@@ -952,13 +1105,18 @@ public class Controller extends Commander
 	 * @param str encode URL string
 	 * @return decoded URL string
 	 */
-	private static String decode(final String str)
+	@Nullable
+	private static String decode(@Nullable final String str)
 	{
+		if (str == null)
+		{
+			return null;
+		}
 		try
 		{
 			return URLDecoder.decode(str, "UTF8");
 		}
-		catch (@NonNull final Exception ignored)
+		catch (@NonNull final UnsupportedEncodingException ignored)
 		{
 			// System.err.println("Can't decode " + str + " - " + e);
 		}
@@ -982,8 +1140,8 @@ public class Controller extends Commander
 		if (href.startsWith("#"))
 		{
 			assert this.model != null;
-			final String bookmark = href.substring(1);
-			final INode focus = Finder.findNodeById(this.model.tree.getRoot(), bookmark);
+			@NonNull final String bookmark = href.substring(1);
+			@Nullable final INode focus = Finder.findNodeById(this.model.tree.getRoot(), bookmark);
 			if (focus != null)
 			{
 				assert this.view != null;
@@ -993,7 +1151,7 @@ public class Controller extends Commander
 		}
 
 		// link
-		final String decodedLink = Controller.decode(href);
+		@Nullable final String decodedLink = Controller.decode(href);
 
 		// status
 		assert this.widget != null;
@@ -1020,6 +1178,6 @@ public class Controller extends Commander
 	public Complex viewToUnitCircle(@NonNull final Point point)
 	{
 		assert this.view != null;
-		return this.view.viewToUnitCircle(point.x, point.y);
+		return this.view.viewToUnitCircle(point.x(), point.y());
 	}
 }

@@ -31,8 +31,8 @@ import treebolic.glue.iface.ActionListener;
 import treebolic.glue.iface.component.Converter;
 
 /**
- * WebDialog
- *
+ * Dialog
+ * API class
  * @author Bernard Bou
  */
 public class Dialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.Dialog
@@ -99,6 +99,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 
 	/**
 	 * Constructor
+	 * API
 	 */
 	public Dialog()
 	{

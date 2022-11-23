@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.component;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
 import treebolic.control.Controller;
 import treebolic.glue.ActionListener;
 import treebolic.glue.component.Component;
@@ -31,17 +31,22 @@ public class Toolbar extends treebolic.glue.component.Toolbar implements Compone
 	/**
 	 * Constructor
 	 *
-	 * @param handle Handle required for component creation
+	 * @param controller             controller
+	 * @param hasTooltip             whether toolbar displays tooltips
+	 * @param tooltipDisplaysContent whether tooltip displays content
+	 * @param arcEdges               whether toolbar has display as arcs/lines for edges
+	 * @param focusOnHover           whether toolbar has enable/disable focus-on-hover option
+	 * @param handle                 handle Handle required for component creation
 	 */
-	public Toolbar(final Controller controller, final boolean hasTooltip, final boolean tooltipDisplaysContent, final boolean arcEdges, final boolean focusOnHover, final Object handle)
+	public Toolbar(final Controller controller, @SuppressWarnings("unused") final boolean hasTooltip, @SuppressWarnings("unused") final boolean tooltipDisplaysContent, @SuppressWarnings("unused") final boolean arcEdges, @SuppressWarnings("unused") final boolean focusOnHover, final Object handle)
 	{
 		super(handle);
 		this.controller = controller;
 
-		for (final Button button : toolbar())
+		for (@NonNull final Button button : getButtons())
 		{
 			ActionListener listener;
-			final String action = button.name();
+			@NonNull final String action = button.name();
 			try
 			{
 				final Controller.Command command = Controller.Command.valueOf(action);
