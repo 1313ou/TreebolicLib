@@ -14,7 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f732543-d6ec-46ec-b617-58d839aa4b54" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/src/main/java/treebolic/control/Commander.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,11 +73,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../treebolic4/treebolic-mutable/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../treebolic4/treebolic-view/src" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../../treebolic4/treebolic-loadbalancer/src/main/java/treebolic/provider/LoadBalancer.java" />
-    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../../treebolic4/treebolic-mutable/src" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../../treebolic4/treebolic-view/src" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -240,7 +240,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669230249752</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="typo">
+      <created>1669231723236</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1669231723236</updated>
+    </task>
+    <task id="LOCAL-00022" summary="project settings">
+      <created>1669231764960</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1669231764960</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -258,6 +272,8 @@
     <MESSAGE value="align with maven" />
     <MESSAGE value="fixes to implement interface" />
     <MESSAGE value="align with Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="align with Maven" />
+    <MESSAGE value="typo" />
+    <MESSAGE value="project settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="project settings" />
   </component>
 </project>
