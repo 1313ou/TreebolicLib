@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model.graph;
@@ -8,17 +8,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import treebolic.model.IEdge;
-import treebolic.model.INode;
-import treebolic.model.MutableNode;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 import treebolic.model.Tree;
-import treebolic.model.TreeMutableNode;
+import treebolic.model.*;
 
 /**
  * Graph converter
  *
+ * @param <T> type of mutable tree node
  * @author Bernard Bou
  */
 @SuppressWarnings("WeakerAccess")
@@ -31,11 +29,11 @@ public class Converter<T extends TreeMutableNode>
 	 * @return tree
 	 */
 	@NonNull
-	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph graph)
+	public Tree graphToTree(@NonNull final Graph graph)
 	{
 		// determine root node
-		GraphNode rootNode;
-		final List<GraphNode> rootNodes = graph.getNodesWithZeroDegree();
+		@Nullable GraphNode rootNode;
+		@Nullable final List<GraphNode> rootNodes = graph.getNodesWithZeroDegree();
 		if (rootNodes != null)
 		{
 			if (rootNodes.size() == 1)
@@ -63,7 +61,7 @@ public class Converter<T extends TreeMutableNode>
 	 */
 	@NonNull
 	@SuppressWarnings({"unchecked"})
-	public Tree graphToTree(@NonNull final treebolic.model.graph.Graph graph, @Nullable final GraphNode rootNode)
+	public Tree graphToTree(@NonNull final Graph graph, @Nullable final GraphNode rootNode)
 	{
 		// spanning tree
 		if (rootNode == null)
@@ -72,11 +70,11 @@ public class Converter<T extends TreeMutableNode>
 		}
 
 		// spanning tree
-		final treebolic.model.graph.Tree spanningTree = graph.makeSpanningTree(rootNode);
+		@NonNull final treebolic.model.graph.Tree spanningTree = graph.makeSpanningTree(rootNode);
 
 		// tree edges
-		final Collection<GraphEdge> graphEdges = spanningTree.graph.getEdges();
-		for (final GraphEdge graphEdge : graphEdges)
+		@NonNull final Collection<GraphEdge> graphEdges = spanningTree.graph.getEdges();
+		for (@NonNull final GraphEdge graphEdge : graphEdges)
 		{
 			// tree edge nodes
 			final T fromNode = (T) graphEdge.getFrom();
@@ -94,8 +92,8 @@ public class Converter<T extends TreeMutableNode>
 		}
 
 		// non-tree edges
-		List<IEdge> edges = null;
-		for (final GraphEdge graphEdge : graph.getEdges())
+		@Nullable List<IEdge> edges = null;
+		for (@NonNull final GraphEdge graphEdge : graph.getEdges())
 		{
 			if (graphEdges.contains(graphEdge))
 			{

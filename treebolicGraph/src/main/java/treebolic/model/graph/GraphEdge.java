@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
+ * Copyright (c) 2019-2022. Bernard Bou
  */
 
 package treebolic.model.graph;
 
-import androidx.annotation.NonNull;
+import treebolic.annotations.NonNull;
+import treebolic.annotations.Nullable;
 
 /**
  * Graph edge
@@ -43,8 +44,9 @@ public class GraphEdge
 	/**
 	 * Constructor
 	 *
-	 * @param fromNode source node
-	 * @param toNode   destination node
+	 * @param fromNode       source node
+	 * @param toNode         destination node
+	 * @param isTreeEdgeFlag whether this edge is a tree edge
 	 */
 	public GraphEdge(final GraphNode fromNode, final GraphNode toNode, final Boolean isTreeEdgeFlag)
 	{
@@ -62,7 +64,7 @@ public class GraphEdge
 	@NonNull
 	static GraphEdge makeReverseOf(@NonNull final GraphEdge edge0)
 	{
-		final GraphEdge edge = new GraphEdge(edge0.getTo(), edge0.getFrom(), edge0.getIsTreeEdge());
+		@NonNull final GraphEdge edge = new GraphEdge(edge0.getTo(), edge0.getFrom(), edge0.getIsTreeEdge());
 		edge.setUserData(edge0.getUserData());
 		return edge;
 	}
@@ -89,6 +91,8 @@ public class GraphEdge
 
 	/**
 	 * Whether this edge is tree edge (null=undetermined)
+	 *
+	 * @return whether this edge is tree edge or null if undetermined
 	 */
 	public Boolean getIsTreeEdge()
 	{
@@ -132,6 +136,7 @@ public class GraphEdge
 	 * @param node reference node
 	 * @return node
 	 */
+	@Nullable
 	public GraphNode getOtherNode(@NonNull final GraphNode node)
 	{
 		return node.equals(this.fromNode) ? this.toNode : this.fromNode;
