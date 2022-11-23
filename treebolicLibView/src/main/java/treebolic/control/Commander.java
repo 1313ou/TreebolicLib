@@ -77,7 +77,7 @@ public abstract class Commander
 		 */
 		SCALEONE,
 		/**
-		 * Expqnd command
+		 * Expand command
 		 */
 		EXPAND,
 		/**
