@@ -449,14 +449,6 @@ public class View extends Surface
 
 	// A P P L Y . S E T T I N G S
 
-	@Override
-	public float getFinderDistanceEpsilonFactor()
-	{
-		return 1.F;
-	}
-
-	// A P P L Y . S E T T I N G S
-
 	/**
 	 * Set view behaviour
 	 *

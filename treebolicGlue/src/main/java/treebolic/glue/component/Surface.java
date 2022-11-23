@@ -43,7 +43,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * Margin of error when finding node
 	 */
-	public static final double FINDERRORMARGINFACTOR = 2.5F;
+	public static final float FIND_DISTANCE_EPSILON_FACTOR = 2.5F;
 
 	/**
 	 * The thread that actually draws the animation
@@ -589,5 +589,13 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			this.listener.onHover((int) event.getX(), (int) event.getY());
 		}
 		return super.onHoverEvent(event);
+	}
+
+	// F I N D I N G   P R E C I S I O N
+
+	@Override
+	public float getFinderDistanceEpsilonFactor()
+	{
+		return FIND_DISTANCE_EPSILON_FACTOR;
 	}
 }
