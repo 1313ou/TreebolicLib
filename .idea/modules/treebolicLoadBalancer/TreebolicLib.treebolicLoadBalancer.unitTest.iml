@@ -34,10 +34,6 @@
     <orderEntry type="module" module-name="TreebolicLib.treebolicGlueIface.main" scope="TEST" />
     <orderEntry type="module" module-name="TreebolicLib.treebolicLoadBalancer.main" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.github.treebolic:treebolic-annotations:4.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.annotation:annotation:1.5.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="TreebolicLib.treebolicLoadBalancer.main" />
 </module>

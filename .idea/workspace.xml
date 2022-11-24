@@ -14,15 +14,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f732543-d6ec-46ec-b617-58d839aa4b54" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.unitTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGraph/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicIface/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLib/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibModel/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLibView/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicMutable/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlue/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGlueIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlueIface/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicGraph/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGraph/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibModel/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibModel/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLibView/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLibView/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicLoadBalancer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicLoadBalancer/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treebolicMutable/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicMutable/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +92,7 @@
     </file-type-list>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedIndex" value="3" />
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1pQQkvEUFxkVB1kzBQiggsJf6wt" />
   <component name="ProjectViewState">
@@ -289,7 +313,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669274736250</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="forgot messages">
+      <created>1669275486023</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669275486023</updated>
+    </task>
+    <task id="LOCAL-00028" summary="project settings">
+      <created>1669275516645</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669275516645</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -307,9 +345,10 @@
     <MESSAGE value="align with maven" />
     <MESSAGE value="fixes to implement interface" />
     <MESSAGE value="align with Maven" />
-    <MESSAGE value="project settings" />
     <MESSAGE value="typo" />
     <MESSAGE value="sync with Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync with Maven" />
+    <MESSAGE value="forgot messages" />
+    <MESSAGE value="project settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="project settings" />
   </component>
 </project>

@@ -30,6 +30,4 @@ android {
 dependencies {
     api project(':treebolicMutable')
     implementation 'io.github.treebolic:treebolic-annotations:4.0-SNAPSHOT'
-
-    implementation 'androidx.annotation:annotation:1.5.0'
 }

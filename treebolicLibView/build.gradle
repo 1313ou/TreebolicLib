@@ -32,6 +32,5 @@ dependencies {
     api project(':treebolicLibModel')
     implementation project(':treebolicLibModel')
     implementation 'io.github.treebolic:treebolic-annotations:4.0-SNAPSHOT'
-
     implementation 'androidx.appcompat:appcompat:1.5.1'
 }
