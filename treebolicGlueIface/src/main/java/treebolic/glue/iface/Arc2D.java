@@ -9,8 +9,8 @@ import treebolic.annotations.NonNull;
 /**
  * Glue interface for Arc2D
  *
- * @author Bernard Bou
  * @param <P> platform point type
+ * @author Bernard Bou
  */
 public interface Arc2D<P>
 {

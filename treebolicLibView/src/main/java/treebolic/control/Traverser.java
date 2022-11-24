@@ -248,7 +248,7 @@ public class Traverser extends Generator<INode>
 	 * Constructor
 	 *
 	 * @param matcher matcher
-	 * @param node start node
+	 * @param node    start node
 	 */
 	public Traverser(final Matcher matcher, final INode node)
 	{

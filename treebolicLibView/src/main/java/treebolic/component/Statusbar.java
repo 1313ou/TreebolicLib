@@ -4,11 +4,12 @@
 
 package treebolic.component;
 
+import java.util.function.Function;
+
 import treebolic.annotations.NonNull;
 import treebolic.annotations.Nullable;
 import treebolic.glue.Color;
 import treebolic.glue.component.Component;
-import treebolic.glue.iface.component.Converter;
 import treebolic.model.Settings;
 
 /**
@@ -123,7 +124,7 @@ public class Statusbar extends treebolic.glue.component.Statusbar implements Com
 	 * @param label     label
 	 * @param contents  contents
 	 */
-	public void put(@NonNull final PutType type, @Nullable final Converter converter, final String label, final String[] contents)
+	public void put(@NonNull final PutType type, @Nullable final Function<CharSequence[], String> converter, final String label, final String[] contents)
 	{
 		setColors(type);
 		super.put(type.ordinal(), converter, label, contents);

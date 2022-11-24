@@ -17,11 +17,7 @@ import android.view.WindowManager;
 
 import java.util.function.Function;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.*;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -180,7 +176,7 @@ public class Utils
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
 		{
 			final Rect bounds = wm.getCurrentWindowMetrics().getBounds();
-			return new Point(bounds.width(),bounds.height());
+			return new Point(bounds.width(), bounds.height());
 		}
 		else
 		{
@@ -219,5 +215,5 @@ public class Utils
 		return sb.toString();
 	}
 
-	static private Function<String,String> converter = (s) -> s;
+	static private Function<String, String> converter = (s) -> s;
 }

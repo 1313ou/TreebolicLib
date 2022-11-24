@@ -22,201 +22,301 @@ public class Settings implements Serializable
 {
 	private static final long serialVersionUID = -4310347294902070347L;
 
-	/** Display toolbar property */
+	/**
+	 * Display toolbar property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TOOLBAR = "toolbar";
 
-	/** Display status bar property */
+	/**
+	 * Display status bar property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_STATUSBAR = "statusbar";
 
-	/** Use popup menus property */
+	/**
+	 * Use popup menus property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_POPUPMENU = "popupmenu";
 
-	/** Display tooltips property */
+	/**
+	 * Display tooltips property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TOOLTIP = "tooltip";
 
-	/** Tooltip displays content flag property */
+	/**
+	 * Tooltip displays content flag property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TOOLTIP_DISPLAYS_CONTENT = "tooltip-displays-content";
 
-	/** Focus property */
+	/**
+	 * Focus property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FOCUS = "focus";
 
-	/** Focus-on-hover flag property */
+	/**
+	 * Focus-on-hover flag property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FOCUS_ON_HOVER = "focus-on-hover";
 
-	/** X-move-to property */
+	/**
+	 * X-move-to property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_XMOVETO = "xmoveto";
 
-	/** Y-move-to property */
+	/**
+	 * Y-move-to property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_YMOVETO = "ymoveto";
 
-	/** X-shift property */
+	/**
+	 * X-shift property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_XSHIFT = "xshift";
 
-	/** Y-shift property */
+	/**
+	 * Y-shift property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_YSHIFT = "yshift";
 
-	/** Orientation property */
+	/**
+	 * Orientation property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_ORIENTATION = "orientation";
 
-	/** Expansion property */
+	/**
+	 * Expansion property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EXPANSION = "expansion";
 
-	/** Sweep property */
+	/**
+	 * Sweep property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_SWEEP = "sweep";
 
-	/** Preserve orientation flag property */
+	/**
+	 * Preserve orientation flag property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_PRESERVE_ORIENTATION = "preserve-orientation";
 
-	/** Font face property */
+	/**
+	 * Font face property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FONTFACE = "fontface";
 
-	/** Font size property */
+	/**
+	 * Font size property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FONTSIZE = "fontsize";
 
-	/** Font size factor property */
+	/**
+	 * Font size factor property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FONTSIZE_FACTOR = "fontsize.factor";
 
-	/** Scale font flag property */
+	/**
+	 * Scale font flag property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_SCALE_FONTS = "scale.fonts";
 
-	/** Font scaler property */
+	/**
+	 * Font scaler property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FONT_SCALER = "font.scaler";
 
-	/** Scale images flag property */
+	/**
+	 * Scale images flag property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_SCALE_IMAGES = "scale.images";
 
-	/** Image scaler property */
+	/**
+	 * Image scaler property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_IMAGE_SCALER = "image.scaler";
 
-	/** Node background color property */
+	/**
+	 * Node background color property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_BACKCOLOR = "backcolor";
 
-	/** Node fore color property */
+	/**
+	 * Node fore color property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_FORECOLOR = "forecolor";
 
-	/** Background image property */
+	/**
+	 * Background image property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_BACKGROUND_IMAGE = "background.image";
 
-	/** Node background color property */
+	/**
+	 * Node background color property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_BACKCOLOR = "node.backcolor";
 
-	/** Node fore color property */
+	/**
+	 * Node fore color property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_FORECOLOR = "node.forecolor";
 
-	/** Node image property */
+	/**
+	 * Node image property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_IMAGE = "node.image";
 
-	/** Node border property */
+	/**
+	 * Node border property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_BORDER = "node.border";
 
-	/** Node ellipsize property */
+	/**
+	 * Node ellipsize property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_ELLIPSIZE = "node.ellipsize";
 
-	/** Node label max lines property */
+	/**
+	 * Node label max lines property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_LABEL_MAX_LINES = "node.label.max-lines";
 
-	/** Node label extra line factor property */
+	/**
+	 * Node label extra line factor property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_NODE_LABEL_EXTRA_LINE_FACTOR = "node.label.extra-line-factor";
 
-	/** Edge rendered as ard property */
+	/**
+	 * Edge rendered as ard property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_AS_ARC = "edge.arc";
 
-	/** Edge image property */
+	/**
+	 * Edge image property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_IMAGE = "edge.image";
 
-	/** Tree edge image property */
+	/**
+	 * Tree edge image property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_IMAGE = "tree.edge.image";
 
-	/** Edge property */
+	/**
+	 * Edge property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_COLOR = "edge.color";
 
-	/** Tree edge color property */
+	/**
+	 * Tree edge color property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_COLOR = "tree.edge.color";
 
-	/** Edge stroke property */
+	/**
+	 * Edge stroke property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_STROKE = "edge.stroke";
 
-	/** Edge stroke width property */
+	/**
+	 * Edge stroke width property
+	 */
 	public static final String PROP_EDGE_STROKEWIDTH = "edge.strokewidth";
 
-	/** Edge from-terminator property */
+	/**
+	 * Edge from-terminator property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_FROMTERMINATOR = "edge.fromterminator";
 
-	/** Edge to-terminator property */
+	/**
+	 * Edge to-terminator property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_TOTERMINATOR = "edge.toterminator";
 
-	/** Edge line property */
+	/**
+	 * Edge line property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_LINE = "edge.line";
 
-	/** Edge hidden property */
+	/**
+	 * Edge hidden property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_EDGE_HIDDEN = "edge.hidden";
 
-	/** Tree edge stroke property */
+	/**
+	 * Tree edge stroke property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_STROKE = "tree.edge.stroke";
 
-	/** Tree edge stroke width property */
+	/**
+	 * Tree edge stroke width property
+	 */
 	public static final String PROP_TREE_EDGE_STROKEWIDTH = "tree.edge.strokewidth";
 
-	/** Tree edge from-terminator property */
+	/**
+	 * Tree edge from-terminator property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_FROMTERMINATOR = "tree.edge.fromterminator";
 
-	/** Tree edge to-terminator property */
+	/**
+	 * Tree edge to-terminator property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_TOTERMINATOR = "tree.edge.toterminator";
 
-	/** Tree edge line property */
+	/**
+	 * Tree edge line property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_LINE = "tree.edge.line";
 
-	/** Tree edge hidden property */
+	/**
+	 * Tree edge hidden property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_TREE_EDGE_HIDDEN = "tree.edge.hidden";
 
-	/** Menu item property */
+	/**
+	 * Menu item property
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final String PROP_MENUITEM = "menuitem";
 

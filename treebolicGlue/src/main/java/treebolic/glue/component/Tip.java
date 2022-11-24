@@ -92,7 +92,7 @@ public class Tip extends AppCompatDialogFragment
 			final WebView webView = view.findViewById(R.id.text);
 			webView.loadData(this.text == null ? "" : this.text, "text/html; charset=UTF-8", "utf-8");
 		}
-		catch(InflateException e)
+		catch (InflateException e)
 		{
 			// inflate layout for the dialog
 			view = inflater.inflate(R.layout.tip_layout_text, frameLayout, false);

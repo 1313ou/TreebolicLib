@@ -35,7 +35,7 @@ public class ModelReader
 	 * Deserialize
 	 *
 	 * @return model
-	 * @throws IOException io exception
+	 * @throws IOException            io exception
 	 * @throws ClassNotFoundException class not found exception
 	 */
 	@NonNull

@@ -9,11 +9,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
+import java.util.*;
+import java.util.function.Function;
 
 import treebolic.annotations.NonNull;
 import treebolic.annotations.Nullable;
@@ -32,16 +29,7 @@ import treebolic.glue.Image;
 import treebolic.glue.Worker;
 import treebolic.glue.component.Container;
 import treebolic.glue.component.Dialog;
-import treebolic.glue.iface.component.Converter;
-import treebolic.model.IEdge;
-import treebolic.model.INode;
-import treebolic.model.Location;
-import treebolic.model.Model;
-import treebolic.model.ModelReader;
-import treebolic.model.MountPoint;
-import treebolic.model.Mounter;
-import treebolic.model.Settings;
-import treebolic.model.Tree;
+import treebolic.model.*;
 import treebolic.model.Types.MatchMode;
 import treebolic.model.Types.MatchScope;
 import treebolic.model.Types.SearchCommand;
@@ -626,11 +614,11 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 */
 	public synchronized void mount(@NonNull final INode mountingNode, final String source)
 	{
-		putStatus(Statusbar.PutType.MOUNT, (Converter) null, Messages.getString("Widget.status_mount"), source);
+		putStatus(Statusbar.PutType.MOUNT, (Function<CharSequence[], String>) null, Messages.getString("Widget.status_mount"), source);
 
 		if (this.provider == null)
 		{
-			@NonNull final Converter toHtml = (s) -> this.controller.makeHtml("mount", s);
+			@NonNull final Function<CharSequence[], String> toHtml = (s) -> this.controller.makeHtml("mount", s);
 
 			putStatus(Statusbar.PutType.MOUNT, toHtml, Messages.getString("Widget.status_mount"), Messages.getString("Widget.status_mount_err_provider_null"));
 
@@ -1157,7 +1145,7 @@ public class Widget extends Container implements IWidget, IProviderContext
 	 * @param header    header
 	 * @param message   message
 	 */
-	public void putStatus(@NonNull final Statusbar.PutType type, @Nullable final Converter converter, final String header, final String... message)
+	public void putStatus(@NonNull final Statusbar.PutType type, @Nullable final Function<CharSequence[], String> converter, final String header, final String... message)
 	{
 		if (this.statusbar == null)
 		{

@@ -24,12 +24,13 @@ import android.widget.TextView;
 
 import org.treebolic.glue.R;
 
+import java.util.function.Function;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import treebolic.glue.Color;
 import treebolic.glue.iface.ActionListener;
-import treebolic.glue.iface.component.Converter;
 
 /**
  * Status bar
@@ -296,7 +297,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	}
 
 	@Override
-	public void put(final int image, @Nullable final Converter converter, final String label0, final String[] content0)
+	public void put(final int image, @Nullable final Function<CharSequence[], String> converter, final String label0, final String[] content0)
 	{
 		// icon
 		final Drawable drawable = getDrawable(image);
@@ -325,7 +326,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		// content
 		if (this.webContentView != null)
 		{
-			String content = converter == null ? Utils.join("<br>", content0) : converter.convert(content0);
+			String content = converter == null ? Utils.join("<br>", content0) : converter.apply(content0);
 			if (Statusbar.contentProcessor != null)
 			{
 				content = contentProcessor.process(content, this);

@@ -4,6 +4,8 @@
 
 package treebolic.glue.iface.component;
 
+import java.util.function.Function;
+
 import treebolic.glue.iface.ActionListener;
 
 /**
@@ -33,7 +35,7 @@ public interface Dialog
 	 *
 	 * @param converter converter
 	 */
-	void setConverter(final Converter converter);
+	void setConverter(final Function<CharSequence[], String> converter);
 
 	/**
 	 * Set hyperlink listener

@@ -9,8 +9,8 @@ import treebolic.annotations.NonNull;
 /**
  * Glue interface for
  *
- * @author Bernard Bou
  * @param <C> platform color type
+ * @author Bernard Bou
  */
 public interface Color<C>
 {

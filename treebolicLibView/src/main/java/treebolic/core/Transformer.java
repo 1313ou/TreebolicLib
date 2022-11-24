@@ -10,12 +10,7 @@ import treebolic.annotations.NonNull;
 import treebolic.annotations.Nullable;
 import treebolic.core.location.Complex;
 import treebolic.core.location.HyperCircle;
-import treebolic.core.transform.HyperOptimizedTransform;
-import treebolic.core.transform.HyperOrientationPreservingTransform;
-import treebolic.core.transform.HyperRadialOrientationPreservingTransform;
-import treebolic.core.transform.HyperTransform;
-import treebolic.core.transform.HyperTranslation;
-import treebolic.core.transform.IHyperTransform;
+import treebolic.core.transform.*;
 import treebolic.model.INode;
 
 /**

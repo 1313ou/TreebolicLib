@@ -4,6 +4,8 @@
 
 package treebolic.glue.iface.component;
 
+import java.util.function.Function;
+
 import treebolic.glue.iface.ActionListener;
 
 /**
@@ -19,7 +21,28 @@ public interface Statusbar<C, L>
 	 * Image indices
 	 */
 	enum ImageIndices
-	{ /** Info */ INFO, /** Link */  LINK,  /** Mount */ MOUNT,  /** Search */ SEARCH, /** Count */ COUNT}
+	{
+		/**
+		 * Info
+		 */
+		INFO,
+		/**
+		 * Link
+		 */
+		LINK,
+		/**
+		 * Mount
+		 */
+		MOUNT,
+		/**
+		 * Search
+		 */
+		SEARCH,
+		/**
+		 * Count
+		 */
+		COUNT
+	}
 
 	// public Statusbar();
 
@@ -61,7 +84,7 @@ public interface Statusbar<C, L>
 	 * @param label     label
 	 * @param content   content
 	 */
-	void put(final int image, final Converter converter, final String label, final String... content);
+	void put(final int image, final Function<CharSequence[], String> converter, final String label, final String... content);
 
 	/**
 	 * Put message

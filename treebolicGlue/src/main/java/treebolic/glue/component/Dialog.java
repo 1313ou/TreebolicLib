@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import org.treebolic.glue.R;
 
+import java.util.function.Function;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -28,11 +30,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import treebolic.glue.iface.ActionListener;
-import treebolic.glue.iface.component.Converter;
 
 /**
  * Dialog
  * API class
+ *
  * @author Bernard Bou
  */
 public class Dialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.Dialog
@@ -70,7 +72,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 	 * Converter
 	 */
 	@Nullable
-	private Converter converter;
+	private Function<CharSequence[], String> converter;
 
 	/**
 	 * Style
@@ -176,7 +178,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 			html.append("</head><body><div class='body'>");
 			if (this.converter != null)
 			{
-				html.append(this.converter.convert(this.content));
+				html.append(this.converter.apply(this.content));
 			}
 			else
 			{
@@ -266,9 +268,9 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 	}
 
 	@Override
-	public void setConverter(@Nullable final Converter converter0)
+	public void setConverter(@Nullable final Function<CharSequence[], String> converter)
 	{
-		this.converter = converter0;
+		this.converter = converter;
 	}
 
 	@Override

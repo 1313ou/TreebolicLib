@@ -102,7 +102,7 @@ public class TreeMutableNode extends MutableNode
 	 * Add child to this node
 	 *
 	 * @param parent parent
-	 * @param child child
+	 * @param child  child
 	 */
 	static public void assertNoLink(@NonNull final INode parent, @NonNull final INode child)
 	{
