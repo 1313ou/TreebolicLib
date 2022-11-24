@@ -16,15 +16,15 @@ import org.treebolic.glue.R;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import treebolic.glue.ActionListener;
+import treebolic.glue.iface.ActionListener;
 
 /**
- * Tool bar
+ * Toolbar
  * API class
  *
  * @author Bernard Bou
  */
-public class Toolbar extends FrameLayout implements treebolic.glue.iface.component.Toolbar<ActionListener>
+public class Toolbar extends FrameLayout implements treebolic.glue.iface.component.Toolbar
 {
 	/**
 	 * Buttons

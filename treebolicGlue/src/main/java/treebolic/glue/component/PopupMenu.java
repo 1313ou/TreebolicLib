@@ -27,17 +27,17 @@ import treebolic.glue.component.QuickAction.ActionItem;
 public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Component, ActionListener>
 {
 	/**
-	 * Drawables
-	 */
-	@SuppressWarnings("WeakerAccess")
-	static final Drawable[] drawables = new Drawable[ImageIndices.IMAGE_COUNT.ordinal()];
-
-	/**
 	 * Labels
 	 */
 	@Nullable
 	@SuppressWarnings("WeakerAccess")
 	static String[] labels = null; //{  "Cancel", "Info", "Focus", "Link", "Mount", "UnMount", "Goto", "Search" };
+
+	/**
+	 * Drawables, lazy cache
+	 */
+	@SuppressWarnings("WeakerAccess")
+	static final Drawable[] drawables = new Drawable[ImageIndices.IMAGE_COUNT.ordinal()];
 
 	/**
 	 * Context
@@ -69,7 +69,8 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 		this.anchor = anchor;
 
 		// labels: info,focus,linkto,mount,unmount,cancel
-		labels = this.context.getResources().getStringArray(R.array.popup_labels);
+		this.labels = this.context.getResources().getStringArray(R.array.popup_labels);
+		assert labels.length == LabelIndices.LABEL_COUNT.ordinal();
 
 		// create quickaction
 		this.quickAction = new QuickAction(context, QuickAction.VERTICAL);
@@ -106,9 +107,10 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	}
 
 	@Override
-	public void addItem(@StringRes final int labelRes, final int resource, final ActionListener listener)
+	public void addItem(final int labelIdx, final int resource, final ActionListener listener)
 	{
-		final String label = this.context.getString(labelRes);
+		assert labels != null;
+		final String label = labels[labelIdx];
 		addItem(label, resource, listener);
 	}
 

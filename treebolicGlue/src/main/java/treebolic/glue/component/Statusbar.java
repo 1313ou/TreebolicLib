@@ -38,7 +38,7 @@ import treebolic.glue.iface.ActionListener;
  *
  * @author Bernard Bou
  */
-public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar<Color, ActionListener>
+public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar<Color>
 {
 	private static final String TAG = "Statusbar";
 
@@ -252,7 +252,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 	@SuppressWarnings("EmptyMethod")
 	@Override
-	public void addListener(final ActionListener arg0)
+	public void addListener(final treebolic.glue.iface.ActionListener arg0)
 	{
 		// does not fire events
 	}

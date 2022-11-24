@@ -39,7 +39,7 @@ import treebolic.glue.iface.ActionListener;
  */
 public class Dialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.Dialog
 {
-	private static final String TAG = "WebDialog";
+	private static final String TAG = "Dialog";
 
 	/**
 	 * Save key for header
@@ -186,7 +186,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 			}
 
 			html.append("</div></body></html>");
-			Log.d(TAG, html.toString());
+			// Log.d(TAG, html.toString());
 
 			// client
 			webView.setWebViewClient(makeWebViewClient());
