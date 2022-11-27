@@ -6,11 +6,18 @@ package treebolic.glue;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.*;
+import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Cap;
 import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
+import android.graphics.Path;
+import android.graphics.PathEffect;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.TypedValue;
 
 import org.treebolic.glue.R;
@@ -23,7 +30,7 @@ import androidx.annotation.Nullable;
  *
  * @author Bernard Bou
  */
-public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
+public class Graphics implements treebolic.glue.iface.Graphics<Image>
 {
 	public static final int PLAIN = 0;
 
@@ -127,11 +134,13 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 
 	// B A C K G R O U N D
 
-
 	@Override
-	public void drawBackgroundColor(@NonNull final Color color, final int left, final int top, final int width, final int height)
+	public void drawBackgroundColor(@Nullable final Integer color, final int left, final int top, final int width, final int height)
 	{
-		this.canvas.drawColor(color.getOpaqueRGB());
+		if (color != null)
+		{
+			this.canvas.drawColor(Color.makeOpaque(color));
+		}
 
 		// alternatively:
 		// setColor(color);
@@ -283,20 +292,20 @@ public class Graphics implements treebolic.glue.iface.Graphics<Color, Image>
 	// P A I N T
 
 	@Override
-	public void setColor(@Nullable final Color color)
+	public void setColor(@Nullable final Integer color)
 	{
-		if (color != null && !color.isNull())
+		if (color != null)
 		{
-			this.paint.setColor(color.getRGB());
+			this.paint.setColor(color);
 			this.paint.setAlpha(255);
 		}
 	}
 
 	@NonNull
 	@Override
-	public Color getColor()
+	public Integer getColor()
 	{
-		return new Color(this.paint.getColor());
+		return this.paint.getColor();
 	}
 
 	@Override
