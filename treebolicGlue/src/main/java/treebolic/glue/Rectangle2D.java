@@ -128,14 +128,6 @@ public class Rectangle2D extends RectF implements treebolic.glue.iface.Rectangle
 
 	// Result code for outcode()
 
-	public static final int OUT_BOTTOM = 1;
-
-	public static final int OUT_LEFT = 2;
-
-	public static final int OUT_RIGHT = 4;
-
-	public static final int OUT_TOP = 8;
-
 	@Override
 	public int outcode(@NonNull final Point2D point)
 	{

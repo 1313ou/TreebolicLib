@@ -81,18 +81,42 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		}
 	}
 
+	/** Horizontal */
 	@SuppressWarnings("WeakerAccess")
 	public static final int HORIZONTAL = 0;
+
+	/**
+	 * Vertical
+	 */
 	public static final int VERTICAL = 1;
 
+	/**
+	 * Animation grows from left (west)
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_GROW_FROM_LEFT = 1;
+
+	/**
+	 * Animation grows from right (east)
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_GROW_FROM_RIGHT = 2;
+
+	/**
+	 * Animation grows from center
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_GROW_FROM_CENTER = 3;
+
+	/**
+	 * Animation reflects
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_REFLECT = 4;
+
+	/**
+	 * Animation auto
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final int ANIM_AUTO = 5;
 
@@ -305,6 +329,8 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 
 	/**
 	 * Show quickaction popup. Popup is automatically positioned, on top or bottom of anchor view.
+	 *
+	 * @param anchor anchor view (the popup will be anchored to)
 	 */
 	public void show(@NonNull final View anchor)
 	{
@@ -526,6 +552,8 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 	/**
 	 * Set listener for window dismissed. This listener will only be fired if the quickaction dialog is dismissed by clicking outside the dialog or clicking on
 	 * sticky item.
+	 *
+	 * @param listener dismiss listener
 	 */
 	public void setOnDismissListener(final OnDismissListener listener)
 	{

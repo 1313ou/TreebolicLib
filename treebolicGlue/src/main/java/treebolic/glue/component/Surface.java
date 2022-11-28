@@ -337,11 +337,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 						right = p;
 					}
 				}
-				boolean zoom = false;
-				if (left != null && /* right != null && */ left.y < right.y)
-				{
-					zoom = true;
-				}
+				boolean zoom = left != null && /* right != null && */ left.y < right.y;
 
 				// fire event
 				assert Surface.this.listener != null;

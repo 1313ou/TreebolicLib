@@ -187,64 +187,65 @@ public class SplitPaneLayout extends ViewGroup
 	{
 		if (attrs != null)
 		{
-			final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout);
-
-			// misc
-			this.orientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0);
-			this.splitterSize = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.getResources().getDimensionPixelSize(R.dimen.spl_default_splitter_size));
-			this.splitterMovable = array.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true);
-
-			// position
-			TypedValue value = array.peekValue(R.styleable.SplitPaneLayout_splitterPosition);
-			if (value != null)
+			try (final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout))
 			{
-				if (value.type == TypedValue.TYPE_DIMENSION)
+
+				// misc
+				this.orientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0);
+				this.splitterSize = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.getResources().getDimensionPixelSize(R.dimen.spl_default_splitter_size));
+				this.splitterMovable = array.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true);
+
+				// position
+				TypedValue value = array.peekValue(R.styleable.SplitPaneLayout_splitterPosition);
+				if (value != null)
 				{
-					this.splitterPosition = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Integer.MIN_VALUE);
-					this.splitterPositionPercent = -1;
+					if (value.type == TypedValue.TYPE_DIMENSION)
+					{
+						this.splitterPosition = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Integer.MIN_VALUE);
+						this.splitterPositionPercent = -1;
+					}
+					else if (value.type == TypedValue.TYPE_FRACTION)
+					{
+						this.splitterPositionPercent = array.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50) * 0.01f;
+						this.splitterPosition = Integer.MIN_VALUE;
+					}
 				}
-				else if (value.type == TypedValue.TYPE_FRACTION)
+				else
 				{
-					this.splitterPositionPercent = array.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50) * 0.01f;
 					this.splitterPosition = Integer.MIN_VALUE;
+					this.splitterPositionPercent = 0.5f;
 				}
-			}
-			else
-			{
-				this.splitterPosition = Integer.MIN_VALUE;
-				this.splitterPositionPercent = 0.5f;
-			}
 
-			// backgrounds
-			value = array.peekValue(R.styleable.SplitPaneLayout_splitterBackground);
-			if (value != null)
-			{
-				if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
+				// backgrounds
+				value = array.peekValue(R.styleable.SplitPaneLayout_splitterBackground);
+				if (value != null)
 				{
-					this.splitterDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterBackground);
+					if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
+					{
+						this.splitterDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterBackground);
+					}
+					else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
+					{
+						this.splitterDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterBackground, 0xFF000000));
+					}
 				}
-				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
+				value = array.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground);
+				if (value != null)
 				{
-					this.splitterDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterBackground, 0xFF000000));
+					if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
+					{
+						this.splitterDraggingDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground);
+					}
+					else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
+					{
+						this.splitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, SPLITTER_DRAG_COLOR));
+					}
+				}
+				else
+				{
+					this.splitterDraggingDrawable = new PaintDrawable(SPLITTER_DRAG_COLOR);
 				}
 			}
-			value = array.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground);
-			if (value != null)
-			{
-				if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING)
-				{
-					this.splitterDraggingDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground);
-				}
-				else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4)
-				{
-					this.splitterDraggingDrawable = new PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, SPLITTER_DRAG_COLOR));
-				}
-			}
-			else
-			{
-				this.splitterDraggingDrawable = new PaintDrawable(SPLITTER_DRAG_COLOR);
-			}
-			array.recycle();
 		}
 	}
 

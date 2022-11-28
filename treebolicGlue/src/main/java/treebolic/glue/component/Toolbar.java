@@ -70,7 +70,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	/**
 	 * Toolbar's ordered list of buttons
 	 */
-	static private Button[] buttons = new Button[]{ //
+	static private final Button[] buttons = new Button[]{ //
 			Button.HOME, //
 			Button.ZOOMIN, Button.ZOOMOUT, Button.ZOOMONE, //
 			Button.SCALEUP, Button.SCALEDOWN, Button.SCALEONE, //
@@ -194,6 +194,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		}
 		else
 		{
+			//noinspection deprecation
 			imageButton.setBackgroundDrawable(bitmapDrawable);
 		}
 

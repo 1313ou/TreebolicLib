@@ -11,6 +11,12 @@ package treebolic.glue;
  */
 public class Color
 {
+	/**
+	 * Make opaque, ensure that color is opaque
+	 *
+	 * @param color color
+	 * @return opaque color
+	 */
 	public static int makeOpaque(int color)
 	{
 		return 0xFF000000 | color;

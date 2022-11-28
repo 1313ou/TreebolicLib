@@ -14,7 +14,6 @@ import org.treebolic.glue.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import treebolic.glue.ActionListener;
 import treebolic.glue.component.QuickAction.ActionItem;
 
@@ -69,7 +68,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 		this.anchor = anchor;
 
 		// labels: info,focus,linkto,mount,unmount,cancel
-		this.labels = this.context.getResources().getStringArray(R.array.popup_labels);
+		labels = this.context.getResources().getStringArray(R.array.popup_labels);
 		assert labels.length == LabelIndices.LABEL_COUNT.ordinal();
 
 		// create quickaction

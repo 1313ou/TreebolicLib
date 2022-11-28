@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import treebolic.glue.component.Component;
 
+/**
+ * Graphics cache implementation
+ */
 public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphics>
 {
 	private static final boolean CACHE = true;
@@ -24,6 +27,14 @@ public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphic
 
 	private final int height;
 
+	/**
+	 * Graphics cache
+	 *
+	 * @param component component
+	 * @param graphics  graphics context
+	 * @param width     width
+	 * @param height    height
+	 */
 	public GraphicsCache(@SuppressWarnings("unused") final Component component, @NonNull final Graphics graphics, final int width, final int height)
 	{
 		this.canvas = graphics.canvas;

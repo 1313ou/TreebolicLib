@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import treebolic.glue.Graphics;
 
+/**
+ * Treebolic thread
+ */
 public class TreebolicThread extends Thread
 {
 	/**
