@@ -194,7 +194,6 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		}
 		else
 		{
-			//noinspection deprecation
 			imageButton.setBackgroundDrawable(bitmapDrawable);
 		}
 

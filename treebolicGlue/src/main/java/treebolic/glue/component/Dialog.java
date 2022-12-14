@@ -232,7 +232,6 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 				this.intercept = true;
 			}
 
-			@SuppressWarnings("deprecation")
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 			{

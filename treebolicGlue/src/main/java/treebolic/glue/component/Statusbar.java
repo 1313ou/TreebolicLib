@@ -167,7 +167,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 					this.intercept = true;
 				}
 
-				@SuppressWarnings("deprecation")
 				@Override
 				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 				{
@@ -327,7 +326,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 				}
 				else
 				{
-					//noinspection deprecation
 					this.webContentView.clearView();
 				}
 			}

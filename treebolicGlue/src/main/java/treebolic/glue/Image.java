@@ -142,7 +142,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	public void setFromByteArray(@Nullable final byte[] imageByteArray)
 	{
 		final Options opt = new Options();
-		//noinspection deprecation
 		opt.inDither = true;
 		opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
 		this.bitmap = imageByteArray == null ? null : BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length, opt);
