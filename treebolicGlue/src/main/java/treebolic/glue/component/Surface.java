@@ -216,14 +216,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		this.gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener()
 		{
 			@Override
-			public boolean onDown(final MotionEvent event)
+			public boolean onDown(@NonNull final MotionEvent event)
 			{
 				// returning false would result in the sequel of events not being dispatched to detector
 				return true;
 			}
 
 			@Override
-			public void onLongPress(final MotionEvent event)
+			public void onLongPress(@NonNull final MotionEvent event)
 			{
 				// if(LOG) Log.d(Surface.TAG, "long press");
 				// Surface.this.listener.onMenu((int) event.getX(), (int) event.getY());
@@ -247,7 +247,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			// }
 
 			@Override
-			public boolean onSingleTapConfirmed(final MotionEvent event)
+			public boolean onSingleTapConfirmed(@NonNull final MotionEvent event)
 			{
 				// if(LOG) Log.d(Surface.TAG, "single tap confirmed");
 				// Surface.this.listener.onFocus((int) event.getX(), (int) event.getY());
@@ -262,14 +262,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			// }
 
 			@Override
-			public boolean onFling(final MotionEvent event1, final MotionEvent event2, final float velocityX, final float velocityY)
+			public boolean onFling(@NonNull final MotionEvent event1, @NonNull final MotionEvent event2, final float velocityX, final float velocityY)
 			{
 				// if(LOG) Log.d(Surface.TAG, "fling");
 				return false;
 			}
 
 			@Override
-			public boolean onScroll(final MotionEvent event1, final MotionEvent event2, final float distanceX, final float distanceY)
+			public boolean onScroll(@NonNull final MotionEvent event1, @NonNull final MotionEvent event2, final float distanceX, final float distanceY)
 			{
 				// if(LOG) Log.d(Surface.TAG, "scroll");
 				return false;
@@ -301,7 +301,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			}
 
 			@Override
-			public boolean onScaleBegin(final ScaleGestureDetector detector)
+			public boolean onScaleBegin(@NonNull final ScaleGestureDetector detector)
 			{
 				Surface.this.isScaling = true;
 				Surface.this.scaleFactor = 1F;
@@ -313,7 +313,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			}
 
 			@Override
-			public void onScaleEnd(final ScaleGestureDetector detector)
+			public void onScaleEnd(@NonNull final ScaleGestureDetector detector)
 			{
 				// accumulated scale
 				final float scale = -Surface.this.scaleFactor;
@@ -511,7 +511,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	// T O U C H A N D H O V E R
 
 	@Override
-	public boolean onTouchEvent(@Nullable final MotionEvent event)
+	public boolean onTouchEvent(@NonNull final MotionEvent event)
 	{
 		// scaleFactor detection hook
 		this.scaleDetector.onTouchEvent(event);
@@ -520,39 +520,36 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		this.gestureDetector.onTouchEvent(event);
 
 		// standard handling
-		if (event != null)
+		if (this.listener != null)
 		{
-			if (this.listener != null)
+			if (!Surface.this.isScaling)
 			{
-				if (!Surface.this.isScaling)
+				final int action = event.getActionMasked();
+				switch (action)
 				{
-					final int action = event.getActionMasked();
-					switch (action)
-					{
-						case MotionEvent.ACTION_DOWN:
-							// if(LOG) Log.d(Surface.TAG, "touch down");
-							this.listener.onDown((int) event.getX(), (int) event.getY(), false);
-							break;
+					case MotionEvent.ACTION_DOWN:
+						// if(LOG) Log.d(Surface.TAG, "touch down");
+						this.listener.onDown((int) event.getX(), (int) event.getY(), false);
+						break;
 
-						case MotionEvent.ACTION_MOVE:
-							// if(LOG) Log.d(Surface.TAG, "touch move");
-							this.listener.onDragged((int) event.getX(), (int) event.getY());
-							break;
+					case MotionEvent.ACTION_MOVE:
+						// if(LOG) Log.d(Surface.TAG, "touch move");
+						this.listener.onDragged((int) event.getX(), (int) event.getY());
+						break;
 
-						case MotionEvent.ACTION_UP:
+					case MotionEvent.ACTION_UP:
 
-						case MotionEvent.ACTION_CANCEL:
-							// if(LOG) Log.d(Surface.TAG, "touch cancel");
-							// if(LOG) Log.d(Surface.TAG, "touch up");
-							this.listener.onUp((int) event.getX(), (int) event.getY());
-							break;
+					case MotionEvent.ACTION_CANCEL:
+						// if(LOG) Log.d(Surface.TAG, "touch cancel");
+						// if(LOG) Log.d(Surface.TAG, "touch up");
+						this.listener.onUp((int) event.getX(), (int) event.getY());
+						break;
 
-						default:
-							break;
-					}
-					// common to handled cases above
-					return true;
+					default:
+						break;
 				}
+				// common to handled cases above
+				return true;
 			}
 		}
 		return super.onTouchEvent(event);

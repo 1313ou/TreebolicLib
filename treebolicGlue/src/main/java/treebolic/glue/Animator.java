@@ -84,14 +84,14 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 
 	@SuppressWarnings("EmptyMethod")
 	@Override
-	public void onAnimationStart(android.animation.Animator animator)
+	public void onAnimationStart(@NonNull android.animation.Animator animator)
 	{
 		// Log.d(Animator.TAG, "animate start " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
 	}
 
 	@SuppressWarnings("boxing")
 	@Override
-	public void onAnimationEnd(android.animation.Animator animator)
+	public void onAnimationEnd(@NonNull android.animation.Animator animator)
 	{
 		this.listener.onAction(this.lastStep);
 		// Log.d(Animator.TAG, "animate end value=" + this.lastStep);
@@ -99,7 +99,7 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 
 	@SuppressWarnings("boxing")
 	@Override
-	public void onAnimationCancel(android.animation.Animator animator)
+	public void onAnimationCancel(@NonNull android.animation.Animator animator)
 	{
 		this.listener.onAction(this.lastStep);
 		// Log.d(Animator.TAG, "animate cancel value=" + ((ValueAnimator) animator).getAnimatedValue());
@@ -107,7 +107,7 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 
 	@SuppressWarnings("EmptyMethod")
 	@Override
-	public void onAnimationRepeat(android.animation.Animator animator)
+	public void onAnimationRepeat(@NonNull android.animation.Animator animator)
 	{
 		// Log.d(Animator.TAG, "animate repeat " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
 	}

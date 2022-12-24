@@ -66,13 +66,13 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 	 * Content
 	 */
 	@Nullable
-	private CharSequence[] content;
+	private String[] content;
 
 	/**
 	 * Converter
 	 */
 	@Nullable
-	private Function<CharSequence[], String> converter;
+	private Function<String[], String> converter;
 
 	/**
 	 * Style
@@ -261,14 +261,14 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 	}
 
 	@Override
-	public void set(final CharSequence header0, final CharSequence... content0)
+	public void set(final CharSequence header0, final String... content0)
 	{
 		this.header = header0;
 		this.content = content0;
 	}
 
 	@Override
-	public void setConverter(@Nullable final Function<CharSequence[], String> converter)
+	public void setConverter(@Nullable final Function<String[], String> converter)
 	{
 		this.converter = converter;
 	}

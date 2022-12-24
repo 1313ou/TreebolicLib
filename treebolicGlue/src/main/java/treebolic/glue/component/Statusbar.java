@@ -283,7 +283,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	}
 
 	@Override
-	public void put(final int image, @Nullable final Function<CharSequence[], String> converter, final String label0, final String[] content0)
+	public void put(final int image, @Nullable final Function<String[], String> converter, final String label0, final String[] content0)
 	{
 		// icon
 		final Drawable drawable = getDrawable(image);
