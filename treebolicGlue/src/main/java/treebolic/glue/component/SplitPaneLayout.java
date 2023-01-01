@@ -187,8 +187,11 @@ public class SplitPaneLayout extends ViewGroup
 	{
 		if (attrs != null)
 		{
-			try (final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout))
+			// try (final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout))
+			TypedArray array = null;
+			try
 			{
+				array = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout);
 
 				// misc
 				this.orientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0);
@@ -244,6 +247,13 @@ public class SplitPaneLayout extends ViewGroup
 				else
 				{
 					this.splitterDraggingDrawable = new PaintDrawable(SPLITTER_DRAG_COLOR);
+				}
+			}
+			finally
+			{
+				if (array != null)
+				{
+					array.recycle();
 				}
 			}
 		}

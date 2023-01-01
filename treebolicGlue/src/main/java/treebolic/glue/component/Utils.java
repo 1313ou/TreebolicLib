@@ -43,14 +43,24 @@ public class Utils
 	static public int[] fetchColors(@NonNull final Context context, @NonNull int... attrs)
 	{
 		final TypedValue typedValue = new TypedValue();
-		try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
+		// try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
+		TypedArray array = null;
+		try
 		{
+			array = context.obtainStyledAttributes(typedValue.data, attrs);
 			final int[] colors = new int[attrs.length];
 			for (int i = 0; i < attrs.length; i++)
 			{
 				colors[i] = array.getColor(i, 0);
 			}
 			return colors;
+		}
+		finally
+		{
+			if (array != null)
+			{
+				array.recycle();
+			}
 		}
 	}
 
@@ -67,14 +77,24 @@ public class Utils
 	@NonNull
 	static public int[] fetchColorsFromStyle(@NonNull final Context context, @NonNull int styleId, @NonNull int... colorAttrIds)
 	{
-		try (final TypedArray array = context.obtainStyledAttributes(styleId, colorAttrIds))
+		// try (final TypedArray array = context.obtainStyledAttributes(styleId, colorAttrIds))
+		TypedArray array = null;
+		try
 		{
+			array = context.obtainStyledAttributes(styleId, colorAttrIds);
 			final int[] colors = new int[colorAttrIds.length];
 			for (int i = 0; i < colorAttrIds.length; i++)
 			{
 				colors[i] = array.getColor(i, 0);
 			}
 			return colors;
+		}
+		finally
+		{
+			if (array != null)
+			{
+				array.recycle();
+			}
 		}
 	}
 	*/
@@ -90,14 +110,24 @@ public class Utils
 	static public Integer[] fetchColorsNullable(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... attrs)
 	{
 		final TypedValue typedValue = new TypedValue();
-		try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
+		// try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
+		TypedArray array = null;
+		try
 		{
+			array = context.obtainStyledAttributes(typedValue.data, attrs);
 			final Integer[] colors = new Integer[attrs.length];
 			for (int i = 0; i < attrs.length; i++)
 			{
 				colors[i] = array.hasValue(i) ? array.getColor(i, 0) : null;
 			}
 			return colors;
+		}
+		finally
+		{
+			if (array != null)
+			{
+				array.recycle();
+			}
 		}
 	}
 
