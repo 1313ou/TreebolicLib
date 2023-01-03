@@ -2,9 +2,5 @@
  * Copyright (c) 2022. Bernard Bou <1313ou@gmail.com>
  */
 
-include ':treebolicLib'
-include ':treebolicLibModel', ':treebolicLibView'
-include ':treebolicGlue', ':treebolicGlueIface'
+include ':treebolicGlue'
 include ':treebolicIface'
-include ':treebolicMutable', ':treebolicGraph'
-include ':treebolicLoadBalancer'

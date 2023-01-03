@@ -13,7 +13,29 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f732543-d6ec-46ec-b617-58d839aa4b54" name="Default Changelist" comment="" />
+    <list default="true" id="7f732543-d6ec-46ec-b617-58d839aa4b54" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +79,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="1" />
   </component>
@@ -82,6 +107,19 @@
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="TreebolicLib.treebolicLib" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="TreebolicLib.treebolicLib" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>

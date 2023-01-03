@@ -38,8 +38,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../treebolicIface/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../treebolicIface/src/main/res" type="java-resource" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: io.github.treebolic:treebolic-annotations:4.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.treebolic:treebolic-annotations:4.0-0" level="project" />
   </component>
 </module>

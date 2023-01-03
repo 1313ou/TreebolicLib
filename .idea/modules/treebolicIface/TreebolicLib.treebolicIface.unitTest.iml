@@ -24,10 +24,10 @@
     <content url="file://$MODULE_DIR$/../../../treebolicIface/build/generated/ap_generated_sources/debugUnitTest/out" />
     <content url="file://$MODULE_DIR$/../../../treebolicIface/src/test" />
     <content url="file://$MODULE_DIR$/../../../treebolicIface/src/testDebug" />
-    <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="TreebolicLib.treebolicIface.main" scope="TEST" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.github.treebolic:treebolic-annotations:4.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.github.treebolic:treebolic-annotations:4.0-0" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="TreebolicLib.treebolicIface.main" />
 </module>

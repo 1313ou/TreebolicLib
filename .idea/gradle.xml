@@ -12,13 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/treebolicGlue" />
-            <option value="$PROJECT_DIR$/treebolicGlueIface" />
-            <option value="$PROJECT_DIR$/treebolicGraph" />
             <option value="$PROJECT_DIR$/treebolicIface" />
-            <option value="$PROJECT_DIR$/treebolicLibModel" />
-            <option value="$PROJECT_DIR$/treebolicLibView" />
-            <option value="$PROJECT_DIR$/treebolicLoadBalancer" />
-            <option value="$PROJECT_DIR$/treebolicMutable" />
           </set>
         </option>
       </GradleProjectSettings>

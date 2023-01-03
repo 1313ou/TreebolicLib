@@ -7,34 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlue/TreebolicLib.treebolicGlue.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGlueIface/TreebolicLib.treebolicGlueIface.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicGraph/TreebolicLib.treebolicGraph.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicIface/TreebolicLib.treebolicIface.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibModel/TreebolicLib.treebolicLibModel.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLibView/TreebolicLib.treebolicLibView.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicLoadBalancer/TreebolicLib.treebolicLoadBalancer.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.main.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/treebolicMutable/TreebolicLib.treebolicMutable.unitTest.iml" />
     </modules>
   </component>
 </project>
