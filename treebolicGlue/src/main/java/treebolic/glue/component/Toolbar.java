@@ -211,6 +211,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		this.panel.addView(imageButton, this.layoutParams);
 	}
 
+	@NonNull
 	@Override
 	public Button[] getButtons()
 	{

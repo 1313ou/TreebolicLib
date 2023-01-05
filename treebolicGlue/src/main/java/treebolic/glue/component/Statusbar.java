@@ -66,6 +66,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	/**
 	 * Text content status view
 	 */
+	@Nullable
 	private final TextView textContentView;
 
 	/**
