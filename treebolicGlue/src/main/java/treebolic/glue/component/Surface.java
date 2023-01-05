@@ -8,7 +8,11 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.util.Log;
 import android.util.SparseArray;
-import android.view.*;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
 import org.treebolic.glue.R;
 

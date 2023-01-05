@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>
   -->
 
@@ -7,14 +6,14 @@
 
 	<declare-styleable name="SplitPaneLayout">
 		<attr name="orientation">
-			<enum name="horizontal" value="0"/>
-			<enum name="vertical" value="1"/>
+			<enum name="horizontal" value="0" />
+			<enum name="vertical" value="1" />
 		</attr>
-		<attr name="splitterSize" format="dimension"/>
-		<attr name="splitterMovable" format="boolean"/>
-		<attr name="splitterPosition" format="dimension|fraction"/>
-		<attr name="splitterBackground" format="reference|color"/>
-		<attr name="splitterDraggingBackground" format="reference|color"/>
+		<attr name="splitterSize" format="dimension" />
+		<attr name="splitterMovable" format="boolean" />
+		<attr name="splitterPosition" format="dimension|fraction" />
+		<attr name="splitterBackground" format="reference|color" />
+		<attr name="splitterDraggingBackground" format="reference|color" />
 	</declare-styleable>
 
 </resources>

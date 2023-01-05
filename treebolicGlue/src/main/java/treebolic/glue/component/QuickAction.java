@@ -81,7 +81,9 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		}
 	}
 
-	/** Horizontal */
+	/**
+	 * Horizontal
+	 */
 	@SuppressWarnings("WeakerAccess")
 	public static final int HORIZONTAL = 0;
 
