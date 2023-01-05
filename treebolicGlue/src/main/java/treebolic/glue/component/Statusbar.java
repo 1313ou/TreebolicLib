@@ -352,6 +352,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		}
 		else
 		{
+			assert this.textContentView != null;
 			this.textContentView.setText(Utils.join("\n", content0));
 		}
 	}
