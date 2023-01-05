@@ -4,7 +4,7 @@
 
 <resources>
 
-	<style name="TreebolicTheme"></style>
+	<style name="TreebolicTheme" />
 
 	<!--
 	<style name="TreebolicToolbarTheme" parent="TreebolicTheme">
