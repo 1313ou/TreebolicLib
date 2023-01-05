@@ -93,7 +93,7 @@ public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Compo
 	}
 
 	@Override
-	public void addItem(final int labelIdx, final String label2, final int resource, final ActionListener listener)
+	public void addItem(final int labelIdx, @Nullable final String label2, final int resource, final ActionListener listener)
 	{
 		// just click outside dialog
 		if (resource == ImageIndices.IMAGE_CANCEL.ordinal())

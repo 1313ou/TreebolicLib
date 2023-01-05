@@ -5,7 +5,7 @@
 package treebolic.glue;
 
 /**
- * Color treebolic.glue
+ * Color treebolic glue
  *
  * @author Bernard Bou
  */

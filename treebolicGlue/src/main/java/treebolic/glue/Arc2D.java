@@ -118,7 +118,7 @@ public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 		final double h = this.height;
 		// Note: reversing the Y equations negates the angle to adjust
 		// for the upside down coordinate system.
-		// Also we should bias atans by the height and width of the oval.
+		// Also, we should bias atans by the height and width of the oval.
 		final double ang1 = Math.atan2(w * (y0 - y1), h * (x1 - x0));
 		double ang2 = Math.atan2(w * (y0 - y2), h * (x2 - x0));
 		ang2 -= ang1;

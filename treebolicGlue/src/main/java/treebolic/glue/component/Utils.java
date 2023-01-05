@@ -170,6 +170,7 @@ public class Utils
 	 * @param resId   drawable id
 	 * @return drawable
 	 */
+	@Nullable
 	static public Drawable getDrawable(@NonNull final Context context, @DrawableRes int resId)
 	{
 		return ResourcesCompat.getDrawable(context.getResources(), resId, context.getTheme());
@@ -187,7 +188,7 @@ public class Utils
 	{
 		final Resources resources = context.getResources();
 		final Resources.Theme theme = context.getTheme();
-		Drawable[] drawables = new Drawable[resIds.length];
+		@NonNull Drawable[] drawables = new Drawable[resIds.length];
 		for (int i = 0; i < resIds.length; i++)
 		{
 			drawables[i] = ResourcesCompat.getDrawable(resources, resIds[i], theme);
@@ -231,7 +232,7 @@ public class Utils
 		else
 		{
 			final Display display = wm.getDefaultDisplay();
-			final Point size = new Point();
+			@NonNull final Point size = new Point();
 			display.getSize(size);
 			// int height = size.y;
 			return size.x;
@@ -244,6 +245,7 @@ public class Utils
 	 * @param context context
 	 * @return a point whose x represents width and y represents height
 	 */
+	@NonNull
 	static public Point screenSize(@NonNull final Context context)
 	{
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -256,7 +258,7 @@ public class Utils
 		else
 		{
 			final Display display = wm.getDefaultDisplay();
-			final Point size = new Point();
+			@NonNull final Point size = new Point();
 			display.getSize(size);
 			return size;
 		}
@@ -269,6 +271,7 @@ public class Utils
 	 * @param strs  input character sequences
 	 * @return string output
 	 */
+	@NonNull
 	public static String join(@NonNull final CharSequence delim, @Nullable final CharSequence[] strs)
 	{
 		if (strs == null)
@@ -276,9 +279,9 @@ public class Utils
 			return "";
 		}
 
-		StringBuilder sb = new StringBuilder();
+		@NonNull StringBuilder sb = new StringBuilder();
 		boolean first = true;
-		for (CharSequence str : strs)
+		for (@Nullable CharSequence str : strs)
 		{
 			if (str == null || str.length() == 0)
 			{

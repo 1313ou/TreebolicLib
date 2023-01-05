@@ -128,7 +128,7 @@ public class Progress extends LinearLayout implements treebolic.glue.iface.compo
 	{
 		// setText(str); (passing it to a handler as only the original thread that created a view hierarchy can touch its views.
 		final Message message = this.handler.obtainMessage();
-		final Bundle bundle = new Bundle();
+		@NonNull final Bundle bundle = new Bundle();
 		bundle.putString("text", str);
 		bundle.putBoolean("fail", fail);
 		message.setData(bundle);

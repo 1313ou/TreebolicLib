@@ -23,7 +23,7 @@ import treebolic.glue.EventListener;
 import treebolic.glue.Graphics;
 
 /**
- * Surface treebolic.glue to serve as base for view
+ * Surface treebolic glue to serve as base for view
  * API class
  *
  * @author Bernard Bou
@@ -130,7 +130,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				case MotionEvent.ACTION_POINTER_DOWN:
 				{
 
-					final PointF f = new PointF();
+					@NonNull final PointF f = new PointF();
 					f.x = event.getX(pointerIndex);
 					f.y = event.getY(pointerIndex);
 					this.activePointers.put(pointerId, f);
@@ -216,7 +216,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		this.gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener()
 		{
 			@Override
-			public boolean onDown(@NonNull final MotionEvent event)
+			public boolean onDown(final MotionEvent event)
 			{
 				// returning false would result in the sequel of events not being dispatched to detector
 				return true;
@@ -320,8 +320,8 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 				// zoom or scale
 				final XScaleGestureDetector xdetector = (XScaleGestureDetector) detector;
-				PointF left = null;
-				PointF right = null;
+				@Nullable PointF left = null;
+				@Nullable PointF right = null;
 				for (int i = 0; i < xdetector.activePointers.size(); i++)
 				{
 					final int key = xdetector.activePointers.keyAt(i);

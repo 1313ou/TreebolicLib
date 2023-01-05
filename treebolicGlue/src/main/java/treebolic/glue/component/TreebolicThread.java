@@ -153,7 +153,7 @@ public class TreebolicThread extends Thread
 		while (!this.terminateFlag)
 		{
 			// draw cycle
-			Canvas canvas = null;
+			@Nullable Canvas canvas = null;
 			try
 			{
 				assert this.surfaceHolder != null;
@@ -181,7 +181,7 @@ public class TreebolicThread extends Thread
 			}
 
 			// pause
-			// we do not pause if we have been signaled in the mean time
+			// we do not pause if we have been signaled in the meantime
 			if (LOG)
 			{
 				Log.d(TreebolicThread.TAG, "pause");
@@ -234,12 +234,12 @@ public class TreebolicThread extends Thread
 			canvas.save();
 
 			// Paint paint = new Paint();
-			// paint.setColor(Color.LTGRAY);
+			// paint.setColor(Color.LIGHT_GRAY);
 			// int w = canvas.getWidth() / 2;
 			// int h = canvas.getHeight() / 2;
 			// canvas.drawCircle(w, h, Math.min(w, h), paint);
 
-			final Graphics g = new Graphics(canvas);
+			@NonNull final Graphics g = new Graphics(canvas);
 			assert this.surface != null;
 			this.surface.paint(g);
 

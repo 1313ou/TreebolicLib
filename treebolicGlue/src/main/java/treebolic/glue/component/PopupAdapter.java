@@ -72,7 +72,7 @@ public class PopupAdapter
 	}
 
 	/**
-	 * On pre show
+	 * On pre-show
 	 */
 	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"WeakerAccess"})

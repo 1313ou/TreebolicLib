@@ -29,7 +29,7 @@ import androidx.annotation.Nullable;
 import treebolic.glue.ActionListener;
 
 /**
- * QuickAction dialog, shows action list as icon and text like the one in Gallery3D app. Currently supports vertical and horizontal layout.
+ * QuickAction dialog, shows action list as icon and text like the one in Gallery3D app. Currently, supports vertical and horizontal layout.
  *
  * @author Lorensius W. L. T <lorenz@londatiga.net> Contributors: - Kevin Peck <kevinwpeck@gmail.com>
  */
@@ -312,7 +312,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		{
 			final View separator = this.inflater.inflate(R.layout.quickaction_horiz_separator, this.tracks);
 
-			final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+			@NonNull final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
 			separator.setLayoutParams(params);
 			separator.setPadding(5, 0, 5, 0);
 
@@ -338,9 +338,9 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		this.didAction = false;
 
 		// anchor screen rect
-		final int[] location = new int[2];
+		@NonNull final int[] location = new int[2];
 		anchor.getLocationOnScreen(location);
-		final Rect anchorRect = new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] + anchor.getHeight());
+		@NonNull final Rect anchorRect = new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] + anchor.getHeight());
 
 		// wrapped view dimensions
 		this.view.measure(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -351,7 +351,7 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		}
 
 		// screen size
-		final Point size = Utils.screenSize(this.context);
+		@NonNull final Point size = Utils.screenSize(this.context);
 		final int screenWidth = size.x;
 		final int screenHeight = size.y;
 
@@ -425,9 +425,9 @@ public class QuickAction extends PopupAdapter implements OnDismissListener
 		this.didAction = false;
 
 		// anchor screen rect
-		final int[] location = new int[2];
+		@NonNull final int[] location = new int[2];
 		anchor.getLocationOnScreen(location);
-		final Rect anchorRect = new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] + anchor.getHeight());
+		@NonNull final Rect anchorRect = new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] + anchor.getHeight());
 
 		// screen size
 		final int screenWidth = Utils.screenWidth(this.context);

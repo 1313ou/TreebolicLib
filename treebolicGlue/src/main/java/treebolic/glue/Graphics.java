@@ -101,7 +101,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 			Graphics.PT2PX = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, 1, resources.getDisplayMetrics());
 
 			// font factor for screen size
-			final TypedValue outValue = new TypedValue();
+			@NonNull final TypedValue outValue = new TypedValue();
 			resources.getValue(R.dimen.font_factor, outValue, true);
 			Graphics.fontFactor = outValue.getFloat();
 
@@ -161,16 +161,16 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void drawArc(final float x, final float y, final float w, final float h, final float start, final float extent)
 	{
-		final RectF oval = Rectangle2D.makeRect(x, y, w, h);
+		@NonNull final RectF oval = Rectangle2D.makeRect(x, y, w, h);
 		this.paint.setStyle(Style.STROKE);
 		this.canvas.drawArc(oval, -start, -extent, false, this.paint); // android: angles start at 3:00 and rotate clockwise
 	}
 
 
 	@Override
-	public void drawPolyline(final int[] x, final int[] y, final int length)
+	public void drawPolyline(@NonNull final int[] x, @NonNull final int[] y, final int length)
 	{
-		final Path path = new Path();
+		@NonNull final Path path = new Path();
 		path.reset(); // only needed when reusing this path for a new build
 		int i = 0;
 		path.moveTo(x[i], y[i]); // used for first point
@@ -184,9 +184,9 @@ public class Graphics implements treebolic.glue.iface.Graphics
 
 
 	@Override
-	public void drawPolygon(final int[] x, final int[] y, final int length)
+	public void drawPolygon(@NonNull final int[] x, @NonNull final int[] y, final int length)
 	{
-		final Path path = new Path();
+		@NonNull final Path path = new Path();
 		path.reset(); // only needed when reusing this path for a new build
 		path.moveTo(x[0], y[0]); // used for first point
 		for (int i = 1; i < length; i++)
@@ -200,9 +200,9 @@ public class Graphics implements treebolic.glue.iface.Graphics
 
 
 	@Override
-	public void fillPolygon(final int[] x, final int[] y, final int length)
+	public void fillPolygon(@NonNull final int[] x, @NonNull final int[] y, final int length)
 	{
-		final Path path = new Path();
+		@NonNull final Path path = new Path();
 		path.reset(); // only needed when reusing this path for a new build
 		path.moveTo(x[0], y[0]); // used for first point
 		for (int i = 1; i < length; i++)
@@ -218,7 +218,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void fillRectangle(final int left, final int top, final int width, final int height)
 	{
-		final RectF rect = Rectangle2D.makeRect(left, top, width, height);
+		@NonNull final RectF rect = Rectangle2D.makeRect(left, top, width, height);
 		this.paint.setStyle(Style.FILL_AND_STROKE);
 		this.canvas.drawRect(rect, this.paint);
 	}
@@ -227,7 +227,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void drawRoundRectangle(final int left, final int top, final int width, final int height, final int rx, final int ry)
 	{
-		final RectF rect = Rectangle2D.makeRect(left, top, width, height);
+		@NonNull final RectF rect = Rectangle2D.makeRect(left, top, width, height);
 		this.paint.setStyle(Style.STROKE);
 		this.canvas.drawRoundRect(rect, rx, ry, this.paint);
 	}
@@ -236,7 +236,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void fillRoundRectangle(final int left, final int top, final int width, final int height, final int rx, final int ry)
 	{
-		final RectF rect = Rectangle2D.makeRect(left, top, width, height);
+		@NonNull final RectF rect = Rectangle2D.makeRect(left, top, width, height);
 		this.paint.setStyle(Style.FILL_AND_STROKE);
 		this.canvas.drawRoundRect(rect, rx, ry, this.paint);
 	}
@@ -245,7 +245,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void drawOval(final float left, final float top, final float width, final float height)
 	{
-		final RectF rect = Rectangle2D.makeRect(left, top, width, height);
+		@NonNull final RectF rect = Rectangle2D.makeRect(left, top, width, height);
 		this.paint.setStyle(Style.STROKE);
 		this.canvas.drawOval(rect, this.paint);
 	}
@@ -254,7 +254,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void fillOval(final float left, final float top, final float width, final float height)
 	{
-		final RectF rect = Rectangle2D.makeRect(left, top, width, height);
+		@NonNull final RectF rect = Rectangle2D.makeRect(left, top, width, height);
 		this.paint.setStyle(Style.FILL_AND_STROKE);
 		this.canvas.drawOval(rect, this.paint);
 	}
@@ -272,8 +272,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void drawImage(@NonNull final Image image0, final int x, final int y)
 	{
-		assert image0 instanceof treebolic.glue.Image;
-		final treebolic.glue.Image image = (treebolic.glue.Image) image0;
+		@NonNull final treebolic.glue.Image image = (treebolic.glue.Image) image0;
 		if (image.bitmap != null)
 		{
 			this.canvas.drawBitmap(image.bitmap, x, y, this.paint);
@@ -284,11 +283,10 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void drawImage(@NonNull final Image image0, final int x, final int y, final int w, final int h)
 	{
-		assert image0 instanceof treebolic.glue.Image;
-		final treebolic.glue.Image image = (treebolic.glue.Image) image0;
+		@NonNull final treebolic.glue.Image image = (treebolic.glue.Image) image0;
 		if (image.bitmap != null)
 		{
-			final Rect r = new Rect(x, y, x + w, y + h);
+			@NonNull final Rect r = new Rect(x, y, x + w, y + h);
 			this.canvas.drawBitmap(image.bitmap, null, r, this.paint);
 		}
 	}

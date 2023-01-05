@@ -59,7 +59,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		super(context);
 
 		// determine orientation
-		final Point size = Utils.screenSize(context);
+		@NonNull final Point size = Utils.screenSize(context);
 		this.isHorizontal = size.x >= size.y;
 		setOrientation(this.isHorizontal ? LinearLayout.HORIZONTAL : LinearLayout.VERTICAL);
 
@@ -88,7 +88,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 		switch (position)
 		{
 			case PANE:
-				final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.F);
+				@NonNull final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.F);
 				addView(viewToAdd, params);
 				break;
 
@@ -126,16 +126,16 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	@Override
 	public void validate()
 	{
-		@SuppressWarnings("UnusedAssignment") LayoutParams params = null;
+		@Nullable @SuppressWarnings("UnusedAssignment") LayoutParams params = null;
 		if (this.toolbar != null)
 		{
 			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT, this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
 			addView(this.toolbar, params);
 		}
-		ViewGroup layout = this;
+		@NonNull ViewGroup layout = this;
 		if (this.view != null && this.statusbar != null)
 		{
-			final SplitPaneLayout splitLayout = new SplitPaneLayout(getContext());
+			@NonNull final SplitPaneLayout splitLayout = new SplitPaneLayout(getContext());
 			splitLayout.setOrientation(this.isHorizontal ? 0 : 1);
 			splitLayout.setSplitterPositionPercent(Container.splitterPositionPercent);
 			splitLayout.setSplitterMovable(true);
@@ -188,7 +188,7 @@ public class Container extends LinearLayout implements Component, treebolic.glue
 	@NonNull
 	private Drawable getSplitterDrawable(final boolean dragging)
 	{
-		final int[] colors = Utils.fetchColors(getContext(), R.attr.treebolic_splitbar_color, R.attr.treebolic_splitbar_drag_color);
+		@NonNull final int[] colors = Utils.fetchColors(getContext(), R.attr.treebolic_splitbar_color, R.attr.treebolic_splitbar_drag_color);
 		return new ColorDrawable(colors[dragging ? 1 : 0]);
 	}
 

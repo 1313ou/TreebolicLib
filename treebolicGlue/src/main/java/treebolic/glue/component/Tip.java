@@ -73,8 +73,8 @@ public class Tip extends AppCompatDialogFragment
 	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		// use the Builder class for convenient dialog construction
-		final Activity activity = requireActivity();
-		final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		@NonNull final Activity activity = requireActivity();
+		@NonNull final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
 		// get the layout inflater
 		final LayoutInflater inflater = activity.getLayoutInflater();
@@ -116,7 +116,7 @@ public class Tip extends AppCompatDialogFragment
 		;
 
 		// create the dialog and return it
-		final AppCompatDialog dialog = builder.create();
+		@NonNull final AppCompatDialog dialog = builder.create();
 		dialog.setCanceledOnTouchOutside(true);
 		return dialog;
 	}
@@ -140,7 +140,7 @@ public class Tip extends AppCompatDialogFragment
 	 */
 	static public void tip(@NonNull FragmentManager manager, final String text)
 	{
-		Tip tip = new Tip();
+		@NonNull Tip tip = new Tip();
 		tip.setText(text);
 		tip.show(manager, STATE_TEXT);
 	}
