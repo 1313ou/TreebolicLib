@@ -6,7 +6,6 @@ package org.treebolic;
 
 /**
  * Constants used in Android
- * TODO remove from here
  */
 public interface TreebolicIface
 {
@@ -35,7 +34,7 @@ public interface TreebolicIface
 	/**
 	 * Service
 	 */
-	String ARG_SERVICE = "org.treebolic.CLIENT"; // TODO
+	String ARG_SERVICE = "org.treebolic.SERVICE";
 
 	/**
 	 * Base
