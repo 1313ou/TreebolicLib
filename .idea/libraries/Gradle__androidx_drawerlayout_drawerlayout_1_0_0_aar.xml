@@ -4,10 +4,7 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/7067716cc2e5458a290bf3a45dd5d5c5/transformed/drawerlayout-1.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34f9e091a7eb52594abb9081aea54d44/drawerlayout-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/be70dd4140740330db4b09646a8d0665/transformed/drawerlayout-1.0.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/7067716cc2e5458a290bf3a45dd5d5c5/transformed/drawerlayout-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7067716cc2e5458a290bf3a45dd5d5c5/transformed/drawerlayout-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7067716cc2e5458a290bf3a45dd5d5c5/transformed/drawerlayout-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
