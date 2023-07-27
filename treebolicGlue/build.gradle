@@ -8,7 +8,7 @@ android {
 
     namespace "org.treebolic.glue"
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -24,9 +24,9 @@ android {
 }
 
 dependencies {
-    implementation 'io.github.treebolic:treebolic-glue-iface:4.0-1'
+    implementation 'io.github.treebolic:treebolic-glue-iface:4.1-1'
 
     implementation 'androidx.annotation:annotation:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.preference:preference:1.2.1'
 }
