@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
  * Animator
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class Animator implements treebolic.glue.iface.Animator<ActionListener>, AnimatorUpdateListener, android.animation.Animator.AnimatorListener
 {

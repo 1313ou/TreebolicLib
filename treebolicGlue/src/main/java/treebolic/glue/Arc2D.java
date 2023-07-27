@@ -10,36 +10,43 @@ import androidx.annotation.NonNull;
  * Arc2D
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class Arc2D implements treebolic.glue.iface.Arc2D<Point2D>
 {
 	/**
 	 * Left
+	 * @noinspection WeakerAccess
 	 */
 	public double x;
 
 	/**
 	 * Top
+	 * @noinspection WeakerAccess
 	 */
 	public double y;
 
 	/**
 	 * Width
+	 * @noinspection WeakerAccess
 	 */
 	public double width;
 
 	/**
 	 * Height
+	 * @noinspection WeakerAccess
 	 */
 	public double height;
 
 	/**
 	 * Angle start
+	 * @noinspection WeakerAccess
 	 */
 	public double start;
 
 	/**
 	 * Angle extent
+	 * @noinspection WeakerAccess
 	 */
 	public double extent;
 
