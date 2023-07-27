@@ -18,6 +18,7 @@ import android.graphics.PathEffect;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 import org.treebolic.glue.R;
@@ -102,10 +103,12 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	{
 		if (!Graphics.initDone)
 		{
+			// final DisplayMetrics metrics1 = Resources.getSystem().getDisplayMetrics();
 			final Resources resources = context.getApplicationContext().getResources();
+			final DisplayMetrics metrics = resources.getDisplayMetrics();
 
 			// font factor for resolution
-			Graphics.PT2PX = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, 1, resources.getDisplayMetrics());
+			Graphics.PT2PX = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, 1F, metrics);
 
 			// font factor for screen size
 			@NonNull final TypedValue outValue = new TypedValue();
