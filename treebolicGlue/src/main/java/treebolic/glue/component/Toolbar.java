@@ -4,6 +4,7 @@
 
 package treebolic.glue.component;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
@@ -169,6 +170,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 
 	// A D D  B U T T O N
 
+	@SuppressLint("ObsoleteSdkInt")
 	@SuppressWarnings("WeakerAccess")
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
