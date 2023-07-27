@@ -22,6 +22,7 @@ import treebolic.glue.component.QuickAction.ActionItem;
  * API class
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Component, ActionListener>
 {

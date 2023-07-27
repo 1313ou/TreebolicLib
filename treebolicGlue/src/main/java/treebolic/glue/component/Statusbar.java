@@ -37,6 +37,7 @@ import treebolic.glue.iface.ActionListener;
  * API class
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar
 {
@@ -284,6 +285,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 		this.style = style0;
 	}
 
+	@SuppressLint("ObsoleteSdkInt")
 	@Override
 	public void put(final int image, @Nullable final Function<String[], String> converter, final String label0, final String[] content0)
 	{
