@@ -23,6 +23,7 @@ import androidx.annotation.Nullable;
  * API class
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class Container extends LinearLayout implements Component, treebolic.glue.iface.component.Container<Component>
 {

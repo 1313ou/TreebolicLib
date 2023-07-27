@@ -36,6 +36,7 @@ import treebolic.glue.iface.ActionListener;
  * API class
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class Dialog extends AppCompatDialogFragment implements treebolic.glue.iface.component.Dialog
 {

@@ -8,6 +8,7 @@ package treebolic.glue;
  * Color treebolic glue
  *
  * @author Bernard Bou
+ * @noinspection WeakerAccess
  */
 public class Color
 {
