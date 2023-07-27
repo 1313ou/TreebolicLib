@@ -42,6 +42,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 	/**
 	 * Margin of error when finding node
+	 * @noinspection WeakerAccess
 	 */
 	public static final float FIND_DISTANCE_EPSILON_FACTOR = 2.5F;
 
@@ -204,7 +205,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		this.setContentDescription(activity.getString(R.string.desc_surface));
 
 		// graphics init
-		Graphics.init(activity.getApplicationContext());
+		Graphics.init(activity);
 
 		// register our interest in hearing about changes to our surface
 		final SurfaceHolder holder = getHolder();
@@ -220,7 +221,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		this.gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener()
 		{
 			@Override
-			public boolean onDown(final MotionEvent event)
+			public boolean onDown(@NonNull final MotionEvent event)
 			{
 				// returning false would result in the sequel of events not being dispatched to detector
 				return true;
