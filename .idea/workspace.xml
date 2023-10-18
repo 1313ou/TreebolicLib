@@ -13,22 +13,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f732543-d6ec-46ec-b617-58d839aa4b54" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Surface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/java/treebolic/glue/component/Tip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout-land-v21/progress.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout-land-v21/progress.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout-land/progress.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout-land/progress.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout-v21/progress.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout-v21/progress.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout/progress.xml" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicGlue/src/main/res/layout/progress.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treebolicIface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/treebolicIface/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="7f732543-d6ec-46ec-b617-58d839aa4b54" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+      <option value="directory" />
+    </option>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -346,7 +341,35 @@
       <option name="project" value="LOCAL" />
       <updated>1688806269263</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="lint">
+      <created>1697631237808</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1697631237808</updated>
+    </task>
+    <task id="LOCAL-00034" summary="upgrade">
+      <created>1697631288517</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1697631288517</updated>
+    </task>
+    <task id="LOCAL-00035" summary="project home keeping">
+      <created>1697631356529</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1697631356529</updated>
+    </task>
+    <task id="LOCAL-00036" summary="nullity">
+      <created>1697631434641</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1697631434641</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,7 +392,6 @@
     <MESSAGE value="avoid unqualified yield (future uses)" />
     <MESSAGE value="compat getColor" />
     <MESSAGE value="guard against null converter" />
-    <MESSAGE value="lint" />
     <MESSAGE value="update libs" />
     <MESSAGE value="update plugin" />
     <MESSAGE value="align with maven" />
@@ -380,6 +402,10 @@
     <MESSAGE value="forgot messages" />
     <MESSAGE value="project settings" />
     <MESSAGE value="upgrades" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrades" />
+    <MESSAGE value="lint" />
+    <MESSAGE value="upgrade" />
+    <MESSAGE value="project home keeping" />
+    <MESSAGE value="nullity" />
+    <option name="LAST_COMMIT_MESSAGE" value="nullity" />
   </component>
 </project>
