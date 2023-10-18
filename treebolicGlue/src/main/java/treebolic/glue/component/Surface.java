@@ -42,6 +42,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 
 	/**
 	 * Margin of error when finding node
+	 *
 	 * @noinspection WeakerAccess
 	 */
 	public static final float FIND_DISTANCE_EPSILON_FACTOR = 2.5F;
@@ -267,14 +268,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			// }
 
 			@Override
-			public boolean onFling(@NonNull final MotionEvent event1, @NonNull final MotionEvent event2, final float velocityX, final float velocityY)
+			public boolean onFling(@Nullable MotionEvent event1, @NonNull final MotionEvent event2, final float velocityX, final float velocityY)
 			{
 				// if(LOG) Log.d(Surface.TAG, "fling");
 				return false;
 			}
 
 			@Override
-			public boolean onScroll(@NonNull final MotionEvent event1, @NonNull final MotionEvent event2, final float distanceX, final float distanceY)
+			public boolean onScroll(@Nullable final MotionEvent event1, @NonNull final MotionEvent event2, final float distanceX, final float distanceY)
 			{
 				// if(LOG) Log.d(Surface.TAG, "scroll");
 				return false;
