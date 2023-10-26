@@ -26,7 +26,7 @@ import androidx.fragment.app.FragmentManager;
  * Tip dialog
  *
  * @author Bernard Bou
- * @noinspection WeakerAccess
+ * @noinspection WeakerAccess, WeakerAccess
  */
 @SuppressWarnings("EmptyMethod")
 public class Tip extends AppCompatDialogFragment
