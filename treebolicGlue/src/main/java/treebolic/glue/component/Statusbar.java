@@ -128,8 +128,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 * @param activity0 activity
 	 */
 	@SuppressLint("CutPasteId")
-	@TargetApi(Build.VERSION_CODES.M)
-	@SuppressWarnings({"WeakerAccess"})
 	protected Statusbar(@NonNull final AppCompatActivity activity0)
 	{
 		super(activity0);
@@ -170,6 +168,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 					this.intercept = true;
 				}
 
+				@SuppressWarnings("deprecation")
 				@Override
 				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 				{
@@ -182,6 +181,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 					return false;
 				}
 
+				@SuppressLint("ObsoleteSdkInt")
 				@TargetApi(Build.VERSION_CODES.N)
 				@Override
 				public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
@@ -330,7 +330,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 				}
 				else
 				{
-					this.webContentView.clearView();
+					this.webContentView.loadUrl("about:blank");
 				}
 			}
 			else
@@ -371,7 +371,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 	 * @param index index
 	 * @return drawable
 	 */
-	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 	private Drawable getDrawable(final int index)
 	{
 		if (Statusbar.drawables[index] == null)
