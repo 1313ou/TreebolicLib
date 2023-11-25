@@ -112,7 +112,6 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 	 *
 	 * @param activity activity
 	 */
-	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"WeakerAccess"})
 	protected Toolbar(@NonNull final AppCompatActivity activity)
 	{
@@ -194,14 +193,7 @@ public class Toolbar extends FrameLayout implements treebolic.glue.iface.compone
 		Utils.tint(bitmapDrawable, this.iconTint);
 
 		// button drawable
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-		{
-			imageButton.setBackground(bitmapDrawable);
-		}
-		else
-		{
-			imageButton.setBackgroundDrawable(bitmapDrawable);
-		}
+		imageButton.setBackground(bitmapDrawable);
 
 		// description
 		imageButton.setContentDescription(context.getString(Toolbar.descIds[index]));
