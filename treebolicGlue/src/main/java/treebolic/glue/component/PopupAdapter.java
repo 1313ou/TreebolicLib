@@ -4,10 +4,8 @@
 
 package treebolic.glue.component;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -74,7 +72,6 @@ public class PopupAdapter
 	/**
 	 * On pre-show
 	 */
-	@TargetApi(Build.VERSION_CODES.M)
 	@SuppressWarnings({"WeakerAccess"})
 	protected void preShow()
 	{
