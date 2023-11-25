@@ -204,14 +204,7 @@ public class Utils
 	 */
 	static public void tint(@NonNull final Drawable drawable, @ColorInt int tint)
 	{
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-		{
-			drawable.setTint(tint);
-		}
-		else
-		{
-			DrawableCompat.setTint(DrawableCompat.wrap(drawable), tint);
-		}
+		DrawableCompat.setTint(DrawableCompat.wrap(drawable), tint);
 	}
 
 	/**
