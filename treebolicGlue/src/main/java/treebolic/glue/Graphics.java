@@ -103,12 +103,17 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	{
 		if (!Graphics.initDone)
 		{
-			// final DisplayMetrics metrics1 = Resources.getSystem().getDisplayMetrics();
+			final DisplayMetrics metrics1 = Resources.getSystem().getDisplayMetrics();
 			final Resources resources = context.getApplicationContext().getResources();
 			final DisplayMetrics metrics = resources.getDisplayMetrics();
 
 			// font factor for resolution
 			Graphics.PT2PX = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, 1F, metrics);
+			//TODO
+			if (Graphics.PT2PX == 1.f)
+			{
+				Graphics.PT2PX = 480 * (1.0f / 72);
+			}
 
 			// font factor for screen size
 			@NonNull final TypedValue outValue = new TypedValue();

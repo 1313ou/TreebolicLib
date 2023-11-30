@@ -12,7 +12,6 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
-		android:layout_marginRight="8dp"
 		android:contentDescription="@string/desc_content_header"
 		android:src="@drawable/status_info" />
 

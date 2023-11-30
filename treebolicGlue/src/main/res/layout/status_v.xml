@@ -15,7 +15,6 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="10dp"
-		android:layout_marginLeft="10dp"
 		android:contentDescription="@string/desc_content_header"
 		android:drawablePadding="10dp"
 		android:gravity="center_vertical"
