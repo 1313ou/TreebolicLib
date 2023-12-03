@@ -225,6 +225,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 	@NonNull
 	private WebViewClient makeWebViewClient()
 	{
+		//noinspection RedundantSuppression
 		return new WebViewClient()
 		{
 			private boolean intercept = false;

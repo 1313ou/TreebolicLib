@@ -86,6 +86,7 @@ public class Tip extends AppCompatDialogFragment
 		View view;
 		try
 		{
+			// try layout with a web view
 			// inflate layout for the dialog
 			view = inflater.inflate(R.layout.tip_layout, frameLayout, false);
 
@@ -95,6 +96,7 @@ public class Tip extends AppCompatDialogFragment
 		}
 		catch (InflateException e)
 		{
+			// fall back on layout with text view
 			// inflate layout for the dialog
 			view = inflater.inflate(R.layout.tip_layout_text, frameLayout, false);
 

@@ -3,10 +3,13 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
-	android:padding="8dp">
+	android:padding="8dp"
+	tools:ignore="UseCompoundDrawables">
+	<!-- simpler to use, this is a fallback from version with webview -->
 
 	<ImageView
 		android:layout_width="wrap_content"

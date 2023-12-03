@@ -103,7 +103,6 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	{
 		if (!Graphics.initDone)
 		{
-			final DisplayMetrics metrics1 = Resources.getSystem().getDisplayMetrics();
 			final Resources resources = context.getApplicationContext().getResources();
 			final DisplayMetrics metrics = resources.getDisplayMetrics();
 
