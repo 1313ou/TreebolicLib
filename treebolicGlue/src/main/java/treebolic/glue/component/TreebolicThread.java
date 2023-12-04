@@ -143,7 +143,7 @@ public class TreebolicThread extends Thread
 		}
 		if (LOG)
 		{
-			Log.d(TreebolicThread.TAG, "wake up");
+			Log.d(TAG, "wake up");
 		}
 	}
 
@@ -162,12 +162,12 @@ public class TreebolicThread extends Thread
 				{
 					if (LOG)
 					{
-						Log.d(TreebolicThread.TAG, "task started " + ++TreebolicThread.drawCycle);
+						Log.d(TAG, "task started " + ++TreebolicThread.drawCycle);
 					}
 					doDraw(canvas);
 					if (LOG)
 					{
-						Log.d(TreebolicThread.TAG, "task done " + TreebolicThread.drawCycle);
+						Log.d(TAG, "task done " + TreebolicThread.drawCycle);
 					}
 				}
 			}
@@ -184,7 +184,7 @@ public class TreebolicThread extends Thread
 			// we do not pause if we have been signaled in the meantime
 			if (LOG)
 			{
-				Log.d(TreebolicThread.TAG, "pause");
+				Log.d(TAG, "pause");
 			}
 			if (this.pauseFlag)
 			{
@@ -200,12 +200,12 @@ public class TreebolicThread extends Thread
 				}
 				catch (@NonNull final InterruptedException ignored)
 				{
-					Log.d(TreebolicThread.TAG, "interrupted");
+					Log.d(TAG, "interrupted");
 				}
 
 				if (LOG)
 				{
-					Log.d(TreebolicThread.TAG, "resume");
+					Log.d(TAG, "resume");
 				}
 			}
 
@@ -219,7 +219,7 @@ public class TreebolicThread extends Thread
 
 		if (LOG)
 		{
-			Log.d(TreebolicThread.TAG, "terminated");
+			Log.d(TAG, "terminated");
 		}
 	}
 

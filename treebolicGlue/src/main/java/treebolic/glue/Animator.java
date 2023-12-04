@@ -47,14 +47,14 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	public Animator()
 	{
 		ValueAnimator.setFrameDelay(Animator.ANIMATIONTIMESLICE);
-		// Log.d(Animator.TAG, "animate frame delay set=" + ANIMATIONTIMESLICE + " get=" + ValueAnimator.getFrameDelay());
+		// Log.d(TAG, "animate frame delay set=" + ANIMATIONTIMESLICE + " get=" + ValueAnimator.getFrameDelay());
 	}
 
 	@SuppressWarnings({"UnusedReturnValue", "SameReturnValue"})
 	@Override
 	public boolean run(final ActionListener listener, final int steps, final int startDelay)
 	{
-		// Log.d(Animator.TAG, "animate steps " + steps);
+		// Log.d(TAG, "animate steps " + steps);
 		this.lastStep = steps - 1;
 		this.listener = listener;
 		this.animator = ValueAnimator.ofInt(0, this.lastStep);
@@ -80,14 +80,14 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	{
 		int step = (int) animator.getAnimatedValue();
 		this.listener.onAction(step);
-		// Log.d(Animator.TAG, "animate update value=" + animator.getAnimatedValue());
+		// Log.d(TAG, "animate update value=" + animator.getAnimatedValue());
 	}
 
 	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void onAnimationStart(@NonNull android.animation.Animator animator)
 	{
-		// Log.d(Animator.TAG, "animate start " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
+		// Log.d(TAG, "animate start " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
 	}
 
 	@SuppressWarnings("boxing")
@@ -95,7 +95,7 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	public void onAnimationEnd(@NonNull android.animation.Animator animator)
 	{
 		this.listener.onAction(this.lastStep);
-		// Log.d(Animator.TAG, "animate end value=" + this.lastStep);
+		// Log.d(TAG, "animate end value=" + this.lastStep);
 	}
 
 	@SuppressWarnings("boxing")
@@ -103,13 +103,13 @@ public class Animator implements treebolic.glue.iface.Animator<ActionListener>, 
 	public void onAnimationCancel(@NonNull android.animation.Animator animator)
 	{
 		this.listener.onAction(this.lastStep);
-		// Log.d(Animator.TAG, "animate cancel value=" + ((ValueAnimator) animator).getAnimatedValue());
+		// Log.d(TAG, "animate cancel value=" + ((ValueAnimator) animator).getAnimatedValue());
 	}
 
 	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void onAnimationRepeat(@NonNull android.animation.Animator animator)
 	{
-		// Log.d(Animator.TAG, "animate repeat " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
+		// Log.d(TAG, "animate repeat " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
 	}
 }

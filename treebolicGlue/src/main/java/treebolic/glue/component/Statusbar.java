@@ -175,7 +175,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 				{
 					if (this.intercept && url != null)
 					{
-						Log.d(Statusbar.TAG, "url:" + url);
+						Log.d(TAG, "url:" + url);
 						Statusbar.this.actionListener.onAction(url);
 						return true;
 					}
@@ -190,7 +190,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 					final Uri uri = request.getUrl();
 					if (this.intercept && uri != null)
 					{
-						Log.d(Statusbar.TAG, "url:" + uri);
+						Log.d(TAG, "url:" + uri);
 						Statusbar.this.actionListener.onAction(uri.toString());
 						return true;
 					}

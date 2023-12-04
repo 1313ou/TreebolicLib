@@ -242,7 +242,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 			{
 				if (this.intercept && url != null)
 				{
-					Log.d(Dialog.TAG, "url:" + url);
+					Log.d(TAG, "url:" + url);
 					Dialog.this.actionListener.onAction(url);
 					return true;
 				}
@@ -257,7 +257,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 				final Uri uri = request.getUrl();
 				if (this.intercept && uri != null)
 				{
-					Log.d(Dialog.TAG, "url:" + uri);
+					Log.d(TAG, "url:" + uri);
 					Dialog.this.actionListener.onAction(uri);
 					return true;
 				}

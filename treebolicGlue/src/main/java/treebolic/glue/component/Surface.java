@@ -231,14 +231,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			@Override
 			public void onLongPress(@NonNull final MotionEvent event)
 			{
-				// if(LOG) Log.d(Surface.TAG, "long press");
+				// if(LOG) Log.d(TAG, "long press");
 				// Surface.this.listener.onMenu((int) event.getX(), (int) event.getY());
 			}
 
 			@Override
 			public boolean onDoubleTap(@NonNull final MotionEvent event)
 			{
-				// if(LOG) Log.d(Surface.TAG, "double tap");
+				// if(LOG) Log.d(TAG, "double tap");
 				// Surface.this.listener.onLink((int) event.getX(), (int) event.getY());
 				assert Surface.this.listener != null;
 				Surface.this.listener.onMenu((int) event.getX(), (int) event.getY());
@@ -248,14 +248,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			// @Override
 			// public boolean onDoubleTapEvent(final MotionEvent event)
 			// {
-			// if(LOG) Log.d(Surface.TAG, "double tap event");
+			// if(LOG) Log.d(TAG, "double tap event");
 			// return false;
 			// }
 
 			@Override
 			public boolean onSingleTapConfirmed(@NonNull final MotionEvent event)
 			{
-				// if(LOG) Log.d(Surface.TAG, "single tap confirmed");
+				// if(LOG) Log.d(TAG, "single tap confirmed");
 				// Surface.this.listener.onFocus((int) event.getX(), (int) event.getY());
 				return false;
 			}
@@ -270,21 +270,21 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			@Override
 			public boolean onFling(@Nullable MotionEvent event1, @NonNull final MotionEvent event2, final float velocityX, final float velocityY)
 			{
-				// if(LOG) Log.d(Surface.TAG, "fling");
+				// if(LOG) Log.d(TAG, "fling");
 				return false;
 			}
 
 			@Override
 			public boolean onScroll(@Nullable final MotionEvent event1, @NonNull final MotionEvent event2, final float distanceX, final float distanceY)
 			{
-				// if(LOG) Log.d(Surface.TAG, "scroll");
+				// if(LOG) Log.d(TAG, "scroll");
 				return false;
 			}
 
 			@Override
 			public void onShowPress(@NonNull final MotionEvent event)
 			{
-				// if(LOG) Log.d(Surface.TAG, "show press");
+				// if(LOG) Log.d(TAG, "show press");
 				assert Surface.this.listener != null;
 				Surface.this.listener.onSelect((int) event.getX(), (int) event.getY());
 			}
@@ -301,7 +301,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				Surface.this.scaleFactor *= detector.getScaleFactor();
 				if (LOG)
 				{
-					Log.d(Surface.TAG, "scaleFactor " + Surface.this.scaleFactor);
+					Log.d(TAG, "scaleFactor " + Surface.this.scaleFactor);
 				}
 				return true;
 			}
@@ -313,7 +313,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				Surface.this.scaleFactor = 1F;
 				if (LOG)
 				{
-					Log.d(Surface.TAG, "scale begin");
+					Log.d(TAG, "scale begin");
 				}
 				return true;
 			}
@@ -352,7 +352,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 					Surface.this.listener.onZoom(scale, 0, 0);
 					if (LOG)
 					{
-						Log.d(Surface.TAG, "zoom: " + scale);
+						Log.d(TAG, "zoom: " + scale);
 					}
 				}
 				else
@@ -360,7 +360,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 					Surface.this.listener.onScale(0, scale, scale);
 					if (LOG)
 					{
-						Log.d(Surface.TAG, "scale: " + scale);
+						Log.d(TAG, "scale: " + scale);
 					}
 				}
 
@@ -400,7 +400,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		{
 			if (LOG)
 			{
-				Log.d(Surface.TAG, "thread created");
+				Log.d(TAG, "thread created");
 			}
 			this.thread = new TreebolicThread(this, getHolder());
 		}
@@ -413,7 +413,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 		{
 			if (LOG)
 			{
-				Log.d(Surface.TAG, "thread started");
+				Log.d(TAG, "thread started");
 			}
 			this.thread.start();
 		}
@@ -429,7 +429,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		if (LOG)
 		{
-			Log.d(Surface.TAG, "surface created");
+			Log.d(TAG, "surface created");
 		}
 
 		// start the thread here so that we don't busy-wait in run() waiting for the surface to be created
@@ -444,7 +444,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		if (LOG)
 		{
-			Log.d(Surface.TAG, "surface changed");
+			Log.d(TAG, "surface changed");
 		}
 
 		assert this.thread != null;
@@ -460,7 +460,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		if (LOG)
 		{
-			Log.d(Surface.TAG, "surface destroyed");
+			Log.d(TAG, "surface destroyed");
 		}
 
 		// tell thread to shut down & wait for it to finish
@@ -476,14 +476,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	{
 		if (LOG)
 		{
-			Log.d(Surface.TAG, "surface repainting");
+			Log.d(TAG, "surface repainting");
 		}
 		runThread();
 		assert this.thread != null;
 		this.thread.unpause();
 		if (LOG)
 		{
-			Log.d(Surface.TAG, "surface repainted");
+			Log.d(TAG, "surface repainted");
 		}
 	}
 
@@ -534,20 +534,20 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 				switch (action)
 				{
 					case MotionEvent.ACTION_DOWN:
-						// if(LOG) Log.d(Surface.TAG, "touch down");
+						// if(LOG) Log.d(TAG, "touch down");
 						this.listener.onDown((int) event.getX(), (int) event.getY(), false);
 						break;
 
 					case MotionEvent.ACTION_MOVE:
-						// if(LOG) Log.d(Surface.TAG, "touch move");
+						// if(LOG) Log.d(TAG, "touch move");
 						this.listener.onDragged((int) event.getX(), (int) event.getY());
 						break;
 
 					case MotionEvent.ACTION_UP:
 
 					case MotionEvent.ACTION_CANCEL:
-						// if(LOG) Log.d(Surface.TAG, "touch cancel");
-						// if(LOG) Log.d(Surface.TAG, "touch up");
+						// if(LOG) Log.d(TAG, "touch cancel");
+						// if(LOG) Log.d(TAG, "touch up");
 						this.listener.onUp((int) event.getX(), (int) event.getY());
 						break;
 
