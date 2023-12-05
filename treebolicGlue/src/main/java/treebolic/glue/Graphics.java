@@ -108,7 +108,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 
 			// font factor for resolution
 			Graphics.PT2PX = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, 1F, metrics);
-			//TODO
+			//TODO emulator bug workaround
 			if (Graphics.PT2PX == 1.f)
 			{
 				Graphics.PT2PX = 480 * (1.0f / 72);
