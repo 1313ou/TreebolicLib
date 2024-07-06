@@ -381,7 +381,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	// T H R E A D
 
 	/**
-	 * Fetches the animation thread corresponding to this LunarView.
+	 * Fetches the animation thread corresponding to this View.
 	 *
 	 * @return the animation thread
 	 */
