@@ -158,7 +158,6 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 			webContentView0.setFocusable(false);
 			webContentView0.setBackgroundColor(this.background);
 			webContentView0.getSettings().setAllowFileAccess(true);
-			//noinspection RedundantSuppression
 			webContentView0.setWebViewClient(new WebViewClient()
 			{
 				private boolean intercept = false;
