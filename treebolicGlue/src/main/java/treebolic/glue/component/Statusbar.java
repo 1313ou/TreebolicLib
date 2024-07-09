@@ -324,14 +324,7 @@ public class Statusbar extends FrameLayout implements treebolic.glue.iface.compo
 
 			if (content == null)
 			{
-				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
-				{
-					this.webContentView.loadUrl("about:blank");
-				}
-				else
-				{
-					this.webContentView.loadUrl("about:blank");
-				}
+				this.webContentView.loadUrl("about:blank");
 			}
 			else
 			{
