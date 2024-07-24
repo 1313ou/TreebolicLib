@@ -18,7 +18,9 @@
     <output-test url="file://$MODULE_DIR$/../../../treebolicIface/build/intermediates/javac/debugAndroidTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../treebolicIface/build/generated/ap_generated_sources/debugAndroidTest/out" />
-    <content url="file://$MODULE_DIR$/../../../treebolicIface/build/generated/res/resValues/androidTest/debug" />
+    <content url="file://$MODULE_DIR$/../../../treebolicIface/build/generated/res/resValues/androidTest/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../treebolicIface/build/generated/res/resValues/androidTest/debug" type="java-test-resource" generated="true" />
+    </content>
     <content url="file://$MODULE_DIR$/../../../treebolicIface/src/androidTest" />
     <content url="file://$MODULE_DIR$/../../../treebolicIface/src/androidTestDebug" />
     <orderEntry type="jdk" jdkName="Android API 34, extension level 7 Platform" jdkType="Android SDK" />
@@ -26,7 +28,7 @@
     <orderEntry type="module" module-name="TreebolicLib.treebolicIface.main" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.multidex:multidex-instrumentation:2.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.multidex:multidex:2.0.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.annotation:annotation-jvm:1.7.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.annotation:annotation-jvm:1.8.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
