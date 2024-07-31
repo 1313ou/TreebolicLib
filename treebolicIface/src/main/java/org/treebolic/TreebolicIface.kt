@@ -1,149 +1,150 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
-
-package org.treebolic;
+package org.treebolic
 
 /**
  * Constants used in Android
  */
-public interface TreebolicIface
-{
-	/**
-	 * Whether to use model references
-	 */
-	boolean USE_MODEL_REFERENCES = false;
+interface TreebolicIface {
 
-	// intent extras
+    companion object {
 
-	/**
-	 * Make model
-	 */
-	String ARG_SOURCE = "org.treebolic.SOURCE";
+        /**
+         * Whether to use model references
+         */
+        const val USE_MODEL_REFERENCES: Boolean = false
 
-	/**
-	 * Plugin package
-	 */
-	String ARG_PLUGINPKG = "org.treebolic.PLUGINPKG";
+        // intent extras
 
-	/**
-	 * Provider
-	 */
-	String ARG_PROVIDER = "org.treebolic.PROVIDER";
+        /**
+         * Make model
+         */
+        const val ARG_SOURCE: String = "org.treebolic.SOURCE"
 
-	/**
-	 * Service
-	 */
-	String ARG_SERVICE = "org.treebolic.SERVICE";
+        /**
+         * Plugin package
+         */
+        const val ARG_PLUGINPKG: String = "org.treebolic.PLUGINPKG"
 
-	/**
-	 * Base
-	 */
-	String ARG_BASE = "org.treebolic.BASE";
+        /**
+         * Provider
+         */
+        const val ARG_PROVIDER: String = "org.treebolic.PROVIDER"
 
-	/**
-	 * Image base
-	 */
-	String ARG_IMAGEBASE = "org.treebolic.IMAGEBASE";
+        /**
+         * Service
+         */
+        const val ARG_SERVICE: String = "org.treebolic.SERVICE"
 
-	/**
-	 * Model reference
-	 */
-	String ARG_MODEL_REFERENCE = "org.treebolic.MODEL_REFERENCE";
+        /**
+         * Base
+         */
+        const val ARG_BASE: String = "org.treebolic.BASE"
 
-	/**
-	 * Model
-	 */
-	String ARG_MODEL = "org.treebolic.MODEL";
+        /**
+         * Image base
+         */
+        const val ARG_IMAGEBASE: String = "org.treebolic.IMAGEBASE"
 
-	/**
-	 * Serialized
-	 */
-	String ARG_SERIALIZED = "org.treebolic.SERIALIZED";
+        /**
+         * Model reference
+         */
+        const val ARG_MODEL_REFERENCE: String = "org.treebolic.MODEL_REFERENCE"
 
-	/**
-	 * Serialized model URI
-	 */
-	String ARG_SERIALIZED_MODEL_URI = "org.treebolic.SERIALIZED_MODEL_URI";
+        /**
+         * Model
+         */
+        const val ARG_MODEL: String = "org.treebolic.MODEL"
 
-	/**
-	 * Settings
-	 */
-	String ARG_SETTINGS = "org.treebolic.SETTINGS";
+        /**
+         * Serialized
+         */
+        const val ARG_SERIALIZED: String = "org.treebolic.SERIALIZED"
 
-	/**
-	 * Style
-	 */
-	String ARG_STYLE = "org.treebolic.STYLE";
+        /**
+         * Serialized model URI
+         */
+        const val ARG_SERIALIZED_MODEL_URI: String = "org.treebolic.SERIALIZED_MODEL_URI"
 
-	/**
-	 * URL scheme
-	 */
-	String ARG_URLSCHEME = "org.treebolic.URLSCHEME";
+        /**
+         * Settings
+         */
+        const val ARG_SETTINGS: String = "org.treebolic.SETTINGS"
 
-	/**
-	 * More
-	 */
-	String ARG_MORE = "org.treebolic.MORE";
+        /**
+         * Style
+         */
+        const val ARG_STYLE: String = "org.treebolic.STYLE"
 
-	/**
-	 * Parent Activity
-	 */
-	String ARG_PARENTACTIVITY = "org.treebolic.PARENT";
+        /**
+         * URL scheme
+         */
+        const val ARG_URLSCHEME: String = "org.treebolic.URLSCHEME"
 
-	// action
+        /**
+         * More
+         */
+        const val ARG_MORE: String = "org.treebolic.MORE"
 
-	/**
-	 * Make model
-	 */
-	String ACTION_MAKEMODEL = "org.treebolic.action.MAKE_MODEL";
+        /**
+         * Parent Activity
+         */
+        const val ARG_PARENTACTIVITY: String = "org.treebolic.PARENT"
 
-	// activities
+        // action
+        /**
+         * Make model
+         */
+        const val ACTION_MAKEMODEL: String = "org.treebolic.action.MAKE_MODEL"
 
-	/**
-	 * Treebolic package
-	 */
-	String PKG_TREEBOLIC = "org.treebolic";
+        // activities
 
-	/**
-	 * Treebolic activity
-	 */
-	String ACTIVITY_TREEBOLIC = "org.treebolic.TreebolicActivity";
+        /**
+         * Treebolic package
+         */
+        const val PKG_TREEBOLIC: String = "org.treebolic"
 
-	/**
-	 * Treebolic plugin
-	 */
-	String ACTIVITY_PLUGIN = "org.treebolic.TreebolicPluginActivity";
+        /**
+         * Treebolic activity
+         */
+        const val ACTIVITY_TREEBOLIC: String = "org.treebolic.TreebolicActivity"
 
-	/**
-	 * Treebolic model
-	 */
-	String ACTIVITY_MODEL = "org.treebolic.TreebolicModelActivity";
+        /**
+         * Treebolic plugin
+         */
+        const val ACTIVITY_PLUGIN: String = "org.treebolic.TreebolicPluginActivity"
 
-	/**
-	 * Treebolic client
-	 */
-	String ACTIVITY_CLIENT = "org.treebolic.TreebolicClientActivity";
+        /**
+         * Treebolic model
+         */
+        const val ACTIVITY_MODEL: String = "org.treebolic.TreebolicModelActivity"
 
-	// preference keys
+        /**
+         * Treebolic client
+         */
+        const val ACTIVITY_CLIENT: String = "org.treebolic.TreebolicClientActivity"
 
-	/**
-	 * Source preference key
-	 */
-	String PREF_SOURCE = "pref_source";
+        // preference keys
 
-	/**
-	 * Base preference key
-	 */
-	String PREF_BASE = "pref_base";
+        /**
+         * Source preference key
+         */
+        const val PREF_SOURCE: String = "pref_source"
 
-	/**
-	 * Image base preference key
-	 */
-	String PREF_IMAGEBASE = "pref_imagebase";
+        /**
+         * Base preference key
+         */
+        const val PREF_BASE: String = "pref_base"
 
-	/**
-	 * Settings preference key
-	 */
-	String PREF_SETTINGS = "pref_settings";
+        /**
+         * Image base preference key
+         */
+        const val PREF_IMAGEBASE: String = "pref_imagebase"
+
+        /**
+         * Settings preference key
+         */
+        const val PREF_SETTINGS: String = "pref_settings"
+    }
 }
