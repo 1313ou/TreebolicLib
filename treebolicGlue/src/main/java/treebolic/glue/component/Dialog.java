@@ -235,6 +235,7 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 				this.intercept = true;
 			}
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
 			{
@@ -247,7 +248,6 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 				return false;
 			}
 
-			@SuppressLint("ObsoleteSdkInt")
 			@TargetApi(Build.VERSION_CODES.N)
 			@Override
 			public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
