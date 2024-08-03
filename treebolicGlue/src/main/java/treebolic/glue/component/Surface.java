@@ -34,9 +34,6 @@ import treebolic.glue.Graphics;
  */
 public abstract class Surface extends SurfaceView implements SurfaceHolder.Callback, Component, treebolic.glue.iface.component.Surface<Graphics, EventListener>
 {
-	/**
-	 * Log tag
-	 */
 	static private final boolean LOG = false;
 	static private final String TAG = "TreebolicSurface";
 

@@ -17,9 +17,6 @@ import treebolic.glue.Graphics;
  */
 public class TreebolicThread extends Thread
 {
-	/**
-	 * Log tag
-	 */
 	static private final boolean LOG = false;
 	static private final String TAG = "TreebolicThread";
 
