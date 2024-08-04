@@ -1,217 +1,128 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
-import org.treebolic.glue.R;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import org.treebolic.glue.R
+import treebolic.glue.iface.component.Container
 
 /**
  * Container
  * API class
  *
+ * @param handle context
+ *
  * @author Bernard Bou
- * @noinspection WeakerAccess
  */
-public class Container extends LinearLayout implements Component, treebolic.glue.iface.component.Container<Component>
-{
-	static private float splitterPositionPercent = .80f;
+class Container(handle: Any?) : LinearLayout(handle as Context?), Component, Container<Component?> {
 
-	private final boolean isHorizontal;
+    private val isHorizontal: Boolean
 
-	/**
-	 * View
-	 */
-	@Nullable
-	private View view;
+    /**
+     * View
+     */
+    private var view: View? = null
 
-	/**
-	 * Toolbar
-	 */
-	@Nullable
-	private View toolbar;
+    /**
+     * Toolbar
+     */
+    private var toolbar: View? = null
 
-	/**
-	 * Statusbar
-	 */
-	@Nullable
-	private View statusbar;
+    /**
+     * Statusbar
+     */
+    private var statusbar: View? = null
 
-	/**
-	 * Constructor
-	 *
-	 * @param context context
-	 */
-	@SuppressWarnings("WeakerAccess")
-	protected Container(@NonNull final Context context)
-	{
-		super(context);
+    /**
+     * Constructor
+     */
+    init {
+        // determine orientation
+        val size = Utils.screenSize(context)
+        this.isHorizontal = size.x >= size.y
+        orientation = if (this.isHorizontal) HORIZONTAL else VERTICAL
 
-		// determine orientation
-		@NonNull final Point size = Utils.screenSize(context);
-		this.isHorizontal = size.x >= size.y;
-		setOrientation(this.isHorizontal ? LinearLayout.HORIZONTAL : LinearLayout.VERTICAL);
+        // other
+        gravity = Gravity.CENTER
+        weightSum = 1f
+    }
 
-		// other
-		setGravity(Gravity.CENTER);
-		setWeightSum(1F);
-	}
+    override fun addComponent(component: Component?, position: Int) {
+        val viewToAdd = component as View?
 
-	/**
-	 * Constructor
-	 * API
-	 *
-	 * @param handle context
-	 */
-	public Container(final Object handle)
-	{
-		this((Context) handle);
-	}
+        when (position) {
+            Container.PANE -> {
+                val params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+                addView(viewToAdd, params)
+            }
 
-	@SuppressWarnings("WeakerAccess")
-	@Override
-	public void addComponent(final Component component, final int position)
-	{
-		final View viewToAdd = (View) component;
+            Container.VIEW -> this.view = viewToAdd
+            Container.TOOLBAR -> this.toolbar = viewToAdd
+            Container.STATUSBAR -> this.statusbar = viewToAdd
+            else -> {}
+        }
+    }
 
-		switch (position)
-		{
-			case PANE:
-				@NonNull final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.F);
-				addView(viewToAdd, params);
-				break;
+    override fun removeAll() {
+        removeAllViews()
+        this.view = null
+        this.toolbar = null
+        this.statusbar = null
+    }
 
-			// delayed add (until validation)
-			case VIEW:
-				this.view = viewToAdd;
-				break;
+    override fun validate() {
+        var params: LayoutParams?
+        if (this.toolbar != null) {
+            params = LayoutParams(if (this.isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (this.isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
+            addView(this.toolbar, params)
+        }
+        var layout: ViewGroup = this
+        if (this.view != null && this.statusbar != null) {
+            val splitLayout = SplitPaneLayout(context)
+            splitLayout.orientation = if (this.isHorizontal) 0 else 1
+            splitLayout.splitterPositionPercent = splitterPositionPercent
+            splitLayout.isSplitterMovable = true
+            splitLayout.splitterDrawable = getSplitterDrawable(false)
+            splitLayout.splitterDraggingDrawable = getSplitterDrawable(true)
 
-			// delayed add (until validation)
-			case TOOLBAR:
-				this.toolbar = viewToAdd;
-				break;
+            this.addView(splitLayout)
+            layout = splitLayout
+        }
+        if (this.view != null) {
+            params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+            layout.addView(this.view, params)
+        }
+        if (this.statusbar != null) {
+            params = LayoutParams(if (this.isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (this.isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
+            layout.addView(this.statusbar, params)
+        }
 
-			// delayed add (until validation)
-			case STATUSBAR:
-				this.statusbar = viewToAdd;
-				break;
+        invalidate()
+    }
 
-			default:
-				break;
-		}
-	}
+    /**
+     * Get splitter drawable
+     *
+     * @param dragging dragging splitter
+     * @return drawable
+     */
+    private fun getSplitterDrawable(dragging: Boolean): Drawable {
+        val colors = Utils.fetchColors(context, R.attr.treebolic_splitbar_color, R.attr.treebolic_splitbar_drag_color)
+        return ColorDrawable(colors[if (dragging) 1 else 0])
+    }
 
-	@SuppressWarnings("WeakerAccess")
-	@Override
-	public void removeAll()
-	{
-		removeAllViews();
-		this.view = null;
-		this.toolbar = null;
-		this.statusbar = null;
-	}
+    companion object {
 
-	@SuppressWarnings("WeakerAccess")
-	@Override
-	public void validate()
-	{
-		@Nullable @SuppressWarnings("UnusedAssignment") LayoutParams params = null;
-		if (this.toolbar != null)
-		{
-			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT, this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
-			addView(this.toolbar, params);
-		}
-		@NonNull ViewGroup layout = this;
-		if (this.view != null && this.statusbar != null)
-		{
-			@NonNull final SplitPaneLayout splitLayout = new SplitPaneLayout(getContext());
-			splitLayout.setOrientation(this.isHorizontal ? 0 : 1);
-			splitLayout.setSplitterPositionPercent(Container.splitterPositionPercent);
-			splitLayout.setSplitterMovable(true);
-			splitLayout.setSplitterDrawable(getSplitterDrawable(false));
-			splitLayout.setSplitterDraggingDrawable(getSplitterDrawable(true));
-
-			this.addView(splitLayout);
-			layout = splitLayout;
-		}
-		if (this.view != null)
-		{
-			params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1.F);
-			layout.addView(this.view, params);
-		}
-		if (this.statusbar != null)
-		{
-			params = new LayoutParams(this.isHorizontal ? ViewGroup.LayoutParams.WRAP_CONTENT : ViewGroup.LayoutParams.MATCH_PARENT, this.isHorizontal ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT, 0.F);
-			layout.addView(this.statusbar, params);
-		}
-
-		invalidate();
-	}
-
-	/**
-	 * Get splitter position fraction (first panel/whole)
-	 *
-	 * @return splitterPositionPercent splitter position fraction [0,1]
-	 */
-	public static float getSplitterPositionPercent()
-	{
-		return Container.splitterPositionPercent;
-	}
-
-	/**
-	 * Set splitter position fraction (first panel/whole)
-	 *
-	 * @param splitterPositionPercent splitter position fraction [0,1]
-	 */
-	public static void setSplitterPositionPercent(float splitterPositionPercent)
-	{
-		Container.splitterPositionPercent = splitterPositionPercent;
-	}
-
-	/**
-	 * Get splitter drawable
-	 *
-	 * @param dragging dragging splitter
-	 * @return drawable
-	 */
-	@NonNull
-	private Drawable getSplitterDrawable(final boolean dragging)
-	{
-		@NonNull final int[] colors = Utils.fetchColors(getContext(), R.attr.treebolic_splitbar_color, R.attr.treebolic_splitbar_drag_color);
-		return new ColorDrawable(colors[dragging ? 1 : 0]);
-	}
-
-	/*
-	private Drawable getSplitterDrawable0(final boolean dragging)
-	{
-		final Resources res = getResources();
-		try
-		{
-			return Drawable.createFromXml(res, res.getXml(dragging ? //
-					this.isHorizontal ? //
-							R.xml.splitter_bg_move_v : //
-							R.xml.splitter_bg_move_h //
-					: this.isHorizontal ? //
-					R.xml.splitter_bg_v : //
-					R.xml.splitter_bg_h));
-		}
-		catch (final Exception ex)
-		{
-			Log.e("TAG", "Exception loading drawable");
-		}
-		return null;
-	}
-	*/
+        /**
+         * Splitter position fraction (first panel/whole)
+         */
+        var splitterPositionPercent: Float = .80f
+    }
 }

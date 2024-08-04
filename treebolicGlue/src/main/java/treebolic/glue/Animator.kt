@@ -1,14 +1,12 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue
 
-package treebolic.glue;
-
-import android.animation.ValueAnimator;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
-import android.view.animation.LinearInterpolator;
-
-import androidx.annotation.NonNull;
+import android.animation.ValueAnimator
+import android.animation.ValueAnimator.AnimatorUpdateListener
+import android.view.animation.LinearInterpolator
+import treebolic.glue.iface.Animator
 
 /**
  * Animator
@@ -16,100 +14,72 @@ import androidx.annotation.NonNull;
  * @author Bernard Bou
  * @noinspection WeakerAccess
  */
-public class Animator implements treebolic.glue.iface.Animator<ActionListener>, AnimatorUpdateListener, android.animation.Animator.AnimatorListener
-{
-	// static private final String TAG = "Animator";
+class Animator : Animator<ActionListener?>, AnimatorUpdateListener, android.animation.Animator.AnimatorListener {
 
-	/**
-	 * Animation time slice
-	 */
-	static private final int ANIMATIONTIMESLICE = 250;
+    /**
+     * Animation listener
+     */
+    private lateinit var listener: ActionListener
 
-	/**
-	 * Animation listener
-	 */
-	@SuppressWarnings("InstanceVariableOfConcreteClass")
-	private ActionListener listener;
+    /**
+     * Android animator
+     */
+    private lateinit var animator: ValueAnimator
 
-	/**
-	 * Android animator
-	 */
-	private ValueAnimator animator;
+    /**
+     * Android last step
+     */
+    private var lastStep = 0
 
-	/**
-	 * Android last step
-	 */
-	private int lastStep;
+    /**
+     * Constructor
+     */
+    init {
+        ValueAnimator.setFrameDelay(ANIMATIONTIMESLICE.toLong())
+    }
 
-	/**
-	 * Constructor
-	 */
-	public Animator()
-	{
-		ValueAnimator.setFrameDelay(Animator.ANIMATIONTIMESLICE);
-		// Log.d(TAG, "animate frame delay set=" + ANIMATIONTIMESLICE + " get=" + ValueAnimator.getFrameDelay());
-	}
+    override fun run(listener0: ActionListener?, steps: Int, startDelay: Int): Boolean {
+        lastStep = steps - 1
+        listener = listener0!!
+        animator = ValueAnimator.ofInt(0, this.lastStep)
+        animator.repeatCount = 0
+        animator.setDuration(1000)
+        animator.setStartDelay(startDelay.toLong())
+        animator.interpolator = LinearInterpolator()
+        animator.addUpdateListener(this)
+        animator.addListener(this)
+        animator.start()
+        return true
+    }
 
-	@SuppressWarnings({"UnusedReturnValue", "SameReturnValue"})
-	@Override
-	public boolean run(final ActionListener listener, final int steps, final int startDelay)
-	{
-		// Log.d(TAG, "animate steps " + steps);
-		this.lastStep = steps - 1;
-		this.listener = listener;
-		this.animator = ValueAnimator.ofInt(0, this.lastStep);
-		this.animator.setRepeatCount(0);
-		this.animator.setDuration(1000);
-		this.animator.setStartDelay(startDelay);
-		this.animator.setInterpolator(new LinearInterpolator());
-		this.animator.addUpdateListener(this);
-		this.animator.addListener(this);
-		this.animator.start();
-		return true;
-	}
+    override fun isRunning(): Boolean {
+        return animator.isRunning
+    }
 
-	@Override
-	public boolean isRunning()
-	{
-		return this.animator.isRunning();
-	}
+    override fun onAnimationUpdate(animator: ValueAnimator) {
+        val step = animator.animatedValue as Int
+        listener.onAction(step)
+    }
 
-	@SuppressWarnings("boxing")
-	@Override
-	public void onAnimationUpdate(@NonNull final ValueAnimator animator)
-	{
-		int step = (int) animator.getAnimatedValue();
-		this.listener.onAction(step);
-		// Log.d(TAG, "animate update value=" + animator.getAnimatedValue());
-	}
+    override fun onAnimationStart(animator: android.animation.Animator) {
+    }
 
-	@SuppressWarnings("EmptyMethod")
-	@Override
-	public void onAnimationStart(@NonNull android.animation.Animator animator)
-	{
-		// Log.d(TAG, "animate start " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
-	}
+    override fun onAnimationEnd(animator: android.animation.Animator) {
+        listener.onAction(this.lastStep)
+    }
 
-	@SuppressWarnings("boxing")
-	@Override
-	public void onAnimationEnd(@NonNull android.animation.Animator animator)
-	{
-		this.listener.onAction(this.lastStep);
-		// Log.d(TAG, "animate end value=" + this.lastStep);
-	}
+    override fun onAnimationCancel(animator: android.animation.Animator) {
+        listener.onAction(this.lastStep)
+    }
 
-	@SuppressWarnings("boxing")
-	@Override
-	public void onAnimationCancel(@NonNull android.animation.Animator animator)
-	{
-		this.listener.onAction(this.lastStep);
-		// Log.d(TAG, "animate cancel value=" + ((ValueAnimator) animator).getAnimatedValue());
-	}
+    override fun onAnimationRepeat(animator: android.animation.Animator) {
+    }
 
-	@SuppressWarnings("EmptyMethod")
-	@Override
-	public void onAnimationRepeat(@NonNull android.animation.Animator animator)
-	{
-		// Log.d(TAG, "animate repeat " + Animator.frameCount + " value=" + ((ValueAnimator) animator).getAnimatedValue());
-	}
+    companion object {
+
+        /**
+         * Animation time slice
+         */
+        private const val ANIMATIONTIMESLICE = 250
+    }
 }
