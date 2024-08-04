@@ -1,214 +1,194 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.view.Gravity;
-import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-
-import org.treebolic.glue.R;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import treebolic.glue.iface.ActionListener;
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.os.Build
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.HorizontalScrollView
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.ScrollView
+import org.treebolic.glue.R
+import treebolic.glue.component.Utils.fetchColors
+import treebolic.glue.component.Utils.getDrawables
+import treebolic.glue.component.Utils.screenSize
+import treebolic.glue.component.Utils.tint
+import treebolic.glue.iface.ActionListener
+import treebolic.glue.iface.component.Toolbar
 
 /**
  * Toolbar
  * API class
  *
+ * @param handle activity
+ *
  * @author Bernard Bou
  */
-public class Toolbar extends FrameLayout implements treebolic.glue.iface.component.Toolbar
-{
-	/**
-	 * Buttons
-	 */
-	private enum ButtonImplementation
-	{
-		HOME, //
-		RADIAL, NORTH, SOUTH, EAST, WEST, //
-		EXPAND, SHRINK, EXPANSIONRESET, //
-		EXPANSIONSWEEPRESET, //
-		WIDEN, NARROW, SWEEPRESET, //
-		ZOOMIN, ZOOMOUT, ZOOMONE, //
-		SCALEUP, SCALEDOWN, SCALEONE //
-		;
+class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
-		@SuppressWarnings("WeakerAccess")
-		public int getIndex()
-		{
-			return ordinal();
-		}
-	}
+    val context = handle as Context
 
-	/**
-	 * Content descriptors
-	 */
-	static private final int[] descIds = new int[]{R.string.desc_toolbar_home, //
-			R.string.desc_toolbar_radial, R.string.desc_toolbar_north, R.string.desc_toolbar_south, R.string.desc_toolbar_east, R.string.desc_toolbar_west, //
-			R.string.desc_toolbar_expand, R.string.desc_toolbar_shrink, R.string.desc_toolbar_expand_reset, R.string.desc_toolbar_expand_widen_reset, //
-			R.string.desc_toolbar_widen, R.string.desc_toolbar_narrow, R.string.desc_toolbar_widen_reset, //
-			R.string.desc_toolbar_zoomin, R.string.desc_toolbar_zoomout, R.string.desc_toolbar_zoomone, //
-			R.string.desc_toolbar_scaleup, R.string.desc_toolbar_scaledown, R.string.desc_toolbar_scaleone};
+    /**
+     * Buttons
+     */
+    private enum class ButtonImplementation {
 
-	/**
-	 * Drawables
-	 */
-	static private final int[] drawableIds = new int[]{R.drawable.toolbar_home, //
-			R.drawable.toolbar_radial, R.drawable.toolbar_north, R.drawable.toolbar_south, R.drawable.toolbar_east, R.drawable.toolbar_west, //
-			R.drawable.toolbar_expand, R.drawable.toolbar_shrink, R.drawable.toolbar_expand_reset, R.drawable.toolbar_expand_widen_reset, //
-			R.drawable.toolbar_widen, R.drawable.toolbar_narrow, R.drawable.toolbar_widen_reset, //
-			R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone, //
-			R.drawable.toolbar_scaleup, R.drawable.toolbar_scaledown, R.drawable.toolbar_scaleone};
+        HOME,  
+        RADIAL, NORTH, SOUTH, EAST, WEST,  
+        EXPAND, SHRINK, EXPANSIONRESET,  
+        EXPANSIONSWEEPRESET,  
+        WIDEN, NARROW, SWEEPRESET,  
+        ZOOMIN, ZOOMOUT, ZOOMONE,  
+        SCALEUP, SCALEDOWN, SCALEONE; 
 
-	/**
-	 * Toolbar's ordered list of buttons
-	 */
-	static private final Button[] buttons = new Button[]{ //
-			Button.HOME, //
-			Button.ZOOMIN, Button.ZOOMOUT, Button.ZOOMONE, //
-			Button.SCALEUP, Button.SCALEDOWN, Button.SCALEONE, //
-			Button.RADIAL, Button.SOUTH, Button.NORTH, Button.EAST, Button.WEST, //
-			Button.EXPAND, Button.SHRINK, Button.EXPANSIONRESET, //
-			Button.WIDEN, Button.NARROW, Button.SWEEPRESET, //
-			Button.EXPANSIONSWEEPRESET, //
-	};
+        val index: Int
+            get() = ordinal
+    }
 
-	@NonNull
-	private final Drawable[] drawables;
+    private val drawables: Array<Drawable?>
 
-	/**
-	 * Panel of buttons
-	 */
-	@NonNull
-	private final LinearLayout panel;
+    /**
+     * Panel of buttons
+     */
+    private val panel: LinearLayout
 
-	/**
-	 * Lay out parameters
-	 */
-	@NonNull
-	private final LinearLayout.LayoutParams layoutParams;
+    /**
+     * Lay out parameters
+     */
+    private val layoutParams: LinearLayout.LayoutParams
 
-	/**
-	 * Tint
-	 */
-	private final int iconTint;
+    /**
+     * Tint
+     */
+    private val iconTint: Int
 
-	// C O N S T R U C T O R
+    // C O N S T R U C T O R
 
-	/**
-	 * Constructor
-	 *
-	 * @param activity activity
-	 */
-	@SuppressWarnings({"WeakerAccess"})
-	protected Toolbar(@NonNull final AppCompatActivity activity)
-	{
-		super(activity);
+     init {
+        // orientation
+        val size = screenSize(context)
+        val isHorizontal = size.x >= size.y
 
-		// orientation
-		@NonNull final Point size = Utils.screenSize(activity);
-		final boolean isHorizontal = size.x >= size.y;
+        // panel
+        this.panel = LinearLayout(context)
+        panel.orientation = if (isHorizontal) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL
 
-		// panel
-		this.panel = new LinearLayout(activity);
-		this.panel.setOrientation(isHorizontal ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+        // focus
+        panel.isFocusable = false
 
-		// focus
-		this.panel.setFocusable(false);
+        // gravity
+        panel.gravity = Gravity.CENTER
 
-		// gravity
-		this.panel.setGravity(Gravity.CENTER);
+        // colors
+        val colors = fetchColors(context, R.attr.treebolic_toolbar_background, R.attr.treebolic_toolbar_foreground_icon)
+        val background = colors[0]
+        iconTint = colors[1]
 
-		// colors
-		@NonNull final int[] colors = Utils.fetchColors(activity, R.attr.treebolic_toolbar_background, R.attr.treebolic_toolbar_foreground_icon);
-		final int background = colors[0];
-		this.iconTint = colors[1];
+        // drawables
+        drawables = getDrawables(context, *drawableIds)
 
-		// drawables
-		this.drawables = Utils.getDrawables(activity, drawableIds);
+        // background
+        panel.setBackgroundColor(background)
 
-		// background
-		this.panel.setBackgroundColor(background);
+        // scroll
+        val scroll = if (isHorizontal) ScrollView(context) else HorizontalScrollView(context)
+        scroll.addView(this.panel)
+        scroll.setBackgroundColor(background)
 
-		// scroll
-		@NonNull final FrameLayout scroll = isHorizontal ? new ScrollView(activity) : new HorizontalScrollView(activity);
-		scroll.addView(this.panel);
-		scroll.setBackgroundColor(background);
+        // top
+        this.addView(scroll)
+        setBackgroundColor(background)
 
-		// top
-		this.addView(scroll);
-		setBackgroundColor(background);
+        // layout parameters for later addition
+        layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams.setMargins(if (isHorizontal) 5 else 0, if (isHorizontal) 0 else 5, 5, 5)
+    }
 
-		// layout parameters for later addition
-		this.layoutParams = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-		this.layoutParams.setMargins(isHorizontal ? 5 : 0, isHorizontal ? 0 : 5, 5, 5);
-	}
+    // A D D  B U T T O N
 
-	/**
-	 * Constructor from handle
-	 * API
-	 *
-	 * @param handle activity
-	 */
-	public Toolbar(final Object handle)
-	{
-		this((AppCompatActivity) handle);
-	}
+    @SuppressLint("ObsoleteSdkInt")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    override fun addButton(button: Toolbar.Button, listener: ActionListener) {
+        // interface button to implementation
+        val name = button.name
+        val impl = ButtonImplementation.valueOf(name)
 
-	// A D D  B U T T O N
+        val context = context
 
-	@SuppressLint("ObsoleteSdkInt")
-	@SuppressWarnings("WeakerAccess")
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	@Override
-	public void addButton(@NonNull final Button button, @NonNull final ActionListener listener)
-	{
-		// interface button to implementation
-		@NonNull final String name = button.name();
-		@NonNull final ButtonImplementation impl = ButtonImplementation.valueOf(name);
+        // new button
+        val imageButton = ImageButton(context)
+        imageButton.layoutParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val index: Int = impl.index
 
-		final Context context = getContext();
+        // drawable
+        val bitmapDrawable = drawables[index]
 
-		// new button
-		@NonNull final ImageButton imageButton = new ImageButton(context);
-		imageButton.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
-		final int index = impl.getIndex();
+        // tint drawable
+        tint(bitmapDrawable!!, this.iconTint)
 
-		// drawable
-		final Drawable bitmapDrawable = this.drawables[index];
+        // button drawable
+        imageButton.background = bitmapDrawable
 
-		// tint drawable
-		Utils.tint(bitmapDrawable, this.iconTint);
+        // description
+        imageButton.contentDescription = context.getString(descIds[index])
 
-		// button drawable
-		imageButton.setBackground(bitmapDrawable);
+        // listener
+        imageButton.setOnClickListener { params: View? -> listener.onAction(params) }
 
-		// description
-		imageButton.setContentDescription(context.getString(Toolbar.descIds[index]));
+        // add
+        panel.addView(imageButton, this.layoutParams)
+    }
 
-		// listener
-		imageButton.setOnClickListener(listener::onAction);
+    override fun getButtons(): Array<Toolbar.Button> {
+        return Companion.buttons
+    }
 
-		// add
-		this.panel.addView(imageButton, this.layoutParams);
-	}
+    companion object {
 
-	@NonNull
-	@Override
-	public Button[] getButtons()
-	{
-		return buttons;
-	}
+        /**
+         * Content descriptors
+         */
+        private val descIds = intArrayOf(
+            R.string.desc_toolbar_home,  
+            R.string.desc_toolbar_radial, R.string.desc_toolbar_north, R.string.desc_toolbar_south, R.string.desc_toolbar_east, R.string.desc_toolbar_west,  
+            R.string.desc_toolbar_expand, R.string.desc_toolbar_shrink, R.string.desc_toolbar_expand_reset, R.string.desc_toolbar_expand_widen_reset,  
+            R.string.desc_toolbar_widen, R.string.desc_toolbar_narrow, R.string.desc_toolbar_widen_reset,  
+            R.string.desc_toolbar_zoomin, R.string.desc_toolbar_zoomout, R.string.desc_toolbar_zoomone,  
+            R.string.desc_toolbar_scaleup, R.string.desc_toolbar_scaledown, R.string.desc_toolbar_scaleone
+        )
+
+        /**
+         * Drawables
+         */
+        private val drawableIds = intArrayOf(
+            R.drawable.toolbar_home,  
+            R.drawable.toolbar_radial, R.drawable.toolbar_north, R.drawable.toolbar_south, R.drawable.toolbar_east, R.drawable.toolbar_west,  
+            R.drawable.toolbar_expand, R.drawable.toolbar_shrink, R.drawable.toolbar_expand_reset, R.drawable.toolbar_expand_widen_reset,  
+            R.drawable.toolbar_widen, R.drawable.toolbar_narrow, R.drawable.toolbar_widen_reset,  
+            R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone,  
+            R.drawable.toolbar_scaleup, R.drawable.toolbar_scaledown, R.drawable.toolbar_scaleone
+        )
+
+        /**
+         * Toolbar's ordered list of buttons
+         */
+        private val buttons = arrayOf(
+            
+            Toolbar.Button.HOME,  
+            Toolbar.Button.ZOOMIN, Toolbar.Button.ZOOMOUT, Toolbar.Button.ZOOMONE,  
+            Toolbar.Button.SCALEUP, Toolbar.Button.SCALEDOWN, Toolbar.Button.SCALEONE,  
+            Toolbar.Button.RADIAL, Toolbar.Button.SOUTH, Toolbar.Button.NORTH, Toolbar.Button.EAST, Toolbar.Button.WEST,  
+            Toolbar.Button.EXPAND, Toolbar.Button.SHRINK, Toolbar.Button.EXPANSIONRESET,  
+            Toolbar.Button.WIDEN, Toolbar.Button.NARROW, Toolbar.Button.SWEEPRESET,  
+            Toolbar.Button.EXPANSIONSWEEPRESET,  
+        )
+    }
 }

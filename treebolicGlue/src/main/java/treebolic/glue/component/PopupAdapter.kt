@@ -1,159 +1,130 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.PopupWindow;
-
-import androidx.annotation.NonNull;
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
+import android.widget.PopupWindow
+import treebolic.glue.component.Utils.getColor
 
 /**
  * Custom popup window.
  *
- * @author Lorensius W. L. T <lorenz@londatiga.net>
+ * @param context context
+ *
+ * @author Lorensius W. L. T <lorenz></lorenz>@londatiga.net>
  */
-@SuppressWarnings({"EmptyMethod", "WeakerAccess"})
-public class PopupAdapter
-{
-	/**
-	 * Context
-	 */
-	@NonNull
-	@SuppressWarnings("WeakerAccess")
-	protected final Context context;
+open class PopupAdapter(
+    @JvmField protected val context: Context
+) {
 
-	/**
-	 * Popup window
-	 */
-	@NonNull
-	@SuppressWarnings("WeakerAccess")
-	protected final PopupWindow window;
+    /**
+     * Popup window
+     */
+    @JvmField
+    protected val window: PopupWindow = PopupWindow(context)
 
-	/**
-	 * Wrapped view
-	 */
-	@SuppressWarnings("WeakerAccess")
-	protected View view;
+    /**
+     * Wrapped view
+     */
+    protected lateinit var view: View
 
-	/**
-	 * Constructor.
-	 *
-	 * @param context context
-	 */
-	public PopupAdapter(@NonNull final Context context)
-	{
-		this.context = context;
-		this.window = new PopupWindow(context);
+    /**
+     * Constructor
+     */
+    init {
+        // dismiss when touched outside
+        window.setTouchInterceptor { view0: View, event: MotionEvent ->
+            when (event.action) {
+                MotionEvent.ACTION_OUTSIDE -> {
+                    window.dismiss()
+                    return@setTouchInterceptor true
+                }
 
-		// dismiss when touched outside
-		this.window.setTouchInterceptor((view0, event) -> {
-			switch (event.getAction())
-			{
-				case MotionEvent.ACTION_OUTSIDE:
-					PopupAdapter.this.window.dismiss();
-					return true;
-				case MotionEvent.ACTION_UP:
-					view0.performClick();
-					return false;
-				default:
-					break;
-			}
-			return false;
-		});
-	}
+                MotionEvent.ACTION_UP -> {
+                    view0.performClick()
+                    return@setTouchInterceptor false
+                }
 
-	/**
-	 * On pre-show
-	 */
-	@SuppressWarnings({"WeakerAccess"})
-	protected void preShow()
-	{
-		if (this.view == null)
-		{
-			throw new IllegalStateException("setContentView was not called with a view to display.");
-		}
+                else -> {}
+            }
+            false
+        }
+    }
 
-		// hook
-		onShow();
+    /**
+     * On pre-show
+     */
+    protected fun preShow() {
 
-		// color
-		int color = Utils.getColor(this.context, android.R.color.transparent);
-		this.window.setBackgroundDrawable(new ColorDrawable(color));
+        // hook
+        onShow()
 
-		// setup window
-		this.window.setWidth(LayoutParams.WRAP_CONTENT);
-		this.window.setHeight(LayoutParams.WRAP_CONTENT);
-		this.window.setTouchable(true);
-		this.window.setOutsideTouchable(true);
-		this.window.setFocusable(true);
-		this.window.setContentView(this.view);
-	}
+        // color
+        val color = getColor(context, android.R.color.transparent)
+        window.setBackgroundDrawable(ColorDrawable(color))
 
-	/**
-	 * Set content view.
-	 *
-	 * @param root Root view
-	 */
-	@SuppressWarnings("WeakerAccess")
-	public void setContentView(final View root)
-	{
-		this.view = root;
-		this.window.setContentView(root);
-	}
+        // setup window
+        window.width = ViewGroup.LayoutParams.WRAP_CONTENT
+        window.height = ViewGroup.LayoutParams.WRAP_CONTENT
+        window.isTouchable = true
+        window.isOutsideTouchable = true
+        window.isFocusable = true
+        window.contentView = view
+    }
 
-	/**
-	 * Set content view.
-	 *
-	 * @param layoutResID Resource id
-	 */
-	public void setContentView(final int layoutResID)
-	{
-		final LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		assert inflater != null;
-		setContentView(inflater.inflate(layoutResID, null));
-	}
+    /**
+     * Set content view.
+     *
+     * @param root Root view
+     */
+    fun setContentView(root: View) {
+        view = root
+        window.contentView = root
+    }
 
-	/**
-	 * Set listener on window dismissed.
-	 *
-	 * @param listener listener
-	 */
-	@SuppressWarnings("WeakerAccess")
-	public void setOnDismissListener(final PopupWindow.OnDismissListener listener)
-	{
-		this.window.setOnDismissListener(listener);
-	}
+    /**
+     * Set content view.
+     *
+     * @param layoutResID Resource id
+     */
+    fun setContentView(layoutResID: Int) {
+        val inflater = checkNotNull(context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
+        setContentView(inflater.inflate(layoutResID, null))
+    }
 
-	/**
-	 * Dismiss the popup window.
-	 */
-	@SuppressWarnings("WeakerAccess")
-	public void dismiss()
-	{
-		this.window.dismiss();
-	}
+    /**
+     * Set listener on window dismissed.
+     *
+     * @param listener listener
+     */
+    fun setOnDismissListener(listener: PopupWindow.OnDismissListener?) {
+        window.setOnDismissListener(listener)
+    }
 
-	/**
-	 * On dismiss
-	 */
-	protected void onDismiss()
-	{
-		//
-	}
+    /**
+     * Dismiss the popup window.
+     */
+    fun dismiss() {
+        window.dismiss()
+    }
 
-	/**
-	 * On show
-	 */
-	@SuppressWarnings("WeakerAccess")
-	protected void onShow()
-	{
-		//
-	}
+    /**
+     * On dismiss
+     */
+    protected open fun onDismiss() {
+        //
+    }
+
+    /**
+     * On show
+     */
+    private fun onShow() {
+        //
+    }
 }
