@@ -35,32 +35,23 @@ import treebolic.glue.iface.Image;
 public class Graphics implements treebolic.glue.iface.Graphics
 {
 	/**
-	 * Plain font style
-	 */
-	public static final int PLAIN = 0;
-
-	/**
 	 * Bold font style
 	 */
-	@SuppressWarnings("WeakerAccess")
 	public static final int BOLD = 1;
 
 	/**
 	 * Font factor to convert pt (point) to pixel units used by Paint.setTextSize
 	 */
-	@SuppressWarnings("WeakerAccess")
 	static public float PT2PX = 160 * (1.0f / 72);
 
 	/**
 	 * Stroke width factor
 	 */
-	@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 	static public float strokeWidthFactor = 2F;
 
 	/**
 	 * Font factor may be changed by application depending on screen size
 	 */
-	@SuppressWarnings("WeakerAccess")
 	static public float fontFactor = 1F;
 
 	/**
@@ -90,7 +81,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	 */
 	static private final PathEffect dashEffect = new DashPathEffect(new float[]{2, 2}, 0); // on-interval off-interval
 
-	// S T A T I C I N I T
+	// S T A T I C    I N I T
 
 	static private boolean initDone = false;
 
@@ -155,10 +146,6 @@ public class Graphics implements treebolic.glue.iface.Graphics
 		{
 			this.canvas.drawColor(Color.makeOpaque(color));
 		}
-
-		// alternatively:
-		// setColor(color);
-		// fillRectangle(left, top, width, height);
 	}
 
 	// D R A W
@@ -327,17 +314,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public void setFont(final String face0, final int style0)
 	{
-		int style;
-		switch (style0)
-		{
-			case Graphics.BOLD:
-				style = Typeface.BOLD;
-				break;
-			case Graphics.PLAIN:
-			default:
-				style = Typeface.NORMAL;
-				break;
-		}
+		int style = style0 == Graphics.BOLD ? Typeface.BOLD : Typeface.NORMAL;
 		final Typeface typeface = Typeface.create(face0, style);
 		this.paint.setTypeface(typeface);
 	}
@@ -351,8 +328,6 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	@Override
 	public int stringWidth(@NonNull final String string)
 	{
-		//final Rect bounds = new Rect();
-		//this.paint.getTextBounds(string, 0, string.length(), bounds);
 		return (int) this.paint.measureText(string);
 	}
 

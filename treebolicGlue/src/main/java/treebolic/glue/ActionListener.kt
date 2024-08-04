@@ -1,17 +1,16 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue
 
-package treebolic.glue;
+import treebolic.glue.iface.ActionListener
 
 /**
  * ActionListener
  *
  * @author Bernard Bou
  */
-public abstract class ActionListener implements treebolic.glue.iface.ActionListener
-{
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onAction(Object... params);
+abstract class ActionListener : ActionListener {
+
+    abstract override fun onAction(vararg params: Any): Boolean
 }

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URL;
 
@@ -40,18 +41,9 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 
 	static
 	{
-		// defaults:
-		// inDither = false;
-		// inScaled = true;
-		// inPremultiplied = true;
-
 		// do not prescale
 		// scaling will occur on drawing and is location-dependent
 		Image.options.inScaled = true;
-
-		// options.inScaled = false;
-		// options.inPreferQualityOverSpeed = true;
-		// options.inPreferredConfig = Bitmap.Config.ARGB_8888;
 	}
 
 	/**
@@ -59,7 +51,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param bitmap0 android bitmap
 	 */
-	@SuppressWarnings("WeakerAccess")
 	public Image(@Nullable final Bitmap bitmap0)
 	{
 		this.bitmap = bitmap0;
@@ -119,7 +110,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 		return this.bitmap.getHeight();
 	}
 
-	// O V E R R I D E S E R I A L I Z A T I O N
+	// O V E R R I D E    S E R I A L I Z A T I O N
 
 	/**
 	 * Obtain byte array from image
@@ -127,7 +118,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @return byte array
 	 */
 	@Nullable
-	@SuppressWarnings("WeakerAccess")
 	public byte[] getByteArray()
 	{
 		if (this.bitmap == null)
@@ -144,7 +134,6 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param imageByteArray byte array
 	 */
-	@SuppressWarnings({"WeakerAccess"})
 	public void setFromByteArray(@Nullable final byte[] imageByteArray)
 	{
 		@NonNull final Options opt = new Options();
@@ -158,6 +147,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @param out serialized stream
 	 * @throws IOException io exception
 	 */
+	@Serial
 	private void writeObject(@NonNull final ObjectOutputStream out) throws IOException
 	{
 		@Nullable final byte[] imageBytes = getByteArray();
@@ -171,6 +161,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 * @throws IOException io exception
 	 *                     //@throws ClassNotFoundException class not found exception
 	 */
+	@Serial
 	private void readObject(@NonNull final ObjectInputStream in) throws IOException, ClassNotFoundException
 	{
 		final byte[] imageBytes = (byte[]) in.readObject();

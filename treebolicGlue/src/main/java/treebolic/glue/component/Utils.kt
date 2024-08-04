@@ -1,70 +1,54 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.WindowManager;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
+import android.content.Context
+import android.content.res.TypedArray
+import android.graphics.Point
+import android.graphics.drawable.Drawable
+import android.os.Build
+import android.util.TypedValue
+import android.view.WindowManager
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 
 /**
  * Utilities
  *
  * @author Bernard Bou
  */
-@SuppressWarnings("WeakerAccess")
-public class Utils
-{
-	/**
-	 * Fetch colors resources
-	 *
-	 * @param context context
-	 * @param attrs   attributes
-	 * @return array of int resources, with 0 value if not found
-	 */
-	@NonNull
-	static public int[] fetchColors(@NonNull final Context context, @NonNull int... attrs)
-	{
-		final TypedValue typedValue = new TypedValue();
-		// try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
-		TypedArray array = null;
-		try
-		{
-			array = context.obtainStyledAttributes(typedValue.data, attrs);
-			final int[] colors = new int[attrs.length];
-			for (int i = 0; i < attrs.length; i++)
-			{
-				colors[i] = array.getColor(i, 0);
-			}
-			return colors;
-		}
-		finally
-		{
-			if (array != null)
-			{
-				array.recycle();
-			}
-		}
-	}
+object Utils {
 
-	/*
+    /**
+     * Fetch colors resources
+     *
+     * @param context context
+     * @param attrs   attributes
+     * @return array of int resources, with 0 value if not found
+     */
+    @JvmStatic
+    fun fetchColors(context: Context, vararg attrs: Int): IntArray {
+        val typedValue = TypedValue()
+        // try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
+        var array: TypedArray? = null
+        try {
+            array = context.obtainStyledAttributes(typedValue.data, attrs)
+            val colors = IntArray(attrs.size)
+            for (i in attrs.indices) {
+                colors[i] = array.getColor(i, 0)
+            }
+            return colors
+        } finally {
+            array?.recycle()
+        }
+    }
+
+    /*
 	 * Get color from theme
 	 *
 	 * @param context      context
@@ -72,7 +56,7 @@ public class Utils
 	 * @param colorAttrIds attr ids (ex: R.attr.editTextColor)
 	 * @return colors
 	 */
-	/*
+    /*
 	@SuppressWarnings("WeakerAccess")
 	@NonNull
 	static public int[] fetchColorsFromStyle(@NonNull final Context context, @NonNull int styleId, @NonNull int... colorAttrIds)
@@ -98,40 +82,30 @@ public class Utils
 		}
 	}
 	*/
+    /**
+     * Fetch colors resources
+     *
+     * @param context context
+     * @param attrs   attributes
+     * @return array of Integer resources, with null value if not found
+     */
+    fun fetchColorsNullable(context: Context, vararg attrs: Int): Array<Int?> {
+        val typedValue = TypedValue()
+        // try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
+        var array: TypedArray? = null
+        try {
+            array = context.obtainStyledAttributes(typedValue.data, attrs)
+            val colors = arrayOfNulls<Int>(attrs.size)
+            for (i in attrs.indices) {
+                colors[i] = if (array.hasValue(i)) array.getColor(i, 0) else null
+            }
+            return colors
+        } finally {
+            array?.recycle()
+        }
+    }
 
-	/**
-	 * Fetch colors resources
-	 *
-	 * @param context context
-	 * @param attrs   attributes
-	 * @return array of Integer resources, with null value if not found
-	 */
-	@NonNull
-	static public Integer[] fetchColorsNullable(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... attrs)
-	{
-		final TypedValue typedValue = new TypedValue();
-		// try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
-		TypedArray array = null;
-		try
-		{
-			array = context.obtainStyledAttributes(typedValue.data, attrs);
-			final Integer[] colors = new Integer[attrs.length];
-			for (int i = 0; i < attrs.length; i++)
-			{
-				colors[i] = array.hasValue(i) ? array.getColor(i, 0) : null;
-			}
-			return colors;
-		}
-		finally
-		{
-			if (array != null)
-			{
-				array.recycle();
-			}
-		}
-	}
-
-	/*
+    /*
 	static public int fetchColor(final Context context, int attr)
 	{
 		final TypedValue typedValue = new TypedValue();
@@ -140,8 +114,7 @@ public class Utils
 		return typedValue.data;
 	}
 	*/
-
-	/*
+    /*
 	static public Integer fetchColorNullable(final Context context, int attr)
 	{
 		final TypedValue typedValue = new TypedValue();
@@ -150,148 +123,128 @@ public class Utils
 		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
 	}
 	*/
+    /**
+     * Get color
+     *
+     * @param context context
+     * @param resId   resource id
+     * @return color int
+     */
+    @JvmStatic
+    fun getColor(context: Context, @ColorRes resId: Int): Int {
+        return ContextCompat.getColor(context, resId)
+    }
 
-	/**
-	 * Get color
-	 *
-	 * @param context context
-	 * @param resId   resource id
-	 * @return color int
-	 */
-	static public int getColor(@NonNull final Context context, @ColorRes @SuppressWarnings("SameParameterValue") int resId)
-	{
-		return ContextCompat.getColor(context, resId);
-	}
+    /**
+     * Get drawable
+     *
+     * @param context context
+     * @param resId   drawable id
+     * @return drawable
+     */
+    @JvmStatic
+    fun getDrawable(context: Context, @DrawableRes resId: Int): Drawable? {
+        return ResourcesCompat.getDrawable(context.resources, resId, context.theme)
+    }
 
-	/**
-	 * Get drawable
-	 *
-	 * @param context context
-	 * @param resId   drawable id
-	 * @return drawable
-	 */
-	@Nullable
-	static public Drawable getDrawable(@NonNull final Context context, @DrawableRes int resId)
-	{
-		return ResourcesCompat.getDrawable(context.getResources(), resId, context.getTheme());
-	}
+    /**
+     * Get drawables
+     *
+     * @param context context
+     * @param resIds  drawable ids
+     * @return drawables
+     */
+    @JvmStatic
+    fun getDrawables(context: Context, vararg resIds: Int): Array<Drawable?> {
+        val resources = context.resources
+        val theme = context.theme
+        val drawables = arrayOfNulls<Drawable>(resIds.size)
+        for (i in resIds.indices) {
+            drawables[i] = ResourcesCompat.getDrawable(resources, resIds[i], theme)
+        }
+        return drawables
+    }
 
-	/**
-	 * Get drawables
-	 *
-	 * @param context context
-	 * @param resIds  drawable ids
-	 * @return drawables
-	 */
-	@NonNull
-	static public Drawable[] getDrawables(@NonNull final Context context, @NonNull @SuppressWarnings("SameParameterValue") int... resIds)
-	{
-		final Resources resources = context.getResources();
-		final Resources.Theme theme = context.getTheme();
-		@NonNull Drawable[] drawables = new Drawable[resIds.length];
-		for (int i = 0; i < resIds.length; i++)
-		{
-			drawables[i] = ResourcesCompat.getDrawable(resources, resIds[i], theme);
-		}
-		return drawables;
-	}
+    /**
+     * Tint drawable
+     *
+     * @param drawable drawable
+     * @param tint     tint
+     */
+    @JvmStatic
+    fun tint(drawable: Drawable, @ColorInt tint: Int) {
+        DrawableCompat.setTint(DrawableCompat.wrap(drawable), tint)
+    }
 
-	/**
-	 * Tint drawable
-	 *
-	 * @param drawable drawable
-	 * @param tint     tint
-	 */
-	static public void tint(@NonNull final Drawable drawable, @ColorInt int tint)
-	{
-		DrawableCompat.setTint(DrawableCompat.wrap(drawable), tint);
-	}
+    /**
+     * Screen width
+     *
+     * @param context context
+     * @return screen width
+     */
+    @JvmStatic
+    @Suppress("deprecation")
+    fun screenWidth(context: Context): Int {
+        val wm = checkNotNull(context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val bounds = wm.currentWindowMetrics.bounds
+            return bounds.width()
+        } else {
+            val display = wm.defaultDisplay
+            val size = Point()
+            display.getSize(size)
+            // int height = size.y;
+            return size.x
+        }
+    }
 
-	/**
-	 * Screen width
-	 *
-	 * @param context context
-	 * @return screen width
-	 */
-	@SuppressWarnings("deprecation")
-	static public int screenWidth(@NonNull final Context context)
-	{
-		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-		assert wm != null;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-		{
-			final Rect bounds = wm.getCurrentWindowMetrics().getBounds();
-			return bounds.width();
-		}
-		else
-		{
-			final Display display = wm.getDefaultDisplay();
-			@NonNull final Point size = new Point();
-			display.getSize(size);
-			// int height = size.y;
-			return size.x;
-		}
-	}
+    /**
+     * Screen size
+     *
+     * @param context context
+     * @return a point whose x represents width and y represents height
+     */
+    @JvmStatic
+    @Suppress("DEPRECATION")
+    fun screenSize(context: Context): Point {
+        val wm = checkNotNull(context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val bounds = wm.currentWindowMetrics.bounds
+            return Point(bounds.width(), bounds.height())
+        } else {
+            val display = wm.defaultDisplay
+            val size = Point()
+            display.getSize(size)
+            return size
+        }
+    }
 
-	/**
-	 * Screen size
-	 *
-	 * @param context context
-	 * @return a point whose x represents width and y represents height
-	 */
-	@SuppressWarnings("deprecation")
-	@NonNull
-	static public Point screenSize(@NonNull final Context context)
-	{
-		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-		assert wm != null;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-		{
-			final Rect bounds = wm.getCurrentWindowMetrics().getBounds();
-			return new Point(bounds.width(), bounds.height());
-		}
-		else
-		{
-			final Display display = wm.getDefaultDisplay();
-			@NonNull final Point size = new Point();
-			display.getSize(size);
-			return size;
-		}
-	}
+    /**
+     * Join character sequences
+     *
+     * @param delim delimiter
+     * @param strs  input character sequences
+     * @return string output
+     */
+    @JvmStatic
+    fun join(delim: CharSequence, strs: Array<CharSequence?>?): String {
+        if (strs == null) {
+            return ""
+        }
 
-	/**
-	 * Join character sequences
-	 *
-	 * @param delim delimiter
-	 * @param strs  input character sequences
-	 * @return string output
-	 */
-	@NonNull
-	public static String join(@NonNull final CharSequence delim, @Nullable final CharSequence[] strs)
-	{
-		if (strs == null)
-		{
-			return "";
-		}
-
-		@NonNull StringBuilder sb = new StringBuilder();
-		boolean first = true;
-		for (@Nullable CharSequence str : strs)
-		{
-			if (str == null || str.length() == 0)
-			{
-				continue;
-			}
-			if (first)
-			{
-				first = false;
-			}
-			else
-			{
-				sb.append(delim);
-			}
-			sb.append(str);
-		}
-		return sb.toString();
-	}
+        val sb = StringBuilder()
+        var first = true
+        for (str in strs) {
+            if (str.isNullOrEmpty()) {
+                continue
+            }
+            if (first) {
+                first = false
+            } else {
+                sb.append(delim)
+            }
+            sb.append(str)
+        }
+        return sb.toString()
+    }
 }

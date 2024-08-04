@@ -1,53 +1,34 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue
 
-package treebolic.glue;
+import treebolic.glue.iface.EventListener
 
 /**
  * Event listener
  *
  * @author Bernard Bou
  */
-public abstract class EventListener implements treebolic.glue.iface.EventListener
-{
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onDown(int x, int y, boolean rotate);
+abstract class EventListener : EventListener {
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onUp(int x, int y);
+    abstract override fun onDown(x: Int, y: Int, rotate: Boolean): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onDragged(int x, int y);
+    abstract override fun onUp(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onHover(int x, int y);
+    abstract override fun onDragged(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onSelect(int x, int y);
+    abstract override fun onHover(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onFocus(int x, int y);
+    abstract override fun onSelect(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onLink(int x, int y);
+    abstract override fun onFocus(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onMenu(int x, int y);
+    abstract override fun onLink(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public boolean onMount(int x, int y);
+    abstract override fun onMenu(x: Int, y: Int): Boolean
 
-	@SuppressWarnings("UnusedReturnValue")
-	@Override
-	abstract public void onScale(float mapScale, float fontScale, float imageScale);
+    abstract override fun onMount(x: Int, y: Int): Boolean
+
+    abstract override fun onScale(mapScale: Float, fontScale: Float, imageScale: Float)
 }
