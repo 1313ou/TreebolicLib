@@ -46,8 +46,8 @@ class Container(handle: Any?) : LinearLayout(handle as Context?), Component, Con
     init {
         // determine orientation
         val size = Utils.screenSize(context)
-        this.isHorizontal = size.x >= size.y
-        orientation = if (this.isHorizontal) HORIZONTAL else VERTICAL
+        isHorizontal = size.x >= size.y
+        orientation = if (isHorizontal) HORIZONTAL else VERTICAL
 
         // other
         gravity = Gravity.CENTER
@@ -63,45 +63,45 @@ class Container(handle: Any?) : LinearLayout(handle as Context?), Component, Con
                 addView(viewToAdd, params)
             }
 
-            Container.VIEW -> this.view = viewToAdd
-            Container.TOOLBAR -> this.toolbar = viewToAdd
-            Container.STATUSBAR -> this.statusbar = viewToAdd
+            Container.VIEW -> view = viewToAdd
+            Container.TOOLBAR -> toolbar = viewToAdd
+            Container.STATUSBAR -> statusbar = viewToAdd
             else -> {}
         }
     }
 
     override fun removeAll() {
         removeAllViews()
-        this.view = null
-        this.toolbar = null
-        this.statusbar = null
+        view = null
+        toolbar = null
+        statusbar = null
     }
 
     override fun validate() {
         var params: LayoutParams?
-        if (this.toolbar != null) {
-            params = LayoutParams(if (this.isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (this.isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
-            addView(this.toolbar, params)
+        if (toolbar != null) {
+            params = LayoutParams(if (isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
+            addView(toolbar, params)
         }
         var layout: ViewGroup = this
-        if (this.view != null && this.statusbar != null) {
+        if (view != null && statusbar != null) {
             val splitLayout = SplitPaneLayout(context)
-            splitLayout.orientation = if (this.isHorizontal) 0 else 1
+            splitLayout.orientation = if (isHorizontal) 0 else 1
             splitLayout.splitterPositionPercent = splitterPositionPercent
             splitLayout.isSplitterMovable = true
             splitLayout.splitterDrawable = getSplitterDrawable(false)
             splitLayout.splitterDraggingDrawable = getSplitterDrawable(true)
 
-            this.addView(splitLayout)
+            addView(splitLayout)
             layout = splitLayout
         }
-        if (this.view != null) {
+        if (view != null) {
             params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
-            layout.addView(this.view, params)
+            layout.addView(view, params)
         }
-        if (this.statusbar != null) {
-            params = LayoutParams(if (this.isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (this.isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
-            layout.addView(this.statusbar, params)
+        if (statusbar != null) {
+            params = LayoutParams(if (isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
+            layout.addView(statusbar, params)
         }
 
         invalidate()

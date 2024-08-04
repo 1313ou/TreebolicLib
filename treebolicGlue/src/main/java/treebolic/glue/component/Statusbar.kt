@@ -1,419 +1,303 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
-import android.util.Log;
-import android.view.InflateException;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import org.treebolic.glue.R;
-
-import java.util.function.BiFunction;
-import java.util.function.Function;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import treebolic.glue.iface.ActionListener;
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.os.Build
+import android.util.Log
+import android.view.InflateException
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.FrameLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import org.treebolic.glue.R
+import treebolic.glue.component.Utils.fetchColors
+import treebolic.glue.component.Utils.getDrawable
+import treebolic.glue.component.Utils.screenSize
+import treebolic.glue.component.Utils.tint
+import treebolic.glue.iface.ActionListener
+import treebolic.glue.iface.component.Statusbar
+import java.util.function.BiFunction
+import java.util.function.Function
 
 /**
  * Status bar
  * API class
  *
+ * @param activity activity
+ *
  * @author Bernard Bou
  * @noinspection WeakerAccess
  */
-public class Statusbar extends FrameLayout implements treebolic.glue.iface.component.Statusbar
-{
-	private static final String TAG = "Statusbar";
+@SuppressLint("CutPasteId")
+class Statusbar (
+    private val activity: AppCompatActivity
+) : FrameLayout(activity), Statusbar {
 
-	/**
-	 * Base URL for webview
-	 */
-	private static String base = "file:///android_asset/";
+    /**
+     * Main status view
+     */
+    private val statusView: TextView
 
-	/**
-	 * Drawables
-	 */
-	static private final Drawable[] drawables = new Drawable[ImageIndices.values().length];
+    /**
+     * Web content status view
+     */
+    private val webContentView: WebView?
 
-	/**
-	 * Main status view
-	 */
-	private final TextView statusView;
+    /**
+     * Text content status view
+     */
+    private val textContentView: TextView?
 
-	/**
-	 * Web content status view
-	 */
-	@Nullable
-	private final WebView webContentView;
+    /**
+     * Horizontal / vertical
+     */
+    private val isHorizontal: Boolean
 
-	/**
-	 * Text content status view
-	 */
-	@Nullable
-	private final TextView textContentView;
+    /**
+     * Style
+     */
+    private var style: String? = null
 
-	/**
-	 * Activity
-	 */
-	@NonNull
-	private final AppCompatActivity activity;
+    /**
+     * Background
+     */
+    private val background: Int
 
-	/**
-	 * Horizontal / vertical
-	 */
-	private final boolean isHorizontal;
+    /**
+     * Foreground
+     */
+    private val foreground: Int
 
-	/**
-	 * Style
-	 */
-	private String style;
+    /**
+     * Icon tint
+     */
+    private val iconTint: Int
 
-	/**
-	 * Background
-	 */
-	private final int background;
+    /**
+     * Action listener
+     */
+    private var actionListener: ActionListener? = null
 
-	/**
-	 * Foreground
-	 */
-	private final int foreground;
+    // C O N S T R U C T O R
 
-	/**
-	 * Icon tint
-	 */
-	private final int iconTint;
+    init {
+        // determine orientation
+        val size = screenSize(this.activity)
+        val isHorizontalScreen = size.x >= size.y
+        this.isHorizontal = !isHorizontalScreen
 
-	/**
-	 * Action listener
-	 */
-	private ActionListener actionListener;
+        // colors
+        val colors = fetchColors(this.activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_icon)
+        this.background = colors[0]
+        this.foreground = colors[1]
+        this.iconTint = colors[2]
 
-	// P R O C E S S O R
+        // inflate
+        val inflater = checkNotNull(activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
+        var statusView0: TextView
+        var webContentView0: WebView? = null
+        var textContentView0: TextView? = null
+        try {
+            val wrappedView = inflater.inflate(if (isHorizontalScreen) R.layout.status_h else R.layout.status_v, this) as ViewGroup
+            statusView0 = wrappedView.findViewById(R.id.status)
+            webContentView0 = wrappedView.findViewById(R.id.content)
+            webContentView0.isFocusable = false
+            webContentView0.setBackgroundColor(this.background)
+            webContentView0.settings.allowFileAccess = true
+            webContentView0.webViewClient = object : WebViewClient(
+            ) {
+                private var intercept = false
 
-	/**
-	 * Label processor
-	 */
-	@Nullable
-	static private BiFunction<String, View, String> labelProcessor = null;
+                override fun onPageFinished(view0: WebView, url: String) {
+                    this.intercept = true
+                }
 
-	/**
-	 * Content processor
-	 */
-	@Nullable
-	static private BiFunction<String, View, String> contentProcessor = null;
+                @Deprecated("Deprecated in Java")
+                override fun shouldOverrideUrlLoading(view0: WebView, url: String?): Boolean {
+                    if (intercept && url != null) {
+                        Log.d(TAG, "url:$url")
+                        actionListener!!.onAction(url)
+                        return true
+                    }
+                    return false
+                }
 
-	// C O N S T R U C T O R
+                @TargetApi(Build.VERSION_CODES.N)
+                override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+                    val uri = request.url
+                    if (intercept && uri != null) {
+                        Log.d(TAG, "url:$uri")
+                        actionListener!!.onAction(uri.toString())
+                        return true
+                    }
+                    return false
+                }
+            }
+        } catch (e: InflateException) {
+            val wrappedView = inflater.inflate(if (isHorizontalScreen) R.layout.status_h_text else R.layout.status_v_text, this) as ViewGroup
+            statusView0 = wrappedView.findViewById(R.id.status)
+            textContentView0 = wrappedView.findViewById(R.id.content)
+        }
+        statusView = statusView0
+        webContentView = webContentView0
+        textContentView = textContentView0
+    }
 
-	/**
-	 * Constructor
-	 *
-	 * @param activity0 activity
-	 */
-	@SuppressLint("CutPasteId")
-	protected Statusbar(@NonNull final AppCompatActivity activity0)
-	{
-		super(activity0);
-		this.activity = activity0;
+    override fun init(image: Int) {
+        // drawable
+        val drawable = getDrawable(image)
 
-		// determine orientation
-		@NonNull final Point size = Utils.screenSize(this.activity);
-		final boolean isHorizontalScreen = size.x >= size.y;
-		this.isHorizontal = !isHorizontalScreen;
+        // tint drawable
+        tint(drawable!!, this.iconTint)
 
-		// colors
-		@NonNull final int[] colors = Utils.fetchColors(this.activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_icon);
-		this.background = colors[0];
-		this.foreground = colors[1];
-		this.iconTint = colors[2];
+        // set
+        if (this.isHorizontal) {
+            statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+        } else {
+            statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null)
+        }
+    }
 
-		// inflate
-		final LayoutInflater inflater = (LayoutInflater) this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		assert inflater != null;
-		TextView statusView0;
-		@Nullable WebView webContentView0 = null;
-		@Nullable TextView textContentView0 = null;
-		try
-		{
-			final ViewGroup wrappedView = (ViewGroup) inflater.inflate(isHorizontalScreen ? R.layout.status_h : R.layout.status_v, this);
-			statusView0 = wrappedView.findViewById(R.id.status);
-			webContentView0 = wrappedView.findViewById(R.id.content);
-			webContentView0.setFocusable(false);
-			webContentView0.setBackgroundColor(this.background);
-			webContentView0.getSettings().setAllowFileAccess(true);
-			webContentView0.setWebViewClient(new WebViewClient()
-			{
-				private boolean intercept = false;
+    override fun addListener(arg0: ActionListener) {
+        // does not fire events
+    }
 
-				@Override
-				public void onPageFinished(final WebView view0, final String url)
-				{
-					this.intercept = true;
-				}
+    override fun setListener(actionListener0: ActionListener) {
+        actionListener = actionListener0
+    }
 
-				@SuppressWarnings("deprecation")
-				@Override
-				public boolean shouldOverrideUrlLoading(final WebView view0, @Nullable final String url)
-				{
-					if (this.intercept && url != null)
-					{
-						Log.d(TAG, "url:" + url);
-						Statusbar.this.actionListener.onAction(url);
-						return true;
-					}
-					return false;
-				}
+    override fun setColors(backColor: Int?, foreColor: Int?) {
+        //
+    }
 
-				@TargetApi(Build.VERSION_CODES.N)
-				@Override
-				public boolean shouldOverrideUrlLoading(final WebView view, @NonNull final WebResourceRequest request)
-				{
-					final Uri uri = request.getUrl();
-					if (this.intercept && uri != null)
-					{
-						Log.d(TAG, "url:" + uri);
-						Statusbar.this.actionListener.onAction(uri.toString());
-						return true;
-					}
-					return false;
-				}
-			});
-		}
-		catch (InflateException e)
-		{
-			final ViewGroup wrappedView = (ViewGroup) inflater.inflate(isHorizontalScreen ? R.layout.status_h_text : R.layout.status_v_text, this);
-			statusView0 = wrappedView.findViewById(R.id.status);
-			textContentView0 = wrappedView.findViewById(R.id.content);
-		}
-		this.statusView = statusView0;
-		this.webContentView = webContentView0;
-		this.textContentView = textContentView0;
-	}
+    override fun setStyle(style0: String) {
+        this.style = style0
+    }
 
-	/**
-	 * Constructor from handle
-	 * API
-	 *
-	 * @param handle activity
-	 */
-	public Statusbar(final Object handle)
-	{
-		this((AppCompatActivity) handle);
-	}
+    @SuppressLint("ObsoleteSdkInt")
+    override fun put(image: Int, converter: Function<Array<out String>, String>?, label0: String, content0: Array<out String>) {
+        // icon
+        val drawable = getDrawable(image)
 
-	@Override
-	public void init(final int image)
-	{
-		// drawable
-		final Drawable drawable = getDrawable(image);
+        // tint drawable
+        tint(drawable!!, this.iconTint)
 
-		// tint drawable
-		Utils.tint(drawable, this.iconTint);
+        // set
+        if (this.isHorizontal) {
+            statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+        } else {
+            statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null)
+        }
 
-		// set
-		if (this.isHorizontal)
-		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
-		}
-		else
-		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-		}
-	}
+        // label
+        var label = label0
+        if (labelProcessor != null) {
+            label = labelProcessor!!.apply(label, this)
+        }
+        statusView.text = label
 
-	@SuppressWarnings("EmptyMethod")
-	@Override
-	public void addListener(final treebolic.glue.iface.ActionListener arg0)
-	{
-		// does not fire events
-	}
+        // content
+        if (this.webContentView != null) {
+            var content = converter?.apply(content0) ?: content0.joinToString("<br>")
+            if (contentProcessor != null) {
+                content = contentProcessor!!.apply(content, this)
+            }
 
-	@Override
-	public void setListener(final ActionListener actionListener0)
-	{
-		this.actionListener = actionListener0;
-	}
+            if (content == null) {
+                webContentView.loadUrl("about:blank")
+            } else {
+                val html = StringBuilder()
+                html.append("<html><head>")
+                html.append("<style type='text/css'>")
+                html.append(defaultBaseStyle)
+                if (this.style != null && style!!.isNotEmpty()) {
+                    html.append(this.style)
+                }
+                html.append("</style>")
+                html.append("</head><body><div class='body'>")
+                html.append(content)
+                html.append("</div></body></html>")
 
-	/**
-	 * Set label processor
-	 *
-	 * @param processor processor
-	 */
-	static public void setLabelProcessor(@Nullable @SuppressWarnings("SameParameterValue") final BiFunction<String, View, String> processor)
-	{
-		Statusbar.labelProcessor = processor;
-	}
+                // Log.d(TAG, html.toString());
+                webContentView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null)
+            }
+        } else {
+            checkNotNull(this.textContentView)
+            textContentView.text = content0.joinToString("\n")
+        }
+    }
 
-	/**
-	 * Set content processor
-	 *
-	 * @param processor processor
-	 */
-	static public void setContentProcessor(@Nullable final BiFunction<String, View, String> processor)
-	{
-		Statusbar.contentProcessor = processor;
-	}
+    override fun put(message: String) {
+        statusView.text = message
+    }
 
-	@SuppressWarnings({"EmptyMethod", "WeakerAccess"})
-	@Override
-	public void setColors(@Nullable final Integer backColor, @Nullable final Integer foreColor)
-	{
-		//
-	}
+    /**
+     * Get drawable from index
+     *
+     * @param index index
+     * @return drawable
+     */
+    @OptIn(ExperimentalStdlibApi::class)
+    private fun getDrawable(index: Int): Drawable? {
+        if (drawables[index] == null) {
+            var resId = -1
+            when (Statusbar.ImageIndices.entries[index]) {
+                Statusbar.ImageIndices.INFO -> resId = R.drawable.status_info
+                Statusbar.ImageIndices.LINK -> resId = R.drawable.status_link
+                Statusbar.ImageIndices.MOUNT -> resId = R.drawable.status_mount
+                Statusbar.ImageIndices.SEARCH -> resId = R.drawable.status_search
+                else -> {}
+            }
+            if (resId != -1) {
+                drawables[index] = getDrawable(this.activity, resId)
+            }
+        }
+        return drawables[index]
+    }
 
-	@Override
-	public void setStyle(final String style0)
-	{
-		this.style = style0;
-	}
+    private val defaultBaseStyle: String
+        /**
+         * Default style
+         *
+         * @return default style
+         */
+        get() = "body {" + String.format("color: #%06X;", 0xFFFFFF and this.foreground) + String.format("background-color: #%06X;", 0xFFFFFF and this.background) + '}'
 
-	@SuppressLint("ObsoleteSdkInt")
-	@Override
-	public void put(final int image, @Nullable final Function<String[], String> converter, final String label0, final String[] content0)
-	{
-		// icon
-		final Drawable drawable = getDrawable(image);
+    companion object {
 
-		// tint drawable
-		Utils.tint(drawable, this.iconTint);
+        private const val TAG = "Statusbar"
 
-		// set
-		if (this.isHorizontal)
-		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
-		}
-		else
-		{
-			this.statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-		}
+        /**
+         * Base URL for webview
+         */
+        private var base = "file:///android_asset/"
 
-		// label
-		@Nullable String label = label0;
-		if (Statusbar.labelProcessor != null)
-		{
-			label = labelProcessor.apply(label, this);
-		}
-		this.statusView.setText(label == null ? "" : label);
+        /**
+         * Drawables
+         */
+        @OptIn(ExperimentalStdlibApi::class)
+        private val drawables = arrayOfNulls<Drawable>(Statusbar.ImageIndices.entries.size)
 
-		// content
-		if (this.webContentView != null)
-		{
-			@Nullable String content = converter == null ? Utils.join("<br>", content0) : converter.apply(content0);
-			if (Statusbar.contentProcessor != null)
-			{
-				content = contentProcessor.apply(content, this);
-			}
+        // P R O C E S S O R
 
-			if (content == null)
-			{
-				this.webContentView.loadUrl("about:blank");
-			}
-			else
-			{
-				@NonNull final StringBuilder html = new StringBuilder();
-				html.append("<html><head>");
-				html.append("<style type='text/css'>");
-				html.append(getDefaultBaseStyle());
-				if (this.style != null && !this.style.isEmpty())
-				{
-					html.append(this.style);
-				}
-				html.append("</style>");
-				html.append("</head><body><div class='body'>");
-				html.append(content);
-				html.append("</div></body></html>");
-				// Log.d(TAG, html.toString());
+        /**
+         * Label processor
+         */
+        private var labelProcessor: BiFunction<String?, View, String>? = null
 
-				this.webContentView.loadDataWithBaseURL(Statusbar.base, html.toString(), "text/html", "UTF-8", null);
-			}
-		}
-		else
-		{
-			assert this.textContentView != null;
-			this.textContentView.setText(Utils.join("\n", content0));
-		}
-	}
-
-	@Override
-	public void put(final String message)
-	{
-		this.statusView.setText(message);
-	}
-
-	/**
-	 * Get drawable from index
-	 *
-	 * @param index index
-	 * @return drawable
-	 */
-	private Drawable getDrawable(final int index)
-	{
-		if (Statusbar.drawables[index] == null)
-		{
-			int resId = -1;
-			switch (ImageIndices.values()[index])
-			{
-				case INFO:
-					resId = R.drawable.status_info;
-					break;
-				case LINK:
-					resId = R.drawable.status_link;
-					break;
-				case MOUNT:
-					resId = R.drawable.status_mount;
-					break;
-				case SEARCH:
-					resId = R.drawable.status_search;
-					break;
-				default:
-					break;
-			}
-			if (resId != -1)
-			{
-				Statusbar.drawables[index] = Utils.getDrawable(this.activity, resId);
-			}
-		}
-		return Statusbar.drawables[index];
-	}
-
-	/**
-	 * Default style
-	 *
-	 * @return default style
-	 */
-	@NonNull
-	@SuppressWarnings("boxing")
-	private String getDefaultBaseStyle()
-	{
-		return "body {" + String.format("color: #%06X;", 0xFFFFFF & this.foreground) + //
-				String.format("background-color: #%06X;", 0xFFFFFF & this.background) + //
-				'}';
-	}
-
-	/**
-	 * Set base for status bar
-	 *
-	 * @param base0 base URL
-	 */
-	public static void setBase(String base0)
-	{
-		Statusbar.base = base0;
-	}
+        /**
+         * Content processor
+         */
+        private var contentProcessor: BiFunction<String?, View, String>? = null
+    }
 }

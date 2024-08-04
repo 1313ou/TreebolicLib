@@ -1,26 +1,20 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.InflateException;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import org.treebolic.glue.R;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatDialog;
-import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.fragment.app.FragmentManager;
+import android.app.Activity
+import android.os.Bundle
+import android.view.InflateException
+import android.view.View
+import android.webkit.WebView
+import android.widget.FrameLayout
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDialog
+import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.FragmentManager
+import org.treebolic.glue.R
 
 /**
  * Tip dialog
@@ -28,123 +22,89 @@ import androidx.fragment.app.FragmentManager;
  * @author Bernard Bou
  * @noinspection WeakerAccess, WeakerAccess
  */
-@SuppressWarnings("EmptyMethod")
-public class Tip extends AppCompatDialogFragment
-{
-	/**
-	 * Text name (used when saving instance)
-	 */
-	private static final String STATE_TEXT = "org.treebolic.tip";
+class Tip : AppCompatDialogFragment() {
 
-	/**
-	 * Text
-	 */
-	@Nullable
-	private String text;
+    private var text: String? = null
 
-	/**
-	 * Constructor
-	 */
-	public Tip()
-	{
-		//
-	}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-	@Override
-	public void onCreate(@Nullable final Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+            this.text = savedInstanceState.getString(STATE_TEXT)
+        }
+    }
 
-		if (savedInstanceState != null)
-		{
-			// Restore value of members from saved state
-			this.text = savedInstanceState.getString(Tip.STATE_TEXT);
-		}
-	}
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(STATE_TEXT, this.text)
+        super.onSaveInstanceState(outState)
+    }
 
-	@Override
-	public void onSaveInstanceState(@NonNull final Bundle outState)
-	{
-		outState.putString(Tip.STATE_TEXT, this.text);
-		super.onSaveInstanceState(outState);
-	}
+    override fun onCreateDialog(savedInstanceState: Bundle?): AppCompatDialog {
+        // use the Builder class for convenient dialog construction
+        val activity: Activity = requireActivity()
+        val builder = AlertDialog.Builder(activity)
 
-	@NonNull
-	@Override
-	public AppCompatDialog onCreateDialog(final Bundle savedInstanceState)
-	{
-		// use the Builder class for convenient dialog construction
-		@NonNull final Activity activity = requireActivity();
-		@NonNull final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        // get the layout inflater
+        val inflater = activity.layoutInflater
 
-		// get the layout inflater
-		final LayoutInflater inflater = activity.getLayoutInflater();
+        val frameLayout = activity.findViewById<FrameLayout>(android.R.id.custom)
 
-		final FrameLayout frameLayout = activity.findViewById(android.R.id.custom);
+        // get the layout inflater
+        var view: View
+        try {
+            // try layout with a web view
+            // inflate layout for the dialog
+            view = inflater.inflate(R.layout.tip_layout, frameLayout, false)
 
-		// get the layout inflater
-		View view;
-		try
-		{
-			// try layout with a web view
-			// inflate layout for the dialog
-			view = inflater.inflate(R.layout.tip_layout, frameLayout, false);
+            // data
+            val webView = view.findViewById<WebView>(R.id.text)
+            webView.loadData((if (this.text == null) "" else this.text)!!, "text/html; charset=UTF-8", "utf-8")
+        } catch (e: InflateException) {
+            // fall back on layout with text view
+            // inflate layout for the dialog
+            view = inflater.inflate(R.layout.tip_layout_text, frameLayout, false)
 
-			// data
-			final WebView webView = view.findViewById(R.id.text);
-			webView.loadData(this.text == null ? "" : this.text, "text/html; charset=UTF-8", "utf-8");
-		}
-		catch (InflateException e)
-		{
-			// fall back on layout with text view
-			// inflate layout for the dialog
-			view = inflater.inflate(R.layout.tip_layout_text, frameLayout, false);
+            // data
+            val textView = view.findViewById<TextView>(R.id.text_text)
+            textView.text = text
+        }
 
-			// data
-			final TextView textView = view.findViewById(R.id.text_text);
-			textView.setText(this.text);
-		}
+        // attach view to the dialog
+        builder.setView(view)
 
-		// attach view to the dialog
-		builder.setView(view) //
-		// .setMessage(R.string.treebolic) //
-		// .setNegativeButton(R.string.action_dismiss, new DialogInterface.OnClickListener()
-		// {
-		// @Override
-		// public void onClick(DialogInterface dialog, int id)
-		// {
-		// // user cancelled the dialog
-		// }
-		// })
-		;
+        // create the dialog and return it
+        val dialog: AppCompatDialog = builder.create()
+        dialog.setCanceledOnTouchOutside(true)
+        return dialog
+    }
 
-		// create the dialog and return it
-		@NonNull final AppCompatDialog dialog = builder.create();
-		dialog.setCanceledOnTouchOutside(true);
-		return dialog;
-	}
+    /**
+     * Set text
+     *
+     * @param text0 text
+     */
+    fun setText(text0: String?) {
+        this.text = text0
+    }
 
-	/**
-	 * Set text
-	 *
-	 * @param text0 text
-	 */
-	@SuppressWarnings("WeakerAccess")
-	public void setText(@Nullable final String text0)
-	{
-		this.text = text0;
-	}
+    companion object {
 
-	/**
-	 * Convenience method to display tip
-	 *
-	 * @param manager fragment manager
-	 * @param text    text to display
-	 */
-	static public void tip(@NonNull FragmentManager manager, final String text)
-	{
-		@NonNull Tip tip = new Tip();
-		tip.setText(text);
-		tip.show(manager, STATE_TEXT);
-	}
+        /**
+         * Text name (used when saving instance)
+         */
+        private const val STATE_TEXT = "org.treebolic.tip"
+
+        /**
+         * Convenience method to display tip
+         *
+         * @param manager fragment manager
+         * @param text    text to display
+         */
+        fun tip(manager: FragmentManager, text: String?) {
+            val tip = Tip()
+            tip.setText(text)
+            tip.show(manager, STATE_TEXT)
+        }
+    }
 }

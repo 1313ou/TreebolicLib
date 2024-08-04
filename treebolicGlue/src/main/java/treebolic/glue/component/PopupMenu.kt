@@ -1,180 +1,127 @@
 /*
  * Copyright (c) 2019-2023. Bernard Bou
  */
+package treebolic.glue.component
 
-package treebolic.glue.component;
-
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-
-import org.treebolic.glue.R;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import treebolic.glue.ActionListener;
-import treebolic.glue.component.QuickAction.ActionItem;
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.view.View
+import org.treebolic.glue.R
+import treebolic.glue.ActionListener
+import treebolic.glue.component.QuickAction.ActionItem
+import treebolic.glue.component.Utils.getDrawable
+import treebolic.glue.iface.component.PopupMenu
+import treebolic.glue.iface.component.PopupMenu.LabelIndices
 
 /**
  * Popup context menu
  * API class
  *
+ * @property
+ * @property anchor anchor view
+ *
  * @author Bernard Bou
- * @noinspection WeakerAccess
  */
-public class PopupMenu implements treebolic.glue.iface.component.PopupMenu<Component, ActionListener>
-{
-	/**
-	 * Labels
-	 */
-	@Nullable
-	@SuppressWarnings("WeakerAccess")
-	static String[] labels = null; //{  "Cancel", "Info", "Focus", "Link", "Mount", "UnMount", "Goto", "Search" };
+class PopupMenu(
+    val context: Context,
+    private val anchor: View
+) : PopupMenu<Component?, ActionListener?> {
 
-	/**
-	 * Drawables, lazy cache
-	 */
-	@SuppressWarnings("WeakerAccess")
-	static final Drawable[] drawables = new Drawable[ImageIndices.IMAGE_COUNT.ordinal()];
+    /**
+     * Quick action component
+     */
+    private val quickAction: QuickAction
 
-	/**
-	 * Context
-	 */
-	@NonNull
-	@SuppressWarnings("WeakerAccess")
-	final Context context;
+    /**
+     * Constructor
+     */
+    init {
+        // labels: info,focus,linkto,mount,unmount,cancel
+        labels = context.resources.getStringArray(R.array.popup_labels)
+        assert(labels!!.size == LabelIndices.LABEL_COUNT.ordinal)
 
-	/**
-	 * Anchor view
-	 */
-	@SuppressWarnings("WeakerAccess")
-	final View anchor;
+        // create quickaction
+        quickAction = QuickAction(context, QuickAction.VERTICAL)
 
-	/**
-	 * Quick action component
-	 */
-	@NonNull
-	@SuppressWarnings({"WeakerAccess", "InstanceVariableOfConcreteClass"})
-	final QuickAction quickAction;
+        // set listener for on dismiss event
+        // this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.
+        quickAction.setOnDismissListener(QuickAction.OnDismissListener {})
+    }
 
-	/**
-	 * Constructor
-	 */
-	@SuppressWarnings("WeakerAccess")
-	protected PopupMenu(@NonNull final Context context, final View anchor)
-	{
-		this.context = context;
-		this.anchor = anchor;
+    /**
+     * Constructor
+     * API
+     *
+     * @param handle anchor view
+     */
+    constructor(handle: Any) : this((handle as View).context, handle)
 
-		// labels: info,focus,linkto,mount,unmount,cancel
-		labels = this.context.getResources().getStringArray(R.array.popup_labels);
-		assert labels.length == LabelIndices.LABEL_COUNT.ordinal();
+    override fun addItem(labelIdx: Int, label2: String?, resource: Int, listener: ActionListener?) {
+        // just click outside dialog
+        if (resource == PopupMenu.ImageIndices.IMAGE_CANCEL.ordinal) {
+            return
+        }
+        var label: String
+        if (labelIdx == -1) {
+            label = ""
+        } else {
+            checkNotNull(labels)
+            label = labels!![labelIdx]
+        }
+        if (label2 != null) {
+            label += " $label2"
+        }
+        val item = ActionItem(label, getDrawable(resource), false, listener)
+        quickAction.addActionItem(item)
+    }
 
-		// create quickaction
-		this.quickAction = new QuickAction(context, QuickAction.VERTICAL);
+    override fun addItem(labelIdx: Int, resource: Int, listener: ActionListener?) {
+        checkNotNull(labels)
+        val label = labels!![labelIdx]
+        addItem(-1, label, resource, listener)
+    }
 
-		// set listener for on dismiss event
-		// this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.
-		this.quickAction.setOnDismissListener((QuickAction.OnDismissListener) () -> {
-			//
-		});
-	}
+    override fun popup(component: Component?, x: Int, y: Int) {
+        quickAction.show(anchor, x.toFloat(), y.toFloat())
+    }
 
-	/**
-	 * Constructor
-	 * API
-	 *
-	 * @param handle anchor view
-	 */
-	public PopupMenu(@NonNull final Object handle)
-	{
-		this(((View) handle).getContext(), (View) handle);
-	}
+    /**
+     * Get drawable from index
+     *
+     * @param index index
+     * @return drawable
+     */
+    @OptIn(ExperimentalStdlibApi::class)
+    private fun getDrawable(index: Int): Drawable? {
+        if (drawables[index] == null) {
+            var resId = -1
+            when (PopupMenu.ImageIndices.entries[index]) {
+                PopupMenu.ImageIndices.IMAGE_CANCEL -> resId = R.drawable.menu_cancel
+                PopupMenu.ImageIndices.IMAGE_GOTO -> resId = R.drawable.menu_goto
+                PopupMenu.ImageIndices.IMAGE_SEARCH -> resId = R.drawable.menu_search
+                PopupMenu.ImageIndices.IMAGE_FOCUS -> resId = R.drawable.menu_focus
+                PopupMenu.ImageIndices.IMAGE_LINK -> resId = R.drawable.menu_link
+                PopupMenu.ImageIndices.IMAGE_MOUNT -> resId = R.drawable.menu_mount
+                PopupMenu.ImageIndices.IMAGE_INFO -> resId = R.drawable.menu_info
+                else -> {}
+            }
+            if (resId != -1) {
+                drawables[index] = getDrawable(context, resId)
+            }
+        }
+        return drawables[index]
+    }
 
-	@Override
-	public void addItem(final int labelIdx, @Nullable final String label2, final int resource, final ActionListener listener)
-	{
-		// just click outside dialog
-		if (resource == ImageIndices.IMAGE_CANCEL.ordinal())
-		{
-			return;
-		}
+    companion object {
 
-		String label;
-		if (labelIdx == -1)
-		{
-			label = "";
-		}
-		else
-		{
-			assert labels != null;
-			label = labels[labelIdx];
-		}
-		if (label2 != null)
-		{
-			label += ' ' + label2;
-		}
+        /**
+         * Labels
+         */
+        var labels: Array<String>? = null // arrayOf({  "Cancel", "Info", "Focus", "Link", "Mount", "UnMount", "Goto", "Search")
 
-		@NonNull final ActionItem item = new ActionItem(label, getDrawable(resource), false, listener);
-		this.quickAction.addActionItem(item);
-	}
-
-	@Override
-	public void addItem(final int labelIdx, final int resource, final ActionListener listener)
-	{
-		assert labels != null;
-		final String label = labels[labelIdx];
-		addItem(-1, label, resource, listener);
-	}
-
-	@Override
-	public void popup(final Component component, final int x, final int y)
-	{
-		this.quickAction.show(this.anchor, x, y);
-	}
-
-	/**
-	 * Get drawable from index
-	 *
-	 * @param index index
-	 * @return drawable
-	 */
-	private Drawable getDrawable(final int index)
-	{
-		if (PopupMenu.drawables[index] == null)
-		{
-			int resId = -1;
-			switch (ImageIndices.values()[index])
-			{
-				case IMAGE_CANCEL:
-					resId = R.drawable.menu_cancel;
-					break;
-				case IMAGE_GOTO:
-					resId = R.drawable.menu_goto;
-					break;
-				case IMAGE_SEARCH:
-					resId = R.drawable.menu_search;
-					break;
-				case IMAGE_FOCUS:
-					resId = R.drawable.menu_focus;
-					break;
-				case IMAGE_LINK:
-					resId = R.drawable.menu_link;
-					break;
-				case IMAGE_MOUNT:
-					resId = R.drawable.menu_mount;
-					break;
-				case IMAGE_INFO:
-					resId = R.drawable.menu_info;
-					break;
-				default:
-					break;
-			}
-			if (resId != -1)
-			{
-				PopupMenu.drawables[index] = Utils.getDrawable(this.context, resId);
-			}
-		}
-		return PopupMenu.drawables[index];
-	}
+        /**
+         * Drawables, lazy cache
+         */
+        val drawables: Array<Drawable?> = arrayOfNulls(PopupMenu.ImageIndices.IMAGE_COUNT.ordinal)
+    }
 }

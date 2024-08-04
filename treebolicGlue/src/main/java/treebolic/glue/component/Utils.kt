@@ -218,33 +218,4 @@ object Utils {
             return size
         }
     }
-
-    /**
-     * Join character sequences
-     *
-     * @param delim delimiter
-     * @param strs  input character sequences
-     * @return string output
-     */
-    @JvmStatic
-    fun join(delim: CharSequence, strs: Array<CharSequence?>?): String {
-        if (strs == null) {
-            return ""
-        }
-
-        val sb = StringBuilder()
-        var first = true
-        for (str in strs) {
-            if (str.isNullOrEmpty()) {
-                continue
-            }
-            if (first) {
-                first = false
-            } else {
-                sb.append(delim)
-            }
-            sb.append(str)
-        }
-        return sb.toString()
-    }
 }
