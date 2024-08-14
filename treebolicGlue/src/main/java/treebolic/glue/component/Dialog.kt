@@ -242,7 +242,7 @@ class Dialog : AppCompatDialogFragment(), Dialog {
         /**
          * Base URL for webview
          */
-        private var base = "file:///android_asset/"
+        var base = "file:///android_asset/"
 
         /**
          * Set base for webview
