@@ -34,7 +34,7 @@ import treebolic.glue.iface.component.Toolbar
  */
 class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
-    val context = handle as Context
+    private val context = handle as Context
 
     /**
      * Buttons
@@ -120,8 +120,6 @@ class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
         // interface button to implementation
         val name = button.name
         val impl = ButtonImplementation.valueOf(name)
-
-        val context = context
 
         // new button
         val imageButton = ImageButton(context)
