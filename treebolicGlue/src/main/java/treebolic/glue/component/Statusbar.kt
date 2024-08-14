@@ -39,7 +39,7 @@ import java.util.function.Function
  * @noinspection WeakerAccess
  */
 @SuppressLint("CutPasteId")
-class Statusbar (
+class Statusbar(
     private val activity: AppCompatActivity
 ) : FrameLayout(activity), Statusbar {
 
@@ -185,7 +185,7 @@ class Statusbar (
     }
 
     @SuppressLint("ObsoleteSdkInt")
-    override fun put(image: Int, converter: Function<Array<out String>, String>?, label0: String, content0: Array<out String>) {
+    override fun put(image: Int, converter: Function<Array<out String>, String>?, label0: String?, content0: Array<out String>) {
         // icon
         val drawable = getDrawable(image)
 
@@ -202,7 +202,7 @@ class Statusbar (
         // label
         var label = label0
         if (labelProcessor != null) {
-            label = labelProcessor!!.apply(label, this)
+            label = labelProcessor!!.invoke(label, this)
         }
         statusView.text = label
 
@@ -280,7 +280,7 @@ class Statusbar (
         /**
          * Base URL for webview
          */
-        private var base = "file:///android_asset/"
+        var base = "file:///android_asset/"
 
         /**
          * Drawables
@@ -293,7 +293,7 @@ class Statusbar (
         /**
          * Label processor
          */
-        private var labelProcessor: BiFunction<String?, View, String>? = null
+        var labelProcessor: ((String?, View) -> String?)? = null
 
         /**
          * Content processor
