@@ -4,7 +4,6 @@
 package treebolic.glue.component
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.Point
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -34,54 +33,15 @@ object Utils {
     @JvmStatic
     fun fetchColors(context: Context, vararg attrs: Int): IntArray {
         val typedValue = TypedValue()
-        // try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
-        var array: TypedArray? = null
-        try {
-            array = context.obtainStyledAttributes(typedValue.data, attrs)
+        context.obtainStyledAttributes(typedValue.data, attrs).use {
             val colors = IntArray(attrs.size)
             for (i in attrs.indices) {
-                colors[i] = array.getColor(i, 0)
+                colors[i] = it.getColor(i, 0)
             }
             return colors
-        } finally {
-            array?.recycle()
         }
     }
 
-    /*
-	 * Get color from theme
-	 *
-	 * @param context      context
-	 * @param styleId      style id (ex: R.style.MyTheme)
-	 * @param colorAttrIds attr ids (ex: R.attr.editTextColor)
-	 * @return colors
-	 */
-    /*
-	@SuppressWarnings("WeakerAccess")
-	@NonNull
-	static public int[] fetchColorsFromStyle(@NonNull final Context context, @NonNull int styleId, @NonNull int... colorAttrIds)
-	{
-		// try (final TypedArray array = context.obtainStyledAttributes(styleId, colorAttrIds))
-		TypedArray array = null;
-		try
-		{
-			array = context.obtainStyledAttributes(styleId, colorAttrIds);
-			final int[] colors = new int[colorAttrIds.length];
-			for (int i = 0; i < colorAttrIds.length; i++)
-			{
-				colors[i] = array.getColor(i, 0);
-			}
-			return colors;
-		}
-		finally
-		{
-			if (array != null)
-			{
-				array.recycle();
-			}
-		}
-	}
-	*/
     /**
      * Fetch colors resources
      *
@@ -91,38 +51,15 @@ object Utils {
      */
     fun fetchColorsNullable(context: Context, vararg attrs: Int): Array<Int?> {
         val typedValue = TypedValue()
-        // try (final TypedArray array = context.obtainStyledAttributes(typedValue.data, attrs))
-        var array: TypedArray? = null
-        try {
-            array = context.obtainStyledAttributes(typedValue.data, attrs)
+        context.obtainStyledAttributes(typedValue.data, attrs).use {
             val colors = arrayOfNulls<Int>(attrs.size)
             for (i in attrs.indices) {
-                colors[i] = if (array.hasValue(i)) array.getColor(i, 0) else null
+                colors[i] = if (it.hasValue(i)) it.getColor(i, 0) else null
             }
             return colors
-        } finally {
-            array?.recycle()
         }
     }
 
-    /*
-	static public int fetchColor(final Context context, int attr)
-	{
-		final TypedValue typedValue = new TypedValue();
-		final Resources.Theme theme = context.getTheme();
-		theme.resolveAttribute(attr, typedValue, true);
-		return typedValue.data;
-	}
-	*/
-    /*
-	static public Integer fetchColorNullable(final Context context, int attr)
-	{
-		final TypedValue typedValue = new TypedValue();
-		final Resources.Theme theme = context.getTheme();
-		theme.resolveAttribute(attr, typedValue, true);
-		return typedValue.type == TypedValue.TYPE_NULL ? null : typedValue.data;
-	}
-	*/
     /**
      * Get color
      *
