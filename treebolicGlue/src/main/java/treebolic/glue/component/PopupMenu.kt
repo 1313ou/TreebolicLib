@@ -45,7 +45,10 @@ class PopupMenu(
 
         // set listener for on dismiss event
         // this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.
-        quickAction.setOnDismissListener(QuickAction.OnDismissListener {})
+        quickAction.setOnDismissListener(object: QuickAction.OnDismissListener {
+            override fun onDismiss() {
+            }
+        })
     }
 
     /**
@@ -71,7 +74,7 @@ class PopupMenu(
         if (label2 != null) {
             label += " $label2"
         }
-        val item = ActionItem(label, getDrawable(resource), false, listener)
+        val item = ActionItem(label, getDrawable(resource)!!, false, listener)
         quickAction.addActionItem(item)
     }
 
