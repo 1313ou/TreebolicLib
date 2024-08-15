@@ -19,10 +19,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.FragmentManager
 import org.treebolic.glue.R
 import treebolic.glue.component.Utils.fetchColors
 import treebolic.glue.iface.ActionListener
-import treebolic.glue.iface.component.Dialog
 import java.util.function.Function
 
 /**
@@ -32,7 +32,7 @@ import java.util.function.Function
  * @author Bernard Bou
  * @noinspection WeakerAccess
  */
-open class Dialog : AppCompatDialogFragment(), Dialog {
+open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Dialog {
 
     /**
      * Header
@@ -55,9 +55,19 @@ open class Dialog : AppCompatDialogFragment(), Dialog {
     private var style: String? = null
 
     /**
-     * Activity
+     * Fragment manager
      */
-    private var activity: AppCompatActivity? = null
+    private var fragmentManager: FragmentManager? = null
+
+    /**
+     * Use handle override to get fragment manager
+     *
+     * @param handle activity
+     */
+    override fun setHandle(handle: Any) {
+        val activity = handle as AppCompatActivity
+        fragmentManager = activity.supportFragmentManager
+    }
 
     /**
      * Action listener
@@ -74,10 +84,6 @@ open class Dialog : AppCompatDialogFragment(), Dialog {
      */
     private var foreground = 0
 
-    override fun setHandle(handle: Any) {
-        this.activity = handle as AppCompatActivity
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -88,7 +94,7 @@ open class Dialog : AppCompatDialogFragment(), Dialog {
         }
 
         // colors
-        val colors = fetchColors(requireActivity(), R.attr.treebolic_dialog_background, R.attr.treebolic_dialog_foreground, R.attr.treebolic_dialog_foreground_enhanced, R.attr.treebolic_dialog_foreground_icon)
+        val colors = fetchColors(requireContext(), R.attr.treebolic_dialog_background, R.attr.treebolic_dialog_foreground, R.attr.treebolic_dialog_foreground_enhanced, R.attr.treebolic_dialog_foreground_icon)
         background = colors[0]
         foreground = colors[1]
     }
@@ -210,7 +216,7 @@ open class Dialog : AppCompatDialogFragment(), Dialog {
      * Show
      */
     override fun display() {
-        show(requireActivity().supportFragmentManager, "info")
+        fragmentManager?.let { show(it, "info") }
     }
 
     private val defaultBaseStyle: String
