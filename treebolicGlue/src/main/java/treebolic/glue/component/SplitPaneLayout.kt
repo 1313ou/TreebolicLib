@@ -47,12 +47,13 @@ class SplitPaneLayout : ViewGroup {
      * Splitter position (== Integer.MIN_VALUE if splitterPositionPercent is used)
      */
     private var splitterPosition: Int = 0
-        set(position0) {
+
+    fun positionSplitterAbsolute(position0: Int) {
             var position = position0
             if (position < 0) {
                 position = 0
             }
-            field = position
+            splitterPosition = position
             splitterPositionPercent = -1f
             if (childCount == 2) {
                 remeasure()
@@ -63,7 +64,8 @@ class SplitPaneLayout : ViewGroup {
      * Splitter relative position (== -1 if splitterPosition is used)
      */
     var splitterPositionPercent: Float = 0F
-        set(positionPercent0) {
+
+    fun positionSplitterPercent(positionPercent0: Float) {
             var positionPercent = positionPercent0
             if (positionPercent < 0f) {
                 positionPercent = 0f
@@ -71,7 +73,7 @@ class SplitPaneLayout : ViewGroup {
             if (positionPercent > 1f) {
                 positionPercent = 1f
             }
-            field = positionPercent
+            splitterPositionPercent = positionPercent
             splitterPosition = Int.MIN_VALUE
             if (childCount == 2) {
                 remeasure()
@@ -245,31 +247,31 @@ class SplitPaneLayout : ViewGroup {
         check()
 
         if (widthSize > 0 && heightSize > 0) {
-            when (this.orientation) {
+            when (orientation) {
                 ORIENTATION_HORIZONTAL -> {
                     // neither specified
                     // middle: p=# %=-1
-                    if (this.splitterPosition == Int.MIN_VALUE && this.splitterPositionPercent < 0) {
-                        this.splitterPosition = widthSize / 2
-                    } else if (this.splitterPosition != Int.MIN_VALUE && this.splitterPositionPercent < 0) {
-                        this.splitterPositionPercent = splitterPosition.toFloat() / widthSize.toFloat()
-                    } else if ( /* this.splitterPosition == Integer.MIN_VALUE && */this.splitterPositionPercent >= 0) {
-                        this.splitterPosition = (widthSize * this.splitterPositionPercent).toInt()
+                    if (splitterPosition == Int.MIN_VALUE && splitterPositionPercent < 0) {
+                        splitterPosition = widthSize / 2
+                    } else if (splitterPosition != Int.MIN_VALUE && splitterPositionPercent < 0) {
+                        splitterPositionPercent = splitterPosition.toFloat() / widthSize.toFloat()
+                    } else if ( /* splitterPosition == Integer.MIN_VALUE && */splitterPositionPercent >= 0) {
+                        splitterPosition = (widthSize * splitterPositionPercent).toInt()
                     }
-                    getChildAt(0).measure(MeasureSpec.makeMeasureSpec(this.splitterPosition - this.splitterSize / 2, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY))
-                    getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize - this.splitterSize / 2 - this.splitterPosition, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY))
+                    getChildAt(0).measure(MeasureSpec.makeMeasureSpec(splitterPosition - splitterSize / 2, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY))
+                    getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize - splitterSize / 2 - splitterPosition, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY))
                 }
 
                 ORIENTATION_VERTICAL -> {
-                    if (this.splitterPosition == Int.MIN_VALUE && this.splitterPositionPercent < 0) {
-                        this.splitterPosition = heightSize / 2
-                    } else if (this.splitterPosition != Int.MIN_VALUE && this.splitterPositionPercent < 0) {
-                        this.splitterPositionPercent = splitterPosition.toFloat() / heightSize.toFloat()
-                    } else if ( /* this.splitterPosition == Integer.MIN_VALUE && */this.splitterPositionPercent >= 0) {
-                        this.splitterPosition = (heightSize * this.splitterPositionPercent).toInt()
+                    if (splitterPosition == Int.MIN_VALUE && splitterPositionPercent < 0) {
+                        splitterPosition = heightSize / 2
+                    } else if (splitterPosition != Int.MIN_VALUE && splitterPositionPercent < 0) {
+                        splitterPositionPercent = splitterPosition.toFloat() / heightSize.toFloat()
+                    } else if ( /* splitterPosition == Integer.MIN_VALUE && */splitterPositionPercent >= 0) {
+                        splitterPosition = (heightSize * splitterPositionPercent).toInt()
                     }
-                    getChildAt(0).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(this.splitterPosition - this.splitterSize / 2, MeasureSpec.EXACTLY))
-                    getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize - this.splitterSize / 2 - this.splitterPosition, MeasureSpec.EXACTLY))
+                    getChildAt(0).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(splitterPosition - splitterSize / 2, MeasureSpec.EXACTLY))
+                    getChildAt(1).measure(MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(heightSize - splitterSize / 2 - splitterPosition, MeasureSpec.EXACTLY))
                 }
 
                 else -> {}
@@ -280,17 +282,17 @@ class SplitPaneLayout : ViewGroup {
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val w = r - l
         val h = b - t
-        when (this.orientation) {
+        when (orientation) {
             ORIENTATION_HORIZONTAL -> {
-                getChildAt(0).layout(0, 0, this.splitterPosition - this.splitterSize / 2, h)
-                splitterRect[splitterPosition - this.splitterSize / 2, 0, splitterPosition + this.splitterSize / 2] = h
-                getChildAt(1).layout(this.splitterPosition + this.splitterSize / 2, 0, r, h)
+                getChildAt(0).layout(0, 0, splitterPosition - splitterSize / 2, h)
+                splitterRect[splitterPosition - splitterSize / 2, 0, splitterPosition + splitterSize / 2] = h
+                getChildAt(1).layout(splitterPosition + splitterSize / 2, 0, r, h)
             }
 
             ORIENTATION_VERTICAL -> {
-                getChildAt(0).layout(0, 0, w, this.splitterPosition - this.splitterSize / 2)
-                splitterRect[0, splitterPosition - this.splitterSize / 2, w] = this.splitterPosition + this.splitterSize / 2
-                getChildAt(1).layout(0, this.splitterPosition + this.splitterSize / 2, w, h)
+                getChildAt(0).layout(0, 0, w, splitterPosition - splitterSize / 2)
+                splitterRect[0, splitterPosition - splitterSize / 2, w] = splitterPosition + splitterSize / 2
+                getChildAt(1).layout(0, splitterPosition + splitterSize / 2, w, h)
             }
 
             else -> {}
@@ -299,12 +301,12 @@ class SplitPaneLayout : ViewGroup {
 
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
-        if (this.splitterDrawable != null) {
-            splitterDrawable!!.bounds = this.splitterRect
+        if (splitterDrawable != null) {
+            splitterDrawable!!.bounds = splitterRect
             splitterDrawable!!.draw(canvas)
         }
-        if (this.isDragging) {
-            splitterDraggingDrawable!!.bounds = this.splitterRectangle
+        if (isDragging) {
+            splitterDraggingDrawable!!.bounds = splitterRectangle
             splitterDraggingDrawable!!.draw(canvas)
         }
     }
@@ -313,7 +315,7 @@ class SplitPaneLayout : ViewGroup {
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (this.isSplitterMovable) {
+        if (isSplitterMovable) {
             val x = event.x.toInt()
             val y = event.y.toInt()
 
@@ -321,48 +323,48 @@ class SplitPaneLayout : ViewGroup {
                 MotionEvent.ACTION_DOWN -> {
                     if (splitterRect.contains(x, y)) {
                         performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-                        this.isDragging = true
-                        splitterRectangle.set(this.splitterRect)
+                        isDragging = true
+                        splitterRectangle.set(splitterRect)
                         invalidate()
-                        this.lastTouchX = x
-                        this.lastTouchY = y
+                        lastTouchX = x
+                        lastTouchY = y
                     }
                 }
 
                 MotionEvent.ACTION_MOVE -> {
-                    if (this.isDragging) {
-                        when (this.orientation) {
+                    if (isDragging) {
+                        when (orientation) {
                             ORIENTATION_HORIZONTAL -> {
-                                splitterRectangle.offset(x - this.lastTouchX, 0)
+                                splitterRectangle.offset(x - lastTouchX, 0)
                             }
 
                             ORIENTATION_VERTICAL -> {
-                                splitterRectangle.offset(0, y - this.lastTouchY)
+                                splitterRectangle.offset(0, y - lastTouchY)
                             }
 
                             else -> {}
                         }
-                        this.lastTouchX = x
-                        this.lastTouchY = y
+                        lastTouchX = x
+                        lastTouchY = y
                         invalidate()
                     }
                 }
 
                 MotionEvent.ACTION_UP -> {
-                    if (this.isDragging) {
-                        this.isDragging = false
-                        when (this.orientation) {
+                    if (isDragging) {
+                        isDragging = false
+                        when (orientation) {
                             ORIENTATION_HORIZONTAL -> {
-                                this.splitterPosition = x
+                                positionSplitterAbsolute(x)
                             }
 
                             ORIENTATION_VERTICAL -> {
-                                this.splitterPosition = y
+                                positionSplitterAbsolute(y)
                             }
 
                             else -> {}
                         }
-                        this.splitterPositionPercent = -1f
+                        splitterPositionPercent = -1f
                         remeasure()
                         requestLayout()
                     }
@@ -426,7 +428,7 @@ class SplitPaneLayout : ViewGroup {
     public override fun onSaveInstanceState(): Parcelable {
         val superState = super.onSaveInstanceState()
         val savedState = SavedState(superState)
-        savedState.splitterPositionPercent = this.splitterPositionPercent
+        savedState.splitterPositionPercent = splitterPositionPercent
         return savedState
     }
 
@@ -452,12 +454,12 @@ class SplitPaneLayout : ViewGroup {
         internal constructor(superState: Parcelable?) : super(superState)
 
         private constructor(`in`: Parcel) : super(`in`) {
-            this.splitterPositionPercent = `in`.readFloat()
+            splitterPositionPercent = `in`.readFloat()
         }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)
-            out.writeFloat(this.splitterPositionPercent)
+            out.writeFloat(splitterPositionPercent)
         }
 
         override fun describeContents(): Int {
