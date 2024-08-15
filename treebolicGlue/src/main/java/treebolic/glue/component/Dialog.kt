@@ -32,7 +32,7 @@ import java.util.function.Function
  * @author Bernard Bou
  * @noinspection WeakerAccess
  */
-class Dialog : AppCompatDialogFragment(), Dialog {
+open class Dialog : AppCompatDialogFragment(), Dialog {
 
     /**
      * Header
@@ -243,14 +243,5 @@ class Dialog : AppCompatDialogFragment(), Dialog {
          * Base URL for webview
          */
         var base = "file:///android_asset/"
-
-        /**
-         * Set base for webview
-         *
-         * @param base0 base URL
-         */
-        fun setBase(base0: String) {
-            base = base0
-        }
     }
 }

@@ -26,7 +26,6 @@ import treebolic.glue.component.Utils.screenSize
 import treebolic.glue.component.Utils.tint
 import treebolic.glue.iface.ActionListener
 import treebolic.glue.iface.component.Statusbar
-import java.util.function.BiFunction
 import java.util.function.Function
 
 /**
@@ -39,11 +38,13 @@ import java.util.function.Function
  * @noinspection WeakerAccess
  */
 @SuppressLint("CutPasteId")
-class Statusbar(
-    private val activity: AppCompatActivity
-) : FrameLayout(activity), Statusbar {
+open class Statusbar(
+    handle: Any
+) : FrameLayout(handle as AppCompatActivity), Statusbar {
 
-    /**
+   private val activity: AppCompatActivity = handle as AppCompatActivity
+
+   /**
      * Main status view
      */
     private val statusView: TextView
@@ -208,9 +209,9 @@ class Statusbar(
 
         // content
         if (this.webContentView != null) {
-            var content = converter?.apply(content0) ?: content0.joinToString("<br>")
+            var content: String? = converter?.apply(content0) ?: content0.joinToString("<br>")
             if (contentProcessor != null) {
-                content = contentProcessor!!.apply(content, this)
+                content = contentProcessor!!.invoke(content, this)
             }
 
             if (content == null) {
@@ -298,6 +299,6 @@ class Statusbar(
         /**
          * Content processor
          */
-        private var contentProcessor: BiFunction<String?, View, String>? = null
+        private var contentProcessor: ((String?, View) -> String?)? = null
     }
 }

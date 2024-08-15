@@ -32,7 +32,7 @@ import treebolic.glue.iface.component.Toolbar
  *
  * @author Bernard Bou
  */
-class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
+open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
     private val context = handle as Context
 
