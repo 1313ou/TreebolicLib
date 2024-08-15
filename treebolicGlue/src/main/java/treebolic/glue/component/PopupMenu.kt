@@ -22,7 +22,7 @@ import treebolic.glue.iface.component.PopupMenu.LabelIndices
  *
  * @author Bernard Bou
  */
-class PopupMenu(
+open class PopupMenu(
     val context: Context,
     private val anchor: View
 ) : PopupMenu<Component?, ActionListener?> {

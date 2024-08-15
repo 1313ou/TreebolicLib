@@ -32,7 +32,7 @@ import java.util.function.Function
  * Status bar
  * API class
  *
- * @param activity activity
+ * @param handle handle to activity
  *
  * @author Bernard Bou
  * @noinspection WeakerAccess
