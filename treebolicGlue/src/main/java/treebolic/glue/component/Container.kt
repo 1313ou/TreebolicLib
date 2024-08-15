@@ -21,7 +21,7 @@ import treebolic.glue.iface.component.Container
  *
  * @author Bernard Bou
  */
-class Container(handle: Any?) : LinearLayout(handle as Context?), Component, Container<Component?> {
+open class Container(handle: Any?) : LinearLayout(handle as Context?), Component, Container<Component?> {
 
     private val isHorizontal: Boolean
 
@@ -87,10 +87,10 @@ class Container(handle: Any?) : LinearLayout(handle as Context?), Component, Con
         if (view != null && statusbar != null) {
             val splitLayout = SplitPaneLayout(context)
             splitLayout.orientation = if (isHorizontal) 0 else 1
-            splitLayout.splitterPositionPercent = splitterPositionPercent
             splitLayout.isSplitterMovable = true
             splitLayout.splitterDrawable = getSplitterDrawable(false)
             splitLayout.splitterDraggingDrawable = getSplitterDrawable(true)
+            splitLayout.positionSplitterPercent(splitterPositionPercent)
 
             addView(splitLayout)
             layout = splitLayout
