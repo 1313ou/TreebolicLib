@@ -193,6 +193,11 @@ public class Dialog extends AppCompatDialogFragment implements treebolic.glue.if
 			// client
 			webView.setWebViewClient(makeWebViewClient());
 
+			// webview config
+			webView.getSettings().setAllowFileAccess(true);
+			// webView.getSettings().setAllowFileAccessFromFileURLs(true);
+			// webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+
 			// load
 			//webView.loadDataWithBaseURL(base, html.toString(), "text/html; charset=UTF-8", "UTF-8", null);
 			webView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null);
