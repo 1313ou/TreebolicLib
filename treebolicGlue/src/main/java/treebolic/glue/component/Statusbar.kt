@@ -119,8 +119,7 @@ open class Statusbar(
             webContentView0.isFocusable = false
             webContentView0.setBackgroundColor(background)
             webContentView0.settings.allowFileAccess = true
-            webContentView0.webViewClient = object : WebViewClient(
-            ) {
+            webContentView0.webViewClient = object : WebViewClient() {
                 private var intercept = false
 
                 override fun onPageFinished(view0: WebView, url: String) {
