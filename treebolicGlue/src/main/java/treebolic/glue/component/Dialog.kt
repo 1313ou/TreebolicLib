@@ -135,7 +135,8 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
             html.append("</style>")
             html.append("</head><body><div class='body'>")
             if (converter != null) {
-                html.append(converter!!.apply(content!!))
+                val content2 = converter!!.apply(content!!)
+                html.append(content2)
             } else {
                 html.append(content?.joinToString("<br>"))
             }
