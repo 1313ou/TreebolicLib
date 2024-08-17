@@ -42,9 +42,9 @@ open class Statusbar(
     handle: Any
 ) : FrameLayout(handle as AppCompatActivity), Statusbar {
 
-   private val activity: AppCompatActivity = handle as AppCompatActivity
+    private val activity: AppCompatActivity = handle as AppCompatActivity
 
-   /**
+    /**
      * Main status view
      */
     private val statusView: TextView
@@ -68,6 +68,10 @@ open class Statusbar(
      * Style
      */
     private var style: String? = null
+
+    override fun setStyle(style0: String) {
+        style = style0
+    }
 
     /**
      * Background
@@ -93,15 +97,15 @@ open class Statusbar(
 
     init {
         // determine orientation
-        val size = screenSize(this.activity)
+        val size = screenSize(activity)
         val isHorizontalScreen = size.x >= size.y
-        this.isHorizontal = !isHorizontalScreen
+        isHorizontal = !isHorizontalScreen
 
         // colors
-        val colors = fetchColors(this.activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_icon)
-        this.background = colors[0]
-        this.foreground = colors[1]
-        this.iconTint = colors[2]
+        val colors = fetchColors(activity, R.attr.treebolic_statusbar_background, R.attr.treebolic_statusbar_foreground, R.attr.treebolic_statusbar_foreground_icon)
+        background = colors[0]
+        foreground = colors[1]
+        iconTint = colors[2]
 
         // inflate
         val inflater = checkNotNull(activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
@@ -113,14 +117,14 @@ open class Statusbar(
             statusView0 = wrappedView.findViewById(R.id.status)
             webContentView0 = wrappedView.findViewById(R.id.content)
             webContentView0.isFocusable = false
-            webContentView0.setBackgroundColor(this.background)
+            webContentView0.setBackgroundColor(background)
             webContentView0.settings.allowFileAccess = true
             webContentView0.webViewClient = object : WebViewClient(
             ) {
                 private var intercept = false
 
                 override fun onPageFinished(view0: WebView, url: String) {
-                    this.intercept = true
+                    intercept = true
                 }
 
                 @Deprecated("Deprecated in Java")
@@ -159,10 +163,10 @@ open class Statusbar(
         val drawable = getDrawable(image)
 
         // tint drawable
-        tint(drawable!!, this.iconTint)
+        tint(drawable!!, iconTint)
 
         // set
-        if (this.isHorizontal) {
+        if (isHorizontal) {
             statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
         } else {
             statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null)
@@ -181,20 +185,16 @@ open class Statusbar(
         //
     }
 
-    override fun setStyle(style0: String) {
-        this.style = style0
-    }
-
     @SuppressLint("ObsoleteSdkInt")
     override fun put(image: Int, converter: Function<Array<out String>, String>?, label0: String?, content0: Array<out String>) {
         // icon
         val drawable = getDrawable(image)
 
         // tint drawable
-        tint(drawable!!, this.iconTint)
+        tint(drawable!!, iconTint)
 
         // set
-        if (this.isHorizontal) {
+        if (isHorizontal) {
             statusView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
         } else {
             statusView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null)
@@ -208,7 +208,7 @@ open class Statusbar(
         statusView.text = label
 
         // content
-        if (this.webContentView != null) {
+        if (webContentView != null) {
             var content: String? = converter?.apply(content0) ?: content0.joinToString("<br>")
             if (contentProcessor != null) {
                 content = contentProcessor!!.invoke(content, this)
@@ -221,8 +221,8 @@ open class Statusbar(
                 html.append("<html><head>")
                 html.append("<style type='text/css'>")
                 html.append(defaultBaseStyle)
-                if (this.style != null && style!!.isNotEmpty()) {
-                    html.append(this.style)
+                if (style != null && style!!.isNotEmpty()) {
+                    html.append(style)
                 }
                 html.append("</style>")
                 html.append("</head><body><div class='body'>")
@@ -233,7 +233,7 @@ open class Statusbar(
                 webContentView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null)
             }
         } else {
-            checkNotNull(this.textContentView)
+            checkNotNull(textContentView)
             textContentView.text = content0.joinToString("\n")
         }
     }
@@ -260,19 +260,17 @@ open class Statusbar(
                 else -> {}
             }
             if (resId != -1) {
-                drawables[index] = getDrawable(this.activity, resId)
+                drawables[index] = getDrawable(activity, resId)
             }
         }
         return drawables[index]
     }
 
+    /**
+     * Default style
+     */
     private val defaultBaseStyle: String
-        /**
-         * Default style
-         *
-         * @return default style
-         */
-        get() = "body {" + String.format("color: #%06X;", 0xFFFFFF and this.foreground) + String.format("background-color: #%06X;", 0xFFFFFF and this.background) + '}'
+        get() = "body {" + String.format("color: #%06X;", 0xFFFFFF and foreground) + String.format("background-color: #%06X;", 0xFFFFFF and background) + '}'
 
     companion object {
 
@@ -289,7 +287,7 @@ open class Statusbar(
         @OptIn(ExperimentalStdlibApi::class)
         private val drawables = arrayOfNulls<Drawable>(Statusbar.ImageIndices.entries.size)
 
-        // P R O C E S S O R
+        // P R O C E S S O R S
 
         /**
          * Label processor
