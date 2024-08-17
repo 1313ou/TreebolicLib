@@ -145,6 +145,11 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
             // client
             webView.webViewClient = makeWebViewClient()
 
+            // settings
+            webView.settings.allowFileAccess = true
+            // webView.settings.allowFileAccessFromFileURLs = true
+            // webView.settings.allowUniversalAccessFromFileURLs = true
+
             // load
             webView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null)
         } catch (e: InflateException) {
@@ -169,8 +174,7 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
     }
 
     private fun makeWebViewClient(): WebViewClient {
-        return object : WebViewClient(
-        ) {
+        return object : WebViewClient() {
             private var intercept = false
 
             override fun onPageFinished(view0: WebView, url: String) {
