@@ -191,8 +191,7 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
                 return false
             }
 
-            @TargetApi(Build.VERSION_CODES.N)
-            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+           override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 val uri = request.url
                 if (intercept && uri != null) {
                     Log.d(TAG, "url:$uri")

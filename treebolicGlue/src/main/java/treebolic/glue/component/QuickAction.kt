@@ -23,12 +23,7 @@ import treebolic.glue.component.Utils.screenWidth
 
 /**
  * QuickAction dialog, shows action list as icon and text like the one in Gallery3D app. Currently, supports vertical and horizontal layout.
- *
- * @param title    title
- * @param icon     icon to use
- * @param sticky   whether item is sticky (disable QuickAction dialog being dismissed after an item is clicked)
- * @param listener listener
- *
+*
  * @author Lorensius W. L. T <lorenz></lorenz>@londatiga.net> Contributors: - Kevin Peck <kevinwpeck></kevinwpeck>@gmail.com>
  */
 class QuickAction @JvmOverloads constructor(
@@ -38,6 +33,11 @@ class QuickAction @JvmOverloads constructor(
 
     /**
      * Action item
+     *
+     * @param title    title
+     * @param icon     icon to use
+     * @param sticky   whether item is sticky (disable QuickAction dialog being dismissed after an item is clicked)
+     * @param listener listener
      */
     class ActionItem(
         /**
@@ -61,7 +61,7 @@ class QuickAction @JvmOverloads constructor(
     /**
      * Layout inflater
      */
-    private val inflater: LayoutInflater? = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     /**
      *
@@ -247,10 +247,10 @@ class QuickAction @JvmOverloads constructor(
         val anchorRect = Rect(location[0], location[1], location[0] + anchor.width, location[1] + anchor.height)
 
         // wrapped view dimensions
-        view!!.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        val rootHeight = view!!.measuredHeight
+        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val rootHeight = view.measuredHeight
         if (this.popupWidth == 0) {
-            this.popupWidth = view!!.measuredWidth
+            this.popupWidth = view.measuredWidth
         }
 
         // screen size
@@ -321,10 +321,10 @@ class QuickAction @JvmOverloads constructor(
         val screenWidth = screenWidth(this.context)
 
         // wrapped view dimensions
-        view!!.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        val popupHeight = view!!.measuredHeight
+        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val popupHeight = view.measuredHeight
         if (this.popupWidth == 0) {
-            this.popupWidth = view!!.measuredWidth
+            this.popupWidth = view.measuredWidth
         }
 
         // X

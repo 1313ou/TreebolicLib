@@ -47,7 +47,7 @@ public class Graphics implements treebolic.glue.iface.Graphics
 	/**
 	 * Stroke width factor
 	 */
-	static public float strokeWidthFactor = 2F;
+	static public final float strokeWidthFactor = 2F;
 
 	/**
 	 * Font factor may be changed by application depending on screen size
