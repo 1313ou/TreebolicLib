@@ -17,6 +17,7 @@ import android.util.TypedValue
 import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.ViewGroup
+import androidx.core.content.res.use
 import androidx.preference.PreferenceManager
 import org.treebolic.glue.R
 
