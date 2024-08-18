@@ -130,8 +130,8 @@ class QuickAction @JvmOverloads constructor(
      * @param context context
      */
     init {
-        this.animationStyle = ANIM_AUTO
-        setRootViewId(if (this.orientation == HORIZONTAL) R.layout.popup_horizontal else R.layout.popup_vertical)
+        animationStyle = ANIM_AUTO
+        setRootViewId(if (orientation == HORIZONTAL) R.layout.popup_horizontal else R.layout.popup_vertical)
     }
 
     /**
@@ -150,17 +150,17 @@ class QuickAction @JvmOverloads constructor(
      * @param id Layout resource id
      */
     private fun setRootViewId(id: Int) {
-        checkNotNull(this.inflater)
-        this.view = inflater.inflate(id, null)
-        this.tracks = view.findViewById(R.id.tracks)
-        this.arrowDown = view.findViewById(R.id.arrow_down)
-        this.arrowUp = view.findViewById(R.id.arrow_up)
-        this.scroller = view.findViewById(R.id.scroller)
+        checkNotNull(inflater)
+        view = inflater.inflate(id, null)
+        tracks = view.findViewById(R.id.tracks)
+        arrowDown = view.findViewById(R.id.arrow_down)
+        arrowUp = view.findViewById(R.id.arrow_up)
+        scroller = view.findViewById(R.id.scroller)
 
         // This was previously defined on show() method, moved here to prevent force close that occurred
         // when tapping fast on a view to show quickaction dialog. Thanks to zammbi (github.com/zammbi)
         view.setLayoutParams(ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-        setContentView(this.view)
+        setContentView(view)
     }
 
     /**
@@ -169,7 +169,7 @@ class QuickAction @JvmOverloads constructor(
      * @param animStyle animation style, default is set to ANIM_AUTO
      */
     fun setAnimStyle(animStyle: Int) {
-        this.animationStyle = animStyle
+        animationStyle = animStyle
     }
 
     /**
@@ -182,24 +182,16 @@ class QuickAction @JvmOverloads constructor(
 
         val title = action.title
         val icon = action.icon
-        checkNotNull(this.inflater)
-        val itemView = inflater.inflate(if (this.orientation == HORIZONTAL) R.layout.popup_horizontal_item else R.layout.popup_vertical_item, null)
+        checkNotNull(inflater)
+        val itemView = inflater.inflate(if (orientation == HORIZONTAL) R.layout.popup_horizontal_item else R.layout.popup_vertical_item, null)
 
         val img = itemView.findViewById<ImageView>(R.id.iv_icon)
         val text = itemView.findViewById<TextView>(R.id.tv_title)
 
-        if (icon != null) {
-            img.setImageDrawable(icon)
-        } else {
-            img.visibility = View.GONE
-        }
-        if (title != null) {
-            text.text = title
-        } else {
-            text.visibility = View.GONE
-        }
+        img.setImageDrawable(icon)
+        text.text = title
 
-        val pos = this.childPos
+        val pos = childPos
 
         itemView.setOnClickListener { v: View? ->
             if (action.listener != null) {
@@ -214,19 +206,19 @@ class QuickAction @JvmOverloads constructor(
         itemView.isFocusable = true
         itemView.isClickable = true
 
-        if (this.orientation == HORIZONTAL && this.childPos != 0) {
-            val separator = inflater.inflate(R.layout.quickaction_horiz_separator, this.tracks)
+        if (orientation == HORIZONTAL && childPos != 0) {
+            val separator = inflater.inflate(R.layout.quickaction_horiz_separator, tracks)
 
             val params = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
             separator.layoutParams = params
             separator.setPadding(5, 0, 5, 0)
 
-            tracks!!.addView(separator, this.insertPos)
+            tracks!!.addView(separator, insertPos)
 
             insertPos++
         }
 
-        tracks!!.addView(itemView, this.insertPos)
+        tracks!!.addView(itemView, insertPos)
 
         childPos++
         insertPos++
@@ -239,7 +231,7 @@ class QuickAction @JvmOverloads constructor(
      */
     fun show(anchor: View) {
         preShow()
-        this.didAction = false
+        didAction = false
 
         // anchor screen rect
         val location = IntArray(2)
@@ -249,25 +241,25 @@ class QuickAction @JvmOverloads constructor(
         // wrapped view dimensions
         view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         val rootHeight = view.measuredHeight
-        if (this.popupWidth == 0) {
-            this.popupWidth = view.measuredWidth
+        if (popupWidth == 0) {
+            popupWidth = view.measuredWidth
         }
 
         // screen size
-        val size = screenSize(this.context)
+        val size = screenSize(context)
         val screenWidth = size.x
         val screenHeight = size.y
 
         // X coord of popup (top left)
         var xPos: Int
-        if (anchorRect.left + this.popupWidth > screenWidth) {
-            xPos = anchorRect.left - (this.popupWidth - anchor.width)
+        if (anchorRect.left + popupWidth > screenWidth) {
+            xPos = anchorRect.left - (popupWidth - anchor.width)
             if (xPos < 0) {
                 xPos = 0
             }
         } else {
-            xPos = if (anchor.width > this.popupWidth) {
-                anchorRect.centerX() - this.popupWidth / 2
+            xPos = if (anchor.width > popupWidth) {
+                anchorRect.centerX() - popupWidth / 2
             } else {
                 anchorRect.left
             }
@@ -310,7 +302,7 @@ class QuickAction @JvmOverloads constructor(
      */
     fun show(anchor: View, x0: Float, y0: Float) {
         preShow()
-        this.didAction = false
+        didAction = false
 
         // anchor screen rect
         val location = IntArray(2)
@@ -318,26 +310,26 @@ class QuickAction @JvmOverloads constructor(
         val anchorRect = Rect(location[0], location[1], location[0] + anchor.width, location[1] + anchor.height)
 
         // screen size
-        val screenWidth = screenWidth(this.context)
+        val screenWidth = screenWidth(context)
 
         // wrapped view dimensions
         view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         val popupHeight = view.measuredHeight
-        if (this.popupWidth == 0) {
-            this.popupWidth = view.measuredWidth
+        if (popupWidth == 0) {
+            popupWidth = view.measuredWidth
         }
 
         // X
-        val w2 = this.popupWidth / 2
+        val w2 = popupWidth / 2
         var arrowPos = w2
         val x = location[0] + x0.toInt() - w2
         var dx = x - location[0]
         if (dx < 0) {
             arrowPos = w2 + dx
         }
-        dx = x - (screenWidth - this.popupWidth)
+        dx = x - (screenWidth - popupWidth)
         if (dx > 0) {
-            arrowPos = this.popupWidth - (w2 - dx)
+            arrowPos = popupWidth - (w2 - dx)
         }
 
         // Y
@@ -363,7 +355,7 @@ class QuickAction @JvmOverloads constructor(
     private fun setAnimationStyle(screenWidth: Int, requestedX: Int, onTop: Boolean) {
         val arrowPos = requestedX - arrowUp!!.measuredWidth / 2
 
-        when (this.animationStyle) {
+        when (animationStyle) {
             ANIM_GROW_FROM_LEFT -> window.animationStyle = if (onTop) R.style.Animations_PopUpMenu_Left else R.style.Animations_PopDownMenu_Left
             ANIM_GROW_FROM_RIGHT -> window.animationStyle = if (onTop) R.style.Animations_PopUpMenu_Right else R.style.Animations_PopDownMenu_Right
             ANIM_GROW_FROM_CENTER -> window.animationStyle = if (onTop) R.style.Animations_PopUpMenu_Center else R.style.Animations_PopDownMenu_Center
@@ -387,7 +379,7 @@ class QuickAction @JvmOverloads constructor(
      * @param requestedX distance from left screen
      */
     private fun showArrow(whichArrow: Int, requestedX: Int) {
-        val showArrow: View? = if (whichArrow == R.id.arrow_up) this.arrowUp else this.arrowDown
+        val showArrow: View? = if (whichArrow == R.id.arrow_up) arrowUp else arrowDown
         val hideArrow: View? = if (whichArrow == R.id.arrow_up) this.arrowDown else this.arrowUp
 
         // x adjust
