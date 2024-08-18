@@ -14,6 +14,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.content.res.use
 import androidx.core.graphics.drawable.DrawableCompat
 
 /**
