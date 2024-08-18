@@ -192,21 +192,21 @@ class SplitPaneLayout : ViewGroup {
 
     private fun extractAttributes(context: Context, attrs: AttributeSet?) {
         if (attrs != null) {
-            context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout).use { array ->
+            context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout).use {
 
                 // misc
-                orientation = array.getInt(R.styleable.SplitPaneLayout_orientation, 0)
-                splitterSize = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.resources.getDimensionPixelSize(R.dimen.spl_default_splitter_size))
-                isSplitterMovable = array.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true)
+                orientation = it.getInt(R.styleable.SplitPaneLayout_orientation, 0)
+                splitterSize = it.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.resources.getDimensionPixelSize(R.dimen.spl_default_splitter_size))
+                isSplitterMovable = it.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true)
 
                 // position
-                var value = array.peekValue(R.styleable.SplitPaneLayout_splitterPosition)
+                var value = it.peekValue(R.styleable.SplitPaneLayout_splitterPosition)
                 if (value != null) {
                     if (value.type == TypedValue.TYPE_DIMENSION) {
-                        splitterPosition = array.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Int.MIN_VALUE)
+                        splitterPosition = it.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Int.MIN_VALUE)
                         splitterPositionPercent = -1f
                     } else if (value.type == TypedValue.TYPE_FRACTION) {
-                        splitterPositionPercent = array.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50f) * 0.01f
+                        splitterPositionPercent = it.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50f) * 0.01f
                         splitterPosition = Int.MIN_VALUE
                     }
                 } else {
@@ -215,20 +215,20 @@ class SplitPaneLayout : ViewGroup {
                 }
 
                 // backgrounds
-                value = array.peekValue(R.styleable.SplitPaneLayout_splitterBackground)
+                value = it.peekValue(R.styleable.SplitPaneLayout_splitterBackground)
                 if (value != null) {
                     if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING) {
-                        splitterDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterBackground)
+                        splitterDrawable = it.getDrawable(R.styleable.SplitPaneLayout_splitterBackground)
                     } else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4) {
-                        splitterDrawable = PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterBackground, -0x1000000))
+                        splitterDrawable = PaintDrawable(it.getColor(R.styleable.SplitPaneLayout_splitterBackground, -0x1000000))
                     }
                 }
-                value = array.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground)
+                value = it.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground)
                 if (value != null) {
                     if (value.type == TypedValue.TYPE_REFERENCE || value.type == TypedValue.TYPE_STRING) {
-                        splitterDraggingDrawable = array.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground)
+                        splitterDraggingDrawable = it.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground)
                     } else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4) {
-                        splitterDraggingDrawable = PaintDrawable(array.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, SPLITTER_DRAG_COLOR))
+                        splitterDraggingDrawable = PaintDrawable(it.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, SPLITTER_DRAG_COLOR))
                     }
                 } else {
                     splitterDraggingDrawable = PaintDrawable(SPLITTER_DRAG_COLOR)
