@@ -31,12 +31,12 @@ class Tip : AppCompatDialogFragment() {
 
         if (savedInstanceState != null) {
             // Restore value of members from saved state
-            this.text = savedInstanceState.getString(STATE_TEXT)
+            text = savedInstanceState.getString(STATE_TEXT)
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(STATE_TEXT, this.text)
+        outState.putString(STATE_TEXT, text)
         super.onSaveInstanceState(outState)
     }
 
@@ -59,7 +59,7 @@ class Tip : AppCompatDialogFragment() {
 
             // data
             val webView = view.findViewById<WebView>(R.id.text)
-            webView.loadData((if (this.text == null) "" else this.text)!!, "text/html; charset=UTF-8", "utf-8")
+            webView.loadData((if (text == null) "" else text)!!, "text/html; charset=UTF-8", "utf-8")
         } catch (e: InflateException) {
             // fall back on layout with text view
             // inflate layout for the dialog
@@ -85,7 +85,7 @@ class Tip : AppCompatDialogFragment() {
      * @param text0 text
      */
     fun setText(text0: String?) {
-        this.text = text0
+        text = text0
     }
 
     companion object {

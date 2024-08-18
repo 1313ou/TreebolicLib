@@ -25,7 +25,7 @@ import org.treebolic.glue.R
  *
  * @author Bernard Bou
  */
-class Progress(handle: Any?) : LinearLayout(handle as Context), treebolic.glue.iface.component.Progress {
+open class Progress(handle: Any?) : LinearLayout(handle as Context), treebolic.glue.iface.component.Progress {
 
     /**
      * Handler

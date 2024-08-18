@@ -78,7 +78,7 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
         val isHorizontal = size.x >= size.y
 
         // panel
-        this.panel = LinearLayout(context)
+        panel = LinearLayout(context)
         panel.orientation = if (isHorizontal) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL
 
         // focus
@@ -100,11 +100,11 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
         // scroll
         val scroll = if (isHorizontal) ScrollView(context) else HorizontalScrollView(context)
-        scroll.addView(this.panel)
+        scroll.addView(panel)
         scroll.setBackgroundColor(background)
 
         // top
-        this.addView(scroll)
+        addView(scroll)
         setBackgroundColor(background)
 
         // layout parameters for later addition
@@ -130,7 +130,7 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
         val bitmapDrawable = drawables[index]
 
         // tint drawable
-        tint(bitmapDrawable!!, this.iconTint)
+        tint(bitmapDrawable!!, iconTint)
 
         // button drawable
         imageButton.background = bitmapDrawable
@@ -142,7 +142,7 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
         imageButton.setOnClickListener { params: View? -> listener.onAction(params) }
 
         // add
-        panel.addView(imageButton, this.layoutParams)
+        panel.addView(imageButton, layoutParams)
     }
 
     override fun getButtons(): Array<Toolbar.Button> {
