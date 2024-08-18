@@ -3,9 +3,7 @@
  */
 package treebolic.glue.component
 
-import android.annotation.TargetApi
 import android.app.Activity
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.InflateException
@@ -252,6 +250,6 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
         /**
          * Base URL for webview
          */
-        var base = "file:///android_asset/"
+        var base: String = "file:///android_asset/"
     }
 }
