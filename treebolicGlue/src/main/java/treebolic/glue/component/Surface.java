@@ -226,6 +226,14 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			}
 
 			@Override
+			public boolean onSingleTapConfirmed(@NonNull final MotionEvent event)
+			{
+				// if(LOG) Log.d(TAG, "single tap confirmed");
+				// Surface.this.listener.onFocus((int) event.getX(), (int) event.getY());
+				return false;
+			}
+
+			@Override
 			public void onLongPress(@NonNull final MotionEvent event)
 			{
 				// if(LOG) Log.d(TAG, "long press");
@@ -248,14 +256,6 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 			// if(LOG) Log.d(TAG, "double tap event");
 			// return false;
 			// }
-
-			@Override
-			public boolean onSingleTapConfirmed(@NonNull final MotionEvent event)
-			{
-				// if(LOG) Log.d(TAG, "single tap confirmed");
-				// Surface.this.listener.onFocus((int) event.getX(), (int) event.getY());
-				return false;
-			}
 
 			// @Override
 			// public boolean onSingleTapUp(MotionEvent event)
@@ -503,8 +503,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	@Override
 	public void setToolTipText(@Nullable final String text)
 	{
-		//if (text != null)
-		//{
+		// if (text != null) {
 		// final AppCompatActivity activity = (AppCompatActivity) this.activity;
 		// final FragmentManager manager = activity.getSupportFragmentManager();
 		// Tip.tip(manager, text);
@@ -543,8 +542,8 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 					case MotionEvent.ACTION_UP:
 
 					case MotionEvent.ACTION_CANCEL:
-						// if(LOG) Log.d(TAG, "touch cancel");
-						// if(LOG) Log.d(TAG, "touch up");
+						// if(LOG) Log.d(TAG, "touch cancel")
+						// if(LOG) Log.d(TAG, "touch up")
 						this.listener.onUp((int) event.getX(), (int) event.getY());
 						break;
 

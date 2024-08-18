@@ -140,7 +140,7 @@ class QuickAction @JvmOverloads constructor(
      * @param index index of item (position from callback)
      * @return action item at the position
      */
-    fun getActionItem(index: Int): ActionItem {
+    private fun getActionItem(index: Int): ActionItem {
         return actionItems[index]
     }
 
@@ -149,7 +149,7 @@ class QuickAction @JvmOverloads constructor(
      *
      * @param id Layout resource id
      */
-    fun setRootViewId(id: Int) {
+    private fun setRootViewId(id: Int) {
         checkNotNull(this.inflater)
         this.view = inflater.inflate(id, null)
         this.tracks = view.findViewById(R.id.tracks)
@@ -439,6 +439,7 @@ class QuickAction @JvmOverloads constructor(
      */
     interface OnDismissListener {
 
+        @Suppress("EmptyMethod")
         fun onDismiss()
     }
 

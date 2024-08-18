@@ -124,6 +124,7 @@ open class PopupAdapter(
     /**
      * On show
      */
+    @Suppress("EmptyMethod")
     private fun onShow() {
         //
     }
