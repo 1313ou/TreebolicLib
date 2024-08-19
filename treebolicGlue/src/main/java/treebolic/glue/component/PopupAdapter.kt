@@ -118,7 +118,6 @@ open class PopupAdapter(
      * On dismiss
      */
     protected open fun onDismiss() {
-        //
     }
 
     /**
@@ -126,6 +125,5 @@ open class PopupAdapter(
      */
     @Suppress("EmptyMethod")
     private fun onShow() {
-        //
     }
 }

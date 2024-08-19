@@ -178,7 +178,6 @@ open class Statusbar(
     }
 
     override fun setColors(backColor: Int?, foreColor: Int?) {
-        //
     }
 
     @SuppressLint("ObsoleteSdkInt")
