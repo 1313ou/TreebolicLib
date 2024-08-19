@@ -23,7 +23,7 @@ import treebolic.glue.component.Utils.screenWidth
 
 /**
  * QuickAction dialog, shows action list as icon and text like the one in Gallery3D app. Currently, supports vertical and horizontal layout.
-*
+ *
  * @author Lorensius W. L. T <lorenz></lorenz>@londatiga.net> Contributors: - Kevin Peck <kevinwpeck></kevinwpeck>@gmail.com>
  */
 class QuickAction @JvmOverloads constructor(

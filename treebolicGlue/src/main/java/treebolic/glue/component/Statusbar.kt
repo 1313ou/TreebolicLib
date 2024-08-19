@@ -4,10 +4,8 @@
 package treebolic.glue.component
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.util.Log
 import android.view.InflateException
 import android.view.LayoutInflater
