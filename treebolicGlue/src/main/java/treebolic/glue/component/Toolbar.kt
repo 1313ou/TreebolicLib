@@ -32,7 +32,7 @@ import treebolic.glue.iface.component.Toolbar
  *
  * @author Bernard Bou
  */
-open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
+open class Toolbar(handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
     private val context = handle as Context
 
@@ -41,13 +41,13 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
      */
     private enum class ButtonImplementation {
 
-        HOME,  
-        RADIAL, NORTH, SOUTH, EAST, WEST,  
-        EXPAND, SHRINK, EXPANSIONRESET,  
-        EXPANSIONSWEEPRESET,  
-        WIDEN, NARROW, SWEEPRESET,  
-        ZOOMIN, ZOOMOUT, ZOOMONE,  
-        SCALEUP, SCALEDOWN, SCALEONE; 
+        HOME,
+        RADIAL, NORTH, SOUTH, EAST, WEST,
+        EXPAND, SHRINK, EXPANSIONRESET,
+        EXPANSIONSWEEPRESET,
+        WIDEN, NARROW, SWEEPRESET,
+        ZOOMIN, ZOOMOUT, ZOOMONE,
+        SCALEUP, SCALEDOWN, SCALEONE;
 
         val index: Int
             get() = ordinal
@@ -72,7 +72,7 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
     // C O N S T R U C T O R
 
-     init {
+    init {
         // orientation
         val size = screenSize(context)
         val isHorizontal = size.x >= size.y
@@ -155,11 +155,11 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
          * Content descriptors
          */
         private val descIds = intArrayOf(
-            R.string.desc_toolbar_home,  
-            R.string.desc_toolbar_radial, R.string.desc_toolbar_north, R.string.desc_toolbar_south, R.string.desc_toolbar_east, R.string.desc_toolbar_west,  
-            R.string.desc_toolbar_expand, R.string.desc_toolbar_shrink, R.string.desc_toolbar_expand_reset, R.string.desc_toolbar_expand_widen_reset,  
-            R.string.desc_toolbar_widen, R.string.desc_toolbar_narrow, R.string.desc_toolbar_widen_reset,  
-            R.string.desc_toolbar_zoomin, R.string.desc_toolbar_zoomout, R.string.desc_toolbar_zoomone,  
+            R.string.desc_toolbar_home,
+            R.string.desc_toolbar_radial, R.string.desc_toolbar_north, R.string.desc_toolbar_south, R.string.desc_toolbar_east, R.string.desc_toolbar_west,
+            R.string.desc_toolbar_expand, R.string.desc_toolbar_shrink, R.string.desc_toolbar_expand_reset, R.string.desc_toolbar_expand_widen_reset,
+            R.string.desc_toolbar_widen, R.string.desc_toolbar_narrow, R.string.desc_toolbar_widen_reset,
+            R.string.desc_toolbar_zoomin, R.string.desc_toolbar_zoomout, R.string.desc_toolbar_zoomone,
             R.string.desc_toolbar_scaleup, R.string.desc_toolbar_scaledown, R.string.desc_toolbar_scaleone
         )
 
@@ -167,11 +167,11 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
          * Drawables
          */
         private val drawableIds = intArrayOf(
-            R.drawable.toolbar_home,  
-            R.drawable.toolbar_radial, R.drawable.toolbar_north, R.drawable.toolbar_south, R.drawable.toolbar_east, R.drawable.toolbar_west,  
-            R.drawable.toolbar_expand, R.drawable.toolbar_shrink, R.drawable.toolbar_expand_reset, R.drawable.toolbar_expand_widen_reset,  
-            R.drawable.toolbar_widen, R.drawable.toolbar_narrow, R.drawable.toolbar_widen_reset,  
-            R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone,  
+            R.drawable.toolbar_home,
+            R.drawable.toolbar_radial, R.drawable.toolbar_north, R.drawable.toolbar_south, R.drawable.toolbar_east, R.drawable.toolbar_west,
+            R.drawable.toolbar_expand, R.drawable.toolbar_shrink, R.drawable.toolbar_expand_reset, R.drawable.toolbar_expand_widen_reset,
+            R.drawable.toolbar_widen, R.drawable.toolbar_narrow, R.drawable.toolbar_widen_reset,
+            R.drawable.toolbar_zoomin, R.drawable.toolbar_zoomout, R.drawable.toolbar_zoomone,
             R.drawable.toolbar_scaleup, R.drawable.toolbar_scaledown, R.drawable.toolbar_scaleone
         )
 
@@ -179,14 +179,14 @@ open class Toolbar (handle: Any?) : FrameLayout(handle as Context), Toolbar {
          * Toolbar's ordered list of buttons
          */
         private val buttons = arrayOf(
-            
-            Toolbar.Button.HOME,  
-            Toolbar.Button.ZOOMIN, Toolbar.Button.ZOOMOUT, Toolbar.Button.ZOOMONE,  
-            Toolbar.Button.SCALEUP, Toolbar.Button.SCALEDOWN, Toolbar.Button.SCALEONE,  
-            Toolbar.Button.RADIAL, Toolbar.Button.SOUTH, Toolbar.Button.NORTH, Toolbar.Button.EAST, Toolbar.Button.WEST,  
-            Toolbar.Button.EXPAND, Toolbar.Button.SHRINK, Toolbar.Button.EXPANSIONRESET,  
-            Toolbar.Button.WIDEN, Toolbar.Button.NARROW, Toolbar.Button.SWEEPRESET,  
-            Toolbar.Button.EXPANSIONSWEEPRESET,  
+
+            Toolbar.Button.HOME,
+            Toolbar.Button.ZOOMIN, Toolbar.Button.ZOOMOUT, Toolbar.Button.ZOOMONE,
+            Toolbar.Button.SCALEUP, Toolbar.Button.SCALEDOWN, Toolbar.Button.SCALEONE,
+            Toolbar.Button.RADIAL, Toolbar.Button.SOUTH, Toolbar.Button.NORTH, Toolbar.Button.EAST, Toolbar.Button.WEST,
+            Toolbar.Button.EXPAND, Toolbar.Button.SHRINK, Toolbar.Button.EXPANSIONRESET,
+            Toolbar.Button.WIDEN, Toolbar.Button.NARROW, Toolbar.Button.SWEEPRESET,
+            Toolbar.Button.EXPANSIONSWEEPRESET,
         )
     }
 }

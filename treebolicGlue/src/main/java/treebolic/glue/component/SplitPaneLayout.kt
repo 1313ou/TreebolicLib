@@ -50,16 +50,16 @@ class SplitPaneLayout : ViewGroup {
     private var splitterPosition: Int = 0
 
     private fun positionSplitterAbsolute(position0: Int) {
-            var position = position0
-            if (position < 0) {
-                position = 0
-            }
-            splitterPosition = position
-            splitterPositionPercent = -1f
-            if (childCount == 2) {
-                remeasure()
-            }
+        var position = position0
+        if (position < 0) {
+            position = 0
         }
+        splitterPosition = position
+        splitterPositionPercent = -1f
+        if (childCount == 2) {
+            remeasure()
+        }
+    }
 
     /**
      * Splitter relative position (== -1 if splitterPosition is used)
@@ -67,19 +67,19 @@ class SplitPaneLayout : ViewGroup {
     private var splitterPositionPercent: Float = 0F
 
     fun positionSplitterPercent(positionPercent0: Float) {
-            var positionPercent = positionPercent0
-            if (positionPercent < 0f) {
-                positionPercent = 0f
-            }
-            if (positionPercent > 1f) {
-                positionPercent = 1f
-            }
-            splitterPositionPercent = positionPercent
-            splitterPosition = Int.MIN_VALUE
-            if (childCount == 2) {
-                remeasure()
-            }
+        var positionPercent = positionPercent0
+        if (positionPercent < 0f) {
+            positionPercent = 0f
         }
+        if (positionPercent > 1f) {
+            positionPercent = 1f
+        }
+        splitterPositionPercent = positionPercent
+        splitterPosition = Int.MIN_VALUE
+        if (childCount == 2) {
+            remeasure()
+        }
+    }
 
     /**
      * Splitter size in pixels
