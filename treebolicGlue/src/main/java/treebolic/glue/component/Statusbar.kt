@@ -223,7 +223,6 @@ open class Statusbar(
                 html.append(content)
                 html.append("</div></body></html>")
 
-                // Log.d(TAG, html.toString());
                 webContentView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null)
             }
         } else {

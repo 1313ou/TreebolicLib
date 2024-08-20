@@ -131,7 +131,6 @@ object Utils {
             val display = wm.defaultDisplay
             val size = Point()
             display.getSize(size)
-            // int height = size.y;
             return size.x
         }
     }
