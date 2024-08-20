@@ -12,7 +12,6 @@ import treebolic.glue.iface.Animator
  * Animator
  *
  * @author Bernard Bou
- * @noinspection WeakerAccess
  */
 class Animator : Animator<ActionListener?>, AnimatorUpdateListener, android.animation.Animator.AnimatorListener {
 

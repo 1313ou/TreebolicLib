@@ -28,7 +28,6 @@ import java.util.function.Function
  * API class
  *
  * @author Bernard Bou
- * @noinspection WeakerAccess
  */
 open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Dialog {
 

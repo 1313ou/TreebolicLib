@@ -7,7 +7,6 @@ package treebolic.glue
  * Color treebolic glue
  *
  * @author Bernard Bou
- * @noinspection WeakerAccess
  */
 object Color {
 

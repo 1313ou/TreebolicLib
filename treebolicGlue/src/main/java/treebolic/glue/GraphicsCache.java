@@ -14,7 +14,6 @@ import treebolic.glue.component.Component;
 /**
  * Graphics cache implementation
  *
- * @noinspection WeakerAccess
  */
 public class GraphicsCache implements treebolic.glue.iface.GraphicsCache<Graphics>
 {
