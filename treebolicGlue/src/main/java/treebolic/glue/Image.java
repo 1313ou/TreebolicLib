@@ -71,8 +71,7 @@ public class Image implements treebolic.glue.iface.Image, Serializable
 	 *
 	 * @param resource resource URL
 	 * @return bitmap or null
-	 * @noinspection WeakerAccess
-	 */
+		 */
 	@Nullable
 	static public Bitmap make(@Nullable final URL resource)
 	{

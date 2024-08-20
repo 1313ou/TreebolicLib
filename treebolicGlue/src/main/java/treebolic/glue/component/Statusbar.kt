@@ -33,7 +33,6 @@ import java.util.function.Function
  * @param handle handle to activity
  *
  * @author Bernard Bou
- * @noinspection WeakerAccess
  */
 @SuppressLint("CutPasteId")
 open class Statusbar(

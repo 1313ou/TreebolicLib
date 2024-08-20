@@ -40,8 +40,7 @@ public abstract class Surface extends SurfaceView implements SurfaceHolder.Callb
 	/**
 	 * Margin of error when finding node
 	 *
-	 * @noinspection WeakerAccess
-	 */
+		 */
 	public static final float FIND_DISTANCE_EPSILON_FACTOR = 2.5F;
 
 	/**
