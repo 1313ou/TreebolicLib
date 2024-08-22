@@ -380,7 +380,7 @@ class QuickAction @JvmOverloads constructor(
      */
     private fun showArrow(whichArrow: Int, requestedX: Int) {
         val showArrow: View? = if (whichArrow == R.id.arrow_up) arrowUp else arrowDown
-        val hideArrow: View? = if (whichArrow == R.id.arrow_up) this.arrowDown else this.arrowUp
+        val hideArrow: View? = if (whichArrow == R.id.arrow_up) arrowDown else arrowUp
 
         // x adjust
         val arrowWidth = arrowUp!!.measuredWidth
@@ -390,8 +390,8 @@ class QuickAction @JvmOverloads constructor(
         if (param.leftMargin < 0) {
             param.leftMargin = 0
         }
-        if (param.leftMargin > this.popupWidth - arrowWidth) {
-            param.leftMargin = this.popupWidth - arrowWidth
+        if (param.leftMargin > popupWidth - arrowWidth) {
+            param.leftMargin = popupWidth - arrowWidth
         }
 
         // show
@@ -409,11 +409,11 @@ class QuickAction @JvmOverloads constructor(
      */
     fun setOnDismissListener(listener: OnDismissListener?) {
         setOnDismissListener(this)
-        this.dismissListener = listener
+        dismissListener = listener
     }
 
     override fun onDismiss() {
-        if (!this.didAction && this.dismissListener != null) {
+        if (!didAction && dismissListener != null) {
             dismissListener!!.onDismiss()
         }
     }
