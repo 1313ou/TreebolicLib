@@ -40,7 +40,7 @@ class Animator : Animator<ActionListener?>, AnimatorUpdateListener, android.anim
     override fun run(listener0: ActionListener?, steps: Int, startDelay: Int): Boolean {
         lastStep = steps - 1
         listener = listener0!!
-        animator = ValueAnimator.ofInt(0, this.lastStep)
+        animator = ValueAnimator.ofInt(0, lastStep)
         animator.repeatCount = 0
         animator.setDuration(1000)
         animator.setStartDelay(startDelay.toLong())
@@ -64,11 +64,11 @@ class Animator : Animator<ActionListener?>, AnimatorUpdateListener, android.anim
     }
 
     override fun onAnimationEnd(animator: android.animation.Animator) {
-        listener.onAction(this.lastStep)
+        listener.onAction(lastStep)
     }
 
     override fun onAnimationCancel(animator: android.animation.Animator) {
-        listener.onAction(this.lastStep)
+        listener.onAction(lastStep)
     }
 
     override fun onAnimationRepeat(animator: android.animation.Animator) {
