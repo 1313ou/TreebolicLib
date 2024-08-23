@@ -7,8 +7,10 @@ import android.content.Context
 import android.graphics.Point
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.util.Log
 import android.util.TypedValue
 import android.view.WindowManager
+import android.webkit.WebResourceResponse
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -16,6 +18,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.use
 import androidx.core.graphics.drawable.DrawableCompat
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.util.jar.JarFile
 
 /**
  * Utilities
@@ -23,6 +28,68 @@ import androidx.core.graphics.drawable.DrawableCompat
  * @author Bernard Bou
  */
 object Utils {
+
+    /**
+     * Handle Jar file path URL
+     *
+     * @param url url
+     * @return WebResourceResponse or null
+     */
+    fun handleJarFilePath(url: String): WebResourceResponse? {
+        if (url.startsWith("jar:file://")) {
+
+            // 1. Intercept the JAR URL
+            val (jarFilePath, imagePathWithinJar) = extractJarFilePathAndImagePathWithinJar(url)
+
+            // 2. Extract the Image from the JAR (Implementation not shown, requires JAR file handling)
+            val imageBytes = extractImageFromJar(jarFilePath, imagePathWithinJar)
+            if (imageBytes != null) {
+
+                // 3. Convert Image to Data URI
+                //val base64String = Base64.encodeToString(imageBytes, Base64.DEFAULT)
+                //val dataUri = "data:image/png;base64,$base64String" // Assuming PNG format
+
+                // Return a WebResourceResponse with the data URI
+                return WebResourceResponse("image/png", "base64", ByteArrayInputStream(imageBytes))
+            }
+        }
+        return null
+    }
+
+    /**
+     * Extract JAR file path and image path within JAR
+     *
+     * @param url url
+     * @return pair of strings
+     */
+    private fun extractJarFilePathAndImagePathWithinJar(url: String): Pair<String, String> {
+        val fields = url.split('!')
+        val jarFilePath = fields[0].substring(11) // strip 'jar:file://'
+        val imagePathWithinJar = fields[1].substring(1) // strip '/'
+        return jarFilePath to imagePathWithinJar
+    }
+
+    /**
+     * Extract the image from the JAR as a byte array
+     */
+    private fun extractImageFromJar(jarFilePath: String, imagePathWithinJar: String): ByteArray? {
+        try {
+            JarFile(jarFilePath).use { jarFile ->
+                val entry = jarFile.getJarEntry(imagePathWithinJar)
+                entry?.let {
+                    jarFile.getInputStream(entry).use { inputStream ->
+                        ByteArrayOutputStream().use { byteArrayOutputStream ->
+                            inputStream.copyTo(byteArrayOutputStream)
+                            return byteArrayOutputStream.toByteArray()
+                        }
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("WebView", "Error extracting image from JAR: ${e.message}")
+        }
+        return null
+    }
 
     /**
      * Fetch colors resources

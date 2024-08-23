@@ -4,11 +4,13 @@
 package treebolic.glue.component
 
 import android.app.Activity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.InflateException
 import android.view.View
 import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
@@ -20,6 +22,7 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.FragmentManager
 import org.treebolic.glue.R
 import treebolic.glue.component.Utils.fetchColors
+import treebolic.glue.component.Utils.handleJarFilePath
 import treebolic.glue.iface.ActionListener
 import java.util.function.Function
 
@@ -144,8 +147,8 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
 
             // settings
             webView.settings.allowFileAccess = true
-            // webView.settings.allowFileAccessFromFileURLs = true
-            // webView.settings.allowUniversalAccessFromFileURLs = true
+            //webView.settings.allowFileAccessFromFileURLs = true
+            //webView.settings.allowUniversalAccessFromFileURLs = true
 
             // load
             webView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null)
@@ -196,6 +199,15 @@ open class Dialog : AppCompatDialogFragment(), treebolic.glue.iface.component.Di
                     return true
                 }
                 return false
+            }
+
+            override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
+                val uri: Uri = request.url
+                val result = handleJarFilePath(uri.toString())
+                if (result != null) {
+                    return result
+                }
+                return super.shouldInterceptRequest(view, request)
             }
         }
     }

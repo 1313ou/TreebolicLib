@@ -6,12 +6,14 @@ package treebolic.glue.component
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.util.Log
 import android.view.InflateException
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
@@ -20,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import org.treebolic.glue.R
 import treebolic.glue.component.Utils.fetchColors
 import treebolic.glue.component.Utils.getDrawable
+import treebolic.glue.component.Utils.handleJarFilePath
 import treebolic.glue.component.Utils.screenSize
 import treebolic.glue.component.Utils.tint
 import treebolic.glue.iface.ActionListener
@@ -116,6 +119,8 @@ open class Statusbar(
             webContentView0.isFocusable = false
             webContentView0.setBackgroundColor(background)
             webContentView0.settings.allowFileAccess = true
+            //webContentView0.settings.allowFileAccessFromFileURLs = true
+            //webContentView0.settings.allowUniversalAccessFromFileURLs = true
             webContentView0.webViewClient = object : WebViewClient() {
                 private var intercept = false
 
@@ -134,13 +139,22 @@ open class Statusbar(
                 }
 
                 override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-                    val uri = request.url
-                    if (intercept && uri != null) {
+                    val uri: Uri = request.url
+                    if (intercept) {
                         Log.d(TAG, "url:$uri")
                         actionListener!!.onAction(uri.toString())
                         return true
                     }
                     return false
+                }
+
+                override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
+                    val uri: Uri = request.url
+                    val result = handleJarFilePath(uri.toString())
+                    if (result != null) {
+                        return result
+                    }
+                    return super.shouldInterceptRequest(view, request)
                 }
             }
         } catch (e: InflateException) {
