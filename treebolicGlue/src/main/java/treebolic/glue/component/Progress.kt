@@ -77,7 +77,7 @@ open class Progress(handle: Any?) : LinearLayout(handle as Context), treebolic.g
         handler = ProgressHandler(this)
 
         // inflate
-        val inflater = checkNotNull(context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val wrappedView = inflater.inflate(R.layout.progress, this) as ViewGroup
         progressIcon = wrappedView.findViewById(R.id.progressIcon)
         statusView = wrappedView.findViewById(R.id.progressStatus)

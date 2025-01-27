@@ -150,7 +150,6 @@ class QuickAction @JvmOverloads constructor(
      * @param id Layout resource id
      */
     private fun setRootViewId(id: Int) {
-        checkNotNull(inflater)
         view = inflater.inflate(id, null)
         tracks = view.findViewById(R.id.tracks)
         arrowDown = view.findViewById(R.id.arrow_down)
@@ -182,7 +181,6 @@ class QuickAction @JvmOverloads constructor(
 
         val title = action.title
         val icon = action.icon
-        checkNotNull(inflater)
         val itemView = inflater.inflate(if (orientation == HORIZONTAL) R.layout.popup_horizontal_item else R.layout.popup_vertical_item, null)
 
         val img = itemView.findViewById<ImageView>(R.id.iv_icon)

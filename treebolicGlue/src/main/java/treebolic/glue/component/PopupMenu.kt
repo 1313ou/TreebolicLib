@@ -68,7 +68,6 @@ open class PopupMenu(
         if (labelIdx == -1) {
             label = ""
         } else {
-            checkNotNull(labels)
             label = labels!![labelIdx]
         }
         if (label2 != null) {
@@ -79,7 +78,6 @@ open class PopupMenu(
     }
 
     override fun addItem(labelIdx: Int, resource: Int, listener: ActionListener?) {
-        checkNotNull(labels)
         val label = labels!![labelIdx]
         addItem(-1, label, resource, listener)
     }

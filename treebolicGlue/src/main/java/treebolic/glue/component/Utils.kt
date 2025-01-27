@@ -190,7 +190,7 @@ object Utils {
     @JvmStatic
     @Suppress("deprecation")
     fun screenWidth(context: Context): Int {
-        val wm = checkNotNull(context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val bounds = wm.currentWindowMetrics.bounds
             return bounds.width()
@@ -211,7 +211,7 @@ object Utils {
     @JvmStatic
     @Suppress("DEPRECATION")
     fun screenSize(context: Context): Point {
-        val wm = checkNotNull(context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val bounds = wm.currentWindowMetrics.bounds
             return Point(bounds.width(), bounds.height())

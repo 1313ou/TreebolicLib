@@ -94,7 +94,7 @@ open class PopupAdapter(
      * @param layoutResID Resource id
      */
     fun setContentView(layoutResID: Int) {
-        val inflater = checkNotNull(context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         setContentView(inflater.inflate(layoutResID, null))
     }
 

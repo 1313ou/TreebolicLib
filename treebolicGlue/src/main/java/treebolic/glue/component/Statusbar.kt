@@ -108,7 +108,7 @@ open class Statusbar(
         iconTint = colors[2]
 
         // inflate
-        val inflater = checkNotNull(activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
+        val inflater = activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var statusView0: TextView
         var webContentView0: WebView? = null
         var textContentView0: TextView? = null
@@ -240,8 +240,7 @@ open class Statusbar(
                 webContentView.loadDataWithBaseURL(base, html.toString(), "text/html", "UTF-8", null)
             }
         } else {
-            checkNotNull(textContentView)
-            textContentView.text = content0.joinToString("\n")
+            textContentView!!.text = content0.joinToString("\n")
         }
     }
 
