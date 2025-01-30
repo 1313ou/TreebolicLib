@@ -59,7 +59,7 @@ open class Container(handle: Any?) : LinearLayout(handle as Context?), Component
 
         when (position) {
             Container.PANE -> {
-                val params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+                val params = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f)
                 addView(viewToAdd, params)
             }
 
@@ -80,7 +80,7 @@ open class Container(handle: Any?) : LinearLayout(handle as Context?), Component
     override fun validate() {
         var params: LayoutParams?
         if (toolbar != null) {
-            params = LayoutParams(if (isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
+            params = LayoutParams(if (isHorizontal) LayoutParams.WRAP_CONTENT else LayoutParams.MATCH_PARENT, if (isHorizontal) LayoutParams.MATCH_PARENT else LayoutParams.WRAP_CONTENT, 0f)
             addView(toolbar, params)
         }
         var layout: ViewGroup = this
@@ -96,11 +96,11 @@ open class Container(handle: Any?) : LinearLayout(handle as Context?), Component
             layout = splitLayout
         }
         if (view != null) {
-            params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+            params = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f)
             layout.addView(view, params)
         }
         if (statusbar != null) {
-            params = LayoutParams(if (isHorizontal) ViewGroup.LayoutParams.WRAP_CONTENT else ViewGroup.LayoutParams.MATCH_PARENT, if (isHorizontal) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT, 0f)
+            params = LayoutParams(if (isHorizontal) LayoutParams.WRAP_CONTENT else LayoutParams.MATCH_PARENT, if (isHorizontal) LayoutParams.MATCH_PARENT else LayoutParams.WRAP_CONTENT, 0f)
             layout.addView(statusbar, params)
         }
 

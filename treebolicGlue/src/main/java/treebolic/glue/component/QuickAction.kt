@@ -158,7 +158,7 @@ class QuickAction @JvmOverloads constructor(
 
         // This was previously defined on show() method, moved here to prevent force close that occurred
         // when tapping fast on a view to show quickaction dialog. Thanks to zammbi (github.com/zammbi)
-        view.setLayoutParams(ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+        view.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setContentView(view)
     }
 
@@ -192,9 +192,7 @@ class QuickAction @JvmOverloads constructor(
         val pos = childPos
 
         itemView.setOnClickListener { v: View? ->
-            if (action.listener != null) {
-                action.listener.onAction(action)
-            }
+            action.listener?.onAction(action)
             if (!getActionItem(pos).sticky) {
                 this@QuickAction.didAction = true
                 dismiss()

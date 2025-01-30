@@ -64,15 +64,9 @@ open class PopupMenu(
         if (resource == PopupMenu.ImageIndices.IMAGE_CANCEL.ordinal) {
             return
         }
-        var label: String
-        if (labelIdx == -1) {
-            label = ""
-        } else {
-            label = labels!![labelIdx]
-        }
-        if (label2 != null) {
+        var label: String = if (labelIdx == -1) "" else labels!![labelIdx]
+        if (label2 != null)
             label += " $label2"
-        }
         val item = ActionItem(label, getDrawable(resource)!!, false, listener)
         quickAction.addActionItem(item)
     }

@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
 import android.widget.ImageButton
@@ -108,7 +107,7 @@ open class Toolbar(handle: Any?) : FrameLayout(handle as Context), Toolbar {
         setBackgroundColor(background)
 
         // layout parameters for later addition
-        layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams = LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         layoutParams.setMargins(if (isHorizontal) 5 else 0, if (isHorizontal) 0 else 5, 5, 5)
     }
 
@@ -123,7 +122,7 @@ open class Toolbar(handle: Any?) : FrameLayout(handle as Context), Toolbar {
 
         // new button
         val imageButton = ImageButton(context)
-        imageButton.layoutParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        imageButton.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         val index: Int = impl.index
 
         // drawable
