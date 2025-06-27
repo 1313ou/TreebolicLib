@@ -41,7 +41,7 @@ open class PopupMenu(
         assert(labels!!.size == LabelIndices.LABEL_COUNT.ordinal)
 
         // create quickaction
-        quickAction = QuickAction(context, QuickAction.VERTICAL)
+        quickAction = QuickAction(context)
 
         // set listener for on dismiss event
         // this listener will be called only if quickaction dialog was dismissed by clicking the area outside the dialog.

@@ -20,6 +20,7 @@ import android.view.ViewGroup
 import androidx.core.content.res.use
 import androidx.preference.PreferenceManager
 import org.treebolic.glue.R
+import androidx.core.content.edit
 
 /**
  * A layout that splits the available space between two child views.
@@ -412,9 +413,9 @@ class SplitPaneLayout : ViewGroup {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val value = splitterPositionPercent
         if (value == -1f) {
-            sharedPrefs.edit().remove(SPLITTER_POSITION_PERCENT).apply()
+            sharedPrefs.edit { remove(SPLITTER_POSITION_PERCENT) }
         } else {
-            sharedPrefs.edit().putFloat(SPLITTER_POSITION_PERCENT, value).apply()
+            sharedPrefs.edit { putFloat(SPLITTER_POSITION_PERCENT, value) }
         }
     }
 

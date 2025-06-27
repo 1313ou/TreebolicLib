@@ -4,12 +4,12 @@
 package treebolic.glue.component
 
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.graphics.drawable.toDrawable
 import org.treebolic.glue.R
 import treebolic.glue.iface.component.Container
 
@@ -115,7 +115,7 @@ open class Container(handle: Any?) : LinearLayout(handle as Context?), Component
      */
     private fun getSplitterDrawable(dragging: Boolean): Drawable {
         val colors = Utils.fetchColors(context, R.attr.treebolic_splitbar_color, R.attr.treebolic_splitbar_drag_color)
-        return ColorDrawable(colors[if (dragging) 1 else 0])
+        return colors[if (dragging) 1 else 0].toDrawable()
     }
 
     companion object {

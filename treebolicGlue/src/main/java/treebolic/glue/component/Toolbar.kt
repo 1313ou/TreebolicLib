@@ -4,7 +4,6 @@
 package treebolic.glue.component
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -15,6 +14,7 @@ import android.widget.HorizontalScrollView
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import androidx.annotation.RequiresApi
 import org.treebolic.glue.R
 import treebolic.glue.component.Utils.fetchColors
 import treebolic.glue.component.Utils.getDrawables
@@ -114,7 +114,7 @@ open class Toolbar(handle: Any?) : FrameLayout(handle as Context), Toolbar {
     // A D D  B U T T O N
 
     @SuppressLint("ObsoleteSdkInt")
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun addButton(button: Toolbar.Button, listener: ActionListener) {
         // interface button to implementation
         val name = button.name

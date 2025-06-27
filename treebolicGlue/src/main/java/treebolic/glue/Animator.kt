@@ -42,8 +42,8 @@ class Animator : Animator<ActionListener?>, AnimatorUpdateListener, android.anim
         listener = listener0!!
         animator = ValueAnimator.ofInt(0, lastStep)
         animator.repeatCount = 0
-        animator.setDuration(1000)
-        animator.setStartDelay(startDelay.toLong())
+        animator.duration = 1000
+        animator.startDelay = startDelay.toLong()
         animator.interpolator = LinearInterpolator()
         animator.addUpdateListener(this)
         animator.addListener(this)

@@ -4,12 +4,12 @@
 package treebolic.glue.component
 
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
+import androidx.core.graphics.drawable.toDrawable
 import treebolic.glue.component.Utils.getColor
 
 /**
@@ -67,7 +67,7 @@ open class PopupAdapter(
 
         // color
         val color = getColor(context, android.R.color.transparent)
-        window.setBackgroundDrawable(ColorDrawable(color))
+        window.setBackgroundDrawable(color.toDrawable())
 
         // setup window
         window.width = ViewGroup.LayoutParams.WRAP_CONTENT

@@ -285,7 +285,7 @@ open class Statusbar(
         /**
          * Base URL for webview
          */
-        var base = "file:///android_asset/"
+        var base: String = "file:///android_asset/"
 
         /**
          * Drawables
